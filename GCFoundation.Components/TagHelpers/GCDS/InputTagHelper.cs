@@ -15,13 +15,13 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// Gets or sets the ID for the input element. 
         /// If not set, it is auto-derived from the `For.Name` property.
         /// </summary>
-        public required string InputId { get; set; }
+        public string? InputId { get; set; }
 
         /// <summary>
         /// Gets or sets the label for the input element.
         /// If not set, it is auto-derived from the `DisplayName` attribute or `For.Name`.
         /// </summary>
-        public required string Label { get; set; }
+        public string? Label { get; set; }
 
         /// <summary>
         /// Gets or sets the autocomplete behavior for the input element.
@@ -34,6 +34,16 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// </summary>
         public bool HideLabel { get; set; }
 
+        /// <summary>
+        /// Gets or sets the validation event trigger. Defaults to "blur" as per GCDS documentation.
+        /// </summary>
+        public new string ValidateOn { get; set; } = "blur";
+
+        /// <summary>
+        /// Gets or sets the size of the input field in characters.
+        /// </summary>
+        public int? Size { get; set; }
+
         /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
@@ -43,14 +53,21 @@ namespace GCFoundation.Components.TagHelpers.GCDS
                 InputId ??= For.Name;
                 Label ??= For.Metadata.DisplayName ?? For.Name;
 
-
                 RetrieveLocalizedProperties();
             }
 
+            // Required GCDS attributes (name, label, input-id)
+            AddAttributeIfNotNull(output, "name", For?.Name);
             AddAttributeIfNotNull(output, "input-id", InputId);
             AddAttributeIfNotNull(output, "label", Label);
+            
+            // Optional attributes
             AddAttributeIfNotNull(output, "hide-label", HideLabel);
             AddAttributeIfNotNull(output, "autocomplete", Autocomplete);
+            AddAttributeIfNotNull(output, "size", Size);
+            
+            // Validation attributes
+            AddAttributeIfNotNull(output, "validate-on", ValidateOn);
 
             base.Process(context, output);
         }

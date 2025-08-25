@@ -105,6 +105,9 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Equal("gcds-input", _output.TagName);
             Assert.Equal("text", _output.Attributes["type"].Value);
             Assert.Equal("TextProperty", _output.Attributes["input-id"].Value);
+            Assert.Equal("TextProperty", _output.Attributes["name"].Value);
+            Assert.Contains("label", _output.Attributes.Select(a => a.Name));
+            Assert.Contains("lang", _output.Attributes.Select(a => a.Name));
         }
 
         [Fact]
@@ -119,6 +122,8 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             // Assert
             Assert.Equal("gcds-input", _output.TagName);
             Assert.Equal("email", _output.Attributes["type"].Value);
+            Assert.Equal("EmailProperty", _output.Attributes["input-id"].Value);
+            Assert.Equal("EmailProperty", _output.Attributes["name"].Value);
         }
 
         [Fact]
@@ -133,6 +138,8 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             // Assert
             Assert.Equal("gcds-input", _output.TagName);
             Assert.Equal("password", _output.Attributes["type"].Value);
+            Assert.Equal("PasswordProperty", _output.Attributes["input-id"].Value);
+            Assert.Equal("PasswordProperty", _output.Attributes["name"].Value);
         }
 
         [Fact]
@@ -177,19 +184,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Equal("MultilineProperty", _output.Attributes["textarea-id"].Value);
         }
 
-        [Fact]
-        public void Process_WithNumberInput_RendersCorrectly()
-        {
-            // Arrange
-            var tagHelper = SetupTagHelper("NumberProperty");
 
-            // Act
-            tagHelper.Process(_context, _output);
-
-            // Assert
-            Assert.Equal("gcds-input", _output.TagName);
-            Assert.Equal("number", _output.Attributes["type"].Value);
-        }
 
         [Fact]
         public void Process_WithDateFormat_RendersCorrectly()
@@ -203,6 +198,58 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             // Assert
             Assert.Equal("gcds-date-input", _output.TagName);
             Assert.Equal("full", _output.Attributes["format"].Value);
+        }
+
+        [Fact]
+        public void Process_WithRequiredField_AddsValidationAttributes()
+        {
+            // Arrange
+            var tagHelper = SetupTagHelper("TextProperty");
+            // Add required validation metadata
+            var modelMetadata = tagHelper.For.Metadata;
+            
+            // Act
+            tagHelper.Process(_context, _output);
+
+            // Assert
+            Assert.Contains("validate-on", _output.Attributes.Select(a => a.Name));
+            // Default validation event should be blur as per GCDS documentation
+            if (_output.Attributes.ContainsName("validate-on"))
+            {
+                Assert.Equal("blur", _output.Attributes["validate-on"].Value);
+            }
+        }
+
+        [Fact]
+        public void Process_AlwaysIncludesRequiredGCDSAttributes()
+        {
+            // Arrange
+            var tagHelper = SetupTagHelper("TextProperty");
+
+            // Act
+            tagHelper.Process(_context, _output);
+
+            // Assert - Verify all required GCDS attributes are present
+            Assert.Contains("name", _output.Attributes.Select(a => a.Name));
+            Assert.Contains("input-id", _output.Attributes.Select(a => a.Name));
+            Assert.Contains("label", _output.Attributes.Select(a => a.Name));
+            Assert.Contains("lang", _output.Attributes.Select(a => a.Name));
+        }
+
+        [Fact]
+        public void Process_WithNumberInput_RendersCorrectly()
+        {
+            // Arrange
+            var tagHelper = SetupTagHelper("NumberProperty");
+
+            // Act
+            tagHelper.Process(_context, _output);
+
+            // Assert
+            Assert.Equal("gcds-input", _output.TagName);
+            Assert.Equal("number", _output.Attributes["type"].Value);
+            Assert.Equal("NumberProperty", _output.Attributes["input-id"].Value);
+            Assert.Equal("NumberProperty", _output.Attributes["name"].Value);
         }
     }
 }

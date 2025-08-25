@@ -60,7 +60,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             {
                 if (PropertyInfo == null)
                 {
-                    throw new InvalidOperationException("Missing proprities");
+                    throw new InvalidOperationException("Missing properties");
                 }
 
                 DateFormatAttribute? formatAttr = PropertyInfo.GetCustomAttribute<DateFormatAttribute>();
@@ -73,9 +73,26 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             {
                 string gcdsType = GetInputType();
                 output.Attributes.SetAttribute("type", gcdsType);
-                output.Attributes.SetAttribute("input-id", For.Name);
+                output.Attributes.SetAttribute("input-id", For.Name); // Already correctly setting input-id
             }
 
+            // Add validation attributes if field is required and has errors
+            bool required = For.Metadata.ValidatorMetadata.OfType<RequiredAttribute>().Any();
+            
+            // Only add error message if form was submitted (to prevent premature validation popups)
+            bool formWasSubmitted = ViewContext?.HttpContext?.Request?.Method == "POST" ||
+                                   ViewContext?.ModelState?.ErrorCount > 0;
+            
+            if (required && formWasSubmitted && 
+                ViewContext?.ModelState?.ContainsKey(For.Name) == true && 
+                ViewContext.ModelState[For.Name]?.Errors?.Count > 0)
+            {
+                string errorMessage = ViewContext.ModelState[For.Name]!.Errors[0].ErrorMessage;
+                if (!string.IsNullOrEmpty(errorMessage))
+                {
+                    output.Attributes.SetAttribute("error-message", errorMessage);
+                }
+            }
         }
 
         /// <summary>

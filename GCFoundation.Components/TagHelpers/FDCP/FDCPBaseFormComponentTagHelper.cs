@@ -95,20 +95,43 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             bool required = For.Metadata.ValidatorMetadata.OfType<RequiredAttribute>().Any();
             string fieldValue = For.Model?.ToString() ?? string.Empty; // Retrieve the model value
 
-
+            // Required GCDS attributes
             output.Attributes.SetAttribute("value", fieldValue);
             output.Attributes.SetAttribute("name", fieldName);
             output.Attributes.SetAttribute("label", label);
-            output.Attributes.SetAttribute("hint", hint);
+            output.Attributes.SetAttribute("input-id", fieldName); // Required by GCDS
+            
+            // Optional attributes
+            if (!string.IsNullOrEmpty(hint))
+            {
+                output.Attributes.SetAttribute("hint", hint);
+            }
 
             output.Attributes.SetAttribute("lang", LanguageUtility.GetCurrentApplicationLanguage());
 
+            // Validation attributes
             if (required)
             {
                 output.Attributes.SetAttribute("required", required);
+                
+                // Add default validation behavior (blur event as per GCDS documentation)
+                output.Attributes.SetAttribute("validate-on", "blur");
+                
+                // Only add error message if form was submitted (to prevent premature validation popups)
+                bool formWasSubmitted = ViewContext?.HttpContext?.Request?.Method == "POST" ||
+                                       ViewContext?.ModelState?.ErrorCount > 0;
+                
+                if (formWasSubmitted && 
+                    ViewContext?.ModelState?.ContainsKey(fieldName) == true && 
+                    ViewContext.ModelState[fieldName]?.Errors?.Count > 0)
+                {
+                    string errorMessage = ViewContext.ModelState[fieldName]!.Errors[0].ErrorMessage;
+                    if (!string.IsNullOrEmpty(errorMessage))
+                    {
+                        output.Attributes.SetAttribute("error-message", errorMessage);
+                    }
+                }
             }
-
-
         }
 
         /// <summary>

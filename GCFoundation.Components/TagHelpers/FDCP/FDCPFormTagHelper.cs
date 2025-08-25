@@ -1,4 +1,5 @@
-﻿using GCFoundation.Components.Models;
+﻿using GCFoundation.Common.Utilities;
+using GCFoundation.Components.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Globalization;
@@ -55,11 +56,19 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 output.Attributes.SetAttribute("action", Action);
             }
 
+            // Add validation attributes for GCDS v0.39.0+ compatibility
+            output.Attributes.SetAttribute("data-gcds-validation", "true");
+            output.Attributes.SetAttribute("novalidate", "true"); // Disable HTML5 validation
+
+            // Include validation script for GCDS v0.39.0+ support
+            var scriptTag = new TagBuilder("script");
+            scriptTag.Attributes.Add("src", "~/js/gcds-validation-handler.js");
+            scriptTag.Attributes.Add("defer", "defer");
 
             var errorSummaryTag = new TagBuilder("gcds-error-summary");
-            errorSummaryTag.Attributes.Add("lang", CultureInfo.CurrentCulture.Name);
+            errorSummaryTag.Attributes.Add("lang", LanguageUtility.GetCurrentApplicationLanguage());
 
-            // Add error summary if model has errors
+            // Add error summary if model has errors (server-side validation)
             if (!Model.IsValid)
             {
                 var errorLinks = Model.Errors.ToDictionary(
@@ -69,10 +78,21 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
                 var errorJson = JsonSerializer.Serialize(errorLinks);
                 errorSummaryTag.Attributes.Add("error-links", errorJson);
+                errorSummaryTag.Attributes.Add("style", "display: block;");
+            }
+            else
+            {
+                // Hide error summary initially if no server-side errors
+                errorSummaryTag.Attributes.Add("style", "display: none;");
             }
 
+            // Add script first (in head or before form)
+            output.PreContent.AppendHtml(scriptTag);
+            
+            // Add error summary at the beginning of form content
             output.Content.AppendHtml(errorSummaryTag);
 
+            // Add form content
             output.Content.AppendHtml(childContent);
         }
     }

@@ -72,7 +72,13 @@ namespace GCFoundation.Components.TagHelpers.GCDS
             AddAttributeIfNotNull(output, "name", Name);
             AddAttributeIfNotNull(output, "disabled", Disabled);
             AddAttributeIfNotNull(output, "error-message", ErrorMessage);
-            AddAttributeIfNotNull(output, "required", Required);
+
+            if (Required)
+            {
+                output.Attributes.SetAttribute(new TagHelperAttribute("required"));
+            }
+
+            //AddAttributeIfNotNull(output, "required", Required);
             AddAttributeIfNotNull(output, "validate-on", ValidateOn);
             AddAttributeIfNotNull(output, "hint", Hint);
             AddAttributeIfNotNull(output, "lang", Lang);

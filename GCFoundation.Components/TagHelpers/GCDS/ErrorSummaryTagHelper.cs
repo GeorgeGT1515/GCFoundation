@@ -41,7 +41,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
                 output.Attributes.SetAttribute("error-links", errorLinksJson);
             }
             AddAttributeIfNotNull(output, "heading", Heading);
-            AddAttributeIfNotNull(output, "lan", Lang);
+            AddAttributeIfNotNull(output, "lang", Lang);
             AddAttributeIfNotNull(output, "listen", Listen);
             base.Process(context, output);
         }
