@@ -251,6 +251,7 @@ public class FDCPFormTagHelperTests
         var errors = JsonSerializer.Deserialize<Dictionary<string, string>>(actualJson);
         
         // Verify special characters are properly handled
+        Assert.NotNull(errors);
         Assert.Contains("Error with \"quotes\" and <tags>", errors["#field1"]);
         Assert.Contains("Error with & ampersand", errors["#field2"]);
     }

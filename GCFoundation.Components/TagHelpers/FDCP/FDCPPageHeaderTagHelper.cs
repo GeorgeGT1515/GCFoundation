@@ -34,7 +34,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         /// <summary>
         /// Adds a light background and a border around the text container to emphasize the content.
         /// </summary>
-        public bool TextEmphasis { get; set; } = false;
+        public bool TextEmphasis { get; set; }
 
         /// <summary>
         /// Processes the tag helper and renders the page header markup.

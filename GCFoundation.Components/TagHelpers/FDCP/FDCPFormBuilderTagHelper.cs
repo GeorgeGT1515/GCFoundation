@@ -66,7 +66,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 Form.Action, Form.Methode);
 
             // Error summary component (initially hidden, will be populated by JavaScript)
-            content.AppendLine($"<gcds-error-summary lang='{LanguageUtility.GetCurrentApplicationLanguage()}' style='display: none;'></gcds-error-summary>");
+            content.AppendLine(CultureInfo.InvariantCulture, $"<gcds-error-summary lang='{LanguageUtility.GetCurrentApplicationLanguage()}' style='display: none;'></gcds-error-summary>");
 
             // Form sections
             foreach (var section in Form.Sections)
