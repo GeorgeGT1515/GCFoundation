@@ -60,7 +60,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             {
                 if (PropertyInfo == null)
                 {
-                    throw new InvalidOperationException("Missing proprities");
+                    throw new InvalidOperationException("Missing properties");
                 }
 
                 DateFormatAttribute? formatAttr = PropertyInfo.GetCustomAttribute<DateFormatAttribute>();
@@ -73,8 +73,9 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             {
                 string gcdsType = GetInputType();
                 output.Attributes.SetAttribute("type", gcdsType);
-                output.Attributes.SetAttribute("input-id", For.Name);
+                output.Attributes.SetAttribute("input-id", For.Name); // Already correctly setting input-id
             }
+
 
         }
 
