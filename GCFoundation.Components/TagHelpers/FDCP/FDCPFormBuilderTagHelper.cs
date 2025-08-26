@@ -57,13 +57,16 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
         private void BuildFormContent(StringBuilder content)
         {
-            // Form wrapper
+            // Include validation script for GCDS v0.39.0+ support
+            content.AppendLine("<script src='~/js/gcds-validation-handler.js' defer></script>");
+
+            // Form wrapper with validation attributes for GCDS v0.39.0+ compatibility
             content.AppendFormat(CultureInfo.InvariantCulture,
-                "<form action='{0}' method='{1}' class='gc-form'>",
+                "<form action='{0}' method='{1}' class='gc-form' data-gcds-validation='true' novalidate='true'>",
                 Form.Action, Form.Methode);
 
-            // Error summary component
-            content.AppendLine("<gcds-error-summary></gcds-error-summary>");
+            // Error summary component (initially hidden, will be populated by JavaScript)
+            content.AppendLine(CultureInfo.InvariantCulture, $"<gcds-error-summary lang='{LanguageUtility.GetCurrentApplicationLanguage()}' style='display: none;'></gcds-error-summary>");
 
             // Form sections
             foreach (var section in Form.Sections)
@@ -83,11 +86,10 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             }
 
             // Submit button
-            content.AppendLine(CultureInfo.InvariantCulture, $@"<gcds-button 
-                type='submit' 
-                button-role='primary'>
-                {Form.SubmithButtonText}
-            </gcds-button>");
+            content.AppendFormat(CultureInfo.InvariantCulture, 
+                @"<gcds-button type='submit' button-role='primary'>{0}</gcds-button>", 
+                Form.SubmithButtonText);
+            content.AppendLine();
 
             content.AppendLine("</form>");
         }
@@ -123,11 +125,19 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 });
                 var serializedRules = JsonConvert.SerializeObject(validationRules, CamelCaseSettings);
                 baseAttributes += $@" data-validation-rules='{serializedRules}'";
+            }
 
-                if (question.ValidateOnBlur)
-                {
-                    baseAttributes += @" validate-on-blur";
-                }
+            // Add default validation event (GCDS documentation specifies blur as default)
+            if (question.IsRequired || question.ValidationRules?.Any() == true)
+            {
+                string validateOn = question.ValidateOnBlur ? "blur" : "blur"; // Default to blur as per GCDS
+                baseAttributes += $@" validate-on=""{validateOn}""";
+            }
+
+            // Add error message if present
+            if (!string.IsNullOrEmpty(question.ErrorMessage))
+            {
+                baseAttributes += $@" error-message=""{question.ErrorMessage}""";
             }
 
             // Common attributes for all input types
@@ -142,30 +152,40 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 QuestionType.Text => $@"<gcds-input 
                     type='text'
                     input-id='{question.Id}'
+                    value='{question.Value ?? ""}'
+                    {(question.Size.HasValue ? $"size='{question.Size}'" : "")}
                     {commonAttributes}>
                 </gcds-input>",
 
                 QuestionType.Email => $@"<gcds-input 
                     type='email'
                     input-id='{question.Id}'
+                    value='{question.Value ?? ""}'
+                    {(question.Size.HasValue ? $"size='{question.Size}'" : "")}
                     {commonAttributes}>
                 </gcds-input>",
 
                 QuestionType.Password => $@"<gcds-input 
                     type='password'
                     input-id='{question.Id}'
+                    value='{question.Value ?? ""}'
+                    {(question.Size.HasValue ? $"size='{question.Size}'" : "")}
                     {commonAttributes}>
                 </gcds-input>",
 
                 QuestionType.Url => $@"<gcds-input 
                     type='url'
                     input-id='{question.Id}'
+                    value='{question.Value ?? ""}'
+                    {(question.Size.HasValue ? $"size='{question.Size}'" : "")}
                     {commonAttributes}>
                 </gcds-input>",
 
                 QuestionType.Number => $@"<gcds-input 
                     type='number'
                     input-id='{question.Id}'
+                    value='{question.Value ?? ""}'
+                    {(question.Size.HasValue ? $"size='{question.Size}'" : "")}
                     {commonAttributes}>
                 </gcds-input>",
 

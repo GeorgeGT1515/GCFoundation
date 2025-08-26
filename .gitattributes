@@ -3,6 +3,23 @@
 ###############################################################################
 * text=auto
 
+# ===========================================
+# Source files (keep text diff/merge enabled)
+# ===========================================
+*.js text diff
+*.css text diff
+*.scss text diff
+*.ts text diff
+
+# ===========================================
+# Compiled/minified files (treat as binary)
+# This avoids ugly merge conflicts in .min.js/.min.css
+# ===========================================
+*.min.js binary
+*.min.css binary
+dist/** binary
+wwwroot/dist/** binary
+
 ###############################################################################
 # Set default behavior for command prompt diff.
 #

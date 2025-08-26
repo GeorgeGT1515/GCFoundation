@@ -210,7 +210,13 @@ const reinitializeGCDSComponent = (element) => {
         const clone = element.cloneNode(true);
         
         // Copy the current state to the clone
-        if (isRequired) clone.setAttribute('required', '');
+        if (isRequired) {
+            clone.setAttribute('required', '');
+            // Ensure validation only happens on user interaction
+            clone.setAttribute('validate-on', 'blur');
+            // Remove any error messages that might cause immediate validation
+            clone.removeAttribute('error-message');
+        }
         if (isDisabled) clone.setAttribute('disabled', '');
         
         // Replace the element
@@ -283,11 +289,18 @@ const setRequired = (element, required) => {
     try {
         const clone = element.cloneNode(true);
 
+        // Remove error message to prevent immediate validation popup
         clone.removeAttribute('error-message');
+        
+        // Also remove any validation state that might trigger immediate validation
+        clone.removeAttribute('aria-invalid');
+        clone.classList.remove('gcds-form-error');
 
         if (clone.tagName.toLowerCase().startsWith('gcds-')) {
             if (required) {
                 clone.setAttribute('required', '');
+                // Ensure validation only happens on user interaction, not immediately
+                clone.setAttribute('validate-on', 'blur');
             } else {
                 clone.removeAttribute('required');
             }
@@ -296,6 +309,8 @@ const setRequired = (element, required) => {
             clone.required = required;
             if (required) {
                 clone.setAttribute('required', '');
+                // Prevent immediate validation for native elements too
+                clone.setCustomValidity(''); // Clear any existing validation message
             } else {
                 clone.removeAttribute('required');
             }
