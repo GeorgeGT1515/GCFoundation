@@ -6,10 +6,16 @@
 
 body {
     overflow-x: hidden;
-    font: var(--gcds-font-families-body);
+    font: var(--gcds-font-text);
     color: var(--gcds-text-primary);
     margin: 0;
     padding: 0;
+}
+
+@media only screen and (width < 48em) {
+    body {
+        font: var(--gcds-font-text-mobile)
+    }
 }
 
 .img-responsive {

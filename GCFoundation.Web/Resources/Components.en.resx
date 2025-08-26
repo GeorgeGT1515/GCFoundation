@@ -567,100 +567,82 @@
   <data name="UserLogin_Step_CustomizeAppearance" xml:space="preserve">
     <value />
   </data>
-  <data name="Cards_Title" xml:space="preserve">
-    <value>FDCP Card Documentation</value>
+  <data name="Card_Name" xml:space="preserve">
+    <value>Card</value>
   </data>
-  <data name="Cards_Overview_Title" xml:space="preserve">
-    <value>Overview</value>
-  </data>
-  <data name="Cards_Overview_Anchor" xml:space="preserve">
-    <value>overview</value>
-  </data>
-  <data name="Cards_Basic_Title" xml:space="preserve">
+  <data name="Card_Basic_Title" xml:space="preserve">
     <value>Basic Card</value>
   </data>
-  <data name="Cards_Basic_Anchor" xml:space="preserve">
+  <data name="Card_Basic_Anchor" xml:space="preserve">
     <value>basic</value>
   </data>
-  <data name="Cards_WithSlots_Title" xml:space="preserve">
+  <data name="Card_WithSlots_Title" xml:space="preserve">
     <value>Cards with Header and Footer</value>
   </data>
-  <data name="Cards_WithSlots_Anchor" xml:space="preserve">
+  <data name="Card_WithSlots_Anchor" xml:space="preserve">
     <value>slots</value>
   </data>
-  <data name="Cards_WithImages_Title" xml:space="preserve">
+  <data name="Card_WithImages_Title" xml:space="preserve">
     <value>Cards with Images</value>
   </data>
-  <data name="Cards_WithImages_Anchor" xml:space="preserve">
+  <data name="Card_WithImages_Anchor" xml:space="preserve">
     <value>images</value>
   </data>
-  <data name="Cards_Horizontal_Title" xml:space="preserve">
+  <data name="Card_Horizontal_Title" xml:space="preserve">
     <value>Horizontal Cards</value>
   </data>
-  <data name="Cards_Horizontal_Anchor" xml:space="preserve">
+  <data name="Card_Horizontal_Anchor" xml:space="preserve">
     <value>horizontal</value>
   </data>
-  <data name="Cards_Parameters_Title" xml:space="preserve">
-    <value>Parameters</value>
-  </data>
-  <data name="Cards_Parameters_Anchor" xml:space="preserve">
-    <value>parameters</value>
-  </data>
-  <data name="Cards_Notes_Title" xml:space="preserve">
-    <value>Notes</value>
-  </data>
-  <data name="Cards_Notes_Anchor" xml:space="preserve">
-    <value>notes</value>
-  </data>
-  <data name="Cards_Overview_Text" xml:space="preserve">
+  <data name="Card_Overview" xml:space="preserve">
     <value>The &lt;code&gt;&amp;lt;fdcp-card&amp;gt;&lt;/code&gt; component provides a flexible and extensible content container inspired by Bootstrap cards, designed with Government of Canada Design System (GCDS) styling. It includes options for headers, footers, images, and various contextual background colors.</value>
   </data>
-  <data name="Cards_Basic_Text" xml:space="preserve">
+  <data name="Card_Basic_Text" xml:space="preserve">
     <value>A basic card with mixed content and flexible width.</value>
   </data>
-  <data name="Cards_WithSlots_Text" xml:space="preserve">
+  <data name="Card_WithSlots_Text" xml:space="preserve">
     <value>Use the &lt;code&gt;slot&lt;/code&gt; attribute to define header, body, and footer sections.</value>
   </data>
-  <data name="Cards_WithImages_Text" xml:space="preserve">
+  <data name="Card_WithImages_Text" xml:space="preserve">
     <value>Cards support top and bottom images using the &lt;code&gt;image-top&lt;/code&gt; and &lt;code&gt;image-bottom&lt;/code&gt; attributes.</value>
   </data>
-  <data name="Cards_Horizontal_Text" xml:space="preserve">
+  <data name="Card_Horizontal_Text" xml:space="preserve">
     <value>Use the &lt;code&gt;horizontal="true"&lt;/code&gt; attribute to create horizontal card layouts.</value>
   </data>
-  <data name="Cards_Parameters_TagId" xml:space="preserve">
+  <data name="Card_Properties_TagId" xml:space="preserve">
     <value>Optional &lt;code&gt;id&lt;/code&gt; attribute for the card element.</value>
   </data>
-  <data name="Cards_Parameters_Width" xml:space="preserve">
+  <data name="Card_Properties_Width" xml:space="preserve">
     <value>Sets the width of the card using CSS value (e.g., "18rem", "300px", "100%").</value>
   </data>
-  <data name="Cards_Parameters_Height" xml:space="preserve">
+  <data name="Card_Properties_Height" xml:space="preserve">
     <value>Sets the height of the card using CSS value (e.g., "200px", "auto", "100%").</value>
   </data>
-  <data name="Cards_Parameters_Border" xml:space="preserve">
+  <data name="Card_Properties_Border" xml:space="preserve">
     <value>Whether the card should have a border. Default is true.</value>
   </data>
-  <data name="Cards_Parameters_Shadow" xml:space="preserve">
+  <data name="Card_Properties_Shadow" xml:space="preserve">
     <value>Whether the card should have a shadow. Default is false.</value>
   </data>
-  <data name="Cards_Parameters_ImageTop" xml:space="preserve">
+  <data name="Card_Properties_ImageTop" xml:space="preserve">
     <value>URL for the card image that appears at the top.</value>
   </data>
-  <data name="Cards_Parameters_ImageBottom" xml:space="preserve">
+  <data name="Card_Properties_ImageBottom" xml:space="preserve">
     <value>URL for the card image that appears at the bottom.</value>
   </data>
-  <data name="Cards_Parameters_ImageAlt" xml:space="preserve">
+  <data name="Card_Properties_ImageAlt" xml:space="preserve">
     <value>Alt text for the card images.</value>
   </data>
-  <data name="Cards_Parameters_Horizontal" xml:space="preserve">
+  <data name="Card_Properties_Horizontal" xml:space="preserve">
     <value>Whether the card should use horizontal layout. Default is false.</value>
   </data>
-  <data name="Cards_Notes_1" xml:space="preserve">
+  <data name="Card_Notes_1" xml:space="preserve">
     <value>Use &lt;code&gt;slot="header"&lt;/code&gt;, &lt;code&gt;slot="body"&lt;/code&gt;, and &lt;code&gt;slot="footer"&lt;/code&gt; to define card sections.</value>
   </data>
-  <data name="Cards_Notes_2" xml:space="preserve">
+  <data name="Card_Notes_2" xml:space="preserve">
     <value>Cards are responsive and will adapt to their container width unless a specific width is set.</value>
   </data>
-  <data name="Cards_Notes_3" xml:space="preserve">
+  <data name="Card_Notes_3" xml:space="preserve">
     <value>All cards use GCDS color variables for consistent Government of Canada styling.</value>
   </data>
   <data name="StatelessAuth_Demo_Title" xml:space="preserve">
@@ -672,11 +654,107 @@
   <data name="StatelessAuth_Authenticated_Message" xml:space="preserve">
     <value />
   </data>
-  <data name="StatelessAuth_CurrentStatus_Title" xml:space="preserve">
-    <value>Current Authentication Status</value>
-  </data>
   <data name="StatelessAuth_Authenticated_Description" xml:space="preserve">
     <value>The User Login Partial above shows your current session information from claims (no server-side session storage).</value>
+  </data>
+  <data name="Index_Forms_Title" xml:space="preserve">
+    <value>Forms</value>
+  </data>
+  <data name="Index_Forms_Description" xml:space="preserve">
+    <value>A way to create forms</value>
+  </data>
+  <data name="Index_Table_Title" xml:space="preserve">
+    <value>Table</value>
+  </data>
+  <data name="Index_Table_Description" xml:space="preserve">
+    <value>A way to display information in a table</value>
+  </data>
+  <data name="Index_Modal_Title" xml:space="preserve">
+    <value>Modal</value>
+  </data>
+  <data name="Index_Modal_Description" xml:space="preserve">
+    <value>A way to display information in a popup box (modal)</value>
+  </data>
+  <data name="Index_FilteredSearch_Title" xml:space="preserve">
+    <value>Filtered search</value>
+  </data>
+  <data name="Index_FilteredSearch_Description" xml:space="preserve">
+    <value>A way to display search with filtered result</value>
+  </data>
+  <data name="Index_Badge_Title" xml:space="preserve">
+    <value>Badge</value>
+  </data>
+  <data name="Index_Badge_Description" xml:space="preserve">
+    <value>A way to display tags</value>
+  </data>
+  <data name="Index_Card_Title" xml:space="preserve">
+    <value>Card</value>
+  </data>
+  <data name="Index_Card_Description" xml:space="preserve">
+    <value>Flexible content containers with headers, footers, and images</value>
+  </data>
+  <data name="Index_PageHeading_Title" xml:space="preserve">
+    <value>Page heading</value>
+  </data>
+  <data name="Index_PageHeading_Description" xml:space="preserve">
+    <value>A way to add main heading at the top of the page</value>
+  </data>
+  <data name="Index_FormBuilder_Title" xml:space="preserve">
+    <value>Form builder</value>
+  </data>
+  <data name="Index_FormBuilder_Description" xml:space="preserve">
+    <value>A way to build form automatically from a structure</value>
+  </data>
+  <data name="Index_Stepper_Title" xml:space="preserve">
+    <value>Stepper</value>
+  </data>
+  <data name="Index_Stepper_Description" xml:space="preserve">
+    <value>Create a stepper for a flow or a form</value>
+  </data>
+  <data name="Index_UserLoginPartial_Title" xml:space="preserve">
+    <value>User Login Partial</value>
+  </data>
+  <data name="Index_UserLoginPartial_Description" xml:space="preserve">
+    <value>Configurable user login information display with bilingual support</value>
+  </data>
+  <data name="Index_Page_Title" xml:space="preserve">
+    <value>Components</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+  <data name="Overview_Anchor" xml:space="preserve">
+    <value>overview</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="Notes_Anchor" xml:space="preserve">
+    <value>notes</value>
+  </data>
+  <data name="Properties_Anchor" xml:space="preserve">
+    <value>properties</value>
+  </data>
+  <data name="Properties" xml:space="preserve">
+    <value>Properties</value>
+  </data>
+  <data name="Properties_Property" xml:space="preserve">
+    <value>Property</value>
+  </data>
+  <data name="Properties_DataType" xml:space="preserve">
+    <value>Data type</value>
+  </data>
+  <data name="Properties_DefaultValue" xml:space="preserve">
+    <value>Default value</value>
+  </data>
+  <data name="Properties_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Properties_DefaultValue_NoDefaultValue" xml:space="preserve">
+    <value>No default value</value>
+  </data>
+  <data name="StatelessAuth_CurrentStatus_Title" xml:space="preserve">
+    <value>Current Authentication Status</value>
   </data>
   <data name="StatelessAuth_NotAuthenticated_Message" xml:space="preserve">
     <value />
@@ -804,67 +882,7 @@
   <data name="StatelessAuth_Integration_Description2" xml:space="preserve">
     <value />
   </data>
-  <data name="Index_Forms_Title" xml:space="preserve">
-    <value>Forms</value>
-  </data>
-  <data name="Index_Forms_Description" xml:space="preserve">
-    <value>A way to create forms</value>
-  </data>
-  <data name="Index_Table_Title" xml:space="preserve">
-    <value>Table</value>
-  </data>
-  <data name="Index_Table_Description" xml:space="preserve">
-    <value>A way to display information in a table</value>
-  </data>
-  <data name="Index_Modal_Title" xml:space="preserve">
-    <value>Modal</value>
-  </data>
-  <data name="Index_Modal_Description" xml:space="preserve">
-    <value>A way to display information in a popup box (modal)</value>
-  </data>
-  <data name="Index_FilteredSearch_Title" xml:space="preserve">
-    <value>Filtered search</value>
-  </data>
-  <data name="Index_FilteredSearch_Description" xml:space="preserve">
-    <value>A way to display search with filtered result</value>
-  </data>
-  <data name="Index_Badge_Title" xml:space="preserve">
-    <value>Badge</value>
-  </data>
-  <data name="Index_Badge_Description" xml:space="preserve">
-    <value>A way to display tags</value>
-  </data>
-  <data name="Index_Card_Title" xml:space="preserve">
-    <value>Card</value>
-  </data>
-  <data name="Index_Card_Description" xml:space="preserve">
-    <value>Flexible content containers with headers, footers, and images</value>
-  </data>
-  <data name="Index_PageHeading_Title" xml:space="preserve">
-    <value>Page heading</value>
-  </data>
-  <data name="Index_PageHeading_Description" xml:space="preserve">
-    <value>A way to add main heading at the top of the page</value>
-  </data>
-  <data name="Index_FormBuilder_Title" xml:space="preserve">
-    <value>Form builder</value>
-  </data>
-  <data name="Index_FormBuilder_Description" xml:space="preserve">
-    <value>A way to build form automatically from a structure</value>
-  </data>
-  <data name="Index_Stepper_Title" xml:space="preserve">
-    <value>Stepper</value>
-  </data>
-  <data name="Index_Stepper_Description" xml:space="preserve">
-    <value>Create a stepper for a flow or a form</value>
-  </data>
-  <data name="Index_UserLoginPartial_Title" xml:space="preserve">
-    <value>User Login Partial</value>
-  </data>
-  <data name="Index_UserLoginPartial_Description" xml:space="preserve">
-    <value>Configurable user login information display with bilingual support</value>
-  </data>
-  <data name="Index_Page_Title" xml:space="preserve">
-    <value>Components</value>
+  <data name="SampleCode" xml:space="preserve">
+    <value>Sample code</value>
   </data>
 </root>

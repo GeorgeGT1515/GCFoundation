@@ -567,100 +567,82 @@
   <data name="UserLogin_Step_CustomizeAppearance" xml:space="preserve">
     <value />
   </data>
-  <data name="Cards_Title" xml:space="preserve">
-    <value>FDCP Card Documentation</value>
+  <data name="Card_Name" xml:space="preserve">
+    <value>Card</value>
   </data>
-  <data name="Cards_Overview_Title" xml:space="preserve">
-    <value>Overview</value>
-  </data>
-  <data name="Cards_Overview_Anchor" xml:space="preserve">
-    <value>overview</value>
-  </data>
-  <data name="Cards_Basic_Title" xml:space="preserve">
+  <data name="Card_Basic_Title" xml:space="preserve">
     <value>Basic Card</value>
   </data>
-  <data name="Cards_Basic_Anchor" xml:space="preserve">
+  <data name="Card_Basic_Anchor" xml:space="preserve">
     <value>basic</value>
   </data>
-  <data name="Cards_WithSlots_Title" xml:space="preserve">
+  <data name="Card_WithSlots_Title" xml:space="preserve">
     <value>Card with Slots</value>
   </data>
-  <data name="Cards_WithSlots_Anchor" xml:space="preserve">
+  <data name="Card_WithSlots_Anchor" xml:space="preserve">
     <value>slots</value>
   </data>
-  <data name="Cards_WithImages_Title" xml:space="preserve">
+  <data name="Card_WithImages_Title" xml:space="preserve">
     <value>Card with Images</value>
   </data>
-  <data name="Cards_WithImages_Anchor" xml:space="preserve">
+  <data name="Card_WithImages_Anchor" xml:space="preserve">
     <value>images</value>
   </data>
-  <data name="Cards_Horizontal_Title" xml:space="preserve">
+  <data name="Card_Horizontal_Title" xml:space="preserve">
     <value>Horizontal Card</value>
   </data>
-  <data name="Cards_Horizontal_Anchor" xml:space="preserve">
+  <data name="Card_Horizontal_Anchor" xml:space="preserve">
     <value>horizontal</value>
   </data>
-  <data name="Cards_Parameters_Title" xml:space="preserve">
-    <value>Parameters</value>
-  </data>
-  <data name="Cards_Parameters_Anchor" xml:space="preserve">
-    <value>parameters</value>
-  </data>
-  <data name="Cards_Notes_Title" xml:space="preserve">
-    <value>Notes</value>
-  </data>
-  <data name="Cards_Notes_Anchor" xml:space="preserve">
-    <value>notes</value>
-  </data>
-  <data name="Cards_Overview_Text" xml:space="preserve">
+  <data name="Card_Overview" xml:space="preserve">
     <value>The &lt;code&gt;&amp;lt;fdcp-card&amp;gt;&lt;/code&gt; component provides a flexible and extensible content container inspired by Bootstrap cards, designed with Government of Canada Design System (GCDS) styling. It includes options for headers, footers, images, and various contextual background colors.</value>
   </data>
-  <data name="Cards_Basic_Text" xml:space="preserve">
+  <data name="Card_Basic_Text" xml:space="preserve">
     <value>A simple card with just text content:</value>
   </data>
-  <data name="Cards_WithSlots_Text" xml:space="preserve">
+  <data name="Card_WithSlots_Text" xml:space="preserve">
     <value>Cards support header, body, and footer slots for structured content:</value>
   </data>
-  <data name="Cards_WithImages_Text" xml:space="preserve">
+  <data name="Card_WithImages_Text" xml:space="preserve">
     <value>Cards can include images at the top or bottom:</value>
   </data>
-  <data name="Cards_Horizontal_Text" xml:space="preserve">
+  <data name="Card_Horizontal_Text" xml:space="preserve">
     <value>Cards can be displayed horizontally with images on the side:</value>
   </data>
-  <data name="Cards_Parameters_TagId" xml:space="preserve">
+  <data name="Card_Properties_TagId" xml:space="preserve">
     <value>HTML ID attribute for the card.</value>
   </data>
-  <data name="Cards_Parameters_Width" xml:space="preserve">
+  <data name="Card_Properties_Width" xml:space="preserve">
     <value>Width of the card.</value>
   </data>
-  <data name="Cards_Parameters_Height" xml:space="preserve">
+  <data name="Card_Properties_Height" xml:space="preserve">
     <value>Height of the card.</value>
   </data>
-  <data name="Cards_Parameters_Border" xml:space="preserve">
+  <data name="Card_Properties_Border" xml:space="preserve">
     <value>Whether to show border.</value>
   </data>
-  <data name="Cards_Parameters_Shadow" xml:space="preserve">
+  <data name="Card_Properties_Shadow" xml:space="preserve">
     <value>Whether to show shadow.</value>
   </data>
-  <data name="Cards_Parameters_ImageTop" xml:space="preserve">
+  <data name="Card_Properties_ImageTop" xml:space="preserve">
     <value>URL for top image.</value>
   </data>
-  <data name="Cards_Parameters_ImageBottom" xml:space="preserve">
+  <data name="Card_Properties_ImageBottom" xml:space="preserve">
     <value>URL for bottom image.</value>
   </data>
-  <data name="Cards_Parameters_ImageAlt" xml:space="preserve">
+  <data name="Card_Properties_ImageAlt" xml:space="preserve">
     <value>Alt text for images.</value>
   </data>
-  <data name="Cards_Parameters_Horizontal" xml:space="preserve">
+  <data name="Card_Properties_Horizontal" xml:space="preserve">
     <value>Whether to use horizontal layout.</value>
   </data>
-  <data name="Cards_Notes_1" xml:space="preserve">
+  <data name="Card_Notes_1" xml:space="preserve">
     <value>Cards are block-level elements and will take full width by default.</value>
   </data>
-  <data name="Cards_Notes_2" xml:space="preserve">
+  <data name="Card_Notes_2" xml:space="preserve">
     <value>Use slots (header, body, footer) to structure content appropriately.</value>
   </data>
-  <data name="Cards_Notes_3" xml:space="preserve">
+  <data name="Card_Notes_3" xml:space="preserve">
     <value>Images are responsive and will scale to fit the card width.</value>
   </data>
   <data name="StatelessAuth_Demo_Title" xml:space="preserve">
@@ -818,5 +800,41 @@
   </data>
   <data name="Index_Page_Title" xml:space="preserve">
     <value>Components</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+  <data name="Overview_Anchor" xml:space="preserve">
+    <value>overview</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="Notes_Anchor" xml:space="preserve">
+    <value>notes</value>
+  </data>
+  <data name="Properties_Anchor" xml:space="preserve">
+    <value>properties</value>
+  </data>
+  <data name="Properties" xml:space="preserve">
+    <value>Properties</value>
+  </data>
+  <data name="Properties_Property" xml:space="preserve">
+    <value>Property</value>
+  </data>
+  <data name="Properties_DataType" xml:space="preserve">
+    <value>Data type</value>
+  </data>
+  <data name="Properties_DefaultValue" xml:space="preserve">
+    <value>Default value</value>
+  </data>
+  <data name="Properties_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Properties_DefaultValue_NoDefaultValue" xml:space="preserve">
+    <value>No default value</value>
+  </data>
+  <data name="SampleCode" xml:space="preserve">
+    <value>Sample code</value>
   </data>
 </root>

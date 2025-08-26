@@ -1,0 +1,80 @@
+﻿@using GCFoundation.Web.Resources
+@model GCFoundation.Web.Models.Components.ComponentViewModel
+
+<gcds-heading tag="h1">@Model.Name</gcds-heading>
+
+<gcds-grid columns="minmax(200px, 300px) minmax(0, 1fr)" align-content="@GCFoundation.Components.Enums.AlignContent.start">
+    @if (Model.ShowSideNavigation && Model.SideNavigation != null && Model.SideNavigation.Items != null)
+    {
+        @* Side navigation *@
+        <gcds-side-nav label="@Template.SideNav_Label">
+            @foreach (var item in Model.SideNavigation.Items)
+            {
+                <partial name="_NavItem" model="item" />
+            }
+        </gcds-side-nav>
+    }
+    <div class="documentation-content">
+        @* Overview *@
+        @if (!string.IsNullOrEmpty(Model.Overview))
+        {
+            <gcds-heading tag="h2" id="@Components.Overview_Anchor">@Components.Overview</gcds-heading>
+            <gcds-text>@Html.Raw(Model.Overview)</gcds-text>
+            <hr />
+        }
+
+        @* Sample code sections *@
+        @if (Model.SampleCodeSections != null && Model.SampleCodeSections.Any())
+        {
+            var i = 0;
+            var lastIndex = Model.SampleCodeSections.Count() - 1;
+            @foreach (var section in Model.SampleCodeSections)
+            {
+                i++;
+                <partial name="_SampleCodeSection" model="section" />
+                if (i <= lastIndex) { <hr/> }
+            }
+            <hr />
+        }
+
+        @* Properties *@
+        @if (Model.Properties != null && Model.Properties.Any())
+        {
+            <gcds-heading tag="h2" id="@Components.Properties_Anchor">@Components.Properties</gcds-heading>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>@Components.Properties_Property</th>
+                        <th>@Components.Properties_DataType</th>
+                        <th>@Components.Properties_DefaultValue</th>
+                        <th>@Components.Properties_Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var property in Model.Properties)
+                {
+                    <tr>
+                        <td><code>@property.Name</code></td>
+                        <td><code>@property.DataType</code></td>
+                        <td>@(!string.IsNullOrEmpty(property.DefaultValue) ? property.DefaultValue : Html.Raw($"-<span class=\"sr-only\">{Components.Properties_DefaultValue_NoDefaultValue}</span>"))</td>
+                        <td>@property.Description</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+            <hr />
+        }
+
+        @* Notes *@
+        @if (Model.Notes != null && Model.Notes.Any())
+        {
+            <gcds-heading tag="h2" id="@Components.Notes_Anchor">@Components.Notes</gcds-heading>
+            <ul>
+            @foreach (var note in Model.Notes)
+            {
+                <li>@Html.Raw(note)</li>
+            }
+            </ul>
+        }
+    </div>
+</gcds-grid>

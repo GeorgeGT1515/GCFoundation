@@ -32,7 +32,7 @@ namespace GCFoundation.Web.Infrastructure.Extensions
                 // Components Controller
                 setup.UseCulture("fr")
                 .WhereController(nameof(ComponentsController))
-                .TranslateController("composants")
+                .TranslateController("composantes")
                 .WhereAction(nameof(ComponentsController.Index))
                 .TranslateAction("");
 
@@ -40,6 +40,11 @@ namespace GCFoundation.Web.Infrastructure.Extensions
                 .WhereController(nameof(ComponentsController))
                 .WhereAction(nameof(ComponentsController.Gcds))
                 .TranslateAction("gcds");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(ComponentsController))
+                .WhereAction(nameof(ComponentsController.Card))
+                .TranslateAction("carte");
 
                 setup.UseCulture("fr")
                 .WhereController(nameof(ComponentsController))

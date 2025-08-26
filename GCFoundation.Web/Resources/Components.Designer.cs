@@ -297,288 +297,234 @@ namespace GCFoundation.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to basic.
         /// </summary>
-        public static string Cards_Basic_Anchor {
+        public static string Card_Basic_Anchor {
             get {
-                return ResourceManager.GetString("Cards_Basic_Anchor", resourceCulture);
+                return ResourceManager.GetString("Card_Basic_Anchor", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to A simple card with just text content:.
         /// </summary>
-        public static string Cards_Basic_Text {
+        public static string Card_Basic_Text {
             get {
-                return ResourceManager.GetString("Cards_Basic_Text", resourceCulture);
+                return ResourceManager.GetString("Card_Basic_Text", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Basic Card.
         /// </summary>
-        public static string Cards_Basic_Title {
+        public static string Card_Basic_Title {
             get {
-                return ResourceManager.GetString("Cards_Basic_Title", resourceCulture);
+                return ResourceManager.GetString("Card_Basic_Title", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to horizontal.
         /// </summary>
-        public static string Cards_Horizontal_Anchor {
+        public static string Card_Horizontal_Anchor {
             get {
-                return ResourceManager.GetString("Cards_Horizontal_Anchor", resourceCulture);
+                return ResourceManager.GetString("Card_Horizontal_Anchor", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Cards can be displayed horizontally with images on the side:.
         /// </summary>
-        public static string Cards_Horizontal_Text {
+        public static string Card_Horizontal_Text {
             get {
-                return ResourceManager.GetString("Cards_Horizontal_Text", resourceCulture);
+                return ResourceManager.GetString("Card_Horizontal_Text", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Horizontal Card.
         /// </summary>
-        public static string Cards_Horizontal_Title {
+        public static string Card_Horizontal_Title {
             get {
-                return ResourceManager.GetString("Cards_Horizontal_Title", resourceCulture);
+                return ResourceManager.GetString("Card_Horizontal_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Card.
+        /// </summary>
+        public static string Card_Name {
+            get {
+                return ResourceManager.GetString("Card_Name", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Cards are block-level elements and will take full width by default..
         /// </summary>
-        public static string Cards_Notes_1 {
+        public static string Card_Notes_1 {
             get {
-                return ResourceManager.GetString("Cards_Notes_1", resourceCulture);
+                return ResourceManager.GetString("Card_Notes_1", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Use slots (header, body, footer) to structure content appropriately..
         /// </summary>
-        public static string Cards_Notes_2 {
+        public static string Card_Notes_2 {
             get {
-                return ResourceManager.GetString("Cards_Notes_2", resourceCulture);
+                return ResourceManager.GetString("Card_Notes_2", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Images are responsive and will scale to fit the card width..
         /// </summary>
-        public static string Cards_Notes_3 {
+        public static string Card_Notes_3 {
             get {
-                return ResourceManager.GetString("Cards_Notes_3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to notes.
-        /// </summary>
-        public static string Cards_Notes_Anchor {
-            get {
-                return ResourceManager.GetString("Cards_Notes_Anchor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Notes.
-        /// </summary>
-        public static string Cards_Notes_Title {
-            get {
-                return ResourceManager.GetString("Cards_Notes_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to overview.
-        /// </summary>
-        public static string Cards_Overview_Anchor {
-            get {
-                return ResourceManager.GetString("Cards_Overview_Anchor", resourceCulture);
+                return ResourceManager.GetString("Card_Notes_3", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-card&amp;gt;&lt;/code&gt; component provides a flexible and extensible content container inspired by Bootstrap cards, designed with Government of Canada Design System (GCDS) styling. It includes options for headers, footers, images, and various contextual background colors..
         /// </summary>
-        public static string Cards_Overview_Text {
+        public static string Card_Overview {
             get {
-                return ResourceManager.GetString("Cards_Overview_Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Overview.
-        /// </summary>
-        public static string Cards_Overview_Title {
-            get {
-                return ResourceManager.GetString("Cards_Overview_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to parameters.
-        /// </summary>
-        public static string Cards_Parameters_Anchor {
-            get {
-                return ResourceManager.GetString("Cards_Parameters_Anchor", resourceCulture);
+                return ResourceManager.GetString("Card_Overview", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Whether to show border..
         /// </summary>
-        public static string Cards_Parameters_Border {
+        public static string Card_Properties_Border {
             get {
-                return ResourceManager.GetString("Cards_Parameters_Border", resourceCulture);
+                return ResourceManager.GetString("Card_Properties_Border", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Height of the card..
         /// </summary>
-        public static string Cards_Parameters_Height {
+        public static string Card_Properties_Height {
             get {
-                return ResourceManager.GetString("Cards_Parameters_Height", resourceCulture);
+                return ResourceManager.GetString("Card_Properties_Height", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Whether to use horizontal layout..
         /// </summary>
-        public static string Cards_Parameters_Horizontal {
+        public static string Card_Properties_Horizontal {
             get {
-                return ResourceManager.GetString("Cards_Parameters_Horizontal", resourceCulture);
+                return ResourceManager.GetString("Card_Properties_Horizontal", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Alt text for images..
         /// </summary>
-        public static string Cards_Parameters_ImageAlt {
+        public static string Card_Properties_ImageAlt {
             get {
-                return ResourceManager.GetString("Cards_Parameters_ImageAlt", resourceCulture);
+                return ResourceManager.GetString("Card_Properties_ImageAlt", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to URL for bottom image..
         /// </summary>
-        public static string Cards_Parameters_ImageBottom {
+        public static string Card_Properties_ImageBottom {
             get {
-                return ResourceManager.GetString("Cards_Parameters_ImageBottom", resourceCulture);
+                return ResourceManager.GetString("Card_Properties_ImageBottom", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to URL for top image..
         /// </summary>
-        public static string Cards_Parameters_ImageTop {
+        public static string Card_Properties_ImageTop {
             get {
-                return ResourceManager.GetString("Cards_Parameters_ImageTop", resourceCulture);
+                return ResourceManager.GetString("Card_Properties_ImageTop", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Whether to show shadow..
         /// </summary>
-        public static string Cards_Parameters_Shadow {
+        public static string Card_Properties_Shadow {
             get {
-                return ResourceManager.GetString("Cards_Parameters_Shadow", resourceCulture);
+                return ResourceManager.GetString("Card_Properties_Shadow", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to HTML ID attribute for the card..
         /// </summary>
-        public static string Cards_Parameters_TagId {
+        public static string Card_Properties_TagId {
             get {
-                return ResourceManager.GetString("Cards_Parameters_TagId", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Parameters.
-        /// </summary>
-        public static string Cards_Parameters_Title {
-            get {
-                return ResourceManager.GetString("Cards_Parameters_Title", resourceCulture);
+                return ResourceManager.GetString("Card_Properties_TagId", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Width of the card..
         /// </summary>
-        public static string Cards_Parameters_Width {
+        public static string Card_Properties_Width {
             get {
-                return ResourceManager.GetString("Cards_Parameters_Width", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to FDCP Card Documentation.
-        /// </summary>
-        public static string Cards_Title {
-            get {
-                return ResourceManager.GetString("Cards_Title", resourceCulture);
+                return ResourceManager.GetString("Card_Properties_Width", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to images.
         /// </summary>
-        public static string Cards_WithImages_Anchor {
+        public static string Card_WithImages_Anchor {
             get {
-                return ResourceManager.GetString("Cards_WithImages_Anchor", resourceCulture);
+                return ResourceManager.GetString("Card_WithImages_Anchor", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Cards can include images at the top or bottom:.
         /// </summary>
-        public static string Cards_WithImages_Text {
+        public static string Card_WithImages_Text {
             get {
-                return ResourceManager.GetString("Cards_WithImages_Text", resourceCulture);
+                return ResourceManager.GetString("Card_WithImages_Text", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Card with Images.
         /// </summary>
-        public static string Cards_WithImages_Title {
+        public static string Card_WithImages_Title {
             get {
-                return ResourceManager.GetString("Cards_WithImages_Title", resourceCulture);
+                return ResourceManager.GetString("Card_WithImages_Title", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to slots.
         /// </summary>
-        public static string Cards_WithSlots_Anchor {
+        public static string Card_WithSlots_Anchor {
             get {
-                return ResourceManager.GetString("Cards_WithSlots_Anchor", resourceCulture);
+                return ResourceManager.GetString("Card_WithSlots_Anchor", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Cards support header, body, and footer slots for structured content:.
         /// </summary>
-        public static string Cards_WithSlots_Text {
+        public static string Card_WithSlots_Text {
             get {
-                return ResourceManager.GetString("Cards_WithSlots_Text", resourceCulture);
+                return ResourceManager.GetString("Card_WithSlots_Text", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Card with Slots.
         /// </summary>
-        public static string Cards_WithSlots_Title {
+        public static string Card_WithSlots_Title {
             get {
-                return ResourceManager.GetString("Cards_WithSlots_Title", resourceCulture);
+                return ResourceManager.GetString("Card_WithSlots_Title", resourceCulture);
             }
         }
         
@@ -1077,6 +1023,114 @@ namespace GCFoundation.Web.Resources {
         public static string Index_UserLoginPartial_Title {
             get {
                 return ResourceManager.GetString("Index_UserLoginPartial_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notes.
+        /// </summary>
+        public static string Notes {
+            get {
+                return ResourceManager.GetString("Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to notes.
+        /// </summary>
+        public static string Notes_Anchor {
+            get {
+                return ResourceManager.GetString("Notes_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overview.
+        /// </summary>
+        public static string Overview {
+            get {
+                return ResourceManager.GetString("Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to overview.
+        /// </summary>
+        public static string Overview_Anchor {
+            get {
+                return ResourceManager.GetString("Overview_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Properties.
+        /// </summary>
+        public static string Properties {
+            get {
+                return ResourceManager.GetString("Properties", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to properties.
+        /// </summary>
+        public static string Properties_Anchor {
+            get {
+                return ResourceManager.GetString("Properties_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data type.
+        /// </summary>
+        public static string Properties_DataType {
+            get {
+                return ResourceManager.GetString("Properties_DataType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default value.
+        /// </summary>
+        public static string Properties_DefaultValue {
+            get {
+                return ResourceManager.GetString("Properties_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No default value.
+        /// </summary>
+        public static string Properties_DefaultValue_NoDefaultValue {
+            get {
+                return ResourceManager.GetString("Properties_DefaultValue_NoDefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string Properties_Description {
+            get {
+                return ResourceManager.GetString("Properties_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Property.
+        /// </summary>
+        public static string Properties_Property {
+            get {
+                return ResourceManager.GetString("Properties_Property", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sample code.
+        /// </summary>
+        public static string SampleCode {
+            get {
+                return ResourceManager.GetString("SampleCode", resourceCulture);
             }
         }
         

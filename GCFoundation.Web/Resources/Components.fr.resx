@@ -571,100 +571,82 @@
   <data name="UserLogin_Step_CustomizeAppearance" xml:space="preserve">
     <value />
   </data>
-  <data name="Cards_Title" xml:space="preserve">
-    <value>Documentation des cartes FDCP</value>
+  <data name="Card_Name" xml:space="preserve">
+    <value>Carte</value>
   </data>
-  <data name="Cards_Overview_Title" xml:space="preserve">
-    <value>Aperçu</value>
-  </data>
-  <data name="Cards_Overview_Anchor" xml:space="preserve">
-    <value>apercu</value>
-  </data>
-  <data name="Cards_Basic_Title" xml:space="preserve">
+  <data name="Card_Basic_Title" xml:space="preserve">
     <value>Carte de base</value>
   </data>
-  <data name="Cards_Basic_Anchor" xml:space="preserve">
+  <data name="Card_Basic_Anchor" xml:space="preserve">
     <value>base</value>
   </data>
-  <data name="Cards_WithSlots_Title" xml:space="preserve">
+  <data name="Card_WithSlots_Title" xml:space="preserve">
     <value>Cartes avec en-tête et pied de page</value>
   </data>
-  <data name="Cards_WithSlots_Anchor" xml:space="preserve">
+  <data name="Card_WithSlots_Anchor" xml:space="preserve">
     <value>slots</value>
   </data>
-  <data name="Cards_WithImages_Title" xml:space="preserve">
+  <data name="Card_WithImages_Title" xml:space="preserve">
     <value>Cartes avec images</value>
   </data>
-  <data name="Cards_WithImages_Anchor" xml:space="preserve">
+  <data name="Card_WithImages_Anchor" xml:space="preserve">
     <value>images</value>
   </data>
-  <data name="Cards_Horizontal_Title" xml:space="preserve">
+  <data name="Card_Horizontal_Title" xml:space="preserve">
     <value>Cartes horizontales</value>
   </data>
-  <data name="Cards_Horizontal_Anchor" xml:space="preserve">
+  <data name="Card_Horizontal_Anchor" xml:space="preserve">
     <value>horizontal</value>
   </data>
-  <data name="Cards_Parameters_Title" xml:space="preserve">
-    <value>Paramètres</value>
-  </data>
-  <data name="Cards_Parameters_Anchor" xml:space="preserve">
-    <value>parametres</value>
-  </data>
-  <data name="Cards_Notes_Title" xml:space="preserve">
-    <value>Notes</value>
-  </data>
-  <data name="Cards_Notes_Anchor" xml:space="preserve">
-    <value>notes</value>
-  </data>
-  <data name="Cards_Overview_Text" xml:space="preserve">
+  <data name="Card_Overview" xml:space="preserve">
     <value>Le composant &lt;code&gt;&amp;lt;fdcp-card&amp;gt;&lt;/code&gt; fournit un conteneur de contenu flexible et extensible inspiré des cartes Bootstrap, conçu avec le style du Système de design du gouvernement du Canada (SGDC). Il inclut des options pour les en-têtes, pieds de page, images et diverses couleurs d'arrière-plan contextuelles.</value>
   </data>
-  <data name="Cards_Basic_Text" xml:space="preserve">
+  <data name="Card_Basic_Text" xml:space="preserve">
     <value>Une carte de base avec contenu mixte et largeur flexible.</value>
   </data>
-  <data name="Cards_WithSlots_Text" xml:space="preserve">
+  <data name="Card_WithSlots_Text" xml:space="preserve">
     <value>Utilisez l'attribut &lt;code&gt;slot&lt;/code&gt; pour définir les sections d'en-tête, corps et pied de page.</value>
   </data>
-  <data name="Cards_WithImages_Text" xml:space="preserve">
+  <data name="Card_WithImages_Text" xml:space="preserve">
     <value>Les cartes supportent les images en haut et en bas en utilisant les attributs &lt;code&gt;image-top&lt;/code&gt; et &lt;code&gt;image-bottom&lt;/code&gt;.</value>
   </data>
-  <data name="Cards_Horizontal_Text" xml:space="preserve">
+  <data name="Card_Horizontal_Text" xml:space="preserve">
     <value>Utilisez l'attribut &lt;code&gt;horizontal="true"&lt;/code&gt; pour créer des dispositions de cartes horizontales.</value>
   </data>
-  <data name="Cards_Parameters_TagId" xml:space="preserve">
+  <data name="Card_Properties_TagId" xml:space="preserve">
     <value>Attribut &lt;code&gt;id&lt;/code&gt; optionnel pour l'élément carte.</value>
   </data>
-  <data name="Cards_Parameters_Width" xml:space="preserve">
+  <data name="Card_Properties_Width" xml:space="preserve">
     <value>Définit la largeur de la carte en utilisant une valeur CSS (ex: "18rem", "300px", "100%").</value>
   </data>
-  <data name="Cards_Parameters_Height" xml:space="preserve">
+  <data name="Card_Properties_Height" xml:space="preserve">
     <value>Définit la hauteur de la carte en utilisant une valeur CSS (ex: "200px", "auto", "100%").</value>
   </data>
-  <data name="Cards_Parameters_Border" xml:space="preserve">
+  <data name="Card_Properties_Border" xml:space="preserve">
     <value>Si la carte doit avoir une bordure. Par défaut: true.</value>
   </data>
-  <data name="Cards_Parameters_Shadow" xml:space="preserve">
+  <data name="Card_Properties_Shadow" xml:space="preserve">
     <value>Si la carte doit avoir une ombre. Par défaut: false.</value>
   </data>
-  <data name="Cards_Parameters_ImageTop" xml:space="preserve">
+  <data name="Card_Properties_ImageTop" xml:space="preserve">
     <value>URL pour l'image de la carte qui apparaît en haut.</value>
   </data>
-  <data name="Cards_Parameters_ImageBottom" xml:space="preserve">
+  <data name="Card_Properties_ImageBottom" xml:space="preserve">
     <value>URL pour l'image de la carte qui apparaît en bas.</value>
   </data>
-  <data name="Cards_Parameters_ImageAlt" xml:space="preserve">
+  <data name="Card_Properties_ImageAlt" xml:space="preserve">
     <value>Texte alternatif pour les images de la carte.</value>
   </data>
-  <data name="Cards_Parameters_Horizontal" xml:space="preserve">
+  <data name="Card_Properties_Horizontal" xml:space="preserve">
     <value>Si la carte doit utiliser une disposition horizontale. Par défaut: false.</value>
   </data>
-  <data name="Cards_Notes_1" xml:space="preserve">
+  <data name="Card_Notes_1" xml:space="preserve">
     <value>Utilisez &lt;code&gt;slot="header"&lt;/code&gt;, &lt;code&gt;slot="body"&lt;/code&gt; et &lt;code&gt;slot="footer"&lt;/code&gt; pour définir les sections de la carte.</value>
   </data>
-  <data name="Cards_Notes_2" xml:space="preserve">
+  <data name="Card_Notes_2" xml:space="preserve">
     <value>Les cartes sont réactives et s'adaptent à la largeur de leur conteneur sauf si une largeur spécifique est définie.</value>
   </data>
-  <data name="Cards_Notes_3" xml:space="preserve">
+  <data name="Card_Notes_3" xml:space="preserve">
     <value>Toutes les cartes utilisent les variables de couleur SGDC pour un style cohérent du gouvernement du Canada.</value>
   </data>
   <data name="StatelessAuth_Demo_Title" xml:space="preserve">
@@ -673,12 +655,11 @@
   <data name="StatelessAuth_Demo_Description" xml:space="preserve">
     <value>Essayez l'authentification par cookie ci-dessous et voyez comment le partiel de connexion utilisateur se met à jour automatiquement.</value>
   </data>
-  <data name="StatelessAuth_Authenticated_Message" xml:space="preserve">
-    <value />
-  </data>
-
   <data name="StatelessAuth_Current_Status_Title" xml:space="preserve">
     <value>État d'authentification actuel</value>
+  </data>
+  <data name="StatelessAuth_Authenticated_Message" xml:space="preserve">
+    <value />
   </data>
   <data name="StatelessAuth_Session_Info_Message" xml:space="preserve">
     <value>Le composant de connexion utilisateur ci-dessus affiche vos informations de session actuelles à partir des revendications (pas de stockage de session côté serveur).</value>
@@ -758,11 +739,107 @@
   <data name="StatelessAuth_Azure_Benefit_3" xml:space="preserve">
     <value>Compatibilité avec le cloud gouvernemental</value>
   </data>
-  <data name="StatelessAuth_CurrentStatus_Title" xml:space="preserve">
-    <value>Statut d'authentification actuel</value>
-  </data>
   <data name="StatelessAuth_Authenticated_Description" xml:space="preserve">
     <value>Le partiel de connexion utilisateur ci-dessus affiche vos informations de session actuelles à partir des revendications (aucun stockage de session côté serveur).</value>
+  </data>
+  <data name="Index_Forms_Title" xml:space="preserve">
+    <value>Formulaires</value>
+  </data>
+  <data name="Index_Forms_Description" xml:space="preserve">
+    <value>Un moyen de créer des formulaires</value>
+  </data>
+  <data name="Index_Table_Title" xml:space="preserve">
+    <value>Tableau</value>
+  </data>
+  <data name="Index_Table_Description" xml:space="preserve">
+    <value>Un moyen d'afficher des informations dans un tableau</value>
+  </data>
+  <data name="Index_Modal_Title" xml:space="preserve">
+    <value>Fenêtre modale</value>
+  </data>
+  <data name="Index_Modal_Description" xml:space="preserve">
+    <value>Un moyen d'afficher des informations dans une boîte de dialogue (modale)</value>
+  </data>
+  <data name="Index_FilteredSearch_Title" xml:space="preserve">
+    <value>Recherche filtrée</value>
+  </data>
+  <data name="Index_FilteredSearch_Description" xml:space="preserve">
+    <value>Un moyen d'afficher une recherche avec des résultats filtrés</value>
+  </data>
+  <data name="Index_Badge_Title" xml:space="preserve">
+    <value>Badge</value>
+  </data>
+  <data name="Index_Badge_Description" xml:space="preserve">
+    <value>Un moyen d'afficher des étiquettes</value>
+  </data>
+  <data name="Index_Card_Title" xml:space="preserve">
+    <value>Carte</value>
+  </data>
+  <data name="Index_Card_Description" xml:space="preserve">
+    <value>Conteneurs de contenu flexibles avec en-têtes, pieds de page et images</value>
+  </data>
+  <data name="Index_PageHeading_Title" xml:space="preserve">
+    <value>En-tête de page</value>
+  </data>
+  <data name="Index_PageHeading_Description" xml:space="preserve">
+    <value>Un moyen d'ajouter un titre principal en haut de la page</value>
+  </data>
+  <data name="Index_FormBuilder_Title" xml:space="preserve">
+    <value>Constructeur de formulaires</value>
+  </data>
+  <data name="Index_FormBuilder_Description" xml:space="preserve">
+    <value>Un moyen de construire automatiquement un formulaire à partir d'une structure</value>
+  </data>
+  <data name="Index_Stepper_Title" xml:space="preserve">
+    <value>Étapes</value>
+  </data>
+  <data name="Index_Stepper_Description" xml:space="preserve">
+    <value>Créer un processus étape par étape pour un flux ou un formulaire</value>
+  </data>
+  <data name="Index_UserLoginPartial_Title" xml:space="preserve">
+    <value>Partiel de connexion utilisateur</value>
+  </data>
+  <data name="Index_UserLoginPartial_Description" xml:space="preserve">
+    <value>Affichage configurable des informations de connexion utilisateur avec support bilingue</value>
+  </data>
+  <data name="Index_Page_Title" xml:space="preserve">
+    <value>Composantes</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>Aperçu</value>
+  </data>
+  <data name="Overview_Anchor" xml:space="preserve">
+    <value>apercu</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="Notes_Anchor" xml:space="preserve">
+    <value>notes</value>
+  </data>
+  <data name="Properties_Anchor" xml:space="preserve">
+    <value>proprietes</value>
+  </data>
+  <data name="Properties" xml:space="preserve">
+    <value>Propriétés</value>
+  </data>
+  <data name="Properties_Property" xml:space="preserve">
+    <value>Propriété</value>
+  </data>
+  <data name="Properties_DataType" xml:space="preserve">
+    <value>Type de donnée</value>
+  </data>
+  <data name="Properties_DefaultValue" xml:space="preserve">
+    <value>Valeur par défaut</value>
+  </data>
+  <data name="Properties_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Properties_DefaultValue_NoDefaultValue" xml:space="preserve">
+    <value>Aucune valeur par défaut</value>
+  </data>
+  <data name="StatelessAuth_CurrentStatus_Title" xml:space="preserve">
+    <value>Statut d'authentification actuel</value>
   </data>
   <data name="StatelessAuth_NotAuthenticated_Message" xml:space="preserve">
     <value />
@@ -890,67 +967,7 @@
   <data name="StatelessAuth_Integration_Description2" xml:space="preserve">
     <value />
   </data>
-  <data name="Index_Forms_Title" xml:space="preserve">
-    <value>Formulaires</value>
-  </data>
-  <data name="Index_Forms_Description" xml:space="preserve">
-    <value>Un moyen de créer des formulaires</value>
-  </data>
-  <data name="Index_Table_Title" xml:space="preserve">
-    <value>Tableau</value>
-  </data>
-  <data name="Index_Table_Description" xml:space="preserve">
-    <value>Un moyen d'afficher des informations dans un tableau</value>
-  </data>
-  <data name="Index_Modal_Title" xml:space="preserve">
-    <value>Fenêtre modale</value>
-  </data>
-  <data name="Index_Modal_Description" xml:space="preserve">
-    <value>Un moyen d'afficher des informations dans une boîte de dialogue (modale)</value>
-  </data>
-  <data name="Index_FilteredSearch_Title" xml:space="preserve">
-    <value>Recherche filtrée</value>
-  </data>
-  <data name="Index_FilteredSearch_Description" xml:space="preserve">
-    <value>Un moyen d'afficher une recherche avec des résultats filtrés</value>
-  </data>
-  <data name="Index_Badge_Title" xml:space="preserve">
-    <value>Badge</value>
-  </data>
-  <data name="Index_Badge_Description" xml:space="preserve">
-    <value>Un moyen d'afficher des étiquettes</value>
-  </data>
-  <data name="Index_Card_Title" xml:space="preserve">
-    <value>Carte</value>
-  </data>
-  <data name="Index_Card_Description" xml:space="preserve">
-    <value>Conteneurs de contenu flexibles avec en-têtes, pieds de page et images</value>
-  </data>
-  <data name="Index_PageHeading_Title" xml:space="preserve">
-    <value>En-tête de page</value>
-  </data>
-  <data name="Index_PageHeading_Description" xml:space="preserve">
-    <value>Un moyen d'ajouter un titre principal en haut de la page</value>
-  </data>
-  <data name="Index_FormBuilder_Title" xml:space="preserve">
-    <value>Constructeur de formulaires</value>
-  </data>
-  <data name="Index_FormBuilder_Description" xml:space="preserve">
-    <value>Un moyen de construire automatiquement un formulaire à partir d'une structure</value>
-  </data>
-  <data name="Index_Stepper_Title" xml:space="preserve">
-    <value>Étapes</value>
-  </data>
-  <data name="Index_Stepper_Description" xml:space="preserve">
-    <value>Créer un processus étape par étape pour un flux ou un formulaire</value>
-  </data>
-  <data name="Index_UserLoginPartial_Title" xml:space="preserve">
-    <value>Partiel de connexion utilisateur</value>
-  </data>
-  <data name="Index_UserLoginPartial_Description" xml:space="preserve">
-    <value>Affichage configurable des informations de connexion utilisateur avec support bilingue</value>
-  </data>
-  <data name="Index_Page_Title" xml:space="preserve">
-    <value>Composantes</value>
+  <data name="SampleCode" xml:space="preserve">
+    <value>Exemple(s) de code</value>
   </data>
 </root>
