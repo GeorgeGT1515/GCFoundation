@@ -1,5 +1,5 @@
 ﻿using GCFoundation.Components.Services;
-using GCFoundation.Components.Setttings;
+using GCFoundation.Components.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
