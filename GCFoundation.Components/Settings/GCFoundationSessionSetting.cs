@@ -1,4 +1,4 @@
-﻿namespace GCFoundation.Components.Setttings
+﻿namespace GCFoundation.Components.Settings
 {
     /// <summary>
     /// Foundation configuration for the session

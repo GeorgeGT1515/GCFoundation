@@ -1,4 +1,4 @@
-﻿using GCFoundation.Components.Setttings;
+﻿using GCFoundation.Components.Settings;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 using System.Globalization;
