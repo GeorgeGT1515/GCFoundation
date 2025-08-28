@@ -558,135 +558,6 @@
   <data name="Index_Page_Title" xml:space="preserve">
     <value>Components</value>
   </data>
-  <data name="StatelessAuth_CurrentStatus_Title" xml:space="preserve">
-    <value>Current Authentication Status</value>
-  </data>
-  <data name="StatelessAuth_NotAuthenticated_Message" xml:space="preserve">
-    <value />
-  </data>
-  <data name="StatelessAuth_NotAuthenticated_Description" xml:space="preserve">
-    <value>Notice how the User Login Partial will update automatically after login.</value>
-  </data>
-  <data name="StatelessAuth_CookieDemo_Title" xml:space="preserve">
-    <value>Cookie Authentication Demo</value>
-  </data>
-  <data name="StatelessAuth_CookieDemo_Description" xml:space="preserve">
-    <value>Test cookie-based authentication without server sessions. All user data comes from claims in the authentication cookie.</value>
-  </data>
-  <data name="StatelessAuth_LoggedIn_Text" xml:space="preserve">
-    <value>You're logged in! Click logout to clear the authentication cookie.</value>
-  </data>
-  <data name="StatelessAuth_LoggedOut_Text" xml:space="preserve">
-    <value>This will create an authentication cookie with user claims (no session storage).</value>
-  </data>
-  <data name="StatelessAuth_Login_Button" xml:space="preserve">
-    <value>🔐 Login with Cookie Auth</value>
-  </data>
-  <data name="StatelessAuth_Logout_Button" xml:space="preserve">
-    <value>🚪 Logout</value>
-  </data>
-  <data name="StatelessAuth_TechnicalInfo_Title" xml:space="preserve">
-    <value>Technical Information</value>
-  </data>
-  <data name="StatelessAuth_HowItWorks" xml:space="preserve">
-    <value />
-  </data>
-  <data name="StatelessAuth_Benefit_Claims" xml:space="preserve">
-    <value>✅ Claims stored in authentication cookie</value>
-  </data>
-  <data name="StatelessAuth_Benefit_NoSessions" xml:space="preserve">
-    <value>✅ No server-side session storage required</value>
-  </data>
-  <data name="StatelessAuth_Benefit_Azure" xml:space="preserve">
-    <value>✅ Scales automatically in Azure cloud</value>
-  </data>
-  <data name="StatelessAuth_Benefit_LoadBalanced" xml:space="preserve">
-    <value>✅ Works across load-balanced servers</value>
-  </data>
-  <data name="StatelessAuth_ViewClaims_Button" xml:space="preserve">
-    <value>📊 View Current Claims</value>
-  </data>
-  <data name="StatelessAuth_CheckAuth_Button" xml:space="preserve">
-    <value>⚡ Check Auth Status</value>
-  </data>
-  <data name="StatelessAuth_DemoResults_Title" xml:space="preserve">
-    <value>Demo Results</value>
-  </data>
-  <data name="StatelessAuth_Methods_Title" xml:space="preserve">
-    <value>Available Stateless Authentication Methods</value>
-  </data>
-  <data name="StatelessAuth_Methods_Description" xml:space="preserve">
-    <value>The GC Foundation supports multiple stateless authentication approaches for Azure cloud deployment:</value>
-  </data>
-  <data name="StatelessAuth_CookieAuth_Title" xml:space="preserve">
-    <value>🍪 Cookie Authentication</value>
-  </data>
-  <data name="StatelessAuth_CookieAuth_Description" xml:space="preserve">
-    <value>Uses authentication cookies with claims (no server sessions). ✅ Recommended for most web apps.</value>
-  </data>
-  <data name="StatelessAuth_CookieAuth_Benefit1" xml:space="preserve">
-    <value>No server-side storage required</value>
-  </data>
-  <data name="StatelessAuth_CookieAuth_Benefit2" xml:space="preserve">
-    <value>Scales automatically in Azure</value>
-  </data>
-  <data name="StatelessAuth_CookieAuth_Benefit3" xml:space="preserve">
-    <value>Works across load-balanced servers</value>
-  </data>
-  <data name="StatelessAuth_AzureAD_Title" xml:space="preserve">
-    <value>🏢 Azure AD Integration</value>
-  </data>
-  <data name="StatelessAuth_AzureAD_Description" xml:space="preserve">
-    <value>Enterprise authentication with Microsoft identity platform. Perfect for government applications.</value>
-  </data>
-  <data name="StatelessAuth_AzureAD_Benefit1" xml:space="preserve">
-    <value>Single sign-on (SSO)</value>
-  </data>
-  <data name="StatelessAuth_AzureAD_Benefit2" xml:space="preserve">
-    <value>Multi-factor authentication</value>
-  </data>
-  <data name="StatelessAuth_AzureAD_Benefit3" xml:space="preserve">
-    <value>Office 365 integration</value>
-  </data>
-  <data name="StatelessAuth_JWT_Title" xml:space="preserve">
-    <value>🔑 JWT Tokens</value>
-  </data>
-  <data name="StatelessAuth_JWT_Description" xml:space="preserve">
-    <value>Stateless API authentication using JSON Web Tokens. Ideal for microservices and APIs.</value>
-  </data>
-  <data name="StatelessAuth_JWT_Benefit1" xml:space="preserve">
-    <value>Completely stateless</value>
-  </data>
-  <data name="StatelessAuth_JWT_Benefit2" xml:space="preserve">
-    <value>Cross-platform compatibility</value>
-  </data>
-  <data name="StatelessAuth_JWT_Benefit3" xml:space="preserve">
-    <value>Can be verified independently</value>
-  </data>
-  <data name="StatelessAuth_OAuth_Title" xml:space="preserve">
-    <value>🌐 OAuth Providers</value>
-  </data>
-  <data name="StatelessAuth_OAuth_Description" xml:space="preserve">
-    <value>External authentication providers (Google, GitHub, etc.). Good for public-facing applications.</value>
-  </data>
-  <data name="StatelessAuth_OAuth_Benefit1" xml:space="preserve">
-    <value>No credential management</value>
-  </data>
-  <data name="StatelessAuth_OAuth_Benefit2" xml:space="preserve">
-    <value>User convenience</value>
-  </data>
-  <data name="StatelessAuth_OAuth_Benefit3" xml:space="preserve">
-    <value>Social login options</value>
-  </data>
-  <data name="StatelessAuth_Integration_Title" xml:space="preserve">
-    <value>💡 Integration with User Login Partial</value>
-  </data>
-  <data name="StatelessAuth_Integration_Description1" xml:space="preserve">
-    <value />
-  </data>
-  <data name="StatelessAuth_Integration_Description2" xml:space="preserve">
-    <value />
-  </data>
   <data name="Badge_Name" xml:space="preserve">
     <value>Badge</value>
   </data>
@@ -910,7 +781,7 @@
     <value>Enter a valid email address (e.g., name@example.com).</value>
   </data>
   <data name="Form_Email_Label" xml:space="preserve">
-    <value>Email adress</value>
+    <value>Email address</value>
   </data>
   <data name="Form_Field_Firstname_Hint" xml:space="preserve">
     <value>Enter your first name</value>
@@ -960,13 +831,211 @@
   <data name="Form_Properties_Action" xml:space="preserve">
     <value>The action URL for the form submission.</value>
   </data>
-  <data name="Form_SampleForm_Text" xml:space="preserve">
-    <value />
-  </data>
   <data name="Form_SampleForm_Anchor" xml:space="preserve">
     <value>sample-form</value>
   </data>
   <data name="Form_SampleForm_SubmittedSuccessfully" xml:space="preserve">
     <value>Form submitted successfully!</value>
+  </data>
+  <data name="StatelessAuth_CurrentStatus_Title" xml:space="preserve">
+    <value>Current Authentication Status</value>
+  </data>
+  <data name="StatelessAuth_NotAuthenticated_Message" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StatelessAuth_NotAuthenticated_Description" xml:space="preserve">
+    <value>Notice how the User Login Partial will update automatically after login.</value>
+  </data>
+  <data name="StatelessAuth_CookieDemo_Title" xml:space="preserve">
+    <value>Cookie Authentication Demo</value>
+  </data>
+  <data name="StatelessAuth_CookieDemo_Description" xml:space="preserve">
+    <value>Test cookie-based authentication without server sessions. All user data comes from claims in the authentication cookie.</value>
+  </data>
+  <data name="StatelessAuth_LoggedIn_Text" xml:space="preserve">
+    <value>You're logged in! Click logout to clear the authentication cookie.</value>
+  </data>
+  <data name="StatelessAuth_LoggedOut_Text" xml:space="preserve">
+    <value>This will create an authentication cookie with user claims (no session storage).</value>
+  </data>
+  <data name="StatelessAuth_Login_Button" xml:space="preserve">
+    <value>🔐 Login with Cookie Auth</value>
+  </data>
+  <data name="StatelessAuth_Logout_Button" xml:space="preserve">
+    <value>🚪 Logout</value>
+  </data>
+  <data name="StatelessAuth_TechnicalInfo_Title" xml:space="preserve">
+    <value>Technical Information</value>
+  </data>
+  <data name="StatelessAuth_HowItWorks" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StatelessAuth_Benefit_Claims" xml:space="preserve">
+    <value>✅ Claims stored in authentication cookie</value>
+  </data>
+  <data name="StatelessAuth_Benefit_NoSessions" xml:space="preserve">
+    <value>✅ No server-side session storage required</value>
+  </data>
+  <data name="StatelessAuth_Benefit_Azure" xml:space="preserve">
+    <value>✅ Scales automatically in Azure cloud</value>
+  </data>
+  <data name="StatelessAuth_Benefit_LoadBalanced" xml:space="preserve">
+    <value>✅ Works across load-balanced servers</value>
+  </data>
+  <data name="StatelessAuth_ViewClaims_Button" xml:space="preserve">
+    <value>📊 View Current Claims</value>
+  </data>
+  <data name="StatelessAuth_CheckAuth_Button" xml:space="preserve">
+    <value>⚡ Check Auth Status</value>
+  </data>
+  <data name="StatelessAuth_DemoResults_Title" xml:space="preserve">
+    <value>Demo Results</value>
+  </data>
+  <data name="StatelessAuth_Methods_Title" xml:space="preserve">
+    <value>Available Stateless Authentication Methods</value>
+  </data>
+  <data name="StatelessAuth_Methods_Description" xml:space="preserve">
+    <value>The GC Foundation supports multiple stateless authentication approaches for Azure cloud deployment:</value>
+  </data>
+  <data name="StatelessAuth_CookieAuth_Title" xml:space="preserve">
+    <value>🍪 Cookie Authentication</value>
+  </data>
+  <data name="StatelessAuth_CookieAuth_Description" xml:space="preserve">
+    <value>Uses authentication cookies with claims (no server sessions). ✅ Recommended for most web apps.</value>
+  </data>
+  <data name="StatelessAuth_CookieAuth_Benefit1" xml:space="preserve">
+    <value>No server-side storage required</value>
+  </data>
+  <data name="StatelessAuth_CookieAuth_Benefit2" xml:space="preserve">
+    <value>Scales automatically in Azure</value>
+  </data>
+  <data name="StatelessAuth_CookieAuth_Benefit3" xml:space="preserve">
+    <value>Works across load-balanced servers</value>
+  </data>
+  <data name="StatelessAuth_AzureAD_Title" xml:space="preserve">
+    <value>🏢 Azure AD Integration</value>
+  </data>
+  <data name="StatelessAuth_AzureAD_Description" xml:space="preserve">
+    <value>Enterprise authentication with Microsoft identity platform. Perfect for government applications.</value>
+  </data>
+  <data name="StatelessAuth_AzureAD_Benefit1" xml:space="preserve">
+    <value>Single sign-on (SSO)</value>
+  </data>
+  <data name="StatelessAuth_AzureAD_Benefit2" xml:space="preserve">
+    <value>Multi-factor authentication</value>
+  </data>
+  <data name="StatelessAuth_AzureAD_Benefit3" xml:space="preserve">
+    <value>Office 365 integration</value>
+  </data>
+  <data name="StatelessAuth_JWT_Title" xml:space="preserve">
+    <value>🔑 JWT Tokens</value>
+  </data>
+  <data name="StatelessAuth_JWT_Description" xml:space="preserve">
+    <value>Stateless API authentication using JSON Web Tokens. Ideal for microservices and APIs.</value>
+  </data>
+  <data name="StatelessAuth_JWT_Benefit1" xml:space="preserve">
+    <value>Completely stateless</value>
+  </data>
+  <data name="StatelessAuth_JWT_Benefit2" xml:space="preserve">
+    <value>Cross-platform compatibility</value>
+  </data>
+  <data name="StatelessAuth_JWT_Benefit3" xml:space="preserve">
+    <value>Can be verified independently</value>
+  </data>
+  <data name="StatelessAuth_OAuth_Title" xml:space="preserve">
+    <value>🌐 OAuth Providers</value>
+  </data>
+  <data name="StatelessAuth_OAuth_Description" xml:space="preserve">
+    <value>External authentication providers (Google, GitHub, etc.). Good for public-facing applications.</value>
+  </data>
+  <data name="StatelessAuth_OAuth_Benefit1" xml:space="preserve">
+    <value>No credential management</value>
+  </data>
+  <data name="StatelessAuth_OAuth_Benefit2" xml:space="preserve">
+    <value>User convenience</value>
+  </data>
+  <data name="StatelessAuth_OAuth_Benefit3" xml:space="preserve">
+    <value>Social login options</value>
+  </data>
+  <data name="StatelessAuth_Integration_Title" xml:space="preserve">
+    <value>💡 Integration with User Login Partial</value>
+  </data>
+  <data name="StatelessAuth_Integration_Description1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StatelessAuth_Integration_Description2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Modal_Basic_Anchor" xml:space="preserve">
+    <value>basic</value>
+  </data>
+  <data name="Modal_Basic_Title" xml:space="preserve">
+    <value>Basic Usage</value>
+  </data>
+  <data name="Modal_Basic_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Click the buttons below to see the modals in action:&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Modal_Name" xml:space="preserve">
+    <value>Modal</value>
+  </data>
+  <data name="Modal_Notes_4" xml:space="preserve">
+    <value>Modal content should be wrapped in &lt;code&gt;&amp;lt;fdcp-modal-body&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;fdcp-modal-footer&amp;gt;&lt;/code&gt; tags</value>
+  </data>
+  <data name="Modal_Notes_1" xml:space="preserve">
+    <value>Modals require unique IDs when multiple are used on the same page</value>
+  </data>
+  <data name="Modal_Notes_3" xml:space="preserve">
+    <value>Use &lt;code&gt;is-static-backdrop="true"&lt;/code&gt; for modals that require user action</value>
+  </data>
+  <data name="Modal_Notes_2" xml:space="preserve">
+    <value>Session modals automatically handle timeout warnings and session extension</value>
+  </data>
+  <data name="Modal_Overview" xml:space="preserve">
+    <value>The &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;fdcp-session-modal&amp;gt;&lt;/code&gt; components provide a flexible dialog system for displaying content in a popup overlay. It supports regular modals for general use and specialized session modals for handling user session management.</value>
+  </data>
+  <data name="Modal_Session_Title" xml:space="preserve">
+    <value>Session Modal</value>
+  </data>
+  <data name="Modal_Session_Anchor" xml:space="preserve">
+    <value>session</value>
+  </data>
+  <data name="Modal_Session_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;A specialized modal for handling session timeouts:&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Modal_Notes_5" xml:space="preserve">
+    <value>The &lt;code&gt;session-timeout&lt;/code&gt;, &lt;code&gt;reminder-time&lt;/code&gt;, &lt;code&gt;refresh-url&lt;/code&gt; and &lt;code&gt;logout-url&lt;/code&gt; properties are only valid for Session Modals</value>
+  </data>
+  <data name="Modal_Properties_Id" xml:space="preserve">
+    <value>Unique identifier for the modal</value>
+  </data>
+  <data name="Modal_Properties_Title" xml:space="preserve">
+    <value>Text displayed in the modal header</value>
+  </data>
+  <data name="Modal_Properties_Centered" xml:space="preserve">
+    <value>Centers the modal vertically</value>
+  </data>
+  <data name="Modal_Properties_Scrollable" xml:space="preserve">
+    <value>Makes the modal body scrollable</value>
+  </data>
+  <data name="Modal_Properties_Size" xml:space="preserve">
+    <value>Modal size (Default, Small, or Large)</value>
+  </data>
+  <data name="Modal_Properties_ShowCloseButton" xml:space="preserve">
+    <value>Shows close button in header</value>
+  </data>
+  <data name="Modal_Properties_IsStaticBackdrop" xml:space="preserve">
+    <value>Prevents closing by clicking outside</value>
+  </data>
+  <data name="Modal_Properties_SessionTimeout" xml:space="preserve">
+    <value>Session timeout in seconds</value>
+  </data>
+  <data name="Modal_Properties_ReminderTime" xml:space="preserve">
+    <value>Time before timeout (in seconds) to show reminder</value>
+  </data>
+  <data name="Modal_Properties_RefreshUrl" xml:space="preserve">
+    <value>Endpoint to refresh the session</value>
+  </data>
+  <data name="Modal_Properties_LogoutUrl" xml:space="preserve">
+    <value>Endpoint to log out the user</value>
   </data>
 </root>

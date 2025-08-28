@@ -862,7 +862,7 @@
     <value>Enter a valid email address (e.g., name@example.com).</value>
   </data>
   <data name="Form_Email_Label" xml:space="preserve">
-    <value>Email adress</value>
+    <value>Email address</value>
   </data>
   <data name="Form_Field_Firstname_Hint" xml:space="preserve">
     <value>Enter your first name</value>
@@ -912,13 +912,82 @@
   <data name="Form_Properties_Action" xml:space="preserve">
     <value>The action URL for the form submission.</value>
   </data>
-  <data name="Form_SampleForm_Text" xml:space="preserve">
-    <value />
-  </data>
   <data name="Form_SampleForm_Anchor" xml:space="preserve">
     <value>sample-form</value>
   </data>
   <data name="Form_SampleForm_SubmittedSuccessfully" xml:space="preserve">
     <value>Form submitted successfully!</value>
+  </data>
+  <data name="Modal_Basic_Anchor" xml:space="preserve">
+    <value>basic</value>
+  </data>
+  <data name="Modal_Basic_Title" xml:space="preserve">
+    <value>Basic Usage</value>
+  </data>
+  <data name="Modal_Basic_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Click the buttons below to see the modals in action:&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Modal_Name" xml:space="preserve">
+    <value>Modal</value>
+  </data>
+  <data name="Modal_Notes_4" xml:space="preserve">
+    <value>Modal content should be wrapped in &lt;code&gt;&amp;lt;fdcp-modal-body&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;fdcp-modal-footer&amp;gt;&lt;/code&gt; tags</value>
+  </data>
+  <data name="Modal_Notes_1" xml:space="preserve">
+    <value>Modals require unique IDs when multiple are used on the same page</value>
+  </data>
+  <data name="Modal_Notes_3" xml:space="preserve">
+    <value>Use &lt;code&gt;is-static-backdrop="true"&lt;/code&gt; for modals that require user action</value>
+  </data>
+  <data name="Modal_Notes_2" xml:space="preserve">
+    <value>Session modals automatically handle timeout warnings and session extension</value>
+  </data>
+  <data name="Modal_Overview" xml:space="preserve">
+    <value>The &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;fdcp-session-modal&amp;gt;&lt;/code&gt; components provide a flexible dialog system for displaying content in a popup overlay. It supports regular modals for general use and specialized session modals for handling user session management.</value>
+  </data>
+  <data name="Modal_Session_Title" xml:space="preserve">
+    <value>Session Modal</value>
+  </data>
+  <data name="Modal_Session_Anchor" xml:space="preserve">
+    <value>session</value>
+  </data>
+  <data name="Modal_Session_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;A specialized modal for handling session timeouts:&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Modal_Notes_5" xml:space="preserve">
+    <value>The &lt;code&gt;session-timeout&lt;/code&gt;, &lt;code&gt;reminder-time&lt;/code&gt;, &lt;code&gt;refresh-url&lt;/code&gt; and &lt;code&gt;logout-url&lt;/code&gt; properties are only valid for Session Modals</value>
+  </data>
+  <data name="Modal_Properties_Id" xml:space="preserve">
+    <value>Unique identifier for the modal</value>
+  </data>
+  <data name="Modal_Properties_Title" xml:space="preserve">
+    <value>Text displayed in the modal header</value>
+  </data>
+  <data name="Modal_Properties_Centered" xml:space="preserve">
+    <value>Centers the modal vertically</value>
+  </data>
+  <data name="Modal_Properties_Scrollable" xml:space="preserve">
+    <value>Makes the modal body scrollable</value>
+  </data>
+  <data name="Modal_Properties_Size" xml:space="preserve">
+    <value>Modal size (Default, Small, or Large)</value>
+  </data>
+  <data name="Modal_Properties_ShowCloseButton" xml:space="preserve">
+    <value>Shows close button in header</value>
+  </data>
+  <data name="Modal_Properties_IsStaticBackdrop" xml:space="preserve">
+    <value>Prevents closing by clicking outside</value>
+  </data>
+  <data name="Modal_Properties_SessionTimeout" xml:space="preserve">
+    <value>Session timeout in seconds</value>
+  </data>
+  <data name="Modal_Properties_ReminderTime" xml:space="preserve">
+    <value>Time before timeout (in seconds) to show reminder</value>
+  </data>
+  <data name="Modal_Properties_RefreshUrl" xml:space="preserve">
+    <value>Endpoint to refresh the session</value>
+  </data>
+  <data name="Modal_Properties_LogoutUrl" xml:space="preserve">
+    <value>Endpoint to log out the user</value>
   </data>
 </root>

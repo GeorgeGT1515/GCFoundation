@@ -583,7 +583,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Email adress.
+        ///   Looks up a localized string similar to Email address.
         /// </summary>
         public static string Form_Email_Label {
             get {
@@ -741,15 +741,6 @@ namespace GCFoundation.Web.Resources {
         public static string Form_SampleForm_SubmittedSuccessfully {
             get {
                 return ResourceManager.GetString("Form_SampleForm_SubmittedSuccessfully", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string Form_SampleForm_Text {
-            get {
-                return ResourceManager.GetString("Form_SampleForm_Text", resourceCulture);
             }
         }
         
@@ -1275,6 +1266,222 @@ namespace GCFoundation.Web.Resources {
         public static string Index_UserLoginPartial_Title {
             get {
                 return ResourceManager.GetString("Index_UserLoginPartial_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to basic.
+        /// </summary>
+        public static string Modal_Basic_Anchor {
+            get {
+                return ResourceManager.GetString("Modal_Basic_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Click the buttons below to see the modals in action:&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Modal_Basic_Text {
+            get {
+                return ResourceManager.GetString("Modal_Basic_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic Usage.
+        /// </summary>
+        public static string Modal_Basic_Title {
+            get {
+                return ResourceManager.GetString("Modal_Basic_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modal.
+        /// </summary>
+        public static string Modal_Name {
+            get {
+                return ResourceManager.GetString("Modal_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modals require unique IDs when multiple are used on the same page.
+        /// </summary>
+        public static string Modal_Notes_1 {
+            get {
+                return ResourceManager.GetString("Modal_Notes_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Session modals automatically handle timeout warnings and session extension.
+        /// </summary>
+        public static string Modal_Notes_2 {
+            get {
+                return ResourceManager.GetString("Modal_Notes_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use &lt;code&gt;is-static-backdrop=&quot;true&quot;&lt;/code&gt; for modals that require user action.
+        /// </summary>
+        public static string Modal_Notes_3 {
+            get {
+                return ResourceManager.GetString("Modal_Notes_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modal content should be wrapped in &lt;code&gt;&amp;lt;fdcp-modal-body&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;fdcp-modal-footer&amp;gt;&lt;/code&gt; tags.
+        /// </summary>
+        public static string Modal_Notes_4 {
+            get {
+                return ResourceManager.GetString("Modal_Notes_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;code&gt;session-timeout&lt;/code&gt;, &lt;code&gt;reminder-time&lt;/code&gt;, &lt;code&gt;refresh-url&lt;/code&gt; and &lt;code&gt;logout-url&lt;/code&gt; properties are only valid for Session Modals.
+        /// </summary>
+        public static string Modal_Notes_5 {
+            get {
+                return ResourceManager.GetString("Modal_Notes_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;fdcp-session-modal&amp;gt;&lt;/code&gt; components provide a flexible dialog system for displaying content in a popup overlay. It supports regular modals for general use and specialized session modals for handling user session management..
+        /// </summary>
+        public static string Modal_Overview {
+            get {
+                return ResourceManager.GetString("Modal_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Centers the modal vertically.
+        /// </summary>
+        public static string Modal_Properties_Centered {
+            get {
+                return ResourceManager.GetString("Modal_Properties_Centered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unique identifier for the modal.
+        /// </summary>
+        public static string Modal_Properties_Id {
+            get {
+                return ResourceManager.GetString("Modal_Properties_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prevents closing by clicking outside.
+        /// </summary>
+        public static string Modal_Properties_IsStaticBackdrop {
+            get {
+                return ResourceManager.GetString("Modal_Properties_IsStaticBackdrop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Endpoint to log out the user.
+        /// </summary>
+        public static string Modal_Properties_LogoutUrl {
+            get {
+                return ResourceManager.GetString("Modal_Properties_LogoutUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Endpoint to refresh the session.
+        /// </summary>
+        public static string Modal_Properties_RefreshUrl {
+            get {
+                return ResourceManager.GetString("Modal_Properties_RefreshUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time before timeout (in seconds) to show reminder.
+        /// </summary>
+        public static string Modal_Properties_ReminderTime {
+            get {
+                return ResourceManager.GetString("Modal_Properties_ReminderTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Makes the modal body scrollable.
+        /// </summary>
+        public static string Modal_Properties_Scrollable {
+            get {
+                return ResourceManager.GetString("Modal_Properties_Scrollable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Session timeout in seconds.
+        /// </summary>
+        public static string Modal_Properties_SessionTimeout {
+            get {
+                return ResourceManager.GetString("Modal_Properties_SessionTimeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shows close button in header.
+        /// </summary>
+        public static string Modal_Properties_ShowCloseButton {
+            get {
+                return ResourceManager.GetString("Modal_Properties_ShowCloseButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modal size (Default, Small, or Large).
+        /// </summary>
+        public static string Modal_Properties_Size {
+            get {
+                return ResourceManager.GetString("Modal_Properties_Size", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text displayed in the modal header.
+        /// </summary>
+        public static string Modal_Properties_Title {
+            get {
+                return ResourceManager.GetString("Modal_Properties_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to session.
+        /// </summary>
+        public static string Modal_Session_Anchor {
+            get {
+                return ResourceManager.GetString("Modal_Session_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;A specialized modal for handling session timeouts:&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Modal_Session_Text {
+            get {
+                return ResourceManager.GetString("Modal_Session_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Session Modal.
+        /// </summary>
+        public static string Modal_Session_Title {
+            get {
+                return ResourceManager.GetString("Modal_Session_Title", resourceCulture);
             }
         }
         

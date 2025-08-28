@@ -498,7 +498,9 @@ namespace GCFoundation.Web.Controllers
         public IActionResult Modal()
         {
             SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Modal_Title}");
-            return View();
+
+            var vm = BuildModalComponentViewModel();
+            return View("Modal", vm);
         }
 
         /// <summary>
@@ -642,10 +644,47 @@ namespace GCFoundation.Web.Controllers
             };
             vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
             {
-                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Form_SampleForm_Text, Id = Resources.Components.Form_SampleForm_Anchor, Title = Resources.Components.Form_SampleForm_Title },
+                new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.Form_SampleForm_Anchor, Title = Resources.Components.Form_SampleForm_Title },
             };
 
             vm.Tag = "<fdcp-form>";
+
+            return vm;
+        }
+        private static ComponentViewModel BuildModalComponentViewModel()
+        {
+            var vm = new ComponentViewModel();
+
+            vm.Name = Resources.Components.Modal_Name;
+            vm.Notes = new List<string>()
+            {
+                Resources.Components.Modal_Notes_1,
+                Resources.Components.Modal_Notes_2,
+                Resources.Components.Modal_Notes_3,
+                Resources.Components.Modal_Notes_4,
+                Resources.Components.Modal_Notes_5
+            };
+            vm.Overview = Resources.Components.Modal_Overview;
+            vm.Properties = new List<ComponentPropertyViewModel>()
+            {
+                new ComponentPropertyViewModel() { Name = "id", DataType = "string", DefaultValue = "modal", Description = Resources.Components.Modal_Properties_Id },
+                new ComponentPropertyViewModel() { Name = "title", DataType = "string", DefaultValue = "Modal Title", Description = Resources.Components.Modal_Properties_Title },
+                new ComponentPropertyViewModel() { Name = "centered", DataType = "bool", DefaultValue = "true", Description = Resources.Components.Modal_Properties_Centered },
+                new ComponentPropertyViewModel() { Name = "scrollable", DataType = "bool", Description = Resources.Components.Modal_Properties_Scrollable },
+                new ComponentPropertyViewModel() { Name = "size", DataType = "ModalSize", DefaultValue = "ModalSize.Default", Description = Resources.Components.Modal_Properties_Size },
+                new ComponentPropertyViewModel() { Name = "show-close-button", DataType = "bool", DefaultValue = "true", Description = Resources.Components.Modal_Properties_ShowCloseButton },
+                new ComponentPropertyViewModel() { Name = "is-static-backdrop", DataType = "bool", Description = Resources.Components.Modal_Properties_IsStaticBackdrop },
+                new ComponentPropertyViewModel() { Name = "session-timeout", DataType = "int", Description = Resources.Components.Modal_Properties_SessionTimeout },
+                new ComponentPropertyViewModel() { Name = "reminder-time", DataType = "int", Description = Resources.Components.Modal_Properties_ReminderTime },
+                new ComponentPropertyViewModel() { Name = "refresh-url", DataType = "Uri", Description = Resources.Components.Modal_Properties_RefreshUrl },
+                new ComponentPropertyViewModel() { Name = "logout-url", DataType = "Uri", Description = Resources.Components.Modal_Properties_LogoutUrl }
+            };
+            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
+            {
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Modal_Basic_Text, Id = Resources.Components.Modal_Basic_Anchor, PartialViewName = "Modal/_Basic", Title = Resources.Components.Modal_Basic_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Modal_Session_Text, Id = Resources.Components.Modal_Session_Anchor, PartialViewName = "Modal/_Session", Title = Resources.Components.Modal_Session_Title }
+            };
+            vm.Tag = "<fdcp-modal>";
 
             return vm;
         }
