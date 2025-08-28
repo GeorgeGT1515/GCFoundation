@@ -1,5 +1,5 @@
 ﻿@using GCFoundation.Web.Resources
-@model GCFoundation.Web.Models.Components.ComponentViewModel
+@model GCFoundation.Web.Models.FormTestViewModel
 
 <gcds-heading tag="h1">@Model.Name<br /><code>@Html.Raw(Html.Encode(Model.Tag))</code></gcds-heading>
 
@@ -13,8 +13,8 @@
         @* Overview *@
         <partial name="_Overview" model="Model" />
 
-        @* Sample code sections *@
-        <partial name="_SampleCodeSections" model="Model" />
+        @* Sample code section *@
+        <partial name="Form/_SampleForm" model="Model" />
 
         @* Properties *@
         <partial name="_Properties" model="Model" />

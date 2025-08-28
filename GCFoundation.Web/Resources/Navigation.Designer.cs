@@ -124,20 +124,20 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Form.
+        /// </summary>
+        public static string Nav_Components_Form {
+            get {
+                return ResourceManager.GetString("Nav_Components_Form", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Form Builder.
         /// </summary>
         public static string Nav_Components_FormBuilder {
             get {
                 return ResourceManager.GetString("Nav_Components_FormBuilder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Forms.
-        /// </summary>
-        public static string Nav_Components_Forms {
-            get {
-                return ResourceManager.GetString("Nav_Components_Forms", resourceCulture);
             }
         }
         

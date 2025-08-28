@@ -428,15 +428,15 @@ namespace GCFoundation.Web.Controllers
         /// Displays a sample form linked to properties of a class.
         /// </summary>
         /// <returns>
-        /// The Forms component view.
+        /// The Form component view.
         /// </returns>
-        [HttpGet("forms")]
-        public IActionResult Forms()
+        [HttpGet("form")]
+        public IActionResult Form()
         {
-            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Forms_Title}");
-            FormTestViewModel model = new FormTestViewModel();
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Form_Title}");
 
-            return View("Forms", model);
+            var vm = BuildFormComponentViewModel();
+            return View("Form", vm);
         }
 
         /// <summary>
@@ -444,19 +444,21 @@ namespace GCFoundation.Web.Controllers
         /// </summary>
         /// <param name="model">The form data submitted by the user.</param>
         /// <returns>
-        /// The Forms component view with the POSTed model and validation results.
+        /// The Form component view with the POSTed model and validation results.
         /// </returns>
-        [HttpPost("forms")]
+        [HttpPost("form")]
         [ValidateAntiForgeryToken]
-        public IActionResult Forms(FormTestViewModel model)
+        public IActionResult Form(FormTestViewModel vm)
         {
-            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Forms_Title}");
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Form_Title}");
+
             if (ModelState.IsValid)
             {
                 // Add your logic here if needed when the model is valid
             }
+            vm = BuildFormComponentViewModel(vm);
 
-            return View("Forms", model);
+            return View("Form", vm);
         }
 
         /// <summary>
@@ -578,6 +580,7 @@ namespace GCFoundation.Web.Controllers
                 new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Badge_Inverted_Text, Id = Resources.Components.Badge_Inverted_Anchor, PartialViewName = "Badge/_Inverted", Title = Resources.Components.Badge_Inverted_Title },
                 new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Badge_Slot_Text, Id = Resources.Components.Badge_Slot_Anchor, PartialViewName = "Badge/_Slot", Title = Resources.Components.Badge_Slot_Title }
             };
+            vm.Tag = "<fdcp-badge>";
 
             return vm;
         }
@@ -613,6 +616,35 @@ namespace GCFoundation.Web.Controllers
                 new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Card_WithImages_Text, Id = Resources.Components.Card_WithImages_Anchor, PartialViewName = "Card/_WithImages", Title = Resources.Components.Card_WithImages_Title },
                 new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Card_WithSlots_Text, Id = Resources.Components.Card_WithSlots_Anchor, PartialViewName = "Card/_WithSlots", Title = Resources.Components.Card_WithSlots_Title }
             };
+            vm.Tag = "<fdcp-card>";
+
+            return vm;
+        }
+        private static FormTestViewModel BuildFormComponentViewModel(FormTestViewModel? vm = null)
+        {
+            if (vm == null)
+                vm = new FormTestViewModel();
+
+            vm.Name = Resources.Components.Form_Name;
+            //vm.Notes = new List<string>()
+            //{
+            //    Resources.Components.Form_Notes_1,
+            //    Resources.Components.Form_Notes_2,
+            //    Resources.Components.Form_Notes_3
+            //};
+            vm.Overview = Resources.Components.Form_Overview;
+            vm.Properties = new List<ComponentPropertyViewModel>()
+            {
+                new ComponentPropertyViewModel() { Name = "for", DataType = "GCFoundation.Components.Models.BaseViewModel", Description = Resources.Components.Form_Properties_For },
+                new ComponentPropertyViewModel() { Name = "method", DataType = "string", DefaultValue = "POST", Description = Resources.Components.Form_Properties_Method },
+                new ComponentPropertyViewModel() { Name = "action", DataType = "string", Description = Resources.Components.Form_Properties_Action }
+            };
+            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
+            {
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Form_SampleForm_Text, Id = Resources.Components.Form_SampleForm_Anchor, Title = Resources.Components.Form_SampleForm_Text },
+            };
+
+            vm.Tag = "<fdcp-form>";
 
             return vm;
         }

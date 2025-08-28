@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="GcdsHeading" xml:space="preserve">
-    <value>Composants du Système de design GC</value>
+    <value>Composantes du Système de design GC</value>
   </data>
   <data name="GcdsParagraph1" xml:space="preserve">
     <value>Tous les composants du Système de design GC sont compatibles dès le départ. 
@@ -724,10 +724,10 @@
   <data name="StatelessAuth_Authenticated_Description" xml:space="preserve">
     <value>Le partiel de connexion utilisateur ci-dessus affiche vos informations de session actuelles à partir des revendications (aucun stockage de session côté serveur).</value>
   </data>
-  <data name="Index_Forms_Title" xml:space="preserve">
-    <value>Formulaires</value>
+  <data name="Index_Form_Title" xml:space="preserve">
+    <value>Formulaire</value>
   </data>
-  <data name="Index_Forms_Description" xml:space="preserve">
+  <data name="Index_Form_Description" xml:space="preserve">
     <value>Un moyen de créer des formulaires</value>
   </data>
   <data name="Index_Table_Title" xml:space="preserve">
@@ -825,6 +825,96 @@
   </data>
   <data name="Card_Notes_4" xml:space="preserve">
     <value>Toutes les cartes utilisent les variables de couleur SGDC pour un style cohérent du gouvernement du Canada.</value>
+  </data>
+  <data name="Form_Name" xml:space="preserve">
+    <value>Formulaire</value>
+  </data>
+  <data name="Form_Overview" xml:space="preserve">
+    <value>La composante &lt;code&gt;&amp;lt;fdcp-form&amp;gt;&lt;/code&gt; vous aide à construire vos propres formulaires avec une minimum d'efforts. La plupart du travail se fait à la définition du modèle. L'exemple suivant vous présente un formulaire basé sur un modèle défini du coté-serveur. Les champs sont alors associés aux propriétés du modèle.</value>
+  </data>
+  <data name="Form_Age_Hint" xml:space="preserve">
+    <value>Entrez votre âge (doit être 18 ou plus).</value>
+  </data>
+  <data name="Form_Age_Label" xml:space="preserve">
+    <value>Âge</value>
+  </data>
+  <data name="Form_AgreeToTerms_Hint" xml:space="preserve">
+    <value>Vous devez accepter pour continuer.</value>
+  </data>
+  <data name="Form_AgreeToTerms_Label" xml:space="preserve">
+    <value>Accepter les conditions d'utilisation</value>
+  </data>
+  <data name="Form_Bio_Hint" xml:space="preserve">
+    <value>Écrivez une courte biographie sur vous-même.</value>
+  </data>
+  <data name="Form_Bio_Label" xml:space="preserve">
+    <value>Biographie</value>
+  </data>
+  <data name="Form_Country_Hint" xml:space="preserve">
+    <value>Sélectionnez votre pays de résidence.</value>
+  </data>
+  <data name="Form_Country_Label" xml:space="preserve">
+    <value>Pays</value>
+  </data>
+  <data name="Form_DateOfBirth_Hint" xml:space="preserve">
+    <value>Entrez votre date de naissance</value>
+  </data>
+  <data name="Form_DateOfBirth_Label" xml:space="preserve">
+    <value>Date de naissance</value>
+  </data>
+  <data name="Form_Email_Hint" xml:space="preserve">
+    <value>Entrez une adresse électronique valide (ex: nom@exemple.com).</value>
+  </data>
+  <data name="Form_Email_Label" xml:space="preserve">
+    <value>Adresse électronique</value>
+  </data>
+  <data name="Form_Field_Firstname_Hint" xml:space="preserve">
+    <value>Entrer votre prenom</value>
+  </data>
+  <data name="Form_Field_Firstname_Label" xml:space="preserve">
+    <value>Prénom</value>
+  </data>
+  <data name="Form_Field_Lastname" xml:space="preserve">
+    <value>Nom de famille</value>
+  </data>
+  <data name="Form_FullName_Hint" xml:space="preserve">
+    <value>Entrez votre nom complet comme sur votre pièce d’identité.</value>
+  </data>
+  <data name="Form_FullName_Label" xml:space="preserve">
+    <value>Nom complet</value>
+  </data>
+  <data name="Form_Gender_Hint" xml:space="preserve">
+    <value>Sélectionnez votre identité de genre.</value>
+  </data>
+  <data name="Form_Gender_Label" xml:space="preserve">
+    <value>Genre</value>
+  </data>
+  <data name="Form_Interests_Label" xml:space="preserve">
+    <value>Que sont vos interrets?</value>
+  </data>
+  <data name="Form_Password_Hint" xml:space="preserve">
+    <value>Choisissez un mot de passe fort avec au moins 8 caractères.</value>
+  </data>
+  <data name="Form_Password_Label" xml:space="preserve">
+    <value>Mot de passe</value>
+  </data>
+  <data name="Form_SampleForm_Title" xml:space="preserve">
+    <value>Exemple d'un formulaire</value>
+  </data>
+  <data name="Form_Website_Hint" xml:space="preserve">
+    <value>Entrez l’URL de votre site personnel ou professionnel.</value>
+  </data>
+  <data name="Form_Website_Label" xml:space="preserve">
+    <value>Site web</value>
+  </data>
+  <data name="Form_Properties_For" xml:space="preserve">
+    <value>Le modèle auquel le formulaire sera attaché. Ce modèle devrait contenir toutes les erreurs de validation possible qui seront affichées le cas échéant.</value>
+  </data>
+  <data name="Form_Properties_Method" xml:space="preserve">
+    <value>Le verbe HTTP utilisé pour la soumission du formulaire (par ex.: GET, POST). La valeur par défaut est "POST".</value>
+  </data>
+  <data name="Form_Properties_Action" xml:space="preserve">
+    <value>L'adresse URL à laquelle l'action sera soumise.</value>
   </data>
   <data name="StatelessAuth_CurrentStatus_Title" xml:space="preserve">
     <value>Statut d'authentification actuel</value>
@@ -954,5 +1044,11 @@
   </data>
   <data name="StatelessAuth_Integration_Description2" xml:space="preserve">
     <value />
+  </data>
+  <data name="Form_SampleForm_Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Form_SampleForm_Anchor" xml:space="preserve">
+    <value>exemple-de-formulaire</value>
   </data>
 </root>

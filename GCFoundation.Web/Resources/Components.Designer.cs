@@ -484,6 +484,294 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter your age (must be 18 or older)..
+        /// </summary>
+        public static string Form_Age_Hint {
+            get {
+                return ResourceManager.GetString("Form_Age_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Age.
+        /// </summary>
+        public static string Form_Age_Label {
+            get {
+                return ResourceManager.GetString("Form_Age_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must agree to continue..
+        /// </summary>
+        public static string Form_AgreeToTerms_Hint {
+            get {
+                return ResourceManager.GetString("Form_AgreeToTerms_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Agree to Terms and Conditions.
+        /// </summary>
+        public static string Form_AgreeToTerms_Label {
+            get {
+                return ResourceManager.GetString("Form_AgreeToTerms_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write a short biography about yourself..
+        /// </summary>
+        public static string Form_Bio_Hint {
+            get {
+                return ResourceManager.GetString("Form_Bio_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bio.
+        /// </summary>
+        public static string Form_Bio_Label {
+            get {
+                return ResourceManager.GetString("Form_Bio_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select your country of residence..
+        /// </summary>
+        public static string Form_Country_Hint {
+            get {
+                return ResourceManager.GetString("Form_Country_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Country.
+        /// </summary>
+        public static string Form_Country_Label {
+            get {
+                return ResourceManager.GetString("Form_Country_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your date of birth.
+        /// </summary>
+        public static string Form_DateOfBirth_Hint {
+            get {
+                return ResourceManager.GetString("Form_DateOfBirth_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date of birth.
+        /// </summary>
+        public static string Form_DateOfBirth_Label {
+            get {
+                return ResourceManager.GetString("Form_DateOfBirth_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter a valid email address (e.g., name@example.com)..
+        /// </summary>
+        public static string Form_Email_Hint {
+            get {
+                return ResourceManager.GetString("Form_Email_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email adress.
+        /// </summary>
+        public static string Form_Email_Label {
+            get {
+                return ResourceManager.GetString("Form_Email_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your first name.
+        /// </summary>
+        public static string Form_Field_Firstname_Hint {
+            get {
+                return ResourceManager.GetString("Form_Field_Firstname_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Firstname.
+        /// </summary>
+        public static string Form_Field_Firstname_Label {
+            get {
+                return ResourceManager.GetString("Form_Field_Firstname_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lastname.
+        /// </summary>
+        public static string Form_Field_Lastname {
+            get {
+                return ResourceManager.GetString("Form_Field_Lastname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your full name as shown on ID..
+        /// </summary>
+        public static string Form_FullName_Hint {
+            get {
+                return ResourceManager.GetString("Form_FullName_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Full Name.
+        /// </summary>
+        public static string Form_FullName_Label {
+            get {
+                return ResourceManager.GetString("Form_FullName_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select your gender identity..
+        /// </summary>
+        public static string Form_Gender_Hint {
+            get {
+                return ResourceManager.GetString("Form_Gender_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gender.
+        /// </summary>
+        public static string Form_Gender_Label {
+            get {
+                return ResourceManager.GetString("Form_Gender_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What is your interests?.
+        /// </summary>
+        public static string Form_Interests_Label {
+            get {
+                return ResourceManager.GetString("Form_Interests_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Form.
+        /// </summary>
+        public static string Form_Name {
+            get {
+                return ResourceManager.GetString("Form_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-form&amp;gt;&lt;/code&gt; component helps you build your own form with minumum implementation. Most of the work gets done in the model. The following example present you with a form coded a sample model defined on the server-side. Input fields are then assigned to properties of the model..
+        /// </summary>
+        public static string Form_Overview {
+            get {
+                return ResourceManager.GetString("Form_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose a strong password with at least 8 characters..
+        /// </summary>
+        public static string Form_Password_Hint {
+            get {
+                return ResourceManager.GetString("Form_Password_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string Form_Password_Label {
+            get {
+                return ResourceManager.GetString("Form_Password_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The action URL for the form submission..
+        /// </summary>
+        public static string Form_Properties_Action {
+            get {
+                return ResourceManager.GetString("Form_Properties_Action", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The model that the form is bound to. This model should contain any validation errors that will be displayed in the error summary if present..
+        /// </summary>
+        public static string Form_Properties_For {
+            get {
+                return ResourceManager.GetString("Form_Properties_For", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The HTTP method used for the form submission (e.g., GET, POST). Defaults to &quot;post&quot;..
+        /// </summary>
+        public static string Form_Properties_Method {
+            get {
+                return ResourceManager.GetString("Form_Properties_Method", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to sample-form.
+        /// </summary>
+        public static string Form_SampleForm_Anchor {
+            get {
+                return ResourceManager.GetString("Form_SampleForm_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Form_SampleForm_Text {
+            get {
+                return ResourceManager.GetString("Form_SampleForm_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sample form.
+        /// </summary>
+        public static string Form_SampleForm_Title {
+            get {
+                return ResourceManager.GetString("Form_SampleForm_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your personal or company website URL..
+        /// </summary>
+        public static string Form_Website_Hint {
+            get {
+                return ResourceManager.GetString("Form_Website_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Website.
+        /// </summary>
+        public static string Form_Website_Label {
+            get {
+                return ResourceManager.GetString("Form_Website_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to GC Design System Components.
         /// </summary>
         public static string GcdsHeading {
@@ -847,6 +1135,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A way to create forms.
+        /// </summary>
+        public static string Index_Form_Description {
+            get {
+                return ResourceManager.GetString("Index_Form_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Form.
+        /// </summary>
+        public static string Index_Form_Title {
+            get {
+                return ResourceManager.GetString("Index_Form_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A way to build form automatically from a structure.
         /// </summary>
         public static string Index_FormBuilder_Description {
@@ -861,24 +1167,6 @@ namespace GCFoundation.Web.Resources {
         public static string Index_FormBuilder_Title {
             get {
                 return ResourceManager.GetString("Index_FormBuilder_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to A way to create forms.
-        /// </summary>
-        public static string Index_Forms_Description {
-            get {
-                return ResourceManager.GetString("Index_Forms_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Forms.
-        /// </summary>
-        public static string Index_Forms_Title {
-            get {
-                return ResourceManager.GetString("Index_Forms_Title", resourceCulture);
             }
         }
         

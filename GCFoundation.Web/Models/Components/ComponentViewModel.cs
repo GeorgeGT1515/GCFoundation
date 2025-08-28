@@ -1,11 +1,11 @@
-﻿using static System.Collections.Specialized.BitVector32;
+﻿using GCFoundation.Components.Models;
 
 namespace GCFoundation.Web.Models.Components
 {
     /// <summary>
     /// ViewModel representing a component.
     /// </summary>
-    public class ComponentViewModel
+    public class ComponentViewModel : BaseViewModel
     {
         /// <summary>
         /// Name of the component.

@@ -48,8 +48,8 @@ namespace GCFoundation.Web.Infrastructure.Extensions
 
                 setup.UseCulture("fr")
                 .WhereController(nameof(ComponentsController))
-                .WhereAction(nameof(ComponentsController.Forms))
-                .TranslateAction("formulaires");
+                .WhereAction(nameof(ComponentsController.Form))
+                .TranslateAction("formulaire");
 
                 setup.UseCulture("fr")
                 .WhereController(nameof(ComponentsController))
@@ -156,8 +156,8 @@ namespace GCFoundation.Web.Infrastructure.Extensions
 
                 setup.UseCulture("en")
                     .WhereController(nameof(ComponentsController))
-                    .WhereAction(nameof(ComponentsController.Forms))
-                    .TranslateAction("forms");
+                    .WhereAction(nameof(ComponentsController.Form))
+                    .TranslateAction("form");
 
                 setup.UseCulture("en")
                     .WhereController(nameof(ComponentsController))

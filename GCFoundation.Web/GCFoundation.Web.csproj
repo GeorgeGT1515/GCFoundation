@@ -48,11 +48,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Components.resx</DependentUpon>
     </Compile>
-    <Compile Update="Resources\Forms.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Forms.resx</DependentUpon>
-    </Compile>
     <Compile Update="Resources\Home.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -84,10 +79,6 @@
     <EmbeddedResource Update="Resources\Components.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Components.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Forms.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Forms.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Home.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

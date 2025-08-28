@@ -1,0 +1,60 @@
+﻿@using GCFoundation.Web.Resources
+@model GCFoundation.Web.Models.FormTestViewModel
+
+@* Sample form *@
+@{
+    var sampleForm = Model.SampleCodeSections.First();
+}
+<gcds-heading tag="h2" id="@sampleForm.Id">@sampleForm.Title</gcds-heading>
+@if (!string.IsNullOrEmpty(sampleForm.Description))
+{
+    @Html.Raw(sampleForm.Description)
+}
+
+@if (Model == null)
+{
+    <p class="error-text">Model is NULL!</p>
+}
+else
+{
+    <fdcp-form method="post" action="@Url.Action("Forms", "Components")" for="@Model">
+        <fdcp-input for="@Model.FullName" />
+        <fdcp-input for="@Model.Email" />
+        <fdcp-input for="@Model.Password" />
+        <fdcp-input for="@Model.Website" />
+        <fdcp-input for="@Model.Age" />
+        <fdcp-input for="@Model.Bio" />
+        <fdcp-input for="@Model.DateOfBirth" />
+
+        <fdcp-select for="@Model.SelectedCountry" items="@Model.CountryOptions" />
+
+        <fdcp-radios for="@Model.Gender" items="@Model.GenderOptions" />
+
+        <fdcp-checkboxes for="@Model.SelectedInterests" items="@Model.InterestOptions" required="true" />
+
+        <fdcp-checkbox for="@Model.AgreeToTerms" required="true" />
+
+        <gcds-button type="submit">Submit</gcds-button>
+    </fdcp-form>
+
+<pre><code class="language-cshtml">@Html.Raw(Html.Encode(@"
+<fdcp-form method=""post"" action=""@Url.Action(""Forms"", ""Components"")"" for=""@Model"">
+        <fdcp-input for=""@Model.FullName"" />
+        <fdcp-input for=""@Model.Email"" />
+        <fdcp-input for=""@Model.Password"" />
+        <fdcp-input for=""@Model.Website"" />
+        <fdcp-input for=""@Model.Age"" />
+        <fdcp-input for=""@Model.Bio"" />
+        <fdcp-input for=""@Model.DateOfBirth"" />
+
+        <fdcp-select for=""@Model.SelectedCountry"" items=""@Model.CountryOptions"" />
+
+        <fdcp-radios for=""@Model.Gender"" items=""@Model.GenderOptions"" />
+
+        <fdcp-checkboxes for=""@Model.SelectedInterests"" items=""@Model.InterestOptions"" required=""true"" />
+
+        <fdcp-checkbox for=""@Model.AgreeToTerms"" required=""true"" />
+
+        <gcds-button type=""submit"">Submit</gcds-button>
+</fdcp-form>"))</code></pre>
+}
