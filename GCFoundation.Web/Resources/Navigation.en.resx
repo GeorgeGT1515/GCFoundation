@@ -153,7 +153,6 @@
   <data name="Nav_Components_UserLogin" xml:space="preserve">
     <value>User Login Partial</value>
   </data>
-
   <data name="Nav_Installation" xml:space="preserve">
     <value>Installation</value>
   </data>
@@ -169,7 +168,6 @@
   <data name="Nav_Language" xml:space="preserve">
     <value>Language</value>
   </data>
-
   <data name="Nav_Authentication" xml:space="preserve">
     <value>Authentication</value>
   </data>
@@ -196,5 +194,8 @@
   </data>
   <data name="Nav_Authentication_StatelessExamples" xml:space="preserve">
     <value>Stateless Auth Examples</value>
+  </data>
+  <data name="Nav_Components_Card" xml:space="preserve">
+    <value>Card</value>
   </data>
 </root>

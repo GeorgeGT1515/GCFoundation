@@ -6,14 +6,9 @@
     public class ComponentSampleCodeSectionViewModel
     {
         /// <summary>
-        /// Formatted sample code for the section.
+        /// Introductory text for the sample code.
         /// </summary>
-        public string Code { get; set; } = string.Empty;
-
-        /// <summary>
-        /// Language of the sample code for the section (for formatting).
-        /// </summary>
-        public string CodeLanguage { get; set; } = string.Empty;
+        public string? Description { get; set; }
 
         /// <summary>
         /// Html identifier attribute for the section.
@@ -21,9 +16,9 @@
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
-        /// HTML content that will be rendered as is to preview the result of the sample code.
+        /// Name of the partial view that contains the sample code.
         /// </summary>
-        public string HtmlContent { get; set; } = string.Empty;
+        public string PartialViewName { get; set; } = string.Empty;
 
         /// <summary>
         /// Title of the section.

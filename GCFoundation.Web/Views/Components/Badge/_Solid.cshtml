@@ -1,0 +1,8 @@
+﻿@using GCFoundation.Components.TagHelpers.FDCP
+@model GCFoundation.Web.Models.Components.ComponentSampleCodeSectionViewModel
+
+@foreach (FDCPBadgeStyle style in Enum.GetValues(typeof(FDCPBadgeStyle)))
+{
+    <fdcp-badge style="@style">@style.ToString()</fdcp-badge>
+}
+<pre><code class="language-html">&lt;fdcp-badge style="@(FDCPBadgeStyle.Primary)"&gt;Primary&lt;/fdcp-badge&gt;</code></pre>

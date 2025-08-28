@@ -19,6 +19,9 @@
 				<NavNode key="badge" controller="Components" action="Badge" area="" preservedRouteParameters="culture" text="Nav_Components_Badge" >
 					<Children />
 				</NavNode>
+        <NavNode key="card" controller="Components" action="Card" area="" preservedRouteParameters="culture" text="Nav_Components_Card" >
+          <Children />
+        </NavNode>
 				<NavNode key="modal" controller="Components" action="Modal" area="" preservedRouteParameters="culture" text="Nav_Components_Modal" >
 					<Children />
 				</NavNode>

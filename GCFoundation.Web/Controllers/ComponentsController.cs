@@ -36,7 +36,9 @@ namespace GCFoundation.Web.Controllers
         public IActionResult Badge()
         {
             SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Badge_Title}");
-            return View();
+
+            var vm = BuildBadgeComponentViewModel();
+            return View("Component", vm);
         }
 
         /// <summary>
@@ -51,7 +53,7 @@ namespace GCFoundation.Web.Controllers
             SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Card_Title}");
 
             var vm = BuildCardComponentViewModel();
-            return View("_Component", vm);
+            return View("Component", vm);
         }
 
         /// <summary>
@@ -550,6 +552,35 @@ namespace GCFoundation.Web.Controllers
         }
 
         #region ViewModel Building
+        private static ComponentViewModel BuildBadgeComponentViewModel()
+        {
+            var vm = new ComponentViewModel();
+
+            vm.Name = Resources.Components.Badge_Name;
+            vm.Notes = new List<string>()
+            {
+                Resources.Components.Badge_Notes_1,
+                Resources.Components.Badge_Notes_2,
+                Resources.Components.Badge_Notes_3
+            };
+            vm.Overview = Resources.Components.Badge_Overview;
+            vm.Properties = new List<ComponentPropertyViewModel>()
+            {
+                new ComponentPropertyViewModel() { Name = "style", DataType = "FDCPBadgeStyle", Description = Resources.Components.Badge_Properties_Style },
+                new ComponentPropertyViewModel() { Name = "inverted", DataType = "bool", Description = Resources.Components.Badge_Properties_Inverted },
+                new ComponentPropertyViewModel() { Name = "start-content", DataType = "string", Description = Resources.Components.Badge_Properties_StartContent },
+                new ComponentPropertyViewModel() { Name = "end-content", DataType = "string", Description = Resources.Components.Badge_Properties_EndContent },
+                new ComponentPropertyViewModel() { Name = "tag-id", DataType = "string", Description = Resources.Components.Badge_Properties_TagId }
+            };
+            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
+            {
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Badge_Solid_Text, Id = Resources.Components.Badge_Solid_Anchor, PartialViewName = "Badge/_Solid", Title = Resources.Components.Badge_Solid_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Badge_Inverted_Text, Id = Resources.Components.Badge_Inverted_Anchor, PartialViewName = "Badge/_Inverted", Title = Resources.Components.Badge_Inverted_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Badge_Slot_Text, Id = Resources.Components.Badge_Slot_Anchor, PartialViewName = "Badge/_Slot", Title = Resources.Components.Badge_Slot_Title }
+            };
+
+            return vm;
+        }
         private static ComponentViewModel BuildCardComponentViewModel()
         {
             var vm = new ComponentViewModel();
@@ -559,23 +590,28 @@ namespace GCFoundation.Web.Controllers
             {
                 Resources.Components.Card_Notes_1,
                 Resources.Components.Card_Notes_2,
-                Resources.Components.Card_Notes_3
+                Resources.Components.Card_Notes_3,
+                Resources.Components.Card_Notes_4
             };
             vm.Overview = Resources.Components.Card_Overview;
             vm.Properties = new List<ComponentPropertyViewModel>()
             {
-                new ComponentPropertyViewModel() { Name = "TagId", DataType = "string", Description = Resources.Components.Card_Properties_TagId },
-                new ComponentPropertyViewModel() { Name = "Width", DataType = "string", Description = Resources.Components.Card_Properties_Width },
-                new ComponentPropertyViewModel() { Name = "Height", DataType = "string", Description = Resources.Components.Card_Properties_Height },
-                new ComponentPropertyViewModel() { Name = "Border", DataType = "bool", Description = Resources.Components.Card_Properties_Border },
-                new ComponentPropertyViewModel() { Name = "Shadow", DataType = "bool", Description = Resources.Components.Card_Properties_Shadow }
+                new ComponentPropertyViewModel() { Name = "tag-id", DataType = "string", Description = Resources.Components.Card_Properties_TagId },
+                new ComponentPropertyViewModel() { Name = "width", DataType = "string", Description = Resources.Components.Card_Properties_Width },
+                new ComponentPropertyViewModel() { Name = "height", DataType = "string", Description = Resources.Components.Card_Properties_Height },
+                new ComponentPropertyViewModel() { Name = "border", DataType = "bool", Description = Resources.Components.Card_Properties_Border },
+                new ComponentPropertyViewModel() { Name = "shadow", DataType = "bool", Description = Resources.Components.Card_Properties_Shadow },
+                new ComponentPropertyViewModel() { Name = "image-top", DataType = "string", Description = Resources.Components.Card_Properties_ImageTop },
+                new ComponentPropertyViewModel() { Name = "image-bottom", DataType = "string", Description = Resources.Components.Card_Properties_ImageBottom },
+                new ComponentPropertyViewModel() { Name = "image-alt", DataType = "string", Description = Resources.Components.Card_Properties_ImageAlt },
+                new ComponentPropertyViewModel() { Name = "horizontal", DataType = "bool", Description = Resources.Components.Card_Properties_Horizontal }
             };
             vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
             {
-                new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.Card_Basic_Anchor, HtmlContent = Resources.Components.Card_Basic_Text, Title = Resources.Components.Card_Basic_Title },
-                new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.Card_Horizontal_Anchor, HtmlContent = Resources.Components.Card_Horizontal_Text, Title = Resources.Components.Card_Horizontal_Title },
-                new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.Card_WithImages_Anchor, HtmlContent = Resources.Components.Card_WithImages_Text, Title = Resources.Components.Card_WithImages_Title },
-                new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.Card_WithSlots_Anchor, HtmlContent = Resources.Components.Card_WithSlots_Text, Title = Resources.Components.Card_WithSlots_Title }
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Card_Basic_Text, Id = Resources.Components.Card_Basic_Anchor, PartialViewName = "Card/_Basic", Title = Resources.Components.Card_Basic_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Card_Horizontal_Text, Id = Resources.Components.Card_Horizontal_Anchor, PartialViewName = "Card/_Horizontal", Title = Resources.Components.Card_Horizontal_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Card_WithImages_Text, Id = Resources.Components.Card_WithImages_Anchor, PartialViewName = "Card/_WithImages", Title = Resources.Components.Card_WithImages_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Card_WithSlots_Text, Id = Resources.Components.Card_WithSlots_Anchor, PartialViewName = "Card/_WithSlots", Title = Resources.Components.Card_WithSlots_Title }
             };
 
             return vm;

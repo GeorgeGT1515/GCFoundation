@@ -63,234 +63,180 @@ namespace GCFoundation.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Dismissible Badge.
         /// </summary>
-        public static string Badges_Dismissible_Title {
+        public static string Badge_Dismissible_Title {
             get {
-                return ResourceManager.GetString("Badges_Dismissible_Title", resourceCulture);
+                return ResourceManager.GetString("Badge_Dismissible_Title", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to inverted.
         /// </summary>
-        public static string Badges_Inverted_Anchor {
+        public static string Badge_Inverted_Anchor {
             get {
-                return ResourceManager.GetString("Badges_Inverted_Anchor", resourceCulture);
+                return ResourceManager.GetString("Badge_Inverted_Anchor", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Use the &lt;code&gt;inverted=&quot;true&quot;&lt;/code&gt; attribute to render badges with transparent backgrounds..
         /// </summary>
-        public static string Badges_Inverted_Text {
+        public static string Badge_Inverted_Text {
             get {
-                return ResourceManager.GetString("Badges_Inverted_Text", resourceCulture);
+                return ResourceManager.GetString("Badge_Inverted_Text", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Inverted Variants.
         /// </summary>
-        public static string Badges_Inverted_Title {
+        public static string Badge_Inverted_Title {
             get {
-                return ResourceManager.GetString("Badges_Inverted_Title", resourceCulture);
+                return ResourceManager.GetString("Badge_Inverted_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Badge.
+        /// </summary>
+        public static string Badge_Name {
+            get {
+                return ResourceManager.GetString("Badge_Name", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Use &lt;code&gt;slot=&quot;start-content&quot;&lt;/code&gt; and &lt;code&gt;slot=&quot;end-content&quot;&lt;/code&gt; when embedding HTML..
         /// </summary>
-        public static string Badges_Notes_1 {
+        public static string Badge_Notes_1 {
             get {
-                return ResourceManager.GetString("Badges_Notes_1", resourceCulture);
+                return ResourceManager.GetString("Badge_Notes_1", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to For font icons, use libraries like Font Awesome or Bootstrap Icons..
         /// </summary>
-        public static string Badges_Notes_2 {
+        public static string Badge_Notes_2 {
             get {
-                return ResourceManager.GetString("Badges_Notes_2", resourceCulture);
+                return ResourceManager.GetString("Badge_Notes_2", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to All badges are rendered as &lt;code&gt;&amp;lt;span&amp;gt;&lt;/code&gt; elements with class &lt;code&gt;fdcp-badge&lt;/code&gt;..
         /// </summary>
-        public static string Badges_Notes_3 {
+        public static string Badge_Notes_3 {
             get {
-                return ResourceManager.GetString("Badges_Notes_3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to notes.
-        /// </summary>
-        public static string Badges_Notes_Anchor {
-            get {
-                return ResourceManager.GetString("Badges_Notes_Anchor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Notes.
-        /// </summary>
-        public static string Badges_Notes_Title {
-            get {
-                return ResourceManager.GetString("Badges_Notes_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to overview.
-        /// </summary>
-        public static string Badges_Overview_Anchor {
-            get {
-                return ResourceManager.GetString("Badges_Overview_Anchor", resourceCulture);
+                return ResourceManager.GetString("Badge_Notes_3", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-badge&amp;gt;&lt;/code&gt; component is used to highlight small pieces of information....
         /// </summary>
-        public static string Badges_Overview_Text {
+        public static string Badge_Overview {
             get {
-                return ResourceManager.GetString("Badges_Overview_Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Overview.
-        /// </summary>
-        public static string Badges_Overview_Title {
-            get {
-                return ResourceManager.GetString("Badges_Overview_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to parameters.
-        /// </summary>
-        public static string Badges_Parameters_Anchor {
-            get {
-                return ResourceManager.GetString("Badges_Parameters_Anchor", resourceCulture);
+                return ResourceManager.GetString("Badge_Overview", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Optional HTML to append after the badge content..
         /// </summary>
-        public static string Badges_Parameters_EndContent {
+        public static string Badge_Properties_EndContent {
             get {
-                return ResourceManager.GetString("Badges_Parameters_EndContent", resourceCulture);
+                return ResourceManager.GetString("Badge_Properties_EndContent", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Applies an inverted, outline-style badge..
         /// </summary>
-        public static string Badges_Parameters_Inverted {
+        public static string Badge_Properties_Inverted {
             get {
-                return ResourceManager.GetString("Badges_Parameters_Inverted", resourceCulture);
+                return ResourceManager.GetString("Badge_Properties_Inverted", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Optional HTML to prepend before the badge content..
         /// </summary>
-        public static string Badges_Parameters_StartContent {
+        public static string Badge_Properties_StartContent {
             get {
-                return ResourceManager.GetString("Badges_Parameters_StartContent", resourceCulture);
+                return ResourceManager.GetString("Badge_Properties_StartContent", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Badge style (Primary, Success, Danger, Info, etc.).
         /// </summary>
-        public static string Badges_Parameters_Style {
+        public static string Badge_Properties_Style {
             get {
-                return ResourceManager.GetString("Badges_Parameters_Style", resourceCulture);
+                return ResourceManager.GetString("Badge_Properties_Style", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Optional &lt;code&gt;id&lt;/code&gt; attribute for the badge element..
         /// </summary>
-        public static string Badges_Parameters_TagId {
+        public static string Badge_Properties_TagId {
             get {
-                return ResourceManager.GetString("Badges_Parameters_TagId", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Parameters.
-        /// </summary>
-        public static string Badges_Parameters_Title {
-            get {
-                return ResourceManager.GetString("Badges_Parameters_Title", resourceCulture);
+                return ResourceManager.GetString("Badge_Properties_TagId", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to start-end.
         /// </summary>
-        public static string Badges_Slot_Anchor {
+        public static string Badge_Slot_Anchor {
             get {
-                return ResourceManager.GetString("Badges_Slot_Anchor", resourceCulture);
+                return ResourceManager.GetString("Badge_Slot_Anchor", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to You can insert an icon or button at the start or end using either the &lt;code&gt;slot&lt;/code&gt; attribute or the &lt;code&gt;StartContent&lt;/code&gt;/&lt;code&gt;EndContent&lt;/code&gt; properties..
         /// </summary>
-        public static string Badges_Slot_Text {
+        public static string Badge_Slot_Text {
             get {
-                return ResourceManager.GetString("Badges_Slot_Text", resourceCulture);
+                return ResourceManager.GetString("Badge_Slot_Text", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Start and End.
         /// </summary>
-        public static string Badges_Slot_Title {
+        public static string Badge_Slot_Title {
             get {
-                return ResourceManager.GetString("Badges_Slot_Title", resourceCulture);
+                return ResourceManager.GetString("Badge_Slot_Title", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to solid.
         /// </summary>
-        public static string Badges_Solid_Anchor {
+        public static string Badge_Solid_Anchor {
             get {
-                return ResourceManager.GetString("Badges_Solid_Anchor", resourceCulture);
+                return ResourceManager.GetString("Badge_Solid_Anchor", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to These badges use a solid background..
         /// </summary>
-        public static string Badges_Solid_Text {
+        public static string Badge_Solid_Text {
             get {
-                return ResourceManager.GetString("Badges_Solid_Text", resourceCulture);
+                return ResourceManager.GetString("Badge_Solid_Text", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Solid Variants.
         /// </summary>
-        public static string Badges_Solid_Title {
+        public static string Badge_Solid_Title {
             get {
-                return ResourceManager.GetString("Badges_Solid_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to FDCP Badge Documentation.
-        /// </summary>
-        public static string Badges_Title {
-            get {
-                return ResourceManager.GetString("Badges_Title", resourceCulture);
+                return ResourceManager.GetString("Badge_Solid_Title", resourceCulture);
             }
         }
         
@@ -304,7 +250,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A simple card with just text content:.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;A simple card with just text content:&lt;/gcds-text&gt;.
         /// </summary>
         public static string Card_Basic_Text {
             get {
@@ -331,7 +277,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cards can be displayed horizontally with images on the side:.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Use the &lt;code&gt;horizontal=&quot;true&quot;&lt;/code&gt; attribute to create horizontal card layouts.&lt;/gcds-text&gt;.
         /// </summary>
         public static string Card_Horizontal_Text {
             get {
@@ -358,7 +304,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cards are block-level elements and will take full width by default..
+        ///   Looks up a localized string similar to Cards are responsive and will adapt to their container width unless a specific width is set..
         /// </summary>
         public static string Card_Notes_1 {
             get {
@@ -367,7 +313,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use slots (header, body, footer) to structure content appropriately..
+        ///   Looks up a localized string similar to Use &lt;code&gt;slot=&quot;header&quot;&lt;/code&gt;, &lt;code&gt;slot=&quot;body&quot;&lt;/code&gt;, and &lt;code&gt;slot=&quot;footer&quot;&lt;/code&gt; to define card sections..
         /// </summary>
         public static string Card_Notes_2 {
             get {
@@ -381,6 +327,15 @@ namespace GCFoundation.Web.Resources {
         public static string Card_Notes_3 {
             get {
                 return ResourceManager.GetString("Card_Notes_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All cards use GCDS color variables for consistent Government of Canada styling..
+        /// </summary>
+        public static string Card_Notes_4 {
+            get {
+                return ResourceManager.GetString("Card_Notes_4", resourceCulture);
             }
         }
         
@@ -484,7 +439,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cards can include images at the top or bottom:.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Cards support top and bottom images using the &lt;code&gt;image-top&lt;/code&gt; and &lt;code&gt;image-bottom&lt;/code&gt; attributes.&lt;/gcds-text&gt;.
         /// </summary>
         public static string Card_WithImages_Text {
             get {
@@ -511,7 +466,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cards support header, body, and footer slots for structured content:.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Cards support header, body, and footer slots for structured content. Use the &lt;code&gt;slot&lt;/code&gt; attribute to define header, body, and footer sections.&lt;/gcds-text&gt;.
         /// </summary>
         public static string Card_WithSlots_Text {
             get {
@@ -520,7 +475,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Card with Slots.
+        ///   Looks up a localized string similar to Cards with Header and Footer.
         /// </summary>
         public static string Card_WithSlots_Title {
             get {

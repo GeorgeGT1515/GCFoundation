@@ -1,9 +1,0 @@
-﻿@model GCFoundation.Web.Models.Components.ComponentSampleCodeSectionViewModel
-
-<gcds-heading tag="h2" id="@Model.Id">@Model.Title</gcds-heading>
-
-@* Preview *@
-@Html.Raw(Model.HtmlContent)
-
-@* Pre-formatted sample code *@
-<pre><code class="@(Model.CodeLanguage ?? "language-html")">@Html.Raw(Html.Encode(Model.Code))</code></pre>
