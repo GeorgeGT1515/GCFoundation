@@ -1,0 +1,13 @@
+﻿@model GCFoundation.Web.Models.FilteredSearchViewModel
+
+@* Sample form *@
+@{
+    var sampleForm = Model.SampleCodeSections.First();
+}
+<gcds-heading tag="h2" id="@sampleForm.Id">@sampleForm.Title</gcds-heading>
+@if (!string.IsNullOrEmpty(sampleForm.Description))
+{
+    @Html.Raw(sampleForm.Description)
+}
+
+<fdcp-filters-box filters="@Model.SearchFilterCategories" title="@Model.Name"></fdcp-filters-box>

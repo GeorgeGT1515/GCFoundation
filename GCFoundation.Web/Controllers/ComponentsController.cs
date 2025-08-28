@@ -1,4 +1,5 @@
 ﻿using GCFoundation.Components.Controllers;
+using GCFoundation.Components.Models;
 using GCFoundation.Components.Models.FormBuilder;
 using GCFoundation.Web.Models;
 using GCFoundation.Web.Models.Components;
@@ -57,17 +58,18 @@ namespace GCFoundation.Web.Controllers
         }
 
         /// <summary>
-        /// Displays a specific component view based on the component name.
+        /// Displays the Filtered Search component demo page.
         /// </summary>
-        /// <param name="componentName">The name of the component to load.</param>
         /// <returns>
-        /// The view for the specified component.
+        /// The Filtered Search component view.
         /// </returns>
-        [HttpGet("component")]
-        public IActionResult GetComponent(string componentName)
+        [HttpGet("filtered-search")]
+        public IActionResult FilteredSearch()
         {
-            SetPageTitle($"{Menu.Menu_Components} : {componentName}");
-            return View(componentName);
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_FilteredSearch_Title}");
+
+            var vm = BuildFilteredSearchComponentViewModel();
+            return View("FilteredSearch", vm);
         }
 
         /// <summary>
@@ -623,6 +625,56 @@ namespace GCFoundation.Web.Controllers
 
             return vm;
         }
+        private static FilteredSearchViewModel BuildFilteredSearchComponentViewModel()
+        {
+            var vm = new FilteredSearchViewModel();
+
+            // Create sample Filtered Search categories.
+            vm.SearchFilterCategories = new List<SearchFilterCategory>
+            {
+                new SearchFilterCategory
+                {
+                    Title = "Funding type",
+                    SearchFilterCategoryId = "funding",
+                    Filters = new List<SearchFilterOption>
+                    {
+                        new SearchFilterOption { Title = "Grants", Count = 45, Name = "grants" },
+                        new SearchFilterOption { Title = "Contributions", Count = 4, Name = "contributions" }
+                    }
+                },
+                new SearchFilterCategory
+                {
+                    Title = "Amounts",
+                    SearchFilterCategoryId = "amounts",
+                    Filters = new List<SearchFilterOption>
+                    {
+                        new SearchFilterOption { Title = "Less than $10,000", Count = 26, Name = "less10000" },
+                        new SearchFilterOption { Title = "$10,000 to $24,999", Count = 5, Name = "between10000and24999" }
+                    }
+                }
+            };
+
+            vm.Name = Resources.Components.FilteredSearch_Name;
+            //vm.Notes = new List<string>()
+            //{
+            //    Resources.Components.FilteredSearch_Notes_1,
+            //    Resources.Components.FilteredSearch_Notes_2,
+            //    Resources.Components.FilteredSearch_Notes_3
+            //};
+            vm.Overview = Resources.Components.FilteredSearch_Overview;
+            vm.Properties = new List<ComponentPropertyViewModel>()
+            {
+                new ComponentPropertyViewModel() { Name = "title", DataType = "string", Description = Resources.Components.FilteredSearch_Properties_Title },
+                new ComponentPropertyViewModel() { Name = "filters", DataType = "IEnumerable<SearchFilterCategory>", Description = Resources.Components.FilteredSearch_Properties_Filters }
+            };
+            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
+            {
+                new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.FilteredSearch_Basic_Anchor, PartialViewName = "FilteredSearch/_Basic", Title = Resources.Components.FilteredSearch_Basic_Title }
+            };
+            vm.Tag = "<fdcp-filters-box>";
+
+            return vm;
+        }
         private static FormTestViewModel BuildFormComponentViewModel(FormTestViewModel? vm = null)
         {
             if (vm == null)
@@ -646,7 +698,6 @@ namespace GCFoundation.Web.Controllers
             {
                 new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.Form_SampleForm_Anchor, Title = Resources.Components.Form_SampleForm_Title },
             };
-
             vm.Tag = "<fdcp-form>";
 
             return vm;

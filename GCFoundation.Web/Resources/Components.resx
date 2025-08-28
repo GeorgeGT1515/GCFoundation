@@ -990,4 +990,22 @@
   <data name="Modal_Properties_LogoutUrl" xml:space="preserve">
     <value>Endpoint to log out the user</value>
   </data>
+  <data name="FilteredSearch_Name" xml:space="preserve">
+    <value>Filtered Search</value>
+  </data>
+  <data name="FilteredSearch_Overview" xml:space="preserve">
+    <value>The &lt;code&gt;&amp;lt;fdcp-filters-box&amp;gt;&lt;/code&gt; component provides a way to display a filtering panel to help users narrow down their search results.</value>
+  </data>
+  <data name="FilteredSearch_Properties_Title" xml:space="preserve">
+    <value>Title displayed at the top of the filter panel</value>
+  </data>
+  <data name="FilteredSearch_Properties_Filters" xml:space="preserve">
+    <value>A collection of filter categories to render in the filter panel; each category can contain multiple filter options.</value>
+  </data>
+  <data name="FilteredSearch_Basic_Anchor" xml:space="preserve">
+    <value>basic</value>
+  </data>
+  <data name="FilteredSearch_Basic_Title" xml:space="preserve">
+    <value>Basic Usage</value>
+  </data>
 </root>

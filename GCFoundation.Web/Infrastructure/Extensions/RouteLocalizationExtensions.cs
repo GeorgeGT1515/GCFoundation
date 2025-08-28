@@ -58,6 +58,11 @@ namespace GCFoundation.Web.Infrastructure.Extensions
 
                 setup.UseCulture("fr")
                 .WhereController(nameof(ComponentsController))
+                .WhereAction(nameof(ComponentsController.FilteredSearch))
+                .TranslateAction("recherche-filtree");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(ComponentsController))
                 .WhereAction(nameof(ComponentsController.FormBuilder))
                 .TranslateAction("constructeur-formulaires");
 
@@ -130,109 +135,6 @@ namespace GCFoundation.Web.Infrastructure.Extensions
                 .TranslateController("styles")
                 .WhereAction(nameof(StylesController.Index))
                 .TranslateAction("");
-
-                // FilteredSearch Controller
-                setup.UseCulture("fr")
-                .WhereController(nameof(FilteredSearchController))
-                .TranslateController("recherche-filtree")
-                .WhereAction(nameof(FilteredSearchController.Index))
-                .TranslateAction("");
-
-                // Keep original English routes for all controllers
-                setup.UseCulture("en")
-                    .WhereController(nameof(HomeController))
-                    .WhereAction(nameof(HomeController.Index))
-                    .TranslateAction("");
-
-                setup.UseCulture("en")
-                    .WhereController(nameof(ComponentsController))
-                    .WhereAction(nameof(ComponentsController.Index))
-                    .TranslateAction("");
-
-                setup.UseCulture("en")
-                    .WhereController(nameof(ComponentsController))
-                    .WhereAction(nameof(ComponentsController.Gcds))
-                    .TranslateAction("gcds");
-
-                setup.UseCulture("en")
-                    .WhereController(nameof(ComponentsController))
-                    .WhereAction(nameof(ComponentsController.Form))
-                    .TranslateAction("form");
-
-                setup.UseCulture("en")
-                    .WhereController(nameof(ComponentsController))
-                    .WhereAction(nameof(ComponentsController.GlobalResources))
-                    .TranslateAction("global-resources");
-
-                setup.UseCulture("en")
-                    .WhereController(nameof(ComponentsController))
-                    .WhereAction(nameof(ComponentsController.FormBuilder))
-                    .TranslateAction("form-builder");
-
-                setup.UseCulture("en")
-                    .WhereController(nameof(ComponentsController))
-                    .WhereAction(nameof(ComponentsController.Badge))
-                    .TranslateAction("badge");
-
-                setup.UseCulture("en")
-                    .WhereController(nameof(ComponentsController))
-                    .WhereAction(nameof(ComponentsController.Modal))
-                    .TranslateAction("modal");
-
-                setup.UseCulture("en")
-                    .WhereController(nameof(ComponentsController))
-                    .WhereAction(nameof(ComponentsController.Table))
-                    .TranslateAction("table");
-
-                setup.UseCulture("en")
-                    .WhereController(nameof(ComponentsController))
-                    .WhereAction(nameof(ComponentsController.PageHeading))
-                    .TranslateAction("page-heading");
-
-                setup.UseCulture("en")
-                    .WhereController(nameof(ComponentsController))
-                    .WhereAction(nameof(ComponentsController.Stepper))
-                    .TranslateAction("stepper");
-
-                setup.UseCulture("en")
-                    .WhereController(nameof(TemplateController))
-                    .WhereAction(nameof(TemplateController.Index))
-                    .TranslateAction("");
-
-                setup.UseCulture("en")
-                    .WhereController(nameof(AuthenticationController))
-                    .WhereAction(nameof(AuthenticationController.Login))
-                    .TranslateAction("login");
-
-                setup.UseCulture("en")
-                    .WhereController(nameof(AuthenticationController))
-                    .WhereAction(nameof(AuthenticationController.Logout))
-                    .TranslateAction("logout");
-
-                setup.UseCulture("en")
-                    .WhereController(nameof(AuthenticationController))
-                    .WhereAction(nameof(AuthenticationController.RefreshSession))
-                    .TranslateAction("refresh");
-
-                setup.UseCulture("en")
-                    .WhereController(nameof(InstallationController))
-                    .WhereAction(nameof(InstallationController.Index))
-                    .TranslateAction("");
-
-                setup.UseCulture("en")
-                    .WhereController(nameof(LanguageController))
-                    .WhereAction(nameof(LanguageController.Index))
-                    .TranslateAction("");
-
-                setup.UseCulture("en")
-                    .WhereController(nameof(StylesController))
-                    .WhereAction(nameof(StylesController.Index))
-                    .TranslateAction("");
-
-                setup.UseCulture("en")
-                    .WhereController(nameof(FilteredSearchController))
-                    .WhereAction(nameof(FilteredSearchController.Index))
-                    .TranslateAction("");
 
                 // Ensure untranslated routes exist for controllers with attribute routes only
                 setup.UseCultures(SupportedCultures)

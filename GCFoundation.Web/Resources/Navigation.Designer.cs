@@ -124,6 +124,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Filtered Search.
+        /// </summary>
+        public static string Nav_Components_FilteredSearch {
+            get {
+                return ResourceManager.GetString("Nav_Components_FilteredSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Form.
         /// </summary>
         public static string Nav_Components_Form {
@@ -219,15 +228,6 @@ namespace GCFoundation.Web.Resources {
         public static string Nav_Errors_NotFound {
             get {
                 return ResourceManager.GetString("Nav_Errors_NotFound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Filtered Search.
-        /// </summary>
-        public static string Nav_FilteredSearch {
-            get {
-                return ResourceManager.GetString("Nav_FilteredSearch", resourceCulture);
             }
         }
         

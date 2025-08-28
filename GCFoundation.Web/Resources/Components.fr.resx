@@ -647,7 +647,7 @@
     <value>Badge</value>
   </data>
   <data name="Badge_Overview" xml:space="preserve">
-    <value>Le composant &lt;code&gt;&amp;lt;fdcp-badge&amp;gt;&lt;/code&gt; est utilisé pour mettre en évidence de petites informations...</value>
+    <value>La composante &lt;code&gt;&amp;lt;fdcp-badge&amp;gt;&lt;/code&gt; est utilisée pour mettre en évidence de petites informations...</value>
   </data>
   <data name="Badge_Solid_Title" xml:space="preserve">
     <value>Variantes pleines</value>
@@ -731,7 +731,7 @@
     <value>horizontal</value>
   </data>
   <data name="Card_Overview" xml:space="preserve">
-    <value>Le composant &lt;code&gt;&amp;lt;fdcp-card&amp;gt;&lt;/code&gt; fournit un conteneur de contenu flexible et extensible inspiré des cartes Bootstrap, conçu avec le style du Système de design du gouvernement du Canada (SGDC). Il inclut des options pour les en-têtes, pieds de page, images et diverses couleurs d'arrière-plan contextuelles.</value>
+    <value>La composante &lt;code&gt;&amp;lt;fdcp-card&amp;gt;&lt;/code&gt; fournit un conteneur de contenu flexible et extensible inspiré des cartes Bootstrap, conçu avec le style du Système de design du gouvernement du Canada (SGDC). Il inclut des options pour les en-têtes, pieds de page, images et diverses couleurs d'arrière-plan contextuelles.</value>
   </data>
   <data name="Card_Basic_Text" xml:space="preserve">
     <value>&lt;gcds-text&gt;Une carte de base avec contenu mixte et largeur flexible&amp;nbsp;:&lt;/gcds-text&gt;</value>
@@ -922,6 +922,78 @@
   <data name="Form_SampleForm_SubmittedSuccessfully" xml:space="preserve">
     <value>Formulaire envoyé avec succès !</value>
   </data>
+  <data name="Modal_Basic_Anchor" xml:space="preserve">
+    <value>base</value>
+  </data>
+  <data name="Modal_Basic_Title" xml:space="preserve">
+    <value>Utilisation de base</value>
+  </data>
+  <data name="Modal_Basic_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Cliquez sur les boutons ci-dessous pour voir les fenêtres modales en action&amp;nbsp;:&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Modal_Name" xml:space="preserve">
+    <value>Fenêtre modale</value>
+  </data>
+  <data name="Modal_Notes_4" xml:space="preserve">
+    <value>Le contenu d'une fenêtre modale devrait toujours être entouré d'un &lt;code&gt;&amp;lt;fdcp-modal-body&amp;gt;&lt;/code&gt; et/ou d'un &lt;code&gt;&amp;lt;fdcp-modal-footer&amp;gt;&lt;/code&gt;</value>
+  </data>
+  <data name="Modal_Notes_1" xml:space="preserve">
+    <value>Les fenêtres modales requièrent un identifiant unique lorsque plusieurs sont utilisées sur une même page</value>
+  </data>
+  <data name="Modal_Notes_3" xml:space="preserve">
+    <value>Veuillez utiliser &lt;code&gt;is-static-backdrop="true"&lt;/code&gt; pour les fenêtres modales qui requèrant une action de l'utilisateur</value>
+  </data>
+  <data name="Modal_Notes_2" xml:space="preserve">
+    <value>Les fenêtres modales de sessions gèreront automatiquement les avertissements d'expiration et l'extension des sessions d'utilisateurs</value>
+  </data>
+  <data name="Modal_Overview" xml:space="preserve">
+    <value>Les composantes &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; et &lt;code&gt;&amp;lt;fdcp-session-modal&amp;gt;&lt;/code&gt; donnent aux développeurs un outil flexible permettant d'afficher du contenu dans un fenêtre contextuelle modale. Cet outil supporte les fenêtres modales à utilisation normale ainsi qu'une version spécialisée pour la gestion de sessions d'utilisateurs.</value>
+  </data>
+  <data name="Modal_Session_Title" xml:space="preserve">
+    <value>Fenêtre modale de session</value>
+  </data>
+  <data name="Modal_Session_Anchor" xml:space="preserve">
+    <value>session</value>
+  </data>
+  <data name="Modal_Session_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Une fenêtre modale spécialisée pour la gestion d'expiration des sessions d'utilisateurs&amp;nbsp;:&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Modal_Notes_5" xml:space="preserve">
+    <value>Les propriétés &lt;code&gt;session-timeout&lt;/code&gt;, &lt;code&gt;reminder-time&lt;/code&gt;, &lt;code&gt;refresh-url&lt;/code&gt; et &lt;code&gt;logout-url&lt;/code&gt; ne sont valides que pour les fenêtres modales de session</value>
+  </data>
+  <data name="Modal_Properties_Id" xml:space="preserve">
+    <value>Identifiant unique pour la fenêtre modale</value>
+  </data>
+  <data name="Modal_Properties_Title" xml:space="preserve">
+    <value>Texte qui s'affichera dans l'en-tête de la fenêtre modale</value>
+  </data>
+  <data name="Modal_Properties_Centered" xml:space="preserve">
+    <value>Centre la fenêtre modale verticalement</value>
+  </data>
+  <data name="Modal_Properties_Scrollable" xml:space="preserve">
+    <value>Détermine si le contenu de la fenêtre modale devrait être défilable ou pas</value>
+  </data>
+  <data name="Modal_Properties_Size" xml:space="preserve">
+    <value>Taille de la fenêtre modale (par défaut, petite ou grande)</value>
+  </data>
+  <data name="Modal_Properties_ShowCloseButton" xml:space="preserve">
+    <value>Détermine si la fenêtre modale devrait afficher ou non un bouton de fermeture dans son en-tête</value>
+  </data>
+  <data name="Modal_Properties_IsStaticBackdrop" xml:space="preserve">
+    <value>Empêche l'utilisateur de fermer la fenêtre en cliquant à l'extérieur de la fenêtre modale</value>
+  </data>
+  <data name="Modal_Properties_SessionTimeout" xml:space="preserve">
+    <value>Temps d'expiration de la session (en secondes)</value>
+  </data>
+  <data name="Modal_Properties_ReminderTime" xml:space="preserve">
+    <value>Détermine à quel de secondes précédant l'expiration de la session devrait s'afficher la fenêtre modale</value>
+  </data>
+  <data name="Modal_Properties_RefreshUrl" xml:space="preserve">
+    <value>"Endpoint" pour rafraîchir la session de l'utilisateur</value>
+  </data>
+  <data name="Modal_Properties_LogoutUrl" xml:space="preserve">
+    <value>"Endpoint" pour terminer la session de l'utilisateur</value>
+  </data>
   <data name="StatelessAuth_CurrentStatus_Title" xml:space="preserve">
     <value>Statut d'authentification actuel</value>
   </data>
@@ -1051,76 +1123,22 @@
   <data name="StatelessAuth_Integration_Description2" xml:space="preserve">
     <value />
   </data>
-  <data name="Modal_Basic_Anchor" xml:space="preserve">
+  <data name="FilteredSearch_Name" xml:space="preserve">
+    <value>Recherche filtrée</value>
+  </data>
+  <data name="FilteredSearch_Overview" xml:space="preserve">
+    <value>La composante &lt;code&gt;&amp;lt;fdcp-filters-box&amp;gt;&lt;/code&gt; offre un moyen aux développeurs d'afficher un panneau de filtres qui permettra aux utilisateurs de restreindre leurs résultats de recherche.</value>
+  </data>
+  <data name="FilteredSearch_Properties_Title" xml:space="preserve">
+    <value>Le titre affiché dans l'en-tête du panneau de filtres</value>
+  </data>
+  <data name="FilteredSearch_Properties_Filters" xml:space="preserve">
+    <value>Une collection de catégories de filtres à être affichées dans le panneau de filtre; chaque catégorie peut contenir plusieurs options de filtres</value>
+  </data>
+  <data name="FilteredSearch_Basic_Anchor" xml:space="preserve">
     <value>base</value>
   </data>
-  <data name="Modal_Basic_Title" xml:space="preserve">
+  <data name="FilteredSearch_Basic_Title" xml:space="preserve">
     <value>Utilisation de base</value>
-  </data>
-  <data name="Modal_Basic_Text" xml:space="preserve">
-    <value>&lt;gcds-text&gt;Cliquez sur les boutons ci-dessous pour voir les fenêtres modales en action&amp;nbsp;:&lt;/gcds-text&gt;</value>
-  </data>
-  <data name="Modal_Name" xml:space="preserve">
-    <value>Fenêtre modale</value>
-  </data>
-  <data name="Modal_Notes_4" xml:space="preserve">
-    <value>Le contenu d'une fenêtre modale devrait toujours être entouré d'un &lt;code&gt;&amp;lt;fdcp-modal-body&amp;gt;&lt;/code&gt; et/ou d'un &lt;code&gt;&amp;lt;fdcp-modal-footer&amp;gt;&lt;/code&gt;</value>
-  </data>
-  <data name="Modal_Notes_1" xml:space="preserve">
-    <value>Les fenêtres modales requièrent un identifiant unique lorsque plusieurs sont utilisées sur une même page</value>
-  </data>
-  <data name="Modal_Notes_3" xml:space="preserve">
-    <value>Veuillez utiliser &lt;code&gt;is-static-backdrop="true"&lt;/code&gt; pour les fenêtres modales qui requèrant une action de l'utilisateur</value>
-  </data>
-  <data name="Modal_Notes_2" xml:space="preserve">
-    <value>Les fenêtres modales de sessions gèreront automatiquement les avertissements d'expiration et l'extension des sessions d'utilisateurs</value>
-  </data>
-  <data name="Modal_Overview" xml:space="preserve">
-    <value>Les composantes &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; et &lt;code&gt;&amp;lt;fdcp-session-modal&amp;gt;&lt;/code&gt; donnent aux développeurs un outil flexible permettant d'afficher du contenu dans un fenêtre contextuelle modale. Cet outil supporte les fenêtres modales à utilisation normale ainsi qu'une version spécialisée pour la gestion de sessions d'utilisateurs.</value>
-  </data>
-  <data name="Modal_Session_Title" xml:space="preserve">
-    <value>Fenêtre modale de session</value>
-  </data>
-  <data name="Modal_Session_Anchor" xml:space="preserve">
-    <value>session</value>
-  </data>
-  <data name="Modal_Session_Text" xml:space="preserve">
-    <value>&lt;gcds-text&gt;Une fenêtre modale spécialisée pour la gestion d'expiration des sessions d'utilisateurs&amp;nbsp;:&lt;/gcds-text&gt;</value>
-  </data>
-  <data name="Modal_Notes_5" xml:space="preserve">
-    <value>Les propriétés &lt;code&gt;session-timeout&lt;/code&gt;, &lt;code&gt;reminder-time&lt;/code&gt;, &lt;code&gt;refresh-url&lt;/code&gt; et &lt;code&gt;logout-url&lt;/code&gt; ne sont valides que pour les fenêtres modales de session</value>
-  </data>
-  <data name="Modal_Properties_Id" xml:space="preserve">
-    <value>Identifiant unique pour la fenêtre modale</value>
-  </data>
-  <data name="Modal_Properties_Title" xml:space="preserve">
-    <value>Texte qui s'affichera dans l'en-tête de la fenêtre modale</value>
-  </data>
-  <data name="Modal_Properties_Centered" xml:space="preserve">
-    <value>Centre la fenêtre modale verticalement</value>
-  </data>
-  <data name="Modal_Properties_Scrollable" xml:space="preserve">
-    <value>Détermine si le contenu de la fenêtre modale devrait être défilable ou pas</value>
-  </data>
-  <data name="Modal_Properties_Size" xml:space="preserve">
-    <value>Taille de la fenêtre modale (par défaut, petite ou grande)</value>
-  </data>
-  <data name="Modal_Properties_ShowCloseButton" xml:space="preserve">
-    <value>Détermine si la fenêtre modale devrait afficher ou non un bouton de fermeture dans son en-tête</value>
-  </data>
-  <data name="Modal_Properties_IsStaticBackdrop" xml:space="preserve">
-    <value>Empêche l'utilisateur de fermer la fenêtre en cliquant à l'extérieur de la fenêtre modale</value>
-  </data>
-  <data name="Modal_Properties_SessionTimeout" xml:space="preserve">
-    <value>Temps d'expiration de la session (en secondes)</value>
-  </data>
-  <data name="Modal_Properties_ReminderTime" xml:space="preserve">
-    <value>Détermine à quel de secondes précédant l'expiration de la session devrait s'afficher la fenêtre modale</value>
-  </data>
-  <data name="Modal_Properties_RefreshUrl" xml:space="preserve">
-    <value>"Endpoint" pour rafraîchir la session de l'utilisateur</value>
-  </data>
-  <data name="Modal_Properties_LogoutUrl" xml:space="preserve">
-    <value>"Endpoint" pour terminer la session de l'utilisateur</value>
   </data>
 </root>

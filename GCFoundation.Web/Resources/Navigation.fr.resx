@@ -162,7 +162,7 @@
   <data name="Nav_Styles" xml:space="preserve">
     <value>Styles</value>
   </data>
-  <data name="Nav_FilteredSearch" xml:space="preserve">
+  <data name="Nav_Components_FilteredSearch" xml:space="preserve">
     <value>Recherche filtrée</value>
   </data>
   <data name="Nav_Language" xml:space="preserve">
