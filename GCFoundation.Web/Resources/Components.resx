@@ -132,66 +132,6 @@
   <data name="GcdsParagraph2" xml:space="preserve">
     <value>To use GC Design System components, you’ll need to use the Web Component code. The components should also appear in Visual Studio if they have been implemented. However, even if a component doesn't appear in IntelliSense, you can still use it—just make sure you’re referencing the correct version of the GC Design System.</value>
   </data>
-  <data name="Badge_Name" xml:space="preserve">
-    <value>Badge</value>
-  </data>
-  <data name="Badge_Overview" xml:space="preserve">
-    <value>The &lt;code&gt;&amp;lt;fdcp-badge&amp;gt;&lt;/code&gt; component is used to highlight small pieces of information...</value>
-  </data>
-  <data name="Badge_Solid_Title" xml:space="preserve">
-    <value>Solid Variants</value>
-  </data>
-  <data name="Badge_Solid_Text" xml:space="preserve">
-    <value>These badges use a solid background.</value>
-  </data>
-  <data name="Badge_Inverted_Title" xml:space="preserve">
-    <value>Inverted Variants</value>
-  </data>
-  <data name="Badge_Inverted_Text" xml:space="preserve">
-    <value>Use the &lt;code&gt;inverted="true"&lt;/code&gt; attribute to render badges with transparent backgrounds.</value>
-  </data>
-  <data name="Badge_Slot_Title" xml:space="preserve">
-    <value>Start and End</value>
-  </data>
-  <data name="Badge_Slot_Text" xml:space="preserve">
-    <value>You can insert an icon or button at the start or end using either the &lt;code&gt;slot&lt;/code&gt; attribute or the &lt;code&gt;StartContent&lt;/code&gt;/&lt;code&gt;EndContent&lt;/code&gt; properties.</value>
-  </data>
-  <data name="Badge_Dismissible_Title" xml:space="preserve">
-    <value>Dismissible Badge</value>
-  </data>
-  <data name="Badge_Properties_Style" xml:space="preserve">
-    <value>Badge style (Primary, Success, Danger, Info, etc.)</value>
-  </data>
-  <data name="Badge_Properties_Inverted" xml:space="preserve">
-    <value>Applies an inverted, outline-style badge.</value>
-  </data>
-  <data name="Badge_Properties_StartContent" xml:space="preserve">
-    <value>Optional HTML to prepend before the badge content.</value>
-  </data>
-  <data name="Badge_Properties_EndContent" xml:space="preserve">
-    <value>Optional HTML to append after the badge content.</value>
-  </data>
-  <data name="Badge_Properties_TagId" xml:space="preserve">
-    <value>Optional &lt;code&gt;id&lt;/code&gt; attribute for the badge element.</value>
-  </data>
-  <data name="Badge_Notes_1" xml:space="preserve">
-    <value>Use &lt;code&gt;slot="start-content"&lt;/code&gt; and &lt;code&gt;slot="end-content"&lt;/code&gt; when embedding HTML.</value>
-  </data>
-  <data name="Badge_Notes_2" xml:space="preserve">
-    <value>For font icons, use libraries like Font Awesome or Bootstrap Icons.</value>
-  </data>
-  <data name="Badge_Notes_3" xml:space="preserve">
-    <value>All badges are rendered as &lt;code&gt;&amp;lt;span&amp;gt;&lt;/code&gt; elements with class &lt;code&gt;fdcp-badge&lt;/code&gt;.</value>
-  </data>
-  <data name="Badge_Inverted_Anchor" xml:space="preserve">
-    <value>inverted</value>
-  </data>
-  <data name="Badge_Solid_Anchor" xml:space="preserve">
-    <value>solid</value>
-  </data>
-  <data name="Badge_Slot_Anchor" xml:space="preserve">
-    <value>start-end</value>
-  </data>
   <data name="GlobalResources_Title" xml:space="preserve">
     <value>Global Resources Configuration</value>
   </data>
@@ -549,84 +489,6 @@
   <data name="UserLogin_Step_CustomizeAppearance" xml:space="preserve">
     <value />
   </data>
-  <data name="Card_Name" xml:space="preserve">
-    <value>Card</value>
-  </data>
-  <data name="Card_Basic_Title" xml:space="preserve">
-    <value>Basic Card</value>
-  </data>
-  <data name="Card_Basic_Anchor" xml:space="preserve">
-    <value>basic</value>
-  </data>
-  <data name="Card_WithSlots_Title" xml:space="preserve">
-    <value>Cards with Header and Footer</value>
-  </data>
-  <data name="Card_WithSlots_Anchor" xml:space="preserve">
-    <value>slots</value>
-  </data>
-  <data name="Card_WithImages_Title" xml:space="preserve">
-    <value>Card with Images</value>
-  </data>
-  <data name="Card_WithImages_Anchor" xml:space="preserve">
-    <value>images</value>
-  </data>
-  <data name="Card_Horizontal_Title" xml:space="preserve">
-    <value>Horizontal Card</value>
-  </data>
-  <data name="Card_Horizontal_Anchor" xml:space="preserve">
-    <value>horizontal</value>
-  </data>
-  <data name="Card_Overview" xml:space="preserve">
-    <value>The &lt;code&gt;&amp;lt;fdcp-card&amp;gt;&lt;/code&gt; component provides a flexible and extensible content container inspired by Bootstrap cards, designed with Government of Canada Design System (GCDS) styling. It includes options for headers, footers, images, and various contextual background colors.</value>
-  </data>
-  <data name="Card_Basic_Text" xml:space="preserve">
-    <value>&lt;gcds-text&gt;A simple card with just text content:&lt;/gcds-text&gt;</value>
-  </data>
-  <data name="Card_WithSlots_Text" xml:space="preserve">
-    <value>&lt;gcds-text&gt;Cards support header, body, and footer slots for structured content. Use the &lt;code&gt;slot&lt;/code&gt; attribute to define header, body, and footer sections.&lt;/gcds-text&gt;</value>
-  </data>
-  <data name="Card_WithImages_Text" xml:space="preserve">
-    <value>&lt;gcds-text&gt;Cards support top and bottom images using the &lt;code&gt;image-top&lt;/code&gt; and &lt;code&gt;image-bottom&lt;/code&gt; attributes.&lt;/gcds-text&gt;</value>
-  </data>
-  <data name="Card_Horizontal_Text" xml:space="preserve">
-    <value>&lt;gcds-text&gt;Use the &lt;code&gt;horizontal="true"&lt;/code&gt; attribute to create horizontal card layouts.&lt;/gcds-text&gt;</value>
-  </data>
-  <data name="Card_Properties_TagId" xml:space="preserve">
-    <value>HTML ID attribute for the card.</value>
-  </data>
-  <data name="Card_Properties_Width" xml:space="preserve">
-    <value>Width of the card.</value>
-  </data>
-  <data name="Card_Properties_Height" xml:space="preserve">
-    <value>Height of the card.</value>
-  </data>
-  <data name="Card_Properties_Border" xml:space="preserve">
-    <value>Whether to show border.</value>
-  </data>
-  <data name="Card_Properties_Shadow" xml:space="preserve">
-    <value>Whether to show shadow.</value>
-  </data>
-  <data name="Card_Properties_ImageTop" xml:space="preserve">
-    <value>URL for top image.</value>
-  </data>
-  <data name="Card_Properties_ImageBottom" xml:space="preserve">
-    <value>URL for bottom image.</value>
-  </data>
-  <data name="Card_Properties_ImageAlt" xml:space="preserve">
-    <value>Alt text for images.</value>
-  </data>
-  <data name="Card_Properties_Horizontal" xml:space="preserve">
-    <value>Whether to use horizontal layout.</value>
-  </data>
-  <data name="Card_Notes_1" xml:space="preserve">
-    <value>Cards are responsive and will adapt to their container width unless a specific width is set.</value>
-  </data>
-  <data name="Card_Notes_2" xml:space="preserve">
-    <value>Use &lt;code&gt;slot="header"&lt;/code&gt;, &lt;code&gt;slot="body"&lt;/code&gt;, and &lt;code&gt;slot="footer"&lt;/code&gt; to define card sections.</value>
-  </data>
-  <data name="Card_Notes_3" xml:space="preserve">
-    <value>Images are responsive and will scale to fit the card width.</value>
-  </data>
   <data name="StatelessAuth_Demo_Title" xml:space="preserve">
     <value>Stateless Authentication Demo</value>
   </data>
@@ -720,12 +582,6 @@
   <data name="StatelessAuth_Authenticated_Description" xml:space="preserve">
     <value>The User Login Partial above shows your current session information from claims (no server-side session storage).</value>
   </data>
-  <data name="Index_Form_Title" xml:space="preserve">
-    <value>Form</value>
-  </data>
-  <data name="Index_Form_Description" xml:space="preserve">
-    <value>A way to create forms</value>
-  </data>
   <data name="Index_Table_Title" xml:space="preserve">
     <value>Table</value>
   </data>
@@ -782,6 +638,150 @@
   </data>
   <data name="Index_Page_Title" xml:space="preserve">
     <value>Components</value>
+  </data>
+  <data name="Badge_Name" xml:space="preserve">
+    <value>Badge</value>
+  </data>
+  <data name="Badge_Overview" xml:space="preserve">
+    <value>The &lt;code&gt;&amp;lt;fdcp-badge&amp;gt;&lt;/code&gt; component is used to highlight small pieces of information...</value>
+  </data>
+  <data name="Badge_Solid_Title" xml:space="preserve">
+    <value>Solid Variants</value>
+  </data>
+  <data name="Badge_Solid_Text" xml:space="preserve">
+    <value>These badges use a solid background.</value>
+  </data>
+  <data name="Badge_Inverted_Title" xml:space="preserve">
+    <value>Inverted Variants</value>
+  </data>
+  <data name="Badge_Inverted_Text" xml:space="preserve">
+    <value>Use the &lt;code&gt;inverted="true"&lt;/code&gt; attribute to render badges with transparent backgrounds.</value>
+  </data>
+  <data name="Badge_Slot_Title" xml:space="preserve">
+    <value>Start and End</value>
+  </data>
+  <data name="Badge_Slot_Text" xml:space="preserve">
+    <value>You can insert an icon or button at the start or end using either the &lt;code&gt;slot&lt;/code&gt; attribute or the &lt;code&gt;StartContent&lt;/code&gt;/&lt;code&gt;EndContent&lt;/code&gt; properties.</value>
+  </data>
+  <data name="Badge_Dismissible_Title" xml:space="preserve">
+    <value>Dismissible Badge</value>
+  </data>
+  <data name="Badge_Properties_Style" xml:space="preserve">
+    <value>Badge style (Primary, Success, Danger, Info, etc.)</value>
+  </data>
+  <data name="Badge_Properties_Inverted" xml:space="preserve">
+    <value>Applies an inverted, outline-style badge.</value>
+  </data>
+  <data name="Badge_Properties_StartContent" xml:space="preserve">
+    <value>Optional HTML to prepend before the badge content.</value>
+  </data>
+  <data name="Badge_Properties_EndContent" xml:space="preserve">
+    <value>Optional HTML to append after the badge content.</value>
+  </data>
+  <data name="Badge_Properties_TagId" xml:space="preserve">
+    <value>Optional &lt;code&gt;id&lt;/code&gt; attribute for the badge element.</value>
+  </data>
+  <data name="Badge_Notes_1" xml:space="preserve">
+    <value>Use &lt;code&gt;slot="start-content"&lt;/code&gt; and &lt;code&gt;slot="end-content"&lt;/code&gt; when embedding HTML.</value>
+  </data>
+  <data name="Badge_Notes_2" xml:space="preserve">
+    <value>For font icons, use libraries like Font Awesome or Bootstrap Icons.</value>
+  </data>
+  <data name="Badge_Notes_3" xml:space="preserve">
+    <value>All badges are rendered as &lt;code&gt;&amp;lt;span&amp;gt;&lt;/code&gt; elements with class &lt;code&gt;fdcp-badge&lt;/code&gt;.</value>
+  </data>
+  <data name="Badge_Inverted_Anchor" xml:space="preserve">
+    <value>inverted</value>
+  </data>
+  <data name="Badge_Solid_Anchor" xml:space="preserve">
+    <value>solid</value>
+  </data>
+  <data name="Badge_Slot_Anchor" xml:space="preserve">
+    <value>start-end</value>
+  </data>
+  <data name="Card_Name" xml:space="preserve">
+    <value>Card</value>
+  </data>
+  <data name="Card_Basic_Title" xml:space="preserve">
+    <value>Basic Card</value>
+  </data>
+  <data name="Card_Basic_Anchor" xml:space="preserve">
+    <value>basic</value>
+  </data>
+  <data name="Card_WithSlots_Title" xml:space="preserve">
+    <value>Cards with Header and Footer</value>
+  </data>
+  <data name="Card_WithSlots_Anchor" xml:space="preserve">
+    <value>slots</value>
+  </data>
+  <data name="Card_WithImages_Title" xml:space="preserve">
+    <value>Card with Images</value>
+  </data>
+  <data name="Card_WithImages_Anchor" xml:space="preserve">
+    <value>images</value>
+  </data>
+  <data name="Card_Horizontal_Title" xml:space="preserve">
+    <value>Horizontal Card</value>
+  </data>
+  <data name="Card_Horizontal_Anchor" xml:space="preserve">
+    <value>horizontal</value>
+  </data>
+  <data name="Card_Overview" xml:space="preserve">
+    <value>The &lt;code&gt;&amp;lt;fdcp-card&amp;gt;&lt;/code&gt; component provides a flexible and extensible content container inspired by Bootstrap cards, designed with Government of Canada Design System (GCDS) styling. It includes options for headers, footers, images, and various contextual background colors.</value>
+  </data>
+  <data name="Card_Basic_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;A simple card with just text content:&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Card_WithSlots_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Cards support header, body, and footer slots for structured content. Use the &lt;code&gt;slot&lt;/code&gt; attribute to define header, body, and footer sections.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Card_WithImages_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Cards support top and bottom images using the &lt;code&gt;image-top&lt;/code&gt; and &lt;code&gt;image-bottom&lt;/code&gt; attributes.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Card_Horizontal_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Use the &lt;code&gt;horizontal="true"&lt;/code&gt; attribute to create horizontal card layouts.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Card_Properties_TagId" xml:space="preserve">
+    <value>HTML ID attribute for the card.</value>
+  </data>
+  <data name="Card_Properties_Width" xml:space="preserve">
+    <value>Width of the card.</value>
+  </data>
+  <data name="Card_Properties_Height" xml:space="preserve">
+    <value>Height of the card.</value>
+  </data>
+  <data name="Card_Properties_Border" xml:space="preserve">
+    <value>Whether to show border.</value>
+  </data>
+  <data name="Card_Properties_Shadow" xml:space="preserve">
+    <value>Whether to show shadow.</value>
+  </data>
+  <data name="Card_Properties_ImageTop" xml:space="preserve">
+    <value>URL for top image.</value>
+  </data>
+  <data name="Card_Properties_ImageBottom" xml:space="preserve">
+    <value>URL for bottom image.</value>
+  </data>
+  <data name="Card_Properties_ImageAlt" xml:space="preserve">
+    <value>Alt text for images.</value>
+  </data>
+  <data name="Card_Properties_Horizontal" xml:space="preserve">
+    <value>Whether to use horizontal layout.</value>
+  </data>
+  <data name="Card_Notes_1" xml:space="preserve">
+    <value>Cards are responsive and will adapt to their container width unless a specific width is set.</value>
+  </data>
+  <data name="Card_Notes_2" xml:space="preserve">
+    <value>Use &lt;code&gt;slot="header"&lt;/code&gt;, &lt;code&gt;slot="body"&lt;/code&gt;, and &lt;code&gt;slot="footer"&lt;/code&gt; to define card sections.</value>
+  </data>
+  <data name="Card_Notes_3" xml:space="preserve">
+    <value>Images are responsive and will scale to fit the card width.</value>
+  </data>
+  <data name="Index_Form_Title" xml:space="preserve">
+    <value>Form</value>
+  </data>
+  <data name="Index_Form_Description" xml:space="preserve">
+    <value>A way to create forms</value>
   </data>
   <data name="Overview" xml:space="preserve">
     <value>Overview</value>
@@ -917,5 +917,8 @@
   </data>
   <data name="Form_SampleForm_Anchor" xml:space="preserve">
     <value>sample-form</value>
+  </data>
+  <data name="Form_SampleForm_SubmittedSuccessfully" xml:space="preserve">
+    <value>Form submitted successfully!</value>
   </data>
 </root>

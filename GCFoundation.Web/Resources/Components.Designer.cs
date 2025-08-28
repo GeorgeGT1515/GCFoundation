@@ -736,6 +736,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Form submitted successfully!.
+        /// </summary>
+        public static string Form_SampleForm_SubmittedSuccessfully {
+            get {
+                return ResourceManager.GetString("Form_SampleForm_SubmittedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
         public static string Form_SampleForm_Text {

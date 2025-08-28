@@ -17,7 +17,15 @@
 }
 else
 {
-    <fdcp-form method="post" action="@Url.Action("Forms", "Components")" for="@Model">
+    if (!string.IsNullOrEmpty(Model.SuccessMessage))
+    {
+        <gcds-notice type="Success" notice-title-tag="h3" notice-title="Success" class="fdcp-mb-300">
+            <gcds-text>@Model.SuccessMessage</gcds-text>
+        </gcds-notice>
+    }
+
+    <fdcp-form method="post" action="@Url.Action("Form", "Components")" for="@Model">
+        @Html.AntiForgeryToken()
         <fdcp-input for="@Model.FullName" />
         <fdcp-input for="@Model.Email" />
         <fdcp-input for="@Model.Password" />
@@ -35,10 +43,11 @@ else
         <fdcp-checkbox for="@Model.AgreeToTerms" required="true" />
 
         <gcds-button type="submit">Submit</gcds-button>
+        <gcds-button type="reset" button-role="secondary">Reset</gcds-button>
     </fdcp-form>
 
 <pre><code class="language-cshtml">@Html.Raw(Html.Encode(@"
-<fdcp-form method=""post"" action=""@Url.Action(""Forms"", ""Components"")"" for=""@Model"">
+<fdcp-form method=""post"" action=""@Url.Action(""Form"", ""Components"")"" for=""@Model"">
         <fdcp-input for=""@Model.FullName"" />
         <fdcp-input for=""@Model.Email"" />
         <fdcp-input for=""@Model.Password"" />
@@ -56,5 +65,6 @@ else
         <fdcp-checkbox for=""@Model.AgreeToTerms"" required=""true"" />
 
         <gcds-button type=""submit"">Submit</gcds-button>
+        <gcds-button type=""reset"" button-role=""secondary"">Reset</gcds-button>
 </fdcp-form>"))</code></pre>
 }

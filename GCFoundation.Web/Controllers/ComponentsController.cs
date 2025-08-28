@@ -442,7 +442,7 @@ namespace GCFoundation.Web.Controllers
         /// <summary>
         /// Handles the POST request to test form validation.
         /// </summary>
-        /// <param name="model">The form data submitted by the user.</param>
+        /// <param name="vm">The form data submitted by the user.</param>
         /// <returns>
         /// The Form component view with the POSTed model and validation results.
         /// </returns>
@@ -452,11 +452,12 @@ namespace GCFoundation.Web.Controllers
         {
             SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Form_Title}");
 
+            vm = BuildFormComponentViewModel(vm);
             if (ModelState.IsValid)
             {
                 // Add your logic here if needed when the model is valid
+                vm.SuccessMessage = Resources.Components.Form_SampleForm_SubmittedSuccessfully;
             }
-            vm = BuildFormComponentViewModel(vm);
 
             return View("Form", vm);
         }
@@ -641,7 +642,7 @@ namespace GCFoundation.Web.Controllers
             };
             vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
             {
-                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Form_SampleForm_Text, Id = Resources.Components.Form_SampleForm_Anchor, Title = Resources.Components.Form_SampleForm_Text },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Form_SampleForm_Text, Id = Resources.Components.Form_SampleForm_Anchor, Title = Resources.Components.Form_SampleForm_Title },
             };
 
             vm.Tag = "<fdcp-form>";

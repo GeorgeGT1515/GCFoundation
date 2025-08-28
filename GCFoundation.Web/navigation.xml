@@ -10,10 +10,10 @@
 				<NavNode key="gcds" controller="Components" action="Gcds" area="" preservedRouteParameters="culture" text="Nav_Components_GCDesign" >
 					<Children />
 				</NavNode>
-				<NavNode key="testingForm" controller="Components" action="FormValidationTest" area="" preservedRouteParameters="culture" text="Nav_Components_Forms" >
+				<NavNode key="form" controller="Components" action="Form" area="" preservedRouteParameters="culture" text="Nav_Components_Form" >
 					<Children />
 				</NavNode>
-				<NavNode key="TestFormBuilder" controller="Components" action="ExampleFormBuilder" area="" preservedRouteParameters="culture" text="Nav_Components_FormBuilder" >
+				<NavNode key="formBuilder" controller="Components" action="FormBuilder" area="" preservedRouteParameters="culture" text="Nav_Components_FormBuilder" >
 					<Children />
 				</NavNode>
 				<NavNode key="badge" controller="Components" action="Badge" area="" preservedRouteParameters="culture" text="Nav_Components_Badge" >
