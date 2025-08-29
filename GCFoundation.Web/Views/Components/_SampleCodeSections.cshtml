@@ -1,0 +1,26 @@
+﻿@using GCFoundation.Web.Resources
+@model GCFoundation.Web.Models.Components.ComponentViewModel
+
+@* Sample code sections *@
+@if (Model.SampleCodeSections != null && Model.SampleCodeSections.Any())
+{
+    var i = 0;
+    var lastIndex = Model.SampleCodeSections.Count() - 1;
+    @foreach (var sampleCode in Model.SampleCodeSections)
+    {
+        i++;
+
+        <gcds-heading tag="h2" id="@sampleCode.Id">@sampleCode.Title</gcds-heading>
+        @if (!string.IsNullOrEmpty(sampleCode.Description))
+        {
+            @Html.Raw(sampleCode.Description)
+        }
+
+        <partial name="@sampleCode.PartialViewName" model="sampleCode" />
+
+        if (i <= lastIndex)
+        {
+            <hr />
+        }
+    }
+}

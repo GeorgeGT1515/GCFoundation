@@ -1,0 +1,41 @@
+﻿<gcds-button button-id="regular-modal">
+    Open Regular Modal
+</gcds-button>
+
+<gcds-button button-id="timeout-modal">
+    Open Timeout Modal
+</gcds-button>
+
+<pre><code class="language-cshtml">&lt;!-- Button to trigger the modal --&gt;
+&lt;gcds-button button-id="regular-modal"&gt;
+    Open Regular Modal
+&lt;/gcds-button&gt;
+
+&lt;!-- Modal definition --&gt;
+&lt;fdcp-modal id="regular-modal" title="Example Modal"&gt;
+    &lt;fdcp-modal-body&gt;
+        &lt;p&gt;This is a regular modal with custom content.&lt;/p&gt;
+    &lt;/fdcp-modal-body&gt;
+    &lt;fdcp-modal-footer&gt;
+        &lt;gcds-button button-id="close-modal"&gt;Close&lt;/gcds-button&gt;
+        &lt;gcds-button button-id="save-changes"&gt;Save Changes&lt;/gcds-button&gt;
+    &lt;/fdcp-modal-footer&gt;
+&lt;/fdcp-modal&gt;
+
+&lt;!-- JavaScript to initialize the modal --&gt;
+&lt;script&gt;
+    document.addEventListener('DOMContentLoaded', () => {
+        const regularBtn = document.querySelector('[button-id=regular-modal]');
+        if (regularBtn) {
+            regularBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                const modalElement = document.getElementById('regular-modal');
+                if (modalElement) {
+                    modalElement.FDCPModalInstance = modalElement.FDCPModalInstance || new FDCPModal(modalElement);
+                    modalElement.FDCPModalInstance.show();
+                }
+            });
+        }
+    });
+&lt;/script&gt;
+</code></pre>

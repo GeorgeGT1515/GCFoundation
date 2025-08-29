@@ -1,0 +1,13 @@
+﻿@using GCFoundation.Web.Resources
+@model GCFoundation.Web.Models.SideNavigationViewModel
+
+@* Side navigation *@
+@if (Model != null && Model.Items != null)
+{
+    <gcds-side-nav label="@Template.SideNav_Label">
+        @foreach (var item in Model.Items)
+        {
+            <partial name="_NavItem" model="item" />
+        }
+    </gcds-side-nav>
+}

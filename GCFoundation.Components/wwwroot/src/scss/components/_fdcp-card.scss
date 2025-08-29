@@ -45,7 +45,6 @@
             flex: 1 1 auto;
         }
     }
-
     // Card images
     .fdcp-card-img-top,
     .fdcp-card-img-bottom {
@@ -62,7 +61,6 @@
         border-bottom-left-radius: calc(0.5rem - 1px);
         border-bottom-right-radius: calc(0.5rem - 1px);
     }
-
     // Card header
     .fdcp-card-header {
         padding: 0.75rem 1rem;
@@ -76,7 +74,6 @@
             border-radius: calc(0.5rem - 1px) calc(0.5rem - 1px) 0 0;
         }
     }
-
     // Card body
     .fdcp-card-body {
         flex: 1 1 auto;
@@ -89,6 +86,10 @@
             color: vars.$gcds-text-primary;
         }
 
+        .fdcp-card-title:first-child {
+            margin-top: 0;
+        }
+
         .fdcp-card-subtitle {
             margin-top: -0.375rem;
             margin-bottom: 0.75rem;
@@ -99,7 +100,7 @@
 
         .fdcp-card-text {
             color: vars.$gcds-text-primary;
-            
+
             &:last-child {
                 margin-bottom: 0;
             }
@@ -123,7 +124,6 @@
             }
         }
     }
-
     // Card footer
     .fdcp-card-footer {
         padding: 0.75rem 1rem;
@@ -136,7 +136,6 @@
             border-radius: 0 0 calc(0.5rem - 1px) calc(0.5rem - 1px);
         }
     }
-
     // List groups in cards
     .fdcp-card-list-group {
         border-radius: 0;

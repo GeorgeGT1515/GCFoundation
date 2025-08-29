@@ -12,6 +12,20 @@ body {
     padding: 0;
 }
 
+@media only screen and (width < 48em) {
+    body {
+        font: var(--gcds-font-text-mobile)
+    }
+}
+
+code:not([class*=language-]) {
+    font-size: 80%;
+    line-height: var(--gcds-line-heights-text-small);
+    padding: var(--gcds-spacing-25);
+    background-color: var(--gcds-color-grayscale-50);
+    border-radius: var(--gcds-border-radius-sm);
+}
+
 .img-responsive {
     width: 100%;
     height: auto;
@@ -20,4 +34,3 @@ body {
 .gc-form-hidden {
     display: none !important;
 }
-

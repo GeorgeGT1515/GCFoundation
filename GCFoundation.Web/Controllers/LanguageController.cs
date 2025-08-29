@@ -45,8 +45,8 @@ namespace GCFoundation.Web.Controllers
 
             LanguageChooserModel model = new()
             {
-                ApplicationTitleEn = "Foundation",
-                ApplicationTitleFr = "Fondation",
+                ApplicationTitleEn = "GCFoundation",
+                ApplicationTitleFr = "GCFoundation",
                 EnglishAction = Url.Action("Index", "Home", new { culture = "en" }) ?? "",
                 FrenchAction = Url.Action("Index", "Home", new { culture = "fr" }) ?? "",
                 TermLinkEn = "",

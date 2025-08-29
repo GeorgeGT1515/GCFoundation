@@ -3,7 +3,7 @@
     /// <summary>
     /// Defines available sizes for GCFoundation's Page Headings.
     /// </summary>
-    public enum PageHeaderSize
+    public enum PageHeadingSize
     {
         /// <summary>
         /// Represents the default page heading. 

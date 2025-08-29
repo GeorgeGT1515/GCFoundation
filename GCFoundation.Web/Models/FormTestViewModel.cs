@@ -1,6 +1,5 @@
 ﻿using GCFoundation.Components.Attributes;
-using GCFoundation.Components.Models;
-using GCFoundation.Web.Resources;
+using GCFoundation.Web.Models.Components;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
@@ -9,14 +8,14 @@ namespace GCFoundation.Web.Models
     /// <summary>
     /// ViewModel for testing form validation with multiple input types.
     /// </summary>
-    public class FormTestViewModel : BaseViewModel
+    public class FormTestViewModel : ComponentViewModel
     {
         /// <summary>
         /// The full name of the user.
         /// </summary>
         [Required]
         [DataType(DataType.Text)]
-        [Display(Name = "FullName_Label", ResourceType = typeof(Forms))]
+        [Display(Name = "Form_FullName_Label", ResourceType = typeof(Resources.Components))]
         public string FullName { get; set; } = string.Empty;
 
         /// <summary>
@@ -24,7 +23,7 @@ namespace GCFoundation.Web.Models
         /// </summary>
         [Required]
         [DataType(DataType.EmailAddress)]
-        [Display(Name = "Email_Label", ResourceType = typeof(Forms))]
+        [Display(Name = "Form_Email_Label", ResourceType = typeof(Resources.Components))]
         public string Email { get; set; } = string.Empty;
 
         /// <summary>
@@ -32,15 +31,15 @@ namespace GCFoundation.Web.Models
         /// </summary>
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password_Label", ResourceType = typeof(Forms))]
+        [Display(Name = "Form_Password_Label", ResourceType = typeof(Resources.Components))]
         public string Password { get; set; } = string.Empty;
 
         /// <summary>
         /// The user's website URL.
         /// </summary>
         [Required]
-        [DataType(DataType.Url, ErrorMessageResourceType = typeof(Forms), ErrorMessageResourceName = "InvalidUrl")]
-        [Display(Name = "Website_Label", ResourceType = typeof(Forms))]
+        [DataType(DataType.Url, ErrorMessageResourceType = typeof(Resources.Components), ErrorMessageResourceName = "InvalidUrl")]
+        [Display(Name = "Form_Website_Label", ResourceType = typeof(Resources.Components))]
         public string Website { get; set; } = string.Empty;
 
         /// <summary>
@@ -48,14 +47,14 @@ namespace GCFoundation.Web.Models
         /// </summary>
         [Required]
         [Range(18, 100, ErrorMessage = "Age must be between 18 and 100.")]
-        [Display(Name = "Age_Label", ResourceType = typeof(Forms))]
+        [Display(Name = "Form_Age_Label", ResourceType = typeof(Resources.Components))]
         public int? Age { get; set; }
 
         /// <summary>
         /// The user's date of birth.
         /// </summary>
         [DataType(DataType.Date)]
-        [Display(Name = "DateOfBirth_Label", Description = "DateOfBirth_Hint", ResourceType = typeof(Forms))]
+        [Display(Name = "Form_DateOfBirth_Label", Description = "Form_DateOfBirth_Hint", ResourceType = typeof(Resources.Components))]
         [DateFormat("full")]
         public DateTime? DateOfBirth { get; set; }
 
@@ -66,14 +65,14 @@ namespace GCFoundation.Web.Models
         [MinLength(10)]
         [MaxLength(200)]
         [DataType(DataType.MultilineText)]
-        [Display(Name = "Bio_Label", Description = "Bio_Hint", ResourceType = typeof(Forms))]
+        [Display(Name = "Form_Bio_Label", Description = "Form_Bio_Hint", ResourceType = typeof(Resources.Components))]
         public string Bio { get; set; } = string.Empty;
 
         /// <summary>
         /// The country selected by the user.
         /// </summary>
         [Required]
-        [Display(Name = "Country_Label", Description = "Country_Hint", ResourceType = typeof(Forms))]
+        [Display(Name = "Form_Country_Label", Description = "Form_Country_Hint", ResourceType = typeof(Resources.Components))]
         public string? SelectedCountry { get; set; }
 
         /// <summary>
@@ -91,7 +90,7 @@ namespace GCFoundation.Web.Models
         /// The gender selected by the user.
         /// </summary>
         [Required]
-        [Display(Name = "Gender_Label", ResourceType = typeof(Forms))]
+        [Display(Name = "Form_Gender_Label", ResourceType = typeof(Resources.Components))]
         public string Gender { get; set; } = string.Empty;
 
         /// <summary>
@@ -108,7 +107,7 @@ namespace GCFoundation.Web.Models
         /// Indicates whether the user agrees to the terms.
         /// </summary>
         [Required]
-        [Display(Name = "AgreeToTerms_Label", Description = "AgreeToTerms_Hint", ResourceType = typeof(Forms))]
+        [Display(Name = "Form_AgreeToTerms_Label", Description = "Form_AgreeToTerms_Hint", ResourceType = typeof(Resources.Components))]
         public bool AgreeToTerms { get; set; }
 
 
@@ -116,7 +115,7 @@ namespace GCFoundation.Web.Models
         /// The list of interests selected by the user.
         /// </summary>
         [Required]
-        [Display(Name = "Interests_Label", ResourceType = typeof(Forms))]
+        [Display(Name = "Form_Interests_Label", ResourceType = typeof(Resources.Components))]
         public IEnumerable<string> SelectedInterests { get; set; } = [];
 
         /// <summary>

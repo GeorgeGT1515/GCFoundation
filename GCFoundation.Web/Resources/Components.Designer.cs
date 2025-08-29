@@ -63,522 +63,765 @@ namespace GCFoundation.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Dismissible Badge.
         /// </summary>
-        public static string Badges_Dismissible_Title {
+        public static string Badge_Dismissible_Title {
             get {
-                return ResourceManager.GetString("Badges_Dismissible_Title", resourceCulture);
+                return ResourceManager.GetString("Badge_Dismissible_Title", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to inverted.
         /// </summary>
-        public static string Badges_Inverted_Anchor {
+        public static string Badge_Inverted_Anchor {
             get {
-                return ResourceManager.GetString("Badges_Inverted_Anchor", resourceCulture);
+                return ResourceManager.GetString("Badge_Inverted_Anchor", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Use the &lt;code&gt;inverted=&quot;true&quot;&lt;/code&gt; attribute to render badges with transparent backgrounds..
         /// </summary>
-        public static string Badges_Inverted_Text {
+        public static string Badge_Inverted_Text {
             get {
-                return ResourceManager.GetString("Badges_Inverted_Text", resourceCulture);
+                return ResourceManager.GetString("Badge_Inverted_Text", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Inverted Variants.
         /// </summary>
-        public static string Badges_Inverted_Title {
+        public static string Badge_Inverted_Title {
             get {
-                return ResourceManager.GetString("Badges_Inverted_Title", resourceCulture);
+                return ResourceManager.GetString("Badge_Inverted_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Badge.
+        /// </summary>
+        public static string Badge_Name {
+            get {
+                return ResourceManager.GetString("Badge_Name", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Use &lt;code&gt;slot=&quot;start-content&quot;&lt;/code&gt; and &lt;code&gt;slot=&quot;end-content&quot;&lt;/code&gt; when embedding HTML..
         /// </summary>
-        public static string Badges_Notes_1 {
+        public static string Badge_Notes_1 {
             get {
-                return ResourceManager.GetString("Badges_Notes_1", resourceCulture);
+                return ResourceManager.GetString("Badge_Notes_1", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to For font icons, use libraries like Font Awesome or Bootstrap Icons..
         /// </summary>
-        public static string Badges_Notes_2 {
+        public static string Badge_Notes_2 {
             get {
-                return ResourceManager.GetString("Badges_Notes_2", resourceCulture);
+                return ResourceManager.GetString("Badge_Notes_2", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to All badges are rendered as &lt;code&gt;&amp;lt;span&amp;gt;&lt;/code&gt; elements with class &lt;code&gt;fdcp-badge&lt;/code&gt;..
         /// </summary>
-        public static string Badges_Notes_3 {
+        public static string Badge_Notes_3 {
             get {
-                return ResourceManager.GetString("Badges_Notes_3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to notes.
-        /// </summary>
-        public static string Badges_Notes_Anchor {
-            get {
-                return ResourceManager.GetString("Badges_Notes_Anchor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Notes.
-        /// </summary>
-        public static string Badges_Notes_Title {
-            get {
-                return ResourceManager.GetString("Badges_Notes_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to overview.
-        /// </summary>
-        public static string Badges_Overview_Anchor {
-            get {
-                return ResourceManager.GetString("Badges_Overview_Anchor", resourceCulture);
+                return ResourceManager.GetString("Badge_Notes_3", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-badge&amp;gt;&lt;/code&gt; component is used to highlight small pieces of information....
         /// </summary>
-        public static string Badges_Overview_Text {
+        public static string Badge_Overview {
             get {
-                return ResourceManager.GetString("Badges_Overview_Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Overview.
-        /// </summary>
-        public static string Badges_Overview_Title {
-            get {
-                return ResourceManager.GetString("Badges_Overview_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to parameters.
-        /// </summary>
-        public static string Badges_Parameters_Anchor {
-            get {
-                return ResourceManager.GetString("Badges_Parameters_Anchor", resourceCulture);
+                return ResourceManager.GetString("Badge_Overview", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Optional HTML to append after the badge content..
         /// </summary>
-        public static string Badges_Parameters_EndContent {
+        public static string Badge_Properties_EndContent {
             get {
-                return ResourceManager.GetString("Badges_Parameters_EndContent", resourceCulture);
+                return ResourceManager.GetString("Badge_Properties_EndContent", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Applies an inverted, outline-style badge..
         /// </summary>
-        public static string Badges_Parameters_Inverted {
+        public static string Badge_Properties_Inverted {
             get {
-                return ResourceManager.GetString("Badges_Parameters_Inverted", resourceCulture);
+                return ResourceManager.GetString("Badge_Properties_Inverted", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Optional HTML to prepend before the badge content..
         /// </summary>
-        public static string Badges_Parameters_StartContent {
+        public static string Badge_Properties_StartContent {
             get {
-                return ResourceManager.GetString("Badges_Parameters_StartContent", resourceCulture);
+                return ResourceManager.GetString("Badge_Properties_StartContent", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Badge style (Primary, Success, Danger, Info, etc.).
         /// </summary>
-        public static string Badges_Parameters_Style {
+        public static string Badge_Properties_Style {
             get {
-                return ResourceManager.GetString("Badges_Parameters_Style", resourceCulture);
+                return ResourceManager.GetString("Badge_Properties_Style", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Optional &lt;code&gt;id&lt;/code&gt; attribute for the badge element..
         /// </summary>
-        public static string Badges_Parameters_TagId {
+        public static string Badge_Properties_TagId {
             get {
-                return ResourceManager.GetString("Badges_Parameters_TagId", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Parameters.
-        /// </summary>
-        public static string Badges_Parameters_Title {
-            get {
-                return ResourceManager.GetString("Badges_Parameters_Title", resourceCulture);
+                return ResourceManager.GetString("Badge_Properties_TagId", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to start-end.
         /// </summary>
-        public static string Badges_Slot_Anchor {
+        public static string Badge_Slot_Anchor {
             get {
-                return ResourceManager.GetString("Badges_Slot_Anchor", resourceCulture);
+                return ResourceManager.GetString("Badge_Slot_Anchor", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to You can insert an icon or button at the start or end using either the &lt;code&gt;slot&lt;/code&gt; attribute or the &lt;code&gt;StartContent&lt;/code&gt;/&lt;code&gt;EndContent&lt;/code&gt; properties..
         /// </summary>
-        public static string Badges_Slot_Text {
+        public static string Badge_Slot_Text {
             get {
-                return ResourceManager.GetString("Badges_Slot_Text", resourceCulture);
+                return ResourceManager.GetString("Badge_Slot_Text", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Start and End.
         /// </summary>
-        public static string Badges_Slot_Title {
+        public static string Badge_Slot_Title {
             get {
-                return ResourceManager.GetString("Badges_Slot_Title", resourceCulture);
+                return ResourceManager.GetString("Badge_Slot_Title", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to solid.
         /// </summary>
-        public static string Badges_Solid_Anchor {
+        public static string Badge_Solid_Anchor {
             get {
-                return ResourceManager.GetString("Badges_Solid_Anchor", resourceCulture);
+                return ResourceManager.GetString("Badge_Solid_Anchor", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to These badges use a solid background..
         /// </summary>
-        public static string Badges_Solid_Text {
+        public static string Badge_Solid_Text {
             get {
-                return ResourceManager.GetString("Badges_Solid_Text", resourceCulture);
+                return ResourceManager.GetString("Badge_Solid_Text", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Solid Variants.
         /// </summary>
-        public static string Badges_Solid_Title {
+        public static string Badge_Solid_Title {
             get {
-                return ResourceManager.GetString("Badges_Solid_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to FDCP Badge Documentation.
-        /// </summary>
-        public static string Badges_Title {
-            get {
-                return ResourceManager.GetString("Badges_Title", resourceCulture);
+                return ResourceManager.GetString("Badge_Solid_Title", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to basic.
         /// </summary>
-        public static string Cards_Basic_Anchor {
+        public static string Card_Basic_Anchor {
             get {
-                return ResourceManager.GetString("Cards_Basic_Anchor", resourceCulture);
+                return ResourceManager.GetString("Card_Basic_Anchor", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A simple card with just text content:.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;A simple card with just text content:&lt;/gcds-text&gt;.
         /// </summary>
-        public static string Cards_Basic_Text {
+        public static string Card_Basic_Text {
             get {
-                return ResourceManager.GetString("Cards_Basic_Text", resourceCulture);
+                return ResourceManager.GetString("Card_Basic_Text", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Basic Card.
         /// </summary>
-        public static string Cards_Basic_Title {
+        public static string Card_Basic_Title {
             get {
-                return ResourceManager.GetString("Cards_Basic_Title", resourceCulture);
+                return ResourceManager.GetString("Card_Basic_Title", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to horizontal.
         /// </summary>
-        public static string Cards_Horizontal_Anchor {
+        public static string Card_Horizontal_Anchor {
             get {
-                return ResourceManager.GetString("Cards_Horizontal_Anchor", resourceCulture);
+                return ResourceManager.GetString("Card_Horizontal_Anchor", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cards can be displayed horizontally with images on the side:.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Use the &lt;code&gt;horizontal=&quot;true&quot;&lt;/code&gt; attribute to create horizontal card layouts.&lt;/gcds-text&gt;.
         /// </summary>
-        public static string Cards_Horizontal_Text {
+        public static string Card_Horizontal_Text {
             get {
-                return ResourceManager.GetString("Cards_Horizontal_Text", resourceCulture);
+                return ResourceManager.GetString("Card_Horizontal_Text", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Horizontal Card.
         /// </summary>
-        public static string Cards_Horizontal_Title {
+        public static string Card_Horizontal_Title {
             get {
-                return ResourceManager.GetString("Cards_Horizontal_Title", resourceCulture);
+                return ResourceManager.GetString("Card_Horizontal_Title", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cards are block-level elements and will take full width by default..
+        ///   Looks up a localized string similar to Card.
         /// </summary>
-        public static string Cards_Notes_1 {
+        public static string Card_Name {
             get {
-                return ResourceManager.GetString("Cards_Notes_1", resourceCulture);
+                return ResourceManager.GetString("Card_Name", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use slots (header, body, footer) to structure content appropriately..
+        ///   Looks up a localized string similar to Cards are responsive and will adapt to their container width unless a specific width is set..
         /// </summary>
-        public static string Cards_Notes_2 {
+        public static string Card_Notes_1 {
             get {
-                return ResourceManager.GetString("Cards_Notes_2", resourceCulture);
+                return ResourceManager.GetString("Card_Notes_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use &lt;code&gt;slot=&quot;header&quot;&lt;/code&gt;, &lt;code&gt;slot=&quot;body&quot;&lt;/code&gt;, and &lt;code&gt;slot=&quot;footer&quot;&lt;/code&gt; to define card sections..
+        /// </summary>
+        public static string Card_Notes_2 {
+            get {
+                return ResourceManager.GetString("Card_Notes_2", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Images are responsive and will scale to fit the card width..
         /// </summary>
-        public static string Cards_Notes_3 {
+        public static string Card_Notes_3 {
             get {
-                return ResourceManager.GetString("Cards_Notes_3", resourceCulture);
+                return ResourceManager.GetString("Card_Notes_3", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to notes.
+        ///   Looks up a localized string similar to All cards use GCDS color variables for consistent Government of Canada styling..
         /// </summary>
-        public static string Cards_Notes_Anchor {
+        public static string Card_Notes_4 {
             get {
-                return ResourceManager.GetString("Cards_Notes_Anchor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Notes.
-        /// </summary>
-        public static string Cards_Notes_Title {
-            get {
-                return ResourceManager.GetString("Cards_Notes_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to overview.
-        /// </summary>
-        public static string Cards_Overview_Anchor {
-            get {
-                return ResourceManager.GetString("Cards_Overview_Anchor", resourceCulture);
+                return ResourceManager.GetString("Card_Notes_4", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-card&amp;gt;&lt;/code&gt; component provides a flexible and extensible content container inspired by Bootstrap cards, designed with Government of Canada Design System (GCDS) styling. It includes options for headers, footers, images, and various contextual background colors..
         /// </summary>
-        public static string Cards_Overview_Text {
+        public static string Card_Overview {
             get {
-                return ResourceManager.GetString("Cards_Overview_Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Overview.
-        /// </summary>
-        public static string Cards_Overview_Title {
-            get {
-                return ResourceManager.GetString("Cards_Overview_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to parameters.
-        /// </summary>
-        public static string Cards_Parameters_Anchor {
-            get {
-                return ResourceManager.GetString("Cards_Parameters_Anchor", resourceCulture);
+                return ResourceManager.GetString("Card_Overview", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Whether to show border..
         /// </summary>
-        public static string Cards_Parameters_Border {
+        public static string Card_Properties_Border {
             get {
-                return ResourceManager.GetString("Cards_Parameters_Border", resourceCulture);
+                return ResourceManager.GetString("Card_Properties_Border", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Height of the card..
         /// </summary>
-        public static string Cards_Parameters_Height {
+        public static string Card_Properties_Height {
             get {
-                return ResourceManager.GetString("Cards_Parameters_Height", resourceCulture);
+                return ResourceManager.GetString("Card_Properties_Height", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Whether to use horizontal layout..
         /// </summary>
-        public static string Cards_Parameters_Horizontal {
+        public static string Card_Properties_Horizontal {
             get {
-                return ResourceManager.GetString("Cards_Parameters_Horizontal", resourceCulture);
+                return ResourceManager.GetString("Card_Properties_Horizontal", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Alt text for images..
         /// </summary>
-        public static string Cards_Parameters_ImageAlt {
+        public static string Card_Properties_ImageAlt {
             get {
-                return ResourceManager.GetString("Cards_Parameters_ImageAlt", resourceCulture);
+                return ResourceManager.GetString("Card_Properties_ImageAlt", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to URL for bottom image..
         /// </summary>
-        public static string Cards_Parameters_ImageBottom {
+        public static string Card_Properties_ImageBottom {
             get {
-                return ResourceManager.GetString("Cards_Parameters_ImageBottom", resourceCulture);
+                return ResourceManager.GetString("Card_Properties_ImageBottom", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to URL for top image..
         /// </summary>
-        public static string Cards_Parameters_ImageTop {
+        public static string Card_Properties_ImageTop {
             get {
-                return ResourceManager.GetString("Cards_Parameters_ImageTop", resourceCulture);
+                return ResourceManager.GetString("Card_Properties_ImageTop", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Whether to show shadow..
         /// </summary>
-        public static string Cards_Parameters_Shadow {
+        public static string Card_Properties_Shadow {
             get {
-                return ResourceManager.GetString("Cards_Parameters_Shadow", resourceCulture);
+                return ResourceManager.GetString("Card_Properties_Shadow", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to HTML ID attribute for the card..
         /// </summary>
-        public static string Cards_Parameters_TagId {
+        public static string Card_Properties_TagId {
             get {
-                return ResourceManager.GetString("Cards_Parameters_TagId", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Parameters.
-        /// </summary>
-        public static string Cards_Parameters_Title {
-            get {
-                return ResourceManager.GetString("Cards_Parameters_Title", resourceCulture);
+                return ResourceManager.GetString("Card_Properties_TagId", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Width of the card..
         /// </summary>
-        public static string Cards_Parameters_Width {
+        public static string Card_Properties_Width {
             get {
-                return ResourceManager.GetString("Cards_Parameters_Width", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to FDCP Card Documentation.
-        /// </summary>
-        public static string Cards_Title {
-            get {
-                return ResourceManager.GetString("Cards_Title", resourceCulture);
+                return ResourceManager.GetString("Card_Properties_Width", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to images.
         /// </summary>
-        public static string Cards_WithImages_Anchor {
+        public static string Card_WithImages_Anchor {
             get {
-                return ResourceManager.GetString("Cards_WithImages_Anchor", resourceCulture);
+                return ResourceManager.GetString("Card_WithImages_Anchor", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cards can include images at the top or bottom:.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Cards support top and bottom images using the &lt;code&gt;image-top&lt;/code&gt; and &lt;code&gt;image-bottom&lt;/code&gt; attributes.&lt;/gcds-text&gt;.
         /// </summary>
-        public static string Cards_WithImages_Text {
+        public static string Card_WithImages_Text {
             get {
-                return ResourceManager.GetString("Cards_WithImages_Text", resourceCulture);
+                return ResourceManager.GetString("Card_WithImages_Text", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Card with Images.
         /// </summary>
-        public static string Cards_WithImages_Title {
+        public static string Card_WithImages_Title {
             get {
-                return ResourceManager.GetString("Cards_WithImages_Title", resourceCulture);
+                return ResourceManager.GetString("Card_WithImages_Title", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to slots.
         /// </summary>
-        public static string Cards_WithSlots_Anchor {
+        public static string Card_WithSlots_Anchor {
             get {
-                return ResourceManager.GetString("Cards_WithSlots_Anchor", resourceCulture);
+                return ResourceManager.GetString("Card_WithSlots_Anchor", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cards support header, body, and footer slots for structured content:.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Cards support header, body, and footer slots for structured content. Use the &lt;code&gt;slot&lt;/code&gt; attribute to define header, body, and footer sections.&lt;/gcds-text&gt;.
         /// </summary>
-        public static string Cards_WithSlots_Text {
+        public static string Card_WithSlots_Text {
             get {
-                return ResourceManager.GetString("Cards_WithSlots_Text", resourceCulture);
+                return ResourceManager.GetString("Card_WithSlots_Text", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Card with Slots.
+        ///   Looks up a localized string similar to Cards with Header and Footer.
         /// </summary>
-        public static string Cards_WithSlots_Title {
+        public static string Card_WithSlots_Title {
             get {
-                return ResourceManager.GetString("Cards_WithSlots_Title", resourceCulture);
+                return ResourceManager.GetString("Card_WithSlots_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to basic.
+        /// </summary>
+        public static string FilteredSearch_Basic_Anchor {
+            get {
+                return ResourceManager.GetString("FilteredSearch_Basic_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic Usage.
+        /// </summary>
+        public static string FilteredSearch_Basic_Title {
+            get {
+                return ResourceManager.GetString("FilteredSearch_Basic_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filtered Search.
+        /// </summary>
+        public static string FilteredSearch_Name {
+            get {
+                return ResourceManager.GetString("FilteredSearch_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-filters-box&amp;gt;&lt;/code&gt; component provides a way to display a filtering panel to help users narrow down their search results..
+        /// </summary>
+        public static string FilteredSearch_Overview {
+            get {
+                return ResourceManager.GetString("FilteredSearch_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A collection of filter categories to render in the filter panel; each category can contain multiple filter options..
+        /// </summary>
+        public static string FilteredSearch_Properties_Filters {
+            get {
+                return ResourceManager.GetString("FilteredSearch_Properties_Filters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title displayed at the top of the filter panel.
+        /// </summary>
+        public static string FilteredSearch_Properties_Title {
+            get {
+                return ResourceManager.GetString("FilteredSearch_Properties_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your age (must be 18 or older)..
+        /// </summary>
+        public static string Form_Age_Hint {
+            get {
+                return ResourceManager.GetString("Form_Age_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Age.
+        /// </summary>
+        public static string Form_Age_Label {
+            get {
+                return ResourceManager.GetString("Form_Age_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must agree to continue..
+        /// </summary>
+        public static string Form_AgreeToTerms_Hint {
+            get {
+                return ResourceManager.GetString("Form_AgreeToTerms_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Agree to Terms and Conditions.
+        /// </summary>
+        public static string Form_AgreeToTerms_Label {
+            get {
+                return ResourceManager.GetString("Form_AgreeToTerms_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write a short biography about yourself..
+        /// </summary>
+        public static string Form_Bio_Hint {
+            get {
+                return ResourceManager.GetString("Form_Bio_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bio.
+        /// </summary>
+        public static string Form_Bio_Label {
+            get {
+                return ResourceManager.GetString("Form_Bio_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select your country of residence..
+        /// </summary>
+        public static string Form_Country_Hint {
+            get {
+                return ResourceManager.GetString("Form_Country_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Country.
+        /// </summary>
+        public static string Form_Country_Label {
+            get {
+                return ResourceManager.GetString("Form_Country_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your date of birth.
+        /// </summary>
+        public static string Form_DateOfBirth_Hint {
+            get {
+                return ResourceManager.GetString("Form_DateOfBirth_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date of birth.
+        /// </summary>
+        public static string Form_DateOfBirth_Label {
+            get {
+                return ResourceManager.GetString("Form_DateOfBirth_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter a valid email address (e.g., name@example.com)..
+        /// </summary>
+        public static string Form_Email_Hint {
+            get {
+                return ResourceManager.GetString("Form_Email_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email address.
+        /// </summary>
+        public static string Form_Email_Label {
+            get {
+                return ResourceManager.GetString("Form_Email_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your first name.
+        /// </summary>
+        public static string Form_Field_Firstname_Hint {
+            get {
+                return ResourceManager.GetString("Form_Field_Firstname_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Firstname.
+        /// </summary>
+        public static string Form_Field_Firstname_Label {
+            get {
+                return ResourceManager.GetString("Form_Field_Firstname_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lastname.
+        /// </summary>
+        public static string Form_Field_Lastname {
+            get {
+                return ResourceManager.GetString("Form_Field_Lastname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your full name as shown on ID..
+        /// </summary>
+        public static string Form_FullName_Hint {
+            get {
+                return ResourceManager.GetString("Form_FullName_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Full Name.
+        /// </summary>
+        public static string Form_FullName_Label {
+            get {
+                return ResourceManager.GetString("Form_FullName_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select your gender identity..
+        /// </summary>
+        public static string Form_Gender_Hint {
+            get {
+                return ResourceManager.GetString("Form_Gender_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gender.
+        /// </summary>
+        public static string Form_Gender_Label {
+            get {
+                return ResourceManager.GetString("Form_Gender_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What is your interests?.
+        /// </summary>
+        public static string Form_Interests_Label {
+            get {
+                return ResourceManager.GetString("Form_Interests_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Form.
+        /// </summary>
+        public static string Form_Name {
+            get {
+                return ResourceManager.GetString("Form_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-form&amp;gt;&lt;/code&gt; component helps you build your own form with minumum implementation. Most of the work gets done in the model. The following example present you with a form coded a sample model defined on the server-side. Input fields are then assigned to properties of the model..
+        /// </summary>
+        public static string Form_Overview {
+            get {
+                return ResourceManager.GetString("Form_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose a strong password with at least 8 characters..
+        /// </summary>
+        public static string Form_Password_Hint {
+            get {
+                return ResourceManager.GetString("Form_Password_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string Form_Password_Label {
+            get {
+                return ResourceManager.GetString("Form_Password_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The action URL for the form submission..
+        /// </summary>
+        public static string Form_Properties_Action {
+            get {
+                return ResourceManager.GetString("Form_Properties_Action", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The model that the form is bound to. This model should contain any validation errors that will be displayed in the error summary if present..
+        /// </summary>
+        public static string Form_Properties_For {
+            get {
+                return ResourceManager.GetString("Form_Properties_For", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The HTTP method used for the form submission (e.g., GET, POST). Defaults to &quot;post&quot;..
+        /// </summary>
+        public static string Form_Properties_Method {
+            get {
+                return ResourceManager.GetString("Form_Properties_Method", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to sample-form.
+        /// </summary>
+        public static string Form_SampleForm_Anchor {
+            get {
+                return ResourceManager.GetString("Form_SampleForm_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Form submitted successfully!.
+        /// </summary>
+        public static string Form_SampleForm_SubmittedSuccessfully {
+            get {
+                return ResourceManager.GetString("Form_SampleForm_SubmittedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sample form.
+        /// </summary>
+        public static string Form_SampleForm_Title {
+            get {
+                return ResourceManager.GetString("Form_SampleForm_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your personal or company website URL..
+        /// </summary>
+        public static string Form_Website_Hint {
+            get {
+                return ResourceManager.GetString("Form_Website_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Website.
+        /// </summary>
+        public static string Form_Website_Label {
+            get {
+                return ResourceManager.GetString("Form_Website_Label", resourceCulture);
             }
         }
         
@@ -946,6 +1189,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A way to create forms.
+        /// </summary>
+        public static string Index_Form_Description {
+            get {
+                return ResourceManager.GetString("Index_Form_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Form.
+        /// </summary>
+        public static string Index_Form_Title {
+            get {
+                return ResourceManager.GetString("Index_Form_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A way to build form automatically from a structure.
         /// </summary>
         public static string Index_FormBuilder_Description {
@@ -960,24 +1221,6 @@ namespace GCFoundation.Web.Resources {
         public static string Index_FormBuilder_Title {
             get {
                 return ResourceManager.GetString("Index_FormBuilder_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to A way to create forms.
-        /// </summary>
-        public static string Index_Forms_Description {
-            get {
-                return ResourceManager.GetString("Index_Forms_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Forms.
-        /// </summary>
-        public static string Index_Forms_Title {
-            get {
-                return ResourceManager.GetString("Index_Forms_Title", resourceCulture);
             }
         }
         
@@ -1077,6 +1320,438 @@ namespace GCFoundation.Web.Resources {
         public static string Index_UserLoginPartial_Title {
             get {
                 return ResourceManager.GetString("Index_UserLoginPartial_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to basic.
+        /// </summary>
+        public static string Modal_Basic_Anchor {
+            get {
+                return ResourceManager.GetString("Modal_Basic_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Click the buttons below to see the modals in action:&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Modal_Basic_Text {
+            get {
+                return ResourceManager.GetString("Modal_Basic_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic Usage.
+        /// </summary>
+        public static string Modal_Basic_Title {
+            get {
+                return ResourceManager.GetString("Modal_Basic_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modal.
+        /// </summary>
+        public static string Modal_Name {
+            get {
+                return ResourceManager.GetString("Modal_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modals require unique IDs when multiple are used on the same page.
+        /// </summary>
+        public static string Modal_Notes_1 {
+            get {
+                return ResourceManager.GetString("Modal_Notes_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Session modals automatically handle timeout warnings and session extension.
+        /// </summary>
+        public static string Modal_Notes_2 {
+            get {
+                return ResourceManager.GetString("Modal_Notes_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use &lt;code&gt;is-static-backdrop=&quot;true&quot;&lt;/code&gt; for modals that require user action.
+        /// </summary>
+        public static string Modal_Notes_3 {
+            get {
+                return ResourceManager.GetString("Modal_Notes_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modal content should be wrapped in &lt;code&gt;&amp;lt;fdcp-modal-body&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;fdcp-modal-footer&amp;gt;&lt;/code&gt; tags.
+        /// </summary>
+        public static string Modal_Notes_4 {
+            get {
+                return ResourceManager.GetString("Modal_Notes_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;code&gt;session-timeout&lt;/code&gt;, &lt;code&gt;reminder-time&lt;/code&gt;, &lt;code&gt;refresh-url&lt;/code&gt; and &lt;code&gt;logout-url&lt;/code&gt; properties are only valid for Session Modals.
+        /// </summary>
+        public static string Modal_Notes_5 {
+            get {
+                return ResourceManager.GetString("Modal_Notes_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;fdcp-session-modal&amp;gt;&lt;/code&gt; components provide a flexible dialog system for displaying content in a popup overlay. It supports regular modals for general use and specialized session modals for handling user session management..
+        /// </summary>
+        public static string Modal_Overview {
+            get {
+                return ResourceManager.GetString("Modal_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Centers the modal vertically.
+        /// </summary>
+        public static string Modal_Properties_Centered {
+            get {
+                return ResourceManager.GetString("Modal_Properties_Centered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unique identifier for the modal.
+        /// </summary>
+        public static string Modal_Properties_Id {
+            get {
+                return ResourceManager.GetString("Modal_Properties_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prevents closing by clicking outside.
+        /// </summary>
+        public static string Modal_Properties_IsStaticBackdrop {
+            get {
+                return ResourceManager.GetString("Modal_Properties_IsStaticBackdrop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Endpoint to log out the user.
+        /// </summary>
+        public static string Modal_Properties_LogoutUrl {
+            get {
+                return ResourceManager.GetString("Modal_Properties_LogoutUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Endpoint to refresh the session.
+        /// </summary>
+        public static string Modal_Properties_RefreshUrl {
+            get {
+                return ResourceManager.GetString("Modal_Properties_RefreshUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time before timeout (in seconds) to show reminder.
+        /// </summary>
+        public static string Modal_Properties_ReminderTime {
+            get {
+                return ResourceManager.GetString("Modal_Properties_ReminderTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Makes the modal body scrollable.
+        /// </summary>
+        public static string Modal_Properties_Scrollable {
+            get {
+                return ResourceManager.GetString("Modal_Properties_Scrollable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Session timeout in seconds.
+        /// </summary>
+        public static string Modal_Properties_SessionTimeout {
+            get {
+                return ResourceManager.GetString("Modal_Properties_SessionTimeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shows close button in header.
+        /// </summary>
+        public static string Modal_Properties_ShowCloseButton {
+            get {
+                return ResourceManager.GetString("Modal_Properties_ShowCloseButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modal size (Default, Small, or Large).
+        /// </summary>
+        public static string Modal_Properties_Size {
+            get {
+                return ResourceManager.GetString("Modal_Properties_Size", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text displayed in the modal header.
+        /// </summary>
+        public static string Modal_Properties_Title {
+            get {
+                return ResourceManager.GetString("Modal_Properties_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to session.
+        /// </summary>
+        public static string Modal_Session_Anchor {
+            get {
+                return ResourceManager.GetString("Modal_Session_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;A specialized modal for handling session timeouts:&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Modal_Session_Text {
+            get {
+                return ResourceManager.GetString("Modal_Session_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Session Modal.
+        /// </summary>
+        public static string Modal_Session_Title {
+            get {
+                return ResourceManager.GetString("Modal_Session_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notes.
+        /// </summary>
+        public static string Notes {
+            get {
+                return ResourceManager.GetString("Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to notes.
+        /// </summary>
+        public static string Notes_Anchor {
+            get {
+                return ResourceManager.GetString("Notes_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overview.
+        /// </summary>
+        public static string Overview {
+            get {
+                return ResourceManager.GetString("Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to overview.
+        /// </summary>
+        public static string Overview_Anchor {
+            get {
+                return ResourceManager.GetString("Overview_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to basic.
+        /// </summary>
+        public static string PageHeading_Basic_Anchor {
+            get {
+                return ResourceManager.GetString("PageHeading_Basic_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic Usage.
+        /// </summary>
+        public static string PageHeading_Basic_Title {
+            get {
+                return ResourceManager.GetString("PageHeading_Basic_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page Heading.
+        /// </summary>
+        public static string PageHeading_Name {
+            get {
+                return ResourceManager.GetString("PageHeading_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The background image is set using a &lt;code&gt;data-bg-src&lt;/code&gt; attribute and JavaScript for CSP compliance.
+        /// </summary>
+        public static string PageHeading_Notes_1 {
+            get {
+                return ResourceManager.GetString("PageHeading_Notes_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Component is responsive and accessible.
+        /// </summary>
+        public static string PageHeading_Notes_2 {
+            get {
+                return ResourceManager.GetString("PageHeading_Notes_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Style overrides can be applied via &lt;code&gt;fdcp-page-header-container&lt;/code&gt; and related classes in your SCSS.
+        /// </summary>
+        public static string PageHeading_Notes_3 {
+            get {
+                return ResourceManager.GetString("PageHeading_Notes_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-page-heading&amp;gt;&lt;/code&gt; component displays a prominent page header with a title, description, and optional background image. It is designed for use in Razor Pages projects..
+        /// </summary>
+        public static string PageHeading_Overview {
+            get {
+                return ResourceManager.GetString("PageHeading_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. Additional descriptive text below the title..
+        /// </summary>
+        public static string PageHeading_Properties_Description {
+            get {
+                return ResourceManager.GetString("PageHeading_Properties_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. Sets the size of the height of page header (Default, or Large). A Large page heading will add more padding above and below the text container..
+        /// </summary>
+        public static string PageHeading_Properties_Size {
+            get {
+                return ResourceManager.GetString("PageHeading_Properties_Size", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. URL for the background image..
+        /// </summary>
+        public static string PageHeading_Properties_Src {
+            get {
+                return ResourceManager.GetString("PageHeading_Properties_Src", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. Adds a light background and a border around the text container to emphasize the content..
+        /// </summary>
+        public static string PageHeading_Properties_TextEmphasis {
+            get {
+                return ResourceManager.GetString("PageHeading_Properties_TextEmphasis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The main heading text (displayed as an &lt;code&gt;h1&lt;/code&gt;)..
+        /// </summary>
+        public static string PageHeading_Properties_Title {
+            get {
+                return ResourceManager.GetString("PageHeading_Properties_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Properties.
+        /// </summary>
+        public static string Properties {
+            get {
+                return ResourceManager.GetString("Properties", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to properties.
+        /// </summary>
+        public static string Properties_Anchor {
+            get {
+                return ResourceManager.GetString("Properties_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data type.
+        /// </summary>
+        public static string Properties_DataType {
+            get {
+                return ResourceManager.GetString("Properties_DataType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default value.
+        /// </summary>
+        public static string Properties_DefaultValue {
+            get {
+                return ResourceManager.GetString("Properties_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No default value.
+        /// </summary>
+        public static string Properties_DefaultValue_NoDefaultValue {
+            get {
+                return ResourceManager.GetString("Properties_DefaultValue_NoDefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string Properties_Description {
+            get {
+                return ResourceManager.GetString("Properties_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Property.
+        /// </summary>
+        public static string Properties_Property {
+            get {
+                return ResourceManager.GetString("Properties_Property", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sample code.
+        /// </summary>
+        public static string SampleCode {
+            get {
+                return ResourceManager.GetString("SampleCode", resourceCulture);
             }
         }
         
@@ -1356,6 +2031,231 @@ namespace GCFoundation.Web.Resources {
         public static string StatelessAuth_User_Info_Button {
             get {
                 return ResourceManager.GetString("StatelessAuth_User_Info_Button", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to basic.
+        /// </summary>
+        public static string Stepper_Basic_Anchor {
+            get {
+                return ResourceManager.GetString("Stepper_Basic_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A basic stepper with numbered steps:.
+        /// </summary>
+        public static string Stepper_Basic_Text {
+            get {
+                return ResourceManager.GetString("Stepper_Basic_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic Usage.
+        /// </summary>
+        public static string Stepper_Basic_Title {
+            get {
+                return ResourceManager.GetString("Stepper_Basic_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stepper.
+        /// </summary>
+        public static string Stepper_Name {
+            get {
+                return ResourceManager.GetString("Stepper_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Steps automatically calculate their state (completed, active, or incomplete) based on the &lt;code&gt;CurrentStep&lt;/code&gt; value.
+        /// </summary>
+        public static string Stepper_Notes_1 {
+            get {
+                return ResourceManager.GetString("Stepper_Notes_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When using &lt;code&gt;DisplayMode.Icon&lt;/code&gt;, if no icon HTML is provided for a state, the step number will be displayed instead.
+        /// </summary>
+        public static string Stepper_Notes_2 {
+            get {
+                return ResourceManager.GetString("Stepper_Notes_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hidden steps (&lt;code&gt;IsHidden = true&lt;/code&gt;) will not be rendered in the stepper.
+        /// </summary>
+        public static string Stepper_Notes_3 {
+            get {
+                return ResourceManager.GetString("Stepper_Notes_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Steps without labels will be skipped during rendering.
+        /// </summary>
+        public static string Stepper_Notes_4 {
+            get {
+                return ResourceManager.GetString("Stepper_Notes_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-stepper&amp;gt;&lt;/code&gt; component helps users track their progress in multi-step processes. It provides visual feedback about completed, current, and upcoming steps, supporting both numeric and icon-based display modes..
+        /// </summary>
+        public static string Stepper_Overview {
+            get {
+                return ResourceManager.GetString("Stepper_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The current active step number (1-based index).
+        /// </summary>
+        public static string Stepper_Properties_CurrentStep {
+            get {
+                return ResourceManager.GetString("Stepper_Properties_CurrentStep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. HTML for the completed state icon.
+        /// </summary>
+        public static string Stepper_Properties_StepperStep_CompletedIconHtml {
+            get {
+                return ResourceManager.GetString("Stepper_Properties_StepperStep_CompletedIconHtml", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display mode for the step (Number or Icon).
+        /// </summary>
+        public static string Stepper_Properties_StepperStep_DisplayMode {
+            get {
+                return ResourceManager.GetString("Stepper_Properties_StepperStep_DisplayMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. HTML for the in-progress state icon.
+        /// </summary>
+        public static string Stepper_Properties_StepperStep_InProgressIconHtml {
+            get {
+                return ResourceManager.GetString("Stepper_Properties_StepperStep_InProgressIconHtml", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Determines if the step is clickable.
+        /// </summary>
+        public static string Stepper_Properties_StepperStep_IsLink {
+            get {
+                return ResourceManager.GetString("Stepper_Properties_StepperStep_IsLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text label for the step.
+        /// </summary>
+        public static string Stepper_Properties_StepperStep_Label {
+            get {
+                return ResourceManager.GetString("Stepper_Properties_StepperStep_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. URL for clickable steps.
+        /// </summary>
+        public static string Stepper_Properties_StepperStep_LinkUrl {
+            get {
+                return ResourceManager.GetString("Stepper_Properties_StepperStep_LinkUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. HTML for the not-started state icon.
+        /// </summary>
+        public static string Stepper_Properties_StepperStep_NotStartedIconHtml {
+            get {
+                return ResourceManager.GetString("Stepper_Properties_StepperStep_NotStartedIconHtml", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The sequential number of the step.
+        /// </summary>
+        public static string Stepper_Properties_StepperStep_StepNumber {
+            get {
+                return ResourceManager.GetString("Stepper_Properties_StepperStep_StepNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Collection of &lt;code&gt;StepperStep&lt;/code&gt; objects defining the stepper configuration.
+        /// </summary>
+        public static string Stepper_Properties_Steps {
+            get {
+                return ResourceManager.GetString("Stepper_Properties_Steps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to with-icons.
+        /// </summary>
+        public static string Stepper_WithIcons_Anchor {
+            get {
+                return ResourceManager.GetString("Stepper_WithIcons_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stepper with custom icons for different states:.
+        /// </summary>
+        public static string Stepper_WithIcons_Text {
+            get {
+                return ResourceManager.GetString("Stepper_WithIcons_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to With Icons.
+        /// </summary>
+        public static string Stepper_WithIcons_Title {
+            get {
+                return ResourceManager.GetString("Stepper_WithIcons_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to with-links.
+        /// </summary>
+        public static string Stepper_WithLinks_Anchor {
+            get {
+                return ResourceManager.GetString("Stepper_WithLinks_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stepper with clickable steps:.
+        /// </summary>
+        public static string Stepper_WithLinks_Text {
+            get {
+                return ResourceManager.GetString("Stepper_WithLinks_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to With Links.
+        /// </summary>
+        public static string Stepper_WithLinks_Title {
+            get {
+                return ResourceManager.GetString("Stepper_WithLinks_Title", resourceCulture);
             }
         }
         

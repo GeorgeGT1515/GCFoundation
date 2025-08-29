@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Nav_Components" xml:space="preserve">
-    <value>Composantes</value>
+    <value>Composants</value>
   </data>
   <data name="Nav_Home" xml:space="preserve">
     <value>Accueil</value>
@@ -127,10 +127,10 @@
     <value>Ressources globales</value>
   </data>
   <data name="Nav_Components_GCDesign" xml:space="preserve">
-    <value>Système de design GC</value>
+    <value>Composants du système de design GC</value>
   </data>
-  <data name="Nav_Components_Forms" xml:space="preserve">
-    <value>Formulaires</value>
+  <data name="Nav_Components_Form" xml:space="preserve">
+    <value>Formulaire</value>
   </data>
   <data name="Nav_Components_FormBuilder" xml:space="preserve">
     <value>Générateur de formulaires</value>
@@ -148,12 +148,11 @@
     <value>Titre de page</value>
   </data>
   <data name="Nav_Components_Stepper" xml:space="preserve">
-    <value>Étapes</value>
+    <value>Étape</value>
   </data>
   <data name="Nav_Components_UserLogin" xml:space="preserve">
     <value>Partiel de connexion utilisateur</value>
   </data>
-
   <data name="Nav_Installation" xml:space="preserve">
     <value>Installation</value>
   </data>
@@ -163,7 +162,7 @@
   <data name="Nav_Styles" xml:space="preserve">
     <value>Styles</value>
   </data>
-  <data name="Nav_FilteredSearch" xml:space="preserve">
+  <data name="Nav_Components_FilteredSearch" xml:space="preserve">
     <value>Recherche filtrée</value>
   </data>
   <data name="Nav_Language" xml:space="preserve">
@@ -195,5 +194,8 @@
   </data>
   <data name="Nav_Authentication_StatelessExamples" xml:space="preserve">
     <value>Exemples d'auth sans état</value>
+  </data>
+  <data name="Nav_Components_Card" xml:space="preserve">
+    <value>Carte</value>
   </data>
 </root>

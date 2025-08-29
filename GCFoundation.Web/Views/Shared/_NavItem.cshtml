@@ -1,0 +1,17 @@
+﻿@model GCFoundation.Web.Models.NavItem
+
+@if (Model.GetType() == typeof(GCFoundation.Web.Models.NavGroup))
+{
+    var group = (GCFoundation.Web.Models.NavGroup)Model;
+    <gcds-nav-group open-trigger="@group.Label" menu-label="@group.Label">
+        @foreach (var item in group.Items)
+        {
+            <partial name="_NavItem" model="item" />
+        }
+    </gcds-nav-group>
+}
+else
+{
+    var link = (GCFoundation.Web.Models.NavLink)Model;
+    <gcds-nav-link href="#@link.Href">@link.Label</gcds-nav-link>
+}

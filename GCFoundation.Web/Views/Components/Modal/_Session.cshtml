@@ -1,0 +1,15 @@
+﻿<pre><code class="language-cshtml">&lt;fdcp-session-modal id="session-modal" title="Session Timeout" 
+    is-static-backdrop="true"
+    session-timeout="3600"
+    reminder-time="300"
+    refresh-url="/api/session/refresh"
+    logout-url="/logout"&gt;
+    &lt;fdcp-modal-body&gt;
+        &lt;p&gt;Your session is about to expire!&lt;/p&gt;
+    &lt;/fdcp-modal-body&gt;
+    &lt;fdcp-modal-footer&gt;
+        &lt;gcds-button button-id="extend-session"&gt;Extend Session&lt;/gcds-button&gt;
+        &lt;gcds-button button-id="logout"&gt;Logout&lt;/gcds-button&gt;
+    &lt;/fdcp-modal-footer&gt;
+&lt;/fdcp-session-modal&gt;
+</code></pre>

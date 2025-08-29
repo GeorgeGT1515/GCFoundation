@@ -1,0 +1,13 @@
+﻿@using GCFoundation.Web.Resources
+@model GCFoundation.Web.Models.Components.ComponentViewModel
+
+@if (Model.Notes != null && Model.Notes.Any())
+{
+    <gcds-heading tag="h2" id="@Components.Notes_Anchor">@Components.Notes</gcds-heading>
+    <ul>
+        @foreach (var note in Model.Notes)
+        {
+            <li>@Html.Raw(note)</li>
+        }
+    </ul>
+}

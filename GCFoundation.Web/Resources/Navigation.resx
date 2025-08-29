@@ -127,10 +127,10 @@
     <value>Global Resources</value>
   </data>
   <data name="Nav_Components_GCDesign" xml:space="preserve">
-    <value>GC Design System</value>
+    <value>GC Design System Components</value>
   </data>
-  <data name="Nav_Components_Forms" xml:space="preserve">
-    <value>Forms</value>
+  <data name="Nav_Components_Form" xml:space="preserve">
+    <value>Form</value>
   </data>
   <data name="Nav_Components_FormBuilder" xml:space="preserve">
     <value>Form Builder</value>
@@ -153,7 +153,6 @@
   <data name="Nav_Components_UserLogin" xml:space="preserve">
     <value>User Login Partial</value>
   </data>
-
   <data name="Nav_Installation" xml:space="preserve">
     <value>Installation</value>
   </data>
@@ -163,13 +162,12 @@
   <data name="Nav_Styles" xml:space="preserve">
     <value>Styles</value>
   </data>
-  <data name="Nav_FilteredSearch" xml:space="preserve">
+  <data name="Nav_Components_FilteredSearch" xml:space="preserve">
     <value>Filtered Search</value>
   </data>
   <data name="Nav_Language" xml:space="preserve">
     <value>Language</value>
   </data>
-
   <data name="Nav_Authentication" xml:space="preserve">
     <value>Authentication</value>
   </data>
@@ -196,5 +194,8 @@
   </data>
   <data name="Nav_Authentication_StatelessExamples" xml:space="preserve">
     <value>Stateless Auth Examples</value>
+  </data>
+  <data name="Nav_Components_Card" xml:space="preserve">
+    <value>Card</value>
   </data>
 </root>

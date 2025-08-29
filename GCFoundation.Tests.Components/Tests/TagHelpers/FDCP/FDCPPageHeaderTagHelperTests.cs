@@ -117,7 +117,7 @@ public class FDCPPageHeaderTagHelperTests
         {
             Title = "Test Title",
             Description = "Test Description",
-            Size = GCFoundation.Components.Enums.PageHeaderSize.Large
+            Size = GCFoundation.Components.Enums.PageHeadingSize.Large
         };
 
         var context = new TagHelperContext(
@@ -147,7 +147,7 @@ public class FDCPPageHeaderTagHelperTests
         {
             Title = "Test Title",
             Description = "Test Description",
-            Size = GCFoundation.Components.Enums.PageHeaderSize.Large,
+            Size = GCFoundation.Components.Enums.PageHeadingSize.Large,
             TextEmphasis = true
         };
 
