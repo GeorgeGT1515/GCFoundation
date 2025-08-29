@@ -71,7 +71,7 @@ namespace GCFoundation.Web.Models.Components
             if (!string.IsNullOrEmpty(Overview))
                 items.Add(new NavLink() { Href = Resources.Components.Overview_Anchor, Label = Resources.Components.Overview });
             if (SampleCodeSections != null && SampleCodeSections.Any())
-                items.Add(new NavGroup() { Items = SampleCodeSections.Select(s => new NavLink() { Href = s.Id, Label = s.Title }).ToList(), Label = Resources.Components.SampleCode });
+                items.AddRange(SampleCodeSections.Select(s => new NavLink() { Href = s.Id, Label = s.Title }).ToList());
             if (Properties != null && Properties.Any())
                 items.Add(new NavLink() { Href = Resources.Components.Properties_Anchor, Label = Resources.Components.Properties });
             if (Properties != null && Notes.Any())

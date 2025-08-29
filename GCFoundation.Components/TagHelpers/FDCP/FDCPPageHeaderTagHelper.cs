@@ -24,7 +24,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         /// <summary>
         /// Sets the size of the page header. Default, or Large.
         /// </summary>
-        public PageHeaderSize Size { get; set; } = PageHeaderSize.Default;
+        public PageHeadingSize Size { get; set; } = PageHeadingSize.Default;
 
         /// <summary>
         /// The URL of the background image for the page header.
@@ -55,10 +55,10 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             switch (Size)
             {
-                case PageHeaderSize.Large:
+                case PageHeadingSize.Large:
                     classValue += " fdcp-page-header-large";
                     break;
-                case PageHeaderSize.Default:
+                case PageHeadingSize.Default:
                 default:
                     break;
             }

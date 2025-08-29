@@ -151,7 +151,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to GC Design System.
+        ///   Looks up a localized string similar to GC Design System Components.
         /// </summary>
         public static string Nav_Components_GCDesign {
             get {

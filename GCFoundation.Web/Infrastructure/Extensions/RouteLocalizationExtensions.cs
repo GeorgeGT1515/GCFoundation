@@ -32,7 +32,7 @@ namespace GCFoundation.Web.Infrastructure.Extensions
                 // Components Controller
                 setup.UseCulture("fr")
                 .WhereController(nameof(ComponentsController))
-                .TranslateController("composantes")
+                .TranslateController("composants")
                 .WhereAction(nameof(ComponentsController.Index))
                 .TranslateAction("");
 

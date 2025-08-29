@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="GcdsHeading" xml:space="preserve">
-    <value>Composantes du Système de design GC</value>
+    <value>Composants du Système de design GC</value>
   </data>
   <data name="GcdsParagraph1" xml:space="preserve">
     <value>Tous les composants du Système de design GC sont compatibles dès le départ. 
@@ -641,13 +641,13 @@
     <value>Affichage configurable des informations de connexion utilisateur avec support bilingue</value>
   </data>
   <data name="Index_Page_Title" xml:space="preserve">
-    <value>Composantes</value>
+    <value>Composants</value>
   </data>
   <data name="Badge_Name" xml:space="preserve">
     <value>Badge</value>
   </data>
   <data name="Badge_Overview" xml:space="preserve">
-    <value>La composante &lt;code&gt;&amp;lt;fdcp-badge&amp;gt;&lt;/code&gt; est utilisée pour mettre en évidence de petites informations...</value>
+    <value>Le composant &lt;code&gt;&amp;lt;fdcp-badge&amp;gt;&lt;/code&gt; est utilisé pour mettre en évidence de petites informations...</value>
   </data>
   <data name="Badge_Solid_Title" xml:space="preserve">
     <value>Variantes pleines</value>
@@ -731,7 +731,7 @@
     <value>horizontal</value>
   </data>
   <data name="Card_Overview" xml:space="preserve">
-    <value>La composante &lt;code&gt;&amp;lt;fdcp-card&amp;gt;&lt;/code&gt; fournit un conteneur de contenu flexible et extensible inspiré des cartes Bootstrap, conçu avec le style du Système de design du gouvernement du Canada (SGDC). Il inclut des options pour les en-têtes, pieds de page, images et diverses couleurs d'arrière-plan contextuelles.</value>
+    <value>Le composant &lt;code&gt;&amp;lt;fdcp-card&amp;gt;&lt;/code&gt; fournit un conteneur de contenu flexible et extensible inspiré des cartes Bootstrap, conçu avec le style du Système de design du gouvernement du Canada (SGDC). Il inclut des options pour les en-têtes, pieds de page, images et diverses couleurs d'arrière-plan contextuelles.</value>
   </data>
   <data name="Card_Basic_Text" xml:space="preserve">
     <value>&lt;gcds-text&gt;Une carte de base avec contenu mixte et largeur flexible&amp;nbsp;:&lt;/gcds-text&gt;</value>
@@ -830,7 +830,7 @@
     <value>Formulaire</value>
   </data>
   <data name="Form_Overview" xml:space="preserve">
-    <value>La composante &lt;code&gt;&amp;lt;fdcp-form&amp;gt;&lt;/code&gt; vous aide à construire vos propres formulaires avec une minimum d'efforts. La plupart du travail se fait à la définition du modèle. L'exemple suivant vous présente un formulaire basé sur un modèle défini du coté-serveur. Les champs sont alors associés aux propriétés du modèle.</value>
+    <value>Le composant &lt;code&gt;&amp;lt;fdcp-form&amp;gt;&lt;/code&gt; vous aide à construire vos propres formulaires avec une minimum d'efforts. La plupart du travail se fait à la définition du modèle. L'exemple suivant vous présente un formulaire basé sur un modèle défini du coté-serveur. Les champs sont alors associés aux propriétés du modèle.</value>
   </data>
   <data name="Form_Age_Hint" xml:space="preserve">
     <value>Entrez votre âge (doit être 18 ou plus).</value>
@@ -947,7 +947,7 @@
     <value>Les fenêtres modales de sessions gèreront automatiquement les avertissements d'expiration et l'extension des sessions d'utilisateurs</value>
   </data>
   <data name="Modal_Overview" xml:space="preserve">
-    <value>Les composantes &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; et &lt;code&gt;&amp;lt;fdcp-session-modal&amp;gt;&lt;/code&gt; donnent aux développeurs un outil flexible permettant d'afficher du contenu dans un fenêtre contextuelle modale. Cet outil supporte les fenêtres modales à utilisation normale ainsi qu'une version spécialisée pour la gestion de sessions d'utilisateurs.</value>
+    <value>Les composants &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; et &lt;code&gt;&amp;lt;fdcp-session-modal&amp;gt;&lt;/code&gt; donnent aux développeurs un outil flexible permettant d'afficher du contenu dans un fenêtre contextuelle modale. Cet outil supporte les fenêtres modales à utilisation normale ainsi qu'une version spécialisée pour la gestion de sessions d'utilisateurs.</value>
   </data>
   <data name="Modal_Session_Title" xml:space="preserve">
     <value>Fenêtre modale de session</value>
@@ -993,6 +993,24 @@
   </data>
   <data name="Modal_Properties_LogoutUrl" xml:space="preserve">
     <value>"Endpoint" pour terminer la session de l'utilisateur</value>
+  </data>
+  <data name="FilteredSearch_Name" xml:space="preserve">
+    <value>Recherche filtrée</value>
+  </data>
+  <data name="FilteredSearch_Overview" xml:space="preserve">
+    <value>Le composant &lt;code&gt;&amp;lt;fdcp-filters-box&amp;gt;&lt;/code&gt; offre un moyen aux développeurs d'afficher un panneau de filtres qui permettra aux utilisateurs de restreindre leurs résultats de recherche.</value>
+  </data>
+  <data name="FilteredSearch_Properties_Title" xml:space="preserve">
+    <value>Le titre affiché dans l'en-tête du panneau de filtres</value>
+  </data>
+  <data name="FilteredSearch_Properties_Filters" xml:space="preserve">
+    <value>Une collection de catégories de filtres à être affichées dans le panneau de filtre; chaque catégorie peut contenir plusieurs options de filtres</value>
+  </data>
+  <data name="FilteredSearch_Basic_Anchor" xml:space="preserve">
+    <value>base</value>
+  </data>
+  <data name="FilteredSearch_Basic_Title" xml:space="preserve">
+    <value>Utilisation de base</value>
   </data>
   <data name="StatelessAuth_CurrentStatus_Title" xml:space="preserve">
     <value>Statut d'authentification actuel</value>
@@ -1123,22 +1141,115 @@
   <data name="StatelessAuth_Integration_Description2" xml:space="preserve">
     <value />
   </data>
-  <data name="FilteredSearch_Name" xml:space="preserve">
-    <value>Recherche filtrée</value>
-  </data>
-  <data name="FilteredSearch_Overview" xml:space="preserve">
-    <value>La composante &lt;code&gt;&amp;lt;fdcp-filters-box&amp;gt;&lt;/code&gt; offre un moyen aux développeurs d'afficher un panneau de filtres qui permettra aux utilisateurs de restreindre leurs résultats de recherche.</value>
-  </data>
-  <data name="FilteredSearch_Properties_Title" xml:space="preserve">
-    <value>Le titre affiché dans l'en-tête du panneau de filtres</value>
-  </data>
-  <data name="FilteredSearch_Properties_Filters" xml:space="preserve">
-    <value>Une collection de catégories de filtres à être affichées dans le panneau de filtre; chaque catégorie peut contenir plusieurs options de filtres</value>
-  </data>
-  <data name="FilteredSearch_Basic_Anchor" xml:space="preserve">
+  <data name="PageHeading_Basic_Anchor" xml:space="preserve">
     <value>base</value>
   </data>
-  <data name="FilteredSearch_Basic_Title" xml:space="preserve">
+  <data name="PageHeading_Basic_Title" xml:space="preserve">
     <value>Utilisation de base</value>
+  </data>
+  <data name="PageHeading_Name" xml:space="preserve">
+    <value>En-tête de page</value>
+  </data>
+  <data name="PageHeading_Notes_3" xml:space="preserve">
+    <value>Des changements aux styles peuvent appliqués sur la classe &lt;code&gt;fdcp-page-header-container&lt;/code&gt; et autres dans votre fichier SCSS</value>
+  </data>
+  <data name="PageHeading_Notes_2" xml:space="preserve">
+    <value>Ce composant est réactif et accessible</value>
+  </data>
+  <data name="PageHeading_Notes_1" xml:space="preserve">
+    <value>L'image de l'arrière-plan est déterminé en utilisant l'attribut &lt;code&gt;data-bg-src&lt;/code&gt; et du code JavaScript pour conforme au CSP</value>
+  </data>
+  <data name="PageHeading_Overview" xml:space="preserve">
+    <value>Le composant &lt;code&gt;&amp;lt;fdcp-page-heading&amp;gt;&lt;/code&gt; permet d'afficher de façon prédominante un en-tête de page incluant un titre, une description et, optionellement, une image en arrière-plan. Ce composant a été conçu pour être utilisé dans des projets de pages Razor.</value>
+  </data>
+  <data name="PageHeading_Properties_Title" xml:space="preserve">
+    <value>Le texte principal de l'en-tête (affiché dans un &lt;code&gt;h1&lt;/code&gt;)</value>
+  </data>
+  <data name="PageHeading_Properties_Description" xml:space="preserve">
+    <value>Optionnel. Texte descriptif additionel affiché sous le titre de l'en-tête.</value>
+  </data>
+  <data name="PageHeading_Properties_Size" xml:space="preserve">
+    <value>Optionnel. Détermine la hauteur de l'en-tête de page (par défaut ou large). Un large en-tête de page ajoutera plus de coussin au-dessus et en-dessous de l'espace réservé au texte.</value>
+  </data>
+  <data name="PageHeading_Properties_Src" xml:space="preserve">
+    <value>Optionnel. URL pour l'image en arrière-plan.</value>
+  </data>
+  <data name="PageHeading_Properties_TextEmphasis" xml:space="preserve">
+    <value>Optionnel. Ajout un léger arrière-plan semi-transparent ainsi qu'une bordure autour de l'espace réservé au texte pour mettre de l'emphase sur le contenu.</value>
+  </data>
+  <data name="Stepper_Basic_Anchor" xml:space="preserve">
+    <value>base</value>
+  </data>
+  <data name="Stepper_Basic_Title" xml:space="preserve">
+    <value>Utilisation de base</value>
+  </data>
+  <data name="Stepper_Name" xml:space="preserve">
+    <value>Indicateur d'étapes</value>
+  </data>
+  <data name="Stepper_Notes_2" xml:space="preserve">
+    <value>En utilisant &lt;code&gt;DisplayMode.Icon&lt;/code&gt;, si aucun icône HTML n'est fourni pour un état, le numéro sera affiché par défaut</value>
+  </data>
+  <data name="Stepper_Notes_1" xml:space="preserve">
+    <value>Les étapes calculent automatiquement leur état actuel (complétée, active ou incomplète)basée sur la valeur de &lt;code&gt;current-step&lt;/code&gt;</value>
+  </data>
+  <data name="Stepper_Notes_4" xml:space="preserve">
+    <value>Les étapes sans étiquette/nom ne seront pas affichées</value>
+  </data>
+  <data name="Stepper_Overview" xml:space="preserve">
+    <value>Le composant &lt;code&gt;&amp;lt;fdcp-stepper&amp;gt;&lt;/code&gt; aide les utilisateurs à suivre leur progrès dans un processus à plusieurs étapes. Ce composant permet d'avoir un aperçu rapide de l'étape en cours, des étapes suivantes et/ou complétées supportant à la fois un mode d'affichage numérique ou avec icônes.</value>
+  </data>
+  <data name="Stepper_Properties_CurrentStep" xml:space="preserve">
+    <value>Le numéro de l'étape active (indexation à base 1)</value>
+  </data>
+  <data name="Stepper_Properties_Steps" xml:space="preserve">
+    <value>Une collection d'objets de type &lt;code&gt;StepperStep&lt;/code&gt; pour configurer les différentes étapes de l'indicateur d'étapes</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_StepNumber" xml:space="preserve">
+    <value>Le nombre séquentiel de l'étape</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_Label" xml:space="preserve">
+    <value>Nom donné à l'étape</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_DisplayMode" xml:space="preserve">
+    <value>Mode d'affichage pour l'étape (Number or Icon)</value>
+  </data>
+  <data name="Stepper_Basic_Text" xml:space="preserve">
+    <value>Un indicateur d'étapes de base avec les étapes numérotées&amp;nbsp;:</value>
+  </data>
+  <data name="Stepper_Notes_3" xml:space="preserve">
+    <value>Les étapes cachées (&lt;code&gt;IsHidden = true&lt;/code&gt;) ne seront pas affichées dans l'indicateur d'étapes</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_IsLink" xml:space="preserve">
+    <value>Détermine si l'étape est cliquable</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_LinkUrl" xml:space="preserve">
+    <value>Optionnel. URL pour les étapes cliquables</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_CompletedIconHtml" xml:space="preserve">
+    <value>Optionnel. HTML pour l'icône d'étape complétée</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_InProgressIconHtml" xml:space="preserve">
+    <value>Optionnel. HTML pour l'icône d'étape en cours</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_NotStartedIconHtml" xml:space="preserve">
+    <value>Optionnel. HTML pour l'icône d'étape non démarrée</value>
+  </data>
+  <data name="Stepper_WithIcons_Title" xml:space="preserve">
+    <value>Avec icônes</value>
+  </data>
+  <data name="Stepper_WithIcons_Anchor" xml:space="preserve">
+    <value>avec-icones</value>
+  </data>
+  <data name="Stepper_WithIcons_Text" xml:space="preserve">
+    <value>Indicateur d'étapes avec des icônes personalisés à différentes étapes&amp;nbsp;:</value>
+  </data>
+  <data name="Stepper_WithLinks_Title" xml:space="preserve">
+    <value>Avec liens</value>
+  </data>
+  <data name="Stepper_WithLinks_Anchor" xml:space="preserve">
+    <value>avec-liens</value>
+  </data>
+  <data name="Stepper_WithLinks_Text" xml:space="preserve">
+    <value>Un indicateur d'étapes avec des étapes cliquables&amp;nbsp;:</value>
   </data>
 </root>

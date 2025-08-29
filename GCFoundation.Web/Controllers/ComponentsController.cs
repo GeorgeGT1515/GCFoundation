@@ -69,7 +69,7 @@ namespace GCFoundation.Web.Controllers
             SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_FilteredSearch_Title}");
 
             var vm = BuildFilteredSearchComponentViewModel();
-            return View("FilteredSearch", vm);
+            return View("Component", vm);
         }
 
         /// <summary>
@@ -474,6 +474,7 @@ namespace GCFoundation.Web.Controllers
         public IActionResult Gcds()
         {
             SetPageTitle(Menu.Menu_Components_GCDesign);
+
             return View();
         }
 
@@ -515,7 +516,9 @@ namespace GCFoundation.Web.Controllers
         public IActionResult PageHeading()
         {
             SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_PageHeading_Title}");
-            return View();
+
+            var vm = BuildPageHeadingComponentViewModel();
+            return View("Component", vm);
         }
 
         /// <summary>
@@ -528,7 +531,9 @@ namespace GCFoundation.Web.Controllers
         public IActionResult Stepper()
         {
             SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Stepper_Title}");
-            return View();
+
+            var vm = BuildStepperComponentViewModel();
+            return View("Component", vm);
         }
 
         /// <summary>
@@ -625,34 +630,9 @@ namespace GCFoundation.Web.Controllers
 
             return vm;
         }
-        private static FilteredSearchViewModel BuildFilteredSearchComponentViewModel()
+        private static ComponentViewModel BuildFilteredSearchComponentViewModel()
         {
-            var vm = new FilteredSearchViewModel();
-
-            // Create sample Filtered Search categories.
-            vm.SearchFilterCategories = new List<SearchFilterCategory>
-            {
-                new SearchFilterCategory
-                {
-                    Title = "Funding type",
-                    SearchFilterCategoryId = "funding",
-                    Filters = new List<SearchFilterOption>
-                    {
-                        new SearchFilterOption { Title = "Grants", Count = 45, Name = "grants" },
-                        new SearchFilterOption { Title = "Contributions", Count = 4, Name = "contributions" }
-                    }
-                },
-                new SearchFilterCategory
-                {
-                    Title = "Amounts",
-                    SearchFilterCategoryId = "amounts",
-                    Filters = new List<SearchFilterOption>
-                    {
-                        new SearchFilterOption { Title = "Less than $10,000", Count = 26, Name = "less10000" },
-                        new SearchFilterOption { Title = "$10,000 to $24,999", Count = 5, Name = "between10000and24999" }
-                    }
-                }
-            };
+            var vm = new ComponentViewModel();
 
             vm.Name = Resources.Components.FilteredSearch_Name;
             //vm.Notes = new List<string>()
@@ -736,6 +716,70 @@ namespace GCFoundation.Web.Controllers
                 new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Modal_Session_Text, Id = Resources.Components.Modal_Session_Anchor, PartialViewName = "Modal/_Session", Title = Resources.Components.Modal_Session_Title }
             };
             vm.Tag = "<fdcp-modal>";
+
+            return vm;
+        }
+        private static ComponentViewModel BuildPageHeadingComponentViewModel()
+        {
+            var vm = new ComponentViewModel();
+
+            vm.Name = Resources.Components.PageHeading_Name;
+            vm.Notes = new List<string>()
+            {
+                Resources.Components.PageHeading_Notes_1,
+                Resources.Components.PageHeading_Notes_2,
+                Resources.Components.PageHeading_Notes_3
+            };
+            vm.Overview = Resources.Components.PageHeading_Overview;
+            vm.Properties = new List<ComponentPropertyViewModel>()
+            {
+                new ComponentPropertyViewModel() { Name = "title", DataType = "string", Description = Resources.Components.PageHeading_Properties_Title },
+                new ComponentPropertyViewModel() { Name = "description", DataType = "string", Description = Resources.Components.PageHeading_Properties_Description },
+                new ComponentPropertyViewModel() { Name = "size", DataType = "PageHeadingSize", DefaultValue = "PageHeadingSize.Default", Description = Resources.Components.PageHeading_Properties_Size },
+                new ComponentPropertyViewModel() { Name = "src", DataType = "string", Description = Resources.Components.PageHeading_Properties_Src },
+                new ComponentPropertyViewModel() { Name = "text-emphasis", DataType = "bool", DefaultValue = "false", Description = Resources.Components.PageHeading_Properties_TextEmphasis }
+            };
+            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
+            {
+                new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.PageHeading_Basic_Anchor, PartialViewName = "PageHeading/_Basic", Title = Resources.Components.PageHeading_Basic_Title }
+            };
+            vm.Tag = "<fdcp-page-heading>";
+
+            return vm;
+        }
+        private static ComponentViewModel BuildStepperComponentViewModel()
+        {
+            var vm = new ComponentViewModel();
+
+            vm.Name = Resources.Components.Stepper_Name;
+            vm.Notes = new List<string>()
+            {
+                Resources.Components.Stepper_Notes_1,
+                Resources.Components.Stepper_Notes_2,
+                Resources.Components.Stepper_Notes_3,
+                Resources.Components.Stepper_Notes_4
+            };
+            vm.Overview = Resources.Components.Stepper_Overview;
+            vm.Properties = new List<ComponentPropertyViewModel>()
+            {
+                new ComponentPropertyViewModel() { Name = "current-step", DataType = "int", DefaultValue = "1", Description = Resources.Components.Stepper_Properties_CurrentStep },
+                new ComponentPropertyViewModel() { Name = "steps", DataType = "IEnumerable<StepperStep>", Description = Resources.Components.Stepper_Properties_Steps },
+                new ComponentPropertyViewModel() { Name = "StepperStep.StepNumber", DataType = "int", Description = Resources.Components.Stepper_Properties_StepperStep_StepNumber },
+                new ComponentPropertyViewModel() { Name = "StepperStep.Label", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_Label },
+                new ComponentPropertyViewModel() { Name = "StepperStep.DisplayMode", DataType = "string", DefaultValue = "StepDisplayMode.Number", Description = Resources.Components.Stepper_Properties_StepperStep_DisplayMode },
+                new ComponentPropertyViewModel() { Name = "StepperStep.IsLink", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_IsLink },
+                new ComponentPropertyViewModel() { Name = "StepperStep.LinkUrl", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_LinkUrl },
+                new ComponentPropertyViewModel() { Name = "StepperStep.CompletedIconHtml", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_CompletedIconHtml },
+                new ComponentPropertyViewModel() { Name = "StepperStep.InProgressIconHtml", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_InProgressIconHtml },
+                new ComponentPropertyViewModel() { Name = "StepperStep.NotStartedIconHtml", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_NotStartedIconHtml }
+            };
+            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
+            {
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Stepper_Basic_Text, Id = Resources.Components.Stepper_Basic_Anchor, PartialViewName = "Stepper/_Basic", Title = Resources.Components.Stepper_Basic_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Stepper_WithIcons_Anchor, Id = Resources.Components.Stepper_WithIcons_Anchor, PartialViewName = "Stepper/_WithIcons", Title = Resources.Components.Stepper_WithIcons_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Stepper_WithLinks_Anchor, Id = Resources.Components.Stepper_WithLinks_Anchor, PartialViewName = "Stepper/_WithLinks", Title = Resources.Components.Stepper_WithLinks_Title }
+            };
+            vm.Tag = "<fdcp-stepper>";
 
             return vm;
         }

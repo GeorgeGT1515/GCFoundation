@@ -1576,6 +1576,114 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to basic.
+        /// </summary>
+        public static string PageHeading_Basic_Anchor {
+            get {
+                return ResourceManager.GetString("PageHeading_Basic_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic Usage.
+        /// </summary>
+        public static string PageHeading_Basic_Title {
+            get {
+                return ResourceManager.GetString("PageHeading_Basic_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page Heading.
+        /// </summary>
+        public static string PageHeading_Name {
+            get {
+                return ResourceManager.GetString("PageHeading_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The background image is set using a &lt;code&gt;data-bg-src&lt;/code&gt; attribute and JavaScript for CSP compliance.
+        /// </summary>
+        public static string PageHeading_Notes_1 {
+            get {
+                return ResourceManager.GetString("PageHeading_Notes_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Component is responsive and accessible.
+        /// </summary>
+        public static string PageHeading_Notes_2 {
+            get {
+                return ResourceManager.GetString("PageHeading_Notes_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Style overrides can be applied via &lt;code&gt;fdcp-page-header-container&lt;/code&gt; and related classes in your SCSS.
+        /// </summary>
+        public static string PageHeading_Notes_3 {
+            get {
+                return ResourceManager.GetString("PageHeading_Notes_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-page-heading&amp;gt;&lt;/code&gt; component displays a prominent page header with a title, description, and optional background image. It is designed for use in Razor Pages projects..
+        /// </summary>
+        public static string PageHeading_Overview {
+            get {
+                return ResourceManager.GetString("PageHeading_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. Additional descriptive text below the title..
+        /// </summary>
+        public static string PageHeading_Properties_Description {
+            get {
+                return ResourceManager.GetString("PageHeading_Properties_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. Sets the size of the height of page header (Default, or Large). A Large page heading will add more padding above and below the text container..
+        /// </summary>
+        public static string PageHeading_Properties_Size {
+            get {
+                return ResourceManager.GetString("PageHeading_Properties_Size", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. URL for the background image..
+        /// </summary>
+        public static string PageHeading_Properties_Src {
+            get {
+                return ResourceManager.GetString("PageHeading_Properties_Src", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. Adds a light background and a border around the text container to emphasize the content..
+        /// </summary>
+        public static string PageHeading_Properties_TextEmphasis {
+            get {
+                return ResourceManager.GetString("PageHeading_Properties_TextEmphasis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The main heading text (displayed as an &lt;code&gt;h1&lt;/code&gt;)..
+        /// </summary>
+        public static string PageHeading_Properties_Title {
+            get {
+                return ResourceManager.GetString("PageHeading_Properties_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Properties.
         /// </summary>
         public static string Properties {
@@ -1923,6 +2031,231 @@ namespace GCFoundation.Web.Resources {
         public static string StatelessAuth_User_Info_Button {
             get {
                 return ResourceManager.GetString("StatelessAuth_User_Info_Button", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to basic.
+        /// </summary>
+        public static string Stepper_Basic_Anchor {
+            get {
+                return ResourceManager.GetString("Stepper_Basic_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A basic stepper with numbered steps:.
+        /// </summary>
+        public static string Stepper_Basic_Text {
+            get {
+                return ResourceManager.GetString("Stepper_Basic_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic Usage.
+        /// </summary>
+        public static string Stepper_Basic_Title {
+            get {
+                return ResourceManager.GetString("Stepper_Basic_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stepper.
+        /// </summary>
+        public static string Stepper_Name {
+            get {
+                return ResourceManager.GetString("Stepper_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Steps automatically calculate their state (completed, active, or incomplete) based on the &lt;code&gt;CurrentStep&lt;/code&gt; value.
+        /// </summary>
+        public static string Stepper_Notes_1 {
+            get {
+                return ResourceManager.GetString("Stepper_Notes_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When using &lt;code&gt;DisplayMode.Icon&lt;/code&gt;, if no icon HTML is provided for a state, the step number will be displayed instead.
+        /// </summary>
+        public static string Stepper_Notes_2 {
+            get {
+                return ResourceManager.GetString("Stepper_Notes_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hidden steps (&lt;code&gt;IsHidden = true&lt;/code&gt;) will not be rendered in the stepper.
+        /// </summary>
+        public static string Stepper_Notes_3 {
+            get {
+                return ResourceManager.GetString("Stepper_Notes_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Steps without labels will be skipped during rendering.
+        /// </summary>
+        public static string Stepper_Notes_4 {
+            get {
+                return ResourceManager.GetString("Stepper_Notes_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-stepper&amp;gt;&lt;/code&gt; component helps users track their progress in multi-step processes. It provides visual feedback about completed, current, and upcoming steps, supporting both numeric and icon-based display modes..
+        /// </summary>
+        public static string Stepper_Overview {
+            get {
+                return ResourceManager.GetString("Stepper_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The current active step number (1-based index).
+        /// </summary>
+        public static string Stepper_Properties_CurrentStep {
+            get {
+                return ResourceManager.GetString("Stepper_Properties_CurrentStep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. HTML for the completed state icon.
+        /// </summary>
+        public static string Stepper_Properties_StepperStep_CompletedIconHtml {
+            get {
+                return ResourceManager.GetString("Stepper_Properties_StepperStep_CompletedIconHtml", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display mode for the step (Number or Icon).
+        /// </summary>
+        public static string Stepper_Properties_StepperStep_DisplayMode {
+            get {
+                return ResourceManager.GetString("Stepper_Properties_StepperStep_DisplayMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. HTML for the in-progress state icon.
+        /// </summary>
+        public static string Stepper_Properties_StepperStep_InProgressIconHtml {
+            get {
+                return ResourceManager.GetString("Stepper_Properties_StepperStep_InProgressIconHtml", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Determines if the step is clickable.
+        /// </summary>
+        public static string Stepper_Properties_StepperStep_IsLink {
+            get {
+                return ResourceManager.GetString("Stepper_Properties_StepperStep_IsLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text label for the step.
+        /// </summary>
+        public static string Stepper_Properties_StepperStep_Label {
+            get {
+                return ResourceManager.GetString("Stepper_Properties_StepperStep_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. URL for clickable steps.
+        /// </summary>
+        public static string Stepper_Properties_StepperStep_LinkUrl {
+            get {
+                return ResourceManager.GetString("Stepper_Properties_StepperStep_LinkUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. HTML for the not-started state icon.
+        /// </summary>
+        public static string Stepper_Properties_StepperStep_NotStartedIconHtml {
+            get {
+                return ResourceManager.GetString("Stepper_Properties_StepperStep_NotStartedIconHtml", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The sequential number of the step.
+        /// </summary>
+        public static string Stepper_Properties_StepperStep_StepNumber {
+            get {
+                return ResourceManager.GetString("Stepper_Properties_StepperStep_StepNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Collection of &lt;code&gt;StepperStep&lt;/code&gt; objects defining the stepper configuration.
+        /// </summary>
+        public static string Stepper_Properties_Steps {
+            get {
+                return ResourceManager.GetString("Stepper_Properties_Steps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to with-icons.
+        /// </summary>
+        public static string Stepper_WithIcons_Anchor {
+            get {
+                return ResourceManager.GetString("Stepper_WithIcons_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stepper with custom icons for different states:.
+        /// </summary>
+        public static string Stepper_WithIcons_Text {
+            get {
+                return ResourceManager.GetString("Stepper_WithIcons_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to With Icons.
+        /// </summary>
+        public static string Stepper_WithIcons_Title {
+            get {
+                return ResourceManager.GetString("Stepper_WithIcons_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to with-links.
+        /// </summary>
+        public static string Stepper_WithLinks_Anchor {
+            get {
+                return ResourceManager.GetString("Stepper_WithLinks_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stepper with clickable steps:.
+        /// </summary>
+        public static string Stepper_WithLinks_Text {
+            get {
+                return ResourceManager.GetString("Stepper_WithLinks_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to With Links.
+        /// </summary>
+        public static string Stepper_WithLinks_Title {
+            get {
+                return ResourceManager.GetString("Stepper_WithLinks_Title", resourceCulture);
             }
         }
         
