@@ -116,7 +116,7 @@ namespace GCFoundation.Web.Models
         /// </summary>
         [Required]
         [Display(Name = "Form_Interests_Label", ResourceType = typeof(Resources.Components))]
-        public IEnumerable<string> SelectedInterests { get; set; } = [];
+        public IEnumerable<string> SelectedInterests { get; set; } = new List<string>();
 
         /// <summary>
         /// Available interest options.
@@ -128,6 +128,5 @@ namespace GCFoundation.Web.Models
             new() { Value = "travel", Text = "Travel" },
             new() { Value = "reading", Text = "Reading" }
         ];
-
     }
 }
