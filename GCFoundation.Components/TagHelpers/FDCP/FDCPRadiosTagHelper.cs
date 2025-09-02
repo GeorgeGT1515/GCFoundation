@@ -46,8 +46,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             string legend = GetLocalizedLabel(propertyInfo);
             string hint = GetLocalizedHint(propertyInfo);
 
-            // Retrieve selected values (if any)
-            var selectedValues = For.Model as List<string> ?? new List<string>();
+            // Retrieve the selected value (if any)
+            var selectedValue = For.Model as string ?? string.Empty;
 
             output.TagName = "gcds-radios";
             output.TagMode = TagMode.StartTagAndEndTag;
@@ -58,7 +58,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 id = $"{fieldName}_{item.Value}",
                 label = item.Text,
                 value = item.Value,
-                @checked = selectedValues.Contains(item.Value),
+                @checked = selectedValue == item.Value
             });
 
             AddAttributeIfNotNull(output, "name", fieldName);
