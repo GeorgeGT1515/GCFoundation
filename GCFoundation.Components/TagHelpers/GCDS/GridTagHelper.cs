@@ -17,7 +17,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// <summary>
         /// Defines the alignment of items in the grid container.
         /// </summary>
-        public AlignItem AlingItem { get; set; }
+        public AlignItem? AlingItem { get; set; }
 
         /// <summary>
         /// Specifies the number of columns for the grid.
@@ -37,12 +37,12 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// <summary>
         /// Defines the container width (full, custom, etc.) for the grid.
         /// </summary>
-        public SizeTypeEmum Container { get; set; } = SizeTypeEmum.full;
+        public SizeTypeEmum? Container { get; set; }
 
         /// <summary>
         /// Defines the display type of the grid (grid or other options).
         /// </summary>
-        public GridDisplay Display { get; set; } = GridDisplay.grid;
+        public GridDisplay? Display { get; set; }
 
         /// <summary>
         /// Indicates whether to make all rows have equal height.
