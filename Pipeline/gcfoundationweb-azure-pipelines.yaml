@@ -230,13 +230,13 @@ stages:
                 }
 
                 # Assign the Pipeline Library (global) and Release (local) variables
-                $AzureResGroup = "$(resourceGroupName)"
-                $AzureWebAppName = "$(webAppName)"
-                $WebSlot = "$(slotName)"
+                $AzureResGroup = "${{ variables.resourceGroupName }}"
+                $AzureWebAppName = "${{ variables.webAppName }}"
+                $WebSlot = "${{ variables.slotName }}"
                 $PreloadEnabled = $false
-                $usesSlots = "$(useSlot)"
+                $usesSlots = "${{ variables.useSlot }}"
 
-                $virtualDirectoryFullPath = "$(virtualDirectoryName)"
+                $virtualDirectoryFullPath = "${{ variables.virtualDirectoryName }}"
                 if($virtualDirectoryFullPath -eq ""){
                   $virtualDirectoryFullPath = "/"
                 }
