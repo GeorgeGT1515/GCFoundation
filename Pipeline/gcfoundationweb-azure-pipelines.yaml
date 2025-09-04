@@ -164,7 +164,7 @@ stages:
       runOnce:
         deploy:
           steps:
-          - task: AzurePowerShell@3
+          - task: AzurePowerShell@5
             displayName: 'Azure PowerShell script: Create Virtual Directory'
             continueOnError: True
             env:
@@ -173,7 +173,8 @@ stages:
               azureSubscription: ${{ variables.azureSubscription }}
               errorActionPreference: 'continue'
               azurePowerShellVersion: 'LatestVersion'
-              script: |
+              ScriptType: InlineScript
+              Inline: |
                 Function CreateVirtualApplication {
                   Param($ARG, $AWAN, $WS, $PE, $PP, $VP, $US)
                   $UWS = "true"
