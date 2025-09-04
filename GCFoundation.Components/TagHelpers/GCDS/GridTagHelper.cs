@@ -99,7 +99,10 @@ namespace GCFoundation.Components.TagHelpers.GCDS
             AddAttributeIfNotNull(output, "columns-tablet", ColumnsTablet);
             AddAttributeIfNotNull(output, "container", Container);
             AddAttributeIfNotNull(output, "display", Display);
-            AddAttributeIfNotNull(output, "equal-row-height", EqualRowHeight);
+            if (EqualRowHeight)
+            {
+                output.Attributes.SetAttribute(new TagHelperAttribute("equal-row-height"));
+            }
             AddAttributeIfNotNull(output, "gap", Gap);
             AddAttributeIfNotNull(output, "gap-desktop", GapDesktop);
             AddAttributeIfNotNull(output, "gap-tablet", GapTablet);
