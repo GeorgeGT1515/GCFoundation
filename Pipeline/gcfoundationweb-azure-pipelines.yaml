@@ -164,147 +164,146 @@ stages:
       runOnce:
         deploy:
           steps:
-          - task: PowerShell@3
+          - task: PowerShell@2
             displayName: Create Virtual Directory - PowerShell
             continueOnError: True
             env:
               BUILD_SOURCESDIRECTORY: $(Build.SourcesDirectory)
             inputs:
-            targetType: 'inline'
-            script: |
-              Function CreateVirtualApplication {
-                Param($ARG, $AWAN, $WS, $PE, $PP, $VP, $US)
-                $UWS = "true"
-                If($WS -eq "Production" -or $US -eq "false"){
-                  $UWS = "false"
-                }
-                If($UWS -eq "false"){
-                '1'
-                  $webAppSlot  = Get-AzureRmWebApp -ResourceGroupName $ARG  -Name  $AWAN
-                '1.1'
-                } else {
-                '2'
-                  $webAppSlot  = Get-AzureRmWebAppSlot  -ResourceGroupName $ARG  -Name  $AWAN -Slot $WS
-                '2.1'
-                }
-                '--webAppSlot.siteConfig.VirtualApplications.VirtualPath: ' + $webAppSlot.siteConfig.VirtualApplications.VirtualPath
-                '--VP: ' + $VP
-                # Test if the virtual directory already exists, if not create it! 
-                If ($webAppSlot.siteConfig.VirtualApplications.VirtualPath -notcontains $VP) {
-                  # Set all the virtual properties
-                  $virtApp = New-Object Microsoft.Azure.Management.WebSites.Models.VirtualApplication
-                  $virtApp.VirtualPath = $VP
-                  $virtApp.PhysicalPath = $PP
-                  $virtApp.PreloadEnabled  = $PE
-
-                  # Assignment of virtual properties
-                  $null = $webAppSlot.siteConfig.VirtualApplications.Add($virtApp)
-
-                  # Create the virtual directory on the slot
-                  if($UWS -eq "false"){
-                  '3'
-                    Set-AzureRmWebApp -WebApp $webAppSlot
-                  '3.1'
-                  } else {
-                  '4'
-                    Set-AzureRmWebAppSlot -WebApp $webAppSlot
-                  '4.1'
+              targetType: 'inline'
+              script: |
+                Function CreateVirtualApplication {
+                  Param($ARG, $AWAN, $WS, $PE, $PP, $VP, $US)
+                  $UWS = "true"
+                  If($WS -eq "Production" -or $US -eq "false"){
+                    $UWS = "false"
                   }
-                } else {
-                  for ($i = 0; $i -lt $webAppSlot.siteConfig.VirtualApplications.Count ; $i++) {
-                    $webAppSlotVirtualApp = $webAppSlot.siteConfig.VirtualApplications[$i]
-                    if($webAppSlotVirtualApp.VirtualPath -eq $VP){
-                      $webAppSlotVirtualApp.PhysicalPath  = $PP
+                  If($UWS -eq "false"){
+                  '1'
+                    $webAppSlot  = Get-AzureRmWebApp -ResourceGroupName $ARG  -Name  $AWAN
+                  '1.1'
+                  } else {
+                  '2'
+                    $webAppSlot  = Get-AzureRmWebAppSlot  -ResourceGroupName $ARG  -Name  $AWAN -Slot $WS
+                  '2.1'
+                  }
+                  '--webAppSlot.siteConfig.VirtualApplications.VirtualPath: ' + $webAppSlot.siteConfig.VirtualApplications.VirtualPath
+                  '--VP: ' + $VP
+                  # Test if the virtual directory already exists, if not create it! 
+                  If ($webAppSlot.siteConfig.VirtualApplications.VirtualPath -notcontains $VP) {
+                    # Set all the virtual properties
+                    $virtApp = New-Object Microsoft.Azure.Management.WebSites.Models.VirtualApplication
+                    $virtApp.VirtualPath = $VP
+                    $virtApp.PhysicalPath = $PP
+                    $virtApp.PreloadEnabled  = $PE
+
+                    # Assignment of virtual properties
+                    $null = $webAppSlot.siteConfig.VirtualApplications.Add($virtApp)
+
+                    # Create the virtual directory on the slot
+                    if($UWS -eq "false"){
+                    '3'
+                      Set-AzureRmWebApp -WebApp $webAppSlot
+                    '3.1'
+                    } else {
+                    '4'
+                      Set-AzureRmWebAppSlot -WebApp $webAppSlot
+                    '4.1'
+                    }
+                  } else {
+                    for ($i = 0; $i -lt $webAppSlot.siteConfig.VirtualApplications.Count ; $i++) {
+                      $webAppSlotVirtualApp = $webAppSlot.siteConfig.VirtualApplications[$i]
+                      if($webAppSlotVirtualApp.VirtualPath -eq $VP){
+                        $webAppSlotVirtualApp.PhysicalPath  = $PP
+                      }
+                    }
+                    if($UWS -eq "false"){
+                    '5'
+                      Set-AzureRmWebApp -WebApp $webAppSlot
+                    '5.1'
+                    } else {
+                    '6'
+                      Set-AzureRmWebAppSlot -WebApp $webAppSlot
+                    '6.1'
                     }
                   }
-                  if($UWS -eq "false"){
-                  '5'
-                    Set-AzureRmWebApp -WebApp $webAppSlot
-                  '5.1'
-                  } else {
-                  '6'
-                    Set-AzureRmWebAppSlot -WebApp $webAppSlot
-                  '6.1'
-                  }
                 }
-              }
 
-              # Assign the Pipeline Library (global) and Release (local) variables
-              $AzureResGroup = "$(resourceGroupName)"
-              $AzureWebAppName = "$(webAppName)"
-              $WebSlot = "$(slotName)"
-              $PreloadEnabled = $false
-              $usesSlots = "$(useSlot)"
+                # Assign the Pipeline Library (global) and Release (local) variables
+                $AzureResGroup = "$(resourceGroupName)"
+                $AzureWebAppName = "$(webAppName)"
+                $WebSlot = "$(slotName)"
+                $PreloadEnabled = $false
+                $usesSlots = "$(useSlot)"
 
-              $virtualDirectoryFullPath = "$(virtualDirectoryName)"
-              if($virtualDirectoryFullPath -eq ""){
-                $virtualDirectoryFullPath = "/"
-              }
+                $virtualDirectoryFullPath = "$(virtualDirectoryName)"
+                if($virtualDirectoryFullPath -eq ""){
+                  $virtualDirectoryFullPath = "/"
+                }
 
-              $separators = "/"
-              $separators2 = ";"
-              $separators3 = "&"
-              $option = [System.StringSplitOptions]::RemoveEmptyEntries
-              $distinctVirtualDirectories = $virtualDirectoryFullPath.Split($separators2)
+                $separators = "/"
+                $separators2 = ";"
+                $separators3 = "&"
+                $option = [System.StringSplitOptions]::RemoveEmptyEntries
+                $distinctVirtualDirectories = $virtualDirectoryFullPath.Split($separators2)
 
-              for ($dvds = 0; $dvds -lt $distinctVirtualDirectories.Count ; $dvds++) {
-                $distinctVirtualDirectory = $distinctVirtualDirectories[$dvds]
+                for ($dvds = 0; $dvds -lt $distinctVirtualDirectories.Count ; $dvds++) {
+                  $distinctVirtualDirectory = $distinctVirtualDirectories[$dvds]
 
-                If ($distinctVirtualDirectory.StartsWith("%")){
-                  $virtualDirectories = $distinctVirtualDirectory.Split($separators3,$option)
-                  $PhysicalPath = "site\wwwroot\" + $virtualDirectories[0].Substring(1)
-                  $VirtualPath = $virtualDirectories[1]
+                  If ($distinctVirtualDirectory.StartsWith("%")){
+                    $virtualDirectories = $distinctVirtualDirectory.Split($separators3,$option)
+                    $PhysicalPath = "site\wwwroot\" + $virtualDirectories[0].Substring(1)
+                    $VirtualPath = $virtualDirectories[1]
 
-                  If ($VirtualPath -eq "/"){
-                    $VirtualPath = ""
-                  }
-                  $PhysicalPath = $PhysicalPath.Replace('/', '\')
-                  $VirtualPath = $VirtualPath.Replace('\', '/')
-                  CreateVirtualApplication -ARG $AzureResGroup -AWAN $AzureWebAppName -WS $WebSlot -PE $PreloadEnabled -PP $PhysicalPath -VP $VirtualPath -US $usesSlots
-                } else {
-                  $virtualDirectories = $distinctVirtualDirectory.Split($separators,$option)
-                  
-                  if($virtualDirectories.Count -eq 0){
-                    $PhysicalPath = "site\wwwroot"
-                    $VirtualPath = ""
+                    If ($VirtualPath -eq "/"){
+                      $VirtualPath = ""
+                    }
+                    $PhysicalPath = $PhysicalPath.Replace('/', '\')
+                    $VirtualPath = $VirtualPath.Replace('\', '/')
+                    CreateVirtualApplication -ARG $AzureResGroup -AWAN $AzureWebAppName -WS $WebSlot -PE $PreloadEnabled -PP $PhysicalPath -VP $VirtualPath -US $usesSlots
+                  } else {
+                    $virtualDirectories = $distinctVirtualDirectory.Split($separators,$option)
                     
-                    #CreateVirtualApplication -ARG $AzureResGroup -AWAN $AzureWebAppName -WS $WebSlot -PE $PreloadEnabled -PP $PhysicalPath -VP $VirtualPath -US $usesSlots
-                  } else {
-                    for ($vds = 0; $vds -lt $virtualDirectories.Count ; $vds++) {
-                      $VirtualPath = "/"
-                      $PhysicalPath = ""
-                      for ($vps = 0; $vps -lt $vds + 1 ; $vps++) {
-                        $VirtualPath = $VirtualPath + $virtualDirectories[$vps] + "/"
-                        $PhysicalPath = $PhysicalPath + $virtualDirectories[$vps] + "/"
-                      }
+                    if($virtualDirectories.Count -eq 0){
+                      $PhysicalPath = "site\wwwroot"
+                      $VirtualPath = ""
                       
-                      # Set the paths
-                      $PhysicalPath = "site\wwwroot\$PhysicalPath"
-                      $PhysicalPath = $PhysicalPath.Replace('/', '\')
-                      $VirtualPath = $VirtualPath.Replace('\', '/')
-                      
-                      if ($PhysicalPath.Length -gt 1) {
-                        $PPlastchar = $PhysicalPath.Substring($PhysicalPath.Length-1, 1)
-                        DO {
-                          $PhysicalPath = $PhysicalPath.Substring(0, $PhysicalPath.Length-1)
+                      #CreateVirtualApplication -ARG $AzureResGroup -AWAN $AzureWebAppName -WS $WebSlot -PE $PreloadEnabled -PP $PhysicalPath -VP $VirtualPath -US $usesSlots
+                    } else {
+                      for ($vds = 0; $vds -lt $virtualDirectories.Count ; $vds++) {
+                        $VirtualPath = "/"
+                        $PhysicalPath = ""
+                        for ($vps = 0; $vps -lt $vds + 1 ; $vps++) {
+                          $VirtualPath = $VirtualPath + $virtualDirectories[$vps] + "/"
+                          $PhysicalPath = $PhysicalPath + $virtualDirectories[$vps] + "/"
+                        }
+                        
+                        # Set the paths
+                        $PhysicalPath = "site\wwwroot\$PhysicalPath"
+                        $PhysicalPath = $PhysicalPath.Replace('/', '\')
+                        $VirtualPath = $VirtualPath.Replace('\', '/')
+                        
+                        if ($PhysicalPath.Length -gt 1) {
                           $PPlastchar = $PhysicalPath.Substring($PhysicalPath.Length-1, 1)
-                        } While ($PPlastchar -eq "\")
-                      }
+                          DO {
+                            $PhysicalPath = $PhysicalPath.Substring(0, $PhysicalPath.Length-1)
+                            $PPlastchar = $PhysicalPath.Substring($PhysicalPath.Length-1, 1)
+                          } While ($PPlastchar -eq "\")
+                        }
 
-                      if ($VirtualPath.Length -gt 1) {
-                        $VPlastchar = $VirtualPath.Substring($VirtualPath.Length-1, 1)
-                        DO {
-                          $VirtualPath = $VirtualPath.Substring(0, $VirtualPath.Length-1)
+                        if ($VirtualPath.Length -gt 1) {
                           $VPlastchar = $VirtualPath.Substring($VirtualPath.Length-1, 1)
-                        } While ($VPlastchar -eq "/")
+                          DO {
+                            $VirtualPath = $VirtualPath.Substring(0, $VirtualPath.Length-1)
+                            $VPlastchar = $VirtualPath.Substring($VirtualPath.Length-1, 1)
+                          } While ($VPlastchar -eq "/")
+                        }
+                        
+                        CreateVirtualApplication -ARG $AzureResGroup -AWAN $AzureWebAppName -WS $WebSlot -PE $PreloadEnabled -PP $PhysicalPath -VP $VirtualPath -US $usesSlots
                       }
-                      
-                      CreateVirtualApplication -ARG $AzureResGroup -AWAN $AzureWebAppName -WS $WebSlot -PE $PreloadEnabled -PP $PhysicalPath -VP $VirtualPath -US $usesSlots
                     }
                   }
                 }
-              }
-            failOnStderr: true
           - template: Deploy/DotNetCore/deploy-steps.yaml@templates
             parameters:
               azureSubscription: ${{ variables.azureSubscription }}
