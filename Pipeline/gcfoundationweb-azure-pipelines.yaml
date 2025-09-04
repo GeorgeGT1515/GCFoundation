@@ -156,9 +156,9 @@ stages:
   
   jobs:
   - deployment: deploy_gcfoundationweb_app_dev
-  #   variables:
-  #    - template: './transforms/dev/appsettings.yaml'
-  #    - template: './transforms/dev/deployment.yaml'
+    variables:
+      - template: './transforms/dev/appsettings.yaml'
+      - template: './transforms/dev/deployment.yaml'
     environment: ${{ variables.deploymentEnvironment }}
     strategy:
       runOnce:
@@ -169,6 +169,6 @@ stages:
               azureSubscription: ${{ variables.azureSubscription }}
               pathToPackage: ${{ variables.pathToPackage }}
               resourceGroupName: ${{ variables.resourceGroupName }}
-              virtualDirectoryName: /
+              virtualDirectoryName: ${{ variables.virtualDirectoryName }}
               webAppName: ${{ variables.webAppName }}
               excludeAppDataFolder: false

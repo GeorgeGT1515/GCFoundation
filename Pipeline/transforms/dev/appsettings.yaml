@@ -1,0 +1,4 @@
+# DEV AppSettings Variables
+variables:
+- name: Infrastructure.Environment
+  value: 'DEV'

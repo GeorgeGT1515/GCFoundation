@@ -1,0 +1,4 @@
+# Common variables to the entire pipeline
+variables:
+ - name: pathToPackage
+   value: 'drop/GCFoundation.Web.zip'

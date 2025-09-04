@@ -1,0 +1,16 @@
+# DEV Deployment variables
+variables:
+- name: azureSubscription
+  value: 'Infosite_Apps_WebApp'
+
+- name: deploymentEnvironment
+  value: 'GCFoundation_DEV'
+
+- name: resourceGroupName
+  value: 'RG_TBS_AppService-V3'
+
+- name: virtualDirectoryName
+  value: 'gcfoundation'
+
+- name: webAppName
+  value: 'appsvc-dev-apps-tbs-win001'
