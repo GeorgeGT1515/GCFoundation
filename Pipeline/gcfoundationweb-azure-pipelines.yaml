@@ -23,7 +23,6 @@ pr:
         - GCFoundation.Web/
         - Pipeline/
 
-displayName: 'GCFoundation.Web - Demo App'
 name: $(date:yyyyMMdd)$(rev:.r)
 pool:
   name: TBS Self Hosted
