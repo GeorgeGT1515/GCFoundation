@@ -170,7 +170,9 @@ stages:
             env:
               BUILD_SOURCESDIRECTORY: $(Build.SourcesDirectory)
             inputs:
-              targetType: 'inline'
+              azureSubscription: ${{ variables.azureSubscription }}
+              errorActionPreference: 'continue'
+              azurePowerShellVersion: 'LatestVersion'
               script: |
                 Function CreateVirtualApplication {
                   Param($ARG, $AWAN, $WS, $PE, $PP, $VP, $US)
