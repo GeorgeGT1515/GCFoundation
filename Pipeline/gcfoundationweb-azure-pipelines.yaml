@@ -172,7 +172,7 @@ stages:
             inputs:
               azureSubscription: ${{ variables.azureSubscription }}
               ScriptType: FilePath
-              ScriptPath: '$(Build.SourcesDirectory)\Pipeline\scripts\Invoke-CreateVirtualApplications.ps1'
+              ScriptPath: '$(Build.SourcesDirectory)\Pipeline\scripts\Invoke-CreateVirtualApplication.ps1'
               ScriptArguments: >
                 -ResourceGroupName '${{ variables.resourceGroupName }}'
                 -WebAppName '${{ variables.webAppName }}'
