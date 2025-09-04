@@ -164,22 +164,6 @@ stages:
       runOnce:
         deploy:
           steps:
-          - checkout: self
-          - task: AzurePowerShell@5
-            displayName: 'Azure PowerShell script: Create Virtual Directory'
-            continueOnError: True
-            inputs:
-              azureSubscription: ${{ variables.azureSubscription }}
-              ScriptType: FilePath
-              ScriptPath: '$(System.DefaultWorkingDirectory)\Pipeline\scripts\Invoke-CreateVirtualApplication.ps1'
-              ScriptArguments: >
-                -ResourceGroupName '${{ variables.resourceGroupName }}'
-                -WebAppName '${{ variables.webAppName }}'
-                -Slot '${{ variables.slotName }}'
-                -UseSlots '${{ variables.useSlot }}'
-                -VirtualDirectoryFullPath '${{ variables.virtualDirectoryName }}'
-                -PreloadEnabled:$false
-              azurePowerShellVersion: 'LatestVersion'
           - template: Deploy/DotNetCore/deploy-steps.yaml@templates
             parameters:
               azureSubscription: ${{ variables.azureSubscription }}
