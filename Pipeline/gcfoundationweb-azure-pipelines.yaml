@@ -164,8 +164,8 @@ stages:
       runOnce:
         deploy:
           steps:
-          - task: PowerShell@2
-            displayName: Create Virtual Directory - PowerShell
+          - task: AzurePowerShell@3
+            displayName: 'Azure PowerShell script: Create Virtual Directory'
             continueOnError: True
             env:
               BUILD_SOURCESDIRECTORY: $(Build.SourcesDirectory)

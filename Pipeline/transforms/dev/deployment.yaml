@@ -9,6 +9,9 @@ variables:
 - name: resourceGroupName
   value: 'RG_TBS_AppService-V3'
 
+- name: slotName
+  value: 'production'
+
 - name: virtualDirectoryName
   value: 'gcfoundation'
 
