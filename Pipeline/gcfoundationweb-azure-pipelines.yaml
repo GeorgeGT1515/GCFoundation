@@ -164,15 +164,14 @@ stages:
       runOnce:
         deploy:
           steps:
+          - checkout: self
           - task: AzurePowerShell@5
             displayName: 'Azure PowerShell script: Create Virtual Directory'
             continueOnError: True
-            env:
-              BUILD_SOURCESDIRECTORY: $(Build.SourcesDirectory)
             inputs:
               azureSubscription: ${{ variables.azureSubscription }}
               ScriptType: FilePath
-              ScriptPath: '$(Build.SourcesDirectory)\Pipeline\scripts\Invoke-CreateVirtualApplication.ps1'
+              ScriptPath: '$(System.DefaultWorkingDirectory)\Pipeline\scripts\Invoke-CreateVirtualApplication.ps1'
               ScriptArguments: >
                 -ResourceGroupName '${{ variables.resourceGroupName }}'
                 -WebAppName '${{ variables.webAppName }}'
