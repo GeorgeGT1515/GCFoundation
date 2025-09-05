@@ -12,6 +12,9 @@ variables:
 - name: slotName
   value: 'wapp-apps-tbs-uat01'
 
+- name: useSlot
+  value: 'true'
+
 - name: virtualDirectoryName
   value: 'gcfoundation'
 
