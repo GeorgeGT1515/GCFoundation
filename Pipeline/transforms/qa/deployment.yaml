@@ -4,7 +4,7 @@ variables:
   value: 'Infosite_Apps_WebApp'
 
 - name: deploymentEnvironment
-  value: 'GCFoundation_QA'
+  value: 'qa'
 
 - name: resourceGroupName
   value: 'RG_TBS_AppService-V3'
