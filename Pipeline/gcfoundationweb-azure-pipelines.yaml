@@ -169,6 +169,7 @@ stages:
               azureSubscription: ${{ variables.azureSubscription }}
               pathToPackage: ${{ variables.pathToPackage }}
               resourceGroupName: ${{ variables.resourceGroupName }}
+              slotName: ${{ variables.slotName }}
               virtualDirectoryName: ${{ variables.virtualDirectoryName }}
               webAppName: ${{ variables.webAppName }}
 
@@ -191,6 +192,7 @@ stages:
               azureSubscription: ${{ variables.azureSubscription }}
               pathToPackage: ${{ variables.pathToPackage }}
               resourceGroupName: ${{ variables.resourceGroupName }}
+              slotName: ${{ variables.slotName }}
               virtualDirectoryName: ${{ variables.virtualDirectoryName }}
               webAppName: ${{ variables.webAppName }}
 
@@ -213,6 +215,7 @@ stages:
               azureSubscription: ${{ variables.azureSubscription }}
               pathToPackage: ${{ variables.pathToPackage }}
               resourceGroupName: ${{ variables.resourceGroupName }}
+              slotName: ${{ variables.slotName }}
               virtualDirectoryName: ${{ variables.virtualDirectoryName }}
               webAppName: ${{ variables.webAppName }}
 
@@ -235,5 +238,6 @@ stages:
               azureSubscription: ${{ variables.azureSubscription }}
               pathToPackage: ${{ variables.pathToPackage }}
               resourceGroupName: ${{ variables.resourceGroupName }}
+              slotName: ${{ variables.slotName }}
               virtualDirectoryName: ${{ variables.virtualDirectoryName }}
               webAppName: ${{ variables.webAppName }}
