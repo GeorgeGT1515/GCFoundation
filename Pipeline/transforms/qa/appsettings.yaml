@@ -1,0 +1,5 @@
+# QA AppSettings Variables
+variables:
+- name: Infrastructure.Environment
+  value: 'QA'
+

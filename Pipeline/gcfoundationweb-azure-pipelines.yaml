@@ -171,3 +171,69 @@ stages:
               resourceGroupName: ${{ variables.resourceGroupName }}
               virtualDirectoryName: ${{ variables.virtualDirectoryName }}
               webAppName: ${{ variables.webAppName }}
+
+- stage: deploy_gcfoundationweb_solution_qa
+  dependsOn: deploy_gcfoundationweb_solution_dev
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+  
+  jobs:
+  - deployment: deploy_gcfoundationweb_app_qa
+    variables:
+      - template: './transforms/qa/appsettings.yaml'
+      - template: './transforms/qa/deployment.yaml'
+    environment: ${{ variables.deploymentEnvironment }}
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - template: Deploy/DotNetCore/deploy-steps.yaml@templates
+            parameters:
+              azureSubscription: ${{ variables.azureSubscription }}
+              pathToPackage: ${{ variables.pathToPackage }}
+              resourceGroupName: ${{ variables.resourceGroupName }}
+              virtualDirectoryName: ${{ variables.virtualDirectoryName }}
+              webAppName: ${{ variables.webAppName }}
+
+- stage: deploy_gcfoundationweb_solution_uat
+  dependsOn: deploy_gcfoundationweb_solution_qa
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+  
+  jobs:
+  - deployment: deploy_gcfoundationweb_app_uat
+    variables:
+      - template: './transforms/uat/appsettings.yaml'
+      - template: './transforms/uat/deployment.yaml'
+    environment: ${{ variables.deploymentEnvironment }}
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - template: Deploy/DotNetCore/deploy-steps.yaml@templates
+            parameters:
+              azureSubscription: ${{ variables.azureSubscription }}
+              pathToPackage: ${{ variables.pathToPackage }}
+              resourceGroupName: ${{ variables.resourceGroupName }}
+              virtualDirectoryName: ${{ variables.virtualDirectoryName }}
+              webAppName: ${{ variables.webAppName }}
+
+- stage: deploy_gcfoundationweb_solution_prod
+  dependsOn: deploy_gcfoundationweb_solution_uat
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+  
+  jobs:
+  - deployment: deploy_gcfoundationweb_app_prod
+    variables:
+      - template: './transforms/prod/appsettings.yaml'
+      - template: './transforms/prod/deployment.yaml'
+    environment: ${{ variables.deploymentEnvironment }}
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - template: Deploy/DotNetCore/deploy-steps.yaml@templates
+            parameters:
+              azureSubscription: ${{ variables.azureSubscription }}
+              pathToPackage: ${{ variables.pathToPackage }}
+              resourceGroupName: ${{ variables.resourceGroupName }}
+              virtualDirectoryName: ${{ variables.virtualDirectoryName }}
+              webAppName: ${{ variables.webAppName }}

@@ -1,0 +1,5 @@
+# PROD AppSettings Variables
+variables:
+- name: Infrastructure.Environment
+  value: 'PROD'
+

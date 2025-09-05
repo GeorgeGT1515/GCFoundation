@@ -1,0 +1,19 @@
+# UAT Deployment variables
+variables:
+- name: azureSubscription
+  value: 'Infosite_Apps_WebApp'
+
+- name: deploymentEnvironment
+  value: 'GCFoundation_UAT'
+
+- name: resourceGroupName
+  value: 'rg_tbs_webapps'
+
+- name: slotName
+  value: 'wapp-apps-tbs-uat01'
+
+- name: virtualDirectoryName
+  value: 'gcfoundation'
+
+- name: webAppName
+  value: 'appsvc-apps-tbs-win001'

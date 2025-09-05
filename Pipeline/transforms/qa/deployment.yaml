@@ -1,0 +1,19 @@
+# QA Deployment variables
+variables:
+- name: azureSubscription
+  value: 'Infosite_Apps_WebApp'
+
+- name: deploymentEnvironment
+  value: 'GCFoundation_QA'
+
+- name: resourceGroupName
+  value: 'RG_TBS_AppService-V3'
+
+- name: slotName
+  value: 'production'
+
+- name: virtualDirectoryName
+  value: 'gcfoundation'
+
+- name: webAppName
+  value: 'appsvc-qa-apps-tbs-win001'
