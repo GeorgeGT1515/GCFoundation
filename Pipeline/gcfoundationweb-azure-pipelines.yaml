@@ -216,6 +216,7 @@ stages:
               pathToPackage: ${{ variables.pathToPackage }}
               resourceGroupName: ${{ variables.resourceGroupName }}
               slotName: ${{ variables.slotName }}
+              useSlot: ${{ variables.useSlot }}
               virtualDirectoryName: ${{ variables.virtualDirectoryName }}
               webAppName: ${{ variables.webAppName }}
 
