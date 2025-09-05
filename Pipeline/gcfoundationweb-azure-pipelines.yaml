@@ -150,12 +150,12 @@ stages:
         PathtoPublish: $(build.artifactstagingdirectory)
         TargetPath: '\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)'
 
-- stage: deploy_gcfoundationweb_solution_dev
+- stage: deploy_dev
   dependsOn: build_gcfoundationweb_app     # must refer to stage, not job
   condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))  ## You would think this is only needed on the build, but all subsequent stages will need it too
   
   jobs:
-  - deployment: deploy_gcfoundationweb_app_dev
+  - deployment: deploy_app_dev
     variables:
       - template: './transforms/dev/appsettings.yaml'
       - template: './transforms/dev/deployment.yaml'
@@ -173,12 +173,12 @@ stages:
               virtualDirectoryName: ${{ variables.virtualDirectoryName }}
               webAppName: ${{ variables.webAppName }}
 
-- stage: deploy_gcfoundationweb_solution_qa
-  dependsOn: deploy_gcfoundationweb_solution_dev
+- stage: deploy_qa
+  dependsOn: deploy_dev
   condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
   
   jobs:
-  - deployment: deploy_gcfoundationweb_app_qa
+  - deployment: deploy_app_qa
     variables:
       - template: './transforms/qa/appsettings.yaml'
       - template: './transforms/qa/deployment.yaml'
@@ -196,12 +196,12 @@ stages:
               virtualDirectoryName: ${{ variables.virtualDirectoryName }}
               webAppName: ${{ variables.webAppName }}
 
-- stage: deploy_gcfoundationweb_solution_uat
-  dependsOn: deploy_gcfoundationweb_solution_qa
+- stage: deploy_uat
+  dependsOn: deploy_qa
   condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
   
   jobs:
-  - deployment: deploy_gcfoundationweb_app_uat
+  - deployment: deploy_app_uat
     variables:
       - template: './transforms/uat/appsettings.yaml'
       - template: './transforms/uat/deployment.yaml'
@@ -219,12 +219,12 @@ stages:
               virtualDirectoryName: ${{ variables.virtualDirectoryName }}
               webAppName: ${{ variables.webAppName }}
 
-- stage: deploy_gcfoundationweb_solution_prod
-  dependsOn: deploy_gcfoundationweb_solution_uat
+- stage: deploy_prod
+  dependsOn: deploy_uat
   condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
   
   jobs:
-  - deployment: deploy_gcfoundationweb_app_prod
+  - deployment: deploy_app_prod
     variables:
       - template: './transforms/prod/appsettings.yaml'
       - template: './transforms/prod/deployment.yaml'
