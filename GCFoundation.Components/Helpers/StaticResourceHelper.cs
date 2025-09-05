@@ -8,12 +8,12 @@
         /// <summary>
         /// Gets the full resource path for a given resource relative path.
         /// </summary>
-        /// <param name="ressourceRelativePath">The relative path to the resource.</param>
+        /// <param name="resourceRelativePath">The relative path to the resource.</param>
         /// <returns>A string representing the full path to the resource.</returns>
-        public static string GetResourcePath(string ressourceRelativePath)
+        public static string GetResourcePath(string resourceRelativePath)
         {
             string entryAssemblyName = "GCFoundation.Components";
-            return $"/_content/{entryAssemblyName}/{ressourceRelativePath}";
+            return $"/_content/{entryAssemblyName}/{resourceRelativePath}";
         }
 
         /// <summary>
