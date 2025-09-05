@@ -56,11 +56,11 @@
     {
         if (cssFile.StartsWith("http", StringComparison.OrdinalIgnoreCase))
         {
-            <link rel="stylesheet" href="@cssFile" />
+            <link rel="stylesheet" href="@Url.Content(cssFile)" />
         }
         else
         {
-            <link rel="stylesheet" href="@cssFile" asp-append-version="true" />
+            <link rel="stylesheet" href="@Url.Content(cssFile)" asp-append-version="true" />
         }
     }
     
@@ -155,11 +155,11 @@
     {
         if (jsFile.StartsWith("http", StringComparison.OrdinalIgnoreCase))
         {
-            <script src="@jsFile"></script>
+            <script src="@Url.Content(jsFile)"></script>
         }
         else
         {
-            <script src="@jsFile" asp-append-version="true"></script>
+            <script src="@Url.Content(jsFile)" asp-append-version="true"></script>
         }
     }
     
