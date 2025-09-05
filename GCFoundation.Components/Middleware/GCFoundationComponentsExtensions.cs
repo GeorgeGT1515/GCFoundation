@@ -32,6 +32,10 @@ namespace GCFoundation.Components.Middleware
             var section = configuration.GetSection("FoundationComponentsSettings");
             services.Configure<GCFoundationComponentsSettings>(section);
 
+            // Initialize resource helper with virtual directory name (if provided)
+            var settings = section.Get<GCFoundationComponentsSettings>();
+            StaticResourceHelper.ConfigureVirtualDirectoryPrefix(settings?.VirtualDirectoryName);
+
             // Configure user login settings
             var userLoginSection = configuration.GetSection("UserLoginSettings");
             services.Configure<GCFoundationUserLoginSettings>(userLoginSection);

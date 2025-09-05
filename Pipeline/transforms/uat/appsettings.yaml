@@ -3,3 +3,5 @@ variables:
 - name: Infrastructure.Environment
   value: 'UAT'
 
+- name: FoundationComponentsSettings.VirtualDirectoryName
+  value: 'gcfoundation'
