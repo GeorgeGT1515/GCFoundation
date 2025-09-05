@@ -1,0 +1,5 @@
+# UAT AppSettings Variables
+variables:
+- name: Infrastructure.Environment
+  value: 'UAT'
+
