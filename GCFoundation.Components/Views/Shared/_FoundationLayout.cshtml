@@ -56,7 +56,7 @@
     {
         if (cssFile.StartsWith("http", StringComparison.OrdinalIgnoreCase))
         {
-            <link rel="stylesheet" href="@Url.Content(cssFile)" />
+            <link rel="stylesheet" href="@cssFile" />
         }
         else
         {
@@ -155,7 +155,7 @@
     {
         if (jsFile.StartsWith("http", StringComparison.OrdinalIgnoreCase))
         {
-            <script src="@Url.Content(jsFile)"></script>
+            <script src="@jsFile"></script>
         }
         else
         {
