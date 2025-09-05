@@ -2,3 +2,6 @@
 variables:
 - name: Infrastructure.Environment
   value: 'DEV'
+
+- name: FoundationComponentsSettings.VirtualDirectoryName
+  value: 'gcfoundation'

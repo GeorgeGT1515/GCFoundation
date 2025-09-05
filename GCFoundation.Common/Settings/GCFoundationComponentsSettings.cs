@@ -76,6 +76,12 @@ namespace GCFoundation.Common.Settings
         public string ApplicationNameFr { get; set; } = string.Empty;
 
         /// <summary>
+        /// Gets or sets the virtual directory name when the app is hosted under a path base.
+        /// Example: "/myapp" or "myapp". Leave empty for root.
+        /// </summary>
+        public string VirtualDirectoryName { get; set; } = string.Empty;
+
+        /// <summary>
         /// Gets the application name based on the current language context.
         /// </summary>
         public string ApplicationName
@@ -110,13 +116,13 @@ namespace GCFoundation.Common.Settings
 
         /// <summary>
         /// Gets the list of additional meta tags to include in the head section.
-        /// Each item should be a complete meta tag (e.g., "&lt;meta name=\"description\" content=\"...\"&gt;").
+        /// Each item should be a complete meta tag (e.g., "<meta name=\"description\" content=\"...\">").
         /// </summary>
         public Collection<string> GlobalMetaTags { get; } = new Collection<string>();
 
         /// <summary>
         /// Gets the list of additional link tags to include in the head section.
-        /// Each item should be a complete link tag (e.g., "&lt;link rel=\"preconnect\" href=\"...\"&gt;").
+        /// Each item should be a complete link tag (e.g., "<link rel=\"preconnect\" href=\"...\">").
         /// </summary>
         public Collection<string> GlobalLinkTags { get; } = new Collection<string>();
 

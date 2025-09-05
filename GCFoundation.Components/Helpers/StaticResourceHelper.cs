@@ -5,15 +5,33 @@
     /// </summary>
     public static class StaticResourceHelper
     {
+        private static string _virtualDirectoryPrefix = string.Empty;
+
+        /// <summary>
+        /// Configures the virtual directory prefix used when building resource paths.
+        /// </summary>
+        /// <param name="virtualDirectoryName">The virtual directory name, with or without leading slash.</param>
+        public static void ConfigureVirtualDirectoryPrefix(string? virtualDirectoryName)
+        {
+            if (string.IsNullOrWhiteSpace(virtualDirectoryName))
+            {
+                _virtualDirectoryPrefix = string.Empty;
+                return;
+            }
+
+            var trimmed = virtualDirectoryName.Trim().Trim('/');
+            _virtualDirectoryPrefix = string.IsNullOrEmpty(trimmed) ? string.Empty : "/" + trimmed;
+        }
+
         /// <summary>
         /// Gets the full resource path for a given resource relative path.
         /// </summary>
-        /// <param name="ressourceRelativePath">The relative path to the resource.</param>
+        /// <param name="resourceRelativePath">The relative path to the resource.</param>
         /// <returns>A string representing the full path to the resource.</returns>
-        public static string GetResourcePath(string ressourceRelativePath)
+        public static string GetResourcePath(string resourceRelativePath)
         {
             string entryAssemblyName = "GCFoundation.Components";
-            return $"/_content/{entryAssemblyName}/{ressourceRelativePath}";
+            return $"{_virtualDirectoryPrefix}/_content/{entryAssemblyName}/{resourceRelativePath}";
         }
 
         /// <summary>

@@ -40,11 +40,10 @@ builder.Services.Configure<GlobalResourceOptions>(builder.Configuration.GetSecti
 builder.Services.AddSingleton<IStringLocalizerFactory, GlobalResourceManagerStringLocalizerFactory>();
 builder.Services.AddLocalization();
 
-// Configure breacrumbds localization service
+// Configure breadcrumbds localization service
 builder.Services.AddSingleton(typeof(IBreadcrumbsLocalizationService), typeof(BreadcrumbsLocalizationService<GCFoundation.Web.Resources.Navigation>));
 
-// Configure foundation
-
+// Configure GCFoundation
 builder.Services.AddGCFoundationComponents(builder.Configuration);
 builder.Services.AddGCFoundationContentPolicies(builder.Configuration);
 builder.Services.AddGCFoundationSession(builder.Configuration);
@@ -72,9 +71,7 @@ builder.Services.Configure<RazorViewEngineOptions>(options =>
     options.ViewLocationFormats.Add("/contentFiles/any/net8.0/Views/Shared/Components/Navigation/{0}.cshtml");
 });
 
-
 var app = builder.Build();
-
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -87,9 +84,8 @@ if (!app.Environment.IsDevelopment())
 // Load all javascript dependencies for foundation and GCDS
 app.UseMiddleware<GCFoundationComponentsMiddleware>();
 
-// Add foundation security middleware(Add CSP)
+// Add GCFoundation security middleware (Add CSP)
 app.UseMiddleware<GCFoundationContentPoliciesMiddleware>();
-
 app.UseMiddleware<GCFoundationLanguageMiddleware>();
 
 // Secure Cookies
@@ -105,10 +101,8 @@ app.UseGCFoundationComponents();
 app.UseGCFoundationContentPolicies();
 app.UseGCFoundationSession();
 
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
 
 // Use localization middleware
@@ -124,6 +118,5 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{culture=en}/{controller=Home}/{action=Index}/{id?}"
 );
-
 
 app.Run();
