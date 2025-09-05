@@ -4,7 +4,7 @@ variables:
   value: 'Infosite_Apps_WebApp'
 
 - name: deploymentEnvironment
-  value: 'GCFoundation_PROD'
+  value: 'prod'
 
 - name: resourceGroupName
   value: 'rg_tbs_webapps'
