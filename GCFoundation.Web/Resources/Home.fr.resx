@@ -121,7 +121,7 @@
     <value>Bienvenue</value>
   </data>
   <data name="Index_Description" xml:space="preserve">
-    <value>Foundation est une bibliothèque qui fournit des outils pour développer une application Web du GC conforme aux normes les plus récentes.</value>
+    <value>GCFoundation est une bibliothèque qui fournit des outils pour développer une application Web du GC conforme aux normes les plus récentes.</value>
   </data>
   <data name="Index_Features" xml:space="preserve">
     <value>&lt;gcds-heading tag="h2"&gt;Fonctionnalités :&lt;/gcds-heading&gt;

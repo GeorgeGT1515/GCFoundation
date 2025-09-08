@@ -117,85 +117,91 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Nav_Components" xml:space="preserve">
-    <value>Components</value>
+  <data name="GlobalResources_AlwaysEnabled" xml:space="preserve">
+    <value>Always Enabled</value>
   </data>
-  <data name="Nav_Home" xml:space="preserve">
-    <value>Home</value>
+  <data name="GlobalResources_CssLoadingOrder_Title" xml:space="preserve">
+    <value>CSS Loading Order</value>
   </data>
-  <data name="Nav_Installation_GlobalResources" xml:space="preserve">
-    <value>Global Resources</value>
+  <data name="GlobalResources_CurrentConfiguration_Description" xml:space="preserve">
+    <value>The following resources are currently configured to be loaded globally:</value>
   </data>
-  <data name="Nav_Components_GCDesign" xml:space="preserve">
-    <value>GC Design System Components</value>
+  <data name="GlobalResources_CurrentConfiguration_Title" xml:space="preserve">
+    <value>Current Configuration</value>
   </data>
-  <data name="Nav_Components_Form" xml:space="preserve">
-    <value>Form</value>
+  <data name="GlobalResources_DefaultCss_Label" xml:space="preserve">
+    <value>Default CSS:</value>
   </data>
-  <data name="Nav_Components_FormBuilder" xml:space="preserve">
-    <value>Form Builder</value>
+  <data name="GlobalResources_DefaultFilesNote" xml:space="preserve">
+    <value>&lt;strong&gt;Note:&lt;/strong&gt; Default foundation CSS and JavaScript files are always included and cannot be disabled. This ensures that all GCFoundation components work properly on every page.</value>
   </data>
-  <data name="Nav_Components_Badge" xml:space="preserve">
-    <value>Badge</value>
+  <data name="GlobalResources_DefaultJavaScript_Label" xml:space="preserve">
+    <value>Default JavaScript:</value>
   </data>
-  <data name="Nav_Components_Modal" xml:space="preserve">
-    <value>Modal</value>
+  <data name="GlobalResources_Description" xml:space="preserve">
+    <value>This page demonstrates how to use the new global resources configuration feature in GCFoundation. You can configure CSS, JavaScript, meta tags, and link tags globally through the appsettings.json file.</value>
   </data>
-  <data name="Nav_Components_Table" xml:space="preserve">
-    <value>Table</value>
+  <data name="GlobalResources_FontAwesome_Label" xml:space="preserve">
+    <value>Font Awesome:</value>
   </data>
-  <data name="Nav_Components_PageHeading" xml:space="preserve">
-    <value>Page Heading</value>
+  <data name="GlobalResources_GCDSResources_Label" xml:space="preserve">
+    <value>GCDS Resources:</value>
   </data>
-  <data name="Nav_Components_Stepper" xml:space="preserve">
-    <value>Stepper</value>
+  <data name="GlobalResources_GlobalCssFiles_Title" xml:space="preserve">
+    <value>Global CSS Files</value>
   </data>
-  <data name="Nav_Components_UserLogin" xml:space="preserve">
-    <value>User Login Partial</value>
+  <data name="GlobalResources_GlobalJavaScriptFiles_Title" xml:space="preserve">
+    <value>Global JavaScript Files</value>
   </data>
-  <data name="Nav_Installation" xml:space="preserve">
+  <data name="GlobalResources_GlobalLinkTags_Title" xml:space="preserve">
+    <value>Global Link Tags</value>
+  </data>
+  <data name="GlobalResources_GlobalMetaTags_Title" xml:space="preserve">
+    <value>Global Meta Tags</value>
+  </data>
+  <data name="GlobalResources_HowToConfigure_Description" xml:space="preserve">
+    <value>To configure global resources, update your &lt;code&gt;appsettings.json&lt;/code&gt; file:</value>
+  </data>
+  <data name="GlobalResources_HowToConfigure_Title" xml:space="preserve">
+    <value>How to Configure</value>
+  </data>
+  <data name="GlobalResources_JavaScriptLoadingOrder_Title" xml:space="preserve">
+    <value>JavaScript Loading Order</value>
+  </data>
+  <data name="GlobalResources_LoadingOrder_Description" xml:space="preserve">
+    <value>Resources are loaded in the following order:</value>
+  </data>
+  <data name="GlobalResources_LoadingOrder_Title" xml:space="preserve">
+    <value>Resource Loading Order</value>
+  </data>
+  <data name="GlobalResources_NoCssFiles" xml:space="preserve">
+    <value>No global CSS files configured.</value>
+  </data>
+  <data name="GlobalResources_NoJavaScriptFiles" xml:space="preserve">
+    <value>No global JavaScript files configured.</value>
+  </data>
+  <data name="GlobalResources_NoLinkTags" xml:space="preserve">
+    <value>No global link tags configured.</value>
+  </data>
+  <data name="GlobalResources_NoMetaTags" xml:space="preserve">
+    <value>No global meta tags configured.</value>
+  </data>
+  <data name="GlobalResources_ResourceInclusion_Description" xml:space="preserve">
+    <value>The following settings control which optional resources are included:</value>
+  </data>
+  <data name="GlobalResources_ResourceInclusion_Title" xml:space="preserve">
+    <value>Resource Inclusion Settings</value>
+  </data>
+  <data name="GlobalResources_Page_Title" xml:space="preserve">
+    <value>Global Resources Configuration</value>
+  </data>
+  <data name="GlobalResources_UsingHelper_Description" xml:space="preserve">
+    <value>You can also use the &lt;code&gt;GlobalResourceHelper&lt;/code&gt; in your Razor views for more control:</value>
+  </data>
+  <data name="GlobalResources_UsingHelper_Title" xml:space="preserve">
+    <value>Using GlobalResourceHelper in Views</value>
+  </data>
+  <data name="Index_Page_Title" xml:space="preserve">
     <value>Installation</value>
-  </data>
-  <data name="Nav_Template" xml:space="preserve">
-    <value>Template</value>
-  </data>
-  <data name="Nav_Styles" xml:space="preserve">
-    <value>Styles</value>
-  </data>
-  <data name="Nav_Components_FilteredSearch" xml:space="preserve">
-    <value>Filtered Search</value>
-  </data>
-  <data name="Nav_Language" xml:space="preserve">
-    <value>Language</value>
-  </data>
-  <data name="Nav_Authentication" xml:space="preserve">
-    <value>Authentication</value>
-  </data>
-  <data name="Nav_Authentication_Login" xml:space="preserve">
-    <value>Login</value>
-  </data>
-  <data name="Nav_Authentication_Logout" xml:space="preserve">
-    <value>Logout</value>
-  </data>
-  <data name="Nav_Errors" xml:space="preserve">
-    <value>Errors</value>
-  </data>
-  <data name="Nav_Errors_NotFound" xml:space="preserve">
-    <value>Page Not Found</value>
-  </data>
-  <data name="Nav_Errors_Global" xml:space="preserve">
-    <value>Global Error</value>
-  </data>
-  <data name="Nav_UserLogin_Examples" xml:space="preserve">
-    <value>Interactive Examples</value>
-  </data>
-  <data name="Nav_UserLogin_Positions" xml:space="preserve">
-    <value>Position Examples</value>
-  </data>
-  <data name="Nav_Authentication_StatelessExamples" xml:space="preserve">
-    <value>Stateless Auth Examples</value>
-  </data>
-  <data name="Nav_Components_Card" xml:space="preserve">
-    <value>Card</value>
   </data>
 </root>

@@ -28,6 +28,8 @@ namespace GCFoundation.Web.Controllers
         [HttpGet("")]
         public IActionResult Index()
         {
+            SetPageTitle($"{Resources.Home.Index_Title}");
+
             return View();
         }
     }

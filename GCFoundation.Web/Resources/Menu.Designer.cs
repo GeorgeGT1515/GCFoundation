@@ -97,11 +97,11 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Global Resources.
+        ///   Looks up a localized string similar to Get Started.
         /// </summary>
-        public static string Menu_Components_GlobalResources {
+        public static string Menu_GetStarted {
             get {
-                return ResourceManager.GetString("Menu_Components_GlobalResources", resourceCulture);
+                return ResourceManager.GetString("Menu_GetStarted", resourceCulture);
             }
         }
         
@@ -111,6 +111,15 @@ namespace GCFoundation.Web.Resources {
         public static string Menu_Installation {
             get {
                 return ResourceManager.GetString("Menu_Installation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Global Resources.
+        /// </summary>
+        public static string Menu_Installation_GlobalResources {
+            get {
+                return ResourceManager.GetString("Menu_Installation_GlobalResources", resourceCulture);
             }
         }
         

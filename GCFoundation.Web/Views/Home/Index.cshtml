@@ -1,13 +1,7 @@
 ﻿@using GCFoundation.Web.Resources
-@{
-    ViewData["Title"] = "Home Page";
-}
 
-<div>
-    <gcds-heading tag="h1">@Home.Index_Title</gcds-heading>
-    <gcds-text>
-        @Home.Index_Description
-    </gcds-text>
-    <hr/>
-    @Html.Raw(Home.Index_Features)
-</div>
+<fdcp-page-heading title="@Home.Index_Title"
+                   description="@Home.Index_Description"
+                   src="@Url.Content("~/images/founding-opportunity-heading-bg.svg")"></fdcp-page-heading>
+
+@Html.Raw(Home.Index_Features)

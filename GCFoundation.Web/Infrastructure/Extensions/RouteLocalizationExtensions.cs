@@ -53,11 +53,6 @@ namespace GCFoundation.Web.Infrastructure.Extensions
 
                 setup.UseCulture("fr")
                 .WhereController(nameof(ComponentsController))
-                .WhereAction(nameof(ComponentsController.GlobalResources))
-                .TranslateAction("ressources-globales");
-
-                setup.UseCulture("fr")
-                .WhereController(nameof(ComponentsController))
                 .WhereAction(nameof(ComponentsController.FilteredSearch))
                 .TranslateAction("recherche-filtree");
 
@@ -121,6 +116,11 @@ namespace GCFoundation.Web.Infrastructure.Extensions
                 .TranslateController("installation")
                 .WhereAction(nameof(InstallationController.Index))
                 .TranslateAction("");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(InstallationController))
+                .WhereAction(nameof(InstallationController.GlobalResources))
+                .TranslateAction("ressources-globales");
 
                 // Language Controller
                 setup.UseCulture("fr")

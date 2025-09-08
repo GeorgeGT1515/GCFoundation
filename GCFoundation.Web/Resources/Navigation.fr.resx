@@ -123,7 +123,7 @@
   <data name="Nav_Home" xml:space="preserve">
     <value>Accueil</value>
   </data>
-  <data name="Nav_GlobalResources" xml:space="preserve">
+  <data name="Nav_Installation_GlobalResources" xml:space="preserve">
     <value>Ressources globales</value>
   </data>
   <data name="Nav_Components_GCDesign" xml:space="preserve">

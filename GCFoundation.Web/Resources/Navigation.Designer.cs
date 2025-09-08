@@ -232,15 +232,6 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Global Resources.
-        /// </summary>
-        public static string Nav_GlobalResources {
-            get {
-                return ResourceManager.GetString("Nav_GlobalResources", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string Nav_Home {
@@ -255,6 +246,15 @@ namespace GCFoundation.Web.Resources {
         public static string Nav_Installation {
             get {
                 return ResourceManager.GetString("Nav_Installation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Global Resources.
+        /// </summary>
+        public static string Nav_Installation_GlobalResources {
+            get {
+                return ResourceManager.GetString("Nav_Installation_GlobalResources", resourceCulture);
             }
         }
         

@@ -3,8 +3,7 @@
 	<Children>
 		<NavNode key="components" controller="Components" action="Index" area="" preservedRouteParameters="culture" text="Nav_Components" >
 			<Children>
-
-				<NavNode key="global-resources" controller="Components" action="GlobalResources" area="" preservedRouteParameters="culture" text="Nav_GlobalResources" />
+        
 				<NavNode key="gcds" controller="Components" action="Gcds" area="" preservedRouteParameters="culture" text="Nav_Components_GCDesign" />
 				<NavNode key="form" controller="Components" action="Form" area="" preservedRouteParameters="culture" text="Nav_Components_Form" />
 				<NavNode key="formBuilder" controller="Components" action="FormBuilder" area="" preservedRouteParameters="culture" text="Nav_Components_FormBuilder"/>
@@ -24,9 +23,13 @@
 
 			</Children>
 		</NavNode>
-		<NavNode key="installation" controller="Installation" action="Index" area="" preservedRouteParameters="culture" text="Nav_Installation" />
-		<NavNode key="template" controller="Template" action="Index" area="" preservedRouteParameters="culture" text="Nav_Template" />
+    <NavNode key="installation" controller="Installation" action="Index" area="" preservedRouteParameters="culture" text="Nav_Installation" >
+      <Children>
+				<NavNode key="global-resources" controller="Installation" action="GlobalResources" area="" preservedRouteParameters="culture" text="Nav_Installation_GlobalResources" />
+			</Children>
+		</NavNode>
 		<NavNode key="styles" controller="Styles" action="Index" area="" preservedRouteParameters="culture" text="Nav_Styles" />
+    <NavNode key="template" controller="Template" action="Index" area="" preservedRouteParameters="culture" text="Nav_Template" />
 		<NavNode key="language" controller="Language" action="Index" area="" preservedRouteParameters="culture" text="Nav_Language" />
 
 		<NavNode key="authentication" controller="Authentication" action="Login" area="" preservedRouteParameters="culture" text="Nav_Authentication" >

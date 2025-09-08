@@ -7,20 +7,8 @@ namespace GCFoundation.Web.Controllers
     /// Controller responsible for handling installation-related pages.
     /// </summary>
     [Route("installtion")]
-    public class InstallationController : GCFoundationBaseController
+    public class InstallationController(ILogger<InstallationController> logger) : GCFoundationBaseController(logger)
     {
-        private readonly ILogger<InstallationController> _logger;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InstallationController"/> class.
-        /// </summary>
-        /// <param name="logger">The logger used for logging actions and events in this controller.</param>
-        public InstallationController(ILogger<InstallationController> logger)
-            : base(logger)
-        {
-            _logger = logger;
-        }
-
         /// <summary>
         /// Displays the main installation page.
         /// </summary>
@@ -28,6 +16,22 @@ namespace GCFoundation.Web.Controllers
         [HttpGet("")]
         public IActionResult Index()
         {
+            SetPageTitle($"{Resources.Installation.Index_Page_Title}");
+
+            return View();
+        }
+
+        /// <summary>
+        /// Displays the global resources configuration demo page.
+        /// </summary>
+        /// <returns>
+        /// The global resources configuration view.
+        /// </returns>
+        [HttpGet("global-resources")]
+        public IActionResult GlobalResources()
+        {
+            SetPageTitle($"{Resources.Installation.GlobalResources_Page_Title}");
+
             return View();
         }
     }
