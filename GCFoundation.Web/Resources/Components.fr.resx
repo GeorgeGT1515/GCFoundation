@@ -800,7 +800,7 @@
     <value>Genre</value>
   </data>
   <data name="Form_Interests_Label" xml:space="preserve">
-    <value>Que sont vos interrets?</value>
+    <value>Quels sont vos intérêts?</value>
   </data>
   <data name="Form_Password_Hint" xml:space="preserve">
     <value>Choisissez un mot de passe fort avec au moins 8 caractères.</value>

@@ -715,7 +715,7 @@
     <value>Gender</value>
   </data>
   <data name="Form_Interests_Label" xml:space="preserve">
-    <value>What is your interests?</value>
+    <value>What are your interests?</value>
   </data>
   <data name="Form_Password_Hint" xml:space="preserve">
     <value>Choose a strong password with at least 8 characters.</value>
