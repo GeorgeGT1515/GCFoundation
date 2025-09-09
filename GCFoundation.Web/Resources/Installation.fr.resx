@@ -204,4 +204,10 @@
   <data name="Index_Page_Title" xml:space="preserve">
     <value>Installation</value>
   </data>
+  <data name="Translations_Page_Title" xml:space="preserve">
+    <value>Traductions standardisées</value>
+  </data>
+  <data name="Translations_Description" xml:space="preserve">
+    <value>Avec GCFoundation, vous obtiendrez également une liste de traductions standardisées que vous pourrez utiliser dans vos applications GCFoundation.</value>
+  </data>
 </root>

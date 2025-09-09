@@ -1,0 +1,49 @@
+@using GCFoundation.Components.Helpers
+@using GCFoundation.Components.Resources
+@using GCFoundation.Web.Resources
+@using System.Globalization
+@using System.Collections
+@using System.Linq
+@inject GlobalResourceHelper ResourceHelper
+
+<gcds-heading tag="h1">@Installation.Translations_Page_Title</gcds-heading>
+<gcds-text>@Html.Raw(Installation.Translations_Description)</gcds-text>
+
+<section>
+    @* Display the list of standardized translations *@
+    @{
+        var resourceManager = Localization.ResourceManager;
+        var englishCulture = new CultureInfo("en");
+        var frenchCulture = new CultureInfo("fr");
+        var resourceSet = resourceManager.GetResourceSet(englishCulture, true, true);
+        var entries = resourceSet?
+            .Cast<DictionaryEntry>()
+            .OrderBy(e => e.Key?.ToString(), StringComparer.OrdinalIgnoreCase)
+            .ToList();
+    }
+
+    @if (entries != null && entries.Any()) {
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">@Localization.Key</th>
+                <th scope="col">@Localization.English</th>
+                <th scope="col">@Localization.French</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (DictionaryEntry entry in entries)
+            {
+                var key = (string)entry.Key;
+                var en = Localization.ResourceManager.GetString(key, englishCulture) ?? string.Empty;
+                var fr = Localization.ResourceManager.GetString(key, frenchCulture) ?? string.Empty;
+                <tr>
+                    <th scope="row">@key</th>
+                    <td>@en</td>
+                    <td>@fr</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    }
+</section>

@@ -6,7 +6,7 @@ namespace GCFoundation.Web.Controllers
     /// <summary>
     /// Controller responsible for handling installation-related pages.
     /// </summary>
-    [Route("installtion")]
+    [Route("installation")]
     public class InstallationController(ILogger<InstallationController> logger) : GCFoundationBaseController(logger)
     {
         /// <summary>
@@ -31,6 +31,20 @@ namespace GCFoundation.Web.Controllers
         public IActionResult GlobalResources()
         {
             SetPageTitle($"{Resources.Installation.GlobalResources_Page_Title}");
+
+            return View();
+        }
+
+        /// <summary>
+        /// Displays a page containing a list of standard translation terms to be used in GCFoundation applications.
+        /// </summary>
+        /// <returns>
+        /// The standard translations view.
+        /// </returns>
+        [HttpGet("translations")]
+        public IActionResult Translations()
+        {
+            SetPageTitle($"{Resources.Installation.Translations_Page_Title}");
 
             return View();
         }

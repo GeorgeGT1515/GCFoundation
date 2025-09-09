@@ -117,35 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Button_Activate" xml:space="preserve">
+  <data name="Activate" xml:space="preserve">
     <value>Activer</value>
   </data>
-  <data name="Button_Add" xml:space="preserve">
+  <data name="Add" xml:space="preserve">
     <value>Ajouter</value>
   </data>
   <data name="All" xml:space="preserve">
     <value>Tou(te)s</value>
   </data>
-  <data name="Button_Close" xml:space="preserve">
+  <data name="Close" xml:space="preserve">
     <value>Fermer</value>
   </data>
-  <data name="Button_Delete" xml:space="preserve">
+  <data name="Delete" xml:space="preserve">
     <value>Supprimer</value>
   </data>
-  <data name="Button_Dismiss" xml:space="preserve">
+  <data name="Dismiss" xml:space="preserve">
     <value>Écarter</value>
   </data>
-  <data name="Button_Edit" xml:space="preserve">
+  <data name="Edit" xml:space="preserve">
     <value>Modifier</value>
   </data>
-  <data name="Button_Inactivate" xml:space="preserve">
+  <data name="Inactivate" xml:space="preserve">
     <value>Désactiver</value>
   </data>
-  <data name="Button_MarkAsRead" xml:space="preserve">
+  <data name="MarkAsRead" xml:space="preserve">
     <value>Marquer comme lu(e)</value>
-  </data>
-  <data name="Button_MarkAsUnread" xml:space="preserve">
-    <value>Marquer comme non-lu(e)</value>
   </data>
   <data name="NotAvailable" xml:space="preserve">
     <value>Sans objet</value>
@@ -156,19 +153,19 @@
   <data name="Unavailable" xml:space="preserve">
     <value>Non-disponible</value>
   </data>
-  <data name="Button_View" xml:space="preserve">
+  <data name="View" xml:space="preserve">
     <value>Visualiser</value>
   </data>
-  <data name="Button_Cancel" xml:space="preserve">
+  <data name="Cancel" xml:space="preserve">
     <value>Annuler</value>
   </data>
-  <data name="Button_Print" xml:space="preserve">
+  <data name="Print" xml:space="preserve">
     <value>Imprimer</value>
   </data>
-  <data name="Button_Submit" xml:space="preserve">
+  <data name="Submit" xml:space="preserve">
     <value>Soumettre</value>
   </data>
-  <data name="Button_Reset" xml:space="preserve">
+  <data name="Reset" xml:space="preserve">
     <value>Réinitialiser</value>
   </data>
   <data name="Format_Date" xml:space="preserve">
@@ -180,16 +177,13 @@
   <data name="Validation_Integer" xml:space="preserve">
     <value>Veuillez entrer un nombre entier.</value>
   </data>
-  <data name="Button_Ok" xml:space="preserve">
-    <value>Ok</value>
-  </data>
   <data name="Yes" xml:space="preserve">
     <value>Oui</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>Non</value>
   </data>
-  <data name="Button_Save" xml:space="preserve">
+  <data name="Save" xml:space="preserve">
     <value>Sauvegarder</value>
   </data>
   <data name="OtherLanguage_TwoLetterLanguage" xml:space="preserve">
@@ -212,5 +206,29 @@
   </data>
   <data name="Enable" xml:space="preserve">
     <value>Activer</value>
+  </data>
+  <data name="Key" xml:space="preserve">
+    <value>Clé</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>Anglais</value>
+  </data>
+  <data name="French" xml:space="preserve">
+    <value>Français</value>
+  </data>
+  <data name="MarkAsUnread" xml:space="preserve">
+    <value>Marquer comme non-lu(e)</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="OtherLanguage_ThreeLetterLanguage" xml:space="preserve">
+    <value>eng</value>
+  </data>
+  <data name="ThreeLetterLanguage" xml:space="preserve">
+    <value>fra</value>
+  </data>
+  <data name="NotAvailable_Abbreviation" xml:space="preserve">
+    <value>s.o.</value>
   </data>
 </root>

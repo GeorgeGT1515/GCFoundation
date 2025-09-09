@@ -122,6 +122,11 @@ namespace GCFoundation.Web.Infrastructure.Extensions
                 .WhereAction(nameof(InstallationController.GlobalResources))
                 .TranslateAction("ressources-globales");
 
+                setup.UseCulture("fr")
+                .WhereController(nameof(InstallationController))
+                .WhereAction(nameof(InstallationController.Translations))
+                .TranslateAction("traductions");
+
                 // Language Controller
                 setup.UseCulture("fr")
                 .WhereController(nameof(LanguageController))

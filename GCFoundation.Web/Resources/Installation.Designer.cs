@@ -320,5 +320,23 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Index_Page_Title", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to As part of the GCFoundation, you also get a set of standard translations that you can use in your GCFoundation applications..
+        /// </summary>
+        public static string Translations_Description {
+            get {
+                return ResourceManager.GetString("Translations_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Standard Translations.
+        /// </summary>
+        public static string Translations_Page_Title {
+            get {
+                return ResourceManager.GetString("Translations_Page_Title", resourceCulture);
+            }
+        }
     }
 }

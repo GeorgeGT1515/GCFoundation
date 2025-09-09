@@ -26,6 +26,7 @@
     <NavNode key="installation" controller="Installation" action="Index" area="" preservedRouteParameters="culture" text="Nav_Installation" >
       <Children>
 				<NavNode key="global-resources" controller="Installation" action="GlobalResources" area="" preservedRouteParameters="culture" text="Nav_Installation_GlobalResources" />
+        <NavNode key="translations" controller="Installation" action="Translations" area="" preservedRouteParameters="culture" text="Nav_Installation_Translations" />
 			</Children>
 		</NavNode>
 		<NavNode key="styles" controller="Styles" action="Index" area="" preservedRouteParameters="culture" text="Nav_Styles" />

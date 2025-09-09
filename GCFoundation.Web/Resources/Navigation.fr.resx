@@ -124,7 +124,7 @@
     <value>Accueil</value>
   </data>
   <data name="Nav_Installation_GlobalResources" xml:space="preserve">
-    <value>Ressources globales</value>
+    <value>Configuration des ressources globales</value>
   </data>
   <data name="Nav_Components_GCDesign" xml:space="preserve">
     <value>Composants du système de design GC</value>
@@ -197,5 +197,8 @@
   </data>
   <data name="Nav_Components_Card" xml:space="preserve">
     <value>Carte</value>
+  </data>
+  <data name="Nav_Installation_Translations" xml:space="preserve">
+    <value>Traductions standardisées</value>
   </data>
 </root>

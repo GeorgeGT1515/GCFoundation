@@ -61,6 +61,24 @@ namespace GCFoundation.Components.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Activate.
+        /// </summary>
+        public static string Activate {
+            get {
+                return ResourceManager.GetString("Activate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add.
+        /// </summary>
+        public static string Add {
+            get {
+                return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All.
         /// </summary>
         public static string All {
@@ -70,146 +88,29 @@ namespace GCFoundation.Components.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activate.
-        /// </summary>
-        public static string Button_Activate {
-            get {
-                return ResourceManager.GetString("Button_Activate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Add.
-        /// </summary>
-        public static string Button_Add {
-            get {
-                return ResourceManager.GetString("Button_Add", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
-        public static string Button_Cancel {
+        public static string Cancel {
             get {
-                return ResourceManager.GetString("Button_Cancel", resourceCulture);
+                return ResourceManager.GetString("Cancel", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Close.
         /// </summary>
-        public static string Button_Close {
+        public static string Close {
             get {
-                return ResourceManager.GetString("Button_Close", resourceCulture);
+                return ResourceManager.GetString("Close", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
-        public static string Button_Delete {
+        public static string Delete {
             get {
-                return ResourceManager.GetString("Button_Delete", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Dismiss.
-        /// </summary>
-        public static string Button_Dismiss {
-            get {
-                return ResourceManager.GetString("Button_Dismiss", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Edit.
-        /// </summary>
-        public static string Button_Edit {
-            get {
-                return ResourceManager.GetString("Button_Edit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Inactivate.
-        /// </summary>
-        public static string Button_Inactivate {
-            get {
-                return ResourceManager.GetString("Button_Inactivate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Mark as read.
-        /// </summary>
-        public static string Button_MarkAsRead {
-            get {
-                return ResourceManager.GetString("Button_MarkAsRead", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Mark as unread.
-        /// </summary>
-        public static string Button_MarkAsUnread {
-            get {
-                return ResourceManager.GetString("Button_MarkAsUnread", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ok.
-        /// </summary>
-        public static string Button_Ok {
-            get {
-                return ResourceManager.GetString("Button_Ok", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Print.
-        /// </summary>
-        public static string Button_Print {
-            get {
-                return ResourceManager.GetString("Button_Print", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Reset.
-        /// </summary>
-        public static string Button_Reset {
-            get {
-                return ResourceManager.GetString("Button_Reset", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Save.
-        /// </summary>
-        public static string Button_Save {
-            get {
-                return ResourceManager.GetString("Button_Save", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Submit.
-        /// </summary>
-        public static string Button_Submit {
-            get {
-                return ResourceManager.GetString("Button_Submit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to View.
-        /// </summary>
-        public static string Button_View {
-            get {
-                return ResourceManager.GetString("Button_View", resourceCulture);
+                return ResourceManager.GetString("Delete", resourceCulture);
             }
         }
         
@@ -232,6 +133,24 @@ namespace GCFoundation.Components.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dismiss.
+        /// </summary>
+        public static string Dismiss {
+            get {
+                return ResourceManager.GetString("Dismiss", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enable.
         /// </summary>
         public static string Enable {
@@ -246,6 +165,15 @@ namespace GCFoundation.Components.Resources {
         public static string Enabled {
             get {
                 return ResourceManager.GetString("Enabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        public static string English {
+            get {
+                return ResourceManager.GetString("English", resourceCulture);
             }
         }
         
@@ -268,11 +196,56 @@ namespace GCFoundation.Components.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to French.
+        /// </summary>
+        public static string French {
+            get {
+                return ResourceManager.GetString("French", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inactivate.
+        /// </summary>
+        public static string Inactivate {
+            get {
+                return ResourceManager.GetString("Inactivate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Key.
+        /// </summary>
+        public static string Key {
+            get {
+                return ResourceManager.GetString("Key", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Loading.
         /// </summary>
         public static string Loading {
             get {
                 return ResourceManager.GetString("Loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mark as read.
+        /// </summary>
+        public static string MarkAsRead {
+            get {
+                return ResourceManager.GetString("MarkAsRead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mark as unread.
+        /// </summary>
+        public static string MarkAsUnread {
+            get {
+                return ResourceManager.GetString("MarkAsUnread", resourceCulture);
             }
         }
         
@@ -295,6 +268,33 @@ namespace GCFoundation.Components.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to N/A.
+        /// </summary>
+        public static string NotAvailable_Abbreviation {
+            get {
+                return ResourceManager.GetString("NotAvailable_Abbreviation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ok.
+        /// </summary>
+        public static string Ok {
+            get {
+                return ResourceManager.GetString("Ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to fra.
+        /// </summary>
+        public static string OtherLanguage_ThreeLetterLanguage {
+            get {
+                return ResourceManager.GetString("OtherLanguage_ThreeLetterLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to fr.
         /// </summary>
         public static string OtherLanguage_TwoLetterLanguage {
@@ -304,11 +304,56 @@ namespace GCFoundation.Components.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Print.
+        /// </summary>
+        public static string Print {
+            get {
+                return ResourceManager.GetString("Print", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Required.
         /// </summary>
         public static string Required {
             get {
                 return ResourceManager.GetString("Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset.
+        /// </summary>
+        public static string Reset {
+            get {
+                return ResourceManager.GetString("Reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit.
+        /// </summary>
+        public static string Submit {
+            get {
+                return ResourceManager.GetString("Submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eng.
+        /// </summary>
+        public static string ThreeLetterLanguage {
+            get {
+                return ResourceManager.GetString("ThreeLetterLanguage", resourceCulture);
             }
         }
         
@@ -336,6 +381,15 @@ namespace GCFoundation.Components.Resources {
         public static string Validation_Integer {
             get {
                 return ResourceManager.GetString("Validation_Integer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View.
+        /// </summary>
+        public static string View {
+            get {
+                return ResourceManager.GetString("View", resourceCulture);
             }
         }
         
