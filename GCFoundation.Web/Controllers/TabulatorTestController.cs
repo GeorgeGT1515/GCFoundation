@@ -12,7 +12,7 @@ namespace GCFoundation.Web.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    public class TabulatorTestController : GCFoundationBaseController
+    public class TabulatorTestController(ILogger<TabulatorTestController> logger) : GCFoundationBaseController(logger)
     {
         private static readonly List<TestUser> AllUsers = [.. Enumerable.Range(1, 100).Select(i => new TestUser
         {
@@ -20,14 +20,6 @@ namespace GCFoundation.Web.Controllers
             Name = $"User {i}",
             Email = $"user{i}@example.com"
         })];
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TabulatorTestController"/> class.
-        /// </summary>
-        /// <param name="logger">The logger instance for the controller.</param>
-        public TabulatorTestController(ILogger<TabulatorTestController> logger) : base(logger)
-        {
-        }
 
         /// <summary>
         /// Handles Tabulator AJAX requests, applying filtering, sorting, and pagination to the sample <see cref="TestUser"/> list.
@@ -125,6 +117,5 @@ namespace GCFoundation.Web.Controllers
                 Data = data
             });
         }
-
     }
 }

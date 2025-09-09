@@ -64,6 +64,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ErrorsPage.resx</DependentUpon>
     </Compile>
+    <Compile Update="Resources\Localization.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Localization.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\Modal.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -87,6 +92,10 @@
     <EmbeddedResource Update="Resources\ErrorsPage.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ErrorsPage.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Localization.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Localization.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Modal.resx">
       <Generator>ResXFileCodeGenerator</Generator>

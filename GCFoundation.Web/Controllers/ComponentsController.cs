@@ -479,19 +479,6 @@ namespace GCFoundation.Web.Controllers
         }
 
         /// <summary>
-        /// Displays the global resources configuration demo page.
-        /// </summary>
-        /// <returns>
-        /// The global resources configuration view.
-        /// </returns>
-        [HttpGet("global-resources")]
-        public IActionResult GlobalResources()
-        {
-            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.GlobalResources_Title}");
-            return View();
-        }
-
-        /// <summary>
         /// Displays the Modal component demo page.
         /// </summary>
         /// <returns>

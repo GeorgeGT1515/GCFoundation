@@ -61,7 +61,7 @@ namespace GCFoundation.Web.Models.Components
         public string Tag { get; set; } = string.Empty;
 
         /// <summary>
-        /// Builds default side navigation based on the current properties of the ViewModel (i.e. include links to the Overview, SampleCodeSections, Properties & Notes).
+        /// Builds default side navigation based on the current properties of the ViewModel (i.e. include links to the Overview, SampleCodeSections, Properties and Notes).
         /// </summary>
         /// <returns></returns>
         private SideNavigationViewModel DefaultSideNavigation()

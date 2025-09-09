@@ -48,6 +48,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Components.resx</DependentUpon>
     </Compile>
+    <Compile Update="Resources\Installation.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Installation.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\Home.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -79,6 +84,10 @@
     <EmbeddedResource Update="Resources\Components.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Components.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Installation.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Installation.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Home.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

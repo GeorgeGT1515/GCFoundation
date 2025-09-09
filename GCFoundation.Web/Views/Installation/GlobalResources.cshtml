@@ -1,21 +1,16 @@
 @using GCFoundation.Components.Helpers
+@using GCFoundation.Components.Resources
+@using GCFoundation.Web.Resources
 @inject GlobalResourceHelper ResourceHelper
 
-<gcds-heading tag="h1">Global Resources Configuration</gcds-heading>
-
-<gcds-text>
-    This page demonstrates how to use the new global resources configuration feature in GCFoundation.
-    You can configure CSS, JavaScript, meta tags, and link tags globally through the appsettings.json file.
-</gcds-text>
+<gcds-heading tag="h1">@Installation.GlobalResources_Page_Title</gcds-heading>
+<gcds-text>@Html.Raw(Installation.GlobalResources_Description)</gcds-text>
 
 <section>
-    <gcds-heading tag="h2">Current Configuration</gcds-heading>
-    
-    <gcds-text>
-        The following resources are currently configured to be loaded globally:
-    </gcds-text>
+    <gcds-heading tag="h2">@Installation.GlobalResources_CurrentConfiguration_Title</gcds-heading>
+    <gcds-text>@Html.Raw(Installation.GlobalResources_CurrentConfiguration_Description)</gcds-text>
 
-    <gcds-details details-title="Global CSS Files">
+    <gcds-details details-title="@Installation.GlobalResources_GlobalCssFiles_Title">
         @if (ResourceHelper.GetGlobalCssFiles().Any())
         {
             <ul>
@@ -27,11 +22,11 @@
         }
         else
         {
-            <p>No global CSS files configured.</p>
+            <gcds-text>@Installation.GlobalResources_NoCssFiles</gcds-text>
         }
     </gcds-details>
 
-    <gcds-details details-title="Global JavaScript Files">
+    <gcds-details details-title="@Installation.GlobalResources_GlobalJavaScriptFiles_Title">
         @if (ResourceHelper.GetGlobalJavaScriptFiles().Any())
         {
             <ul>
@@ -43,11 +38,11 @@
         }
         else
         {
-            <p>No global JavaScript files configured.</p>
+            <gcds-text>@Installation.GlobalResources_NoJavaScriptFiles</gcds-text>
         }
     </gcds-details>
 
-    <gcds-details details-title="Global Meta Tags">
+    <gcds-details details-title="@Installation.GlobalResources_GlobalMetaTags_Title">
         @if (ResourceHelper.GetGlobalMetaTags().Any())
         {
             <ul>
@@ -59,11 +54,11 @@
         }
         else
         {
-            <p>No global meta tags configured.</p>
+            <gcds-text>@Installation.GlobalResources_NoMetaTags</gcds-text>
         }
     </gcds-details>
 
-    <gcds-details details-title="Global Link Tags">
+    <gcds-details details-title="@Installation.GlobalResources_GlobalLinkTags_Title">
         @if (ResourceHelper.GetGlobalLinkTags().Any())
         {
             <ul>
@@ -75,45 +70,37 @@
         }
         else
         {
-            <p>No global link tags configured.</p>
+            <gcds-text>@Installation.GlobalResources_NoLinkTags</gcds-text>
         }
     </gcds-details>
 </section>
 
 <section>
-    <gcds-heading tag="h2">Resource Inclusion Settings</gcds-heading>
-    
-    <gcds-text>
-        The following settings control which optional resources are included:
-    </gcds-text>
+    <gcds-heading tag="h2">@Installation.GlobalResources_ResourceInclusion_Title</gcds-heading>
+    <gcds-text>@Installation.GlobalResources_ResourceInclusion_Description</gcds-text>
 
     <ul>
-        <li><strong>Default CSS:</strong> <span class="status-enabled">Always Enabled</span> (foundation.min.css, tabulator, prism)</li>
-        <li><strong>Default JavaScript:</strong> <span class="status-enabled">Always Enabled</span> (foundation.min.js, tabulator, prism)</li>
-        <li><strong>GCDS Resources:</strong> @(ResourceHelper.ShouldIncludeGCDSResources() ? "Enabled" : "Disabled")</li>
-        <li><strong>Font Awesome:</strong> @(ResourceHelper.ShouldIncludeFontAwesome() ? "Enabled" : "Disabled")</li>
+        <li><strong>@Installation.GlobalResources_DefaultCss_Label</strong> <span class="status-enabled">@Installation.GlobalResources_AlwaysEnabled</span> (foundation.min.css, tabulator, prism)</li>
+        <li><strong>@Installation.GlobalResources_DefaultJavaScript_Label</strong> <span class="status-enabled">@Installation.GlobalResources_AlwaysEnabled</span> (foundation.min.js, tabulator, prism)</li>
+        <li><strong>@Installation.GlobalResources_GCDSResources_Label</strong> @(ResourceHelper.ShouldIncludeGCDSResources() ? Localization.Enabled : Localization.Disabled)</li>
+        <li><strong>@Installation.GlobalResources_FontAwesome_Label</strong> @(ResourceHelper.ShouldIncludeFontAwesome() ? Localization.Enabled : Localization.Disabled)</li>
     </ul>
 
-    <gcds-text>
-        <strong>Note:</strong> Default foundation CSS and JavaScript files are always included and cannot be disabled. 
-        This ensures that all GCFoundation components work properly on every page.
-    </gcds-text>
+    <gcds-text>@Html.Raw(Installation.GlobalResources_DefaultFilesNote)</gcds-text>
 </section>
 
 <section>
-    <gcds-heading tag="h2">Resource Loading Order</gcds-heading>
+    <gcds-heading tag="h2">@Installation.GlobalResources_LoadingOrder_Title</gcds-heading>
     
-    <gcds-text>
-        Resources are loaded in the following order:
-    </gcds-text>
+    <gcds-text>@Installation.GlobalResources_LoadingOrder_Description</gcds-text>
 
-    <gcds-details details-title="CSS Loading Order">
+    <gcds-details details-title="@Installation.GlobalResources_CssLoadingOrder_Title">
         <ol>
             <li><strong>Default foundation CSS</strong> (always included):
                 <ul>
-                    <li>tabulator/dist/css/GCTabulatorTheme.css</li>
-                    <li>foundation.min.css</li>
-                    <li>prism/css/prism.css</li>
+                    <li><code>tabulator/dist/css/GCTabulatorTheme.css</code></li>
+                    <li><code>foundation.min.css</code></li>
+                    <li><code>prism/css/prism.css</code></li>
                 </ul>
             </li>
             <li>GCDS CSS from CDN (if enabled)</li>
@@ -123,14 +110,14 @@
         </ol>
     </gcds-details>
 
-    <gcds-details details-title="JavaScript Loading Order">
+    <gcds-details details-title="@Installation.GlobalResources_JavaScriptLoadingOrder_Title">
         <ol>
             <li>GCDS JavaScript from CDN (if enabled)</li>
             <li><strong>Default foundation JavaScript</strong> (always included):
                 <ul>
-                    <li>prism/js/prism.js</li>
-                    <li>tabulator/dist/js/tabulator.min.js</li>
-                    <li>foundation.min.js</li>
+                    <li><code>prism/js/prism.js</code></li>
+                    <li><code>tabulator/dist/js/tabulator.min.js</code></li>
+                    <li><code>foundation.min.js</code></li>
                 </ul>
             </li>
             <li>Global JavaScript files from configuration</li>
@@ -140,14 +127,10 @@
 </section>
 
 <section>
-    <gcds-heading tag="h2">How to Configure</gcds-heading>
-    
-    <gcds-text>
-        To configure global resources, update your <code>appsettings.json</code> file:
-    </gcds-text>
+    <gcds-heading tag="h2">@Installation.GlobalResources_HowToConfigure_Title</gcds-heading>
+    <gcds-text>@Html.Raw(Installation.GlobalResources_HowToConfigure_Description)</gcds-text>
 
-    <div class="language-json">
-<pre><code>{
+<pre><code class="language-json">{
   "FoundationComponentsSettings": {
     "GlobalCssFiles": [
       "/css/custom-styles.css",
@@ -166,18 +149,13 @@
     ]
   }
 }</code></pre>
-    </div>
 </section>
 
 <section>
-    <gcds-heading tag="h2">Using GlobalResourceHelper in Views</gcds-heading>
-    
-    <gcds-text>
-        You can also use the <code>GlobalResourceHelper</code> in your Razor views for more control:
-    </gcds-text>
+    <gcds-heading tag="h2">@Installation.GlobalResources_UsingHelper_Title</gcds-heading>
+    <gcds-text>@Html.Raw(Installation.GlobalResources_UsingHelper_Description)</gcds-text>
 
-    <div class="language-cshtml">
-<pre><code>@@inject GlobalResourceHelper ResourceHelper
+<pre><code class="language-cshtml">@@inject GlobalResourceHelper ResourceHelper
 
 @@* Render all global CSS files *@@
 @@Html.Raw(ResourceHelper.RenderGlobalCssFiles())
@@ -190,7 +168,6 @@
 {
     &lt;link rel="stylesheet" href="/css/gcds-override.css" /&gt;
 }</code></pre>
-    </div>
 </section>
 
 @section Scripts {
@@ -207,6 +184,6 @@
         }
         
         // Default foundation resources are always available
-        console.log('Default foundation resources are always loaded');
+        console.log('Default GCFoundation resources are always loaded');
     </script>
 } 

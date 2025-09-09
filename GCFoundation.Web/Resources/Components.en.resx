@@ -132,96 +132,6 @@
   <data name="GcdsParagraph2" xml:space="preserve">
     <value>To use GC Design System components, you’ll need to use the Web Component code. The components should also appear in Visual Studio if they have been implemented. However, even if a component doesn't appear in IntelliSense, you can still use it—just make sure you’re referencing the correct version of the GC Design System.</value>
   </data>
-  <data name="GlobalResources_Title" xml:space="preserve">
-    <value>Global Resources Configuration</value>
-  </data>
-  <data name="GlobalResources_Description" xml:space="preserve">
-    <value>This page demonstrates how to use the new global resources configuration feature in GCFoundation. You can configure CSS, JavaScript, meta tags, and link tags globally through the appsettings.json file.</value>
-  </data>
-  <data name="GlobalResources_CurrentConfiguration_Title" xml:space="preserve">
-    <value>Current Configuration</value>
-  </data>
-  <data name="GlobalResources_CurrentConfiguration_Description" xml:space="preserve">
-    <value>The following resources are currently configured to be loaded globally:</value>
-  </data>
-  <data name="GlobalResources_GlobalCssFiles_Title" xml:space="preserve">
-    <value>Global CSS Files</value>
-  </data>
-  <data name="GlobalResources_GlobalJavaScriptFiles_Title" xml:space="preserve">
-    <value>Global JavaScript Files</value>
-  </data>
-  <data name="GlobalResources_GlobalMetaTags_Title" xml:space="preserve">
-    <value>Global Meta Tags</value>
-  </data>
-  <data name="GlobalResources_GlobalLinkTags_Title" xml:space="preserve">
-    <value>Global Link Tags</value>
-  </data>
-  <data name="GlobalResources_NoCssFiles" xml:space="preserve">
-    <value>No global CSS files configured.</value>
-  </data>
-  <data name="GlobalResources_NoJavaScriptFiles" xml:space="preserve">
-    <value>No global JavaScript files configured.</value>
-  </data>
-  <data name="GlobalResources_NoMetaTags" xml:space="preserve">
-    <value>No global meta tags configured.</value>
-  </data>
-  <data name="GlobalResources_NoLinkTags" xml:space="preserve">
-    <value>No global link tags configured.</value>
-  </data>
-  <data name="GlobalResources_ResourceInclusion_Title" xml:space="preserve">
-    <value>Resource Inclusion Settings</value>
-  </data>
-  <data name="GlobalResources_ResourceInclusion_Description" xml:space="preserve">
-    <value>The following settings control which optional resources are included:</value>
-  </data>
-  <data name="GlobalResources_DefaultCss_Label" xml:space="preserve">
-    <value>Default CSS:</value>
-  </data>
-  <data name="GlobalResources_DefaultJavaScript_Label" xml:space="preserve">
-    <value>Default JavaScript:</value>
-  </data>
-  <data name="GlobalResources_GCDSResources_Label" xml:space="preserve">
-    <value>GCDS Resources:</value>
-  </data>
-  <data name="GlobalResources_FontAwesome_Label" xml:space="preserve">
-    <value>Font Awesome:</value>
-  </data>
-  <data name="GlobalResources_AlwaysEnabled" xml:space="preserve">
-    <value>Always Enabled</value>
-  </data>
-  <data name="GlobalResources_Enabled" xml:space="preserve">
-    <value>Enabled</value>
-  </data>
-  <data name="GlobalResources_Disabled" xml:space="preserve">
-    <value>Disabled</value>
-  </data>
-  <data name="GlobalResources_DefaultFilesNote" xml:space="preserve">
-    <value>Note: Default foundation CSS and JavaScript files are always included and cannot be disabled. This ensures that all GCFoundation components work properly on every page.</value>
-  </data>
-  <data name="GlobalResources_LoadingOrder_Title" xml:space="preserve">
-    <value>Resource Loading Order</value>
-  </data>
-  <data name="GlobalResources_LoadingOrder_Description" xml:space="preserve">
-    <value>Resources are loaded in the following order:</value>
-  </data>
-  <data name="GlobalResources_CssLoadingOrder_Title" xml:space="preserve">
-    <value>CSS Loading Order</value>
-  </data>
-  <data name="GlobalResources_JavaScriptLoadingOrder_Title" xml:space="preserve">
-    <value>JavaScript Loading Order</value>
-  </data>
-  <data name="GlobalResources_HowToConfigure_Title" xml:space="preserve">
-    <value>How to Configure</value>
-  </data>
-  <data name="GlobalResources_HowToConfigure_Description" xml:space="preserve">
-    <value>To configure global resources, update your appsettings.json file:</value>
-  </data>
-  <data name="GlobalResources_UsingHelper_Title" xml:space="preserve">
-    <value>Using GlobalResourceHelper in Views</value>
-  </data>
-  <data name="GlobalResources_UsingHelper_Description" xml:space="preserve">
-    <value>You can also use the GlobalResourceHelper in your Razor views for more control:</value>
-  </data>
   <data name="UserLogin_AuthStatus_Title" xml:space="preserve">
     <value>Current Authentication Status</value>
   </data>
@@ -927,6 +837,117 @@
   <data name="FilteredSearch_Basic_Title" xml:space="preserve">
     <value>Basic Usage</value>
   </data>
+  <data name="PageHeading_Basic_Anchor" xml:space="preserve">
+    <value>basic</value>
+  </data>
+  <data name="PageHeading_Basic_Title" xml:space="preserve">
+    <value>Basic Usage</value>
+  </data>
+  <data name="PageHeading_Name" xml:space="preserve">
+    <value>Page Heading</value>
+  </data>
+  <data name="PageHeading_Notes_3" xml:space="preserve">
+    <value>Style overrides can be applied via &lt;code&gt;fdcp-page-header-container&lt;/code&gt; and related classes in your SCSS</value>
+  </data>
+  <data name="PageHeading_Notes_2" xml:space="preserve">
+    <value>Component is responsive and accessible</value>
+  </data>
+  <data name="PageHeading_Notes_1" xml:space="preserve">
+    <value>The background image is set using a &lt;code&gt;data-bg-src&lt;/code&gt; attribute and JavaScript for CSP compliance</value>
+  </data>
+  <data name="PageHeading_Overview" xml:space="preserve">
+    <value>The &lt;code&gt;&amp;lt;fdcp-page-heading&amp;gt;&lt;/code&gt; component displays a prominent page header with a title, description, and optional background image. It is designed for use in Razor Pages projects.</value>
+  </data>
+  <data name="PageHeading_Properties_Title" xml:space="preserve">
+    <value>The main heading text (displayed as an &lt;code&gt;h1&lt;/code&gt;).</value>
+  </data>
+  <data name="PageHeading_Properties_Description" xml:space="preserve">
+    <value>Optional. Additional descriptive text below the title.</value>
+  </data>
+  <data name="PageHeading_Properties_Size" xml:space="preserve">
+    <value>Optional. Sets the size of the height of page header (Default, or Large). A Large page heading will add more padding above and below the text container.</value>
+  </data>
+  <data name="PageHeading_Properties_Src" xml:space="preserve">
+    <value>Optional. URL for the background image.</value>
+  </data>
+  <data name="PageHeading_Properties_TextEmphasis" xml:space="preserve">
+    <value>Optional. Adds a light background and a border around the text container to emphasize the content. (Default: false)</value>
+  </data>
+  <data name="Stepper_Basic_Anchor" xml:space="preserve">
+    <value>basic</value>
+  </data>
+  <data name="Stepper_Basic_Title" xml:space="preserve">
+    <value>Basic Usage</value>
+  </data>
+  <data name="Stepper_Name" xml:space="preserve">
+    <value>Stepper</value>
+  </data>
+  <data name="Stepper_Notes_2" xml:space="preserve">
+    <value>When using &lt;code&gt;DisplayMode.Icon&lt;/code&gt;, if no icon HTML is provided for a state, the step number will be displayed instead</value>
+  </data>
+  <data name="Stepper_Notes_1" xml:space="preserve">
+    <value>Steps automatically calculate their state (completed, active, or incomplete) based on the &lt;code&gt;CurrentStep&lt;/code&gt; value</value>
+  </data>
+  <data name="Stepper_Notes_4" xml:space="preserve">
+    <value>Steps without labels will be skipped during rendering</value>
+  </data>
+  <data name="Stepper_Overview" xml:space="preserve">
+    <value>The &lt;code&gt;&amp;lt;fdcp-stepper&amp;gt;&lt;/code&gt; component helps users track their progress in multi-step processes. It provides visual feedback about completed, current, and upcoming steps, supporting both numeric and icon-based display modes.</value>
+  </data>
+  <data name="Stepper_Properties_CurrentStep" xml:space="preserve">
+    <value>The current active step number (1-based index)</value>
+  </data>
+  <data name="Stepper_Properties_Steps" xml:space="preserve">
+    <value>Collection of &lt;code&gt;StepperStep&lt;/code&gt; objects defining the stepper configuration</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_StepNumber" xml:space="preserve">
+    <value>The sequential number of the step</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_Label" xml:space="preserve">
+    <value>Text label for the step</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_DisplayMode" xml:space="preserve">
+    <value>Display mode for the step (Number or Icon)</value>
+  </data>
+  <data name="Stepper_Basic_Text" xml:space="preserve">
+    <value>A basic stepper with numbered steps:</value>
+  </data>
+  <data name="Stepper_Notes_3" xml:space="preserve">
+    <value>Hidden steps (&lt;code&gt;IsHidden = true&lt;/code&gt;) will not be rendered in the stepper</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_IsLink" xml:space="preserve">
+    <value>Determines if the step is clickable</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_LinkUrl" xml:space="preserve">
+    <value>Optional. URL for clickable steps</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_CompletedIconHtml" xml:space="preserve">
+    <value>Optional. HTML for the completed state icon</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_InProgressIconHtml" xml:space="preserve">
+    <value>Optional. HTML for the in-progress state icon</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_NotStartedIconHtml" xml:space="preserve">
+    <value>Optional. HTML for the not-started state icon</value>
+  </data>
+  <data name="Stepper_WithIcons_Title" xml:space="preserve">
+    <value>With Icons</value>
+  </data>
+  <data name="Stepper_WithIcons_Anchor" xml:space="preserve">
+    <value>with-icons</value>
+  </data>
+  <data name="Stepper_WithIcons_Text" xml:space="preserve">
+    <value>Stepper with custom icons for different states:</value>
+  </data>
+  <data name="Stepper_WithLinks_Title" xml:space="preserve">
+    <value>With Links</value>
+  </data>
+  <data name="Stepper_WithLinks_Anchor" xml:space="preserve">
+    <value>with-links</value>
+  </data>
+  <data name="Stepper_WithLinks_Text" xml:space="preserve">
+    <value>Stepper with clickable steps:</value>
+  </data>
   <data name="StatelessAuth_CurrentStatus_Title" xml:space="preserve">
     <value>Current Authentication Status</value>
   </data>
@@ -1055,116 +1076,5 @@
   </data>
   <data name="StatelessAuth_Integration_Description2" xml:space="preserve">
     <value />
-  </data>
-  <data name="PageHeading_Basic_Anchor" xml:space="preserve">
-    <value>basic</value>
-  </data>
-  <data name="PageHeading_Basic_Title" xml:space="preserve">
-    <value>Basic Usage</value>
-  </data>
-  <data name="PageHeading_Name" xml:space="preserve">
-    <value>Page Heading</value>
-  </data>
-  <data name="PageHeading_Notes_3" xml:space="preserve">
-    <value>Style overrides can be applied via &lt;code&gt;fdcp-page-header-container&lt;/code&gt; and related classes in your SCSS</value>
-  </data>
-  <data name="PageHeading_Notes_2" xml:space="preserve">
-    <value>Component is responsive and accessible</value>
-  </data>
-  <data name="PageHeading_Notes_1" xml:space="preserve">
-    <value>The background image is set using a &lt;code&gt;data-bg-src&lt;/code&gt; attribute and JavaScript for CSP compliance</value>
-  </data>
-  <data name="PageHeading_Overview" xml:space="preserve">
-    <value>The &lt;code&gt;&amp;lt;fdcp-page-heading&amp;gt;&lt;/code&gt; component displays a prominent page header with a title, description, and optional background image. It is designed for use in Razor Pages projects.</value>
-  </data>
-  <data name="PageHeading_Properties_Title" xml:space="preserve">
-    <value>The main heading text (displayed as an &lt;code&gt;h1&lt;/code&gt;).</value>
-  </data>
-  <data name="PageHeading_Properties_Description" xml:space="preserve">
-    <value>Optional. Additional descriptive text below the title.</value>
-  </data>
-  <data name="PageHeading_Properties_Size" xml:space="preserve">
-    <value>Optional. Sets the size of the height of page header (Default, or Large). A Large page heading will add more padding above and below the text container.</value>
-  </data>
-  <data name="PageHeading_Properties_Src" xml:space="preserve">
-    <value>Optional. URL for the background image.</value>
-  </data>
-  <data name="PageHeading_Properties_TextEmphasis" xml:space="preserve">
-    <value>Optional. Adds a light background and a border around the text container to emphasize the content. (Default: false)</value>
-  </data>
-  <data name="Stepper_Basic_Anchor" xml:space="preserve">
-    <value>basic</value>
-  </data>
-  <data name="Stepper_Basic_Title" xml:space="preserve">
-    <value>Basic Usage</value>
-  </data>
-  <data name="Stepper_Name" xml:space="preserve">
-    <value>Stepper</value>
-  </data>
-  <data name="Stepper_Notes_2" xml:space="preserve">
-    <value>When using &lt;code&gt;DisplayMode.Icon&lt;/code&gt;, if no icon HTML is provided for a state, the step number will be displayed instead</value>
-  </data>
-  <data name="Stepper_Notes_1" xml:space="preserve">
-    <value>Steps automatically calculate their state (completed, active, or incomplete) based on the &lt;code&gt;CurrentStep&lt;/code&gt; value</value>
-  </data>
-  <data name="Stepper_Notes_4" xml:space="preserve">
-    <value>Steps without labels will be skipped during rendering</value>
-  </data>
-  <data name="Stepper_Overview" xml:space="preserve">
-    <value>The &lt;code&gt;&amp;lt;fdcp-stepper&amp;gt;&lt;/code&gt; component helps users track their progress in multi-step processes. It provides visual feedback about completed, current, and upcoming steps, supporting both numeric and icon-based display modes.</value>
-  </data>
-  <data name="Stepper_Properties_CurrentStep" xml:space="preserve">
-    <value>The current active step number (1-based index)</value>
-  </data>
-  <data name="Stepper_Properties_Steps" xml:space="preserve">
-    <value>Collection of &lt;code&gt;StepperStep&lt;/code&gt; objects defining the stepper configuration</value>
-  </data>
-  <data name="Stepper_Properties_StepperStep_StepNumber" xml:space="preserve">
-    <value>The sequential number of the step</value>
-  </data>
-  <data name="Stepper_Properties_StepperStep_Label" xml:space="preserve">
-    <value>Text label for the step</value>
-  </data>
-  <data name="Stepper_Properties_StepperStep_DisplayMode" xml:space="preserve">
-    <value>Display mode for the step (Number or Icon)</value>
-  </data>
-  <data name="Stepper_Basic_Text" xml:space="preserve">
-    <value>A basic stepper with numbered steps:</value>
-  </data>
-  <data name="Stepper_Notes_3" xml:space="preserve">
-    <value>Hidden steps (&lt;code&gt;IsHidden = true&lt;/code&gt;) will not be rendered in the stepper</value>
-  </data>
-  <data name="Stepper_Properties_StepperStep_IsLink" xml:space="preserve">
-    <value>Determines if the step is clickable</value>
-  </data>
-  <data name="Stepper_Properties_StepperStep_LinkUrl" xml:space="preserve">
-    <value>Optional. URL for clickable steps</value>
-  </data>
-  <data name="Stepper_Properties_StepperStep_CompletedIconHtml" xml:space="preserve">
-    <value>Optional. HTML for the completed state icon</value>
-  </data>
-  <data name="Stepper_Properties_StepperStep_InProgressIconHtml" xml:space="preserve">
-    <value>Optional. HTML for the in-progress state icon</value>
-  </data>
-  <data name="Stepper_Properties_StepperStep_NotStartedIconHtml" xml:space="preserve">
-    <value>Optional. HTML for the not-started state icon</value>
-  </data>
-  <data name="Stepper_WithIcons_Title" xml:space="preserve">
-    <value>With Icons</value>
-  </data>
-  <data name="Stepper_WithIcons_Anchor" xml:space="preserve">
-    <value>with-icons</value>
-  </data>
-  <data name="Stepper_WithIcons_Text" xml:space="preserve">
-    <value>Stepper with custom icons for different states:</value>
-  </data>
-  <data name="Stepper_WithLinks_Title" xml:space="preserve">
-    <value>With Links</value>
-  </data>
-  <data name="Stepper_WithLinks_Anchor" xml:space="preserve">
-    <value>with-links</value>
-  </data>
-  <data name="Stepper_WithLinks_Text" xml:space="preserve">
-    <value>Stepper with clickable steps:</value>
   </data>
 </root>

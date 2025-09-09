@@ -121,7 +121,7 @@
     <value>Welcome</value>
   </data>
   <data name="Index_Description" xml:space="preserve">
-    <value>Foundation is a library that provides helpers to build a GC web application compliant with the latest standards.</value>
+    <value>GCFoundation is a library that provides helpers to build a GC web application compliant with the latest standards.</value>
   </data>
   <data name="Index_Features" xml:space="preserve">
     <value>&lt;gcds-heading tag=""h2""&gt;Features:&lt;/gcds-heading&gt;
