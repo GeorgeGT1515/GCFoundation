@@ -173,31 +173,32 @@ stages:
               virtualDirectoryName: ${{ variables.virtualDirectoryName }}
               webAppName: ${{ variables.webAppName }}
 
-- stage: deploy_qa
-  dependsOn: deploy_dev
-  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+# - stage: deploy_qa
+#   dependsOn: deploy_dev
+#   condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
   
-  jobs:
-  - deployment: deploy_app_qa
-    variables:
-      - template: './transforms/qa/appsettings.yaml'
-      - template: './transforms/qa/deployment.yaml'
-    environment: ${{ variables.deploymentEnvironment }}
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - template: Deploy/DotNetCore/deploy-steps.yaml@templates
-            parameters:
-              azureSubscription: ${{ variables.azureSubscription }}
-              pathToPackage: ${{ variables.pathToPackage }}
-              resourceGroupName: ${{ variables.resourceGroupName }}
-              slotName: ${{ variables.slotName }}
-              virtualDirectoryName: ${{ variables.virtualDirectoryName }}
-              webAppName: ${{ variables.webAppName }}
+#   jobs:
+#   - deployment: deploy_app_qa
+#     variables:
+#       - template: './transforms/qa/appsettings.yaml'
+#       - template: './transforms/qa/deployment.yaml'
+#     environment: ${{ variables.deploymentEnvironment }}
+#     strategy:
+#       runOnce:
+#         deploy:
+#           steps:
+#           - template: Deploy/DotNetCore/deploy-steps.yaml@templates
+#             parameters:
+#               azureSubscription: ${{ variables.azureSubscription }}
+#               pathToPackage: ${{ variables.pathToPackage }}
+#               resourceGroupName: ${{ variables.resourceGroupName }}
+#               slotName: ${{ variables.slotName }}
+#               virtualDirectoryName: ${{ variables.virtualDirectoryName }}
+#               webAppName: ${{ variables.webAppName }}
 
 - stage: deploy_uat
-  dependsOn: deploy_qa
+  #dependsOn: deploy_qa
+  dependsOn: deploy_dev
   condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
   
   jobs:
