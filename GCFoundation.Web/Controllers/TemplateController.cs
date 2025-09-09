@@ -7,20 +7,8 @@ namespace GCFoundation.Web.Controllers
     /// Controller responsible for serving the template demonstration or sample view.
     /// </summary>
     [Route("template")]
-    public class TemplateController : GCFoundationBaseController
+    public class TemplateController(ILogger<TemplateController> logger) : GCFoundationBaseController(logger)
     {
-        private readonly ILogger<TemplateController> _logger;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TemplateController"/> class.
-        /// </summary>
-        /// <param name="logger">The logger used for logging actions and events in this controller.</param>
-        public TemplateController(ILogger<TemplateController> logger)
-            : base(logger)
-        {
-            _logger = logger;
-        }
-
         /// <summary>
         /// Displays the default template view.
         /// </summary>

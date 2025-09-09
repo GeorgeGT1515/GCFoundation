@@ -9,20 +9,8 @@ namespace GCFoundation.Web.Controllers
     /// Controller responsible for handling language selection and redirection based on user culture.
     /// </summary>
     [Route("/")]
-    public class LanguageController : GCFoundationBaseController
+    public class LanguageController(ILogger<LanguageController> logger) : GCFoundationBaseController(logger)
     {
-        private readonly ILogger<LanguageController> _logger;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LanguageController"/> class.
-        /// </summary>
-        /// <param name="logger">The logger used for logging actions and events in this controller.</param>
-        public LanguageController(ILogger<LanguageController> logger)
-            : base(logger)
-        {
-            _logger = logger;
-        }
-
         /// <summary>
         /// Displays the language chooser page or redirects to the home page based on the user's culture cookie.
         /// </summary>
