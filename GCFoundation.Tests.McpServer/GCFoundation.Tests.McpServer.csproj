@@ -32,7 +32,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GCFoundation.McpServer\GCFoundation.McpServer.csproj" />
-    <ProjectReference Include="..\GCFoundation.Components\CGFoundation.Components.csproj" />
+    <ProjectReference Include="..\GCFoundation.Components\GCFoundation.Components.csproj" />
     <ProjectReference Include="..\GCFoundation.Common\GCFoundation.Common.csproj" />
   </ItemGroup>
 

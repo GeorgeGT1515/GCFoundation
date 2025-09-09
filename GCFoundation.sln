@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CGFoundation.Components", "GCFoundation.Components\CGFoundation.Components.csproj", "{7171844E-45FB-4648-94AF-0391742B2A07}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GCFoundation.Components", "GCFoundation.Components\GCFoundation.Components.csproj", "{7171844E-45FB-4648-94AF-0391742B2A07}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GCFoundation.Web", "GCFoundation.Web\GCFoundation.Web.csproj", "{3952C78E-B93D-47BE-9118-891C9C3143A9}"
 EndProject

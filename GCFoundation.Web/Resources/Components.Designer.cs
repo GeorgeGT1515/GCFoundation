@@ -709,7 +709,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to What is your interests?.
+        ///   Looks up a localized string similar to What are your interests?.
         /// </summary>
         public static string Form_Interests_Label {
             get {

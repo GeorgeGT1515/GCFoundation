@@ -75,8 +75,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 output.Attributes.SetAttribute("type", gcdsType);
                 output.Attributes.SetAttribute("input-id", For.Name); // Already correctly setting input-id
             }
-
-
         }
 
         /// <summary>
@@ -98,7 +96,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                     return "gcds-textarea";
                 default:
                     return null;
-
             }
         }
 
