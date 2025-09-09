@@ -38,11 +38,10 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         [Fact]
         public void Process_SetsExpectedAttributes_AndOptions()
         {
-            // Arrange
-            var selected = new List<string> { "2" };
-            SetupModelExpression(new TestModel { SelectedValues = selected });
+            var selectedValue = "2";
+            SetupModelExpression("NonRequiredProperty", new TestModel { NonRequiredProperty = selectedValue });
 
-            _tagHelper.Items = new List<SelectListItem>
+            _tagHelper.Items = new List<SelectListItem>()
             {
                 new() { Text = "Option 1", Value = "1" },
                 new() { Text = "Option 2", Value = "2" }
@@ -55,7 +54,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             // Assert
             Assert.Equal("gcds-radios", _output.TagName);
             Assert.Equal(TagMode.StartTagAndEndTag, _output.TagMode);
-            Assert.Equal("SelectedValues", _output.Attributes["name"].Value);
+            Assert.Equal("NonRequiredProperty", _output.Attributes["name"].Value);
             Assert.True(_output.Attributes.ContainsName("options"));
             Assert.True(_output.Attributes.ContainsName("required"));
             Assert.Equal(string.Empty, _output.Content.GetContent());
@@ -72,13 +71,13 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Equal(2, options.Count);
 
             // Verify first option
-            Assert.Equal("SelectedValues_1", options[0]["id"].ToString());
+            Assert.Equal("NonRequiredProperty_1", options[0]["id"].ToString());
             Assert.Equal("Option 1", options[0]["label"].ToString());
             Assert.Equal("1", options[0]["value"].ToString());
             Assert.False(GetChecked(options[0]));
 
             // Verify second option
-            Assert.Equal("SelectedValues_2", options[1]["id"].ToString());
+            Assert.Equal("NonRequiredProperty_2", options[1]["id"].ToString());
             Assert.Equal("Option 2", options[1]["label"].ToString());
             Assert.Equal("2", options[1]["value"].ToString());
             Assert.True(GetChecked(options[1]));
@@ -88,7 +87,60 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         public void Process_WithoutRequired_SetsNoRequiredAttribute()
         {
             // Arrange
-            SetupModelExpression();
+            SetupModelExpression("NonRequiredProperty");
+            _tagHelper.Items = new List<SelectListItem>
+            {
+                new() { Text = "Option 1", Value = "1" }
+            };
+            _tagHelper.IsRequired = false;
+
+            // Act
+            _tagHelper.Process(_context, _output);
+
+            // Assert
+            Assert.False(_output.Attributes.ContainsName("required"));
+        }
+
+        [Fact]
+        public void Process_WithRequiredAttribute_SetsRequiredAttribute()
+        {
+            // Arrange
+            SetupModelExpression("NonRequiredProperty");
+            _tagHelper.Items = new List<SelectListItem>
+            {
+                new() { Text = "Option 1", Value = "1" }
+            };
+            _tagHelper.IsRequired = true;
+
+            // Act
+            _tagHelper.Process(_context, _output);
+
+            // Assert
+            Assert.True(_output.Attributes.ContainsName("required"));
+        }
+
+        [Fact]
+        public void Process_WithRequiredDataAnnotation_WithoutRequiredAttribute_SetsRequiredAttribute()
+        {
+            // Arrange
+            SetupModelExpression("RequiredProperty");
+            _tagHelper.Items = new List<SelectListItem>
+            {
+                new() { Text = "Option 1", Value = "1" }
+            };
+
+            // Act
+            _tagHelper.Process(_context, _output);
+
+            // Assert
+            Assert.True(_output.Attributes.ContainsName("required"));
+        }
+
+        [Fact]
+        public void Process_WithRequiredDataAnnotation_OverridesWithFalseRequiredAttribute_SetsNoRequiredAttribute()
+        {
+            // Arrange
+            SetupModelExpression("RequiredProperty");
             _tagHelper.Items = new List<SelectListItem>
             {
                 new() { Text = "Option 1", Value = "1" }
@@ -116,16 +168,25 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Contains("For is NULL", ex.Message);
         }
 
-        private void SetupModelExpression(TestModel? model = null)
+        /// <summary>
+        /// Sets up the ModelExpression for the properties of the TestModel.
+        /// </summary>
+        private void SetupModelExpression(string propertyName, TestModel? model = null)
         {
             var modelType = typeof(TestModel);
-            var modelExplorer = new EmptyModelMetadataProvider()
-                .GetModelExplorerForType(modelType, model ?? new TestModel());
+            var instance = model ?? new TestModel();
 
-            var propertyExplorer = modelExplorer.GetExplorerForProperty(nameof(TestModel.SelectedValues));
-            _tagHelper.For = new ModelExpression(nameof(TestModel.SelectedValues), propertyExplorer);
+            var metadataProvider = new EmptyModelMetadataProvider();
+            var modelExplorer = metadataProvider.GetModelExplorerForType(modelType, instance);
+
+            var propertyExplorer = modelExplorer.GetExplorerForProperty(propertyName);
+            var modelExpression = new ModelExpression(propertyName, propertyExplorer);
+            _tagHelper.For = modelExpression;
         }
 
+        /// <summary>
+        /// Determines if an option is "checked" or not.
+        /// </summary>
         private static bool GetChecked(Dictionary<string, object> option)
         {
             if (option["checked"] is JsonElement je)
@@ -144,8 +205,12 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 
         private class TestModel
         {
-            [Display(Name = "Selected Values")]
-            public List<string> SelectedValues { get; set; } = new();
+            [Display(Name = "Non-Required Property")]
+            public string NonRequiredProperty { get; set; } = string.Empty;
+
+            [Required]
+            [Display(Name = "Required Property")]
+            public string RequiredProperty { get; set; } = string.Empty;
         }
     }
 }

@@ -49,7 +49,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             string legend = GetLocalizedLabel(propertyInfo);
             string hint = GetLocalizedHint(propertyInfo);
-            bool required = For.Metadata.ValidatorMetadata.OfType<RequiredAttribute>().Any();
+            bool required = For.Metadata.ValidatorMetadata.OfType<RequiredAttribute>().Any()
+                            || propertyInfo.GetCustomAttribute<RequiredAttribute>() != null;
 
             // Retrieve selected values (if any)
             var selectedValues = For.Model as List<string> ?? new List<string>();

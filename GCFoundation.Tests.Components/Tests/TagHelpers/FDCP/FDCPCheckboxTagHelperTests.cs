@@ -35,11 +35,40 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             _tagHelper.ViewContext = viewContext;
         }
 
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void Process_GeneratesCorrectOptionsJson(bool isChecked)
+        {
+            // Arrange
+            SetupModelExpression("NonRequiredProperty", new TestModel { NonRequiredProperty = isChecked });
+
+            // Act
+            _tagHelper.Process(_context, _output);
+
+            // Assert
+            var optionsAttribute = Assert.Single(_output.Attributes, a => a.Name == "options");
+            Assert.NotNull(optionsAttribute.Value);
+
+            var options = JsonSerializer.Deserialize<List<Dictionary<string, object>>>(
+                optionsAttribute.Value.ToString()!,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+            Assert.NotNull(options);
+            Assert.Single(options);
+
+            var option = options[0];
+            Assert.Equal("NonRequiredProperty", option["id"].ToString());
+            Assert.Equal("Non-Required Property", option["label"].ToString());
+            Assert.Equal("true", option["value"].ToString());
+            Assert.Equal(isChecked, GetChecked(option));
+        }
+
         [Fact]
         public void Process_RendersCorrectTagName()
         {
             // Arrange
-            SetupModelExpression();
+            SetupModelExpression("NonRequiredProperty");
 
             // Act
             _tagHelper.Process(_context, _output);
@@ -61,61 +90,66 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Throws<InvalidOperationException>(() => _tagHelper.Process(_context, _output));
         }
 
-        [Theory]
-        [InlineData(true)]
-        [InlineData(false)]
-        public void Process_WithRequired_AddsRequiredAttribute(bool isRequired)
+        [Fact]
+        public void Process_WithRequiredAttribute_SetsRequiredAttribute()
         {
             // Arrange
-            SetupModelExpression();
-            _tagHelper.IsRequired = isRequired;
+            SetupModelExpression("NonRequiredProperty");
+            _tagHelper.IsRequired = true;
 
             // Act
             _tagHelper.Process(_context, _output);
 
             // Assert
-            Assert.Equal(isRequired, _output.Attributes.ContainsName("required"));
+            Assert.True(_output.Attributes.ContainsName("required"));
         }
 
-        [Theory]
-        [InlineData(true)]
-        [InlineData(false)]
-        public void Process_GeneratesCorrectOptionsJson(bool isChecked)
+        [Fact]
+        public void Process_WithRequiredDataAnnotation_WithoutRequiredAttribute_SetsRequiredAttribute()
         {
             // Arrange
-            SetupModelExpression(new TestModel { IsChecked = isChecked });
+            SetupModelExpression("RequiredProperty");
 
             // Act
             _tagHelper.Process(_context, _output);
 
             // Assert
-            var optionsAttribute = Assert.Single(_output.Attributes, a => a.Name == "options");
-            Assert.NotNull(optionsAttribute.Value);
-
-            var options = JsonSerializer.Deserialize<List<Dictionary<string, object>>>(
-                optionsAttribute.Value.ToString()!,
-                new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-
-            Assert.NotNull(options);
-            Assert.Single(options);
-
-            var option = options[0];
-            Assert.Equal("IsChecked", option["id"].ToString());
-            Assert.Equal("Is Checked", option["label"].ToString());
-            Assert.Equal("true", option["value"].ToString());
-            Assert.Equal(isChecked, GetChecked(option));
+            Assert.True(_output.Attributes.ContainsName("required"));
         }
 
-        private void SetupModelExpression(TestModel? model = null)
+        [Fact]
+        public void Process_WithRequiredDataAnnotation_OverridesWithFalseRequiredAttribute_SetsNoRequiredAttribute()
+        {
+            // Arrange
+            SetupModelExpression("RequiredProperty");
+            _tagHelper.IsRequired = false;
+
+            // Act
+            _tagHelper.Process(_context, _output);
+
+            // Assert
+            Assert.False(_output.Attributes.ContainsName("required"));
+        }
+
+        /// <summary>
+        /// Sets up the ModelExpression for the properties of the TestModel.
+        /// </summary>
+        private void SetupModelExpression(string propertyName, TestModel? model = null)
         {
             var modelType = typeof(TestModel);
-            var modelExplorer = new EmptyModelMetadataProvider()
-                .GetModelExplorerForType(modelType, model ?? new TestModel());
+            var instance = model ?? new TestModel();
 
-            var propertyExplorer = modelExplorer.GetExplorerForProperty(nameof(TestModel.IsChecked));
-            _tagHelper.For = new ModelExpression(nameof(TestModel.IsChecked), propertyExplorer);
+            var metadataProvider = new EmptyModelMetadataProvider();
+            var modelExplorer = metadataProvider.GetModelExplorerForType(modelType, instance);
+
+            var propertyExplorer = modelExplorer.GetExplorerForProperty(propertyName);
+            var modelExpression = new ModelExpression(propertyName, propertyExplorer);
+            _tagHelper.For = modelExpression;
         }
 
+        /// <summary>
+        /// Determines if an option is "checked" or not.
+        /// </summary>
         private static bool GetChecked(Dictionary<string, object> option)
         {
             if (option["checked"] is JsonElement je)
@@ -132,10 +166,14 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             throw new InvalidCastException("Cannot convert checked value to bool.");
         }
 
-        private class TestModel
+        public class TestModel
         {
-            [Display(Name = "Is Checked")]
-            public bool IsChecked { get; set; }
+            [Display(Name = "Non-Required Property")]
+            public bool NonRequiredProperty { get; set; } = false;
+
+            [Required]
+            [Display(Name = "Required Property")]
+            public bool RequiredProperty { get; set; } = false;
         }
     }
 }
