@@ -92,7 +92,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             string label = GetLocalizedLabel(property);
             string hint = GetLocalizedHint(property);
-            bool required = For.Metadata.ValidatorMetadata.OfType<RequiredAttribute>().Any();
+            bool required = For.Metadata.ValidatorMetadata.OfType<RequiredAttribute>().Any()
+                            || PropertyInfo?.GetCustomAttribute<RequiredAttribute>() != null;
             string fieldValue = For.Model?.ToString() ?? string.Empty; // Retrieve the model value
 
             // Required GCDS attributes

@@ -59,7 +59,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             string label = GetLocalizedLabel(propertyInfo);
             string hint = GetLocalizedHint(propertyInfo);
-            bool required = For.Metadata.ValidatorMetadata.OfType<RequiredAttribute>().Any();
+            bool required = For.Metadata.ValidatorMetadata.OfType<RequiredAttribute>().Any()
+                            || propertyInfo.GetCustomAttribute<RequiredAttribute>() != null;
 
             // Get the current value
             var currentValue = For.Model as bool? ?? false;

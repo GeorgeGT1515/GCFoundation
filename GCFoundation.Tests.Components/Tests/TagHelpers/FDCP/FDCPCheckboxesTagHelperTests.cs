@@ -39,7 +39,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         public void Process_RendersCorrectTagName()
         {
             // Arrange
-            SetupModelExpression();
+            SetupModelExpression("NonRequiredProperty");
             _tagHelper.Items = new List<SelectListItem>
             {
                 new SelectListItem { Text = "Option 1", Value = "1" }
@@ -54,26 +54,11 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         }
 
         [Fact]
-        public void Process_WithRequiredAttribute_AddsRequiredAttribute()
-        {
-            // Arrange
-            SetupModelExpression();
-            _tagHelper.IsRequired = true;
-            _tagHelper.Items = new List<SelectListItem>();
-
-            // Act
-            _tagHelper.Process(_context, _output);
-
-            // Assert
-            Assert.True(_output.Attributes.ContainsName("required"));
-        }
-
-        [Fact]
         public void Process_WithItems_GeneratesCorrectOptionsJson()
         {
             // Arrange
             var selected = new List<string> { "music" };
-            SetupModelExpression(new TestModel { SelectedInterests = selected });
+            SetupModelExpression("NonRequiredProperty", new TestModel { NonRequiredProperty = selected });
 
             _tagHelper.Items = new List<SelectListItem>
             {
@@ -96,13 +81,13 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Equal(2, options.Count);
 
             // Verify first option
-            Assert.Equal("SelectedInterests_sports", options[0]["id"].ToString());
+            Assert.Equal("NonRequiredProperty_sports", options[0]["id"].ToString());
             Assert.Equal("Sports", options[0]["label"].ToString());
             Assert.Equal("sports", options[0]["value"].ToString());
             Assert.False(GetChecked(options[0]));
 
             // Verify second option
-            Assert.Equal("SelectedInterests_music", options[1]["id"].ToString());
+            Assert.Equal("NonRequiredProperty_music", options[1]["id"].ToString());
             Assert.Equal("Music", options[1]["label"].ToString());
             Assert.Equal("music", options[1]["value"].ToString());
             Assert.True(GetChecked(options[1]));
@@ -121,19 +106,69 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Throws<InvalidOperationException>(() => _tagHelper.Process(_context, _output));
         }
 
-        /// <summary>
-        /// Sets up the ModelExpression for the SelectedInterests property of TestModel.
-        /// </summary>
-        private void SetupModelExpression(TestModel? model = null)
+        [Fact]
+        public void Process_WithRequiredAttribute_SetsRequiredAttribute()
         {
-            var modelType = typeof(TestModel);
-            var modelExplorer = new EmptyModelMetadataProvider()
-                .GetModelExplorerForType(modelType, model ?? new TestModel());
+            // Arrange
+            SetupModelExpression("NonRequiredProperty");
+            _tagHelper.IsRequired = true;
+            _tagHelper.Items = new List<SelectListItem>();
 
-            var propertyExplorer = modelExplorer.GetExplorerForProperty(nameof(TestModel.SelectedInterests));
-            _tagHelper.For = new ModelExpression(nameof(TestModel.SelectedInterests), propertyExplorer);
+            // Act
+            _tagHelper.Process(_context, _output);
+
+            // Assert
+            Assert.True(_output.Attributes.ContainsName("required"));
         }
 
+        [Fact]
+        public void Process_WithRequiredDataAnnotation_WithoutRequiredAttribute_SetsRequiredAttribute()
+        {
+            // Arrange
+            SetupModelExpression("RequiredProperty");
+            _tagHelper.Items = new List<SelectListItem>();
+            
+            // Act
+            _tagHelper.Process(_context, _output);
+
+            // Assert
+            Assert.True(_output.Attributes.ContainsName("required"));
+        }
+
+        [Fact]
+        public void Process_WithRequiredDataAnnotation_OverridesWithFalseRequiredAttribute_SetsNoRequiredAttribute()
+        {
+            // Arrange
+            SetupModelExpression("RequiredProperty");
+            _tagHelper.Items = new List<SelectListItem>();
+            _tagHelper.IsRequired = false;
+
+            // Act
+            _tagHelper.Process(_context, _output);
+
+            // Assert
+            Assert.False(_output.Attributes.ContainsName("required"));
+        }
+
+        /// <summary>
+        /// Sets up the ModelExpression for the properties of the TestModel.
+        /// </summary>
+        private void SetupModelExpression(string propertyName, TestModel? model = null)
+        {
+            var modelType = typeof(TestModel);
+            var instance = model ?? new TestModel();
+
+            var metadataProvider = new EmptyModelMetadataProvider();
+            var modelExplorer = metadataProvider.GetModelExplorerForType(modelType, instance);
+
+            var propertyExplorer = modelExplorer.GetExplorerForProperty(propertyName);
+            var modelExpression = new ModelExpression(propertyName, propertyExplorer);
+            _tagHelper.For = modelExpression;
+        }
+
+        /// <summary>
+        /// Determines if an option is "checked" or not.
+        /// </summary>
         private static bool GetChecked(Dictionary<string, object> option)
         {
             if (option["checked"] is JsonElement je)
@@ -154,17 +189,11 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 
     public class TestModel
     {
-        [Required]
-        [Display(Name = "Interest")]
-        public IEnumerable<string> SelectedInterests { get; set; } = new List<string>();
+        [Display(Name = "Non-Required Property")]
+        public IEnumerable<string> NonRequiredProperty { get; set; } = new List<string>();
 
-        public IEnumerable<SelectListItem> InterestOptions { get; set; } =
-            new List<SelectListItem>
-            {
-                new() { Value = "sports", Text = "Sports" },
-                new() { Value = "music", Text = "Music" },
-                new() { Value = "travel", Text = "Travel" },
-                new() { Value = "reading", Text = "Reading" }
-            };
+        [Required]
+        [Display(Name = "Required Property")]
+        public IEnumerable<string> RequiredProperty { get; set; } = new List<string>();
     }
 }
