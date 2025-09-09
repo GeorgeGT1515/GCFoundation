@@ -46,7 +46,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GCFoundation.Components\CGFoundation.Components.csproj" />
+    <ProjectReference Include="..\GCFoundation.Components\GCFoundation.Components.csproj" />
   </ItemGroup>
 
 </Project>
