@@ -11,7 +11,6 @@ namespace GCFoundation.Components.Controllers
     /// </summary>
     public abstract class GCFoundationBaseController : Controller
     {
-
         private readonly ILogger<GCFoundationBaseController> _logger;
 
         /// <summary>
@@ -20,15 +19,6 @@ namespace GCFoundation.Components.Controllers
         protected GCFoundationBaseController(ILogger<GCFoundationBaseController> logger)
         {
             _logger = logger;
-        }
-
-        /// <summary>
-        /// Sets the name of the partial view to be used for the page menu.
-        /// </summary>
-        /// <param name="viewMenu">The name of the partial view for the menu.</param>
-        protected void SetViewMenu(string viewMenu)
-        {
-            ViewData["MenuPartialViewName"] = viewMenu;
         }
 
         /// <summary>
@@ -62,6 +52,15 @@ namespace GCFoundation.Components.Controllers
         protected void SetPageTitle(string title)
         {
             ViewData["Title"] = title;
+        }
+
+        /// <summary>
+        /// Sets the name of the partial view to be used for the page menu.
+        /// </summary>
+        /// <param name="viewMenu">The name of the partial view for the menu.</param>
+        protected void SetViewMenu(string viewMenu)
+        {
+            ViewData["MenuPartialViewName"] = viewMenu;
         }
     }
 }
