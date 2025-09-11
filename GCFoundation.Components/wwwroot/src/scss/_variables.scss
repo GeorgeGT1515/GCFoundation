@@ -71,15 +71,12 @@ $gcds-color-green-800: #023b1a;
 $gcds-color-yellow-100: #faedd1;
 $gcds-color-yellow-500: #b3800f;
 
-
-
-
+// Badge
 $badge-height: 1.875rem; // 30px
 $badge-padding-y: 0.25rem;
 $badge-padding-x: 0.5rem;
 $badge-radius: 1.875rem;
 $badge-font-size: 1rem;
-
 
 // Primary Colors
 $primary-color: $gcds-text-primary;
@@ -112,3 +109,6 @@ $light-text-color: $gcds-text-light;
 // Dark
 $dark-color: $gcds-color-grayscale-900;
 $dark-text-color: $gcds-color-grayscale-0;
+
+// Spacing
+$spacings: (0,25,50,75,100,125,150,175,200,225,250,300,350,400,450,500,550,600,650,700,750,800,850,900,950,1000,1050,1100,1150,1200,1250);

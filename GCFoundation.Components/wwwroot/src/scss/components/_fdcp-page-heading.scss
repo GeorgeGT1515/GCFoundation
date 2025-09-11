@@ -45,9 +45,8 @@
         top: 0;
         width: 100vw;
     }
-
     // Solving an issue with text colour not being inherited by children.
-    article.text-container.fdcp-bg-primary.fdcp-text-light * {
+    article.text-container.fdcp-bg-primary.fdcp-text-light > gcds-heading {
         color: var(--gcds-text-light) !important;
     }
 }

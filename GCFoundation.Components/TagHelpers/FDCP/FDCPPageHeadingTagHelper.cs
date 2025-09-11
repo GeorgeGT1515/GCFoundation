@@ -94,8 +94,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             var textContainerClass = "text-container";
             if (TextEmphasis)
                 textContainerClass += " fdcp-bg-primary fdcp-text-light";
-
-            content.AppendLine(CultureInfo.InvariantCulture, $"<article class='sm:fdcp-py-750 fdcp-py-450 xl:fdcp-ps-0 sm:fdcp-ps-600 fdcp-px-450 sm:fdcp-pe-750 fdcp-pe-300 {textContainerClass}'>");
+            content.AppendLine(CultureInfo.InvariantCulture, $"<article class='sm:fdcp-py-750 fdcp-py-450 xl:fdcp-ps-0 sm:fdcp-ps-600 fdcp-ps-450 sm:fdcp-pe-750 fdcp-pe-300 {textContainerClass}'>");
             content.AppendLine(CultureInfo.InvariantCulture, $"<gcds-heading tag='h1'>{Title}</gcds-heading>");
 
             if (!string.IsNullOrWhiteSpace(Description))
