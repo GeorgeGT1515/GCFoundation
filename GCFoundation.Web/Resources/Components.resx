@@ -928,7 +928,7 @@
     <value>Page Heading</value>
   </data>
   <data name="PageHeading_Notes_3" xml:space="preserve">
-    <value>Style overrides can be applied via &lt;code&gt;fdcp-page-header-container&lt;/code&gt; and related classes in your SCSS</value>
+    <value>Style overrides can be applied via &lt;code&gt;fdcp-page-heading-container&lt;/code&gt; and related classes in your SCSS</value>
   </data>
   <data name="PageHeading_Notes_2" xml:space="preserve">
     <value>Component is responsive and accessible</value>

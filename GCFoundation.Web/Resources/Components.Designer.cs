@@ -1351,7 +1351,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Style overrides can be applied via &lt;code&gt;fdcp-page-header-container&lt;/code&gt; and related classes in your SCSS.
+        ///   Looks up a localized string similar to Style overrides can be applied via &lt;code&gt;fdcp-page-heading-container&lt;/code&gt; and related classes in your SCSS.
         /// </summary>
         public static string PageHeading_Notes_3 {
             get {

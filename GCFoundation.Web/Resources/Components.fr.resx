@@ -932,7 +932,7 @@
     <value>En-tête de page</value>
   </data>
   <data name="PageHeading_Notes_3" xml:space="preserve">
-    <value>Des changements aux styles peuvent appliqués sur la classe &lt;code&gt;fdcp-page-header-container&lt;/code&gt; et autres dans votre fichier SCSS</value>
+    <value>Des changements aux styles peuvent appliqués sur la classe &lt;code&gt;fdcp-page-heading-container&lt;/code&gt; et autres dans votre fichier SCSS</value>
   </data>
   <data name="PageHeading_Notes_2" xml:space="preserve">
     <value>Ce composant est réactif et accessible</value>

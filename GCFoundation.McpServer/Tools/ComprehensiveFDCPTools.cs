@@ -551,7 +551,7 @@ public class ComprehensiveFDCPTools
         [Description("Header text color")] string? textColor = null)
     {
         var sb = new StringBuilder();
-        sb.Append($"<fdcp-page-header");
+        sb.Append($"<fdcp-page-heading");
         sb.Append($" title=\"{title}\"");
         
         if (!string.IsNullOrEmpty(subtitle))
@@ -606,7 +606,7 @@ public class ComprehensiveFDCPTools
             sb.AppendLine("  </div>");
         }
         
-        sb.Append("</fdcp-page-header>");
+        sb.Append("</fdcp-page-heading>");
         return sb.ToString();
     }
 
@@ -761,7 +761,7 @@ public class ComprehensiveFDCPTools
                 
             case "layout":
                 sb.AppendLine("## FDCP Layout Components:");
-                sb.AppendLine("- fdcp-page-header: Comprehensive page headers with breadcrumbs");
+                sb.AppendLine("- fdcp-page-heading: Comprehensive page headers with breadcrumbs");
                 sb.AppendLine("- fdcp-card: Flexible card layouts with slots");
                 sb.AppendLine("- fdcp-modal: Modal dialogs with various sizes and configurations");
                 sb.AppendLine("- fdcp-session-modal: Automatic session timeout handling");
