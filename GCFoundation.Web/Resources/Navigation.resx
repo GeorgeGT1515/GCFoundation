@@ -204,4 +204,7 @@
   <data name="Nav_Installation_Metadata" xml:space="preserve">
     <value>Metadata</value>
   </data>
+  <data name="Nav_Installation_DateModified" xml:space="preserve">
+    <value>Date Modified/Version Number</value>
+  </data>
 </root>

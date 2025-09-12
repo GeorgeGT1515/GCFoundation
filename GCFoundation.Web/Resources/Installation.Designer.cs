@@ -61,6 +61,51 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;gcds-date-modified&amp;gt;&lt;/code&gt; displayed in the shared layout (&lt;code&gt;_FoundationLayout.cshtml&lt;/code&gt;) renders one of two values:.
+        /// </summary>
+        public static string DateModified_Intro {
+            get {
+                return ResourceManager.GetString("DateModified_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;strong&gt;Date modified&lt;/strong&gt;: Developers can use the &lt;code&gt;SetDateModified(DateTime dateModified)&lt;/code&gt; method of the &lt;code&gt;GCFoundationBaseController&lt;/code&gt; to set the value of &lt;code&gt;ViewData[&quot;DateModified&quot;]&lt;/code&gt;. Date modified takes precedence over the application version number. (recommended ISO format &lt;code&gt;yyyy-MM-dd&lt;/code&gt;).
+        /// </summary>
+        public static string DateModified_Item_Date {
+            get {
+                return ResourceManager.GetString("DateModified_Item_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;strong&gt;Version&lt;/strong&gt;: For web applications, developers can configure the &lt;code&gt;ApplicationVersion&lt;/code&gt; property within the &lt;code&gt;FoundationComponentsSettings&lt;/code&gt; section of the &lt;code&gt;appsettings.json&lt;/code&gt; file..
+        /// </summary>
+        public static string DateModified_Item_Version {
+            get {
+                return ResourceManager.GetString("DateModified_Item_Version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For more information about the &lt;code&gt;&amp;lt;gcds-date-modified&amp;gt;&lt;/code&gt; tag, please take a look at the &lt;gcds-link href=&quot;https://design-system.alpha.canada.ca/en/components/date-modified/&quot; target=&quot;_blank&quot; external&gt;GC Design System documentation&lt;/gcds-link&gt;..
+        /// </summary>
+        public static string DateModified_Link {
+            get {
+                return ResourceManager.GetString("DateModified_Link", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date modified/Version number.
+        /// </summary>
+        public static string DateModified_Page_Title {
+            get {
+                return ResourceManager.GetString("DateModified_Page_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Always Enabled.
         /// </summary>
         public static string GlobalResources_AlwaysEnabled {
@@ -322,6 +367,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Behavior and rules.
+        /// </summary>
+        public static string Metadata_Behavior_Heading {
+            get {
+                return ResourceManager.GetString("Metadata_Behavior_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;strong&gt;Attributes&lt;/strong&gt;: Use either Name or Property (not both). Charset is standalone; HttpEquiv generally pairs with Content..
         /// </summary>
         public static string Metadata_Behavior_Item_Attributes {
@@ -367,11 +421,20 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Configuration.
+        /// </summary>
+        public static string Metadata_Configuration_Heading {
+            get {
+                return ResourceManager.GetString("Metadata_Configuration_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Set global, always-on meta tags in appsettings.json using the typed MetaTag structure:.
         /// </summary>
-        public static string Metadata_Configuration_Paragraph {
+        public static string Metadata_Configuration_Intro {
             get {
-                return ResourceManager.GetString("Metadata_Configuration_Paragraph", resourceCulture);
+                return ResourceManager.GetString("Metadata_Configuration_Intro", resourceCulture);
             }
         }
         
@@ -385,164 +448,56 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Behavior and rules.
-        /// </summary>
-        public static string Metadata_Heading_Behavior {
-            get {
-                return ResourceManager.GetString("Metadata_Heading_Behavior", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Configuration.
-        /// </summary>
-        public static string Metadata_Heading_Configuration {
-            get {
-                return ResourceManager.GetString("Metadata_Heading_Configuration", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Examples.
         /// </summary>
-        public static string Metadata_Heading_Examples {
+        public static string Metadata_Examples_Heading {
             get {
-                return ResourceManager.GetString("Metadata_Heading_Examples", resourceCulture);
+                return ResourceManager.GetString("Metadata_Examples_Heading", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to How it works.
         /// </summary>
-        public static string Metadata_Heading_HowItWorks {
+        public static string Metadata_HowItWorks_Heading {
             get {
-                return ResourceManager.GetString("Metadata_Heading_HowItWorks", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Layout rendering and merge.
-        /// </summary>
-        public static string Metadata_Heading_LayoutMerge {
-            get {
-                return ResourceManager.GetString("Metadata_Heading_LayoutMerge", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Notes and gotchas.
-        /// </summary>
-        public static string Metadata_Heading_Notes {
-            get {
-                return ResourceManager.GetString("Metadata_Heading_Notes", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Overview.
-        /// </summary>
-        public static string Metadata_Heading_Overview {
-            get {
-                return ResourceManager.GetString("Metadata_Heading_Overview", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Usage in controllers.
-        /// </summary>
-        public static string Metadata_Heading_Usage {
-            get {
-                return ResourceManager.GetString("Metadata_Heading_Usage", resourceCulture);
+                return ResourceManager.GetString("Metadata_HowItWorks_Heading", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Controllers inheriting GCFoundationBaseController can add tags during action execution. The base class exposes them to the view post-action..
         /// </summary>
-        public static string Metadata_HowItWorks_Paragraph {
+        public static string Metadata_HowItWorks_Intro {
             get {
-                return ResourceManager.GetString("Metadata_HowItWorks_Paragraph", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The foundation layout merges controller tags with global tags, avoiding duplicates by name or property. Controller tags are rendered first..
-        /// </summary>
-        public static string Metadata_LayoutMerge_Paragraph {
-            get {
-                return ResourceManager.GetString("Metadata_LayoutMerge_Paragraph", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Behavior and rules.
-        /// </summary>
-        public static string Metadata_Nav_Behavior {
-            get {
-                return ResourceManager.GetString("Metadata_Nav_Behavior", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Configuration.
-        /// </summary>
-        public static string Metadata_Nav_Configuration {
-            get {
-                return ResourceManager.GetString("Metadata_Nav_Configuration", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Examples.
-        /// </summary>
-        public static string Metadata_Nav_Examples {
-            get {
-                return ResourceManager.GetString("Metadata_Nav_Examples", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to How it works.
-        /// </summary>
-        public static string Metadata_Nav_HowItWorks {
-            get {
-                return ResourceManager.GetString("Metadata_Nav_HowItWorks", resourceCulture);
+                return ResourceManager.GetString("Metadata_HowItWorks_Intro", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Layout rendering and merge.
         /// </summary>
-        public static string Metadata_Nav_LayoutMerge {
+        public static string Metadata_LayoutMerge_Heading {
             get {
-                return ResourceManager.GetString("Metadata_Nav_LayoutMerge", resourceCulture);
+                return ResourceManager.GetString("Metadata_LayoutMerge_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The foundation layout merges controller tags with global tags, avoiding duplicates by name or property. Controller tags are rendered first..
+        /// </summary>
+        public static string Metadata_LayoutMerge_Intro {
+            get {
+                return ResourceManager.GetString("Metadata_LayoutMerge_Intro", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Notes and gotchas.
         /// </summary>
-        public static string Metadata_Nav_Notes {
+        public static string Metadata_Notes_Heading {
             get {
-                return ResourceManager.GetString("Metadata_Nav_Notes", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Overview.
-        /// </summary>
-        public static string Metadata_Nav_Overview {
-            get {
-                return ResourceManager.GetString("Metadata_Nav_Overview", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Usage in controllers.
-        /// </summary>
-        public static string Metadata_Nav_Usage {
-            get {
-                return ResourceManager.GetString("Metadata_Nav_Usage", resourceCulture);
+                return ResourceManager.GetString("Metadata_Notes_Heading", resourceCulture);
             }
         }
         
@@ -561,6 +516,15 @@ namespace GCFoundation.Web.Resources {
         public static string Metadata_Notes_Item_OptionalSection {
             get {
                 return ResourceManager.GetString("Metadata_Notes_Item_OptionalSection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overview.
+        /// </summary>
+        public static string Metadata_Overview_Heading {
+            get {
+                return ResourceManager.GetString("Metadata_Overview_Heading", resourceCulture);
             }
         }
         
@@ -619,11 +583,20 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Usage in controllers.
+        /// </summary>
+        public static string Metadata_Usage_Heading {
+            get {
+                return ResourceManager.GetString("Metadata_Usage_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Inherit from GCFoundationBaseController and call AddMetaTag in your action..
         /// </summary>
-        public static string Metadata_Usage_Paragraph {
+        public static string Metadata_Usage_Intro {
             get {
-                return ResourceManager.GetString("Metadata_Usage_Paragraph", resourceCulture);
+                return ResourceManager.GetString("Metadata_Usage_Intro", resourceCulture);
             }
         }
         

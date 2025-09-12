@@ -219,52 +219,28 @@
   <data name="Metadata_SideNav_OnThisPage" xml:space="preserve">
     <value>On this page</value>
   </data>
-  <data name="Metadata_Nav_Overview" xml:space="preserve">
+  <data name="Metadata_Overview_Heading" xml:space="preserve">
     <value>Overview</value>
   </data>
-  <data name="Metadata_Nav_HowItWorks" xml:space="preserve">
+  <data name="Metadata_HowItWorks_Heading" xml:space="preserve">
     <value>How it works</value>
   </data>
-  <data name="Metadata_Nav_Usage" xml:space="preserve">
+  <data name="Metadata_Usage_Heading" xml:space="preserve">
     <value>Usage in controllers</value>
   </data>
-  <data name="Metadata_Nav_LayoutMerge" xml:space="preserve">
+  <data name="Metadata_LayoutMerge_Heading" xml:space="preserve">
     <value>Layout rendering and merge</value>
   </data>
-  <data name="Metadata_Nav_Configuration" xml:space="preserve">
+  <data name="Metadata_Configuration_Heading" xml:space="preserve">
     <value>Configuration</value>
   </data>
-  <data name="Metadata_Nav_Behavior" xml:space="preserve">
+  <data name="Metadata_Behavior_Heading" xml:space="preserve">
     <value>Behavior and rules</value>
   </data>
-  <data name="Metadata_Nav_Examples" xml:space="preserve">
+  <data name="Metadata_Examples_Heading" xml:space="preserve">
     <value>Examples</value>
   </data>
-  <data name="Metadata_Nav_Notes" xml:space="preserve">
-    <value>Notes and gotchas</value>
-  </data>
-  <data name="Metadata_Heading_Overview" xml:space="preserve">
-    <value>Overview</value>
-  </data>
-  <data name="Metadata_Heading_HowItWorks" xml:space="preserve">
-    <value>How it works</value>
-  </data>
-  <data name="Metadata_Heading_Usage" xml:space="preserve">
-    <value>Usage in controllers</value>
-  </data>
-  <data name="Metadata_Heading_LayoutMerge" xml:space="preserve">
-    <value>Layout rendering and merge</value>
-  </data>
-  <data name="Metadata_Heading_Configuration" xml:space="preserve">
-    <value>Configuration</value>
-  </data>
-  <data name="Metadata_Heading_Behavior" xml:space="preserve">
-    <value>Behavior and rules</value>
-  </data>
-  <data name="Metadata_Heading_Examples" xml:space="preserve">
-    <value>Examples</value>
-  </data>
-  <data name="Metadata_Heading_Notes" xml:space="preserve">
+  <data name="Metadata_Notes_Heading" xml:space="preserve">
     <value>Notes and gotchas</value>
   </data>
   <data name="Metadata_Overview_Item_BaseController" xml:space="preserve">
@@ -279,16 +255,16 @@
   <data name="Metadata_Overview_Item_Configuration" xml:space="preserve">
     <value>&lt;strong&gt;Configuration&lt;/strong&gt;: GlobalMetaTags in GCFoundationComponentsSettings is a collection of typed MetaTag objects (appsettings.json).</value>
   </data>
-  <data name="Metadata_HowItWorks_Paragraph" xml:space="preserve">
+  <data name="Metadata_HowItWorks_Intro" xml:space="preserve">
     <value>Controllers inheriting GCFoundationBaseController can add tags during action execution. The base class exposes them to the view post-action.</value>
   </data>
-  <data name="Metadata_LayoutMerge_Paragraph" xml:space="preserve">
+  <data name="Metadata_LayoutMerge_Intro" xml:space="preserve">
     <value>The foundation layout merges controller tags with global tags, avoiding duplicates by name or property. Controller tags are rendered first.</value>
   </data>
-  <data name="Metadata_Configuration_Paragraph" xml:space="preserve">
+  <data name="Metadata_Configuration_Intro" xml:space="preserve">
     <value>Set global, always-on meta tags in appsettings.json using the typed MetaTag structure:</value>
   </data>
-  <data name="Metadata_Usage_Paragraph" xml:space="preserve">
+  <data name="Metadata_Usage_Intro" xml:space="preserve">
     <value>Inherit from GCFoundationBaseController and call AddMetaTag in your action.</value>
   </data>
   <data name="Metadata_Behavior_Item_Dedup" xml:space="preserve">
@@ -311,5 +287,20 @@
   </data>
   <data name="Metadata_Notes_Item_OptionalSection" xml:space="preserve">
     <value>&lt;strong&gt;Optional section&lt;/strong&gt;: @section Metas { ... } remains available for manual HTML if needed, but is not required.</value>
+  </data>
+  <data name="DateModified_Page_Title" xml:space="preserve">
+    <value>Date modified/Version number</value>
+  </data>
+  <data name="DateModified_Intro" xml:space="preserve">
+    <value>The &lt;code&gt;&amp;lt;gcds-date-modified&amp;gt;&lt;/code&gt; displayed in the shared layout (&lt;code&gt;_FoundationLayout.cshtml&lt;/code&gt;) renders one of two values:</value>
+  </data>
+  <data name="DateModified_Item_Date" xml:space="preserve">
+    <value>&lt;strong&gt;Date modified&lt;/strong&gt;: Developers can use the &lt;code&gt;SetDateModified(DateTime dateModified)&lt;/code&gt; method of the &lt;code&gt;GCFoundationBaseController&lt;/code&gt; to set the value of &lt;code&gt;ViewData["DateModified"]&lt;/code&gt;. Date modified takes precedence over the application version number. (recommended ISO format &lt;code&gt;yyyy-MM-dd&lt;/code&gt;)</value>
+  </data>
+  <data name="DateModified_Item_Version" xml:space="preserve">
+    <value>&lt;strong&gt;Version&lt;/strong&gt;: For web applications, developers can configure the &lt;code&gt;ApplicationVersion&lt;/code&gt; property within the &lt;code&gt;FoundationComponentsSettings&lt;/code&gt; section of the &lt;code&gt;appsettings.json&lt;/code&gt; file.</value>
+  </data>
+  <data name="DateModified_Link" xml:space="preserve">
+    <value>For more information about the &lt;code&gt;&amp;lt;gcds-date-modified&amp;gt;&lt;/code&gt; tag, please take a look at the &lt;gcds-link href="https://design-system.alpha.canada.ca/en/components/date-modified/" target="_blank" external&gt;GC Design System documentation&lt;/gcds-link&gt;.</value>
   </data>
 </root>

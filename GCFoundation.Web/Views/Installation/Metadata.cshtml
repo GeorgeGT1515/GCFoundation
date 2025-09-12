@@ -6,18 +6,18 @@
 
 <gcds-grid columns="minmax(200px, 300px) minmax(0, 1fr)">
 	<gcds-side-nav label="@Installation.Metadata_SideNav_OnThisPage">
-		<gcds-nav-link href="#overview">@Installation.Metadata_Nav_Overview</gcds-nav-link>
-		<gcds-nav-link href="#how-it-works">@Installation.Metadata_Nav_HowItWorks</gcds-nav-link>
-		<gcds-nav-link href="#usage">@Installation.Metadata_Nav_Usage</gcds-nav-link>
-		<gcds-nav-link href="#layout-merge">@Installation.Metadata_Nav_LayoutMerge</gcds-nav-link>
-		<gcds-nav-link href="#configuration">@Installation.Metadata_Nav_Configuration</gcds-nav-link>
-		<gcds-nav-link href="#behavior">@Installation.Metadata_Nav_Behavior</gcds-nav-link>
-		<gcds-nav-link href="#examples">@Installation.Metadata_Nav_Examples</gcds-nav-link>
-		<gcds-nav-link href="#notes">@Installation.Metadata_Nav_Notes</gcds-nav-link>
+		<gcds-nav-link href="#overview">@Installation.Metadata_Overview_Heading</gcds-nav-link>
+		<gcds-nav-link href="#how-it-works">@Installation.Metadata_HowItWorks_Heading</gcds-nav-link>
+		<gcds-nav-link href="#usage">@Installation.Metadata_Usage_Heading</gcds-nav-link>
+		<gcds-nav-link href="#layout-merge">@Installation.Metadata_LayoutMerge_Heading</gcds-nav-link>
+		<gcds-nav-link href="#configuration">@Installation.Metadata_Configuration_Heading</gcds-nav-link>
+		<gcds-nav-link href="#behavior">@Installation.Metadata_Behavior_Heading</gcds-nav-link>
+		<gcds-nav-link href="#examples">@Installation.Metadata_Examples_Heading</gcds-nav-link>
+		<gcds-nav-link href="#notes">@Installation.Metadata_Notes_Heading</gcds-nav-link>
 	</gcds-side-nav>
 
 	<div class="documentation-content">
-		<gcds-heading tag="h2" id="overview">@Installation.Metadata_Heading_Overview</gcds-heading>
+		<gcds-heading tag="h2" id="overview">@Installation.Metadata_Overview_Heading</gcds-heading>
 		<ul>
 			<li>@Html.Raw(Installation.Metadata_Overview_Item_BaseController)</li>
 			<li>@Html.Raw(Installation.Metadata_Overview_Item_TypedModel)</li>
@@ -27,8 +27,8 @@
 
 		<hr />
 
-		<gcds-heading tag="h2" id="how-it-works">@Installation.Metadata_Heading_HowItWorks</gcds-heading>
-		<p>@Installation.Metadata_HowItWorks_Paragraph</p>
+		<gcds-heading tag="h2" id="how-it-works">@Installation.Metadata_HowItWorks_Heading</gcds-heading>
+		<p>@Installation.Metadata_HowItWorks_Intro</p>
 		<pre><code class="language-csharp">// Add or replace a meta tag
 protected void AddMetaTag(MetaTag tag)
 {
@@ -51,8 +51,8 @@ public override void OnActionExecuted(ActionExecutedContext context)
 
 		<hr />
 
-		<gcds-heading tag="h2" id="usage">@Installation.Metadata_Heading_Usage</gcds-heading>
-		<p>@Installation.Metadata_Usage_Paragraph</p>
+		<gcds-heading tag="h2" id="usage">@Installation.Metadata_Usage_Heading</gcds-heading>
+		<p>@Installation.Metadata_Usage_Intro</p>
 		<pre><code class="language-csharp">using GCFoundation.Common.Models;
 using GCFoundation.Components.Controllers;
 
@@ -71,8 +71,8 @@ public class ArticlesController : GCFoundationBaseController
 
 		<hr />
 
-		<gcds-heading tag="h2" id="layout-merge">@Installation.Metadata_Heading_LayoutMerge</gcds-heading>
-		<p>@Installation.Metadata_LayoutMerge_Paragraph</p>
+		<gcds-heading tag="h2" id="layout-merge">@Installation.Metadata_LayoutMerge_Heading</gcds-heading>
+		<p>@Installation.Metadata_LayoutMerge_Intro</p>
 		<div class="language-csharp">
 			<pre><code>@@{
 	var globalMetaTags = settings.Value.GlobalMetaTags;
@@ -95,8 +95,8 @@ public class ArticlesController : GCFoundationBaseController
 
 		<hr />
 
-		<gcds-heading tag="h2" id="configuration">@Installation.Metadata_Heading_Configuration</gcds-heading>
-		<p>@Installation.Metadata_Configuration_Paragraph</p>
+		<gcds-heading tag="h2" id="configuration">@Installation.Metadata_Configuration_Heading</gcds-heading>
+		<p>@Installation.Metadata_Configuration_Intro</p>
 		<pre><code class="language-json">{
 	"FoundationComponentsSettings": {
 		"GlobalMetaTags": [
@@ -110,7 +110,7 @@ public class ArticlesController : GCFoundationBaseController
 
 		<hr />
 
-		<gcds-heading tag="h2" id="behavior">@Installation.Metadata_Heading_Behavior</gcds-heading>
+		<gcds-heading tag="h2" id="behavior">@Installation.Metadata_Behavior_Heading</gcds-heading>
 		<ul>
 			<li>@Html.Raw(Installation.Metadata_Behavior_Item_Dedup)</li>
 			<li>@Html.Raw(Installation.Metadata_Behavior_Item_Encoding)</li>
@@ -121,7 +121,7 @@ public class ArticlesController : GCFoundationBaseController
 
 		<hr />
 
-		<gcds-heading tag="h2" id="examples">@Installation.Metadata_Heading_Examples</gcds-heading>
+		<gcds-heading tag="h2" id="examples">@Installation.Metadata_Examples_Heading</gcds-heading>
 		<pre><code class="language-csharp">// Open Graph + description
 AddMetaTag(new MetaTag { Property = "og:title", Content = "Welcome" });
 AddMetaTag(new MetaTag { Name = "description", Content = "Page description here" });
@@ -132,7 +132,7 @@ AddMetaTag(new MetaTag { Charset = "UTF-8" });</code></pre>
 
 		<hr />
 
-		<gcds-heading tag="h2" id="notes">@Installation.Metadata_Heading_Notes</gcds-heading>
+		<gcds-heading tag="h2" id="notes">@Installation.Metadata_Notes_Heading</gcds-heading>
 		<ul>
 			<li>@Html.Raw(Installation.Metadata_Notes_Item_BaseClass)</li>
 			<li>@Html.Raw(Installation.Metadata_Notes_Item_OptionalSection)</li>

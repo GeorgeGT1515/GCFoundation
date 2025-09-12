@@ -150,4 +150,7 @@
   <data name="Menu_Installation_Metadata" xml:space="preserve">
     <value>Métadonnées</value>
   </data>
+  <data name="Menu_Installation_DateModified" xml:space="preserve">
+    <value>Date de modification/Numéro de version</value>
+  </data>
 </root>

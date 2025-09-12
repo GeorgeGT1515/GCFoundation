@@ -250,6 +250,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Date Modified/Version Number.
+        /// </summary>
+        public static string Nav_Installation_DateModified {
+            get {
+                return ResourceManager.GetString("Nav_Installation_DateModified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Global Resources.
         /// </summary>
         public static string Nav_Installation_GlobalResources {
