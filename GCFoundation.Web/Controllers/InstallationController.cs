@@ -22,6 +22,20 @@ namespace GCFoundation.Web.Controllers
         }
 
         /// <summary>
+        /// Displays the date modified/version number demo page.
+        /// </summary>
+        /// <returns>
+        /// The date modified/version number view.
+        /// </returns>
+        [HttpGet("date-modified")]
+        public IActionResult DateModified()
+        {
+            SetPageTitle($"{Resources.Installation.DateModified_Page_Title}");
+
+            return View();
+        }
+
+        /// <summary>
         /// Displays the global resources configuration demo page.
         /// </summary>
         /// <returns>
@@ -31,6 +45,20 @@ namespace GCFoundation.Web.Controllers
         public IActionResult GlobalResources()
         {
             SetPageTitle($"{Resources.Installation.GlobalResources_Page_Title}");
+
+            return View();
+        }
+
+        /// <summary>
+        /// Displays the metadata configuration demo page.
+        /// </summary>
+        /// <returns>
+        /// The metadata configuration view.
+        /// </returns>
+        [HttpGet("metadata")]
+        public IActionResult Metadata()
+        {
+            SetPageTitle($"{Resources.Installation.Metadata_Page_Title}");
 
             return View();
         }

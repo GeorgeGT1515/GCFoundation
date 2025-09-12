@@ -1,8 +1,7 @@
+using GCFoundation.Common.Models;
 using GCFoundation.Common.Settings;
 using GCFoundation.Components.Helpers;
 using Microsoft.Extensions.Options;
-using System.Collections.ObjectModel;
-using Xunit;
 
 namespace GCFoundation.Tests.Components.Tests.Helpers
 {
@@ -32,8 +31,8 @@ namespace GCFoundation.Tests.Components.Tests.Helpers
             _settings.GlobalJavaScriptFiles.Add("https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js");
             _settings.GlobalJavaScriptFiles.Add("/js/custom-scripts.js");
 
-            _settings.GlobalMetaTags.Add("<meta name=\"description\" content=\"Test description\">");
-            _settings.GlobalMetaTags.Add("<meta property=\"og:title\" content=\"Test Title\">");
+            _settings.GlobalMetaTags.Add(new MetaTag() { Name = "description", Content = "Test description" });
+            _settings.GlobalMetaTags.Add(new MetaTag() { Property = "og:title", Content = "Test Title" });
 
             _settings.GlobalLinkTags.Add("<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">");
             _settings.GlobalLinkTags.Add("<link rel=\"canonical\" href=\"https://example.com\">");
@@ -120,8 +119,8 @@ namespace GCFoundation.Tests.Components.Tests.Helpers
 
             // Assert
             Assert.Equal(2, result.Count);
-            Assert.Contains("<meta name=\"description\" content=\"Test description\">", result);
-            Assert.Contains("<meta property=\"og:title\" content=\"Test Title\">", result);
+            Assert.Contains(result, mt => mt.Name == "description" && mt.Content == "Test description");
+            Assert.Contains(result, mt => mt.Property == "og:title" && mt.Content == "Test Title");
         }
 
         [Fact]

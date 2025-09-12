@@ -48,7 +48,9 @@
             <ul>
                 @foreach (var metaTag in ResourceHelper.GetGlobalMetaTags())
                 {
-                    <li><code>@metaTag</code></li>
+                    <li>
+                        <code>@(metaTag.Render())</code>
+                    </li>
                 }
             </ul>
         }
