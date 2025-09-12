@@ -33,5 +33,12 @@
         /// Example: "https://fonts.gstatic.com"
         /// </summary>
         public IEnumerable<string> FontCDN { get; set; } = Enumerable.Empty<string>();
+
+        /// <summary>
+        /// Gets or sets the list of origins allowed for network connections (XHR/fetch/WebSocket/EventSource).
+        /// These will be added to the 'connect-src' directive in the CSP header.
+        /// Example: "https://cdn.design-system.alpha.canada.ca"
+        /// </summary>
+        public IEnumerable<string> ConnectCDN { get; set; } = Enumerable.Empty<string>();
     }
 }

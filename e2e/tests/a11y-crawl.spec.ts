@@ -34,7 +34,7 @@ function normalize(href: string, base: URL, allowedCultures: Set<string>): URL |
   }
 }
 
-test('a11y crawl across site @a11y @crawl', async ({ page }, testInfo) => {
+test('a11y crawl across site @crawl', async ({ page }, testInfo) => {
   const baseURLStr = testInfo.project.use.baseURL as string;
   expect(baseURLStr).toBeTruthy();
   const base = new URL(baseURLStr);
