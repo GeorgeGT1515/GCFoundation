@@ -1,0 +1,27 @@
+{
+  "name": "gcfoundation-e2e",
+  "private": true,
+  "version": "0.1.0",
+  "description": "End-to-end tests for GCFoundation.Web using Playwright (Chrome + Edge)",
+  "scripts": {
+    "test:e2e": "playwright test",
+    "test:e2e:headed": "playwright test --headed",
+    "test:e2e:ci": "playwright test",
+    "test:smoke": "playwright test -g @smoke",
+    "lint": "eslint . --ext .ts",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.9.0",
+    "axe-html-reporter": "^2.6.3",
+    "@playwright/test": "^1.47.0",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "dotenv": "^16.4.5",
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.4.0"
+  }
+}
+
+

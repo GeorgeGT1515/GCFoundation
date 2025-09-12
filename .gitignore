@@ -364,3 +364,12 @@ FodyWeavers.xsd
 
 # sarif files
 *.sarif
+
+# Playwright E2E artifacts and local env (do not commit test outputs)
+e2e/playwright-report/
+e2e/test-artifacts/
+e2e/test-results/
+e2e/.eslintcache
+e2e/.env
+e2e/.env.local
+e2e/.env.*.local
