@@ -36,6 +36,20 @@ namespace GCFoundation.Web.Controllers
         }
 
         /// <summary>
+        /// Displays the metadata configuration demo page.
+        /// </summary>
+        /// <returns>
+        /// The metadata configuration view.
+        /// </returns>
+        [HttpGet("metadata")]
+        public IActionResult Metadata()
+        {
+            SetPageTitle($"{Resources.Installation.Metadata_Page_Title}");
+
+            return View();
+        }
+
+        /// <summary>
         /// Displays a page containing a list of standard translation terms to be used in GCFoundation applications.
         /// </summary>
         /// <returns>

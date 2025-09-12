@@ -139,12 +139,15 @@
     <value>Styles</value>
   </data>
   <data name="Menu_Installation_GlobalResources" xml:space="preserve">
-    <value>Configuration des ressources globales</value>
+    <value>Ressources globales</value>
   </data>
   <data name="Menu_GetStarted" xml:space="preserve">
     <value>Démarrer</value>
   </data>
   <data name="Menu_Installation_Translations" xml:space="preserve">
     <value>Traductions standardisées</value>
+  </data>
+  <data name="Menu_Installation_Metadata" xml:space="preserve">
+    <value>Métadonnées</value>
   </data>
 </root>

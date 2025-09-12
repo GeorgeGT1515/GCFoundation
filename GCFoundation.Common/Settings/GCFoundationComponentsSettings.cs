@@ -1,4 +1,5 @@
 ﻿using GCFoundation.Common.Utilities;
+using GCFoundation.Common.Models;
 using System.Collections.ObjectModel;
 
 namespace GCFoundation.Common.Settings
@@ -116,9 +117,9 @@ namespace GCFoundation.Common.Settings
 
         /// <summary>
         /// Gets the list of additional meta tags to include in the head section.
-        /// Each item should be a complete meta tag (e.g., "<meta name=\"description\" content=\"...\">").
+        /// Configure with name/content, property/content, http-equiv/content, or charset.
         /// </summary>
-        public Collection<string> GlobalMetaTags { get; } = new Collection<string>();
+        public Collection<MetaTag> GlobalMetaTags { get; } = new Collection<MetaTag>();
 
         /// <summary>
         /// Gets the list of additional link tags to include in the head section.

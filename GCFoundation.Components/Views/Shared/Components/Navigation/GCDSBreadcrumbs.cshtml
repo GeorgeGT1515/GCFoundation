@@ -11,6 +11,7 @@
         @foreach (var node in Model.ParentChain)
         {
             if (!await Model.ShouldAllowView(node)) { continue; }
+            if (node == Model.CurrentNode) { continue; }
             <gcds-breadcrumbs-item href="@Url.Content(Model.AdjustUrl(node))">@breadcrumbsLocalizationService.GetLocalizeValue(Model.AdjustText(node))</gcds-breadcrumbs-item>
         }
     </gcds-breadcrumbs>

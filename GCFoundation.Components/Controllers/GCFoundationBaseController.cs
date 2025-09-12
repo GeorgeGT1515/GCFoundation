@@ -1,6 +1,8 @@
-﻿using GCFoundation.Components.Enums;
+﻿using GCFoundation.Common.Models;
+using GCFoundation.Components.Enums;
 using GCFoundation.Components.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
 
 namespace GCFoundation.Components.Controllers
@@ -14,11 +16,34 @@ namespace GCFoundation.Components.Controllers
         private readonly ILogger<GCFoundationBaseController> _logger;
 
         /// <summary>
+        /// Collection of custom meta tags to be rendered in the shared layout.
+        /// Derived controllers can add to this list to inject per-page meta tags.
+        /// </summary>
+        protected IList<MetaTag> MetaTags { get; } = new List<MetaTag>();
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="GCFoundationBaseController"/> class.
         /// </summary>
         protected GCFoundationBaseController(ILogger<GCFoundationBaseController> logger)
         {
             _logger = logger;
+        }
+
+        /// <summary>
+        /// Adds a strongly-typed meta tag entry to the collection.
+        /// </summary>
+        /// <param name="tag">The meta tag to inject.</param>
+        /// <remarks>If a meta tag with the same name (or property) already exists, overwrite it.</remarks>
+        protected void AddMetaTag(MetaTag tag)
+        {
+            if (tag != null)
+            {
+                if (!string.IsNullOrEmpty(tag.Name) && MetaTags.Any(t => t.Name == tag.Name))
+                    MetaTags.Remove(MetaTags.First(t => t.Name == tag.Name));
+                if (!string.IsNullOrEmpty(tag.Property) && MetaTags.Any(t => t.Property == tag.Property))
+                    MetaTags.Remove(MetaTags.First(t => t.Property == tag.Property));
+                MetaTags.Add(tag);
+            }
         }
 
         /// <summary>
@@ -61,6 +86,17 @@ namespace GCFoundation.Components.Controllers
         protected void SetViewMenu(string viewMenu)
         {
             ViewData["MenuPartialViewName"] = viewMenu;
+        }
+
+        /// <summary>
+        /// After the action executes, expose any collected custom meta tags to the view via ViewData.
+        /// The shared layout will read these and render them after the global meta tags.
+        /// </summary>
+        /// <param name="context">The action executed context.</param>
+        public override void OnActionExecuted(ActionExecutedContext context)
+        {
+            ViewData["MetaTags"] = MetaTags;
+            base.OnActionExecuted(context);
         }
     }
 }

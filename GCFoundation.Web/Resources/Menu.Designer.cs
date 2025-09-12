@@ -115,11 +115,20 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Global Resources Configuration.
+        ///   Looks up a localized string similar to Global Resources.
         /// </summary>
         public static string Menu_Installation_GlobalResources {
             get {
                 return ResourceManager.GetString("Menu_Installation_GlobalResources", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Metadata.
+        /// </summary>
+        public static string Menu_Installation_Metadata {
+            get {
+                return ResourceManager.GetString("Menu_Installation_Metadata", resourceCulture);
             }
         }
         

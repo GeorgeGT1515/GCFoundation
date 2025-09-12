@@ -193,7 +193,7 @@
     <value>Paramètres d'inclusion des ressources</value>
   </data>
   <data name="GlobalResources_Page_Title" xml:space="preserve">
-    <value>Configuration des ressources globales</value>
+    <value>Ressources globales</value>
   </data>
   <data name="GlobalResources_UsingHelper_Description" xml:space="preserve">
     <value>Vous pouvez également utiliser &lt;code&gt;GlobalResourceHelper&lt;/code&gt; dans vos vues Razor pour plus de contrôle :</value>
@@ -209,5 +209,107 @@
   </data>
   <data name="Translations_Description" xml:space="preserve">
     <value>Avec GCFoundation, vous obtiendrez également une liste de traductions standardisées que vous pourrez utiliser dans vos applications GCFoundation.</value>
+  </data>
+  <data name="Metadata_Page_Title" xml:space="preserve">
+    <value>Métadonnées</value>
+  </data>
+  <data name="Metadata_Description" xml:space="preserve">
+    <value>Cette page vous démontrera comment vos métadonnées peuvent être configurées avec GCFoundation. En plus des informations globales pouvant être configurées, les métadonnées peuvent aussi être complètement personnalisées sur chacune de vos pages pour vous donner le plein contrôle dans l'optimisation du référencement pour les engins de recherche (i.e. &lt;span lang="en-CA"&gt;SEO&lt;/span&gt;).</value>
+  </data>
+  <data name="Metadata_SideNav_OnThisPage" xml:space="preserve">
+    <value>Sur cette page</value>
+  </data>
+  <data name="Metadata_Nav_Overview" xml:space="preserve">
+    <value>Vue d'ensemble</value>
+  </data>
+  <data name="Metadata_Nav_HowItWorks" xml:space="preserve">
+    <value>Fonctionnement</value>
+  </data>
+  <data name="Metadata_Nav_Usage" xml:space="preserve">
+    <value>Utilisation dans les contrôleurs</value>
+  </data>
+  <data name="Metadata_Nav_LayoutMerge" xml:space="preserve">
+    <value>Rendu et fusion dans la mise en page</value>
+  </data>
+  <data name="Metadata_Nav_Configuration" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="Metadata_Nav_Behavior" xml:space="preserve">
+    <value>Comportement et règles</value>
+  </data>
+  <data name="Metadata_Nav_Examples" xml:space="preserve">
+    <value>Exemples</value>
+  </data>
+  <data name="Metadata_Nav_Notes" xml:space="preserve">
+    <value>Notes et pièges</value>
+  </data>
+  <data name="Metadata_Heading_Overview" xml:space="preserve">
+    <value>Vue d'ensemble</value>
+  </data>
+  <data name="Metadata_Heading_HowItWorks" xml:space="preserve">
+    <value>Fonctionnement</value>
+  </data>
+  <data name="Metadata_Heading_Usage" xml:space="preserve">
+    <value>Utilisation dans les contrôleurs</value>
+  </data>
+  <data name="Metadata_Heading_LayoutMerge" xml:space="preserve">
+    <value>Rendu et fusion dans la mise en page</value>
+  </data>
+  <data name="Metadata_Heading_Configuration" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="Metadata_Heading_Behavior" xml:space="preserve">
+    <value>Comportement et règles</value>
+  </data>
+  <data name="Metadata_Heading_Examples" xml:space="preserve">
+    <value>Exemples</value>
+  </data>
+  <data name="Metadata_Heading_Notes" xml:space="preserve">
+    <value>Notes et pièges</value>
+  </data>
+  <data name="Metadata_Overview_Item_BaseController" xml:space="preserve">
+    <value>&lt;strong&gt;Prise en charge du contrôleur de base&lt;/strong&gt; : GCFoundationBaseController collecte les balises meta par page et les expose aux vues via ViewData["MetaTags"] après chaque action.</value>
+  </data>
+  <data name="Metadata_Overview_Item_TypedModel" xml:space="preserve">
+    <value>&lt;strong&gt;Modèle fortement typé&lt;/strong&gt; : MetaTag prend en charge name/content, property/content (Open Graph, Twitter), http-equiv/content et charset.</value>
+  </data>
+  <data name="Metadata_Overview_Item_LayoutMerge" xml:space="preserve">
+    <value>&lt;strong&gt;Rendu et fusion dans la mise en page&lt;/strong&gt; : _FoundationLayout.cshtml fusionne les balises fournies par le contrôleur avec les balises globales configurées, en évitant les doublons par nom ou propriété. Les balises du contrôleur ont priorité.</value>
+  </data>
+  <data name="Metadata_Overview_Item_Configuration" xml:space="preserve">
+    <value>&lt;strong&gt;Configuration&lt;/strong&gt; : GlobalMetaTags dans GCFoundationComponentsSettings est une collection d'objets MetaTag typés (appsettings.json).</value>
+  </data>
+  <data name="Metadata_HowItWorks_Paragraph" xml:space="preserve">
+    <value>Les contrôleurs héritant de GCFoundationBaseController peuvent ajouter des balises pendant l'exécution de l'action. La classe de base les expose à la vue après l'action.</value>
+  </data>
+  <data name="Metadata_LayoutMerge_Paragraph" xml:space="preserve">
+    <value>La mise en page fusionne les balises du contrôleur avec les balises globales, en évitant les doublons par nom ou propriété. Les balises du contrôleur sont rendues en premier.</value>
+  </data>
+  <data name="Metadata_Configuration_Paragraph" xml:space="preserve">
+    <value>Définissez des balises meta globales dans appsettings.json en utilisant la structure typée MetaTag :</value>
+  </data>
+  <data name="Metadata_Usage_Paragraph" xml:space="preserve">
+    <value>Héritez de GCFoundationBaseController et appelez AddMetaTag dans votre action.</value>
+  </data>
+  <data name="Metadata_Behavior_Item_Dedup" xml:space="preserve">
+    <value>&lt;strong&gt;Déduplication&lt;/strong&gt; : Une balise avec le même Name ou Property remplace la précédente. Les balises globales ne sont ajoutées que si elles ne sont pas déjà présentes.</value>
+  </data>
+  <data name="Metadata_Behavior_Item_Encoding" xml:space="preserve">
+    <value>&lt;strong&gt;Encodage&lt;/strong&gt; : Les attributs sont encodés en HTML lors du rendu.</value>
+  </data>
+  <data name="Metadata_Behavior_Item_Attributes" xml:space="preserve">
+    <value>&lt;strong&gt;Attributs&lt;/strong&gt; : Utilisez soit Name soit Property (pas les deux). Charset est autonome; HttpEquiv est généralement utilisé avec Content.</value>
+  </data>
+  <data name="Metadata_Behavior_Item_Order" xml:space="preserve">
+    <value>&lt;strong&gt;Ordre de rendu&lt;/strong&gt; : Les balises du contrôleur sont rendues en premier, puis les balises globales non dupliquées.</value>
+  </data>
+  <data name="Metadata_Behavior_Item_NoViewChanges" xml:space="preserve">
+    <value>&lt;strong&gt;Aucun changement de vue requis&lt;/strong&gt; : La mise en page lit automatiquement ViewData["MetaTags"].</value>
+  </data>
+  <data name="Metadata_Notes_Item_BaseClass" xml:space="preserve">
+    <value>&lt;strong&gt;Exigence de classe de base&lt;/strong&gt; : Les contrôleurs doivent hériter de GCFoundationBaseController pour utiliser AddMetaTag.</value>
+  </data>
+  <data name="Metadata_Notes_Item_OptionalSection" xml:space="preserve">
+    <value>&lt;strong&gt;Section facultative&lt;/strong&gt; : @section Metas { ... } reste disponible pour du HTML manuel au besoin, mais n'est pas requise.</value>
   </data>
 </root>

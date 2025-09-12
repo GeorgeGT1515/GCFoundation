@@ -1,3 +1,4 @@
+using GCFoundation.Common.Models;
 using GCFoundation.Common.Settings;
 using Microsoft.Extensions.Options;
 using System;
@@ -74,7 +75,12 @@ namespace GCFoundation.Components.Helpers
         /// <returns>HTML string containing all global meta tags.</returns>
         public string RenderGlobalMetaTags()
         {
-            return string.Join("\n    ", _settings.GlobalMetaTags);
+            var tags = new List<string>();
+            foreach (var tag in _settings.GlobalMetaTags)
+            {
+                tags.Add(tag.Render());
+            }
+            return string.Join("\n    ", tags);
         }
 
         /// <summary>
@@ -107,8 +113,8 @@ namespace GCFoundation.Components.Helpers
         /// <summary>
         /// Gets all global meta tags as a list.
         /// </summary>
-        /// <returns>Read-only collection of meta tag HTML strings.</returns>
-        public IReadOnlyCollection<string> GetGlobalMetaTags()
+        /// <returns>Read-only collection of meta tags.</returns>
+        public IReadOnlyCollection<MetaTag> GetGlobalMetaTags()
         {
             return _settings.GlobalMetaTags.AsReadOnly();
         }
