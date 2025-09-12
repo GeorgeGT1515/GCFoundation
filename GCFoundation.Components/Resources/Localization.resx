@@ -117,88 +117,118 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Nav_Components" xml:space="preserve">
-    <value>Components</value>
+  <data name="Activate" xml:space="preserve">
+    <value>Activate</value>
   </data>
-  <data name="Nav_Home" xml:space="preserve">
-    <value>Home</value>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
   </data>
-  <data name="Nav_Installation_GlobalResources" xml:space="preserve">
-    <value>Global Resources Configuration</value>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
   </data>
-  <data name="Nav_Components_GCDesign" xml:space="preserve">
-    <value>GC Design System Components</value>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
   </data>
-  <data name="Nav_Components_Form" xml:space="preserve">
-    <value>Form</value>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
   </data>
-  <data name="Nav_Components_FormBuilder" xml:space="preserve">
-    <value>Form Builder</value>
+  <data name="Dismiss" xml:space="preserve">
+    <value>Dismiss</value>
   </data>
-  <data name="Nav_Components_Badge" xml:space="preserve">
-    <value>Badge</value>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
   </data>
-  <data name="Nav_Components_Modal" xml:space="preserve">
-    <value>Modal</value>
+  <data name="Inactivate" xml:space="preserve">
+    <value>Inactivate</value>
   </data>
-  <data name="Nav_Components_Table" xml:space="preserve">
-    <value>Table</value>
+  <data name="MarkAsRead" xml:space="preserve">
+    <value>Mark as read</value>
   </data>
-  <data name="Nav_Components_PageHeading" xml:space="preserve">
-    <value>Page Heading</value>
+  <data name="NotAvailable" xml:space="preserve">
+    <value>Not available</value>
   </data>
-  <data name="Nav_Components_Stepper" xml:space="preserve">
-    <value>Stepper</value>
+  <data name="Required" xml:space="preserve">
+    <value>Required</value>
   </data>
-  <data name="Nav_Components_UserLogin" xml:space="preserve">
-    <value>User Login Partial</value>
+  <data name="Unavailable" xml:space="preserve">
+    <value>Unavailable</value>
   </data>
-  <data name="Nav_Installation" xml:space="preserve">
-    <value>Installation</value>
+  <data name="View" xml:space="preserve">
+    <value>View</value>
   </data>
-  <data name="Nav_Template" xml:space="preserve">
-    <value>Template</value>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
   </data>
-  <data name="Nav_Styles" xml:space="preserve">
-    <value>Styles</value>
+  <data name="Print" xml:space="preserve">
+    <value>Print</value>
   </data>
-  <data name="Nav_Components_FilteredSearch" xml:space="preserve">
-    <value>Filtered Search</value>
+  <data name="Submit" xml:space="preserve">
+    <value>Submit</value>
   </data>
-  <data name="Nav_Language" xml:space="preserve">
-    <value>Language</value>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
   </data>
-  <data name="Nav_Authentication" xml:space="preserve">
-    <value>Authentication</value>
+  <data name="Format_Date" xml:space="preserve">
+    <value>MMMM d, yyyy</value>
   </data>
-  <data name="Nav_Authentication_Login" xml:space="preserve">
-    <value>Login</value>
+  <data name="Format_Time" xml:space="preserve">
+    <value>h:mm:ss tt</value>
   </data>
-  <data name="Nav_Authentication_Logout" xml:space="preserve">
-    <value>Logout</value>
+  <data name="Validation_Integer" xml:space="preserve">
+    <value>Please enter an integer.</value>
   </data>
-  <data name="Nav_Errors" xml:space="preserve">
-    <value>Errors</value>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
   </data>
-  <data name="Nav_Errors_NotFound" xml:space="preserve">
-    <value>Page Not Found</value>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
   </data>
-  <data name="Nav_Errors_Global" xml:space="preserve">
-    <value>Global Error</value>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
   </data>
-  <data name="Nav_UserLogin_Examples" xml:space="preserve">
-    <value>Interactive Examples</value>
+  <data name="OtherLanguage_TwoLetterLanguage" xml:space="preserve">
+    <value>fr</value>
   </data>
-  <data name="Nav_UserLogin_Positions" xml:space="preserve">
-    <value>Position Examples</value>
+  <data name="TwoLetterLanguage" xml:space="preserve">
+    <value>en</value>
   </data>
-  <data name="Nav_Authentication_StatelessExamples" xml:space="preserve">
-    <value>Stateless Auth Examples</value>
+  <data name="Loading" xml:space="preserve">
+    <value>Loading</value>
   </data>
-  <data name="Nav_Components_Card" xml:space="preserve">
-    <value>Card</value>
+  <data name="Enabled" xml:space="preserve">
+    <value>Enabled</value>
   </data>
-  <data name="Nav_Installation_Translations" xml:space="preserve">
-    <value>Standard Translations</value>
+  <data name="Disabled" xml:space="preserve">
+    <value>Disabled</value>
+  </data>
+  <data name="Disable" xml:space="preserve">
+    <value>Disable</value>
+  </data>
+  <data name="Enable" xml:space="preserve">
+    <value>Enable</value>
+  </data>
+  <data name="Key" xml:space="preserve">
+    <value>Key</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="French" xml:space="preserve">
+    <value>French</value>
+  </data>
+  <data name="MarkAsUnread" xml:space="preserve">
+    <value>Mark as unread</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="OtherLanguage_ThreeLetterLanguage" xml:space="preserve">
+    <value>fra</value>
+  </data>
+  <data name="ThreeLetterLanguage" xml:space="preserve">
+    <value>eng</value>
+  </data>
+  <data name="NotAvailable_Abbreviation" xml:space="preserve">
+    <value>N/A</value>
   </data>
 </root>

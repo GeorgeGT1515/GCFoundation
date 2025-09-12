@@ -9,20 +9,8 @@ namespace GCFoundation.Web.Controllers
     /// Provides actions for user authentication, including login, logout, and session refresh.
     /// </summary>
     [Route("authentication")]
-    public class AuthenticationController : GCFoundationBaseController
+    public class AuthenticationController(ILogger<AuthenticationController> logger) : GCFoundationBaseController(logger)
     {
-        private readonly ILogger<AuthenticationController> _logger;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AuthenticationController"/> class.
-        /// </summary>
-        /// <param name="logger">The logger used for logging actions and events in this controller.</param>
-        public AuthenticationController(ILogger<AuthenticationController> logger)
-            : base(logger)
-        {
-            _logger = logger;
-        }
-
         /// <summary>
         /// Simulates a login action by setting a session variable indicating the session start time.
         /// </summary>

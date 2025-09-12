@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
+using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -14,8 +15,11 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         /// <summary>
         /// Gets or sets whether the checkbox is required.
         /// </summary>
+        /// <remarks>
+        /// This attribute will overwrite the [Required] data annotation (if applicable).
+        /// </remarks>
         [HtmlAttributeName("required")]
-        public bool IsRequired { get; set; }
+        public bool? IsRequired { get; set; }
 
         private sealed class CheckboxOption
         {
@@ -55,6 +59,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             string label = GetLocalizedLabel(propertyInfo);
             string hint = GetLocalizedHint(propertyInfo);
+            bool required = For.Metadata.ValidatorMetadata.OfType<RequiredAttribute>().Any()
+                            || propertyInfo.GetCustomAttribute<RequiredAttribute>() != null;
 
             // Get the current value
             var currentValue = For.Model as bool? ?? false;
@@ -77,7 +83,10 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             AddAttributeIfNotNull(output, "name", fieldName);
             AddAttributeIfNotNull(output, "options", JsonSerializer.Serialize(new[] { option }, CamelCaseOptions));
 
-            if (IsRequired)
+            // If a "required" attribute was defined on the tag helper, use that value.
+            // Otherwise, look at the default [Required] data annotation.
+            if (IsRequired.HasValue) required = IsRequired.Value;
+            if (required)
             {
                 output.Attributes.SetAttribute("required", "");
             }

@@ -3,13 +3,13 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP;
 
-public class FDCPPageHeaderTagHelperTests
+public class FDCPPageHeadingTagHelperTests
 {
     [Fact]
     public void Process_WithTitleOnly_RendersExpectedOutput()
     {
         // Arrange
-        var tagHelper = new FDCPPageHeaderTagHelper
+        var tagHelper = new FDCPPageHeadingTagHelper
         {
             Title = "Test Title"
         };
@@ -28,7 +28,7 @@ public class FDCPPageHeaderTagHelperTests
         tagHelper.Process(context, output);
 
         // Assert
-        Assert.Equal("fdcp-page-header-container", output.Attributes["class"].Value);
+        Assert.Equal("fdcp-page-heading-container", output.Attributes["class"].Value);
         Assert.Contains("<gcds-heading tag='h1'>Test Title</gcds-heading>", output.Content.GetContent());
         Assert.DoesNotContain("<gcds-text>", output.Content.GetContent());
     }
@@ -37,7 +37,7 @@ public class FDCPPageHeaderTagHelperTests
     public void Process_WithTitleAndDescription_RendersExpectedOutput()
     {
         // Arrange
-        var tagHelper = new FDCPPageHeaderTagHelper
+        var tagHelper = new FDCPPageHeadingTagHelper
         {
             Title = "Test Title",
             Description = "Test Description"
@@ -57,7 +57,7 @@ public class FDCPPageHeaderTagHelperTests
         tagHelper.Process(context, output);
 
         // Assert
-        Assert.Equal("fdcp-page-header-container", output.Attributes["class"].Value);
+        Assert.Equal("fdcp-page-heading-container", output.Attributes["class"].Value);
         Assert.Contains("<gcds-heading tag='h1'>Test Title</gcds-heading>", output.Content.GetContent());
         Assert.Contains("<gcds-text>Test Description</gcds-text>", output.Content.GetContent());
     }
@@ -66,7 +66,7 @@ public class FDCPPageHeaderTagHelperTests
     public void Process_WithBackgroundImage_RendersExpectedOutput()
     {
         // Arrange
-        var tagHelper = new FDCPPageHeaderTagHelper
+        var tagHelper = new FDCPPageHeadingTagHelper
         {
             Title = "Test Title",
             Src = "background-image.jpg"
@@ -86,7 +86,7 @@ public class FDCPPageHeaderTagHelperTests
         tagHelper.Process(context, output);
 
         // Assert
-        Assert.Equal("fdcp-page-header-container fdcp-page-header--has-bg", output.Attributes["class"].Value);
+        Assert.Equal("fdcp-page-heading-container fdcp-page-heading--has-bg", output.Attributes["class"].Value);
         Assert.Equal("background-image.jpg", output.Attributes["data-bg-src"].Value);
     }
 
@@ -94,7 +94,7 @@ public class FDCPPageHeaderTagHelperTests
     public void Process_NullOutput_ThrowsArgumentNullException()
     {
         // Arrange
-        var tagHelper = new FDCPPageHeaderTagHelper
+        var tagHelper = new FDCPPageHeadingTagHelper
         {
             Title = "Test Title"
         };
@@ -113,7 +113,7 @@ public class FDCPPageHeaderTagHelperTests
     public void Process_SizeLargeWithTitleAndDescription_RendersExpectedOutput()
     {
         // Arrange
-        var tagHelper = new FDCPPageHeaderTagHelper
+        var tagHelper = new FDCPPageHeadingTagHelper
         {
             Title = "Test Title",
             Description = "Test Description",
@@ -134,7 +134,7 @@ public class FDCPPageHeaderTagHelperTests
         tagHelper.Process(context, output);
 
         // Assert
-        Assert.Equal("fdcp-page-header-container fdcp-page-header-large", output.Attributes["class"].Value);
+        Assert.Equal("fdcp-page-heading-container fdcp-page-heading-large", output.Attributes["class"].Value);
         Assert.Contains("<gcds-heading tag='h1'>Test Title</gcds-heading>", output.Content.GetContent());
         Assert.Contains("<gcds-text>Test Description</gcds-text>", output.Content.GetContent());
     }
@@ -143,7 +143,7 @@ public class FDCPPageHeaderTagHelperTests
     public void Process_SizeLargeWithTitleDescriptionAndTextEmphasis_RendersExpectedOutput()
     {
         // Arrange
-        var tagHelper = new FDCPPageHeaderTagHelper
+        var tagHelper = new FDCPPageHeadingTagHelper
         {
             Title = "Test Title",
             Description = "Test Description",
@@ -165,7 +165,7 @@ public class FDCPPageHeaderTagHelperTests
         tagHelper.Process(context, output);
 
         // Assert
-        Assert.Equal("fdcp-page-header-container fdcp-page-header-large", output.Attributes["class"].Value);
+        Assert.Equal("fdcp-page-heading-container fdcp-page-heading-large", output.Attributes["class"].Value);
         Assert.Contains("<gcds-heading tag='h1'>Test Title</gcds-heading>", output.Content.GetContent());
         Assert.Contains("<div class='text-container text-container-well'>", output.Content.GetContent());
         Assert.Contains("<gcds-text>Test Description</gcds-text>", output.Content.GetContent());

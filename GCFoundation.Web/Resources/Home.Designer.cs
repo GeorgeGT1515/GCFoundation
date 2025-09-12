@@ -61,7 +61,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Foundation is a library that provides helpers to build a GC web application compliant with the latest standards..
+        ///   Looks up a localized string similar to GCFoundation is a library that provides helpers to build a GC web application compliant with the latest standards..
         /// </summary>
         public static string Index_Description {
             get {
