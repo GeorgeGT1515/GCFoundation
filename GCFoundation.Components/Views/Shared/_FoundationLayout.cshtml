@@ -36,7 +36,6 @@
             @Html.Raw(tag.Render());
         }
     }
-    
     @await RenderSectionAsync("Metas", required: false)
     
     <title>@ViewData["Title"] - @settings.Value.ApplicationName</title>
@@ -140,6 +139,18 @@
         <partial name="_PageNotification" />
         @* Main content *@
         @RenderBody()
+        
+        @* Date modified or Version Identifier *@
+        @{
+            var dateModified = ViewData["DateModified"] as string;
+            var applicationVersion = settings.Value.ApplicationVersion;
+            var dmType = (!string.IsNullOrEmpty(dateModified) ? DateModifiedType.date : DateModifiedType.version);
+            var dmContent = (!string.IsNullOrEmpty(dateModified) ? dateModified : applicationVersion);
+        }
+        @if (!string.IsNullOrEmpty(dmContent))
+        {
+            <gcds-date-modified type="@dmType">@dmContent</gcds-date-modified>
+        }
     </gcds-container>
 
     @* GC Footer *@

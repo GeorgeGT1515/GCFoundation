@@ -1,9 +1,11 @@
 ﻿using GCFoundation.Common.Models;
 using GCFoundation.Components.Enums;
 using GCFoundation.Components.Models;
+using GCFoundation.Components.Resources;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
+using System.Globalization;
 
 namespace GCFoundation.Components.Controllers
 {
@@ -44,6 +46,17 @@ namespace GCFoundation.Components.Controllers
                     MetaTags.Remove(MetaTags.First(t => t.Property == tag.Property));
                 MetaTags.Add(tag);
             }
+        }
+
+        /// <summary>
+        /// Sets the date modified of the current page.
+        /// </summary>
+        /// <param name="dateModified">The date the content of the page was last modified.</param>
+        /// <remarks>This value drives the </remarks>
+        protected void SetDateModified(DateTime dateModified)
+        {
+            if (dateModified != DateTime.MinValue)
+                ViewData["DateModified"] = dateModified.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
         }
 
         /// <summary>

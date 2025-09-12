@@ -77,6 +77,11 @@ namespace GCFoundation.Common.Settings
         public string ApplicationNameFr { get; set; } = string.Empty;
 
         /// <summary>
+        /// Gets or sets the version number of the application.
+        /// </summary>
+        public string ApplicationVersion { get; set; } = string.Empty;
+
+        /// <summary>
         /// Gets or sets the virtual directory name when the app is hosted under a path base.
         /// Example: "/myapp" or "myapp". Leave empty for root.
         /// </summary>
