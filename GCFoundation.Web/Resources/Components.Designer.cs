@@ -2044,6 +2044,96 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to basic.
+        /// </summary>
+        public static string Table_Basic_Anchor {
+            get {
+                return ResourceManager.GetString("Table_Basic_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A basic sample table:.
+        /// </summary>
+        public static string Table_Basic_Text {
+            get {
+                return ResourceManager.GetString("Table_Basic_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic Usage.
+        /// </summary>
+        public static string Table_Basic_Title {
+            get {
+                return ResourceManager.GetString("Table_Basic_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Table (Tabulator).
+        /// </summary>
+        public static string Table_Name {
+            get {
+                return ResourceManager.GetString("Table_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The URL of the API endpoint that returns paginated JSON data..
+        /// </summary>
+        public static string Table_Properties_AjaxUrl {
+            get {
+                return ResourceManager.GetString("Table_Properties_AjaxUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A list of columns to display in the Tabulator table..
+        /// </summary>
+        public static string Table_Properties_Columns {
+            get {
+                return ResourceManager.GetString("Table_Properties_Columns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Local data (optional). If provided, used instead of AJAX..
+        /// </summary>
+        public static string Table_Properties_Data {
+            get {
+                return ResourceManager.GetString("Table_Properties_Data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The HTML element ID to assign to the Tabulator container (must be unique)..
+        /// </summary>
+        public static string Table_Properties_Id {
+            get {
+                return ResourceManager.GetString("Table_Properties_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The number of records per page for pagination..
+        /// </summary>
+        public static string Table_Properties_PaginationSize {
+            get {
+                return ResourceManager.GetString("Table_Properties_PaginationSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flag indicating whether to use static data or AJAX..
+        /// </summary>
+        public static string Table_Properties_UseStaticData {
+            get {
+                return ResourceManager.GetString("Table_Properties_UseStaticData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ♿ Accessible.
         /// </summary>
         public static string UserLogin_Accessible {

@@ -8,9 +8,19 @@
         new() { Title = "Name", Field = "name", HeaderSort = true, Filter = true },
         new() { Title = "Email", Field = "email", HozAlign = "center", Filter  = true, }
     };
-
 }
 
 <fdcp-tabulator-table id="usersTable"
                       columns="@columns"
                       ajax-url="@Url.Action("GetData", "TabulatorTest")" />
+
+<pre><code class="language-cshtml">var columns = new List&lt;TabulatorColumn&gt;
+{
+    new() { Title = "Id", Field = "id", HeaderSort = true, Resizable = TabulatorResizableOption.Header, Filter = true },
+    new() { Title = "Name", Field = "name", HeaderSort = true, Filter = true },
+    new() { Title = "Email", Field = "email", HozAlign = "center", Filter  = true, }
+};
+
+&lt;fdcp-tabulator-table id="usersTable"
+                      columns="@@columns"
+                      ajax-url="@@Url.Action("GetData", "TabulatorTest")" /&gt;</code></pre>
