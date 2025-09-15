@@ -1,16 +1,25 @@
-﻿@model GCFoundation.Components.Models.FormBuilder.FormViewModel
+﻿@using GCFoundation.Web.Resources
+@model GCFoundation.Web.Models.FormBuilderTestViewModel
 
-@if (TempData["SuccessMessage"] != null)
-{
-    <div class="alert alert-success" role="alert">
-        @TempData["SuccessMessage"]
+<gcds-heading tag="h1">@Model.Name<br /><code>@Html.Raw(Html.Encode(Model.Tag))</code></gcds-heading>
+
+<gcds-grid columns="minmax(200px, 300px) minmax(0, 1fr)" align-content="@GCFoundation.Components.Enums.AlignContent.start">
+    @* Side navigation *@
+    @if (Model.ShowSideNavigation)
+    {
+        <partial name="_SideNavigation" model="Model.SideNavigation" />
+    }
+    <div class="documentation-content">
+        @* Overview *@
+        <partial name="_Overview" model="Model" />
+
+        @* Sample code section *@
+        <partial name="FormBuilder/_SampleForm" model="Model" />
+
+        @* Properties *@
+        <partial name="_Properties" model="Model" />
+
+        @* Notes *@
+        <partial name="_Notes" model="Model" />
     </div>
-}
-
-<gcds-heading tag="h1">Dynamic Form Example</gcds-heading>
-<gcds-text>This example demonstrates a dynamic form with dependencies using the GC Design System components.</gcds-text>
-
-<fdcp-form-builder form="@Model.Form"></fdcp-form-builder>
-
-
-
+</gcds-grid>

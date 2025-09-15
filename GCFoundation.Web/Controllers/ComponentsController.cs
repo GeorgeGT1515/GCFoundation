@@ -5,6 +5,7 @@ using GCFoundation.Web.Models;
 using GCFoundation.Web.Models.Components;
 using GCFoundation.Web.Resources;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Routing;
 
 namespace GCFoundation.Web.Controllers
 {
@@ -83,13 +84,423 @@ namespace GCFoundation.Web.Controllers
         public IActionResult FormBuilder()
         {
             SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_FormBuilder_Title}");
+
+            var vm = BuildFormBuilderTestViewModel();
+            return View("FormBuilder", vm);
+        }
+
+        /// <summary>
+        /// Handles the submission of the dynamic form builder example.
+        /// Validates the form data and processes it if valid.
+        /// </summary>
+        /// <param name="vm">The view model containing form definition and user input.</param>
+        /// <returns>
+        /// Redirects to the example form builder view with a success message if valid; otherwise, returns the form view with validation errors.
+        /// </returns>
+        [HttpPost("form-builder")]
+        [ValidateAntiForgeryToken]
+        public IActionResult FormBuilder([FromForm] FormViewModel vm)
+        {
+            ArgumentNullException.ThrowIfNull(vm, nameof(vm));
+
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_FormBuilder_Title}");
+
+            var fbvm = BuildFormBuilderTestViewModel(vm);
+
+            // Add the form data to the validation context
+            var validationContext = new System.ComponentModel.DataAnnotations.ValidationContext(vm.Form)
+            {
+                Items = { ["FormData"] = vm.FormData }
+            };
+
+            // Validate the model including dependencies
+            if (!TryValidateModel(vm, nameof(FormViewModel)))
+            {
+                // If validation fails, return to the form with error messages
+                return View("FormBuilder", fbvm);
+            }
+
+            // Process the valid form data
+            // TODO: Add your form processing logic here
+
+            // Redirect to success page or show success message
+            fbvm.SuccessMessage = Resources.Components.FormBuilder_SampleForm_SubmittedSuccessfully;
+            return View("FormBuilder", fbvm);
+        }
+
+        /// <summary>
+        /// Displays a sample form linked to properties of a class.
+        /// </summary>
+        /// <returns>
+        /// The Form component view.
+        /// </returns>
+        [HttpGet("form")]
+        public IActionResult Form()
+        {
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Form_Title}");
+
+            var vm = BuildFormComponentViewModel();
+            return View("Form", vm);
+        }
+
+        /// <summary>
+        /// Handles the POST request to test form validation.
+        /// </summary>
+        /// <param name="vm">The form data submitted by the user.</param>
+        /// <returns>
+        /// The Form component view with the POSTed model and validation results.
+        /// </returns>
+        [HttpPost("form")]
+        [ValidateAntiForgeryToken]
+        public IActionResult Form(FormTestViewModel vm)
+        {
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Form_Title}");
+
+            vm = BuildFormComponentViewModel(vm);
+            if (ModelState.IsValid)
+            {
+                // Add your logic here if needed when the model is valid
+                vm.SuccessMessage = Resources.Components.Form_SampleForm_SubmittedSuccessfully;
+            }
+
+            return View("Form", vm);
+        }
+
+        /// <summary>
+        /// Displays the GC Design System components page.
+        /// </summary>
+        /// <returns>
+        /// The GC Design System view.
+        /// </returns>
+        [HttpGet("gcds")]
+        public IActionResult Gcds()
+        {
+            SetPageTitle(Menu.Menu_Components_GCDesign);
+
+            return View();
+        }
+
+        /// <summary>
+        /// Displays the Modal component demo page.
+        /// </summary>
+        /// <returns>
+        /// The Modal component view.
+        /// </returns>
+        [HttpGet("modal")]
+        public IActionResult Modal()
+        {
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Modal_Title}");
+
+            var vm = BuildModalComponentViewModel();
+            return View("Modal", vm);
+        }
+
+        /// <summary>
+        /// Displays the PageHeading component demo page.
+        /// </summary>
+        /// <returns>
+        /// The PageHeading component view.
+        /// </returns>
+        [HttpGet("page-heading")]
+        public IActionResult PageHeading()
+        {
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_PageHeading_Title}");
+
+            var vm = BuildPageHeadingComponentViewModel();
+            return View("Component", vm);
+        }
+
+        /// <summary>
+        /// Displays the Stepper component demo page.
+        /// </summary>
+        /// <returns>
+        /// The Stepper component view.
+        /// </returns>
+        [HttpGet("stepper")]
+        public IActionResult Stepper()
+        {
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Stepper_Title}");
+
+            var vm = BuildStepperComponentViewModel();
+            return View("Component", vm);
+        }
+
+        /// <summary>
+        /// Displays the Table component demo page.
+        /// </summary>
+        /// <returns>
+        /// The Table component view.
+        /// </returns>
+        [HttpGet("table")]
+        public IActionResult Table()
+        {
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Table_Title}");
+            return View();
+        }
+
+        /// <summary>
+        /// Displays the User Login Partial component demo page.
+        /// </summary>
+        /// <returns>
+        /// The User Login Partial component view.
+        /// </returns>
+        [HttpGet("user-login")]
+        public IActionResult UserLogin()
+        {
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_UserLoginPartial_Title}");
+            ViewData["LoginPartialViewName"] = "_ExampleUserLogin";
+            return View();
+        }
+
+        #region ViewModel Building
+        private static ComponentViewModel BuildBadgeComponentViewModel()
+        {
+            var vm = new ComponentViewModel();
+
+            vm.Name = Resources.Components.Badge_Name;
+            vm.Notes = new List<string>()
+            {
+                Resources.Components.Badge_Notes_1,
+                Resources.Components.Badge_Notes_2,
+                Resources.Components.Badge_Notes_3
+            };
+            vm.Overview = Resources.Components.Badge_Overview;
+            vm.Properties = new List<ComponentPropertyViewModel>()
+            {
+                new ComponentPropertyViewModel() { Name = "style", DataType = "FDCPBadgeStyle", Description = Resources.Components.Badge_Properties_Style },
+                new ComponentPropertyViewModel() { Name = "inverted", DataType = "bool", Description = Resources.Components.Badge_Properties_Inverted },
+                new ComponentPropertyViewModel() { Name = "start-content", DataType = "string", Description = Resources.Components.Badge_Properties_StartContent },
+                new ComponentPropertyViewModel() { Name = "end-content", DataType = "string", Description = Resources.Components.Badge_Properties_EndContent },
+                new ComponentPropertyViewModel() { Name = "tag-id", DataType = "string", Description = Resources.Components.Badge_Properties_TagId }
+            };
+            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
+            {
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Badge_Solid_Text, Id = Resources.Components.Badge_Solid_Anchor, PartialViewName = "Badge/_Solid", Title = Resources.Components.Badge_Solid_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Badge_Inverted_Text, Id = Resources.Components.Badge_Inverted_Anchor, PartialViewName = "Badge/_Inverted", Title = Resources.Components.Badge_Inverted_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Badge_Slot_Text, Id = Resources.Components.Badge_Slot_Anchor, PartialViewName = "Badge/_Slot", Title = Resources.Components.Badge_Slot_Title }
+            };
+            vm.Tag = "<fdcp-badge>";
+
+            return vm;
+        }
+        private static ComponentViewModel BuildCardComponentViewModel()
+        {
+            var vm = new ComponentViewModel();
+
+            vm.Name = Resources.Components.Card_Name;
+            vm.Notes = new List<string>()
+            {
+                Resources.Components.Card_Notes_1,
+                Resources.Components.Card_Notes_2,
+                Resources.Components.Card_Notes_3,
+                Resources.Components.Card_Notes_4
+            };
+            vm.Overview = Resources.Components.Card_Overview;
+            vm.Properties = new List<ComponentPropertyViewModel>()
+            {
+                new ComponentPropertyViewModel() { Name = "tag-id", DataType = "string", Description = Resources.Components.Card_Properties_TagId },
+                new ComponentPropertyViewModel() { Name = "width", DataType = "string", Description = Resources.Components.Card_Properties_Width },
+                new ComponentPropertyViewModel() { Name = "height", DataType = "string", Description = Resources.Components.Card_Properties_Height },
+                new ComponentPropertyViewModel() { Name = "border", DataType = "bool", Description = Resources.Components.Card_Properties_Border },
+                new ComponentPropertyViewModel() { Name = "shadow", DataType = "bool", Description = Resources.Components.Card_Properties_Shadow },
+                new ComponentPropertyViewModel() { Name = "image-top", DataType = "string", Description = Resources.Components.Card_Properties_ImageTop },
+                new ComponentPropertyViewModel() { Name = "image-bottom", DataType = "string", Description = Resources.Components.Card_Properties_ImageBottom },
+                new ComponentPropertyViewModel() { Name = "image-alt", DataType = "string", Description = Resources.Components.Card_Properties_ImageAlt },
+                new ComponentPropertyViewModel() { Name = "horizontal", DataType = "bool", Description = Resources.Components.Card_Properties_Horizontal }
+            };
+            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
+            {
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Card_Basic_Text, Id = Resources.Components.Card_Basic_Anchor, PartialViewName = "Card/_Basic", Title = Resources.Components.Card_Basic_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Card_Horizontal_Text, Id = Resources.Components.Card_Horizontal_Anchor, PartialViewName = "Card/_Horizontal", Title = Resources.Components.Card_Horizontal_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Card_WithImages_Text, Id = Resources.Components.Card_WithImages_Anchor, PartialViewName = "Card/_WithImages", Title = Resources.Components.Card_WithImages_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Card_WithSlots_Text, Id = Resources.Components.Card_WithSlots_Anchor, PartialViewName = "Card/_WithSlots", Title = Resources.Components.Card_WithSlots_Title }
+            };
+            vm.Tag = "<fdcp-card>";
+
+            return vm;
+        }
+        private static ComponentViewModel BuildFilteredSearchComponentViewModel()
+        {
+            var vm = new ComponentViewModel();
+
+            vm.Name = Resources.Components.FilteredSearch_Name;
+            //vm.Notes = new List<string>()
+            //{
+            //    Resources.Components.FilteredSearch_Notes_1,
+            //    Resources.Components.FilteredSearch_Notes_2,
+            //    Resources.Components.FilteredSearch_Notes_3
+            //};
+            vm.Overview = Resources.Components.FilteredSearch_Overview;
+            vm.Properties = new List<ComponentPropertyViewModel>()
+            {
+                new ComponentPropertyViewModel() { Name = "title", DataType = "string", Description = Resources.Components.FilteredSearch_Properties_Title },
+                new ComponentPropertyViewModel() { Name = "filters", DataType = "IEnumerable<SearchFilterCategory>", Description = Resources.Components.FilteredSearch_Properties_Filters }
+            };
+            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
+            {
+                new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.FilteredSearch_Basic_Anchor, PartialViewName = "FilteredSearch/_Basic", Title = Resources.Components.FilteredSearch_Basic_Title }
+            };
+            vm.Tag = "<fdcp-filters-box>";
+
+            return vm;
+        }
+        private FormBuilderTestViewModel BuildFormBuilderTestViewModel(FormViewModel? vm = null)
+        {
+            var fbvm = new FormBuilderTestViewModel();
+            if (vm != null)
+                fbvm.SampleFormBuilder = vm;
+            else
+                fbvm.SampleFormBuilder = new FormViewModel() { Form = GenerateSampleFormDefinition() };
+
+            fbvm.Name = Resources.Components.Form_Name;
+            fbvm.Properties = new List<ComponentPropertyViewModel>()
+            {
+                new ComponentPropertyViewModel() { Name = "form", DataType = "GCFoundation.Components.Models.FormBuilder.FormDefinition", Description = Resources.Components.FormBuilder_Properties_Form }            };
+            fbvm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
+            {
+                new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.FormBuilder_SampleForm_Anchor, Description = Resources.Components.FormBuilder_SampleForm_Description, Title = Resources.Components.FormBuilder_SampleForm_Title },
+            };
+            fbvm.Tag = "<fdcp-form-builder>";
+
+            return fbvm;
+        }
+        private static FormTestViewModel BuildFormComponentViewModel(FormTestViewModel? vm = null)
+        {
+            if (vm == null)
+                vm = new FormTestViewModel();
+
+            vm.Name = Resources.Components.Form_Name;
+            //vm.Notes = new List<string>()
+            //{
+            //    Resources.Components.Form_Notes_1,
+            //    Resources.Components.Form_Notes_2,
+            //    Resources.Components.Form_Notes_3
+            //};
+            vm.Overview = Resources.Components.Form_Overview;
+            vm.Properties = new List<ComponentPropertyViewModel>()
+            {
+                new ComponentPropertyViewModel() { Name = "for", DataType = "GCFoundation.Components.Models.BaseViewModel", Description = Resources.Components.Form_Properties_For },
+                new ComponentPropertyViewModel() { Name = "method", DataType = "string", DefaultValue = "POST", Description = Resources.Components.Form_Properties_Method },
+                new ComponentPropertyViewModel() { Name = "action", DataType = "string", Description = Resources.Components.Form_Properties_Action }
+            };
+            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
+            {
+                new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.Form_SampleForm_Anchor, Title = Resources.Components.Form_SampleForm_Title },
+            };
+            vm.Tag = "<fdcp-form>";
+
+            return vm;
+        }
+        private static ComponentViewModel BuildModalComponentViewModel()
+        {
+            var vm = new ComponentViewModel();
+
+            vm.Name = Resources.Components.Modal_Name;
+            vm.Notes = new List<string>()
+            {
+                Resources.Components.Modal_Notes_1,
+                Resources.Components.Modal_Notes_2,
+                Resources.Components.Modal_Notes_3,
+                Resources.Components.Modal_Notes_4,
+                Resources.Components.Modal_Notes_5
+            };
+            vm.Overview = Resources.Components.Modal_Overview;
+            vm.Properties = new List<ComponentPropertyViewModel>()
+            {
+                new ComponentPropertyViewModel() { Name = "id", DataType = "string", DefaultValue = "modal", Description = Resources.Components.Modal_Properties_Id },
+                new ComponentPropertyViewModel() { Name = "title", DataType = "string", DefaultValue = "Modal Title", Description = Resources.Components.Modal_Properties_Title },
+                new ComponentPropertyViewModel() { Name = "centered", DataType = "bool", DefaultValue = "true", Description = Resources.Components.Modal_Properties_Centered },
+                new ComponentPropertyViewModel() { Name = "scrollable", DataType = "bool", Description = Resources.Components.Modal_Properties_Scrollable },
+                new ComponentPropertyViewModel() { Name = "size", DataType = "ModalSize", DefaultValue = "ModalSize.Default", Description = Resources.Components.Modal_Properties_Size },
+                new ComponentPropertyViewModel() { Name = "show-close-button", DataType = "bool", DefaultValue = "true", Description = Resources.Components.Modal_Properties_ShowCloseButton },
+                new ComponentPropertyViewModel() { Name = "is-static-backdrop", DataType = "bool", Description = Resources.Components.Modal_Properties_IsStaticBackdrop },
+                new ComponentPropertyViewModel() { Name = "session-timeout", DataType = "int", Description = Resources.Components.Modal_Properties_SessionTimeout },
+                new ComponentPropertyViewModel() { Name = "reminder-time", DataType = "int", Description = Resources.Components.Modal_Properties_ReminderTime },
+                new ComponentPropertyViewModel() { Name = "refresh-url", DataType = "Uri", Description = Resources.Components.Modal_Properties_RefreshUrl },
+                new ComponentPropertyViewModel() { Name = "logout-url", DataType = "Uri", Description = Resources.Components.Modal_Properties_LogoutUrl }
+            };
+            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
+            {
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Modal_Basic_Text, Id = Resources.Components.Modal_Basic_Anchor, PartialViewName = "Modal/_Basic", Title = Resources.Components.Modal_Basic_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Modal_Session_Text, Id = Resources.Components.Modal_Session_Anchor, PartialViewName = "Modal/_Session", Title = Resources.Components.Modal_Session_Title }
+            };
+            vm.Tag = "<fdcp-modal>";
+
+            return vm;
+        }
+        private static ComponentViewModel BuildPageHeadingComponentViewModel()
+        {
+            var vm = new ComponentViewModel();
+
+            vm.Name = Resources.Components.PageHeading_Name;
+            vm.Notes = new List<string>()
+            {
+                Resources.Components.PageHeading_Notes_1,
+                Resources.Components.PageHeading_Notes_2,
+                Resources.Components.PageHeading_Notes_3
+            };
+            vm.Overview = Resources.Components.PageHeading_Overview;
+            vm.Properties = new List<ComponentPropertyViewModel>()
+            {
+                new ComponentPropertyViewModel() { Name = "title", DataType = "string", Description = Resources.Components.PageHeading_Properties_Title },
+                new ComponentPropertyViewModel() { Name = "description", DataType = "string", Description = Resources.Components.PageHeading_Properties_Description },
+                new ComponentPropertyViewModel() { Name = "size", DataType = "PageHeadingSize", DefaultValue = "PageHeadingSize.Default", Description = Resources.Components.PageHeading_Properties_Size },
+                new ComponentPropertyViewModel() { Name = "src", DataType = "string", Description = Resources.Components.PageHeading_Properties_Src },
+                new ComponentPropertyViewModel() { Name = "text-emphasis", DataType = "bool", DefaultValue = "false", Description = Resources.Components.PageHeading_Properties_TextEmphasis }
+            };
+            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
+            {
+                new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.PageHeading_Basic_Anchor, PartialViewName = "PageHeading/_Basic", Title = Resources.Components.PageHeading_Basic_Title }
+            };
+            vm.Tag = "<fdcp-page-heading>";
+
+            return vm;
+        }
+        private static ComponentViewModel BuildStepperComponentViewModel()
+        {
+            var vm = new ComponentViewModel();
+
+            vm.Name = Resources.Components.Stepper_Name;
+            vm.Notes = new List<string>()
+            {
+                Resources.Components.Stepper_Notes_1,
+                Resources.Components.Stepper_Notes_2,
+                Resources.Components.Stepper_Notes_3,
+                Resources.Components.Stepper_Notes_4
+            };
+            vm.Overview = Resources.Components.Stepper_Overview;
+            vm.Properties = new List<ComponentPropertyViewModel>()
+            {
+                new ComponentPropertyViewModel() { Name = "current-step", DataType = "int", DefaultValue = "1", Description = Resources.Components.Stepper_Properties_CurrentStep },
+                new ComponentPropertyViewModel() { Name = "steps", DataType = "IEnumerable<StepperStep>", Description = Resources.Components.Stepper_Properties_Steps },
+                new ComponentPropertyViewModel() { Name = "StepperStep.StepNumber", DataType = "int", Description = Resources.Components.Stepper_Properties_StepperStep_StepNumber },
+                new ComponentPropertyViewModel() { Name = "StepperStep.Label", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_Label },
+                new ComponentPropertyViewModel() { Name = "StepperStep.DisplayMode", DataType = "string", DefaultValue = "StepDisplayMode.Number", Description = Resources.Components.Stepper_Properties_StepperStep_DisplayMode },
+                new ComponentPropertyViewModel() { Name = "StepperStep.IsLink", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_IsLink },
+                new ComponentPropertyViewModel() { Name = "StepperStep.LinkUrl", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_LinkUrl },
+                new ComponentPropertyViewModel() { Name = "StepperStep.CompletedIconHtml", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_CompletedIconHtml },
+                new ComponentPropertyViewModel() { Name = "StepperStep.InProgressIconHtml", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_InProgressIconHtml },
+                new ComponentPropertyViewModel() { Name = "StepperStep.NotStartedIconHtml", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_NotStartedIconHtml }
+            };
+            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
+            {
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Stepper_Basic_Text, Id = Resources.Components.Stepper_Basic_Anchor, PartialViewName = "Stepper/_Basic", Title = Resources.Components.Stepper_Basic_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Stepper_WithIcons_Anchor, Id = Resources.Components.Stepper_WithIcons_Anchor, PartialViewName = "Stepper/_WithIcons", Title = Resources.Components.Stepper_WithIcons_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Stepper_WithLinks_Anchor, Id = Resources.Components.Stepper_WithLinks_Anchor, PartialViewName = "Stepper/_WithLinks", Title = Resources.Components.Stepper_WithLinks_Title }
+            };
+            vm.Tag = "<fdcp-stepper>";
+
+            return vm;
+        }
+        private FormDefinition GenerateSampleFormDefinition()
+        {
             var form = new FormDefinition
             {
                 Id = "demo-form",
                 Title = "Dynamic Form Demo",
-                Action = Url.Action("SubmitFormBuilder", "Components") ?? "",
-                Methode = "post",
-                SubmithButtonText = "Submit Form",
+                Action = Url.Action("FormBuilder", "Components") ?? "",
+                HttpMethod = "post",
+                SubmitButtonText = "Submit Form",
                 Sections = new List<FormSection>
                 {
                     new FormSection
@@ -381,394 +792,7 @@ namespace GCFoundation.Web.Controllers
                     }
                 }
             };
-
-            var viewModel = new FormViewModel
-            {
-                Form = form,
-            };
-
-            return View("FormBuilder", viewModel);
-        }
-
-        /// <summary>
-        /// Handles the submission of the dynamic form builder example.
-        /// Validates the form data and processes it if valid.
-        /// </summary>
-        /// <param name="viewModel">The view model containing form definition and user input.</param>
-        /// <returns>
-        /// Redirects to the example form builder view with a success message if valid; otherwise, returns the form view with validation errors.
-        /// </returns>
-        [HttpPost("form-builder")]
-        [ValidateAntiForgeryToken]
-        public IActionResult FormBuilder([FromForm] FormViewModel viewModel)
-        {
-            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_FormBuilder_Title}");
-
-            ArgumentNullException.ThrowIfNull(viewModel, nameof(viewModel));
-            // Add the form data to the validation context
-            var validationContext = new System.ComponentModel.DataAnnotations.ValidationContext(viewModel.Form)
-            {
-                Items = { ["FormData"] = viewModel.FormData }
-            };
-
-            // Validate the model including dependencies
-            if (!TryValidateModel(viewModel, nameof(FormViewModel)))
-            {
-                // If validation fails, return to the form with error messages
-                return View("FormBuilder", viewModel);
-            }
-
-            // Process the valid form data
-            // TODO: Add your form processing logic here
-
-            // Redirect to success page or show success message
-            TempData["SuccessMessage"] = "Form submitted successfully!";
-            return RedirectToAction("ExampleFormBuilder");
-        }
-
-        /// <summary>
-        /// Displays a sample form linked to properties of a class.
-        /// </summary>
-        /// <returns>
-        /// The Form component view.
-        /// </returns>
-        [HttpGet("form")]
-        public IActionResult Form()
-        {
-            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Form_Title}");
-
-            var vm = BuildFormComponentViewModel();
-            return View("Form", vm);
-        }
-
-        /// <summary>
-        /// Handles the POST request to test form validation.
-        /// </summary>
-        /// <param name="vm">The form data submitted by the user.</param>
-        /// <returns>
-        /// The Form component view with the POSTed model and validation results.
-        /// </returns>
-        [HttpPost("form")]
-        [ValidateAntiForgeryToken]
-        public IActionResult Form(FormTestViewModel vm)
-        {
-            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Form_Title}");
-
-            vm = BuildFormComponentViewModel(vm);
-            if (ModelState.IsValid)
-            {
-                // Add your logic here if needed when the model is valid
-                vm.SuccessMessage = Resources.Components.Form_SampleForm_SubmittedSuccessfully;
-            }
-
-            return View("Form", vm);
-        }
-
-        /// <summary>
-        /// Displays the GC Design System components page.
-        /// </summary>
-        /// <returns>
-        /// The GC Design System view.
-        /// </returns>
-        [HttpGet("gcds")]
-        public IActionResult Gcds()
-        {
-            SetPageTitle(Menu.Menu_Components_GCDesign);
-
-            return View();
-        }
-
-        /// <summary>
-        /// Displays the Modal component demo page.
-        /// </summary>
-        /// <returns>
-        /// The Modal component view.
-        /// </returns>
-        [HttpGet("modal")]
-        public IActionResult Modal()
-        {
-            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Modal_Title}");
-
-            var vm = BuildModalComponentViewModel();
-            return View("Modal", vm);
-        }
-
-        /// <summary>
-        /// Displays the PageHeading component demo page.
-        /// </summary>
-        /// <returns>
-        /// The PageHeading component view.
-        /// </returns>
-        [HttpGet("page-heading")]
-        public IActionResult PageHeading()
-        {
-            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_PageHeading_Title}");
-
-            var vm = BuildPageHeadingComponentViewModel();
-            return View("Component", vm);
-        }
-
-        /// <summary>
-        /// Displays the Stepper component demo page.
-        /// </summary>
-        /// <returns>
-        /// The Stepper component view.
-        /// </returns>
-        [HttpGet("stepper")]
-        public IActionResult Stepper()
-        {
-            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Stepper_Title}");
-
-            var vm = BuildStepperComponentViewModel();
-            return View("Component", vm);
-        }
-
-        /// <summary>
-        /// Displays the Table component demo page.
-        /// </summary>
-        /// <returns>
-        /// The Table component view.
-        /// </returns>
-        [HttpGet("table")]
-        public IActionResult Table()
-        {
-            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Table_Title}");
-            return View();
-        }
-
-        /// <summary>
-        /// Displays the User Login Partial component demo page.
-        /// </summary>
-        /// <returns>
-        /// The User Login Partial component view.
-        /// </returns>
-        [HttpGet("user-login")]
-        public IActionResult UserLogin()
-        {
-            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_UserLoginPartial_Title}");
-            ViewData["LoginPartialViewName"] = "_ExampleUserLogin";
-            return View();
-        }
-
-        #region ViewModel Building
-        private static ComponentViewModel BuildBadgeComponentViewModel()
-        {
-            var vm = new ComponentViewModel();
-
-            vm.Name = Resources.Components.Badge_Name;
-            vm.Notes = new List<string>()
-            {
-                Resources.Components.Badge_Notes_1,
-                Resources.Components.Badge_Notes_2,
-                Resources.Components.Badge_Notes_3
-            };
-            vm.Overview = Resources.Components.Badge_Overview;
-            vm.Properties = new List<ComponentPropertyViewModel>()
-            {
-                new ComponentPropertyViewModel() { Name = "style", DataType = "FDCPBadgeStyle", Description = Resources.Components.Badge_Properties_Style },
-                new ComponentPropertyViewModel() { Name = "inverted", DataType = "bool", Description = Resources.Components.Badge_Properties_Inverted },
-                new ComponentPropertyViewModel() { Name = "start-content", DataType = "string", Description = Resources.Components.Badge_Properties_StartContent },
-                new ComponentPropertyViewModel() { Name = "end-content", DataType = "string", Description = Resources.Components.Badge_Properties_EndContent },
-                new ComponentPropertyViewModel() { Name = "tag-id", DataType = "string", Description = Resources.Components.Badge_Properties_TagId }
-            };
-            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
-            {
-                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Badge_Solid_Text, Id = Resources.Components.Badge_Solid_Anchor, PartialViewName = "Badge/_Solid", Title = Resources.Components.Badge_Solid_Title },
-                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Badge_Inverted_Text, Id = Resources.Components.Badge_Inverted_Anchor, PartialViewName = "Badge/_Inverted", Title = Resources.Components.Badge_Inverted_Title },
-                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Badge_Slot_Text, Id = Resources.Components.Badge_Slot_Anchor, PartialViewName = "Badge/_Slot", Title = Resources.Components.Badge_Slot_Title }
-            };
-            vm.Tag = "<fdcp-badge>";
-
-            return vm;
-        }
-        private static ComponentViewModel BuildCardComponentViewModel()
-        {
-            var vm = new ComponentViewModel();
-
-            vm.Name = Resources.Components.Card_Name;
-            vm.Notes = new List<string>()
-            {
-                Resources.Components.Card_Notes_1,
-                Resources.Components.Card_Notes_2,
-                Resources.Components.Card_Notes_3,
-                Resources.Components.Card_Notes_4
-            };
-            vm.Overview = Resources.Components.Card_Overview;
-            vm.Properties = new List<ComponentPropertyViewModel>()
-            {
-                new ComponentPropertyViewModel() { Name = "tag-id", DataType = "string", Description = Resources.Components.Card_Properties_TagId },
-                new ComponentPropertyViewModel() { Name = "width", DataType = "string", Description = Resources.Components.Card_Properties_Width },
-                new ComponentPropertyViewModel() { Name = "height", DataType = "string", Description = Resources.Components.Card_Properties_Height },
-                new ComponentPropertyViewModel() { Name = "border", DataType = "bool", Description = Resources.Components.Card_Properties_Border },
-                new ComponentPropertyViewModel() { Name = "shadow", DataType = "bool", Description = Resources.Components.Card_Properties_Shadow },
-                new ComponentPropertyViewModel() { Name = "image-top", DataType = "string", Description = Resources.Components.Card_Properties_ImageTop },
-                new ComponentPropertyViewModel() { Name = "image-bottom", DataType = "string", Description = Resources.Components.Card_Properties_ImageBottom },
-                new ComponentPropertyViewModel() { Name = "image-alt", DataType = "string", Description = Resources.Components.Card_Properties_ImageAlt },
-                new ComponentPropertyViewModel() { Name = "horizontal", DataType = "bool", Description = Resources.Components.Card_Properties_Horizontal }
-            };
-            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
-            {
-                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Card_Basic_Text, Id = Resources.Components.Card_Basic_Anchor, PartialViewName = "Card/_Basic", Title = Resources.Components.Card_Basic_Title },
-                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Card_Horizontal_Text, Id = Resources.Components.Card_Horizontal_Anchor, PartialViewName = "Card/_Horizontal", Title = Resources.Components.Card_Horizontal_Title },
-                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Card_WithImages_Text, Id = Resources.Components.Card_WithImages_Anchor, PartialViewName = "Card/_WithImages", Title = Resources.Components.Card_WithImages_Title },
-                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Card_WithSlots_Text, Id = Resources.Components.Card_WithSlots_Anchor, PartialViewName = "Card/_WithSlots", Title = Resources.Components.Card_WithSlots_Title }
-            };
-            vm.Tag = "<fdcp-card>";
-
-            return vm;
-        }
-        private static ComponentViewModel BuildFilteredSearchComponentViewModel()
-        {
-            var vm = new ComponentViewModel();
-
-            vm.Name = Resources.Components.FilteredSearch_Name;
-            //vm.Notes = new List<string>()
-            //{
-            //    Resources.Components.FilteredSearch_Notes_1,
-            //    Resources.Components.FilteredSearch_Notes_2,
-            //    Resources.Components.FilteredSearch_Notes_3
-            //};
-            vm.Overview = Resources.Components.FilteredSearch_Overview;
-            vm.Properties = new List<ComponentPropertyViewModel>()
-            {
-                new ComponentPropertyViewModel() { Name = "title", DataType = "string", Description = Resources.Components.FilteredSearch_Properties_Title },
-                new ComponentPropertyViewModel() { Name = "filters", DataType = "IEnumerable<SearchFilterCategory>", Description = Resources.Components.FilteredSearch_Properties_Filters }
-            };
-            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
-            {
-                new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.FilteredSearch_Basic_Anchor, PartialViewName = "FilteredSearch/_Basic", Title = Resources.Components.FilteredSearch_Basic_Title }
-            };
-            vm.Tag = "<fdcp-filters-box>";
-
-            return vm;
-        }
-        private static FormTestViewModel BuildFormComponentViewModel(FormTestViewModel? vm = null)
-        {
-            if (vm == null)
-                vm = new FormTestViewModel();
-
-            vm.Name = Resources.Components.Form_Name;
-            //vm.Notes = new List<string>()
-            //{
-            //    Resources.Components.Form_Notes_1,
-            //    Resources.Components.Form_Notes_2,
-            //    Resources.Components.Form_Notes_3
-            //};
-            vm.Overview = Resources.Components.Form_Overview;
-            vm.Properties = new List<ComponentPropertyViewModel>()
-            {
-                new ComponentPropertyViewModel() { Name = "for", DataType = "GCFoundation.Components.Models.BaseViewModel", Description = Resources.Components.Form_Properties_For },
-                new ComponentPropertyViewModel() { Name = "method", DataType = "string", DefaultValue = "POST", Description = Resources.Components.Form_Properties_Method },
-                new ComponentPropertyViewModel() { Name = "action", DataType = "string", Description = Resources.Components.Form_Properties_Action }
-            };
-            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
-            {
-                new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.Form_SampleForm_Anchor, Title = Resources.Components.Form_SampleForm_Title },
-            };
-            vm.Tag = "<fdcp-form>";
-
-            return vm;
-        }
-        private static ComponentViewModel BuildModalComponentViewModel()
-        {
-            var vm = new ComponentViewModel();
-
-            vm.Name = Resources.Components.Modal_Name;
-            vm.Notes = new List<string>()
-            {
-                Resources.Components.Modal_Notes_1,
-                Resources.Components.Modal_Notes_2,
-                Resources.Components.Modal_Notes_3,
-                Resources.Components.Modal_Notes_4,
-                Resources.Components.Modal_Notes_5
-            };
-            vm.Overview = Resources.Components.Modal_Overview;
-            vm.Properties = new List<ComponentPropertyViewModel>()
-            {
-                new ComponentPropertyViewModel() { Name = "id", DataType = "string", DefaultValue = "modal", Description = Resources.Components.Modal_Properties_Id },
-                new ComponentPropertyViewModel() { Name = "title", DataType = "string", DefaultValue = "Modal Title", Description = Resources.Components.Modal_Properties_Title },
-                new ComponentPropertyViewModel() { Name = "centered", DataType = "bool", DefaultValue = "true", Description = Resources.Components.Modal_Properties_Centered },
-                new ComponentPropertyViewModel() { Name = "scrollable", DataType = "bool", Description = Resources.Components.Modal_Properties_Scrollable },
-                new ComponentPropertyViewModel() { Name = "size", DataType = "ModalSize", DefaultValue = "ModalSize.Default", Description = Resources.Components.Modal_Properties_Size },
-                new ComponentPropertyViewModel() { Name = "show-close-button", DataType = "bool", DefaultValue = "true", Description = Resources.Components.Modal_Properties_ShowCloseButton },
-                new ComponentPropertyViewModel() { Name = "is-static-backdrop", DataType = "bool", Description = Resources.Components.Modal_Properties_IsStaticBackdrop },
-                new ComponentPropertyViewModel() { Name = "session-timeout", DataType = "int", Description = Resources.Components.Modal_Properties_SessionTimeout },
-                new ComponentPropertyViewModel() { Name = "reminder-time", DataType = "int", Description = Resources.Components.Modal_Properties_ReminderTime },
-                new ComponentPropertyViewModel() { Name = "refresh-url", DataType = "Uri", Description = Resources.Components.Modal_Properties_RefreshUrl },
-                new ComponentPropertyViewModel() { Name = "logout-url", DataType = "Uri", Description = Resources.Components.Modal_Properties_LogoutUrl }
-            };
-            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
-            {
-                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Modal_Basic_Text, Id = Resources.Components.Modal_Basic_Anchor, PartialViewName = "Modal/_Basic", Title = Resources.Components.Modal_Basic_Title },
-                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Modal_Session_Text, Id = Resources.Components.Modal_Session_Anchor, PartialViewName = "Modal/_Session", Title = Resources.Components.Modal_Session_Title }
-            };
-            vm.Tag = "<fdcp-modal>";
-
-            return vm;
-        }
-        private static ComponentViewModel BuildPageHeadingComponentViewModel()
-        {
-            var vm = new ComponentViewModel();
-
-            vm.Name = Resources.Components.PageHeading_Name;
-            vm.Notes = new List<string>()
-            {
-                Resources.Components.PageHeading_Notes_1,
-                Resources.Components.PageHeading_Notes_2,
-                Resources.Components.PageHeading_Notes_3
-            };
-            vm.Overview = Resources.Components.PageHeading_Overview;
-            vm.Properties = new List<ComponentPropertyViewModel>()
-            {
-                new ComponentPropertyViewModel() { Name = "title", DataType = "string", Description = Resources.Components.PageHeading_Properties_Title },
-                new ComponentPropertyViewModel() { Name = "description", DataType = "string", Description = Resources.Components.PageHeading_Properties_Description },
-                new ComponentPropertyViewModel() { Name = "size", DataType = "PageHeadingSize", DefaultValue = "PageHeadingSize.Default", Description = Resources.Components.PageHeading_Properties_Size },
-                new ComponentPropertyViewModel() { Name = "src", DataType = "string", Description = Resources.Components.PageHeading_Properties_Src },
-                new ComponentPropertyViewModel() { Name = "text-emphasis", DataType = "bool", DefaultValue = "false", Description = Resources.Components.PageHeading_Properties_TextEmphasis }
-            };
-            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
-            {
-                new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.PageHeading_Basic_Anchor, PartialViewName = "PageHeading/_Basic", Title = Resources.Components.PageHeading_Basic_Title }
-            };
-            vm.Tag = "<fdcp-page-heading>";
-
-            return vm;
-        }
-        private static ComponentViewModel BuildStepperComponentViewModel()
-        {
-            var vm = new ComponentViewModel();
-
-            vm.Name = Resources.Components.Stepper_Name;
-            vm.Notes = new List<string>()
-            {
-                Resources.Components.Stepper_Notes_1,
-                Resources.Components.Stepper_Notes_2,
-                Resources.Components.Stepper_Notes_3,
-                Resources.Components.Stepper_Notes_4
-            };
-            vm.Overview = Resources.Components.Stepper_Overview;
-            vm.Properties = new List<ComponentPropertyViewModel>()
-            {
-                new ComponentPropertyViewModel() { Name = "current-step", DataType = "int", DefaultValue = "1", Description = Resources.Components.Stepper_Properties_CurrentStep },
-                new ComponentPropertyViewModel() { Name = "steps", DataType = "IEnumerable<StepperStep>", Description = Resources.Components.Stepper_Properties_Steps },
-                new ComponentPropertyViewModel() { Name = "StepperStep.StepNumber", DataType = "int", Description = Resources.Components.Stepper_Properties_StepperStep_StepNumber },
-                new ComponentPropertyViewModel() { Name = "StepperStep.Label", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_Label },
-                new ComponentPropertyViewModel() { Name = "StepperStep.DisplayMode", DataType = "string", DefaultValue = "StepDisplayMode.Number", Description = Resources.Components.Stepper_Properties_StepperStep_DisplayMode },
-                new ComponentPropertyViewModel() { Name = "StepperStep.IsLink", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_IsLink },
-                new ComponentPropertyViewModel() { Name = "StepperStep.LinkUrl", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_LinkUrl },
-                new ComponentPropertyViewModel() { Name = "StepperStep.CompletedIconHtml", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_CompletedIconHtml },
-                new ComponentPropertyViewModel() { Name = "StepperStep.InProgressIconHtml", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_InProgressIconHtml },
-                new ComponentPropertyViewModel() { Name = "StepperStep.NotStartedIconHtml", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_NotStartedIconHtml }
-            };
-            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
-            {
-                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Stepper_Basic_Text, Id = Resources.Components.Stepper_Basic_Anchor, PartialViewName = "Stepper/_Basic", Title = Resources.Components.Stepper_Basic_Title },
-                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Stepper_WithIcons_Anchor, Id = Resources.Components.Stepper_WithIcons_Anchor, PartialViewName = "Stepper/_WithIcons", Title = Resources.Components.Stepper_WithIcons_Title },
-                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Stepper_WithLinks_Anchor, Id = Resources.Components.Stepper_WithLinks_Anchor, PartialViewName = "Stepper/_WithLinks", Title = Resources.Components.Stepper_WithLinks_Title }
-            };
-            vm.Tag = "<fdcp-stepper>";
-
-            return vm;
+            return form;
         }
         #endregion ViewModel Building
     }

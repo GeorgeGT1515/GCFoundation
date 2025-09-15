@@ -17,8 +17,8 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
                     Id = "testForm",
                     Title = "Test Form",
                     Action = "/submit",
-                    Methode = "post",
-                    SubmithButtonText = "Submit",
+                    HttpMethod = "post",
+                    SubmitButtonText = "Submit",
                     Sections = new[]
                     {
                         new FormSection
@@ -90,8 +90,8 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
                     Id = "testForm",
                     Title = "Test Form",
                     Action = "/submit",
-                    Methode = "post",
-                    SubmithButtonText = "Submit",
+                    HttpMethod = "post",
+                    SubmitButtonText = "Submit",
                     Sections = new[]
                     {
                         new FormSection
@@ -152,8 +152,8 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
                     Id = "testForm",
                     Title = "Test Form",
                     Action = "/submit",
-                    Methode = "post",
-                    SubmithButtonText = "Submit",
+                    HttpMethod = "post",
+                    SubmitButtonText = "Submit",
                     Sections = new[]
                     {
                         new FormSection
@@ -211,8 +211,8 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
                     Id = "testForm",
                     Title = "Test Form",
                     Action = "/submit",
-                    Methode = "post",
-                    SubmithButtonText = "Submit",
+                    HttpMethod = "post",
+                    SubmitButtonText = "Submit",
                     Sections = Array.Empty<FormSection>()
                 }
             };
@@ -237,8 +237,8 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
                     Id = "testForm",
                     Title = "Test Form",
                     Action = "/submit",
-                    Methode = "post",
-                    SubmithButtonText = "Submit",
+                    HttpMethod = "post",
+                    SubmitButtonText = "Submit",
                     Sections = new[]
                     {
                         new FormSection
@@ -294,8 +294,8 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
                     Id = "testForm",
                     Title = "Test Form",
                     Action = "/submit",
-                    Methode = "post",
-                    SubmithButtonText = "Submit",
+                    HttpMethod = "post",
+                    SubmitButtonText = "Submit",
                     Sections = new[]
                     {
                         new FormSection
@@ -348,8 +348,8 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
                     Id = "testForm",
                     Title = "Test Form",
                     Action = "/submit",
-                    Methode = "post",
-                    SubmithButtonText = "Submit",
+                    HttpMethod = "post",
+                    SubmitButtonText = "Submit",
                     Sections = new[]
                     {
                         new FormSection
@@ -435,8 +435,8 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
                     Id = "testForm",
                     Title = "Test Form",
                     Action = "/submit",
-                    Methode = "post",
-                    SubmithButtonText = "Submit",
+                    HttpMethod = "post",
+                    SubmitButtonText = "Submit",
                     Sections = new[]
                     {
                         new FormSection
@@ -510,8 +510,8 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
                     Id = "testForm",
                     Title = "Test Form",
                     Action = "/submit",
-                    Methode = "post",
-                    SubmithButtonText = "Submit",
+                    HttpMethod = "post",
+                    SubmitButtonText = "Submit",
                     Sections = new[]
                     {
                         new FormSection

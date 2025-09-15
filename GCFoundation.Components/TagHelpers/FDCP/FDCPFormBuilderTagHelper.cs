@@ -63,7 +63,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             // Form wrapper with validation attributes for GCDS v0.39.0+ compatibility
             content.AppendFormat(CultureInfo.InvariantCulture,
                 "<form action='{0}' method='{1}' class='gc-form' data-gcds-validation='true' novalidate='true'>",
-                Form.Action, Form.Methode);
+                Form.Action, Form.HttpMethod);
 
             // Error summary component (initially hidden, will be populated by JavaScript)
             content.AppendLine(CultureInfo.InvariantCulture, $"<gcds-error-summary lang='{LanguageUtility.GetCurrentApplicationLanguage()}' style='display: none;'></gcds-error-summary>");
@@ -88,7 +88,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             // Submit button
             content.AppendFormat(CultureInfo.InvariantCulture, 
                 @"<gcds-button type='submit' button-role='primary'>{0}</gcds-button>", 
-                Form.SubmithButtonText);
+                Form.SubmitButtonText);
             content.AppendLine();
 
             content.AppendLine("</form>");
