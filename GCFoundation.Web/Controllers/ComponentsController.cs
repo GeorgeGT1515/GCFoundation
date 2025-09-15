@@ -235,7 +235,9 @@ namespace GCFoundation.Web.Controllers
         public IActionResult Table()
         {
             SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Table_Title}");
-            return View();
+
+            var vm = BuildTableComponentViewModel();
+            return View("Component", vm);
         }
 
         /// <summary>
@@ -489,6 +491,36 @@ namespace GCFoundation.Web.Controllers
                 new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Stepper_WithLinks_Anchor, Id = Resources.Components.Stepper_WithLinks_Anchor, PartialViewName = "Stepper/_WithLinks", Title = Resources.Components.Stepper_WithLinks_Title }
             };
             vm.Tag = "<fdcp-stepper>";
+
+            return vm;
+        }
+        private static ComponentViewModel BuildTableComponentViewModel()
+        {
+            var vm = new ComponentViewModel();
+
+            vm.Name = Resources.Components.Table_Name;
+            //vm.Notes = new List<string>()
+            //{
+            //    Resources.Components.Table_Notes_1,
+            //    Resources.Components.Table_Notes_2,
+            //    Resources.Components.Table_Notes_3,
+            //    Resources.Components.Table_Notes_4
+            //};
+            //vm.Overview = Resources.Components.Table_Overview;
+            vm.Properties = new List<ComponentPropertyViewModel>()
+            {
+                new ComponentPropertyViewModel() { Name = "ajax-url", DataType = "string", Description = Resources.Components.Table_Properties_AjaxUrl },
+                new ComponentPropertyViewModel() { Name = "columns", DataType = "IEnumerable<TabulatorColumn>", Description = Resources.Components.Table_Properties_Columns },
+                new ComponentPropertyViewModel() { Name = "data", DataType = "IEnumerable<object>", Description = Resources.Components.Table_Properties_Data },
+                new ComponentPropertyViewModel() { Name = "id", DataType = "IEnumerable<StepperStep>", Description = Resources.Components.Table_Properties_Id },
+                new ComponentPropertyViewModel() { Name = "pagination-size", DataType = "int", DefaultValue = "10", Description = Resources.Components.Table_Properties_PaginationSize },
+                new ComponentPropertyViewModel() { Name = "use-static-data", DataType = "bool", DefaultValue = "false", Description = Resources.Components.Table_Properties_UseStaticData },
+            };
+            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
+            {
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Table_Basic_Text, Id = Resources.Components.Table_Basic_Anchor, PartialViewName = "Table/_Basic", Title = Resources.Components.Stepper_Basic_Title }
+            };
+            vm.Tag = "<fdcp-tabulator-table>";
 
             return vm;
         }

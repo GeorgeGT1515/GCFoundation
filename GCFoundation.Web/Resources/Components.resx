@@ -1047,4 +1047,34 @@
   <data name="FormBuilder_Properties_Form" xml:space="preserve">
     <value>Gets or sets the form definition used to generate the form UI.</value>
   </data>
+  <data name="Table_Name" xml:space="preserve">
+    <value>Table (Tabulator)</value>
+  </data>
+  <data name="Table_Basic_Title" xml:space="preserve">
+    <value>Basic Usage</value>
+  </data>
+  <data name="Table_Basic_Anchor" xml:space="preserve">
+    <value>basic</value>
+  </data>
+  <data name="Table_Basic_Text" xml:space="preserve">
+    <value>A basic sample table:</value>
+  </data>
+  <data name="Table_Properties_Id" xml:space="preserve">
+    <value>The HTML element ID to assign to the Tabulator container (must be unique).</value>
+  </data>
+  <data name="Table_Properties_AjaxUrl" xml:space="preserve">
+    <value>The URL of the API endpoint that returns paginated JSON data.</value>
+  </data>
+  <data name="Table_Properties_Data" xml:space="preserve">
+    <value>Local data (optional). If provided, used instead of AJAX.</value>
+  </data>
+  <data name="Table_Properties_Columns" xml:space="preserve">
+    <value>A list of columns to display in the Tabulator table.</value>
+  </data>
+  <data name="Table_Properties_UseStaticData" xml:space="preserve">
+    <value>Flag indicating whether to use static data or AJAX.</value>
+  </data>
+  <data name="Table_Properties_PaginationSize" xml:space="preserve">
+    <value>The number of records per page for pagination.</value>
+  </data>
 </root>
