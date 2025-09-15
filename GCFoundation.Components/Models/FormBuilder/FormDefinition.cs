@@ -23,7 +23,7 @@
         /// <summary>
         /// Gets or sets the HTTP method used to submit the form (e.g., "post" or "get").
         /// </summary>
-        public required string HttpMethod { get; set; } = "post";
+        public required string Method { get; set; } = "post";
 
         /// <summary>
         /// Gets or sets the text displayed on the form's submit button.

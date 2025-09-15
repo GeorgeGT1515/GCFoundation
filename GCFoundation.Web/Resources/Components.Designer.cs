@@ -1000,7 +1000,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Form builder.
+        ///   Looks up a localized string similar to Form Builder.
         /// </summary>
         public static string Index_FormBuilder_Title {
             get {

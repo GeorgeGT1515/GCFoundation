@@ -17,7 +17,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
                     Id = "testForm",
                     Title = "Test Form",
                     Action = "/submit",
-                    HttpMethod = "post",
+                    Method = "post",
                     SubmitButtonText = "Submit",
                     Sections = new[]
                     {
@@ -90,7 +90,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
                     Id = "testForm",
                     Title = "Test Form",
                     Action = "/submit",
-                    HttpMethod = "post",
+                    Method = "post",
                     SubmitButtonText = "Submit",
                     Sections = new[]
                     {
@@ -152,7 +152,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
                     Id = "testForm",
                     Title = "Test Form",
                     Action = "/submit",
-                    HttpMethod = "post",
+                    Method = "post",
                     SubmitButtonText = "Submit",
                     Sections = new[]
                     {
@@ -211,7 +211,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
                     Id = "testForm",
                     Title = "Test Form",
                     Action = "/submit",
-                    HttpMethod = "post",
+                    Method = "post",
                     SubmitButtonText = "Submit",
                     Sections = Array.Empty<FormSection>()
                 }
@@ -237,7 +237,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
                     Id = "testForm",
                     Title = "Test Form",
                     Action = "/submit",
-                    HttpMethod = "post",
+                    Method = "post",
                     SubmitButtonText = "Submit",
                     Sections = new[]
                     {
@@ -294,7 +294,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
                     Id = "testForm",
                     Title = "Test Form",
                     Action = "/submit",
-                    HttpMethod = "post",
+                    Method = "post",
                     SubmitButtonText = "Submit",
                     Sections = new[]
                     {
@@ -348,7 +348,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
                     Id = "testForm",
                     Title = "Test Form",
                     Action = "/submit",
-                    HttpMethod = "post",
+                    Method = "post",
                     SubmitButtonText = "Submit",
                     Sections = new[]
                     {
@@ -435,7 +435,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
                     Id = "testForm",
                     Title = "Test Form",
                     Action = "/submit",
-                    HttpMethod = "post",
+                    Method = "post",
                     SubmitButtonText = "Submit",
                     Sections = new[]
                     {
@@ -510,7 +510,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
                     Id = "testForm",
                     Title = "Test Form",
                     Action = "/submit",
-                    HttpMethod = "post",
+                    Method = "post",
                     SubmitButtonText = "Submit",
                     Sections = new[]
                     {

@@ -352,7 +352,7 @@ namespace GCFoundation.Web.Controllers
             else
                 fbvm.SampleFormBuilder = new FormViewModel() { Form = GenerateSampleFormDefinition() };
 
-            fbvm.Name = Resources.Components.Form_Name;
+            fbvm.Name = Resources.Components.FormBuilder_Name;
             fbvm.Properties = new List<ComponentPropertyViewModel>()
             {
                 new ComponentPropertyViewModel() { Name = "form", DataType = "GCFoundation.Components.Models.FormBuilder.FormDefinition", Description = Resources.Components.FormBuilder_Properties_Form }            };
@@ -499,7 +499,7 @@ namespace GCFoundation.Web.Controllers
                 Id = "demo-form",
                 Title = "Dynamic Form Demo",
                 Action = Url.Action("FormBuilder", "Components") ?? "",
-                HttpMethod = "post",
+                Method = "post",
                 SubmitButtonText = "Submit Form",
                 Sections = new List<FormSection>
                 {
