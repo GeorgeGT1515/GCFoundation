@@ -1162,4 +1162,22 @@
   <data name="StatelessAuth_Integration_Description2" xml:space="preserve">
     <value />
   </data>
+  <data name="FormBuilder_Name" xml:space="preserve">
+    <value>Constructeur de formulaire</value>
+  </data>
+  <data name="FormBuilder_SampleForm_Anchor" xml:space="preserve">
+    <value>exemple-de-formulaire</value>
+  </data>
+  <data name="FormBuilder_SampleForm_SubmittedSuccessfully" xml:space="preserve">
+    <value>Formulaire envoyé avec succès !</value>
+  </data>
+  <data name="FormBuilder_SampleForm_Title" xml:space="preserve">
+    <value>Exemple d'un formulaire</value>
+  </data>
+  <data name="FormBuilder_SampleForm_Description" xml:space="preserve">
+    <value>Cette page vous présente un exemple de formulaire généré dynamiquement, construit uniquement à l'aide de code et des composants du GC Design System.</value>
+  </data>
+  <data name="FormBuilder_Properties_Form" xml:space="preserve">
+    <value>Obtient ou définit la définition de formulaire utilisée pour générer l'interface utilisateur du formulaire.</value>
+  </data>
 </root>

@@ -1,0 +1,30 @@
+﻿@using GCFoundation.Web.Resources
+@model GCFoundation.Web.Models.FormBuilderTestViewModel
+
+@* Sample form *@
+@{
+    var sampleForm = Model.SampleCodeSections.First();
+}
+<gcds-heading tag="h2" id="@sampleForm.Id">@sampleForm.Title</gcds-heading>
+@if (!string.IsNullOrEmpty(sampleForm.Description))
+{
+    @Html.Raw(sampleForm.Description)
+}
+
+@if (Model.SampleFormBuilder.Form == null)
+{
+    <p class="error-text">Model.SampleFormBuilder is NULL!</p>
+}
+else
+{
+    if (!string.IsNullOrEmpty(Model.SuccessMessage))
+    {
+        <gcds-notice type="Success" notice-title-tag="h3" notice-title="@GCFoundation.Components.Resources.Localization.Validation_Success" class="fdcp-mb-300">
+            <gcds-text>@Model.SuccessMessage</gcds-text>
+        </gcds-notice>
+    }
+
+    <fdcp-form-builder form="@Model.SampleFormBuilder.Form"></fdcp-form-builder>
+
+    <pre><code class="language-cshtml">@Html.Raw(Html.Encode(@"<fdcp-form-builder form=""@Model.SampleFormBuilder.Form""></fdcp-form-builder>"))</code></pre>
+}

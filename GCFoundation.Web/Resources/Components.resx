@@ -529,7 +529,7 @@
     <value>A way to add main heading at the top of the page</value>
   </data>
   <data name="Index_FormBuilder_Title" xml:space="preserve">
-    <value>Form builder</value>
+    <value>Form Builder</value>
   </data>
   <data name="Index_FormBuilder_Description" xml:space="preserve">
     <value>A way to build form automatically from a structure</value>
@@ -1028,5 +1028,23 @@
   </data>
   <data name="Stepper_WithLinks_Text" xml:space="preserve">
     <value>Stepper with clickable steps:</value>
+  </data>
+  <data name="FormBuilder_Name" xml:space="preserve">
+    <value>Form Builder</value>
+  </data>
+  <data name="FormBuilder_SampleForm_Anchor" xml:space="preserve">
+    <value>sample-form</value>
+  </data>
+  <data name="FormBuilder_SampleForm_SubmittedSuccessfully" xml:space="preserve">
+    <value>Form submitted successfully!</value>
+  </data>
+  <data name="FormBuilder_SampleForm_Title" xml:space="preserve">
+    <value>Sample form</value>
+  </data>
+  <data name="FormBuilder_SampleForm_Description" xml:space="preserve">
+    <value>This example demonstrates a dynamic form with dependencies using the GC Design System components.</value>
+  </data>
+  <data name="FormBuilder_Properties_Form" xml:space="preserve">
+    <value>Gets or sets the form definition used to generate the form UI.</value>
   </data>
 </root>

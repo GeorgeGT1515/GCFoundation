@@ -4,13 +4,18 @@
 @* Properties *@
 @if (Model.Properties != null && Model.Properties.Any())
 {
+    var displayDefaultColumn = Model.Properties.Where(p => !string.IsNullOrEmpty(p.DefaultValue)).Any();
+
     <gcds-heading tag="h2" id="@Components.Properties_Anchor">@Components.Properties</gcds-heading>
     <table class="table">
         <thead>
             <tr>
                 <th>@Components.Properties_Property</th>
                 <th>@Components.Properties_DataType</th>
-                <th>@Components.Properties_DefaultValue</th>
+                @if (displayDefaultColumn)
+                {
+                    <th>@Components.Properties_DefaultValue</th>
+                }
                 <th>@Components.Properties_Description</th>
             </tr>
         </thead>
@@ -20,7 +25,10 @@
                 <tr>
                     <td><code>@property.Name</code></td>
                     <td><code>@property.DataType</code></td>
-                    <td>@(!string.IsNullOrEmpty(property.DefaultValue) ? property.DefaultValue : Html.Raw($"-<span class=\"sr-only\">{Components.Properties_DefaultValue_NoDefaultValue}</span>"))</td>
+                    @if (displayDefaultColumn)
+                    {
+                        <td>@(!string.IsNullOrEmpty(property.DefaultValue) ? property.DefaultValue : Html.Raw($"-<span class=\"sr-only\">{Components.Properties_DefaultValue_NoDefaultValue}</span>"))</td>
+                    }
                     <td>@property.Description</td>
                 </tr>
             }
