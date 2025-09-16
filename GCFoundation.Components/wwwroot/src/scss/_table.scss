@@ -13,14 +13,24 @@ table,
 }
 
 // Table header styles
-th,
-.gcfoundation-table th {
-    background-color: var(--gcds-background-grey);
-    border-bottom: 2px solid var(--gcds-border-default);
-    padding: 1rem;
-    text-align: left;
+th {
     font-weight: 700;
+    padding: 1rem;
     position: relative;
+    text-align: left;
+}
+th[scope=col],
+th[scope=colgroup],
+.gcfoundation-table th[scope=col],
+.gcfoundation-table th[scope=colgroup] {
+    background-color: var(--gcds-color-grayscale-100);
+    border-bottom: 2px solid var(--gcds-border-default);
+}
+th[scope=row],
+th[scope=rowgroup],
+.gcfoundation-table th[scope=row],
+.gcfoundation-table th[scope=rowgroup] {
+    border-bottom: 1px solid var(--gcds-border-default);
 }
 
 // Table cell styles
@@ -31,15 +41,15 @@ td,
     border-bottom: 1px solid var(--gcds-border-default);
 }
 
-// Modern hover effects
-.gcfoundation-table-hover tr:hover {
-    background-color: var(--gcds-background-light);
-    transition: background-color 0.2s ease;
+// Striped rows variant
+.gcfoundation-table-striped tbody tr:nth-of-type(even) {
+    background-color: var(--gcds-bg-light);
 }
 
-// Striped rows variant
-.gcfoundation-table-striped tbody tr:nth-of-type(odd) {
-    background-color: var(--gcds-background-grey-light);
+// Modern hover effects
+.gcfoundation-table-hover tr:hover {
+    background-color: var(--gcds-color-blue-100) !important;
+    transition: background-color 0.2s ease;
 }
 
 // Bordered variant
@@ -52,7 +62,7 @@ td,
 // Compact variant
 .gcfoundation-table-sm {
     th, td {
-        padding: 0.5rem;
+        padding: 0.5rem 1rem;
     }
 }
 
