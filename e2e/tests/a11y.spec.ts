@@ -18,7 +18,7 @@ const routes: Array<{ path: string; name: string }> = [
   { path: '/components/table', name: 'Components Table' },
   { path: '/components/user-login', name: 'Components User Login' },
   { path: '/template', name: 'Template' },
-  { path: '/components/global-resources', name: 'Global Resources' }
+  { path: '/installation/global-resources', name: 'Global Resources' }
 ];
 
 for (const route of routes) {

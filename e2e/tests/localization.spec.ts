@@ -15,7 +15,8 @@ test.describe('Localization', () => {
     await page.context().clearCookies();
     await page.goto('/');
     await page.getByRole('link', { name: /Français/i }).click();
-    await expect(page).toHaveURL(/\/home\?culture=fr|\/home\b/);
+    // Accept localized Home path too
+    await expect(page).toHaveURL(/\/home\?culture=fr|\/home\b|\/fr\/accueil\b/);
   });
 });
 

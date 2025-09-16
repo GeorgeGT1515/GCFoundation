@@ -2,36 +2,24 @@
 
 /* Status indicators */
 .status-enabled {
-    color: green;
+    color: var(--gcds-color-green-800, #023b1a);
     font-weight: 500;
 }
 
 .status-disabled {
-    color: #666;
+    color: var(--gcds-color-grayscale-800, #43474e);
     font-style: italic;
 }
 
 /* Code block styling */
 .language-json pre,
 .language-cshtml pre {
-    background-color: #f8f9fa;
-    border: 1px solid #e9ecef;
-    border-radius: 4px;
-    padding: 1rem;
+    background-color: var(--gcds-color-grayscale-50, #f1f2f3);
+    border: 1px solid var(--gcds-color-grayscale-100, #d6d9dd);
+    border-radius: var(--gcds-border-radius-sm, 4px);
+    padding: var(--gcds-spacing-200, 1rem);
     overflow-x: auto;
-}
-
-/* Additional utility classes */
-.text-muted {
-    color: #6c757d;
-}
-
-.text-success {
-    color: #28a745;
-}
-
-.text-info {
-    color: #17a2b8;
+    color: var(--gcds-text-primary, #333333);
 }
 
 /* Demo elements for spacing utilities */
@@ -51,5 +39,24 @@
 
 /* Error styling */
 .error-text {
-    color: red;
+    color: var(--gcds-color-red-900, #822117);
 } 
+
+/* Accessible scroll containers for tables */
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive:focus,
+table[tabindex]:focus {
+    outline: 3px solid var(--gcds-focus-border, #0535d2);
+    outline-offset: 2px;
+}
+
+/* Ensure muted text meets contrast on white backgrounds */
+.fdcp-text-muted {
+    color: var(--gcds-color-grayscale-800, #43474e) !important;
+}

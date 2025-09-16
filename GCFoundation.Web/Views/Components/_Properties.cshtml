@@ -5,7 +5,8 @@
 @if (Model.Properties != null && Model.Properties.Any())
 {
     <gcds-heading tag="h2" id="@Components.Properties_Anchor">@Components.Properties</gcds-heading>
-    <table class="table">
+    <div class="table-responsive" tabindex="0" aria-label="Component properties table">
+    <table class="table" tabindex="0">
         <thead>
             <tr>
                 <th>@Components.Properties_Property</th>
@@ -26,5 +27,6 @@
             }
         </tbody>
     </table>
+    </div>
     <hr />
 }
