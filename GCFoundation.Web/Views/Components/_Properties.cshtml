@@ -7,23 +7,23 @@
     var displayDefaultColumn = Model.Properties.Where(p => !string.IsNullOrEmpty(p.DefaultValue)).Any();
 
     <gcds-heading tag="h2" id="@Components.Properties_Anchor">@Components.Properties</gcds-heading>
-    <table class="table">
+    <table class="gcfoundation-table gcfoundation-table-striped gcfoundation-table-hover gcfoundation-table-sm">
         <thead>
             <tr>
-                <th>@Components.Properties_Property</th>
-                <th>@Components.Properties_DataType</th>
+                <th scope="col">@Components.Properties_Property</th>
+                <th scope="col">@Components.Properties_DataType</th>
                 @if (displayDefaultColumn)
                 {
-                    <th>@Components.Properties_DefaultValue</th>
+                    <th scope="col">@Components.Properties_DefaultValue</th>
                 }
-                <th>@Components.Properties_Description</th>
+                <th scope="col">@Components.Properties_Description</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var property in Model.Properties.OrderBy(p => p.Name))
             {
                 <tr>
-                    <td><code>@property.Name</code></td>
+                    <th scope="row"><code>@property.Name</code></th>
                     <td><code>@property.DataType</code></td>
                     @if (displayDefaultColumn)
                     {
