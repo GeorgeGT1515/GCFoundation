@@ -831,8 +831,16 @@ stages:
               $e2eExit = $LASTEXITCODE
             } else {
               Write-Host "PR run: quick suite"
+              # Blocking smoke suite
               npm run test:smoke
               $e2eExit = $LASTEXITCODE
+
+              # Non-blocking a11y awareness run (separate report/artifacts)
+              Write-Host "Running a11y suite (non-blocking for PR awareness)"
+              $env:PLAYWRIGHT_HTML_REPORT = "playwright-report-a11y"
+              npx playwright test -g @a11y --project=chrome --output test-artifacts-a11y
+              # Intentionally ignore a11y exit code to avoid blocking PR
+              $null = $LASTEXITCODE
             }
             Pop-Location
           } finally {
@@ -842,7 +850,7 @@ stages:
           if ($e2eExit -ne 0) { exit $e2eExit }
 
     - task: PublishBuildArtifacts@1
-      displayName: 'Publish Playwright Report'
+      displayName: 'Publish Playwright Report (smoke)'
       condition: succeededOrFailed()
       inputs:
         pathToPublish: 'e2e/playwright-report'
@@ -850,11 +858,28 @@ stages:
         artifactType: 'container'
 
     - task: PublishBuildArtifacts@1
-      displayName: 'Publish Playwright Artifacts (traces/videos)'
+      displayName: 'Publish Playwright Artifacts (smoke)'
       condition: succeededOrFailed()
       inputs:
         pathToPublish: 'e2e/test-artifacts'
         artifactName: 'playwright-artifacts'
+        artifactType: 'container'
+
+    # Publish non-blocking a11y report/artifacts if produced
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Playwright Report (a11y awareness)'
+      condition: always()
+      inputs:
+        pathToPublish: 'e2e/playwright-report-a11y'
+        artifactName: 'playwright-report-a11y'
+        artifactType: 'container'
+
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Playwright Artifacts (a11y awareness)'
+      condition: always()
+      inputs:
+        pathToPublish: 'e2e/test-artifacts-a11y'
+        artifactName: 'playwright-artifacts-a11y'
         artifactType: 'container'
 
     # PR validation summary
