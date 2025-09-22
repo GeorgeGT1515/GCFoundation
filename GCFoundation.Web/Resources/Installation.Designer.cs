@@ -610,6 +610,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to How to use.
+        /// </summary>
+        public static string Translations_HowToUse_Heading {
+            get {
+                return ResourceManager.GetString("Translations_HowToUse_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Using GCFoundation standard translations is pretty simple. Just make sure that Localization has been configured in your project and, to declare the proper @using statements on your Razor views and you&apos;ll be able to start using standardized translations in your content..
+        /// </summary>
+        public static string Translations_HowToUse_Intro {
+            get {
+                return ResourceManager.GetString("Translations_HowToUse_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Standard Translations.
         /// </summary>
         public static string Translations_Page_Title {
