@@ -61,6 +61,29 @@ Notes:
 - **Session**: provides sane defaults for cookie/session handling.
 - **Localization**: the sample also wires request localization and a language middleware; keep or remove based on your needs.
 
+Localization configuration (services and middleware):
+```csharp
+// Services
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+builder.Services.AddControllersWithViews()
+    .AddViewLocalization()
+    .AddDataAnnotationsLocalization();
+
+// Middleware (place early in the pipeline, before MVC)
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
+
+var supportedCultures = new[] { new CultureInfo("en-CA"), new CultureInfo("fr-CA") };
+var localizationOptions = new RequestLocalizationOptions()
+    .SetDefaultCulture("en-CA")
+    .AddSupportedCultures("en-CA", "fr-CA")
+    .AddSupportedUICultures("en-CA", "fr-CA");
+
+app.UseRequestLocalization(localizationOptions);
+// If using GCFoundation language middleware, keep it after UseRequestLocalization
+app.UseMiddleware<GCFoundationLanguageMiddleware>();
+```
+
 ### 3) “Hello World” page (using Business layer via DI)
 Controller injects `IGreetingService` and passes its data to the view as the model:
 ```csharp
@@ -158,10 +181,15 @@ Register services and EF Core in the Web app’s `Program.cs`:
 using GCFHello.Business;
 using GCFHello.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+builder.Services.AddControllersWithViews()
+    .AddViewLocalization()
+    .AddDataAnnotationsLocalization();
 
 // GCFoundation services can be configured as needed here
 builder.Services.AddScoped<IGreetingService, GreetingService>();
@@ -169,6 +197,17 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
+// Localization middleware (place early in the pipeline)
+var supportedCultures = new[] { new CultureInfo("en-CA"), new CultureInfo("fr-CA") };
+var localizationOptions = new RequestLocalizationOptions()
+    .SetDefaultCulture("en-CA")
+    .AddSupportedCultures("en-CA", "fr-CA")
+    .AddSupportedUICultures("en-CA", "fr-CA");
+
+app.UseRequestLocalization(localizationOptions);
+// If using GCFoundation language middleware, keep it after UseRequestLocalization
+// app.UseMiddleware<GCFoundationLanguageMiddleware>();
+
 // ... existing pipeline/middleware ...
 app.MapControllerRoute(
     name: "default",
@@ -185,6 +224,41 @@ Add a connection string in `GCFHello.Web/appsettings.json`:
   }
 }
 ```
+
+### GCFoundation settings in `appsettings.json`
+Add GCFoundation-specific configuration under a `GCFoundation` section. The `AddGCFoundationComponents` and `AddGCFoundationContentPolicies` registrations will read from these values when present.
+
+```json
+{
+  "GCFoundation": {
+    "Components": {
+      "UseCdn": true,
+      "CdnBaseUrl": "https://cdn.design-system.alpha.canada.ca",
+      "InjectGcds": true
+    },
+    "ContentPolicies": {
+      "ReportOnly": false,
+      "ReportUri": "/csp-report",
+      "AdditionalScriptSrc": [
+        "https://www.googletagmanager.com",
+        "https://www.google-analytics.com"
+      ],
+      "AdditionalStyleSrc": [],
+      "AdditionalImgSrc": ["data:"],
+      "AdditionalConnectSrc": []
+    },
+    "Localization": {
+      "DefaultCulture": "en-CA",
+      "SupportedCultures": ["en-CA", "fr-CA"]
+    }
+  }
+}
+```
+
+Notes:
+- Adjust CDN usage and base URL to match your deployment (CDN vs local assets).
+- CSP is strict by default; use the "Additional*Src" arrays to extend allow-lists when integrating analytics or external services.
+- All keys are optional; safe defaults apply when omitted.
 
 ### 7) Build and run
 ```powershell
