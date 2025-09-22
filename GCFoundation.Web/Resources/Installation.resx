@@ -303,4 +303,10 @@
   <data name="DateModified_Link" xml:space="preserve">
     <value>For more information about the &lt;code&gt;&amp;lt;gcds-date-modified&amp;gt;&lt;/code&gt; tag, please take a look at the &lt;gcds-link href="https://design-system.alpha.canada.ca/en/components/date-modified/" target="_blank" external&gt;GC Design System documentation&lt;/gcds-link&gt;.</value>
   </data>
+  <data name="Translations_HowToUse_Intro" xml:space="preserve">
+    <value>Using GCFoundation standard translations is pretty simple. Just make sure that Localization has been configured in your project and, to declare the proper @using statements on your Razor views and you'll be able to start using standardized translations in your content.</value>
+  </data>
+  <data name="Translations_HowToUse_Heading" xml:space="preserve">
+    <value>How to use</value>
+  </data>
 </root>
