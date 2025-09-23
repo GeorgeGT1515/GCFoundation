@@ -231,14 +231,14 @@ stages:
           }
 
     # Publish enhanced code coverage
-    - task: PublishCodeCoverageResults@1
+    - task: PublishCodeCoverageResults@2
       displayName: 'Publish Enhanced Code Coverage'
       condition: succeeded()
       inputs:
-        codeCoverageTool: 'Cobertura'
-        summaryFileLocation: '$(Agent.TempDirectory)/TestResults/**/coverage.cobertura.xml'
-        reportDirectory: '$(Agent.TempDirectory)/TestResults/CodeCoverage'
-        additionalCodeCoverageFiles: '$(Agent.TempDirectory)/TestResults/**/*.lcov,$(Agent.TempDirectory)/TestResults/**/*.json'
+        codeCoverageTool: Cobertura
+        summaryFileLocation: $(Agent.TempDirectory)/TestResults/**/coverage.cobertura.xml
+        reportDirectory: $(Agent.TempDirectory)/TestResults/CodeCoverage
+        additionalCodeCoverageFiles: $(Agent.TempDirectory)/TestResults/**/*.lcov,$(Agent.TempDirectory)/TestResults/**/*.json
 
     # SARIF Code Analysis Generation
     - task: PowerShell@2
