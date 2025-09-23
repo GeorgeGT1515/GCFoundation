@@ -9,9 +9,24 @@ pr:
 pool: 'TBS Self Hosted'
 
 variables:
-  buildConfiguration: 'Release'
-  solution: '**/*.sln'
-  testProject: 'GCFoundation.Tests.Components/GCFoundation.Tests.Components.csproj'
+  - name: buildConfiguration
+    value: 'Release'
+  - name: solution
+    value: '**/*.sln'
+  - name: testProject
+    value: 'GCFoundation.Tests.Components/GCFoundation.Tests.Components.csproj'
+  - name: dotnetSdkVersion
+    value: '8.x'
+  - name: nodeVersion
+    value: '22.x'
+  - name: testResultsDir
+    value: '$(Agent.TempDirectory)/TestResults'
+  - name: isNightly
+    value: $[equals(variables['Build.Reason'], 'Schedule')]
+  - name: isPR
+    value: $[equals(variables['Build.Reason'], 'PullRequest')]
+  - name: isManual
+    value: $[equals(variables['Build.Reason'], 'Manual')]
 
 name: PR-$(System.PullRequest.PullRequestNumber)-$(Date:yyyyMMdd)-$(Rev:.r)
 
@@ -20,23 +35,25 @@ schedules:
   displayName: Nightly E2E
   branches:
     include:
-    - master
-    - develop
+      - master
+      - develop
   always: true
 
 stages:
 - stage: Build
   displayName: 'Build Complete Solution'
   jobs:
-  - job: BuildSolution
+  - job: Build
     displayName: 'Build GCFoundation Solution'
-    
     steps:
+    - checkout: self
+      clean: true
+
     - task: UseDotNet@2
       displayName: 'Install .NET SDK'
       inputs:
         packageType: 'sdk'
-        version: '8.x'
+        version: $(dotnetSdkVersion)
 
     - task: NuGetToolInstaller@1
       displayName: 'NuGet Tool Installer'
@@ -44,36 +61,36 @@ stages:
     - task: NuGetCommand@2
       displayName: 'Restore NuGet Packages'
       inputs:
-        restoreSolution: '$(solution)'
+        restoreSolution: $(solution)
 
-    # Install NPM packages for Foundation.Components
     - task: Npm@1
       displayName: 'Install NPM packages for Foundation.Components'
       inputs:
         command: 'install'
         workingDir: 'GCFoundation.Components'
 
-    # Build the complete solution
     - task: DotNetCoreCLI@2
       displayName: 'Build Complete Solution'
       inputs:
         command: 'build'
-        projects: '$(solution)'
+        projects: $(solution)
         arguments: '--configuration $(buildConfiguration) --no-restore'
 
-- stage: Test
-  displayName: 'Run Tests and Analysis'
+- stage: Validate
+  displayName: 'Validate & Test'
   dependsOn: Build
   condition: succeeded()
   jobs:
-  - job: TestAndAnalysis
-    displayName: 'Test Execution and Security Analysis'
+  - job: UnitTests
+    displayName: 'Unit Tests with Coverage'
     steps:
+    - checkout: self
+
     - task: UseDotNet@2
       displayName: 'Install .NET SDK'
       inputs:
         packageType: 'sdk'
-        version: '8.x'
+        version: $(dotnetSdkVersion)
 
     - task: NuGetToolInstaller@1
       displayName: 'NuGet Tool Installer'
@@ -81,18 +98,14 @@ stages:
     - task: NuGetCommand@2
       displayName: 'Restore NuGet Packages for Tests'
       inputs:
-        restoreSolution: '$(solution)'
+        restoreSolution: $(solution)
 
-    # Install NPM packages for Foundation.Components (required for complete build)
     - task: Npm@1
       displayName: 'Install NPM packages for Foundation.Components'
       inputs:
         command: 'install'
         workingDir: 'GCFoundation.Components'
 
-    # Build and test the project (since build artifacts are not shared between jobs)
-
-    # Run unit tests with enhanced coverage (includes settings creation and execution)
     - task: PowerShell@2
       displayName: 'Execute Tests with Coverage Analysis'
       continueOnError: true
@@ -100,6 +113,11 @@ stages:
         targetType: 'inline'
         script: |
           Write-Host "## Test Execution with Coverage Analysis" -ForegroundColor Cyan
+          
+          $testResultsRoot = "$(testResultsDir)"
+          if (-not (Test-Path $testResultsRoot)) {
+            New-Item -ItemType Directory -Path $testResultsRoot -Force | Out-Null
+          }
           
           # Create enhanced coverage settings
           $coverletSettings = @"
@@ -126,7 +144,7 @@ stages:
           "@
           $coverletSettings | Out-File -FilePath "coverlet.runsettings" -Encoding UTF8
           Write-Host "✅ Enhanced coverage settings created" -ForegroundColor Green
-
+          
           # Execute tests with coverage
           Write-Host "🧪 Running unit tests with coverage..." -ForegroundColor Yellow
           $testArgs = @(
@@ -142,7 +160,7 @@ stages:
             "--settings"
             "coverlet.runsettings"
             "--results-directory"
-            "$(Agent.TempDirectory)/TestResults"
+            $testResultsRoot
             "--"
             "DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=cobertura"
           )
@@ -156,17 +174,45 @@ stages:
             Write-Host "⚠️ Tests completed with issues (exit code: $testExitCode)" -ForegroundColor Yellow
           }
 
-    # Publish test results
     - task: PublishTestResults@2
       displayName: 'Publish Test Results'
-      condition: succeededOrFailed()
+      condition: always()
       inputs:
         testResultsFormat: 'VSTest'
-        testResultsFiles: '$(Agent.TempDirectory)/TestResults/**/*.trx'
+        testResultsFiles: '$(testResultsDir)/**/*.trx'
         mergeTestResults: true
         testRunTitle: 'GCFoundation Tests'
 
-    # Process and analyze coverage results
+    - task: PublishPipelineArtifact@1
+      displayName: 'Archive Test Results for Downstream Jobs'
+      condition: always()
+      inputs:
+        targetPath: $(testResultsDir)
+        artifact: 'test-results'
+
+  - job: QualityGates
+    displayName: 'Quality Gates & Security'
+    dependsOn: UnitTests
+    condition: or(eq(dependencies.UnitTests.result, 'Succeeded'), eq(dependencies.UnitTests.result, 'SucceededWithIssues'))
+    steps:
+    - checkout: self
+
+    - task: UseDotNet@2
+      displayName: 'Install .NET SDK'
+      inputs:
+        packageType: 'sdk'
+        version: $(dotnetSdkVersion)
+
+    - task: NuGetToolInstaller@1
+      displayName: 'NuGet Tool Installer'
+
+    - task: DownloadPipelineArtifact@2
+      displayName: 'Download Unit Test Artifacts'
+      inputs:
+        buildType: 'current'
+        artifactName: 'test-results'
+        targetPath: $(testResultsDir)
+
     - task: PowerShell@2
       displayName: 'Analyze Coverage Results for PR'
       condition: succeededOrFailed()
@@ -176,7 +222,7 @@ stages:
           Write-Host "## PR Coverage Analysis" -ForegroundColor Cyan
           Write-Host "======================" -ForegroundColor Cyan
           
-          $testResultsPath = "$(Agent.TempDirectory)/TestResults"
+          $testResultsPath = "$(testResultsDir)"
           $coverageFiles = Get-ChildItem -Path $testResultsPath -Filter "coverage.cobertura.xml" -Recurse -ErrorAction SilentlyContinue
           
           if ($coverageFiles.Count -gt 0) {
@@ -230,17 +276,15 @@ stages:
             Write-Host "⚠️ No coverage files found" -ForegroundColor Yellow
           }
 
-    # Publish enhanced code coverage
     - task: PublishCodeCoverageResults@2
       displayName: 'Publish Enhanced Code Coverage'
       condition: succeeded()
       inputs:
         codeCoverageTool: Cobertura
-        summaryFileLocation: $(Agent.TempDirectory)/TestResults/**/coverage.cobertura.xml
-        reportDirectory: $(Agent.TempDirectory)/TestResults/CodeCoverage
-        additionalCodeCoverageFiles: $(Agent.TempDirectory)/TestResults/**/*.lcov,$(Agent.TempDirectory)/TestResults/**/*.json
+        summaryFileLocation: $(testResultsDir)/**/coverage.cobertura.xml
+        reportDirectory: $(testResultsDir)/CodeCoverage
+        additionalCodeCoverageFiles: $(testResultsDir)/**/*.lcov,$(testResultsDir)/**/*.json
 
-    # SARIF Code Analysis Generation
     - task: PowerShell@2
       displayName: 'Create Analysis Directories'
       inputs:
@@ -251,16 +295,14 @@ stages:
           Write-Host "✅ CodeAnalysisLogs directory created" -ForegroundColor Green
           Write-Host "✅ pr-security-reports directory created" -ForegroundColor Green
 
-    # Generate SARIF analysis using built-in MSBuild ErrorLog feature
     - task: DotNetCoreCLI@2
       displayName: 'Generate SARIF Code Analysis'
       continueOnError: true
       inputs:
         command: 'build'
-        projects: '$(solution)'
+        projects: $(solution)
         arguments: '--configuration $(buildConfiguration) --verbosity normal --no-restore --property WarningsAsErrors="" --property TreatWarningsAsErrors=false --property ErrorLog="$(System.DefaultWorkingDirectory)/CodeAnalysisLogs/build-analysis.sarif,version=2.1"'
 
-    # Verify and enhance SARIF output for Azure DevOps compliance
     - task: PowerShell@2
       displayName: 'Verify SARIF Analysis Output'
       continueOnError: true
@@ -532,7 +574,6 @@ stages:
           Write-Host "   Schema: https://json.schemastore.org/sarif-2.1.0.json" -ForegroundColor Gray
           Write-Host "   Azure DevOps optimized for security scans tab" -ForegroundColor Gray
 
-    # Comprehensive .NET Security Scanning (includes all package checks and summary)
     - task: PowerShell@2
       displayName: 'Complete Security Package Analysis'
       continueOnError: true
@@ -654,7 +695,6 @@ stages:
           Write-Host "🔵 Outdated: $($scanResults.outdated.issues)" -ForegroundColor $(if ($scanResults.outdated.issues -eq 0) { "Green" } else { "Blue" })
           Write-Host "✅ Security summary report generated" -ForegroundColor Green
 
-    # Analyze SARIF results and generate summary
     - task: PowerShell@2
       displayName: 'Analyze SARIF Results'
       condition: always()
@@ -714,7 +754,6 @@ stages:
             Write-Host "⚠️ No SARIF files found in CodeAnalysisLogs directory" -ForegroundColor Yellow
           }
 
-    # Check artifact content and set publishing flags
     - task: PowerShell@2
       displayName: 'Validate Artifacts Content for Publishing'
       inputs:
@@ -760,7 +799,6 @@ stages:
           Write-Host "  📊 SARIF Analysis Logs: $(if ($hasCodeAnalysisLogs) { "WILL PUBLISH" } else { "WILL SKIP" })" -ForegroundColor $(if ($hasCodeAnalysisLogs) { "Green" } else { "Yellow" })
           Write-Host "  🔒 Security Reports: $(if ($hasSecurityReports) { "WILL PUBLISH" } else { "WILL SKIP" })" -ForegroundColor $(if ($hasSecurityReports) { "Green" } else { "Yellow" })
 
-    # Publish SARIF results for Azure DevOps Scans tab
     - task: PublishBuildArtifacts@1
       displayName: 'Publish SARIF Analysis Logs'
       condition: and(always(), eq(variables['HasCodeAnalysisLogs'], 'True'))
@@ -769,7 +807,6 @@ stages:
         artifactName: 'CodeAnalysisLogs'
         artifactType: 'container'
 
-    # Publish all PR security artifacts
     - task: PublishBuildArtifacts@1
       displayName: 'Publish PR Security Reports'
       condition: and(always(), eq(variables['HasSecurityReports'], 'True'))
@@ -780,17 +817,61 @@ stages:
 
     - task: PublishBuildArtifacts@1
       displayName: 'Publish PR Test Results'
-      condition: always()
+      condition: and(always(), exists('$(testResultsDir)'))
       inputs:
-        pathToPublish: '$(Agent.TempDirectory)/TestResults'
+        pathToPublish: '$(testResultsDir)'
         artifactName: 'pr-test-results'
         artifactType: 'container'
 
-    # Playwright E2E: Chrome + Edge against locally started GCFoundation.Web
+    - task: PowerShell@2
+      displayName: 'PR Validation Summary'
+      inputs:
+        targetType: 'inline'
+        script: |
+          Write-Host "## PR Validation Summary" -ForegroundColor Cyan
+          Write-Host "========================" -ForegroundColor Cyan
+          
+          $prNumber = if ($env:SYSTEM_PULLREQUEST_PULLREQUESTNUMBER) { $env:SYSTEM_PULLREQUEST_PULLREQUESTNUMBER } else { "N/A" }
+          $buildStatus = if ($env:BUILD_STATUS) { $env:BUILD_STATUS } else { "Unknown" }
+          $unitStatus = if ($env:UNIT_STATUS) { $env:UNIT_STATUS } else { "Unknown" }
+          $qualityStatus = if ($env:QUALITY_STATUS) { $env:QUALITY_STATUS } else { "Unknown" }
+          
+          Write-Host "🔍 PR #$prNumber validation completed:" -ForegroundColor Green
+          Write-Host "  🛠 Build Stage: $buildStatus" -ForegroundColor Green
+          Write-Host "  🧪 Unit Tests: $unitStatus" -ForegroundColor Green
+          Write-Host "  ✅ Quality Gates: $qualityStatus" -ForegroundColor Green
+          
+          Write-Host "`n🎉 PR VALIDATION COMPLETE" -ForegroundColor Green
+      env:
+        BUILD_STATUS: $(stageDependencies.Build.Build.result)
+        UNIT_STATUS: $(dependencies.UnitTests.result)
+        QUALITY_STATUS: $(Agent.JobStatus)
+
+  - job: E2E
+    displayName: 'Playwright Smoke & Accessibility'
+    dependsOn: UnitTests
+    condition: and(or(eq(variables.isPR, 'True'), eq(variables.isNightly, 'True'), eq(variables.isManual, 'True')), or(eq(dependencies.UnitTests.result, 'Succeeded'), eq(dependencies.UnitTests.result, 'SucceededWithIssues')))
+    steps:
+    - checkout: self
+
+    - task: UseDotNet@2
+      displayName: 'Install .NET SDK'
+      inputs:
+        packageType: 'sdk'
+        version: $(dotnetSdkVersion)
+
+    - task: NuGetToolInstaller@1
+      displayName: 'NuGet Tool Installer'
+
+    - task: NuGetCommand@2
+      displayName: 'Restore NuGet Packages for E2E'
+      inputs:
+        restoreSolution: $(solution)
+
     - task: UseNode@1
       displayName: 'Install Node.js for E2E'
       inputs:
-        version: '22.x'
+        version: $(nodeVersion)
 
     - script: |
         npm ci
@@ -855,7 +936,7 @@ stages:
 
     - task: PublishBuildArtifacts@1
       displayName: 'Publish Playwright Report (smoke)'
-      condition: succeededOrFailed()
+      condition: and(always(), exists('$(Build.SourcesDirectory)/e2e/playwright-report'))
       inputs:
         pathToPublish: 'e2e/playwright-report'
         artifactName: 'playwright-report'
@@ -863,16 +944,15 @@ stages:
 
     - task: PublishBuildArtifacts@1
       displayName: 'Publish Playwright Artifacts (smoke)'
-      condition: succeededOrFailed()
+      condition: and(always(), exists('$(Build.SourcesDirectory)/e2e/test-artifacts'))
       inputs:
         pathToPublish: 'e2e/test-artifacts'
         artifactName: 'playwright-artifacts'
         artifactType: 'container'
 
-    # Publish non-blocking a11y report/artifacts if produced
     - task: PublishBuildArtifacts@1
       displayName: 'Publish Playwright Report (a11y awareness)'
-      condition: always()
+      condition: and(always(), exists('$(Build.SourcesDirectory)/e2e/playwright-report-a11y'))
       inputs:
         pathToPublish: 'e2e/playwright-report-a11y'
         artifactName: 'playwright-report-a11y'
@@ -880,31 +960,8 @@ stages:
 
     - task: PublishBuildArtifacts@1
       displayName: 'Publish Playwright Artifacts (a11y awareness)'
-      condition: always()
+      condition: and(always(), exists('$(Build.SourcesDirectory)/e2e/test-artifacts-a11y'))
       inputs:
         pathToPublish: 'e2e/test-artifacts-a11y'
         artifactName: 'playwright-artifacts-a11y'
         artifactType: 'container'
-
-    # PR validation summary
-    - task: PowerShell@2
-      displayName: 'PR Validation Summary'
-      inputs:
-        targetType: 'inline'
-        script: |
-          Write-Host "## PR Validation Summary" -ForegroundColor Cyan
-          Write-Host "========================" -ForegroundColor Cyan
-          
-          $prNumber = if ($env:SYSTEM_PULLREQUEST_PULLREQUESTNUMBER) { $env:SYSTEM_PULLREQUEST_PULLREQUESTNUMBER } else { "N/A" }
-          
-          Write-Host "🔍 PR #$prNumber validation completed:" -ForegroundColor Green
-          Write-Host "  ✅ Build: PASSED" -ForegroundColor Green  
-          Write-Host "  ✅ Tests: PASSED" -ForegroundColor Green
-          Write-Host "  ✅ Code Coverage: CHECKED" -ForegroundColor Green
-          Write-Host "  ✅ SARIF Analysis: COMPLETED" -ForegroundColor Green
-          Write-Host "  ✅ Security (.NET Built-in): COMPLETED" -ForegroundColor Green
-          Write-Host "  ✅ Dependencies: CHECKED" -ForegroundColor Green
-          
-          Write-Host "`n🎉 PR VALIDATION: READY FOR REVIEW!" -ForegroundColor Green
-
-# End of validation pipeline
