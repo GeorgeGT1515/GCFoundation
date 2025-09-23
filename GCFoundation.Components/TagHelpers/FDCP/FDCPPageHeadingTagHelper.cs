@@ -91,18 +91,18 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             content.AppendLine(CultureInfo.InvariantCulture, $"<div class='md:fdcp-py-1250 fdcp-py-900 fdcp-page-heading-bg'>");
             content.AppendLine(CultureInfo.InvariantCulture, $"<div class='container-xl mx-auto'>");
 
-            var textContainerClass = "text-container";
+            var textContainerClass = "sm:fdcp-py-750 fdcp-py-450 xl:fdcp-ps-0 sm:fdcp-ps-600 fdcp-ps-450 sm:fdcp-pe-750 fdcp-pe-300 text-container";
             if (TextEmphasis)
                 textContainerClass += " fdcp-bg-primary fdcp-text-light";
-            content.AppendLine(CultureInfo.InvariantCulture, $"<article class='sm:fdcp-py-750 fdcp-py-450 xl:fdcp-ps-0 sm:fdcp-ps-600 fdcp-ps-450 sm:fdcp-pe-750 fdcp-pe-300 {textContainerClass}'>");
+            content.AppendLine(CultureInfo.InvariantCulture, $"<article class='{textContainerClass}'>");
             content.AppendLine(CultureInfo.InvariantCulture, $"<gcds-heading tag='h1'>{Title}</gcds-heading>");
 
             if (!string.IsNullOrWhiteSpace(Description))
             {
-                var descriptionClass = string.Empty;
+                var descriptionTextRole = string.Empty;
                 if (TextEmphasis)
-                    descriptionClass = " text-role='light'";
-                content.AppendLine(CultureInfo.InvariantCulture, $"<gcds-text{descriptionClass}>{Description}</gcds-text>");
+                    descriptionTextRole = " text-role='light'";
+                content.AppendLine(CultureInfo.InvariantCulture, $"<gcds-text{descriptionTextRole}>{Description}</gcds-text>");
             }
 
             content.AppendLine("</article>");

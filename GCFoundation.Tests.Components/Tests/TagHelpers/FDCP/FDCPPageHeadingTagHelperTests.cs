@@ -86,7 +86,7 @@ public class FDCPPageHeadingTagHelperTests
         tagHelper.Process(context, output);
 
         // Assert
-        Assert.Equal("fdcp-page-heading-container fdcp-page-heading--has-bg", output.Attributes["class"].Value);
+        Assert.Equal("fdcp-page-heading-container fdcp-page-heading-has-bg", output.Attributes["class"].Value);
         Assert.Equal("background-image.jpg", output.Attributes["data-bg-src"].Value);
     }
 
@@ -167,7 +167,7 @@ public class FDCPPageHeadingTagHelperTests
         // Assert
         Assert.Equal("fdcp-page-heading-container fdcp-page-heading-large", output.Attributes["class"].Value);
         Assert.Contains("<gcds-heading tag='h1'>Test Title</gcds-heading>", output.Content.GetContent());
-        Assert.Contains("<div class='text-container text-container-well'>", output.Content.GetContent());
-        Assert.Contains("<gcds-text>Test Description</gcds-text>", output.Content.GetContent());
+        Assert.Contains("<article class='sm:fdcp-py-750 fdcp-py-450 xl:fdcp-ps-0 sm:fdcp-ps-600 fdcp-ps-450 sm:fdcp-pe-750 fdcp-pe-300 text-container fdcp-bg-primary fdcp-text-light'>", output.Content.GetContent());
+        Assert.Contains("<gcds-text text-role='light'>Test Description</gcds-text>", output.Content.GetContent());
     }
 }
