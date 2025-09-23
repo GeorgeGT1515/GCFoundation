@@ -124,6 +124,11 @@ namespace GCFoundation.Web.Infrastructure.Extensions
 
                 setup.UseCulture("fr")
                 .WhereController(nameof(InstallationController))
+                .WhereAction(nameof(InstallationController.Metadata))
+                .TranslateAction("metadonnees");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(InstallationController))
                 .WhereAction(nameof(InstallationController.Translations))
                 .TranslateAction("traductions");
 

@@ -39,7 +39,7 @@ namespace GCFoundation.Security.Middlewares
                                $"object-src 'none'; " +
                                $"style-src 'self' {cssCDN} {cssHash} 'nonce-{nonce}'; " +
                                $"font-src 'self' {fontCDN}; " +
-                               $"connect-src 'self' {connectCDN} http://localhost:* https://localhost:* ws://localhost:* wss://localhost:*; " +
+                               $"connect-src 'self' {connectCDN} http://localhost:* https://localhost:* ws://localhost:* wss://localhost:* https://cdn.design-system.alpha.canada.ca; " +
                                $"img-src 'self' data:; " +
                                $"frame-ancestors 'none'; " +
                                $"upgrade-insecure-requests;";

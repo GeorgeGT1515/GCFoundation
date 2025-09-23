@@ -1,0 +1,59 @@
+﻿@using GCFoundation.Components.Enums
+@using GCFoundation.Components.Models
+@{
+    // Define the table columns in C#
+    var columns = new List<TabulatorColumn>
+    {
+        new() { Title = "Id", Field = "id", HeaderSort = true, Resizable = TabulatorResizableOption.Header, Filter = true },
+        new() { Title = "Name", Field = "name", HeaderSort = true, Filter = true },
+        new() { Title = "Email", Field = "email", HozAlign = "center", Filter  = true, }
+    };
+}
+
+<fdcp-tabulator-table id="usersTable"
+                      columns="@columns"
+                      ajax-url="@Url.Action("GetData", "TabulatorTest")" />
+
+<pre><code class="language-cshtml">var columns = new List&lt;TabulatorColumn&gt;
+{
+    new() { Title = "Id", Field = "id", HeaderSort = true, Resizable = TabulatorResizableOption.Header, Filter = true },
+    new() { Title = "Name", Field = "name", HeaderSort = true, Filter = true },
+    new() { Title = "Email", Field = "email", HozAlign = "center", Filter  = true, }
+};
+
+&lt;fdcp-tabulator-table id="usersTable"
+                      columns="@@columns"
+                      ajax-url="@@Url.Action("GetData", "TabulatorTest")" /&gt;</code></pre>
+
+<div class="gcfoundation-table-responsive">
+    <table class="tabulator">
+        <caption>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tellus erat, bibendum sed tempor quis, porttitor eget arcu. Praesent et pellentesque nulla. Donec vestibulum est quis orci pharetra tristique. Nullam nec nisi sapien.</caption>
+        <thead>
+            <tr>
+                <th class="tabulator-header" scope="col">Id</th>
+                <th class="tabulator-header" scope="col">Name</th>
+                <th class="tabulator-header" scope="col">Email</th>
+                <th class="tabulator-header" scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                List<TestUser> users = [.. Enumerable.Range(1, 15).Select(i => new TestUser
+                    {
+                        Id = i,
+                        Name = $"User {i}",
+                        Email = $"user{i}@example.com"
+                    })]; 
+            }
+            @foreach (var user in users)
+            {
+                <tr>
+                    <th scope="row">@user.Id</th>
+                    <td>@user.Name</td>
+                    <td>@user.Email</td>
+                    <td>Sed vestibulum dui ac magna pretium, tempus accumsan risus rhoncus. Curabitur fringilla posuere mauris, ac aliquam odio sollicitudin a.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

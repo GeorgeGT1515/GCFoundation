@@ -1,7 +1,11 @@
-﻿using GCFoundation.Components.Enums;
+﻿using GCFoundation.Common.Models;
+using GCFoundation.Components.Enums;
 using GCFoundation.Components.Models;
+using GCFoundation.Components.Resources;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
+using System.Globalization;
 
 namespace GCFoundation.Components.Controllers
 {
@@ -11,8 +15,13 @@ namespace GCFoundation.Components.Controllers
     /// </summary>
     public abstract class GCFoundationBaseController : Controller
     {
-
         private readonly ILogger<GCFoundationBaseController> _logger;
+
+        /// <summary>
+        /// Collection of custom meta tags to be rendered in the shared layout.
+        /// Derived controllers can add to this list to inject per-page meta tags.
+        /// </summary>
+        protected IList<MetaTag> MetaTags { get; } = new List<MetaTag>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GCFoundationBaseController"/> class.
@@ -23,12 +32,31 @@ namespace GCFoundation.Components.Controllers
         }
 
         /// <summary>
-        /// Sets the name of the partial view to be used for the page menu.
+        /// Adds a strongly-typed meta tag entry to the collection.
         /// </summary>
-        /// <param name="viewMenu">The name of the partial view for the menu.</param>
-        protected void SetViewMenu(string viewMenu)
+        /// <param name="tag">The meta tag to inject.</param>
+        /// <remarks>If a meta tag with the same name (or property) already exists, overwrite it.</remarks>
+        protected void AddMetaTag(MetaTag tag)
         {
-            ViewData["MenuPartialViewName"] = viewMenu;
+            if (tag != null)
+            {
+                if (!string.IsNullOrEmpty(tag.Name) && MetaTags.Any(t => t.Name == tag.Name))
+                    MetaTags.Remove(MetaTags.First(t => t.Name == tag.Name));
+                if (!string.IsNullOrEmpty(tag.Property) && MetaTags.Any(t => t.Property == tag.Property))
+                    MetaTags.Remove(MetaTags.First(t => t.Property == tag.Property));
+                MetaTags.Add(tag);
+            }
+        }
+
+        /// <summary>
+        /// Sets the date modified of the current page.
+        /// </summary>
+        /// <param name="dateModified">The date the content of the page was last modified.</param>
+        /// <remarks>This value drives the </remarks>
+        protected void SetDateModified(DateTime dateModified)
+        {
+            if (dateModified != DateTime.MinValue)
+                ViewData["DateModified"] = dateModified.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
         }
 
         /// <summary>
@@ -62,6 +90,26 @@ namespace GCFoundation.Components.Controllers
         protected void SetPageTitle(string title)
         {
             ViewData["Title"] = title;
+        }
+
+        /// <summary>
+        /// Sets the name of the partial view to be used for the page menu.
+        /// </summary>
+        /// <param name="viewMenu">The name of the partial view for the menu.</param>
+        protected void SetViewMenu(string viewMenu)
+        {
+            ViewData["MenuPartialViewName"] = viewMenu;
+        }
+
+        /// <summary>
+        /// After the action executes, expose any collected custom meta tags to the view via ViewData.
+        /// The shared layout will read these and render them after the global meta tags.
+        /// </summary>
+        /// <param name="context">The action executed context.</param>
+        public override void OnActionExecuted(ActionExecutedContext context)
+        {
+            ViewData["MetaTags"] = MetaTags;
+            base.OnActionExecuted(context);
         }
     }
 }

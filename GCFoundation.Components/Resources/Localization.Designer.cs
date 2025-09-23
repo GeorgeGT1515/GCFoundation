@@ -376,11 +376,47 @@ namespace GCFoundation.Components.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Validation.
+        /// </summary>
+        public static string Validation {
+            get {
+                return ResourceManager.GetString("Validation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string Validation_Error {
+            get {
+                return ResourceManager.GetString("Validation_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please enter an integer..
         /// </summary>
         public static string Validation_Integer {
             get {
                 return ResourceManager.GetString("Validation_Integer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success.
+        /// </summary>
+        public static string Validation_Success {
+            get {
+                return ResourceManager.GetString("Validation_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning.
+        /// </summary>
+        public static string Validation_Warning {
+            get {
+                return ResourceManager.GetString("Validation_Warning", resourceCulture);
             }
         }
         

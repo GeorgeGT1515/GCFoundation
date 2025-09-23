@@ -23,12 +23,12 @@
         /// <summary>
         /// Gets or sets the HTTP method used to submit the form (e.g., "post" or "get").
         /// </summary>
-        public required string Methode { get; set; } = "post";
+        public required string Method { get; set; } = "post";
 
         /// <summary>
         /// Gets or sets the text displayed on the form's submit button.
         /// </summary>
-        public required string SubmithButtonText { get; set; } = "Submit";
+        public required string SubmitButtonText { get; set; } = "Submit";
 
         /// <summary>
         /// Gets or sets the collection of sections that make up the form.

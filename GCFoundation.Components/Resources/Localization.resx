@@ -231,4 +231,16 @@
   <data name="NotAvailable_Abbreviation" xml:space="preserve">
     <value>N/A</value>
   </data>
+  <data name="Validation" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="Validation_Success" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="Validation_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Validation_Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
 </root>

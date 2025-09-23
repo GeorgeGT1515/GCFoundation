@@ -4,24 +4,31 @@
 @* Properties *@
 @if (Model.Properties != null && Model.Properties.Any())
 {
+    var displayDefaultColumn = Model.Properties.Where(p => !string.IsNullOrEmpty(p.DefaultValue)).Any();
+
     <gcds-heading tag="h2" id="@Components.Properties_Anchor">@Components.Properties</gcds-heading>
-    <div class="table-responsive" tabindex="0" aria-label="Component properties table">
-    <table class="table" tabindex="0">
+    <table class="gcfoundation-table gcfoundation-table-striped gcfoundation-table-hover gcfoundation-table-sm">
         <thead>
             <tr>
-                <th>@Components.Properties_Property</th>
-                <th>@Components.Properties_DataType</th>
-                <th>@Components.Properties_DefaultValue</th>
-                <th>@Components.Properties_Description</th>
+                <th scope="col">@Components.Properties_Property</th>
+                <th scope="col">@Components.Properties_DataType</th>
+                @if (displayDefaultColumn)
+                {
+                    <th scope="col">@Components.Properties_DefaultValue</th>
+                }
+                <th scope="col">@Components.Properties_Description</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var property in Model.Properties.OrderBy(p => p.Name))
             {
                 <tr>
-                    <td><code>@property.Name</code></td>
+                    <th scope="row"><code>@property.Name</code></th>
                     <td><code>@property.DataType</code></td>
-                    <td>@(!string.IsNullOrEmpty(property.DefaultValue) ? property.DefaultValue : Html.Raw($"-<span class=\"sr-only\">{Components.Properties_DefaultValue_NoDefaultValue}</span>"))</td>
+                    @if (displayDefaultColumn)
+                    {
+                        <td>@(!string.IsNullOrEmpty(property.DefaultValue) ? property.DefaultValue : Html.Raw($"-<span class=\"sr-only\">{Components.Properties_DefaultValue_NoDefaultValue}</span>"))</td>
+                    }
                     <td>@property.Description</td>
                 </tr>
             }

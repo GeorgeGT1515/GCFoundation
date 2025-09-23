@@ -826,6 +826,60 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Form Builder.
+        /// </summary>
+        public static string FormBuilder_Name {
+            get {
+                return ResourceManager.GetString("FormBuilder_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gets or sets the form definition used to generate the form UI..
+        /// </summary>
+        public static string FormBuilder_Properties_Form {
+            get {
+                return ResourceManager.GetString("FormBuilder_Properties_Form", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to sample-form.
+        /// </summary>
+        public static string FormBuilder_SampleForm_Anchor {
+            get {
+                return ResourceManager.GetString("FormBuilder_SampleForm_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This example demonstrates a dynamic form with dependencies using the GC Design System components..
+        /// </summary>
+        public static string FormBuilder_SampleForm_Description {
+            get {
+                return ResourceManager.GetString("FormBuilder_SampleForm_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Form submitted successfully!.
+        /// </summary>
+        public static string FormBuilder_SampleForm_SubmittedSuccessfully {
+            get {
+                return ResourceManager.GetString("FormBuilder_SampleForm_SubmittedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sample form.
+        /// </summary>
+        public static string FormBuilder_SampleForm_Title {
+            get {
+                return ResourceManager.GetString("FormBuilder_SampleForm_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to GC Design System Components.
         /// </summary>
         public static string GcdsHeading {
@@ -946,7 +1000,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Form builder.
+        ///   Looks up a localized string similar to Form Builder.
         /// </summary>
         public static string Index_FormBuilder_Title {
             get {
@@ -1986,6 +2040,96 @@ namespace GCFoundation.Web.Resources {
         public static string Stepper_WithLinks_Title {
             get {
                 return ResourceManager.GetString("Stepper_WithLinks_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to basic.
+        /// </summary>
+        public static string Table_Basic_Anchor {
+            get {
+                return ResourceManager.GetString("Table_Basic_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A basic sample table:.
+        /// </summary>
+        public static string Table_Basic_Text {
+            get {
+                return ResourceManager.GetString("Table_Basic_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic Usage.
+        /// </summary>
+        public static string Table_Basic_Title {
+            get {
+                return ResourceManager.GetString("Table_Basic_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Table (Tabulator).
+        /// </summary>
+        public static string Table_Name {
+            get {
+                return ResourceManager.GetString("Table_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The URL of the API endpoint that returns paginated JSON data..
+        /// </summary>
+        public static string Table_Properties_AjaxUrl {
+            get {
+                return ResourceManager.GetString("Table_Properties_AjaxUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A list of columns to display in the Tabulator table..
+        /// </summary>
+        public static string Table_Properties_Columns {
+            get {
+                return ResourceManager.GetString("Table_Properties_Columns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Local data (optional). If provided, used instead of AJAX..
+        /// </summary>
+        public static string Table_Properties_Data {
+            get {
+                return ResourceManager.GetString("Table_Properties_Data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The HTML element ID to assign to the Tabulator container (must be unique)..
+        /// </summary>
+        public static string Table_Properties_Id {
+            get {
+                return ResourceManager.GetString("Table_Properties_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The number of records per page for pagination..
+        /// </summary>
+        public static string Table_Properties_PaginationSize {
+            get {
+                return ResourceManager.GetString("Table_Properties_PaginationSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flag indicating whether to use static data or AJAX..
+        /// </summary>
+        public static string Table_Properties_UseStaticData {
+            get {
+                return ResourceManager.GetString("Table_Properties_UseStaticData", resourceCulture);
             }
         }
         

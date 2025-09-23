@@ -23,12 +23,11 @@
 
 			</Children>
 		</NavNode>
-    <NavNode key="installation" controller="Installation" action="Index" area="" preservedRouteParameters="culture" text="Nav_Installation" >
-      <Children>
-				<NavNode key="global-resources" controller="Installation" action="GlobalResources" area="" preservedRouteParameters="culture" text="Nav_Installation_GlobalResources" />
-        <NavNode key="translations" controller="Installation" action="Translations" area="" preservedRouteParameters="culture" text="Nav_Installation_Translations" />
-			</Children>
-		</NavNode>
+    <NavNode key="installation" controller="Installation" action="Index" area="" preservedRouteParameters="culture" text="Nav_Installation" />
+    <NavNode key="date-modified" controller="Installation" action="DateModified" area="" preservedRouteParameters="culture" text="Nav_Installation_DateModified" />
+		<NavNode key="global-resources" controller="Installation" action="GlobalResources" area="" preservedRouteParameters="culture" text="Nav_Installation_GlobalResources" />
+		<NavNode key="metadata" controller="Installation" action="Metadata" area="" preservedRouteParameters="culture" text="Nav_Installation_Metadata" />
+		<NavNode key="translations" controller="Installation" action="Translations" area="" preservedRouteParameters="culture" text="Nav_Installation_Translations" />
 		<NavNode key="styles" controller="Styles" action="Index" area="" preservedRouteParameters="culture" text="Nav_Styles" />
     <NavNode key="template" controller="Template" action="Index" area="" preservedRouteParameters="culture" text="Nav_Template" />
 		<NavNode key="language" controller="Language" action="Index" area="" preservedRouteParameters="culture" text="Nav_Language" />
