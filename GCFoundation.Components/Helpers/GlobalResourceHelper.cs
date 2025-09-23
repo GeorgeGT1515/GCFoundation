@@ -78,7 +78,9 @@ namespace GCFoundation.Components.Helpers
             var tags = new List<string>();
             foreach (var tag in _settings.GlobalMetaTags)
             {
-                tags.Add(tag.Render());
+                var render = tag.Render();
+                if (render != null)
+                    tags.Add(render);
             }
             return string.Join("\n    ", tags);
         }
