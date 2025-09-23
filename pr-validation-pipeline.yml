@@ -811,7 +811,7 @@ stages:
 
     - task: PublishBuildArtifacts@1
       displayName: 'Publish PR Test Results'
-      condition: and(always(), exists('$(testResultsDir)'))
+      condition: always()
       inputs:
         pathToPublish: '$(testResultsDir)'
         artifactName: 'pr-test-results'
@@ -930,7 +930,7 @@ stages:
 
     - task: PublishBuildArtifacts@1
       displayName: 'Publish Playwright Report (smoke)'
-      condition: and(always(), exists('$(Build.SourcesDirectory)/e2e/playwright-report'))
+      condition: always()
       inputs:
         pathToPublish: 'e2e/playwright-report'
         artifactName: 'playwright-report'
@@ -938,7 +938,7 @@ stages:
 
     - task: PublishBuildArtifacts@1
       displayName: 'Publish Playwright Artifacts (smoke)'
-      condition: and(always(), exists('$(Build.SourcesDirectory)/e2e/test-artifacts'))
+      condition: always()
       inputs:
         pathToPublish: 'e2e/test-artifacts'
         artifactName: 'playwright-artifacts'
@@ -946,7 +946,7 @@ stages:
 
     - task: PublishBuildArtifacts@1
       displayName: 'Publish Playwright Report (a11y awareness)'
-      condition: and(always(), exists('$(Build.SourcesDirectory)/e2e/playwright-report-a11y'))
+      condition: always()
       inputs:
         pathToPublish: 'e2e/playwright-report-a11y'
         artifactName: 'playwright-report-a11y'
@@ -954,7 +954,7 @@ stages:
 
     - task: PublishBuildArtifacts@1
       displayName: 'Publish Playwright Artifacts (a11y awareness)'
-      condition: and(always(), exists('$(Build.SourcesDirectory)/e2e/test-artifacts-a11y'))
+      condition: always()
       inputs:
         pathToPublish: 'e2e/test-artifacts-a11y'
         artifactName: 'playwright-artifacts-a11y'
