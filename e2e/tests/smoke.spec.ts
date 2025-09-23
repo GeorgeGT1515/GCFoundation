@@ -24,11 +24,15 @@ test.describe('Smoke', () => {
     // Allow page events to flush
     await page.waitForTimeout(50);
 
-    // Filter out known benign CSP/connect warnings to external CDN used by the design system
+    // Filter out known benign CDN/CORS warnings for the GC Design System CDN in CI
     const filtered = consoleErrors.filter(msg => {
       const lower = msg.toLowerCase();
-      if (lower.includes('content security policy') && lower.includes('cdn.design-system.alpha.canada.ca')) return false;
-      if (lower.includes("refused to connect") && lower.includes('cdn.design-system.alpha.canada.ca')) return false;
+      const isGcdsCdn = lower.includes('cdn.design-system.alpha.canada.ca');
+      if (isGcdsCdn && lower.includes('content security policy')) return false;
+      if (isGcdsCdn && lower.includes('refused to connect')) return false;
+      if (isGcdsCdn && (lower.includes('cors policy') || lower.includes("access-control-allow-origin"))) return false;
+      // Some browsers emit a generic net::ERR_FAILED without the URL; ignore if a related CDN error exists
+      if (lower.includes('net::err_failed') && consoleErrors.some(m => m.toLowerCase().includes('cdn.design-system.alpha.canada.ca'))) return false;
       return true;
     });
     expect(filtered, 'No unexpected console errors on initial load').toHaveLength(0);

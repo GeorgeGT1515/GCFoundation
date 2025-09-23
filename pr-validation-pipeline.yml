@@ -809,6 +809,10 @@ stages:
           $baseUrl = 'http://localhost:5215'
 
           Write-Host "Starting Web App at $baseUrl ..."
+          # Disable external CDN assets (GCDS, Font Awesome) during E2E to avoid CORS noise
+          $env:FoundationComponentsSettings__IncludeGCDSResources = 'false'
+          $env:FoundationComponentsSettings__IncludeFontAwesome = 'false'
+
           $p = Start-Process -FilePath "dotnet" -ArgumentList @("run","--project","`"$proj`"","--urls",$baseUrl) -NoNewWindow -PassThru
 
           try {
