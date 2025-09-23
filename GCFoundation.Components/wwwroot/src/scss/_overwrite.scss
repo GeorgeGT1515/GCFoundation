@@ -29,10 +29,17 @@
         }
     }
 
+    /* Prefer scroll on wrapper, not on table, to keep table semantics focusable */
+    .gcfoundation-table-responsive {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Let tables render normally; wrapper handles scrolling */
     table {
         width: 100%;
         max-width: 100%;
-        overflow-x: auto;
-        display: block;
     }
 }

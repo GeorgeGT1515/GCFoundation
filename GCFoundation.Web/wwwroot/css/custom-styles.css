@@ -50,6 +50,13 @@
     -webkit-overflow-scrolling: touch;
 }
 
+/* Override doc styles: ensure tables themselves are not scrollable; the wrapper is */
+.documentation-content table.gcfoundation-table {
+    display: table;
+    overflow: visible;
+    width: 100%;
+}
+
 .table-responsive:focus,
 table[tabindex]:focus {
     outline: 3px solid var(--gcds-focus-border, #0535d2);

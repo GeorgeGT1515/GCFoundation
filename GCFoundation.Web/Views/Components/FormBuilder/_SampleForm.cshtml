@@ -11,7 +11,7 @@
     @Html.Raw(sampleForm.Description)
 }
 
-@if (Model.SampleFormBuilder.Form == null)
+@if (Model.SampleFormBuilder == null || Model.SampleFormBuilder.Form == null)
 {
     <p class="error-text">Model.SampleFormBuilder is NULL!</p>
 }
