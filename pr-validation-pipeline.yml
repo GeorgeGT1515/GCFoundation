@@ -21,12 +21,6 @@ variables:
     value: '22.x'
   - name: testResultsDir
     value: '$(Agent.TempDirectory)/TestResults'
-  - name: isNightly
-    value: $[equals(variables['Build.Reason'], 'Schedule')]
-  - name: isPR
-    value: $[equals(variables['Build.Reason'], 'PullRequest')]
-  - name: isManual
-    value: $[equals(variables['Build.Reason'], 'Manual')]
 
 name: PR-$(System.PullRequest.PullRequestNumber)-$(Date:yyyyMMdd)-$(Rev:.r)
 
@@ -850,7 +844,7 @@ stages:
   - job: E2E
     displayName: 'Playwright Smoke & Accessibility'
     dependsOn: UnitTests
-    condition: and(or(eq(variables.isPR, 'True'), eq(variables.isNightly, 'True'), eq(variables.isManual, 'True')), or(eq(dependencies.UnitTests.result, 'Succeeded'), eq(dependencies.UnitTests.result, 'SucceededWithIssues')))
+    condition: and(or(eq(variables['Build.Reason'], 'PullRequest'), eq(variables['Build.Reason'], 'Schedule'), eq(variables['Build.Reason'], 'Manual')), or(eq(dependencies.UnitTests.result, 'Succeeded'), eq(dependencies.UnitTests.result, 'SucceededWithIssues')))
     steps:
     - checkout: self
 
