@@ -10,7 +10,7 @@
     };
 }
 
-<fdcp-tabulator-table id="usersTable"
+<fdcp-table-tabulator id="usersTable"
                       columns="@columns"
                       ajax-url="@Url.Action("GetData", "TabulatorTest")" />
 
@@ -21,19 +21,19 @@
     new() { Title = "Email", Field = "email", HozAlign = "center", Filter  = true, }
 };
 
-&lt;fdcp-tabulator-table id="usersTable"
+&lt;fdcp-table-tabulator id="usersTable"
                       columns="@@columns"
                       ajax-url="@@Url.Action("GetData", "TabulatorTest")" /&gt;</code></pre>
 
 <div class="fdcp-table-responsive">
-    <table class="tabulator">
+    <table class="fdcp-table fdcp-table-striped" id="simple-datatable">
         <caption>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tellus erat, bibendum sed tempor quis, porttitor eget arcu. Praesent et pellentesque nulla. Donec vestibulum est quis orci pharetra tristique. Nullam nec nisi sapien.</caption>
         <thead>
             <tr>
-                <th class="tabulator-header" scope="col">Id</th>
-                <th class="tabulator-header" scope="col">Name</th>
-                <th class="tabulator-header" scope="col">Email</th>
-                <th class="tabulator-header" scope="col">Description</th>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Description</th>
             </tr>
         </thead>
         <tbody>
