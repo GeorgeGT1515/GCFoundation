@@ -505,7 +505,7 @@
     <value>A way to display information in a popup box (modal)</value>
   </data>
   <data name="Index_FilteredSearch_Title" xml:space="preserve">
-    <value>Filtered search</value>
+    <value>Filtered Search</value>
   </data>
   <data name="Index_FilteredSearch_Description" xml:space="preserve">
     <value>A way to display search with filtered result</value>
@@ -523,7 +523,7 @@
     <value>Flexible content containers with headers, footers, and images</value>
   </data>
   <data name="Index_PageHeading_Title" xml:space="preserve">
-    <value>Page heading</value>
+    <value>Page Heading</value>
   </data>
   <data name="Index_PageHeading_Description" xml:space="preserve">
     <value>A way to add main heading at the top of the page</value>
