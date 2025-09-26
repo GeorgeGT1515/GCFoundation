@@ -1,19 +1,17 @@
 ﻿using GCFoundation.Components.Models;
-using Microsoft.AspNetCore.Razor.TagHelpers;
-using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.IO;
 
 namespace GCFoundation.Components.TagHelpers.FDCP
 {
     /// <summary>
     /// Renders a Tabulator table with support for dynamic data from either a static data source or an AJAX endpoint.
     /// </summary>
-    [HtmlTargetElement("fdcp-tabulator-table")]
-    public class FDCPTabulatorTableTagHelper : TagHelper
+    [HtmlTargetElement("fdcp-table-tabulator")]
+    public class FDCPTableTabulatorTagHelper : TagHelper
     {
         /// <summary>
         /// ViewContext for accessing the current view context.
@@ -22,21 +20,15 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public ViewContext ViewContext { get; set; } = null!;
 
         /// <summary>
-        /// The HTML element ID to assign to the Tabulator container (must be unique).
+        /// The HTML element Id to assign to the Tabulator container (must be unique).
         /// </summary>
         public string Id { get; set; } = "";
 
         /// <summary>
         /// The URL of the AJAX endpoint that returns paginated JSON data.
         /// </summary>
-#pragma warning disable CA1056 // URI-like properties should not be strings
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1056:URI-like properties should not be strings", Justification = "<Pending>")]
         public string? AjaxUrl { get; set; }
-#pragma warning restore CA1056 // URI-like properties should not be strings
-
-        /// <summary>
-        /// Local data (optional). If provided, used instead of AJAX.
-        /// </summary>
-        public IEnumerable<object>? Data { get; set; }
 
         /// <summary>
         /// A list of columns to display in the Tabulator table.
@@ -44,14 +36,19 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public IEnumerable<TabulatorColumn> Columns { get; set; } = Enumerable.Empty<TabulatorColumn>();
 
         /// <summary>
-        /// Flag indicating whether to use static data or AJAX. Defaults to false (use AJAX).
+        /// Local data (optional). If provided, used instead of AJAX.
         /// </summary>
-        public bool UseStaticData { get; set; }
+        public IEnumerable<object>? Data { get; set; }
 
         /// <summary>
         /// The number of records per page for pagination. Defaults to 10.
         /// </summary>
-        public int PaginationSize { get; set; } = 10;
+        public int PageSize { get; set; } = 10;
+
+        /// <summary>
+        /// Flag indicating whether to use static data or AJAX. Defaults to false (use AJAX).
+        /// </summary>
+        public bool UseStaticData { get; set; }
 
         /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)
@@ -119,10 +116,10 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             var filterableFieldsJson = JsonSerializer.Serialize(filterableFields, jsonOptions);
 
             var tableDiv = $@"
-            <div id='{Id}-tabulator' class='tabulator-table'
+            <div id='{Id}-tabulator' class='tabulator-table fdcp-table'
                  data-layout='fitColumns'
                  data-pagination='local'
-                 data-pagination-size='{PaginationSize}'
+                 data-pagination-size='{PageSize}'
                  data-columns='{JsonSerializer.Serialize(Columns, jsonOptions)}'
                  data-filterable-fields='{filterableFieldsJson}'
                  data-antiforgery-token='{antiForgeryToken}'";

@@ -8,16 +8,16 @@
 @{
     var components = new List<CardTagHelper>()
     {
-        new CardTagHelper() { CardTitle = Components.Index_Badge_Title, Description = Components.Index_Badge_Description, Href = @Url.Action("Badge", "Components"), ImgSrc = Url.Content("~/images/preview-badge.svg"), ImgAlt = "Graphical representation of a GCFoundation Badge component." },
-        new CardTagHelper() { CardTitle = Components.Index_Card_Title, Description = Components.Index_Card_Description, Href = @Url.Action("Card", "Components"), ImgSrc = Url.Content("~/images/preview-card.svg"), ImgAlt = "Graphical representation of a GCFoundation Card component." },
-        new CardTagHelper() { CardTitle = Components.Index_FilteredSearch_Title, Description = Components.Index_FilteredSearch_Description, Href = @Url.Action("FilteredSearch", "Components"), ImgSrc = Url.Content("~/images/preview-filtered-search.svg"), ImgAlt = "Graphical representation of a GCFoundation Filtered search component." },
-        new CardTagHelper() { CardTitle = Components.Index_FormBuilder_Title, Description = Components.Index_FormBuilder_Description, Href = @Url.Action("FormBuilder", "Components") },
-        new CardTagHelper() { CardTitle = Components.Index_Form_Title, Description = Components.Index_Form_Description, Href = @Url.Action("Form", "Components") },
-        new CardTagHelper() { CardTitle = Components.Index_Modal_Title, Description = Components.Index_Modal_Description, Href = @Url.Action("Modal", "Components") },
-        new CardTagHelper() { CardTitle = Components.Index_PageHeading_Title, Description = Components.Index_PageHeading_Description, Href = @Url.Action("PageHeading", "Components") },
-        new CardTagHelper() { CardTitle = Components.Index_Stepper_Title, Description = Components.Index_Stepper_Description, Href = @Url.Action("Stepper", "Components") },
-        new CardTagHelper() { CardTitle = Components.Index_Table_Title, Description = Components.Index_Table_Description, Href = @Url.Action("Table", "Components") },
-        new CardTagHelper() { CardTitle = Components.Index_UserLoginPartial_Title, Description = Components.Index_UserLoginPartial_Description, Href = @Url.Action("UserLogin", "Components") }
+        new CardTagHelper() { CardTitle = Components.Index_Badge_Title, Description = Components.Index_Badge_Description, Href = @Url.Action("Badge", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-badge.svg"), ImgAlt = "Graphical representation of a GCFoundation Badge component." },
+        new CardTagHelper() { CardTitle = Components.Index_Card_Title, Description = Components.Index_Card_Description, Href = @Url.Action("Card", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-card.svg"), ImgAlt = "Graphical representation of a GCFoundation Card component." },
+        new CardTagHelper() { CardTitle = Components.Index_FilteredSearch_Title, Description = Components.Index_FilteredSearch_Description, Href = @Url.Action("FilteredSearch", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-filtered-search.svg"), ImgAlt = "Graphical representation of a GCFoundation Filtered search component." },
+        new CardTagHelper() { CardTitle = Components.Index_FormBuilder_Title, Description = Components.Index_FormBuilder_Description, Href = @Url.Action("FormBuilder", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-form-builder.svg"), ImgAlt = "Graphical representation of a GCFoundation Form Builder component." },
+        new CardTagHelper() { CardTitle = Components.Index_Form_Title, Description = Components.Index_Form_Description, Href = @Url.Action("Form", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-form.svg"), ImgAlt = "Graphical representation of a GCFoundation Form component." },
+        new CardTagHelper() { CardTitle = Components.Index_Modal_Title, Description = Components.Index_Modal_Description, Href = @Url.Action("Modal", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-modal.svg"), ImgAlt = "Graphical representation of a GCFoundation Modal component."  },
+        new CardTagHelper() { CardTitle = Components.Index_PageHeading_Title, Description = Components.Index_PageHeading_Description, Href = @Url.Action("PageHeading", "Components") ?? string.Empty },
+        new CardTagHelper() { CardTitle = Components.Index_Stepper_Title, Description = Components.Index_Stepper_Description, Href = @Url.Action("Stepper", "Components") ?? string.Empty },
+        new CardTagHelper() { CardTitle = Components.Index_Table_Title, Description = Components.Index_Table_Description, Href = @Url.Action("Table", "Components") ?? string.Empty },
+        new CardTagHelper() { CardTitle = Components.Index_UserLoginPartial_Title, Description = Components.Index_UserLoginPartial_Description, Href = @Url.Action("UserLogin", "Components") ?? string.Empty }
     };
 }
 

@@ -40,7 +40,7 @@ builder.Services.Configure<GlobalResourceOptions>(builder.Configuration.GetSecti
 builder.Services.AddSingleton<IStringLocalizerFactory, GlobalResourceManagerStringLocalizerFactory>();
 builder.Services.AddLocalization();
 
-// Configure breadcrumbds localization service
+// Configure breadcrumbs localization service
 builder.Services.AddSingleton(typeof(IBreadcrumbsLocalizationService), typeof(BreadcrumbsLocalizationService<GCFoundation.Web.Resources.Navigation>));
 
 // Configure GCFoundation
@@ -79,6 +79,13 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
+}
+
+// Support running under a virtual directory (PathBase), e.g. "/gcfoundation"
+var pathBase = builder.Configuration["ASPNETCORE_PATHBASE"];
+if (!string.IsNullOrEmpty(pathBase))
+{
+    app.UsePathBase(pathBase);
 }
 
 // Load all javascript dependencies for foundation and GCDS
