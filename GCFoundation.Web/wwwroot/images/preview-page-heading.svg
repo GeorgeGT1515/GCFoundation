@@ -20,10 +20,10 @@
 			<rect x="41" y="121" width="360" height="160" fill="#A8ADB4" opacity=".75"/>
 			<rect x="41" y="161" width="240" height="80" fill="#26374a" opacity=".75"/>
 			
-			<rect x="62" y="175" width="99" height="16" rx="8" fill="white" opacity=".75"/>
+			<rect x="62" y="175" width="99" height="16" rx="8" fill="white"/>
 			<line x1="62" y1="196" x2="82" y2="196" stroke="#a62a1e" stroke-width="1"/>
-			<rect x="62" y="201" width="198" height="10" rx="5" fill="white" opacity=".75"/>
-			<rect x="62" y="216" width="120" height="10" rx="5" fill="white" opacity=".75"/>
+			<rect x="62" y="201" width="198" height="8" rx="4" fill="white"/>
+			<rect x="62" y="216" width="120" height="8" rx="4" fill="white"/>
 			<!--<rect x="62" y="82" width="90" height="24" rx="12" fill="#A8ADB4"/>
 			<rect x="341" y="84" width="80" height="20" rx="10" fill="#A8ADB4"/>-->
 		</g>
