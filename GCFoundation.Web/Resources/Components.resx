@@ -121,7 +121,7 @@
     <value>GC Design System Components</value>
   </data>
   <data name="GcdsParagraph1" xml:space="preserve">
-    <value>All GC Design System components are compatible out of the box. Just make sure the library is configured to point to the latest version. If the version was recently updated, you may not yet see autocomplete suggestions in Foundation.</value>
+    <value>All GC Design System components are compatible out of the box. Just make sure the library is configured to point to the latest version. If the version was recently updated, you may not yet see autocomplete suggestions in GCFoundation.</value>
   </data>
   <data name="GcdsLinkText" xml:space="preserve">
     <value>Find all components in the
@@ -1076,5 +1076,8 @@
   </data>
   <data name="Table_Properties_PaginationSize" xml:space="preserve">
     <value>The number of records per page for pagination.</value>
+  </data>
+  <data name="Index_Card_ImgAlt_Template" xml:space="preserve">
+    <value>Graphical representation of the GCFoundation "{0}" component.</value>
   </data>
 </root>

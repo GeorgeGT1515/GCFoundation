@@ -304,7 +304,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Template.
+        ///   Looks up a localized string similar to Page templates.
         /// </summary>
         public static string Nav_Template {
             get {

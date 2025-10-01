@@ -127,7 +127,7 @@
     <value>Learn about the core templates included in the Foundation framework.</value>
   </data>
   <data name="Index_PageTitle" xml:space="preserve">
-    <value>Template</value>
+    <value>Page Templates</value>
   </data>
   <data name="Section_ErrorTemplates_Description" xml:space="preserve">
     <value>The Foundation includes two error templates:</value>

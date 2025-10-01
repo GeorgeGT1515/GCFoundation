@@ -88,7 +88,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Template.
+        ///   Looks up a localized string similar to Page Templates.
         /// </summary>
         public static string Index_PageTitle {
             get {
@@ -151,6 +151,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A configurable, bilingual component for displaying user authentication information. Supports stateless authentication systems perfect for Azure cloud deployments..
+        /// </summary>
+        public static string Section_UserLoginPartial_Description {
+            get {
+                return ResourceManager.GetString("Section_UserLoginPartial_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User login partial template.
+        /// </summary>
+        public static string Section_UserLoginPartial_Title {
+            get {
+                return ResourceManager.GetString("Section_UserLoginPartial_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error templates.
         /// </summary>
         public static string SideNav_ErrorTemplates {
@@ -192,24 +210,6 @@ namespace GCFoundation.Web.Resources {
         public static string SideNav_UserLoginPartial {
             get {
                 return ResourceManager.GetString("SideNav_UserLoginPartial", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to User login partial template.
-        /// </summary>
-        public static string Section_UserLoginPartial_Title {
-            get {
-                return ResourceManager.GetString("Section_UserLoginPartial_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to A configurable, bilingual component for displaying user authentication information. Supports stateless authentication systems perfect for Azure cloud deployments..
-        /// </summary>
-        public static string Section_UserLoginPartial_Description {
-            get {
-                return ResourceManager.GetString("Section_UserLoginPartial_Description", resourceCulture);
             }
         }
     }

@@ -19,7 +19,7 @@ namespace GCFoundation.Web.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Components {
@@ -901,7 +901,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to All GC Design System components are compatible out of the box. Just make sure the library is configured to point to the latest version. If the version was recently updated, you may not yet see autocomplete suggestions in Foundation..
+        ///   Looks up a localized string similar to All GC Design System components are compatible out of the box. Just make sure the library is configured to point to the latest version. If the version was recently updated, you may not yet see autocomplete suggestions in GCFoundation..
         /// </summary>
         public static string GcdsParagraph1 {
             get {
@@ -942,6 +942,15 @@ namespace GCFoundation.Web.Resources {
         public static string Index_Card_Description {
             get {
                 return ResourceManager.GetString("Index_Card_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Graphical representation of the GCFoundation &quot;{0}&quot; component..
+        /// </summary>
+        public static string Index_Card_ImgAlt_Template {
+            get {
+                return ResourceManager.GetString("Index_Card_ImgAlt_Template", resourceCulture);
             }
         }
         

@@ -123,7 +123,7 @@
   <data name="GcdsParagraph1" xml:space="preserve">
     <value>Tous les composants du Système de design GC sont compatibles dès le départ. 
  Assurez-vous simplement que la bibliothèque est configurée pour utiliser la dernière version.
- Si la version a été récemment mise à jour, il se peut que la saisie semi-automatique ne soit pas encore disponible dans Foundation.</value>
+ Si la version a été récemment mise à jour, il se peut que la saisie semi-automatique ne soit pas encore disponible dans GCFoundation.</value>
   </data>
   <data name="GcdsLinkText" xml:space="preserve">
     <value>Trouvez tous les composants dans la 
@@ -1051,6 +1051,37 @@
   <data name="FormBuilder_Properties_Form" xml:space="preserve">
     <value>Obtient ou définit la définition de formulaire utilisée pour générer l'interface utilisateur du formulaire.</value>
   </data>
+  <data name="Table_Name" xml:space="preserve">
+    <value>Tableau (Tabulator)</value>
+  </data>
+  <data name="Table_Basic_Title" xml:space="preserve">
+    <value>Utilisation de base</value>
+  </data>
+  <data name="Table_Basic_Anchor" xml:space="preserve">
+    <value>base</value>
+  </data>
+  <data name="Table_Basic_Text" xml:space="preserve">
+    <value>Un exemple de tableau simple&amp;nbsp;:</value>
+  </data>
+  <data name="Table_Properties_Id" xml:space="preserve">
+    <value>L'identifiant HTML à être assigné à l'élément &lt;em&gt;Tabulator&lt;/em&gt;(doit être unique).</value>
+  </data>
+  <data name="Table_Properties_AjaxUrl" xml:space="preserve">
+    <value>L'URL du point d'accès de l'API qui renvoie les pages de données en format JSON.</value>
+  </data>
+  <data name="Table_Properties_Data" xml:space="preserve">
+    <value>Données locales (optionnel). Si défini, sera utilisé au lieu du  &lt;em&gt;AJAX&lt;/em&gt;.</value>
+  </data>
+  <data name="Table_Properties_Columns" xml:space="preserve">
+    <value>La liste de colonnes à afficher dans le tableau &lt;em&gt;Tabulator&lt;/em&gt;.</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Table_Properties_UseStaticData" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="Table_Properties_PaginationSize" xml:space="preserve">
+    <value>Le nombre d'entrées à afficher sur chaque page.</value>
+  </data>
   <data name="StatelessAuth_CurrentStatus_Title" xml:space="preserve">
     <value>Statut d'authentification actuel</value>
   </data>
@@ -1180,35 +1211,7 @@
   <data name="StatelessAuth_Integration_Description2" xml:space="preserve">
     <value />
   </data>
-  <data name="Table_Name" xml:space="preserve">
-    <value>Tableau (Tabulator)</value>
-  </data>
-  <data name="Table_Basic_Title" xml:space="preserve">
-    <value>Utilisation de base</value>
-  </data>
-  <data name="Table_Basic_Anchor" xml:space="preserve">
-    <value>base</value>
-  </data>
-  <data name="Table_Basic_Text" xml:space="preserve">
-    <value>Un exemple de tableau simple&amp;nbsp;:</value>
-  </data>
-  <data name="Table_Properties_Id" xml:space="preserve">
-    <value>L'identifiant HTML à être assigné à l'élément &lt;em&gt;Tabulator&lt;/em&gt;(doit être unique).</value>
-  </data>
-  <data name="Table_Properties_AjaxUrl" xml:space="preserve">
-    <value>L'URL du point d'accès de l'API qui renvoie les pages de données en format JSON.</value>
-  </data>
-  <data name="Table_Properties_Data" xml:space="preserve">
-    <value>Données locales (optionnel). Si défini, sera utilisé au lieu du  &lt;em&gt;AJAX&lt;/em&gt;.</value>
-  </data>
-  <data name="Table_Properties_Columns" xml:space="preserve">
-    <value>La liste de colonnes à afficher dans le tableau &lt;em&gt;Tabulator&lt;/em&gt;.</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Table_Properties_UseStaticData" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="Table_Properties_PaginationSize" xml:space="preserve">
-    <value>Le nombre d'entrées à afficher sur chaque page.</value>
+  <data name="Index_Card_ImgAlt_Template" xml:space="preserve">
+    <value>Image représentant le composant "{0}" de GCFoundation</value>
   </data>
 </root>
