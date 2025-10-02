@@ -471,7 +471,7 @@ public class ComprehensiveFDCPTools
         [Description("Enable row selection")] bool selectableRows = false)
     {
         var sb = new StringBuilder();
-        sb.Append($"<fdcp-tabulator-table");
+        sb.Append($"<fdcp-table-tabulator");
         sb.Append($" id=\"{tableId}\"");
         sb.Append($" pagination-size=\"{paginationSize}\"");
         
@@ -499,7 +499,7 @@ public class ComprehensiveFDCPTools
         if (selectableRows)
             sb.Append(" selectable-rows=\"true\"");
         
-        sb.Append("></fdcp-tabulator-table>");
+        sb.Append("></fdcp-table-tabulator>");
         return sb.ToString();
     }
 
@@ -752,7 +752,7 @@ public class ComprehensiveFDCPTools
                 
             case "data":
                 sb.AppendLine("## FDCP Data Components:");
-                sb.AppendLine("- fdcp-tabulator-table: Advanced data tables with sorting, filtering, pagination");
+                sb.AppendLine("- fdcp-table-tabulator: Advanced data tables with sorting, filtering, pagination");
                 sb.AppendLine("- fdcp-filter-box: Powerful search and filter interfaces");
                 sb.AppendLine("- Support for AJAX data loading and static data");
                 sb.AppendLine("- Built-in export functionality (CSV, PDF, Excel)");

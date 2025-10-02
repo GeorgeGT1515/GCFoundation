@@ -1,6 +1,6 @@
 // Modern table styles - both default and class-based
 table,
-.gcfoundation-table {
+.fdcp-table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
@@ -21,46 +21,46 @@ th {
 }
 th[scope=col],
 th[scope=colgroup],
-.gcfoundation-table th[scope=col],
-.gcfoundation-table th[scope=colgroup] {
+.fdcp-table th[scope=col],
+.fdcp-table th[scope=colgroup] {
     background-color: var(--gcds-color-grayscale-100);
     border-bottom: 2px solid var(--gcds-border-default);
 }
 th[scope=row],
 th[scope=rowgroup],
-.gcfoundation-table th[scope=row],
-.gcfoundation-table th[scope=rowgroup] {
+.fdcp-table th[scope=row],
+.fdcp-table th[scope=rowgroup] {
     border-bottom: 1px solid var(--gcds-border-default);
 }
 
 // Table cell styles
 td,
-.gcfoundation-table td {
+.fdcp-table td {
     padding: 1rem;
     vertical-align: middle;
     border-bottom: 1px solid var(--gcds-border-default);
 }
 
 // Striped rows variant
-.gcfoundation-table-striped tbody tr:nth-of-type(even) {
+.fdcp-table-striped tbody tr:nth-of-type(even) {
     background-color: var(--gcds-bg-light);
 }
 
 // Modern hover effects
-.gcfoundation-table-hover tr:hover {
+.fdcp-table-hover tr:hover {
     background-color: var(--gcds-color-blue-100) !important;
     transition: background-color 0.2s ease;
 }
 
 // Bordered variant
-.gcfoundation-table-bordered {
+.fdcp-table-bordered {
     th, td {
         border: 1px solid var(--gcds-border-default);
     }
 }
 
 // Compact variant
-.gcfoundation-table-sm {
+.fdcp-table-sm {
     th, td {
         padding: 0.5rem 1rem;
     }
@@ -68,7 +68,7 @@ td,
 
 // Responsive tables
 @media screen and (max-width: 768px) {
-    .gcfoundation-table-responsive {
+    .fdcp-table-responsive {
         display: block;
         width: 100%;
         overflow-x: auto;
@@ -89,8 +89,8 @@ td,
 // Focus styles for keyboard navigation
 th:focus,
 td:focus,
-.gcfoundation-table th:focus,
-.gcfoundation-table td:focus {
+.fdcp-table th:focus,
+.fdcp-table td:focus {
     outline: 3px solid var(--gcds-focus-border);
     outline-offset: -3px;
     position: relative;
@@ -99,7 +99,7 @@ td:focus,
 
 // Caption styles
 caption,
-.gcfoundation-table caption {
+.fdcp-table caption {
     font: var(--gcds-font-header-h4);
     color: var(--gcds-text-primary);
     text-align: left;
@@ -108,14 +108,14 @@ caption,
 }
 
 // Status variants
-.gcfoundation-table-success {
+.fdcp-table-success {
     background-color: var(--gcds-success-light);
 }
 
-.gcfoundation-table-warning {
+.fdcp-table-warning {
     background-color: var(--gcds-warning-light);
 }
 
-.gcfoundation-table-danger {
+.fdcp-table-danger {
     background-color: var(--gcds-error-light);
 }

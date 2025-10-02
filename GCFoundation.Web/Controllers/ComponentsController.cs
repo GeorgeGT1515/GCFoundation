@@ -520,7 +520,7 @@ namespace GCFoundation.Web.Controllers
             {
                 new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Table_Basic_Text, Id = Resources.Components.Table_Basic_Anchor, PartialViewName = "Table/_Basic", Title = Resources.Components.Stepper_Basic_Title }
             };
-            vm.Tag = "<fdcp-tabulator-table>";
+            vm.Tag = "<fdcp-table-tabulator>";
 
             return vm;
         }

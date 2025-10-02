@@ -18,12 +18,12 @@ public class FDCPTabulatorTableTagHelperTests
     public void Process_WithAjaxConfiguration_RendersExpectedOutput()
     {
         // Arrange
-        var tagHelper = new FDCPTabulatorTableTagHelper
+        var tagHelper = new FDCPTableTabulatorTagHelper
         {
             Id = "test-table",
             AjaxUrl = "/api/data",
             UseStaticData = false,
-            PaginationSize = 15,
+            PageSize = 15,
             Columns = new[]
             {
                 new TabulatorColumn { Title = "Name", Field = "name" },
@@ -38,7 +38,7 @@ public class FDCPTabulatorTableTagHelperTests
             "test"
         );
 
-        var output = new TagHelperOutput("fdcp-tabulator-table",
+        var output = new TagHelperOutput("fdcp-table-tabulator",
             new TagHelperAttributeList(),
             (_, _) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
 
@@ -68,12 +68,12 @@ public class FDCPTabulatorTableTagHelperTests
             new { name = "Jane", age = 25 }
         };
 
-        var tagHelper = new FDCPTabulatorTableTagHelper
+        var tagHelper = new FDCPTableTabulatorTagHelper
         {
             Id = "static-table",
             UseStaticData = true,
             Data = staticData,
-            PaginationSize = 10,
+            PageSize = 10,
             Columns = new[]
             {
                 new TabulatorColumn { Title = "Name", Field = "name" },
@@ -88,7 +88,7 @@ public class FDCPTabulatorTableTagHelperTests
             "test"
         );
 
-        var output = new TagHelperOutput("fdcp-tabulator-table",
+        var output = new TagHelperOutput("fdcp-table-tabulator",
             new TagHelperAttributeList(),
             (_, _) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
 
@@ -124,7 +124,7 @@ public class FDCPTabulatorTableTagHelperTests
             }
         };
 
-        var tagHelper = new FDCPTabulatorTableTagHelper
+        var tagHelper = new FDCPTableTabulatorTagHelper
         {
             Id = "custom-table",
             AjaxUrl = "/api/data",
@@ -138,7 +138,7 @@ public class FDCPTabulatorTableTagHelperTests
             "test"
         );
 
-        var output = new TagHelperOutput("fdcp-tabulator-table",
+        var output = new TagHelperOutput("fdcp-table-tabulator",
             new TagHelperAttributeList(),
             (_, _) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
 
@@ -159,7 +159,7 @@ public class FDCPTabulatorTableTagHelperTests
     public void Process_NullOutput_ThrowsArgumentNullException()
     {
         // Arrange
-        var tagHelper = new FDCPTabulatorTableTagHelper
+        var tagHelper = new FDCPTableTabulatorTagHelper
         {
             Id = "test-table"
         };
@@ -185,7 +185,7 @@ public class FDCPTabulatorTableTagHelperTests
             new TabulatorColumn { Title = "Email", Field = "email", Filter = true }
         };
 
-        var tagHelper = new FDCPTabulatorTableTagHelper
+        var tagHelper = new FDCPTableTabulatorTagHelper
         {
             Id = "filter-table",
             AjaxUrl = "/api/data",
@@ -199,7 +199,7 @@ public class FDCPTabulatorTableTagHelperTests
             "test"
         );
 
-        var output = new TagHelperOutput("fdcp-tabulator-table",
+        var output = new TagHelperOutput("fdcp-table-tabulator",
             new TagHelperAttributeList(),
             (_, _) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
 
@@ -215,7 +215,7 @@ public class FDCPTabulatorTableTagHelperTests
     public void Process_WithEmptyColumns_RendersEmptyColumnsArray()
     {
         // Arrange
-        var tagHelper = new FDCPTabulatorTableTagHelper
+        var tagHelper = new FDCPTableTabulatorTagHelper
         {
             Id = "empty-table",
             AjaxUrl = "/api/data",
@@ -229,7 +229,7 @@ public class FDCPTabulatorTableTagHelperTests
             "test"
         );
 
-        var output = new TagHelperOutput("fdcp-tabulator-table",
+        var output = new TagHelperOutput("fdcp-table-tabulator",
             new TagHelperAttributeList(),
             (_, _) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
 
@@ -246,7 +246,7 @@ public class FDCPTabulatorTableTagHelperTests
     public void Process_WithNullData_RendersAjaxUrl()
     {
         // Arrange
-        var tagHelper = new FDCPTabulatorTableTagHelper
+        var tagHelper = new FDCPTableTabulatorTagHelper
         {
             Id = "null-data-table",
             UseStaticData = true,
@@ -261,7 +261,7 @@ public class FDCPTabulatorTableTagHelperTests
             "test"
         );
 
-        var output = new TagHelperOutput("fdcp-tabulator-table",
+        var output = new TagHelperOutput("fdcp-table-tabulator",
             new TagHelperAttributeList(),
             (_, _) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
 
@@ -278,11 +278,11 @@ public class FDCPTabulatorTableTagHelperTests
     public void Process_WithCustomPaginationSize_RendersCorrectPaginationSize()
     {
         // Arrange
-        var tagHelper = new FDCPTabulatorTableTagHelper
+        var tagHelper = new FDCPTableTabulatorTagHelper
         {
             Id = "pagination-table",
             AjaxUrl = "/api/data",
-            PaginationSize = 25,
+            PageSize = 25,
             ViewContext = CreateMockViewContext()
         };
 
@@ -292,7 +292,7 @@ public class FDCPTabulatorTableTagHelperTests
             "test"
         );
 
-        var output = new TagHelperOutput("fdcp-tabulator-table",
+        var output = new TagHelperOutput("fdcp-table-tabulator",
             new TagHelperAttributeList(),
             (_, _) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
 
@@ -326,7 +326,7 @@ public class FDCPTabulatorTableTagHelperTests
             }
         };
 
-        var tagHelper = new FDCPTabulatorTableTagHelper
+        var tagHelper = new FDCPTableTabulatorTagHelper
         {
             Id = "full-column-table",
             AjaxUrl = "/api/data",
@@ -340,7 +340,7 @@ public class FDCPTabulatorTableTagHelperTests
             "test"
         );
 
-        var output = new TagHelperOutput("fdcp-tabulator-table",
+        var output = new TagHelperOutput("fdcp-table-tabulator",
             new TagHelperAttributeList(),
             (_, _) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
 
@@ -365,7 +365,7 @@ public class FDCPTabulatorTableTagHelperTests
     public void Process_SearchInputGeneration_ContainsCorrectElements()
     {
         // Arrange
-        var tagHelper = new FDCPTabulatorTableTagHelper
+        var tagHelper = new FDCPTableTabulatorTagHelper
         {
             Id = "search-test-table",
             AjaxUrl = "/api/data",
@@ -378,7 +378,7 @@ public class FDCPTabulatorTableTagHelperTests
             "test"
         );
 
-        var output = new TagHelperOutput("fdcp-tabulator-table",
+        var output = new TagHelperOutput("fdcp-table-tabulator",
             new TagHelperAttributeList(),
             (_, _) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
 
@@ -406,7 +406,7 @@ public class FDCPTabulatorTableTagHelperTests
             new { id = 2, name = "Jane Smith", details = new { age = 25, active = false }, tags = new[] { "user" } }
         };
 
-        var tagHelper = new FDCPTabulatorTableTagHelper
+        var tagHelper = new FDCPTableTabulatorTagHelper
         {
             Id = "complex-data-table",
             UseStaticData = true,
@@ -420,7 +420,7 @@ public class FDCPTabulatorTableTagHelperTests
             "test"
         );
 
-        var output = new TagHelperOutput("fdcp-tabulator-table",
+        var output = new TagHelperOutput("fdcp-table-tabulator",
             new TagHelperAttributeList(),
             (_, _) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
 
@@ -440,7 +440,7 @@ public class FDCPTabulatorTableTagHelperTests
     public void Process_WithViewContext_IncludesAntiForgeryToken()
     {
         // Arrange
-        var tagHelper = new FDCPTabulatorTableTagHelper
+        var tagHelper = new FDCPTableTabulatorTagHelper
         {
             Id = "antiforgery-table",
             AjaxUrl = "/api/data",
@@ -453,7 +453,7 @@ public class FDCPTabulatorTableTagHelperTests
             "test"
         );
 
-        var output = new TagHelperOutput("fdcp-tabulator-table",
+        var output = new TagHelperOutput("fdcp-table-tabulator",
             new TagHelperAttributeList(),
             (_, _) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
 
@@ -470,7 +470,7 @@ public class FDCPTabulatorTableTagHelperTests
     public void Process_DefaultValues_AreAppliedCorrectly()
     {
         // Arrange
-        var tagHelper = new FDCPTabulatorTableTagHelper
+        var tagHelper = new FDCPTableTabulatorTagHelper
         {
             Id = "default-table",
             ViewContext = CreateMockViewContext()
@@ -482,7 +482,7 @@ public class FDCPTabulatorTableTagHelperTests
             "test"
         );
 
-        var output = new TagHelperOutput("fdcp-tabulator-table",
+        var output = new TagHelperOutput("fdcp-table-tabulator",
             new TagHelperAttributeList(),
             (_, _) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
 

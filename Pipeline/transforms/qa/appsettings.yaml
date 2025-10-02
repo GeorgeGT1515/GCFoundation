@@ -5,3 +5,6 @@ variables:
 
 - name: FoundationComponentsSettings.VirtualDirectoryName
   value: 'gcfoundation'
+
+- name: ASPNETCORE_PATHBASE
+  value: '/gcfoundation'

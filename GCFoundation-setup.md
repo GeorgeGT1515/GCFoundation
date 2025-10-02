@@ -20,9 +20,9 @@ dotnet sln add GCFHello.Web
 dotnet add GCFHello.Web package GCFoundation.Common
 dotnet add GCFHello.Web package GCFoundation.Components
 dotnet add GCFHello.Web package GCFoundation.Security
-# (Optional) Additional packages your app needs
-# dotnet add GCFHello.Web package cloudscribe.Web.Navigation
-# dotnet add GCFHello.Web package cloudscribe.Web.Localization
+# (Optional) Additional packages your app may need
+dotnet add GCFHello.Web package cloudscribe.Web.Navigation
+dotnet add GCFHello.Web package cloudscribe.Web.Localization
 ```
 
 ### 2.1) GCFoundation configuration in `Program.cs` (modular and simple)
@@ -61,24 +61,113 @@ Notes:
 - **Session**: provides sane defaults for cookie/session handling.
 - **Localization**: the sample also wires request localization and a language middleware; keep or remove based on your needs.
 
-### 3) “Hello World” page (using Business layer via DI)
+Localization/Navigation configuration (services and middleware):
+```csharp
+using cloudscribe.Web.Localization;
+using Microsoft.AspNetCore.Localization;
+
+// Services.
+builder.Services.AddControllersWithViews()
+    .AddViewLocalization()
+    .AddDataAnnotationsLocalization();
+
+// Configure cloudscribe.Web.Navigation NavigationOptions.
+builder.Services.AddCloudscribeNavigation(builder.Configuration.GetSection("NavigationOptions"));
+
+// Localization configuration.
+var supportedCultures = LanguageUtility.GetSupportedCulture();
+var routeSegmentLocalizationProvider = new FirstUrlSegmentRequestCultureProvider(supportedCultures.ToList());
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    options.DefaultRequestCulture = new RequestCulture(culture: "en-CA", uiCulture: "en-CA");
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
+
+    options.RequestCultureProviders.Insert(0, routeSegmentLocalizationProvider);
+});
+
+(...)
+
+// Include localization middleware.
+var supportedCultures = new[] { new CultureInfo("en-CA"), new CultureInfo("fr-CA") };
+var localizationOptions = app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value;
+app.UseRequestLocalization(localizationOptions);
+
+(...)
+
+// Replace the default route (to include localized URLs).
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{culture=en}/{controller=Home}/{action=Index}/{id?}"
+);
+```
+
+### 3) Create Business and Data projects
+```powershell
+dotnet new classlib -n GCFHello.Business -f net8.0; Remove-Item .\GCFHello.Business\Class1.cs
+dotnet new classlib -n GCFHello.Data -f net8.0; Remove-Item .\GCFHello.Data\Class1.cs
+dotnet sln add GCFHello.Business GCFHello.Data
+
+# Project references (Web -> Business -> Data)
+dotnet add GCFHello.Business reference GCFHello.Data
+dotnet add GCFHello.Web reference GCFHello.Business
+```
+
+### 4) Simple Business service and wire-up
+Create files for the service interface and class:
+```powershell
+mkdir Services
+mkdir Service/Interfaces
+cd .\Services\
+dotnet new class -n GreetingService
+cd .\Interfaces\
+dotnet new interface -n IGreetingService
+```
+
+Populate the new service interface and class:
+```csharp
+// GCFHello.Business/IGreetingService.cs
+namespace GCFHello.Business
+{
+    public interface IGreetingService
+    {
+        string GetGreeting();
+    }
+}
+
+// GCFHello.Business/GreetingService.cs
+namespace GCFHello.Business
+{
+    public class GreetingService : IGreetingService
+    {
+        public string GetGreeting() => "Hello World";
+    }
+}
+```
+### 5) “Hello World” page (using Business layer via DI)
+Register the business service for DI in `Program.cs`:
+```csharp
+// Dependency injection.
+builder.Services.AddScoped<IGreetingService, GreetingService>();
+```
+
 Controller injects `IGreetingService` and passes its data to the view as the model:
 ```csharp
 // GCFHello.Web/Controllers/HomeController.cs
 using GCFHello.Business;
-using GCFoundation.Components;
+using GCFoundation.Components.Controllers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GCFHello.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController(IGreetingService service, ILogger<HomeController> logger) : GCFoundationBaseController(logger)
     {
-        private readonly IGreetingService _greeting;
-        public HomeController(IGreetingService greeting) => _greeting = greeting;
+        private readonly IGreetingService _service = service;
 
         public IActionResult Index()
         {
-            var message = _greeting.GetGreeting();
+            var message = _service.GetGreeting();
 
             // Set the page title via GCFoundation
             this.SetPageTitle("Home");
@@ -93,19 +182,7 @@ Create the view `Views/Home/Index.cshtml` to render the greeting:
 @model string
 <h1>@Model</h1>
 ```
-
-### 4) Create Business and Data projects
-```powershell
-dotnet new classlib -n GCFHello.Business -f net8.0
-dotnet new classlib -n GCFHello.Data -f net8.0
-dotnet sln add GCFHello.Business GCFHello.Data
-
-# Project references (Web -> Business -> Data)
-dotnet add GCFHello.Business reference GCFHello.Data
-dotnet add GCFHello.Web reference GCFHello.Business
-```
-
-### 5) Add EF Core to Data Access layer
+### 6) (Optional) Add EF Core to Data Access layer
 ```powershell
 dotnet add GCFHello.Data package Microsoft.EntityFrameworkCore
 dotnet add GCFHello.Data package Microsoft.EntityFrameworkCore.SqlServer
@@ -131,49 +208,15 @@ namespace GCFHello.Data
     }
 }
 ```
-
-### 6) Simple Business service and wire-up
-```csharp
-// GCFHello.Business/IGreetingService.cs
-namespace GCFHello.Business
-{
-    public interface IGreetingService
-    {
-        string GetGreeting();
-    }
-}
-
-// GCFHello.Business/GreetingService.cs
-namespace GCFHello.Business
-{
-    public class GreetingService : IGreetingService
-    {
-        public string GetGreeting() => "Hello World";
-    }
-}
-```
-Register services and EF Core in the Web app’s `Program.cs`:
+Register the database context and EF Core in the Web app’s `Program.cs`:
 ```csharp
 // GCFHello.Web/Program.cs (relevant additions)
-using GCFHello.Business;
 using GCFHello.Data;
 using Microsoft.EntityFrameworkCore;
 
-var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddControllersWithViews();
-
-// GCFoundation services can be configured as needed here
-builder.Services.AddScoped<IGreetingService, GreetingService>();
+// Dependency injection.
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-var app = builder.Build();
-// ... existing pipeline/middleware ...
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
-app.Run();
 ```
  
 
@@ -185,6 +228,41 @@ Add a connection string in `GCFHello.Web/appsettings.json`:
   }
 }
 ```
+
+### GCFoundation settings in `appsettings.json`
+Add GCFoundation-specific configuration under a `GCFoundation` section. The `AddGCFoundationComponents` and `AddGCFoundationContentPolicies` registrations will read from these values when present.
+
+```json
+{
+  "GCFoundation": {
+    "Components": {
+      "UseCdn": true,
+      "CdnBaseUrl": "https://cdn.design-system.alpha.canada.ca",
+      "InjectGcds": true
+    },
+    "ContentPolicies": {
+      "ReportOnly": false,
+      "ReportUri": "/csp-report",
+      "AdditionalScriptSrc": [
+        "https://www.googletagmanager.com",
+        "https://www.google-analytics.com"
+      ],
+      "AdditionalStyleSrc": [],
+      "AdditionalImgSrc": ["data:"],
+      "AdditionalConnectSrc": []
+    },
+    "Localization": {
+      "DefaultCulture": "en-CA",
+      "SupportedCultures": ["en-CA", "fr-CA"]
+    }
+  }
+}
+```
+
+Notes:
+- Adjust CDN usage and base URL to match your deployment (CDN vs local assets).
+- CSP is strict by default; use the "Additional*Src" arrays to extend allow-lists when integrating analytics or external services.
+- All keys are optional; safe defaults apply when omitted.
 
 ### 7) Build and run
 ```powershell
