@@ -898,19 +898,20 @@ stages:
 
             Push-Location (Join-Path "$(Build.SourcesDirectory)" 'e2e')
             $env:PLAYWRIGHT_BASE_URL = $baseUrl
+            $env:PLAYWRIGHT_PROJECTS = 'chrome'
 
             $isNightly = "$env:BUILD_REASON" -eq "Schedule"
             if ($isNightly) {
               Write-Host "Nightly run: execute full suite with sharding"
               # 2-way shard on the same agent sequentially; in real setup, use multiple parallel jobs
-              npx playwright test --project=chrome --shard=1/2
+              npx playwright test --shard=1/2
               if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-              npx playwright test --project=chrome --shard=2/2
+              npx playwright test --shard=2/2
               $e2eExit = $LASTEXITCODE
             } else {
               Write-Host "PR run: quick suite"
               # Blocking smoke suite
-              npm run test:smoke -- --project=chrome
+              npm run test:smoke
               $e2eExit = $LASTEXITCODE
 
               # Non-blocking a11y awareness run (separate report/artifacts)
@@ -918,7 +919,7 @@ stages:
               $env:PLAYWRIGHT_HTML_REPORT = "playwright-report-a11y"
               # Use npm script to avoid PowerShell parsing issues with -g @a11y and ensure consistent config usage
               # Route output to a dedicated folder; ignore exit code to keep PR non-blocking when there are 0 tests or failures
-              npm run test:a11y -- --project=chrome --output test-artifacts-a11y
+              npm run test:a11y -- --output test-artifacts-a11y
               if ($LASTEXITCODE -ne 0) { Write-Host "A11y suite completed with issues or no tests; continuing (non-blocking)." }
               $null = 0
             }
