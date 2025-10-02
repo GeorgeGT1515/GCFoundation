@@ -19,7 +19,7 @@ namespace GCFoundation.Web.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Template {
@@ -61,6 +61,182 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to basic.
+        /// </summary>
+        public static string Basic_Anchor {
+            get {
+                return ResourceManager.GetString("Basic_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy this code to use the basic page template..
+        /// </summary>
+        public static string Basic_Code_Intro {
+            get {
+                return ResourceManager.GetString("Basic_Code_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code of the Basic Page Template.
+        /// </summary>
+        public static string Basic_Code_Name {
+            get {
+                return ResourceManager.GetString("Basic_Code_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Demo of the Basic Page Template.
+        /// </summary>
+        public static string Basic_Demo_Name {
+            get {
+                return ResourceManager.GetString("Basic_Demo_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Section {0}.
+        /// </summary>
+        public static string Basic_Demo_SectionX {
+            get {
+                return ResourceManager.GetString("Basic_Demo_SectionX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title of the sub-section.
+        /// </summary>
+        public static string Basic_Demo_SubSection {
+            get {
+                return ResourceManager.GetString("Basic_Demo_SubSection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Basic_HowToImplement {
+            get {
+                return ResourceManager.GetString("Basic_HowToImplement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The basic (or default) layout template provides the base structure used across GCFoundation pages. It&apos;s provides accessibility essentials for page structure and heading hierarchy. Brand elements, like the header and footer, make it recognizable as a Government of Canada page..
+        /// </summary>
+        public static string Basic_Intro {
+            get {
+                return ResourceManager.GetString("Basic_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic Page Template.
+        /// </summary>
+        public static string Basic_Name {
+            get {
+                return ResourceManager.GetString("Basic_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;For use on ASP.Net GC applications.&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;The basic page template is for non-specialized pages across Canada.ca and is an optional template. It has the starting elements needed for a simple page and those required for most GC pages and applications. You can use it as a canvas to add or combine &lt;a href=&quot;{0}&quot;&gt;components&lt;/a&gt; from GCFoundation (via TagHelpers) and the GC Design System.&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Basic_WhenToUse {
+            get {
+                return ResourceManager.GetString("Basic_WhenToUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Get code in new tab.
+        /// </summary>
+        public static string Code_Button {
+            get {
+                return ResourceManager.GetString("Code_Button", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy template.
+        /// </summary>
+        public static string CopyTemplate_Button {
+            get {
+                return ResourceManager.GetString("CopyTemplate_Button", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-badge&amp;gt;&lt;/code&gt; component is used to highlight small pieces of information....
+        /// </summary>
+        public static string Dashboard_Intro {
+            get {
+                return ResourceManager.GetString("Dashboard_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dashboard Page Template.
+        /// </summary>
+        public static string Dashboard_Name {
+            get {
+                return ResourceManager.GetString("Dashboard_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open demo in new tab.
+        /// </summary>
+        public static string Demo_Button {
+            get {
+                return ResourceManager.GetString("Demo_Button", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Design considerations.
+        /// </summary>
+        public static string DesignConsiderations {
+            get {
+                return ResourceManager.GetString("DesignConsiderations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to design-considerations.
+        /// </summary>
+        public static string DesignConsiderations_Anchor {
+            get {
+                return ResourceManager.GetString("DesignConsiderations_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error Page Template.
+        /// </summary>
+        public static string Error_Name {
+            get {
+                return ResourceManager.GetString("Error_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;GCFoundation includes two error templates out-of-the-box:&lt;/gcds-text&gt;
+        ///&lt;ul&gt;
+        ///&lt;li&gt;Global error&lt;/li&gt;
+        ///&lt;li&gt;Page not found&lt;/li&gt;
+        ///&lt;/ul&gt;.
+        /// </summary>
+        public static string Error_Overview {
+            get {
+                return ResourceManager.GetString("Error_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Global error.
         /// </summary>
         public static string ErrorTemplates_GlobalError {
@@ -79,7 +255,115 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Learn about the core templates included in the Foundation framework..
+        ///   Looks up a localized string similar to How to implement.
+        /// </summary>
+        public static string HowToImplement {
+            get {
+                return ResourceManager.GetString("HowToImplement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to how-to-implement.
+        /// </summary>
+        public static string HowToImplement_Anchor {
+            get {
+                return ResourceManager.GetString("HowToImplement_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default view for any GCFoundation page. This is a generic page layout including necessary components for any accessible GC pages..
+        /// </summary>
+        public static string Index_Basic_Description {
+            get {
+                return ResourceManager.GetString("Index_Basic_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic Page.
+        /// </summary>
+        public static string Index_Basic_Title {
+            get {
+                return ResourceManager.GetString("Index_Basic_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We will update this list of page templates as we develop them..
+        /// </summary>
+        public static string Index_Browse_Description {
+            get {
+                return ResourceManager.GetString("Index_Browse_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Browse templates.
+        /// </summary>
+        public static string Index_Browse_Title {
+            get {
+                return ResourceManager.GetString("Index_Browse_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description of a dashboard page template.
+        /// </summary>
+        public static string Index_Dashboard_Description {
+            get {
+                return ResourceManager.GetString("Index_Dashboard_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dashboard Page.
+        /// </summary>
+        public static string Index_Dashboard_Title {
+            get {
+                return ResourceManager.GetString("Index_Dashboard_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description of an error page template.
+        /// </summary>
+        public static string Index_Error_Description {
+            get {
+                return ResourceManager.GetString("Index_Error_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error Page.
+        /// </summary>
+        public static string Index_Error_Title {
+            get {
+                return ResourceManager.GetString("Index_Error_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A bilingual splash page similar to the one used on Canada.ca.
+        /// </summary>
+        public static string Index_LanguageChooser_Description {
+            get {
+                return ResourceManager.GetString("Index_LanguageChooser_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language Chooser Page.
+        /// </summary>
+        public static string Index_LanguageChooser_Title {
+            get {
+                return ResourceManager.GetString("Index_LanguageChooser_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Learn about the page templates included in the GCFoundation framework. Page templates are pre-built pages that combine GCFoundation and GC Design System components for common presentations. They’re fully responsive for multi-device use. Their page structures support a predictable, recognizable, and accessible user experience..
         /// </summary>
         public static string Index_PageDescription {
             get {
@@ -93,6 +377,60 @@ namespace GCFoundation.Web.Resources {
         public static string Index_PageTitle {
             get {
                 return ResourceManager.GetString("Index_PageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description of a stepper/wizard page.
+        /// </summary>
+        public static string Index_Stepper_Description {
+            get {
+                return ResourceManager.GetString("Index_Stepper_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stepper Page.
+        /// </summary>
+        public static string Index_Stepper_Title {
+            get {
+                return ResourceManager.GetString("Index_Stepper_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notes.
+        /// </summary>
+        public static string Notes {
+            get {
+                return ResourceManager.GetString("Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to notes.
+        /// </summary>
+        public static string Notes_Anchor {
+            get {
+                return ResourceManager.GetString("Notes_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preview.
+        /// </summary>
+        public static string Preview {
+            get {
+                return ResourceManager.GetString("Preview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to preview.
+        /// </summary>
+        public static string Preview_Anchor {
+            get {
+                return ResourceManager.GetString("Preview_Anchor", resourceCulture);
             }
         }
         
@@ -210,6 +548,24 @@ namespace GCFoundation.Web.Resources {
         public static string SideNav_UserLoginPartial {
             get {
                 return ResourceManager.GetString("SideNav_UserLoginPartial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When to use.
+        /// </summary>
+        public static string WhenToUse {
+            get {
+                return ResourceManager.GetString("WhenToUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to when-to-use.
+        /// </summary>
+        public static string WhenToUse_Anchor {
+            get {
+                return ResourceManager.GetString("WhenToUse_Anchor", resourceCulture);
             }
         }
     }

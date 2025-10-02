@@ -1,0 +1,17 @@
+﻿@using GCFoundation.Web.Resources
+
+<gcds-heading tag="h1">@Template.Basic_Code_Name</gcds-heading>
+<gcds-text>@Template.Basic_Code_Intro</gcds-text>
+
+<p>
+    <gcds-button button-role="secondary" type="button">@Template.CopyTemplate_Button <i class=" fdcp-ms-100 fa-solid fa-copy"></i></gcds-button>
+</p>
+<pre><code class="language-cshtml">
+&lt;fdcp-stepper current-step="2"
+    steps="@@(new List&lt;Step&gt;
+          {
+              new Step { StepNumber = 1, Label = "Step One", DisplayMode = StepDisplayMode.Number },
+              new Step { StepNumber = 2, Label = "Step Two", DisplayMode = StepDisplayMode.Number },
+              new Step { StepNumber = 3, Label = "Step Three", DisplayMode = StepDisplayMode.Number }
+          })"&gt;&lt;/fdcp-stepper&gt;
+</code></pre>

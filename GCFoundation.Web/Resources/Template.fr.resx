@@ -124,7 +124,7 @@
     <value>Non trouvé</value>
   </data>
   <data name="Index_PageDescription" xml:space="preserve">
-    <value>Apprenez-en plus sur les modèles de base inclus dans le cadre Foundation.</value>
+    <value>Apprenez-en plus sur les modèles de page inclus dans le cadre GCFoundation. Les modèles de page sont des pages préconstruites qui agencent des composants de GCFoundation et du Système de design GC pour créer des mises en page courantes. Ces pages sont entièrement réactives et peuvent donc être utilisées sur tout appareil. La structure des pages favorise une expérience utilisateur prévisible, reconnaissable et accessible.</value>
   </data>
   <data name="Index_PageTitle" xml:space="preserve">
     <value>Modèles de page</value>
@@ -167,5 +167,127 @@
   </data>
   <data name="Section_UserLoginPartial_Description" xml:space="preserve">
     <value>Un composant bilingue configurable pour afficher les informations d'authentification des utilisateurs. Prend en charge les systèmes d'authentification sans état parfaits pour les déploiements cloud Azure.</value>
+  </data>
+  <data name="Index_Basic_Title" xml:space="preserve">
+    <value>Page de base</value>
+  </data>
+  <data name="Index_Error_Title" xml:space="preserve">
+    <value>Page d'erreur</value>
+  </data>
+  <data name="Index_LanguageChooser_Title" xml:space="preserve">
+    <value>Page de sélection de language</value>
+  </data>
+  <data name="Index_Stepper_Title" xml:space="preserve">
+    <value>Page avec indicateur d'étapes</value>
+  </data>
+  <data name="Index_Basic_Description" xml:space="preserve">
+    <value>La vue par défaut pour n'importe quelle page GCFoundation. Elle présente une mise en page générique avec les composants nécessaires pour construire une page accessible pour le GC.</value>
+  </data>
+  <data name="Index_Error_Description" xml:space="preserve">
+    <value>Description d'un modèle de page d'erreur</value>
+  </data>
+  <data name="Index_LanguageChooser_Description" xml:space="preserve">
+    <value>Une page d'accueil bilingue similaire à celle retrouvée sur Canada.ca</value>
+  </data>
+  <data name="Index_Dashboard_Description" xml:space="preserve">
+    <value>Description d'un modèle de page tableau de bord</value>
+  </data>
+  <data name="Basic_Name" xml:space="preserve">
+    <value>Modèle de page de base</value>
+  </data>
+  <data name="Basic_Intro" xml:space="preserve">
+    <value>Le modèle de base (ou par défaut) fournit la structure de base utilisée sur les pages GCFoundation. Il offre l'essentiel pour structurer une page et hiérarchiser des titres de façon accessible. Les éléments de marque, comme l'en-tête et le pied de page, permettent de reconnaître que la page vient du gouvernement du Canada.</value>
+  </data>
+  <data name="Index_Dashboard_Title" xml:space="preserve">
+    <value>Tableau de bord</value>
+  </data>
+  <data name="Index_Stepper_Description" xml:space="preserve">
+    <value>Description d'un modèle de page avec indicateur d'étapes</value>
+  </data>
+  <data name="Dashboard_Intro" xml:space="preserve">
+    <value>Le composant &lt;code&gt;&amp;lt;fdcp-badge&amp;gt;&lt;/code&gt; est utilisé pour mettre en évidence de petites informations...</value>
+  </data>
+  <data name="Dashboard_Name" xml:space="preserve">
+    <value>Modèle de tableau de bord</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="Notes_Anchor" xml:space="preserve">
+    <value>notes</value>
+  </data>
+  <data name="Error_Name" xml:space="preserve">
+    <value>Modèle de page d'erreur</value>
+  </data>
+  <data name="Error_Overview" xml:space="preserve">
+    <value>&lt;gcds-text&gt;GCFoundation inclut deux modèles de pages d'erreur clé en main :&lt;/gcds-text&gt;
+&lt;ul&gt;
+&lt;li&gt;Erreur globale&lt;/li&gt;
+&lt;li&gt;Page introuvable&lt;/li&gt;
+&lt;/ul&gt;</value>
+  </data>
+  <data name="Basic_Anchor" xml:space="preserve">
+    <value>base</value>
+  </data>
+  <data name="WhenToUse_Anchor" xml:space="preserve">
+    <value>quand-utiliser</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Aperçu</value>
+  </data>
+  <data name="Preview_Anchor" xml:space="preserve">
+    <value>apercu</value>
+  </data>
+  <data name="WhenToUse" xml:space="preserve">
+    <value>Quand l'utiliser</value>
+  </data>
+  <data name="Demo_Button" xml:space="preserve">
+    <value>Ouvrir démo dans un nouvel onglet</value>
+  </data>
+  <data name="Code_Button" xml:space="preserve">
+    <value>Obtenez code dans un nouvel onglet</value>
+  </data>
+  <data name="Index_Browse_Title" xml:space="preserve">
+    <value>Parcourir les modèles</value>
+  </data>
+  <data name="Index_Browse_Description" xml:space="preserve">
+    <value>Nous mettrons à jour cette liste de modèles de page au fur et à mesure qu'ils seront développés.</value>
+  </data>
+  <data name="Basic_WhenToUse" xml:space="preserve">
+    <value>&lt;gcds-text&gt;À utiliser sur des applications ASP.Net du GC.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;The basic page template is for non-specialized pages across Canada.ca and is an optional template. It has the starting elements needed for a simple page and those required for most GC pages and applications. You can use it as a canvas to add or combine &lt;a href="{0}"&gt;components&lt;/a&gt; from GCFoundation (via TagHelpers) and the GC Design System.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="CopyTemplate_Button" xml:space="preserve">
+    <value>Copier le modèle</value>
+  </data>
+  <data name="HowToImplement_Anchor" xml:space="preserve">
+    <value>comment-proceder</value>
+  </data>
+  <data name="HowToImplement" xml:space="preserve">
+    <value>Comment procéder à la mise en œuvre</value>
+  </data>
+  <data name="Basic_HowToImplement" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DesignConsiderations" xml:space="preserve">
+    <value>Considérations de conception</value>
+  </data>
+  <data name="DesignConsiderations_Anchor" xml:space="preserve">
+    <value>considerations-conception</value>
+  </data>
+  <data name="Basic_Demo_SectionX" xml:space="preserve">
+    <value>Section {0}</value>
+  </data>
+  <data name="Basic_Demo_SubSection" xml:space="preserve">
+    <value>Titre de la sous-section</value>
+  </data>
+  <data name="Basic_Demo_Name" xml:space="preserve">
+    <value>Démo du modèle de page de base</value>
+  </data>
+  <data name="Basic_Code_Name" xml:space="preserve">
+    <value>Code du modèle de page de base</value>
+  </data>
+  <data name="Basic_Code_Intro" xml:space="preserve">
+    <value>Copiez ce code pour utiliser le modèle de page de base.</value>
   </data>
 </root>

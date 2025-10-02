@@ -47,7 +47,8 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// <param name="output">The output to which the attributes will be added.</param>
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            AddAttributeIfNotNull(output, "character-limit", CharacterLimit);
+            if (CharacterLimit)
+                AddAttributeIfNotNull(output, "character-limit", CharacterLimit);
             AddAttributeIfNotNullWithCaseConversion(output, "display", Display);
             AddAttributeIfNotNull(output, "display", Display);
             AddAttributeIfNotNull(output, "margin-bottom", MarginBottom);

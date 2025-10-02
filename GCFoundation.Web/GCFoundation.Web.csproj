@@ -117,4 +117,8 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\templates\" />
+  </ItemGroup>
+
 </Project>

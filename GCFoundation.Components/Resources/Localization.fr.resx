@@ -243,4 +243,7 @@
   <data name="Validation_Warning" xml:space="preserve">
     <value>Avertissement</value>
   </data>
+  <data name="OpensInNewTab" xml:space="preserve">
+    <value>S'ouvre dans un nouvel onglet.</value>
+  </data>
 </root>

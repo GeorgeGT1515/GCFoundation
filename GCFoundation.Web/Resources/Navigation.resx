@@ -157,7 +157,7 @@
     <value>Installation</value>
   </data>
   <data name="Nav_Template" xml:space="preserve">
-    <value>Page templates</value>
+    <value>Page Templates</value>
   </data>
   <data name="Nav_Styles" xml:space="preserve">
     <value>Styles</value>
@@ -206,5 +206,26 @@
   </data>
   <data name="Nav_Installation_DateModified" xml:space="preserve">
     <value>Date Modified/Version Number</value>
+  </data>
+  <data name="Nav_Template_Stepper" xml:space="preserve">
+    <value>Stepper Page</value>
+  </data>
+  <data name="Nav_Template_Basic" xml:space="preserve">
+    <value>Basic Page</value>
+  </data>
+  <data name="Nav_Template_Dashboard" xml:space="preserve">
+    <value>Dashboard Page</value>
+  </data>
+  <data name="Nav_Template_Error" xml:space="preserve">
+    <value>Error Page</value>
+  </data>
+  <data name="Nav_Template_LanguageChooser" xml:space="preserve">
+    <value>Language Chooser Page</value>
+  </data>
+  <data name="Nav_Template_Basic_Code" xml:space="preserve">
+    <value>Basic Page Code</value>
+  </data>
+  <data name="Nav_Template_Basic_Demo" xml:space="preserve">
+    <value>Basic Page Demo</value>
   </data>
 </root>
