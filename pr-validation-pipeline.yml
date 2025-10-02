@@ -917,9 +917,11 @@ stages:
               # Non-blocking a11y awareness run (separate report/artifacts)
               Write-Host "Running a11y suite (non-blocking for PR awareness)"
               $env:PLAYWRIGHT_HTML_REPORT = "playwright-report-a11y"
-              npx playwright test -g @a11y --project=chrome --output test-artifacts-a11y
-              # Intentionally ignore a11y exit code to avoid blocking PR
-              $null = $LASTEXITCODE
+              # Use npm script to avoid PowerShell parsing issues with -g @a11y and ensure consistent config usage
+              # Route output to a dedicated folder; ignore exit code to keep PR non-blocking when there are 0 tests or failures
+              npm run test:a11y -- --project=chrome --output test-artifacts-a11y
+              if ($LASTEXITCODE -ne 0) { Write-Host "A11y suite completed with issues or no tests; continuing (non-blocking)." }
+              $null = 0
             }
             Pop-Location
           } finally {
