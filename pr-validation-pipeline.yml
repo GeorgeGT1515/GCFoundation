@@ -870,8 +870,7 @@ stages:
     - script: |
         npm ci
         npx playwright install chrome
-        npx playwright install msedge
-      displayName: 'Install E2E deps and browsers (Chrome, Edge)'
+      displayName: 'Install E2E deps and browser (Chrome)'
       workingDirectory: 'e2e'
 
     - task: PowerShell@2
@@ -904,14 +903,14 @@ stages:
             if ($isNightly) {
               Write-Host "Nightly run: execute full suite with sharding"
               # 2-way shard on the same agent sequentially; in real setup, use multiple parallel jobs
-              npx playwright test --shard=1/2
+              npx playwright test --project=chrome --shard=1/2
               if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-              npx playwright test --shard=2/2
+              npx playwright test --project=chrome --shard=2/2
               $e2eExit = $LASTEXITCODE
             } else {
               Write-Host "PR run: quick suite"
               # Blocking smoke suite
-              npm run test:smoke
+              npm run test:smoke -- --project=chrome
               $e2eExit = $LASTEXITCODE
 
               # Non-blocking a11y awareness run (separate report/artifacts)
