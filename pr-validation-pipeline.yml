@@ -915,6 +915,12 @@ stages:
               npm run test:smoke
               $e2eExit = $LASTEXITCODE
 
+              # Preserve smoke JUnit before running a11y which may overwrite it
+              $smokeJunit = Join-Path (Get-Location) 'test-results/junit.xml'
+              if (Test-Path $smokeJunit) {
+                Copy-Item $smokeJunit (Join-Path (Get-Location) 'test-results/junit-smoke.xml') -Force
+              }
+
               # Non-blocking a11y awareness run (separate report/artifacts)
               Write-Host "Running a11y suite (non-blocking for PR awareness)"
               $env:PLAYWRIGHT_HTML_REPORT = "playwright-report-a11y"
@@ -922,6 +928,12 @@ stages:
               # Route output to a dedicated folder; ignore exit code to keep PR non-blocking when there are 0 tests or failures
               npm run test:a11y:ci
               if ($LASTEXITCODE -ne 0) { Write-Host "A11y suite completed with issues or no tests; continuing (non-blocking)." }
+
+              # Preserve a11y JUnit separately
+              $a11yJunit = Join-Path (Get-Location) 'test-results/junit.xml'
+              if (Test-Path $a11yJunit) {
+                Copy-Item $a11yJunit (Join-Path (Get-Location) 'test-results/junit-a11y.xml') -Force
+              }
               $global:LASTEXITCODE = 0
             }
             Pop-Location
@@ -975,3 +987,14 @@ stages:
         pathToPublish: 'e2e/test-artifacts-a11y'
         artifactName: 'playwright-artifacts-a11y'
         artifactType: 'container'
+
+    - task: PublishTestResults@2
+      displayName: 'Publish Playwright JUnit (smoke + a11y)'
+      condition: always()
+      inputs:
+        testResultsFormat: 'JUnit'
+        testResultsFiles: 'e2e/test-results/junit-*.xml'
+        searchFolder: '$(Build.SourcesDirectory)'
+        mergeTestResults: true
+        failTaskOnFailedTests: false
+        testRunTitle: 'E2E (Playwright)'
