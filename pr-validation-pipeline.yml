@@ -200,6 +200,11 @@ stages:
     - task: NuGetToolInstaller@1
       displayName: 'NuGet Tool Installer'
 
+    - task: NuGetCommand@2
+      displayName: 'Restore NuGet Packages (Quality Gates)'
+      inputs:
+        restoreSolution: $(solution)
+
     - task: DownloadPipelineArtifact@2
       displayName: 'Download Unit Test Artifacts'
       inputs:
