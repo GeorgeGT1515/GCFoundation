@@ -70,7 +70,8 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Copy this code to use the basic page template..
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Copy this code to recreate the demo of the basic page template.&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;&lt;em&gt;Note: most of the work is done through configuration. See the &lt;a href=&quot;{0}&quot;&gt;How to implement&lt;/a&gt; section for details.&lt;/em&gt;&lt;/gcds-text&gt;.
         /// </summary>
         public static string Basic_Code_Intro {
             get {
@@ -84,6 +85,15 @@ namespace GCFoundation.Web.Resources {
         public static string Basic_Code_Name {
             get {
                 return ResourceManager.GetString("Basic_Code_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A basic page template includes the Government of Canada header and footer, H1, H2 and H3 heading sections with text underneath each section..
+        /// </summary>
+        public static string Basic_Demo_Image_AltText {
+            get {
+                return ResourceManager.GetString("Basic_Demo_Image_AltText", resourceCulture);
             }
         }
         
@@ -115,7 +125,93 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to design-considerations-side-nav.
+        /// </summary>
+        public static string Basic_Design_SideNav_Anchor {
+            get {
+                return ResourceManager.GetString("Basic_Design_SideNav_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Copy this code to recreate the demo of the basic page template with a Side Navigation menu.&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;&lt;em&gt;Note: most of the work is done through configuration. See the &lt;a href=&quot;{0}&quot;&gt;How to implement&lt;/a&gt; section for details.&lt;/em&gt;&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Basic_Design_SideNav_Code_Intro {
+            get {
+                return ResourceManager.GetString("Basic_Design_SideNav_Code_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code of the Basic Page Template (with Side Navigation).
+        /// </summary>
+        public static string Basic_Design_SideNav_Code_Name {
+            get {
+                return ResourceManager.GetString("Basic_Design_SideNav_Code_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A basic page template with side navigation includes the Government of Canada header and footer, H1, H2, H3 heading sections with text underneath each section as well as a side navigation menu containing links to each section of this page..
+        /// </summary>
+        public static string Basic_Design_SideNav_Demo_Image_AltText {
+            get {
+                return ResourceManager.GetString("Basic_Design_SideNav_Demo_Image_AltText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Demo of the Basic Page Template (with Side Navigation).
+        /// </summary>
+        public static string Basic_Design_SideNav_Demo_Name {
+            get {
+                return ResourceManager.GetString("Basic_Design_SideNav_Demo_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ul&gt;
+        ///&lt;li&gt;Include a side navigation section with bulleted anchor links for pages with four or more sections.&lt;/li&gt;
+        ///&lt;li&gt;Anchor links to improve navigation and help people find relevant content.&lt;/li&gt;
+        ///&lt;/ul&gt;.
+        /// </summary>
+        public static string Basic_Design_SideNav_Description {
+            get {
+                return ResourceManager.GetString("Basic_Design_SideNav_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preview &quot;Side Navigation&quot;.
+        /// </summary>
+        public static string Basic_Design_SideNav_Preview {
+            get {
+                return ResourceManager.GetString("Basic_Design_SideNav_Preview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to design-considerations-side-nav-preview.
+        /// </summary>
+        public static string Basic_Design_SideNav_Preview_Anchor {
+            get {
+                return ResourceManager.GetString("Basic_Design_SideNav_Preview_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Improve navigation on longer pages.
+        /// </summary>
+        public static string Basic_Design_SideNav_Title {
+            get {
+                return ResourceManager.GetString("Basic_Design_SideNav_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Getting the basic page template up-and-running is mostly about configuring your application correctly. All you&apos;ll need to do is follow the instructions of the &lt;a href=&quot;{0}&quot;&gt;GCFoundation Installation page&lt;/a&gt;.&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;This will load to the underlying &lt;code&gt;_FoundationLayout&lt;/code&gt; shared view. Finally, just ensure that you include the following statement in &lt;code&gt;Views/_ViewStart.cshtml&lt;/code&gt; to make the &lt;code&gt;_FoundationLayout&lt;/code&gt; the default page template for your application [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Basic_HowToImplement {
             get {
@@ -138,6 +234,24 @@ namespace GCFoundation.Web.Resources {
         public static string Basic_Name {
             get {
                 return ResourceManager.GetString("Basic_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;The Basic Page Template is built using the following GCFoundation components that are built off of GC Design System components that meet WCAG 2.1 AA accessibility standards:&lt;/gcds-text&gt;
+        ///&lt;ul&gt;
+        ///&lt;li&gt;&lt;code&gt;&amp;lt;gcds-container&amp;gt;&lt;/code&gt;&lt;/li&gt;
+        ///&lt;li&gt;&lt;code&gt;&amp;lt;gcds-date-modified&amp;gt;&lt;/code&gt;&lt;/li&gt;
+        ///&lt;li&gt;&lt;code&gt;&amp;lt;gcds-footer&amp;gt;&lt;/code&gt;&lt;/li&gt;
+        ///&lt;li&gt;&lt;code&gt;&amp;lt;gcds-header&amp;gt;&lt;/code&gt;&lt;/li&gt;
+        ///&lt;li&gt;&lt;code&gt;&amp;lt;gcds-heading&amp;gt;&lt;/code&gt;&lt;/li&gt;
+        ///&lt;li&gt;&lt;code&gt;&amp;lt;gcds-link&amp;gt;&lt;/code&gt;&lt;/li&gt;
+        ///&lt;li&gt;&lt;code&gt;&amp;lt;gcds-text&amp;gt;&lt;/code&gt;&lt;/li&gt;
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Basic_Notes {
+            get {
+                return ResourceManager.GetString("Basic_Notes", resourceCulture);
             }
         }
         
@@ -273,7 +387,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Default view for any GCFoundation page. This is a generic page layout including necessary components for any accessible GC pages..
+        ///   Looks up a localized string similar to A generic page layout including the necessary components for any accessible GC pages..
         /// </summary>
         public static string Index_Basic_Description {
             get {

@@ -181,7 +181,7 @@
     <value>Stepper Page</value>
   </data>
   <data name="Index_Basic_Description" xml:space="preserve">
-    <value>Default view for any GCFoundation page. This is a generic page layout including necessary components for any accessible GC pages.</value>
+    <value>A generic page layout including the necessary components for any accessible GC pages.</value>
   </data>
   <data name="Index_Error_Description" xml:space="preserve">
     <value>Description of an error page template</value>
@@ -267,7 +267,8 @@
     <value>How to implement</value>
   </data>
   <data name="Basic_HowToImplement" xml:space="preserve">
-    <value />
+    <value>&lt;gcds-text&gt;Getting the basic page template up-and-running is mostly about configuring your application correctly. All you'll need to do is follow the instructions of the &lt;a href="{0}"&gt;GCFoundation Installation page&lt;/a&gt;.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;This will load to the underlying &lt;code&gt;_FoundationLayout&lt;/code&gt; shared view. Finally, just ensure that you include the following statement in &lt;code&gt;Views/_ViewStart.cshtml&lt;/code&gt; to make the &lt;code&gt;_FoundationLayout&lt;/code&gt; the default page template for your application.&lt;/gcds-text&gt;</value>
   </data>
   <data name="DesignConsiderations" xml:space="preserve">
     <value>Design considerations</value>
@@ -288,6 +289,53 @@
     <value>Code of the Basic Page Template</value>
   </data>
   <data name="Basic_Code_Intro" xml:space="preserve">
-    <value>Copy this code to use the basic page template.</value>
+    <value>&lt;gcds-text&gt;Copy this code to recreate the demo of the basic page template.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;&lt;em&gt;Note: most of the work is done through configuration. See the &lt;a href="{0}"&gt;How to implement&lt;/a&gt; section for details.&lt;/em&gt;&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Basic_Demo_Image_AltText" xml:space="preserve">
+    <value>A basic page template includes the Government of Canada header and footer, H1, H2 and H3 heading sections with text underneath each section.</value>
+  </data>
+  <data name="Basic_Design_SideNav_Title" xml:space="preserve">
+    <value>Improve navigation on longer pages</value>
+  </data>
+  <data name="Basic_Design_SideNav_Description" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;Include a side navigation section with bulleted anchor links for pages with four or more sections.&lt;/li&gt;
+&lt;li&gt;Anchor links to improve navigation and help people find relevant content.&lt;/li&gt;
+&lt;/ul&gt;</value>
+  </data>
+  <data name="Basic_Design_SideNav_Preview" xml:space="preserve">
+    <value>Preview "Side Navigation"</value>
+  </data>
+  <data name="Basic_Design_SideNav_Preview_Anchor" xml:space="preserve">
+    <value>design-considerations-side-nav-preview</value>
+  </data>
+  <data name="Basic_Design_SideNav_Anchor" xml:space="preserve">
+    <value>design-considerations-side-nav</value>
+  </data>
+  <data name="Basic_Notes" xml:space="preserve">
+    <value>&lt;gcds-text&gt;The Basic Page Template is built using the following GCFoundation components that are built off of GC Design System components that meet WCAG 2.1 AA accessibility standards:&lt;/gcds-text&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;gcds-container&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;gcds-date-modified&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;gcds-footer&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;gcds-header&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;gcds-heading&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;gcds-link&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;gcds-text&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;</value>
+  </data>
+  <data name="Basic_Design_SideNav_Demo_Image_AltText" xml:space="preserve">
+    <value>A basic page template with side navigation includes the Government of Canada header and footer, H1, H2, H3 heading sections with text underneath each section as well as a side navigation menu containing links to each section of this page.</value>
+  </data>
+  <data name="Basic_Design_SideNav_Code_Name" xml:space="preserve">
+    <value>Code of the Basic Page Template (with Side Navigation)</value>
+  </data>
+  <data name="Basic_Design_SideNav_Code_Intro" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Copy this code to recreate the demo of the basic page template with a Side Navigation menu.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;&lt;em&gt;Note: most of the work is done through configuration. See the &lt;a href="{0}"&gt;How to implement&lt;/a&gt; section for details.&lt;/em&gt;&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Basic_Design_SideNav_Demo_Name" xml:space="preserve">
+    <value>Demo of the Basic Page Template (with Side Navigation)</value>
   </data>
 </root>

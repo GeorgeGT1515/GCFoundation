@@ -35,6 +35,8 @@
 					<Children>
 						<NavNode key="template-basic-code" controller="Template" action="BasicCode" area="" preservedRouteParameters="culture" text="Nav_Template_Basic_Code" />
 						<NavNode key="template-basic-demo" controller="Template" action="BasicDemo" area="" preservedRouteParameters="culture" text="Nav_Template_Basic_Demo" />
+						<NavNode key="template-basic-sidenav-code" controller="Template" action="BasicSideNavCode" area="" preservedRouteParameters="culture" text="Nav_Template_Basic_SideNav_Code" />
+						<NavNode key="template-basic-sidenav-demo" controller="Template" action="BasicSideNavDemo" area="" preservedRouteParameters="culture" text="Nav_Template_Basic_SideNav_Demo" />
 					</Children>
 				</NavNode>
         <NavNode key="template-dashboard" controller="Template" action="Dashboard" area="" preservedRouteParameters="culture" text="Nav_Template_Dashboard" />

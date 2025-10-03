@@ -67,6 +67,34 @@ namespace GCFoundation.Web.Controllers
         }
 
         /// <summary>
+        /// Displays a page containing sample code for the use of a Basic page template with side navigation.
+        /// </summary>
+        /// <returns>
+        /// The view for the sample code for a Basic page template with side navigation.
+        /// </returns>
+        [HttpGet("basic/side-navigation/code")]
+        public IActionResult BasicSideNavCode()
+        {
+            SetPageTitle($"{Menu.Menu_Template} : {Resources.Navigation.Nav_Template_Basic_Code}");
+
+            return View("basic/sidenavigation-code");
+        }
+
+        /// <summary>
+        /// Displays a page containing a demo of a Basic page template with side navigation.
+        /// </summary>
+        /// <returns>
+        /// The view for the demo of a Basic page template with side navigation.
+        /// </returns>
+        [HttpGet("basic/side-navigation/demo")]
+        public IActionResult BasicSideNavDemo()
+        {
+            SetPageTitle($"{Menu.Menu_Template} : {Resources.Navigation.Nav_Template_Basic_Demo}");
+
+            return View("basic/sidenavigation-demo");
+        }
+
+        /// <summary>
         /// Displays the Dashboard page template demo page.
         /// </summary>
         /// <returns>

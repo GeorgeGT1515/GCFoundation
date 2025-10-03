@@ -340,6 +340,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Basic Page (with Side Navigation) Code.
+        /// </summary>
+        public static string Nav_Template_Basic_SideNav_Code {
+            get {
+                return ResourceManager.GetString("Nav_Template_Basic_SideNav_Code", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic Page (with Side Navigation) Demo.
+        /// </summary>
+        public static string Nav_Template_Basic_SideNav_Demo {
+            get {
+                return ResourceManager.GetString("Nav_Template_Basic_SideNav_Demo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dashboard Page.
         /// </summary>
         public static string Nav_Template_Dashboard {

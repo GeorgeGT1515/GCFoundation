@@ -228,4 +228,10 @@
   <data name="Nav_Template_Basic_Demo" xml:space="preserve">
     <value>Basic Page Demo</value>
   </data>
+  <data name="Nav_Template_Basic_SideNav_Code" xml:space="preserve">
+    <value>Basic Page (with Side Navigation) Code</value>
+  </data>
+  <data name="Nav_Template_Basic_SideNav_Demo" xml:space="preserve">
+    <value>Basic Page (with Side Navigation) Demo</value>
+  </data>
 </root>

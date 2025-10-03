@@ -1,0 +1,30 @@
+﻿@using GCFoundation.Web.Resources
+
+<gcds-heading tag="h1">@Template.Basic_Design_SideNav_Demo_Name</gcds-heading>
+<gcds-text character-limit="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum congue leo id aliquet. Nunc venenatis dignissim est, in varius turpis dictum sagittis. Integer ullamcorper in diam eget convallis. Sed tristique mauris eget lobortis sagittis. Nulla blandit fringilla dui, quis viverra mauris ullamcorper at.</gcds-text>
+
+<gcds-grid columns-desktop="1fr 3fr" columns="1fr">
+	<gcds-side-nav label="@Template.SideNav_Label">
+		<gcds-nav-link href="#section-1">@string.Format(Template.Basic_Demo_SectionX, 1)</gcds-nav-link>
+		<gcds-nav-link href="#section-1-sub-section-1">@string.Concat(Template.Basic_Demo_SubSection, " 1")</gcds-nav-link>
+		<gcds-nav-link href="#section-1-sub-section-2">@string.Concat(Template.Basic_Demo_SubSection, " 2")</gcds-nav-link>
+		<gcds-nav-link href="#section-2">@string.Format(Template.Basic_Demo_SectionX, 2)</gcds-nav-link>
+		<gcds-nav-link href="#section-3">@string.Format(Template.Basic_Demo_SectionX, 3)</gcds-nav-link>
+	</gcds-side-nav>
+	<div>
+		<gcds-heading tag="h2" id="section-1">@string.Format(Template.Basic_Demo_SectionX, 1)</gcds-heading>
+		<gcds-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum congue leo id aliquet. Nunc venenatis dignissim est, in varius turpis dictum sagittis.</gcds-text>
+
+		<gcds-heading tag="h3" id="section-1-sub-section-1">@string.Concat(Template.Basic_Demo_SubSection, " 1")</gcds-heading>
+		<gcds-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum congue leo id aliquet. Nunc venenatis dignissim est, in varius turpis dictum sagittis. Integer ullamcorper in diam eget convallis. Sed tristique mauris eget lobortis sagittis.</gcds-text>
+
+		<gcds-heading tag="h3" id="section-1-sub-section-2">@string.Concat(Template.Basic_Demo_SubSection, " 2")</gcds-heading>
+		<gcds-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum congue leo id aliquet. Nunc venenatis dignissim est, in varius turpis dictum sagittis. Integer ullamcorper in diam eget convallis. Sed tristique mauris eget lobortis sagittis. Nulla blandit fringilla dui, quis viverra mauris ullamcorper at.</gcds-text>
+
+		<gcds-heading tag="h2" id="section-2">@string.Format(Template.Basic_Demo_SectionX, 2)</gcds-heading>
+		<gcds-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum congue leo id aliquet. Nunc venenatis dignissim est, in varius turpis dictum sagittis. Integer ullamcorper in diam eget convallis. Sed tristique mauris eget lobortis sagittis.</gcds-text>
+
+		<gcds-heading tag="h2" id="section-3">@string.Format(Template.Basic_Demo_SectionX, 3)</gcds-heading>
+		<gcds-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum congue leo id aliquet. Nunc venenatis dignissim est, in varius turpis dictum sagittis. Integer ullamcorper in diam eget convallis. Sed tristique mauris eget lobortis sagittis. Nulla blandit fringilla dui, quis viverra mauris ullamcorper at.</gcds-text>
+	</div>
+</gcds-grid>

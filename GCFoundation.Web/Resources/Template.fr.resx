@@ -181,7 +181,7 @@
     <value>Page avec indicateur d'étapes</value>
   </data>
   <data name="Index_Basic_Description" xml:space="preserve">
-    <value>La vue par défaut pour n'importe quelle page GCFoundation. Elle présente une mise en page générique avec les composants nécessaires pour construire une page accessible pour le GC.</value>
+    <value>Une mise en page générique comprenant les composants nécessaires pour construire une page accessible pour le GC.</value>
   </data>
   <data name="Index_Error_Description" xml:space="preserve">
     <value>Description d'un modèle de page d'erreur</value>
@@ -267,7 +267,8 @@
     <value>Comment procéder à la mise en œuvre</value>
   </data>
   <data name="Basic_HowToImplement" xml:space="preserve">
-    <value />
+    <value>&lt;gcds-text&gt;Initialiser le modèle de page de base n'est qu'une question de configurer votre projet correctement. Vous n'avez qu'à suivre les instructions de la page d'&lt;a href="{0}"&gt;installation de GCFoundation&lt;/a&gt;.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;Ce faisant, vous chargerez en arrière-plan la vue partagée &lt;code&gt;_FoundationLayout&lt;/code&gt;. Finalement, vous n'aurez qu'à vous assurer que la déclaration suivante est incluse dans le fichier &lt;code&gt;Views/_ViewStart.cshtml&lt;/code&gt; pour définir le &lt;code&gt;_FoundationLayout&lt;/code&gt; comme étant le modèle de page par défault de votre application.&lt;/gcds-text&gt;</value>
   </data>
   <data name="DesignConsiderations" xml:space="preserve">
     <value>Considérations de conception</value>
@@ -288,6 +289,53 @@
     <value>Code du modèle de page de base</value>
   </data>
   <data name="Basic_Code_Intro" xml:space="preserve">
-    <value>Copiez ce code pour utiliser le modèle de page de base.</value>
+    <value>&lt;gcds-text&gt;Copiez ce code pour recréer la démo du modèle de page de base.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;&lt;em&gt;Note&amp;nbsp;: la grande partie du travail est faite au travers de la configuration de votre application. Voir la section &lt;a href="{0}"&gt;Comment procéder pour la mise en &amp;oelig;uvre&lt;/a&gt; pour plus de détails.&lt;/em&gt;&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Basic_Demo_Image_AltText" xml:space="preserve">
+    <value>Un modèle de page de base inclus l'entête et le pied de page du gouvernment du Canada ainsi que de entêtes de section H1, H2, H3 et du texte sous chacune des sections.</value>
+  </data>
+  <data name="Basic_Design_SideNav_Title" xml:space="preserve">
+    <value>Améliorer la navigation dans les longues pages</value>
+  </data>
+  <data name="Basic_Design_SideNav_Description" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;Pour toute page ayant 4 sections ou plus, ajoutez une section de navigation latérale comprenant une liste de liens (ancres) renvoyant aux autres sections.&lt;/li&gt;
+&lt;li&gt;Ajouter des ancres afin d'améliorer la navigation et aider les gens à trouver le contenu dont ils ont besoin.&lt;/li&gt;
+&lt;/ul&gt;</value>
+  </data>
+  <data name="Basic_Design_SideNav_Preview" xml:space="preserve">
+    <value>Aperçu «&amp;nbsp;navigation latérale&amp;nbsp;»</value>
+  </data>
+  <data name="Basic_Design_SideNav_Preview_Anchor" xml:space="preserve">
+    <value>considerations-conception-nav-laterale-apercu</value>
+  </data>
+  <data name="Basic_Design_SideNav_Anchor" xml:space="preserve">
+    <value>design-considerations-nav-laterale</value>
+  </data>
+  <data name="Basic_Notes" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Le modèle de base de page est construit en utilisant les composants GCFoundation suivants qui sont développés en utilisant les composants du Système de design GC qui respectent le niveau AA des Règles pour l'accessibilité des contenus Web (WCAG) 2.1&amp;nbsp;:&lt;/gcds-text&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;gcds-container&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;gcds-date-modified&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;gcds-footer&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;gcds-header&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;gcds-heading&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;gcds-link&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;gcds-text&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;</value>
+  </data>
+  <data name="Basic_Design_SideNav_Demo_Image_AltText" xml:space="preserve">
+    <value>Un modèle de page de base inclus l'entête et le pied de page du gouvernment du Canada ainsi que de entêtes de section H1, H2, H3 avec du texte sous chacune des sections ainsi qu'un menu de navigation latérale contenant des liens vers chacune des sections de cette page.</value>
+  </data>
+  <data name="Basic_Design_SideNav_Code_Name" xml:space="preserve">
+    <value>Code du modèle de page de base (avec navigation latérale)</value>
+  </data>
+  <data name="Basic_Design_SideNav_Code_Intro" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Copiez ce code pour recréer la démo du modèle de page de base avec un menu de navigation latérale.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;&lt;em&gt;Note&amp;nbsp;: la grande partie du travail est faite au travers de la configuration de votre application. Voir la section &lt;a href="{0}"&gt;Comment procéder pour la mise en &amp;oelig;uvre&lt;/a&gt; pour plus de détails.&lt;/em&gt;&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Basic_Design_SideNav_Demo_Name" xml:space="preserve">
+    <value>Démo du modèle de page de base (avec navigation latérale)</value>
   </data>
 </root>
