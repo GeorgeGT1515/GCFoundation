@@ -88,9 +88,6 @@ if (!string.IsNullOrEmpty(pathBase))
     app.UsePathBase(pathBase);
 }
 
-// Load all javascript dependencies for foundation and GCDS
-app.UseMiddleware<GCFoundationComponentsMiddleware>();
-
 // Add GCFoundation security middleware (Add CSP)
 app.UseMiddleware<GCFoundationContentPoliciesMiddleware>();
 app.UseMiddleware<GCFoundationLanguageMiddleware>();
