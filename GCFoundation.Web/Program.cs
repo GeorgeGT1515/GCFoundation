@@ -108,7 +108,15 @@ app.UseGCFoundationComponents();
 app.UseGCFoundationContentPolicies();
 app.UseGCFoundationSession();
 
-app.UseHttpsRedirection();
+var disableHttpsRedirect = string.Equals(
+    System.Environment.GetEnvironmentVariable("DISABLE_HTTPS_REDIRECT"),
+    "true",
+    System.StringComparison.OrdinalIgnoreCase);
+
+if (!disableHttpsRedirect)
+{
+    app.UseHttpsRedirection();
+}
 app.UseStaticFiles();
 app.UseRouting();
 

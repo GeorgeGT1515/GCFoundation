@@ -886,6 +886,7 @@ stages:
           # Disable external CDN assets (GCDS, Font Awesome) during E2E to avoid CORS noise
           $env:FoundationComponentsSettings__IncludeGCDSResources = 'false'
           $env:FoundationComponentsSettings__IncludeFontAwesome = 'false'
+          $env:DISABLE_HTTPS_REDIRECT = 'true'
 
           $p = Start-Process -FilePath "dotnet" -ArgumentList @("run","--project","`"$proj`"","--urls",$baseUrl) -NoNewWindow -PassThru
 
