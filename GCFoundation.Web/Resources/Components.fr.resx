@@ -524,7 +524,7 @@
     <value>Carte</value>
   </data>
   <data name="Index_Card_Description" xml:space="preserve">
-    <value>Conteneurs de contenu flexibles avec en-têtes, pieds de page et images</value>
+    <value>&lt;gcds-text&gt;Conteneurs de contenu flexibles avec en-têtes, pieds de page et images&lt;/gcds-text&gt;</value>
   </data>
   <data name="Index_PageHeading_Title" xml:space="preserve">
     <value>En-tête de page</value>
@@ -1082,6 +1082,9 @@
   <data name="Table_Properties_PaginationSize" xml:space="preserve">
     <value>Le nombre d'entrées à afficher sur chaque page.</value>
   </data>
+  <data name="Index_Card_ImgAlt_Template" xml:space="preserve">
+    <value>Image représentant le composant "{0}" de GCFoundation</value>
+  </data>
   <data name="StatelessAuth_CurrentStatus_Title" xml:space="preserve">
     <value>Statut d'authentification actuel</value>
   </data>
@@ -1210,8 +1213,5 @@
   </data>
   <data name="StatelessAuth_Integration_Description2" xml:space="preserve">
     <value />
-  </data>
-  <data name="Index_Card_ImgAlt_Template" xml:space="preserve">
-    <value>Image représentant le composant "{0}" de GCFoundation</value>
   </data>
 </root>
