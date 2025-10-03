@@ -1,0 +1,13 @@
+{
+  "exact": [
+    "canada",
+    "gc foundation",
+    "gcfoundation"
+  ],
+  "regex": [
+    "^[\\w.+-]+@[\\w.-]+\\.[A-Za-z]{2,}$",
+    "^\\+?\\d[\\d\\s().-]{6,}\\d$",
+    "^https?:\\/\\/"
+  ]
+}
+

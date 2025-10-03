@@ -31,6 +31,7 @@ namespace GCFoundation.Security.Middlewares
             string jsCDN = string.Join(" ", _settings.JavascriptCDN ?? Enumerable.Empty<string>());
             string fontCDN = string.Join(" ", _settings.FontCDN ?? Enumerable.Empty<string>());
             string cssHash = string.Join(" ", _settings.CssCDNHash ?? Enumerable.Empty<string>());
+            string connectCDN = string.Join(" ", _settings.ConnectCDN ?? Enumerable.Empty<string>());
 
             // Build Content Security Policy (CSP)
             string contentSecurityPolicy = $"default-src 'self'; " +
@@ -38,7 +39,7 @@ namespace GCFoundation.Security.Middlewares
                                $"object-src 'none'; " +
                                $"style-src 'self' {cssCDN} {cssHash} 'nonce-{nonce}'; " +
                                $"font-src 'self' {fontCDN}; " +
-                               $"connect-src 'self' http://localhost:* https://localhost:* ws://localhost:* wss://localhost:* https://cdn.design-system.alpha.canada.ca; " +
+                               $"connect-src 'self' {connectCDN} http://localhost:* https://localhost:* ws://localhost:* wss://localhost:* https://cdn.design-system.alpha.canada.ca; " +
                                $"img-src 'self' data:; " +
                                $"frame-ancestors 'none'; " +
                                $"upgrade-insecure-requests;";

@@ -134,7 +134,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 tableDiv += $" data-ajaxURL='{AjaxUrl}'";
             }
 
-            tableDiv += "></div>";
+            tableDiv += "></div>\n<nav id='{Id}-paginator' class='tabulator-paginator' aria-label='Table pagination'></nav>\n<div id='{Id}-status' role='status' aria-live='polite'></div>";
 
             return tableDiv;
 

@@ -128,7 +128,7 @@ namespace GCFoundation.Common.Settings
 
         /// <summary>
         /// Gets the list of additional link tags to include in the head section.
-        /// Each item should be a complete link tag (e.g., "<link rel=\"preconnect\" href=\"...\">").
+        /// Each item should be a complete link tag (e.g., "&lt;link rel=&quot;preconnect&quot; href=&quot;...&quot; /&gt;").
         /// </summary>
         public Collection<string> GlobalLinkTags { get; } = new Collection<string>();
 
