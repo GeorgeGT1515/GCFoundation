@@ -3,20 +3,16 @@
 @using GCFoundation.Web.Resources
 @using Microsoft.AspNetCore.Routing
 
-<gcds-heading tag="h1">@Template.Index_PageTitle</gcds-heading>
+<gcds-heading tag="h1" margin-bottom="400">@Template.Index_PageTitle</gcds-heading>
 <gcds-text>@Template.Index_PageDescription</gcds-text>
-
-<gcds-heading tag="h2">@Template.Index_Browse_Title</gcds-heading>
-<gcds-text>@Template.Index_Browse_Description</gcds-text>
 
 @{
     var template = new List<CardTagHelper>()
     {
-        new CardTagHelper() { CardTitle = Template.Index_Basic_Title, Description = Template.Index_Basic_Description, Href = @Url.Action("Basic", "Template") ?? string.Empty },
-        new CardTagHelper() { CardTitle = Template.Index_Dashboard_Title, Description = Template.Index_Dashboard_Description, Href = @Url.Action("Dashboard", "Template") ?? string.Empty },
-        new CardTagHelper() { CardTitle = Template.Index_Error_Title, Description = Template.Index_Error_Description, Href = @Url.Action("Error", "Template") ?? string.Empty },
-        new CardTagHelper() { CardTitle = Template.Index_LanguageChooser_Title, Description = Template.Index_LanguageChooser_Description, Href = @Url.Action("LanguageChooser", "Template") ?? string.Empty },
-        new CardTagHelper() { CardTitle = Template.Index_Stepper_Title, Description = Template.Index_Stepper_Description, Href = @Url.Action("Stepper", "Template") ?? string.Empty }
+        new CardTagHelper() { CardTitle = Template.Index_Basic_Title, Description = Template.Index_Basic_Description, Href = @Url.Action("Badge", "Components") ?? string.Empty },
+        new CardTagHelper() { CardTitle = Template.Index_Error_Title, Description = Template.Index_Error_Description, Href = @Url.Action("Card", "Components") ?? string.Empty },
+        new CardTagHelper() { CardTitle = Template.Index_LanguageChooser_Title, Description = Template.Index_LanguageChooser_Description, Href = @Url.Action("FilteredSearch", "Components") ?? string.Empty },
+        new CardTagHelper() { CardTitle = Template.Index_Stepper_Title, Description = Template.Index_Stepper_Description, Href = @Url.Action("FormBuilder", "Components") ?? string.Empty }
     };
 }
 
@@ -29,7 +25,6 @@
     }
 </gcds-grid>
 
-@* To be removed. *@
 <gcds-grid columns-desktop="1fr 3fr" columns="1fr">
     <gcds-side-nav label="@Template.SideNav_Label">
         <gcds-nav-link href="#main-template">@Template.SideNav_MainTemplate</gcds-nav-link>
@@ -70,13 +65,13 @@
         <gcds-text>
             @Template.Section_UserLoginPartial_Description
         </gcds-text>
-
+        
         <gcds-heading tag="h3" class="fdcp-mt-300">Template Integration</gcds-heading>
         <gcds-text>
-            The User Login Partial integrates seamlessly with the Foundation Layout template.
+            The User Login Partial integrates seamlessly with the Foundation Layout template. 
             Simply set the partial name in your controller and it will automatically appear in the designated area.
         </gcds-text>
-
+        
         <gcds-details details-title="Controller Implementation" class="fdcp-mt-200">
             <pre><code>public class HomeController : GCFoundationBaseController
 {
@@ -113,7 +108,7 @@
                     <gcds-link href="@Url.Action("Index", "StatelessAuthExample")">View Examples</gcds-link>
                 </gcds-text>
             </gcds-card>
-
+            
             <gcds-card card-title="Azure Active Directory" tag="div">
                 <gcds-text>Enterprise authentication with Office 365 integration.</gcds-text>
                 <gcds-text class="fdcp-mt-100">
@@ -171,7 +166,7 @@ if (Request.Path.StartsWithSegments("/admin"))
         font-size: 0.875rem;
         margin: 0.5rem 0;
     }
-
+    
     code {
         font-family: 'Courier New', monospace;
     }

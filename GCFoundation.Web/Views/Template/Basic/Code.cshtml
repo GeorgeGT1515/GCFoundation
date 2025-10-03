@@ -1,0 +1,27 @@
+﻿@using GCFoundation.Web.Resources
+
+<gcds-heading tag="h1">@Template.Basic_Code_Name</gcds-heading>
+@Html.Raw(string.Format(Template.Basic_Code_Intro, string.Concat(Url.Action("Basic"), $"#{Template.HowToImplement_Anchor}")))
+
+<div class="documentation-content">
+<pre><code class="language-cshtml">@@using GCFoundation.Web.Resources
+
+&lt;gcds-heading tag="h1"&gt;@Template.Basic_Demo_Name&lt;/gcds-heading&gt;
+&lt;gcds-text&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum congue leo id aliquet. Nunc venenatis dignissim est, in varius turpis dictum sagittis. Integer ullamcorper in diam eget convallis. Sed tristique mauris eget lobortis sagittis. Nulla blandit fringilla dui, quis viverra mauris ullamcorper at.&lt;/gcds-text&gt;
+
+&lt;gcds-heading tag="h2"&gt;@string.Format(Template.Basic_Demo_SectionX, 1)&lt;/gcds-heading&gt;
+&lt;gcds-text&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum congue leo id aliquet. Nunc venenatis dignissim est, in varius turpis dictum sagittis.&lt;/gcds-text&gt;
+
+&lt;gcds-heading tag="h3"&gt;@Template.Basic_Demo_SubSection&lt;/gcds-heading&gt;
+&lt;gcds-text&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum congue leo id aliquet. Nunc venenatis dignissim est, in varius turpis dictum sagittis. Integer ullamcorper in diam eget convallis. Sed tristique mauris eget lobortis sagittis.&lt;/gcds-text&gt;
+
+&lt;gcds-heading tag="h3"&gt;@Template.Basic_Demo_SubSection&lt;/gcds-heading&gt;
+&lt;gcds-text&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum congue leo id aliquet. Nunc venenatis dignissim est, in varius turpis dictum sagittis. Integer ullamcorper in diam eget convallis. Sed tristique mauris eget lobortis sagittis. Nulla blandit fringilla dui, quis viverra mauris ullamcorper at.&lt;/gcds-text&gt;
+
+&lt;gcds-heading tag="h2"&gt;@string.Format(Template.Basic_Demo_SectionX, 2)&lt;/gcds-heading&gt;
+&lt;gcds-text&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum congue leo id aliquet. Nunc venenatis dignissim est, in varius turpis dictum sagittis. Integer ullamcorper in diam eget convallis. Sed tristique mauris eget lobortis sagittis.&lt;/gcds-text&gt;
+
+&lt;gcds-heading tag="h2"&gt;@string.Format(Template.Basic_Demo_SectionX, 3)&lt;/gcds-heading&gt;
+&lt;gcds-text&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum congue leo id aliquet. Nunc venenatis dignissim est, in varius turpis dictum sagittis. Integer ullamcorper in diam eget convallis. Sed tristique mauris eget lobortis sagittis. Nulla blandit fringilla dui, quis viverra mauris ullamcorper at.&lt;/gcds-text&gt;
+</code></pre>
+</div>

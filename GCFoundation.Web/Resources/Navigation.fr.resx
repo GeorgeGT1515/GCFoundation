@@ -157,7 +157,7 @@
     <value>Installation</value>
   </data>
   <data name="Nav_Template" xml:space="preserve">
-    <value>Modèle</value>
+    <value>Modèles de page</value>
   </data>
   <data name="Nav_Styles" xml:space="preserve">
     <value>Styles</value>
@@ -206,5 +206,32 @@
   </data>
   <data name="Nav_Installation_DateModified" xml:space="preserve">
     <value>Date de modification/Numéro de version</value>
+  </data>
+  <data name="Nav_Template_Stepper" xml:space="preserve">
+    <value>Page avec indicateur d'étapes</value>
+  </data>
+  <data name="Nav_Template_Basic" xml:space="preserve">
+    <value>Page de base</value>
+  </data>
+  <data name="Nav_Template_Dashboard" xml:space="preserve">
+    <value>Tableau de bord</value>
+  </data>
+  <data name="Nav_Template_Error" xml:space="preserve">
+    <value>Page d'erreur</value>
+  </data>
+  <data name="Nav_Template_LanguageChooser" xml:space="preserve">
+    <value>Page de sélection de language</value>
+  </data>
+  <data name="Nav_Template_Basic_Code" xml:space="preserve">
+    <value>Code du modèle de page de base</value>
+  </data>
+  <data name="Nav_Template_Basic_Demo" xml:space="preserve">
+    <value>Démo du modèle de page de base</value>
+  </data>
+  <data name="Nav_Template_Basic_SideNav_Code" xml:space="preserve">
+    <value>Code du modèle de page de base (avec navigation latérale)</value>
+  </data>
+  <data name="Nav_Template_Basic_SideNav_Demo" xml:space="preserve">
+    <value>Démo du modèle de page de base (avec navigation latérale)</value>
   </data>
 </root>

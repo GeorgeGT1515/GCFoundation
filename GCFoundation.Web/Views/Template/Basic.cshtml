@@ -1,0 +1,48 @@
+﻿@using GCFoundation.Components.Resources
+@using GCFoundation.Web.Resources
+
+<gcds-heading tag="h1">@Template.Basic_Name</gcds-heading>
+
+<div class="documentation-content">
+    @* Introduction *@
+    <gcds-text>@Html.Raw(Template.Basic_Intro)</gcds-text>
+
+    @* When to Use *@
+    <gcds-heading tag="h2" id="@Template.WhenToUse_Anchor">@Template.WhenToUse</gcds-heading>
+    @Html.Raw(string.Format(Template.Basic_WhenToUse, Url.Action("Index", "Components")))
+
+    @* Preview *@
+    <gcds-heading tag="h2" id="@Template.Preview_Anchor">@Template.Preview</gcds-heading>
+    <p>
+        <gcds-button button-role="secondary" type="link" href="@Url.Action("BasicDemo", "Template")">@Template.Demo_Button <i class="fdcp-ms-100 fa-solid fa-desktop"></i></gcds-button>
+        <gcds-button button-role="secondary" type="link" href="@Url.Action("BasicCode", "Template")">@Template.Code_Button <i class="fdcp-ms-100 fa-solid fa-code"></i></gcds-button>
+    </p>
+    @* Preview image *@
+    <img src="@Url.Content("~/images/templates/basic-demo.png")" alt="@Template.Basic_Demo_Image_AltText" class="fdcp-border fdcp-rounded fdcp-w-75" />
+
+    @* How to implement *@
+    <gcds-heading tag="h2" id="@Template.HowToImplement_Anchor">@Template.HowToImplement</gcds-heading>
+    @Html.Raw(string.Format(Template.Basic_HowToImplement, Url.Action("Index", "Installation")))
+    <pre><code class="language-cshtml">@@{
+    Layout = "_FoundationLayout";
+}
+</code></pre>
+
+    @* (Optional) Design considerations *@
+    <gcds-heading tag="h2" id="@Template.DesignConsiderations_Anchor">@Template.DesignConsiderations</gcds-heading>
+    <gcds-heading tag="h3" id="@Template.Basic_Design_SideNav_Anchor">@Template.Basic_Design_SideNav_Title</gcds-heading>
+    @Html.Raw(Template.Basic_Design_SideNav_Description)
+
+    @* Preview : Side Navigation *@
+    <gcds-heading tag="h4" id="@Template.Basic_Design_SideNav_Preview_Anchor">@Template.Basic_Design_SideNav_Preview</gcds-heading>
+    <p>
+        <gcds-button button-role="secondary" type="link" href="@Url.Action("BasicSideNavDemo", "Template")">@Template.Demo_Button <i class="fdcp-ms-100 fa-solid fa-desktop"></i></gcds-button>
+        <gcds-button button-role="secondary" type="link" href="@Url.Action("BasicSideNavCode", "Template")">@Template.Code_Button <i class="fdcp-ms-100 fa-solid fa-code"></i></gcds-button>
+    </p>
+    @* Preview image *@
+    <img src="@Url.Content("~/images/templates/basic-side-navigation-demo.png")" alt="@Template.Basic_Design_SideNav_Demo_Image_AltText" class="fdcp-border fdcp-rounded fdcp-w-75" />
+
+    @* Notes/Highlights *@
+    <gcds-heading tag="h2" id="@Template.Notes_Anchor">@Template.Notes</gcds-heading>
+    @Html.Raw(Template.Basic_Notes)
+</div>

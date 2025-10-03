@@ -160,7 +160,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Template.
+        ///   Looks up a localized string similar to Page Templates.
         /// </summary>
         public static string Menu_Template {
             get {

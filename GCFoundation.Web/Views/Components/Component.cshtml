@@ -13,7 +13,7 @@
 
 <gcds-heading tag="h1">@Model.Name<br /><code>@Html.Raw(Html.Encode(Model.Tag))</code></gcds-heading>
 
-<gcds-grid columns="minmax(200px, 300px) minmax(0, 1fr)" align-content="@GCFoundation.Components.Enums.AlignContent.start">
+<gcds-grid columns-desktop="1fr 3fr" columns="1fr">
     @* Side navigation *@
     @if (Model.ShowSideNavigation)
     {

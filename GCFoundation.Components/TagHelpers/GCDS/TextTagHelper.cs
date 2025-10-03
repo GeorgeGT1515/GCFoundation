@@ -13,7 +13,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// Gets or sets a value indicating whether the character limit is enabled.
         /// Default is <c>true</c>.
         /// </summary>
-        public bool CharacterLimit { get; set; }
+        public bool? CharacterLimit { get; set; }
 
         /// <summary>
         /// Gets or sets the display style of the text element. Default is <see cref="TextDisplay.Block"/>.
@@ -47,7 +47,8 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// <param name="output">The output to which the attributes will be added.</param>
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            AddAttributeIfNotNull(output, "character-limit", CharacterLimit);
+            if (CharacterLimit != null)
+                AddAttributeIfNotNull(output, "character-limit", CharacterLimit);
             AddAttributeIfNotNullWithCaseConversion(output, "display", Display);
             AddAttributeIfNotNull(output, "display", Display);
             AddAttributeIfNotNull(output, "margin-bottom", MarginBottom);

@@ -19,7 +19,7 @@ namespace GCFoundation.Web.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Navigation {
@@ -304,11 +304,92 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Template.
+        ///   Looks up a localized string similar to Page Templates.
         /// </summary>
         public static string Nav_Template {
             get {
                 return ResourceManager.GetString("Nav_Template", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic Page.
+        /// </summary>
+        public static string Nav_Template_Basic {
+            get {
+                return ResourceManager.GetString("Nav_Template_Basic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic Page Code.
+        /// </summary>
+        public static string Nav_Template_Basic_Code {
+            get {
+                return ResourceManager.GetString("Nav_Template_Basic_Code", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic Page Demo.
+        /// </summary>
+        public static string Nav_Template_Basic_Demo {
+            get {
+                return ResourceManager.GetString("Nav_Template_Basic_Demo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic Page (with Side Navigation) Code.
+        /// </summary>
+        public static string Nav_Template_Basic_SideNav_Code {
+            get {
+                return ResourceManager.GetString("Nav_Template_Basic_SideNav_Code", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic Page (with Side Navigation) Demo.
+        /// </summary>
+        public static string Nav_Template_Basic_SideNav_Demo {
+            get {
+                return ResourceManager.GetString("Nav_Template_Basic_SideNav_Demo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dashboard Page.
+        /// </summary>
+        public static string Nav_Template_Dashboard {
+            get {
+                return ResourceManager.GetString("Nav_Template_Dashboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error Page.
+        /// </summary>
+        public static string Nav_Template_Error {
+            get {
+                return ResourceManager.GetString("Nav_Template_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language Chooser Page.
+        /// </summary>
+        public static string Nav_Template_LanguageChooser {
+            get {
+                return ResourceManager.GetString("Nav_Template_LanguageChooser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stepper Page.
+        /// </summary>
+        public static string Nav_Template_Stepper {
+            get {
+                return ResourceManager.GetString("Nav_Template_Stepper", resourceCulture);
             }
         }
         

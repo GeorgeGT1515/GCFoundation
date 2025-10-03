@@ -33,52 +33,40 @@
 
         <gcds-heading tag="h2" id="package-installation">Package Installation</gcds-heading>
         <p>Install the following core NuGet packages:</p>
-        <div class="language-powershell">
-<pre><code>Install-Package GCFoundation.Components
+<pre><code class="language-powershell">Install-Package GCFoundation.Components
 Install-Package GCFoundation.Security
 Install-Package GCFoundation.Common</code></pre>
-        </div>
 
         <p>For URL translation and navigation support, install:</p>
-        <div class="language-powershell">
-<pre><code>Install-Package cloudscribe.Web.Navigation
+<pre><code class="language-powershell">Install-Package cloudscribe.Web.Navigation
 Install-Package cloudscribe.Web.Localization
 Install-Package Microsoft.AspNetCore.Localization.Routing</code></pre>
-        </div>
 
         <hr />
 
         <gcds-heading tag="h2" id="basic-setup">Basic Setup</gcds-heading>
         <p>Add the following services in your Program.cs:</p>
-        <div class="language-csharp">
-<pre><code>
-// Add foundation services
+<pre><code class="language-csharp">// Add foundation services
 builder.Services.AddGCFoundationComponents(builder.Configuration);
 builder.Services.AddGCFoundationContentPolicies(builder.Configuration);
 builder.Services.AddGCFoundationSession(builder.Configuration);
 </code></pre>
-        </div>
 
         <hr />
 
         <gcds-heading tag="h2" id="components-setup">Components Setup</gcds-heading>
         <p>Configure the middleware in your Program.cs:</p>
-        <div class="language-csharp">
-<pre><code>
-// Load components and GCDS dependencies
+<pre><code class="language-csharp">// Load components and GCDS dependencies
 app.UseMiddleware<GCFoundationComponentsMiddleware>();
 app.UseGCFoundationComponents();
 app.UseGCFoundationSession();
 </code></pre>
-        </div>
 
         <hr />
 
         <gcds-heading tag="h2" id="security-setup">Security Setup</gcds-heading>
         <p>Add security policies and middleware:</p>
-        <div class="language-csharp">
-<pre><code>
-// Add security middleware (CSP)
+<pre><code class="language-csharp">// Add security middleware (CSP)
 app.UseMiddleware<GCFoundationContentPoliciesMiddleware>();
 app.UseGCFoundationContentPolicies();
 
@@ -90,15 +78,12 @@ app.UseCookiePolicy(new CookiePolicyOptions
     HttpOnly = HttpOnlyPolicy.Always
 });
 </code></pre>
-        </div>
 
         <hr />
 
         <gcds-heading tag="h2" id="language-setup">Language Setup</gcds-heading>
         <p>Configure language services in Program.cs:</p>
-        <div class="language-csharp">
-<pre><code>
-// Add localization services
+<pre><code class="language-csharp">// Add localization services
 builder.Services.Configure<GlobalResourceOptions>(builder.Configuration.GetSection("GlobalResourceOptions"));
 builder.Services.AddSingleton<IStringLocalizerFactory, GlobalResourceManagerStringLocalizerFactory>();
 builder.Services.AddLocalization();
@@ -118,27 +103,21 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 // Add route localization
 builder.Services.AddCustomRouteLocalization();
 </code></pre>
-        </div>
 
         <p>Enable localization middleware:</p>
-        <div class="language-csharp">
-<pre><code>
-// Add language middleware
+<pre><code class="language-csharp">// Add language middleware
 app.UseMiddleware<GCFoundationLanguageMiddleware>();
 
 // Enable localization
 var localizationOptions = app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value;
 app.UseRequestLocalization(localizationOptions);
 </code></pre>
-        </div>
 
         <hr />
 
         <gcds-heading tag="h2" id="breadcrumbs-setup">Breadcrumbs Setup</gcds-heading>
         <p>Configure breadcrumbs services:</p>
-        <div class="language-csharp">
-<pre><code>
-// Configure breadcrumbs localization service
+<pre><code class="language-csharp">// Configure breadcrumbs localization service
 builder.Services.AddSingleton(typeof(IBreadcrumbsLocalizationService), 
     typeof(BreadcrumbsLocalizationService<GCFoundation.Web.Resources.Navigation>));
 
@@ -146,26 +125,20 @@ builder.Services.AddSingleton(typeof(IBreadcrumbsLocalizationService),
 builder.Services.AddScoped<ISiteMapNodeService, NavigationTreeSiteMapNodeService>();
 builder.Services.AddCloudscribeNavigation(builder.Configuration.GetSection("NavigationOptions"));
 </code></pre>
-        </div>
 
         <hr />
 
         <gcds-heading tag="h2" id="url-translation">URL Translation</gcds-heading>
         <p>Configure routing with culture parameter:</p>
-        <div class="language-csharp">
-<pre><code>
-// Configure default route with culture parameter
+<pre><code class="language-csharp">// Configure default route with culture parameter
 app.MapControllerRoute(
     name: "default",
     pattern: "{culture=en}/{controller=Home}/{action=Index}/{id?}"
 );
 </code></pre>
-        </div>
 
         <p>Configure appsettings.json for navigation:</p>
-        <div class="language-json">
-<pre><code>
-{
+<pre><code class="language-json">{
   "NavigationOptions": {
     "EnableLocalization": true,
     "LocalizationNamespace": "GCFoundation.Web.Resources.Navigation"
@@ -175,7 +148,6 @@ app.MapControllerRoute(
   }
 }
 </code></pre>
-        </div>
 
         <p>Key features:</p>
         <ul>
@@ -189,9 +161,7 @@ app.MapControllerRoute(
 
         <gcds-heading tag="h2" id="complete-example">Complete Program.cs Example</gcds-heading>
         <p>Here's a complete Program.cs configuration:</p>
-        <div class="language-csharp">
-<pre><code>
-using cloudscribe.Web.Localization;
+<pre><code class="language-csharp">using cloudscribe.Web.Localization;
 using cloudscribe.Web.Navigation;
 using GCFoundation.Components.Middleware;
 using GCFoundation.Components.Services;
@@ -289,12 +259,9 @@ app.MapControllerRoute(
 
 app.Run();
 </code></pre>
-        </div>
 
         <p>Required appsettings.json configuration:</p>
-        <div class="language-json">
-<pre><code>
-{
+<pre><code class="language-json">{
   "NavigationOptions": {
     "EnableLocalization": true,
     "LocalizationNamespace": "YourApp.Resources.Navigation",
@@ -308,11 +275,9 @@ app.Run();
   }
 }
 </code></pre>
-        </div>
 
         <p>Project structure for resources:</p>
-<pre><code>
-YourApp/
+<pre><code>YourApp/
   └── Resources/
       ├── Navigation.en-CA.resx
       ├── Navigation.fr-CA.resx
