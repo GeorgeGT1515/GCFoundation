@@ -920,16 +920,16 @@ stages:
               $env:PLAYWRIGHT_HTML_REPORT = "playwright-report-a11y"
               # Use npm script to avoid PowerShell parsing issues with -g @a11y and ensure consistent config usage
               # Route output to a dedicated folder; ignore exit code to keep PR non-blocking when there are 0 tests or failures
-              npm run test:a11y -- --output test-artifacts-a11y
+              npm run test:a11y:ci
               if ($LASTEXITCODE -ne 0) { Write-Host "A11y suite completed with issues or no tests; continuing (non-blocking)." }
-              $null = 0
+              $global:LASTEXITCODE = 0
             }
             Pop-Location
           } finally {
             try { if ($p -and !$p.HasExited) { Stop-Process -Id $p.Id -Force } } catch {}
           }
 
-          if ($e2eExit -ne 0) { exit $e2eExit }
+          if ($e2eExit -ne 0) { exit $e2eExit } else { exit 0 }
 
     - task: PowerShell@2
       displayName: 'Detect Playwright a11y artifacts'
