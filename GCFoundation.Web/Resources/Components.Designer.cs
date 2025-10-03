@@ -19,7 +19,7 @@ namespace GCFoundation.Web.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Components {
@@ -937,7 +937,8 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Flexible content containers with headers, footers, and images.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Flexible content containers with headers, footers, and images&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;&lt;em&gt;Other names: tile, content card&lt;/em&gt;&lt;/gcds-text&gt;.
         /// </summary>
         public static string Index_Card_Description {
             get {
