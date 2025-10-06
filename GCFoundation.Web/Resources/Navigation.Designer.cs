@@ -376,6 +376,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error Page Code.
+        /// </summary>
+        public static string Nav_Template_Error_Code {
+            get {
+                return ResourceManager.GetString("Nav_Template_Error_Code", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error Page Demo.
+        /// </summary>
+        public static string Nav_Template_Error_Demo {
+            get {
+                return ResourceManager.GetString("Nav_Template_Error_Demo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Language Chooser Page.
         /// </summary>
         public static string Nav_Template_LanguageChooser {

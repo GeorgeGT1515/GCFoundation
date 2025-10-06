@@ -19,17 +19,17 @@ namespace GCFoundation.Components.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class ErrorsPage {
+    public class Error {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ErrorsPage() {
+        internal Error() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace GCFoundation.Components.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GCFoundation.Components.Resources.ErrorsPage", typeof(ErrorsPage).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GCFoundation.Components.Resources.Error", typeof(Error).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -71,18 +71,18 @@ namespace GCFoundation.Components.Resources {
         ///  Return to the &lt;gcds-link href=&quot;/&quot;&gt;Home Page&lt;/gcds-link&gt;.
         ///&lt;/gcds-text&gt;.
         /// </summary>
-        public static string GlobalError_Text {
+        public static string Global_Text {
             get {
-                return ResourceManager.GetString("GlobalError_Text", resourceCulture);
+                return ResourceManager.GetString("Global_Text", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Something went wrong.
         /// </summary>
-        public static string GlobalError_Title {
+        public static string Global_Title {
             get {
-                return ResourceManager.GetString("GlobalError_Title", resourceCulture);
+                return ResourceManager.GetString("Global_Title", resourceCulture);
             }
         }
         

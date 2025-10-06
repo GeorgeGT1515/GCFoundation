@@ -59,10 +59,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Authentication.resx</DependentUpon>
     </Compile>
-    <Compile Update="Resources\ErrorsPage.Designer.cs">
+    <Compile Update="Resources\Error.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>ErrorsPage.resx</DependentUpon>
+      <DependentUpon>Error.resx</DependentUpon>
     </Compile>
     <Compile Update="Resources\Localization.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -89,9 +89,9 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Authentication.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\ErrorsPage.resx">
+    <EmbeddedResource Update="Resources\Error.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ErrorsPage.Designer.cs</LastGenOutput>
+      <LastGenOutput>Error.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Localization.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

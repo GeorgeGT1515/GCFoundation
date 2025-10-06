@@ -40,7 +40,12 @@
 					</Children>
 				</NavNode>
         <NavNode key="template-dashboard" controller="Template" action="Dashboard" area="" preservedRouteParameters="culture" text="Nav_Template_Dashboard" />
-        <NavNode key="template-error" controller="Template" action="Error" area="" preservedRouteParameters="culture" text="Nav_Template_Error" />
+        <NavNode key="template-error" controller="Template" action="Error" area="" preservedRouteParameters="culture" text="Nav_Template_Error">
+					<Children>
+						<NavNode key="template-error-code" controller="Template" action="ErrorCode" area="" preservedRouteParameters="culture" text="Nav_Template_Error_Code" />
+						<NavNode key="template-error-demo" controller="Template" action="ErrorDemo" area="" preservedRouteParameters="culture" text="Nav_Template_Error_Demo" />
+					</Children>
+				</NavNode>
         <NavNode key="template-language-chooser" controller="Template" action="LanguageChooser" area="" preservedRouteParameters="culture" text="Nav_Template_LanguageChooser" />
         <NavNode key="template-stepper" controller="Template" action="Stepper" area="" preservedRouteParameters="culture" text="Nav_Template_Stepper" />
       </Children>

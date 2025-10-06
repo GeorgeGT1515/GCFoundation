@@ -8,16 +8,16 @@ namespace GCFoundation.Components.Controllers
     /// <summary>
     /// Controller responsible for handling error pages.
     /// </summary>
-    public class ErrorsController : GCFoundationBaseController
+    public class ErrorController : GCFoundationBaseController
     {
         /// <summary>
         /// Delegate for logging 404 Not Found errors.
         /// </summary>
         private static readonly Action<ILogger, string, string, Exception?> _logNotFound =
             LoggerMessage.Define<string, string>(
-            LogLevel.Information,
-            new EventId(1404, nameof(NotFoundError)),
-            "404 Not Found error for path: {Path}{QueryString}");
+                LogLevel.Information,
+                new EventId(1404, nameof(NotFoundError)),
+                "404 Not Found error for path: {Path}{QueryString}");
 
         /// <summary>
         /// Delegate for logging unhandled exceptions leading to a global error page.
@@ -28,13 +28,13 @@ namespace GCFoundation.Components.Controllers
                 new EventId(1500, nameof(GlobalError)),
                 "Unhandled exception at path: {Path}");
 
-        private readonly ILogger<ErrorsController> _logger;
+        private readonly ILogger<ErrorController> _logger;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ErrorsController"/> class.
+        /// Initializes a new instance of the <see cref="ErrorController"/> class.
         /// </summary>
         /// <param name="logger">The logger instance for the controller.</param>
-        public ErrorsController(ILogger<ErrorsController> logger) : base(logger)
+        public ErrorController(ILogger<ErrorController> logger) : base(logger)
         {
             _logger = logger;
         }
@@ -44,7 +44,7 @@ namespace GCFoundation.Components.Controllers
         /// </summary>
         /// <returns>The NotFound view.</returns>
         [AllowAnonymous]
-        [Route("Error/NotFound")]
+        [Route("error/not-found")]
         public IActionResult NotFoundError()
         {
             Response.StatusCode = 404;
@@ -60,7 +60,7 @@ namespace GCFoundation.Components.Controllers
         /// </summary>
         /// <returns>The GlobalError view.</returns>
         [AllowAnonymous]
-        [Route("Error/Global")]
+        [Route("error/global")]
         public IActionResult GlobalError()
         {
             var exceptionFeature = HttpContext.Features.Get<IExceptionHandlerPathFeature>();
@@ -68,7 +68,7 @@ namespace GCFoundation.Components.Controllers
             {
                 _logGlobalError(_logger, exceptionFeature.Path, exceptionFeature.Error);
             }
-            return View("GlobalError");
+            return View("Global");
         }
     }
 }

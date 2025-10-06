@@ -1,0 +1,11 @@
+﻿@using GCFoundation.Common.Utilities
+@using GCFoundation.Components.Enums
+@using GCFoundation.Web.Resources
+@{
+	Layout = "_BilingualErrorTemplate";
+	ViewData["Title"] = @Template.Error_Demo_Name;
+	string lang = LanguageUtility.GetCurrentApplicationLanguage();
+}
+<gcds-notice type="@AlertType.Danger" title="@Template.Error_Demo_Name">
+	@Html.Raw(Template.Error_Demo_Name)
+</gcds-notice>

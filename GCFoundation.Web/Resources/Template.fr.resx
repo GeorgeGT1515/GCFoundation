@@ -219,7 +219,7 @@
   <data name="Error_Name" xml:space="preserve">
     <value>Modèle de page d'erreur</value>
   </data>
-  <data name="Error_Overview" xml:space="preserve">
+  <data name="Error_Intro" xml:space="preserve">
     <value>&lt;gcds-text&gt;GCFoundation inclut deux modèles de pages d'erreur clé en main :&lt;/gcds-text&gt;
 &lt;ul&gt;
 &lt;li&gt;Erreur globale&lt;/li&gt;
@@ -282,9 +282,6 @@
   <data name="Basic_Demo_SubSection" xml:space="preserve">
     <value>Titre de la sous-section</value>
   </data>
-  <data name="Basic_Demo_Name" xml:space="preserve">
-    <value>Démo du modèle de page de base</value>
-  </data>
   <data name="Basic_Code_Name" xml:space="preserve">
     <value>Code du modèle de page de base</value>
   </data>
@@ -337,5 +334,44 @@
   </data>
   <data name="Basic_Design_SideNav_Demo_Name" xml:space="preserve">
     <value>Démo du modèle de page de base (avec navigation latérale)</value>
+  </data>
+  <data name="Error_Anchor" xml:space="preserve">
+    <value>base</value>
+  </data>
+  <data name="Error_Code_Intro" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Copiez ce code pour recréer la démo du modèle de page de base.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;&lt;em&gt;Note&amp;nbsp;: la grande partie du travail est faite au travers de la configuration de votre application. Voir la section &lt;a href="{0}"&gt;Comment procéder pour la mise en &amp;oelig;uvre&lt;/a&gt; pour plus de détails.&lt;/em&gt;&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Error_HowToImplement" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Initialiser le modèle de page de base n'est qu'une question de configurer votre projet correctement. Vous n'avez qu'à suivre les instructions de la page d'&lt;a href="{0}"&gt;installation de GCFoundation&lt;/a&gt;.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;Ce faisant, vous chargerez en arrière-plan la vue partagée &lt;code&gt;_FoundationLayout&lt;/code&gt;. Finalement, vous n'aurez qu'à vous assurer que la déclaration suivante est incluse dans le fichier &lt;code&gt;Views/_ViewStart.cshtml&lt;/code&gt; pour définir le &lt;code&gt;_FoundationLayout&lt;/code&gt; comme étant le modèle de page par défault de votre application.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Error_Notes" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Le modèle de base de page est construit en utilisant les composants GCFoundation suivants qui sont développés en utilisant les composants du Système de design GC qui respectent le niveau AA des Règles pour l'accessibilité des contenus Web (WCAG) 2.1&amp;nbsp;:&lt;/gcds-text&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;gcds-container&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;gcds-date-modified&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;gcds-footer&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;gcds-header&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;gcds-heading&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;gcds-link&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;gcds-text&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;</value>
+  </data>
+  <data name="Error_WhenToUse" xml:space="preserve">
+    <value>&lt;gcds-text&gt;À utiliser sur des applications ASP.Net du GC.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;The basic page template is for non-specialized pages across Canada.ca and is an optional template. It has the starting elements needed for a simple page and those required for most GC pages and applications. You can use it as a canvas to add or combine &lt;a href="{0}"&gt;components&lt;/a&gt; from GCFoundation (via TagHelpers) and the GC Design System.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Basic_Demo_Name" xml:space="preserve">
+    <value>Démo du modèle de page de base</value>
+  </data>
+  <data name="Error_Demo_Name" xml:space="preserve">
+    <value>Démo du modèle de page d'erreur</value>
+  </data>
+  <data name="Error_Code_Name" xml:space="preserve">
+    <value>Code du modèle de page d'erreur</value>
+  </data>
+  <data name="Error_Demo_Image_AltText" xml:space="preserve">
+    <value>Un modèle de page de base inclus l'entête et le pied de page du gouvernment du Canada ainsi que de entêtes de section H1, H2, H3 et du texte sous chacune des sections.</value>
   </data>
 </root>

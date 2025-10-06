@@ -1,0 +1,74 @@
+﻿@using GCFoundation.Common.Settings
+@using GCFoundation.Common.Utilities
+@using GCFoundation.Components.Helpers
+@using GCFoundation.Components.Enums
+@using Microsoft.AspNetCore.Routing
+@using Microsoft.Extensions.Options
+@using cloudscribe.Web.Navigation
+
+@inject IOptions<GCFoundationComponentsSettings> settings;
+
+<!DOCTYPE html>
+<html lang="@LanguageUtility.GetCurrentApplicationLanguage()">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - @settings.Value.ApplicationName</title>
+    <link href="@StaticResourceHelper.GetImageResourcePath("favicon.ico")" rel="icon" type="image/x-icon">
+    <link href="@StaticResourceHelper.GetCssResourcePath("foundation.min.css")" rel="stylesheet" asp-append-version="true" />
+</head>
+<body>
+    @{
+        RouteValueDictionary routeValueDictionary = new RouteValueDictionary(ViewContext.RouteData.Values);
+        routeValueDictionary["culture"] = LanguageUtility.GetOppositeLangauge();
+            Language currentLanguage = Language.en;
+
+        if (LanguageUtility.GetCurrentApplicationLanguage() == "fr")
+        {
+            currentLanguage = Language.fr;
+        }
+    }
+    <gcds-header lang-href="@Url.RouteUrl(routeValueDictionary)" skip-to-href="#main-content" lang="@currentLanguage">
+        @{
+            string? menuPartialViewName = ViewData["MenuPartialViewName"] as string;
+            string? bannerPartialViewName = ViewData["BannerPartialViewName"] as string;
+        }
+
+        @* Load a banner view if defined *@
+        @if (!string.IsNullOrEmpty(bannerPartialViewName))
+        {
+            <div slot="banner">
+                @await Html.PartialAsync(bannerPartialViewName)
+            </div>
+        }
+
+        @* Load a menu view if defined *@
+        @if (!string.IsNullOrEmpty(menuPartialViewName))
+        {
+            <div slot="menu">
+                @await Html.PartialAsync(menuPartialViewName)
+            </div>
+        }
+    </gcds-header>
+
+    @* Main content *@
+    <gcds-container id="main-content" size="xl" centered tag="main" main-container class="fdcp-mb-300">
+        @RenderBody()
+
+        @* Date modified or Version Identifier *@
+        @{
+            var dateModified = ViewData["DateModified"] as string;
+            var applicationVersion = settings.Value.ApplicationVersion;
+            var dmType = (!string.IsNullOrEmpty(dateModified) ? DateModifiedType.date : DateModifiedType.version);
+            var dmContent = (!string.IsNullOrEmpty(dateModified) ? dateModified : applicationVersion);
+        }
+        @if (!string.IsNullOrEmpty(dmContent))
+        {
+            <gcds-date-modified type="@dmType">@dmContent</gcds-date-modified>
+        }
+    </gcds-container>
+
+    @* GC Footer *@
+    <gcds-footer display="full"></gcds-footer>
+</body>
+</html>

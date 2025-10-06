@@ -1,0 +1,8 @@
+﻿@using GCFoundation.Web.Resources
+
+<gcds-heading tag="h1">@Template.Error_Code_Name</gcds-heading>
+@Html.Raw(string.Format(Template.Error_Code_Intro, string.Concat(Url.Action("Error"), $"#{Template.HowToImplement_Anchor}")))
+
+<div class="documentation-content">
+<pre><code class="language-cshtml"></code></pre>
+</div>
