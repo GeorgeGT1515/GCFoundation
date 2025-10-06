@@ -398,7 +398,7 @@ namespace GCFoundation.Web.Controllers
         {
             var vm = new List<ComponentIndexViewModel>()
             {
-                new () { Name = Resources.Components.Index_Badge_Title, ShortDescription = Resources.Components.Index_Badge_Description, Href = Url.Action("Badge", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-badge.svg") },
+                new () { Name = Resources.Components.Index_Badge_Title, Description = Resources.Components.Index_Badge_Description, Href = Url.Action("Badge", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-badge.svg") },
                 new () { Name = Resources.Components.Index_Card_Title, Description = Resources.Components.Index_Card_Description, Href = Url.Action("Card", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-card.svg") },
                 new () { Name = Resources.Components.Index_FilteredSearch_Title, ShortDescription = Resources.Components.Index_FilteredSearch_Description, Href = Url.Action("FilteredSearch", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-filtered-search.svg") },
                 new () { Name = Resources.Components.Index_FormBuilder_Title, ShortDescription = Resources.Components.Index_FormBuilder_Description, Href = Url.Action("FormBuilder", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-form-builder.svg") },

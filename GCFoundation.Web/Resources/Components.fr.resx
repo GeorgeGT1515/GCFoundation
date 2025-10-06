@@ -518,13 +518,15 @@
     <value>Badge</value>
   </data>
   <data name="Index_Badge_Description" xml:space="preserve">
-    <value>Un moyen d'afficher des étiquettes</value>
+    <value>&lt;gcds-text&gt;Un moyen d'afficher des étiquettes&lt;/gcds-text&gt;
+&lt;gcds-text&gt;&lt;em&gt;Autre(s) nom(s)&amp;nbsp;: pill, mot-clé&lt;/em&gt;&lt;/gcds-text&gt;</value>
   </data>
   <data name="Index_Card_Title" xml:space="preserve">
     <value>Carte</value>
   </data>
   <data name="Index_Card_Description" xml:space="preserve">
-    <value>&lt;gcds-text&gt;Conteneurs de contenu flexibles avec en-têtes, pieds de page et images&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;Conteneurs de contenu flexibles avec en-têtes, pieds de page et images&lt;/gcds-text&gt;
+&lt;gcds-text&gt;&lt;em&gt;Autre(s) nom(s)&amp;nbsp;: tuile, carte de contenu&lt;/em&gt;&lt;/gcds-text&gt;</value>
   </data>
   <data name="Index_PageHeading_Title" xml:space="preserve">
     <value>En-tête de page</value>
