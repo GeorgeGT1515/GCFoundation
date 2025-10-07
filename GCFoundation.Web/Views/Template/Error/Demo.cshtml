@@ -6,6 +6,13 @@
 	ViewData["Title"] = @Template.Error_Demo_Name;
 	string lang = LanguageUtility.GetCurrentApplicationLanguage();
 }
-<gcds-notice type="@AlertType.Danger" title="@Template.Error_Demo_Name">
-	@Html.Raw(Template.Error_Demo_Name)
+<gcds-heading tag="h2">@Template.Error_Demo_Name</gcds-heading>
+<gcds-notice type="@AlertType.Danger" title="Lorem ipsum dolor sit amet" title-tag="h2">
+	<gcds-text>Consectetur adipiscing elit. Vestibulum sed dui arcu. Mauris volutpat nisl nisl, semper convallis sem tempor ac:</gcds-text>
+	<ul>
+		<li>Aliquam porttitor facilisis ipsum, facilisis facilisis nulla interdum id.</li>
+		<li>Vestibulum dignissim purus sapien.</li>
+		<li>Mauris ex neque, pellentesque eget elementum a: <gcds-link href="mailto:no-reply@tbs-sct.canada.ca">no-reply@tbs-sct.canada.ca</gcds-link>.</li>
+	</ul>
+	<gcds-text>Curabitur lobortis, ex tempor posuere dictum, dolor augue sodales sem, vehicula dapibus <gcds-link href="@Url.Action("Index", "Home")">dui dolor at magna</gcds-link>.</gcds-text>
 </gcds-notice>

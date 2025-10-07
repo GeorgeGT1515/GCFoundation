@@ -11,7 +11,6 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     {
         /// <summary>
         /// Gets or sets a value indicating whether the character limit is enabled.
-        /// Default is <c>true</c>.
         /// </summary>
         public bool? CharacterLimit { get; set; }
 

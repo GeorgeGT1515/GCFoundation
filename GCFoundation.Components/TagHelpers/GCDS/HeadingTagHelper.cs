@@ -17,9 +17,8 @@ namespace GCFoundation.Components.TagHelpers.GCDS
 
         /// <summary>
         /// Whether to apply a character limit for the heading.
-        /// Default is <c>true</c>.
         /// </summary>
-        public bool CharacterLimit { get; set; } = true;
+        public bool? CharacterLimit { get; set; }
 
         /// <summary>
         /// The margin-bottom CSS property value for the heading.
@@ -35,7 +34,8 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             AddAttributeIfNotNull(output, "tag", Tag);
-            AddAttributeIfNotNull(output, "character-limit", CharacterLimit);
+            if (CharacterLimit != null)
+                AddAttributeIfNotNull(output, "character-limit", CharacterLimit);
             AddAttributeIfNotNull(output, "margin-bottom", MarginBottom);
             AddAttributeIfNotNull(output, "margin-top", MarginTop);
 

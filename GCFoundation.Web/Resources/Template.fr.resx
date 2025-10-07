@@ -117,12 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ErrorTemplates_GlobalError" xml:space="preserve">
-    <value>Erreur générale</value>
-  </data>
-  <data name="ErrorTemplates_NotFound" xml:space="preserve">
-    <value>Non trouvé</value>
-  </data>
   <data name="Index_PageDescription" xml:space="preserve">
     <value>Apprenez-en plus sur les modèles de page inclus dans le cadre GCFoundation. Les modèles de page sont des pages préconstruites qui agencent des composants de GCFoundation et du Système de design GC pour créer des mises en page courantes. Ces pages sont entièrement réactives et peuvent donc être utilisées sur tout appareil. La structure des pages favorise une expérience utilisateur prévisible, reconnaissable et accessible.</value>
   </data>
@@ -220,11 +214,8 @@
     <value>Modèle de page d'erreur</value>
   </data>
   <data name="Error_Intro" xml:space="preserve">
-    <value>&lt;gcds-text&gt;GCFoundation inclut deux modèles de pages d'erreur clé en main :&lt;/gcds-text&gt;
-&lt;ul&gt;
-&lt;li&gt;Erreur globale&lt;/li&gt;
-&lt;li&gt;Page introuvable&lt;/li&gt;
-&lt;/ul&gt;</value>
+    <value>&lt;gcds-text&gt;Le cadre GCFoundation met à votre disposition un modèle de page d’erreur que vous pouvez personnaliser pour transmettre le message adéquat aux utilisateurs lorsqu’ils rencontrent un obstacle.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;Le cadre comprend aussi deux pages d’erreur prêtes à être utilisées. Consultez la section &lt;gcds-link href="{0}"&gt;{1}&lt;/gcds-link&gt; pour en savoir plus. Ces pages intégrées peuvent être configurées afin de gérer avec élégance toute exception non gérée soulevée par votre application.&lt;/gcds-text&gt;</value>
   </data>
   <data name="Basic_Anchor" xml:space="preserve">
     <value>base</value>
@@ -290,7 +281,7 @@
 &lt;gcds-text&gt;&lt;em&gt;Note&amp;nbsp;: la grande partie du travail est faite au travers de la configuration de votre application. Voir la section &lt;a href="{0}"&gt;Comment procéder pour la mise en &amp;oelig;uvre&lt;/a&gt; pour plus de détails.&lt;/em&gt;&lt;/gcds-text&gt;</value>
   </data>
   <data name="Basic_Demo_Image_AltText" xml:space="preserve">
-    <value>Un modèle de page de base inclus l'entête et le pied de page du gouvernment du Canada ainsi que de entêtes de section H1, H2, H3 et du texte sous chacune des sections.</value>
+    <value>Un modèle de page de base inclus l'entête et le pied de page du gouvernment du Canada ainsi que des entêtes de section H1, H2, H3 et du texte sous chacune des sections.</value>
   </data>
   <data name="Basic_Design_SideNav_Title" xml:space="preserve">
     <value>Améliorer la navigation dans les longues pages</value>
@@ -323,7 +314,7 @@
 &lt;/ul&gt;</value>
   </data>
   <data name="Basic_Design_SideNav_Demo_Image_AltText" xml:space="preserve">
-    <value>Un modèle de page de base inclus l'entête et le pied de page du gouvernment du Canada ainsi que de entêtes de section H1, H2, H3 avec du texte sous chacune des sections ainsi qu'un menu de navigation latérale contenant des liens vers chacune des sections de cette page.</value>
+    <value>Un modèle de page de base inclus l'entête et le pied de page du gouvernment du Canada ainsi que des entêtes de section H1, H2, H3 avec du texte sous chacune des sections ainsi qu'un menu de navigation latérale contenant des liens vers chacune des sections de cette page.</value>
   </data>
   <data name="Basic_Design_SideNav_Code_Name" xml:space="preserve">
     <value>Code du modèle de page de base (avec navigation latérale)</value>
@@ -339,28 +330,19 @@
     <value>base</value>
   </data>
   <data name="Error_Code_Intro" xml:space="preserve">
-    <value>&lt;gcds-text&gt;Copiez ce code pour recréer la démo du modèle de page de base.&lt;/gcds-text&gt;
-&lt;gcds-text&gt;&lt;em&gt;Note&amp;nbsp;: la grande partie du travail est faite au travers de la configuration de votre application. Voir la section &lt;a href="{0}"&gt;Comment procéder pour la mise en &amp;oelig;uvre&lt;/a&gt; pour plus de détails.&lt;/em&gt;&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;Copiez ce code pour recréer la démo du modèle de page d'erreur.&lt;/gcds-text&gt;</value>
   </data>
   <data name="Error_HowToImplement" xml:space="preserve">
-    <value>&lt;gcds-text&gt;Initialiser le modèle de page de base n'est qu'une question de configurer votre projet correctement. Vous n'avez qu'à suivre les instructions de la page d'&lt;a href="{0}"&gt;installation de GCFoundation&lt;/a&gt;.&lt;/gcds-text&gt;
-&lt;gcds-text&gt;Ce faisant, vous chargerez en arrière-plan la vue partagée &lt;code&gt;_FoundationLayout&lt;/code&gt;. Finalement, vous n'aurez qu'à vous assurer que la déclaration suivante est incluse dans le fichier &lt;code&gt;Views/_ViewStart.cshtml&lt;/code&gt; pour définir le &lt;code&gt;_FoundationLayout&lt;/code&gt; comme étant le modèle de page par défault de votre application.&lt;/gcds-text&gt;</value>
-  </data>
-  <data name="Error_Notes" xml:space="preserve">
-    <value>&lt;gcds-text&gt;Le modèle de base de page est construit en utilisant les composants GCFoundation suivants qui sont développés en utilisant les composants du Système de design GC qui respectent le niveau AA des Règles pour l'accessibilité des contenus Web (WCAG) 2.1&amp;nbsp;:&lt;/gcds-text&gt;
+    <value>&lt;gcds-text&gt;Utilisez ce modèle pour créer des pages d’erreur bilingues simples&amp;nbsp;:&lt;/gcds-text&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;gcds-container&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;gcds-date-modified&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;gcds-footer&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;gcds-header&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;gcds-heading&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;gcds-link&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;gcds-text&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Définissez &lt;code&gt;Layout = "_BilingualErrorTemplate"&lt;/code&gt; dans votre vue d’erreur.&lt;/li&gt;
+&lt;li&gt;Ajoutez un titre de page et un composant &lt;code&gt;&amp;amp;lt;gcds-notice type="danger"&amp;amp;gt;&lt;/code&gt; avec des pistes utiles (rétroaction et lien vers un endroit sécuritaire).&lt;/li&gt;
+&lt;li&gt;Activez-le à l’échelle de l’application en configurant la gestion des erreurs selon la &lt;a href="{0}"&gt;page d’installation de GCFoundation&lt;/a&gt; : &lt;code&gt;UseExceptionHandler("{{your-url}}")&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;</value>
   </data>
   <data name="Error_WhenToUse" xml:space="preserve">
-    <value>&lt;gcds-text&gt;À utiliser sur des applications ASP.Net du GC.&lt;/gcds-text&gt;
-&lt;gcds-text&gt;The basic page template is for non-specialized pages across Canada.ca and is an optional template. It has the starting elements needed for a simple page and those required for most GC pages and applications. You can use it as a canvas to add or combine &lt;a href="{0}"&gt;components&lt;/a&gt; from GCFoundation (via TagHelpers) and the GC Design System.&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;À utiliser dans des applications ASP.NET du GC.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;Le modèle de page d’erreur est conçu pour afficher un message générique lorsque l’application génère une erreur ou lorsqu’un utilisateur tente une opération non valide. Il s’agit d’une version allégée du modèle de page de base dont le seul objectif est de rediriger l’utilisateur vers un endroit sécuritaire. Il comprend les éléments essentiels d’une page du GC ainsi qu’un composant &lt;code&gt;&amp;lt;gcds-notice&amp;gt;&lt;/code&gt; expliquant ce qui s’est passé, un lien pour recueillir la rétroaction et un lien de redirection vers un endroit sécuritaire.&lt;/gcds-text&gt;</value>
   </data>
   <data name="Basic_Demo_Name" xml:space="preserve">
     <value>Démo du modèle de page de base</value>
@@ -372,6 +354,20 @@
     <value>Code du modèle de page d'erreur</value>
   </data>
   <data name="Error_Demo_Image_AltText" xml:space="preserve">
-    <value>Un modèle de page de base inclus l'entête et le pied de page du gouvernment du Canada ainsi que de entêtes de section H1, H2, H3 et du texte sous chacune des sections.</value>
+    <value>Un modèle de page d’erreur comprend l’en-tête et le pied de page du gouvernement du Canada, un avis expliquant ce qui s’est passé, un lien pour permettre à l’utilisateur de donner de la rétroaction et un lien pour le rediriger vers un endroit sécuritaire.</value>
+  </data>
+  <data name="Error_Design_UseBuiltIn_Title" xml:space="preserve">
+    <value>Utiliser les pages d’erreur intégrées</value>
+  </data>
+  <data name="Error_Design_UseBuiltIn_Description" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Plutôt que de créer vos propres pages d’erreur, vous pouvez utiliser celles intégrées à GCFoundation. Les pages suivantes sont offertes :&lt;/gcds-text&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;gcds-link href="{0}" target="_blank"&gt;Erreur globale&lt;/gcds-link&gt;&lt;/li&gt;
+&lt;li&gt;&lt;gcds-link href="{1}" target="_blank"&gt;Erreur «&amp;nbsp;page introuvable&amp;nbsp;»&lt;/gcds-link&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;gcds-text&gt;Activez-les à l’échelle de l’application en configurant la gestion des erreurs dans votre &lt;code&gt;Program.cs&lt;/code&gt; à l’aide des instructions &lt;code&gt;app.UseExceptionHandler("{0}")&lt;/code&gt; et &lt;code&gt;app.UseStatusCodePagesWithReExecute("{1}")&lt;/code&gt;.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Index_Template_UnderDevelopment" xml:space="preserve">
+    <value>En développement</value>
   </data>
 </root>

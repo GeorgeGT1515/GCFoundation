@@ -7,6 +7,7 @@
 	ViewData["Title"] = Error.NotFound_Title;
 	string lang = LanguageUtility.GetCurrentApplicationLanguage();
 }
-<gcds-notice type="@AlertType.Danger" title="@Error.NotFound_Title">
-	@Html.Raw(@Error.NotFound_Text)
+<gcds-heading tag="h1">@Error.NotFound_Title</gcds-heading>
+<gcds-notice type="@AlertType.Danger" title="@Error.NotFound_Notice_Title" title-tag="h2">
+	@Html.Raw(@Error.NotFound_Notice_Content)
 </gcds-notice>
