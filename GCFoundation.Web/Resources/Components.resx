@@ -514,7 +514,8 @@
     <value>Badge</value>
   </data>
   <data name="Index_Badge_Description" xml:space="preserve">
-    <value>A way to display tags</value>
+    <value>&lt;gcds-text&gt;A way to display tags&lt;/gcds-text&gt;
+&lt;gcds-text&gt;&lt;em&gt;Other names: pill, keyword&lt;/em&gt;&lt;/gcds-text&gt;</value>
   </data>
   <data name="Index_Card_Title" xml:space="preserve">
     <value>Card</value>

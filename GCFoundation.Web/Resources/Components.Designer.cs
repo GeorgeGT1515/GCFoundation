@@ -919,7 +919,8 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A way to display tags.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;A way to display tags&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;&lt;em&gt;Other names: pill, keyword&lt;/em&gt;&lt;/gcds-text&gt;.
         /// </summary>
         public static string Index_Badge_Description {
             get {

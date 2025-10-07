@@ -234,4 +234,10 @@
   <data name="Nav_Template_Basic_SideNav_Demo" xml:space="preserve">
     <value>Démo du modèle de page de base (avec navigation latérale)</value>
   </data>
+  <data name="Nav_Template_Error_Demo" xml:space="preserve">
+    <value>Démo du modèle de page d'erreur</value>
+  </data>
+  <data name="Nav_Template_Error_Code" xml:space="preserve">
+    <value>Code du modèle de page d'erreur</value>
+  </data>
 </root>

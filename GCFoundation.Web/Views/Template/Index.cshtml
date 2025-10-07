@@ -13,18 +13,19 @@
     var template = new List<CardTagHelper>()
     {
         new CardTagHelper() { CardTitle = Template.Index_Basic_Title, Description = Template.Index_Basic_Description, Href = @Url.Action("Basic", "Template") ?? string.Empty },
-        new CardTagHelper() { CardTitle = Template.Index_Dashboard_Title, Description = Template.Index_Dashboard_Description, Href = @Url.Action("Dashboard", "Template") ?? string.Empty },
+        new CardTagHelper() { Badge = Template.Index_Template_UnderDevelopment, CardTitle = Template.Index_Dashboard_Title, Description = Template.Index_Dashboard_Description, Href = @Url.Action("Dashboard", "Template") ?? string.Empty },
         new CardTagHelper() { CardTitle = Template.Index_Error_Title, Description = Template.Index_Error_Description, Href = @Url.Action("Error", "Template") ?? string.Empty },
-        new CardTagHelper() { CardTitle = Template.Index_LanguageChooser_Title, Description = Template.Index_LanguageChooser_Description, Href = @Url.Action("LanguageChooser", "Template") ?? string.Empty },
-        new CardTagHelper() { CardTitle = Template.Index_Stepper_Title, Description = Template.Index_Stepper_Description, Href = @Url.Action("Stepper", "Template") ?? string.Empty }
+        new CardTagHelper() { Badge = Template.Index_Template_UnderDevelopment, CardTitle = Template.Index_LanguageChooser_Title, Description = Template.Index_LanguageChooser_Description, Href = @Url.Action("LanguageChooser", "Template") ?? string.Empty },
+        new CardTagHelper() { Badge = Template.Index_Template_UnderDevelopment, CardTitle = Template.Index_Stepper_Title, Description = Template.Index_Stepper_Description, Href = @Url.Action("Stepper", "Template") ?? string.Empty }
     };
 }
 
 <gcds-grid columns="repeat(3, 1fr)" equal-row-height>
     @foreach (var template in template.OrderBy(c => c.CardTitle))
     {
-        <gcds-card card-title="@template.CardTitle"
-                   description="@template.Description"
-                   href="@template.Href"></gcds-card>
+        <gcds-card  badge="@template.Badge"
+                    card-title="@template.CardTitle"
+                    description="@template.Description"
+                    href="@template.Href"></gcds-card>
     }
 </gcds-grid>

@@ -18,7 +18,7 @@
         <gcds-button button-role="secondary" type="link" href="@Url.Action("BasicCode", "Template")">@Template.Code_Button <i class="fdcp-ms-100 fa-solid fa-code"></i></gcds-button>
     </p>
     @* Preview image *@
-    <img src="@Url.Content("~/images/templates/basic-demo.png")" alt="@Template.Basic_Demo_Image_AltText" class="fdcp-border fdcp-rounded fdcp-w-75" />
+    <img src="@Url.Content($"~/images/templates/basic-demo-{Localization.ThreeLetterLanguage}.png")" alt="@Template.Basic_Demo_Image_AltText" class="fdcp-border fdcp-rounded fdcp-w-75" />
 
     @* How to implement *@
     <gcds-heading tag="h2" id="@Template.HowToImplement_Anchor">@Template.HowToImplement</gcds-heading>
@@ -30,7 +30,7 @@
 
     @* (Optional) Design considerations *@
     <gcds-heading tag="h2" id="@Template.DesignConsiderations_Anchor">@Template.DesignConsiderations</gcds-heading>
-    <gcds-heading tag="h3" id="@Template.Basic_Design_SideNav_Anchor">@Template.Basic_Design_SideNav_Title</gcds-heading>
+    <gcds-heading tag="h3" id="@Template.Basic_Design_SideNav_Anchor">@Html.Raw(Template.Basic_Design_SideNav_Title)</gcds-heading>
     @Html.Raw(Template.Basic_Design_SideNav_Description)
 
     @* Preview : Side Navigation *@
@@ -40,7 +40,7 @@
         <gcds-button button-role="secondary" type="link" href="@Url.Action("BasicSideNavCode", "Template")">@Template.Code_Button <i class="fdcp-ms-100 fa-solid fa-code"></i></gcds-button>
     </p>
     @* Preview image *@
-    <img src="@Url.Content("~/images/templates/basic-side-navigation-demo.png")" alt="@Template.Basic_Design_SideNav_Demo_Image_AltText" class="fdcp-border fdcp-rounded fdcp-w-75" />
+    <img src="@Url.Content($"~/images/templates/basic-side-navigation-demo-{Localization.ThreeLetterLanguage}.png")" alt="@Template.Basic_Design_SideNav_Demo_Image_AltText" class="fdcp-border fdcp-rounded fdcp-w-75" />
 
     @* Notes/Highlights *@
     <gcds-heading tag="h2" id="@Template.Notes_Anchor">@Template.Notes</gcds-heading>

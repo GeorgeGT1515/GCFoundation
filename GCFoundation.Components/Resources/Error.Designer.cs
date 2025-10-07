@@ -19,17 +19,17 @@ namespace GCFoundation.Components.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class ErrorsPage {
+    public class Error {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ErrorsPage() {
+        internal Error() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace GCFoundation.Components.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GCFoundation.Components.Resources.ErrorsPage", typeof(ErrorsPage).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GCFoundation.Components.Resources.Error", typeof(Error).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,46 +61,59 @@ namespace GCFoundation.Components.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;gcds-text&gt;
-        ///  An unexpected error has occurred. Please try the following:
-        ///  &lt;ul&gt;
-        ///      &lt;li&gt;Try refreshing the page or return later.&lt;/li&gt;
-        ///      &lt;li&gt;Ensure your internet connection is working.&lt;/li&gt;
-        ///      &lt;li&gt;If the problem continues, please &lt;gcds-link href=&quot;{0}&quot; target=&quot;_blank&quot;&gt;contact us&lt;/gcds-link&gt;.&lt;/li&gt;
-        ///  &lt;/ul&gt;
-        ///  Return to the &lt;gcds-link href=&quot;/&quot;&gt;Home Page&lt;/gcds-link&gt;.
-        ///&lt;/gcds-text&gt;.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Please try the following:
+        ///&lt;ul&gt;
+        ///&lt;li&gt;Try refreshing the page or return later.&lt;/li&gt;
+        ///&lt;li&gt;Ensure your internet connection is working.&lt;/li&gt;
+        ///&lt;li&gt;If the problem continues, please &lt;gcds-link href=&quot;{0}&quot; target=&quot;_blank&quot;&gt;contact us&lt;/gcds-link&gt;.&lt;/li&gt;
+        ///&lt;/ul&gt;
+        ///&lt;gcds-text&gt;Return to the &lt;gcds-link href=&quot;{1}&quot;&gt;Home Page&lt;/gcds-link&gt;.&lt;/gcds-text&gt;.
         /// </summary>
-        public static string GlobalError_Text {
+        public static string Global_Notice_Content {
             get {
-                return ResourceManager.GetString("GlobalError_Text", resourceCulture);
+                return ResourceManager.GetString("Global_Notice_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   An unexpected error has occurred.
+        /// </summary>
+        public static string Global_Notice_Title {
+            get {
+                return ResourceManager.GetString("Global_Notice_Title", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Something went wrong.
         /// </summary>
-        public static string GlobalError_Title {
+        public static string Global_Title {
             get {
-                return ResourceManager.GetString("GlobalError_Title", resourceCulture);
+                return ResourceManager.GetString("Global_Title", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;gcds-text&gt;The page you are looking for may have been moved, renamed, or is no longer available.
-        ///  &lt;ul&gt;
-        ///      &lt;li&gt;Check the URL for any errors.&lt;/li&gt;
-        ///  
-        ///      &lt;li&gt;Use the search function or browse the site’s main sections.&lt;/li&gt;
-        ///  
-        ///      &lt;li&gt;If you believe this is an error, please &lt;gcds-link href=&quot;{0}&quot; target=&quot;_blank&quot;&gt;contact us&lt;/gcds-link&gt;.&lt;/li&gt;
-        ///  &lt;/ul&gt;
-        ///  Return to the &lt;gcds-link href=&quot;/&quot;&gt;Home Page&lt;/gcds-link&gt;.
-        ///  &lt;/gcds-text&gt;.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;The page you are looking for may have been moved, renamed, or is no longer available. Please try the following:&lt;/gcds-text&gt;
+        ///&lt;ul&gt;
+        ///&lt;li&gt;Check the URL for any errors.&lt;/li&gt;
+        ///&lt;li&gt;Use the search function or browse the site’s main sections.&lt;/li&gt;
+        ///&lt;li&gt;If you believe this is an error, please &lt;gcds-link href=&quot;{0}&quot; target=&quot;_blank&quot;&gt;contact us&lt;/gcds-link&gt;.&lt;/li&gt;
+        ///&lt;/ul&gt;
+        ///&lt;gcds-text&gt;Return to the &lt;gcds-link href=&quot;{1}&quot;&gt;Home Page&lt;/gcds-link&gt;.&lt;/gcds-text&gt;.
         /// </summary>
-        public static string NotFound_Text {
+        public static string NotFound_Notice_Content {
             get {
-                return ResourceManager.GetString("NotFound_Text", resourceCulture);
+                return ResourceManager.GetString("NotFound_Notice_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This page could not be found.
+        /// </summary>
+        public static string NotFound_Notice_Title {
+            get {
+                return ResourceManager.GetString("NotFound_Notice_Title", resourceCulture);
             }
         }
         

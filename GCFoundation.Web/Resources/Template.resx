@@ -117,12 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ErrorTemplates_GlobalError" xml:space="preserve">
-    <value>Global error</value>
-  </data>
-  <data name="ErrorTemplates_NotFound" xml:space="preserve">
-    <value>Not found</value>
-  </data>
   <data name="Index_PageDescription" xml:space="preserve">
     <value>Learn about the page templates included in the GCFoundation framework. Page templates are pre-built pages that combine GCFoundation and GC Design System components for common presentations. They’re fully responsive for multi-device use. Their page structures support a predictable, recognizable, and accessible user experience.</value>
   </data>
@@ -219,12 +213,10 @@
   <data name="Error_Name" xml:space="preserve">
     <value>Error Page Template</value>
   </data>
-  <data name="Error_Overview" xml:space="preserve">
-    <value>&lt;gcds-text&gt;GCFoundation includes two error templates out-of-the-box:&lt;/gcds-text&gt;
-&lt;ul&gt;
-&lt;li&gt;Global error&lt;/li&gt;
-&lt;li&gt;Page not found&lt;/li&gt;
-&lt;/ul&gt;</value>
+  <data name="Error_Intro" xml:space="preserve">
+    <value>&lt;gcds-text&gt;The GCFoundation framework provides you with an error page template that can be customized to deliver the message you want to send your users when they hit a road-block.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;The framework also includes two (2) error pages out-of-the-box. Refer to the &lt;gcds-link href="{0}"&gt;{1}&lt;/gcds-link&gt; section for more information. These packaged error pages can be configured to gracefully handle any unhandled exceptions thrown by your application.&lt;/gcds-text&gt;
+</value>
   </data>
   <data name="Basic_Anchor" xml:space="preserve">
     <value>basic</value>
@@ -282,9 +274,6 @@
   <data name="Basic_Demo_SubSection" xml:space="preserve">
     <value>Title of the sub-section</value>
   </data>
-  <data name="Basic_Demo_Name" xml:space="preserve">
-    <value>Demo of the Basic Page Template</value>
-  </data>
   <data name="Basic_Code_Name" xml:space="preserve">
     <value>Code of the Basic Page Template</value>
   </data>
@@ -337,5 +326,49 @@
   </data>
   <data name="Basic_Design_SideNav_Demo_Name" xml:space="preserve">
     <value>Demo of the Basic Page Template (with Side Navigation)</value>
+  </data>
+  <data name="Error_Anchor" xml:space="preserve">
+    <value>basic</value>
+  </data>
+  <data name="Error_Code_Intro" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Copy this code to recreate the demo of the error page template.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Error_HowToImplement" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Use this template to build simple, bilingual error pages:&lt;/gcds-text&gt;
+&lt;ul&gt;
+&lt;li&gt;Set &lt;code&gt;Layout = "_BilingualErrorTemplate"&lt;/code&gt; in your error view.&lt;/li&gt;
+&lt;li&gt;Add a page title and a &lt;code&gt;&amp;lt;gcds-notice type="danger"&amp;gt;&lt;/code&gt; component with helpful next steps (feedback and a safe link).&lt;/li&gt;
+&lt;li&gt;Enable it application-wide by wiring error handling per the &lt;a href="{0}"&gt;GCFoundation installation page&lt;/a&gt;: &lt;code&gt;UseExceptionHandler("{{your-url}}")&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;</value>
+  </data>
+  <data name="Error_WhenToUse" xml:space="preserve">
+    <value>&lt;gcds-text&gt;For use on ASP.Net GC applications.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;The error page template is designed to display a generic message to users when the application throws an error or when the user tries to perform an invalid operation. It is a lightweight version of the basic page template and its sole purpose is to redirect the user to a safe location. It has the basic elements of a GC page as well as a &lt;code&gt;&amp;lt;gcds-notice&amp;gt;&lt;/code&gt; component explaining what went wrong, a link for the user to provide feedback as well as a link to redirect the user to a safe location.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Basic_Demo_Name" xml:space="preserve">
+    <value>Demo of the Basic Page Template</value>
+  </data>
+  <data name="Error_Demo_Name" xml:space="preserve">
+    <value>Demo of the Error Page Template</value>
+  </data>
+  <data name="Error_Code_Name" xml:space="preserve">
+    <value>Code of the Error Page Template</value>
+  </data>
+  <data name="Error_Demo_Image_AltText" xml:space="preserve">
+    <value>An error page template includes the Government of Canada header and footer, a notice explaining what went wrong, a link for the user to provide feedback as well as a link to redirect the user to a safe location.</value>
+  </data>
+  <data name="Error_Design_UseBuiltIn_Title" xml:space="preserve">
+    <value>Use built-in error pages</value>
+  </data>
+  <data name="Error_Design_UseBuiltIn_Description" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Instead of creating your own error pages, you can use GCFoundation's built-in error pages. The following sample pages are available to use:&lt;/gcds-text&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;gcds-link href="{0}" target="_blank"&gt;Global error&lt;/gcds-link&gt;&lt;/li&gt;
+&lt;li&gt;&lt;gcds-link href="{1}" target="_blank"&gt;Page not found error&lt;/gcds-link&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;gcds-text&gt;Enable it application-wide by wiring error handling by using the &lt;code&gt;app.UseExceptionHandler("{0}")&lt;/code&gt; and &lt;code&gt;app.UseStatusCodePagesWithReExecute("{1}")&lt;/code&gt; statements in your application's &lt;code&gt;Program.cs&lt;/code&gt;.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Index_Template_UnderDevelopment" xml:space="preserve">
+    <value>Under Development</value>
   </data>
 </root>

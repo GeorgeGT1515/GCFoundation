@@ -34,7 +34,7 @@ namespace GCFoundation.Security.Middlewares
             string connectCDN = string.Join(" ", _settings.ConnectCDN ?? Enumerable.Empty<string>());
 
             // Build Content Security Policy (CSP)
-            string contentSecurityPolicy = $"default-src 'self'; " +
+            string contentSecurityPolicy = $"default-src 'none'; " +
                                $"script-src 'self' {jsCDN} 'nonce-{nonce}'; " +
                                $"object-src 'none'; " +
                                $"style-src 'self' {cssCDN} {cssHash} 'nonce-{nonce}'; " +

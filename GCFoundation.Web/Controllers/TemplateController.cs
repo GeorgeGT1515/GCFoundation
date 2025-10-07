@@ -24,6 +24,16 @@ namespace GCFoundation.Web.Controllers
             return View();
         }
 
+
+        [HttpGet("old-index")]
+        public IActionResult OldIndex()
+        {
+            SetPageTitle($"{Menu.Menu_Template}");
+
+            return View("_OldIndex");
+        }
+
+
         /// <summary>
         /// Displays the Basic page template demo page.
         /// </summary>
@@ -38,6 +48,35 @@ namespace GCFoundation.Web.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Displays the Dashboard page template demo page.
+        /// </summary>
+        /// <returns>
+        /// The view for the Dashboard page template.
+        /// </returns>
+        [HttpGet("dashboard")]
+        public IActionResult Dashboard()
+        {
+            SetPageTitle($"{Menu.Menu_Template} : {Resources.Template.Index_Dashboard_Title}");
+
+            return View();
+        }
+
+        /// <summary>
+        /// Displays the Error page template demo page.
+        /// </summary>
+        /// <returns>
+        /// The view for the Error page template.
+        /// </returns>
+        [HttpGet("error")]
+        public IActionResult Error()
+        {
+            SetPageTitle($"{Menu.Menu_Template} : {Resources.Template.Index_Error_Title}");
+
+            return View();
+        }
+
+        #region Basic Page Template (Code, Demo) Controller Actions
         /// <summary>
         /// Displays a page containing sample code for the use of a Basic page template.
         /// </summary>
@@ -93,33 +132,36 @@ namespace GCFoundation.Web.Controllers
 
             return View("basic/sidenavigation-demo");
         }
+        #endregion Basic Page Template Controller Actions
 
+        #region Error Page Template (Code, Demo) Controller Actions
         /// <summary>
-        /// Displays the Dashboard page template demo page.
+        /// Displays a page containing sample code for the use of a generic Error page template.
         /// </summary>
         /// <returns>
-        /// The view for the Dashboard page template.
+        /// The view for the sample code for a generic Error page template.
         /// </returns>
-        [HttpGet("dashboard")]
-        public IActionResult Dashboard()
+        [HttpGet("error/code")]
+        public IActionResult ErrorCode()
         {
-            SetPageTitle($"{Menu.Menu_Template} : {Resources.Template.Index_Dashboard_Title}");
+            SetPageTitle($"{Menu.Menu_Template} : {Resources.Navigation.Nav_Template_Error_Code}");
 
-            return View();
+            return View("error/code");
         }
 
         /// <summary>
-        /// Displays the Error page template demo page.
+        /// Displays a page containing a demo of a generic Error page template.
         /// </summary>
         /// <returns>
-        /// The view for the Error page template.
+        /// The view for the demo of a generic Error page template.
         /// </returns>
-        [HttpGet("error")]
-        public IActionResult Error()
+        [HttpGet("error/demo")]
+        public IActionResult ErrorDemo()
         {
-            SetPageTitle($"{Menu.Menu_Template} : {Resources.Template.Index_Error_Title}");
+            SetPageTitle($"{Menu.Menu_Template} : {Resources.Navigation.Nav_Template_Error_Demo}");
 
-            return View();
+            return View("error/demo");
         }
+        #endregion Error Page Template (Code, Demo) Controller Actions
     }
 }

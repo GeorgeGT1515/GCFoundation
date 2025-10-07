@@ -1,0 +1,35 @@
+﻿@using GCFoundation.Components.Resources
+@using GCFoundation.Web.Resources
+
+<gcds-heading tag="h1">@Template.Error_Name</gcds-heading>
+
+<div class="documentation-content">
+    @* Introduction *@
+    @Html.Raw(string.Format(Template.Error_Intro,
+        $"#{Template.DesignConsiderations_Anchor}",
+        Template.DesignConsiderations))
+
+    @* When to Use *@
+    <gcds-heading tag="h2" id="@Template.WhenToUse_Anchor">@Template.WhenToUse</gcds-heading>
+    @Html.Raw(Template.Error_WhenToUse)
+
+    @* Preview *@
+    <gcds-heading tag="h2" id="@Template.Preview_Anchor">@Template.Preview</gcds-heading>
+    <p>
+        <gcds-button button-role="secondary" type="link" href="@Url.Action("ErrorDemo", "Template")" target="_blank">@Template.Demo_Button <i class="fdcp-ms-100 fa-solid fa-desktop"></i></gcds-button>
+        <gcds-button button-role="secondary" type="link" href="@Url.Action("ErrorCode", "Template")">@Template.Code_Button <i class="fdcp-ms-100 fa-solid fa-code"></i></gcds-button>
+    </p>
+    @* Preview image *@
+    <img src="@Url.Content($"~/images/templates/error-demo-{Localization.ThreeLetterLanguage}.png")" alt="@Template.Error_Demo_Image_AltText" class="fdcp-border fdcp-rounded fdcp-w-75" />
+
+    @* How to implement *@
+    <gcds-heading tag="h2" id="@Template.HowToImplement_Anchor">@Template.HowToImplement</gcds-heading>
+    @Html.Raw(string.Format(Template.Error_HowToImplement, Url.Action("Index", "Installation")))
+
+    @* (Optional) Design considerations *@
+    <gcds-heading tag="h2" id="@Template.DesignConsiderations_Anchor">@Template.DesignConsiderations</gcds-heading>
+    <gcds-heading tag="h3" id="@Template.Basic_Design_SideNav_Anchor">@Template.Error_Design_UseBuiltIn_Title</gcds-heading>
+    @Html.Raw(string.Format(Template.Error_Design_UseBuiltIn_Description,
+        Url.Action("GlobalError", "Error"),
+        Url.Action("NotFoundError", "Error")))
+</div>

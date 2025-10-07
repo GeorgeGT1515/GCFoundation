@@ -329,6 +329,99 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to basic.
+        /// </summary>
+        public static string Error_Anchor {
+            get {
+                return ResourceManager.GetString("Error_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Copy this code to recreate the demo of the error page template.&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Error_Code_Intro {
+            get {
+                return ResourceManager.GetString("Error_Code_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code of the Error Page Template.
+        /// </summary>
+        public static string Error_Code_Name {
+            get {
+                return ResourceManager.GetString("Error_Code_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error page template includes the Government of Canada header and footer, a notice explaining what went wrong, a link for the user to provide feedback as well as a link to redirect the user to a safe location..
+        /// </summary>
+        public static string Error_Demo_Image_AltText {
+            get {
+                return ResourceManager.GetString("Error_Demo_Image_AltText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Demo of the Error Page Template.
+        /// </summary>
+        public static string Error_Demo_Name {
+            get {
+                return ResourceManager.GetString("Error_Demo_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Instead of creating your own error pages, you can use GCFoundation&apos;s built-in error pages. The following sample pages are available to use:&lt;/gcds-text&gt;
+        ///&lt;ul&gt;
+        ///&lt;li&gt;&lt;gcds-link href=&quot;{0}&quot; target=&quot;_blank&quot;&gt;Global error&lt;/gcds-link&gt;&lt;/li&gt;
+        ///&lt;li&gt;&lt;gcds-link href=&quot;{1}&quot; target=&quot;_blank&quot;&gt;Page not found error&lt;/gcds-link&gt;&lt;/li&gt;
+        ///&lt;/ul&gt;
+        ///&lt;gcds-text&gt;Enable it application-wide by wiring error handling by using the &lt;code&gt;app.UseExceptionHandler(&quot;{0}&quot;)&lt;/code&gt; and &lt;code&gt;app.UseStatusCodePagesWithReExecute(&quot;{1}&quot;)&lt;/code&gt; s [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Error_Design_UseBuiltIn_Description {
+            get {
+                return ResourceManager.GetString("Error_Design_UseBuiltIn_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use built-in error pages.
+        /// </summary>
+        public static string Error_Design_UseBuiltIn_Title {
+            get {
+                return ResourceManager.GetString("Error_Design_UseBuiltIn_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Use this template to build simple, bilingual error pages:&lt;/gcds-text&gt;
+        ///&lt;ul&gt;
+        ///&lt;li&gt;Set &lt;code&gt;Layout = &quot;_BilingualErrorTemplate&quot;&lt;/code&gt; in your error view.&lt;/li&gt;
+        ///&lt;li&gt;Add a page title and a &lt;code&gt;&amp;lt;gcds-notice type=&quot;danger&quot;&amp;gt;&lt;/code&gt; component with helpful next steps (feedback and a safe link).&lt;/li&gt;
+        ///&lt;li&gt;Enable it application-wide by wiring error handling per the &lt;a href=&quot;{0}&quot;&gt;GCFoundation installation page&lt;/a&gt;: &lt;code&gt;UseExceptionHandler(&quot;{{your-url}}&quot;)&lt;/code&gt;.&lt;/li&gt;
+        ///&lt;/ul&gt;.
+        /// </summary>
+        public static string Error_HowToImplement {
+            get {
+                return ResourceManager.GetString("Error_HowToImplement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;The GCFoundation framework provides you with an error page template that can be customized to deliver the message you want to send your users when they hit a road-block.&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;The framework also includes two (2) error pages out-of-the-box. Refer to the &lt;gcds-link href=&quot;{0}&quot;&gt;{1}&lt;/gcds-link&gt; section for more information. These packaged error pages can be configured to gracefully handle any unhandled exceptions thrown by your application.&lt;/gcds-text&gt;
+        ///.
+        /// </summary>
+        public static string Error_Intro {
+            get {
+                return ResourceManager.GetString("Error_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error Page Template.
         /// </summary>
         public static string Error_Name {
@@ -338,33 +431,12 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;gcds-text&gt;GCFoundation includes two error templates out-of-the-box:&lt;/gcds-text&gt;
-        ///&lt;ul&gt;
-        ///&lt;li&gt;Global error&lt;/li&gt;
-        ///&lt;li&gt;Page not found&lt;/li&gt;
-        ///&lt;/ul&gt;.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;For use on ASP.Net GC applications.&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;The error page template is designed to display a generic message to users when the application throws an error or when the user tries to perform an invalid operation. It is a lightweight version of the basic page template and its sole purpose is to redirect the user to a safe location. It has the basic elements of a GC page as well as a &lt;code&gt;&amp;lt;gcds-notice&amp;gt;&lt;/code&gt; component explaining what went wrong, a link for the user to provide  [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string Error_Overview {
+        public static string Error_WhenToUse {
             get {
-                return ResourceManager.GetString("Error_Overview", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Global error.
-        /// </summary>
-        public static string ErrorTemplates_GlobalError {
-            get {
-                return ResourceManager.GetString("ErrorTemplates_GlobalError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Not found.
-        /// </summary>
-        public static string ErrorTemplates_NotFound {
-            get {
-                return ResourceManager.GetString("ErrorTemplates_NotFound", resourceCulture);
+                return ResourceManager.GetString("Error_WhenToUse", resourceCulture);
             }
         }
         
@@ -509,6 +581,15 @@ namespace GCFoundation.Web.Resources {
         public static string Index_Stepper_Title {
             get {
                 return ResourceManager.GetString("Index_Stepper_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Under Development.
+        /// </summary>
+        public static string Index_Template_UnderDevelopment {
+            get {
+                return ResourceManager.GetString("Index_Template_UnderDevelopment", resourceCulture);
             }
         }
         

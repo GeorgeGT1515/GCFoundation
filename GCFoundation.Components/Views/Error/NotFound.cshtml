@@ -1,0 +1,13 @@
+﻿@using GCFoundation.Common.Utilities
+@using GCFoundation.Components.Enums
+@using GCFoundation.Components.Helpers
+@using GCFoundation.Components.Resources
+@{
+	Layout = "_BilingualErrorTemplate";
+	ViewData["Title"] = Error.NotFound_Title;
+	string lang = LanguageUtility.GetCurrentApplicationLanguage();
+}
+<gcds-heading tag="h1">@Error.NotFound_Title</gcds-heading>
+<gcds-notice type="@AlertType.Danger" title="@Error.NotFound_Notice_Title" title-tag="h2">
+	@Html.Raw(@Error.NotFound_Notice_Content)
+</gcds-notice>
