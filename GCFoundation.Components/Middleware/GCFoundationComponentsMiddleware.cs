@@ -49,7 +49,6 @@ namespace GCFoundation.Components.Middleware
 
                 if (context.Response.ContentType?.Contains("text/html", StringComparison.OrdinalIgnoreCase) == true)
                 {
-
                     newBodyStream.Seek(0, SeekOrigin.Begin);
                     using (var reader = new StreamReader(newBodyStream))
                     {
@@ -59,7 +58,6 @@ namespace GCFoundation.Components.Middleware
                         <link rel=""stylesheet"" href=""{_foundationComponentsSettings.GCDSCssCDN}"">
                         <script type=""module"" src=""{_foundationComponentsSettings.GCDSJavaScriptCDN}""></script>
                     </head>", StringComparison.OrdinalIgnoreCase);
-
 
                         var modifiedHtml = Encoding.UTF8.GetBytes(html);
                         ReadOnlyMemory<byte> memory = new ReadOnlyMemory<byte>(modifiedHtml);
