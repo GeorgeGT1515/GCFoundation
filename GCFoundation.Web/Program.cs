@@ -50,7 +50,6 @@ builder.Services.AddGCFoundationSession(builder.Configuration);
 
 // Language configuration
 var supportedCultures = LanguageUtility.GetSupportedCulture();
-
 var routeSegmentLocalizationProvider = new FirstUrlSegmentRequestCultureProvider(supportedCultures.ToList());
 
 builder.Services.Configure<RequestLocalizationOptions>(options =>
@@ -73,15 +72,6 @@ builder.Services.Configure<RazorViewEngineOptions>(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/{culture=en}/error/global");
-    app.UseStatusCodePagesWithReExecute("/{culture=en}/error/not-found");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
-
 // Support running under a virtual directory (PathBase), e.g. "/gcfoundation"
 var pathBase = builder.Configuration["ASPNETCORE_PATHBASE"];
 if (!string.IsNullOrEmpty(pathBase))
@@ -89,8 +79,7 @@ if (!string.IsNullOrEmpty(pathBase))
     app.UsePathBase(pathBase);
 }
 
-// Add GCFoundation security middleware (Add CSP)
-app.UseMiddleware<GCFoundationContentPoliciesMiddleware>();
+// Add GCFoundation language middleware
 app.UseMiddleware<GCFoundationLanguageMiddleware>();
 
 // Secure Cookies
@@ -101,10 +90,17 @@ app.UseCookiePolicy(new CookiePolicyOptions
     HttpOnly = HttpOnlyPolicy.Always  // Prevent JavaScript access to cookies
 });
 
-// Use Foundation
+// Use GCFoundation
 app.UseGCFoundationComponents();
 app.UseGCFoundationContentPolicies();
 app.UseGCFoundationSession();
+
+// Configure exception handlers
+if (!app.Environment.IsDevelopment())
+{
+    app.UseStatusCodePagesWithReExecute("/en/error/not-found");
+    app.UseExceptionHandler("/en/error/global");
+}
 
 var disableHttpsRedirect = string.Equals(
     System.Environment.GetEnvironmentVariable("DISABLE_HTTPS_REDIRECT"),

@@ -53,7 +53,6 @@ namespace GCFoundation.Security.Middlewares
             context.Response.Headers.Append("Permissions-Policy", "geolocation=(), microphone=(), camera=()");
             context.Response.Headers.Append("Expect-CT", "max-age=86400, enforce");
             context.Response.Headers.Append("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
-            context.Response.Headers.Append("Content-Type", "text/html; charset=utf-8");
 
             await _next(context).ConfigureAwait(false);
         }
