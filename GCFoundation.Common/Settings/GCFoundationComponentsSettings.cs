@@ -34,6 +34,17 @@ namespace GCFoundation.Common.Settings
         }
 
         /// <summary>
+        /// Gets the URI for the GC Design System CSS - for CSS Shortcuts - from the CDN.
+        /// </summary>
+        public Uri GCDSCssCssShortcutsCDN
+        {
+            get
+            {
+                return new Uri($"https://cdn.design-system.alpha.canada.ca/@gcds-core/css-shortcuts@{GCDSVersion}/dist/gcds-css-shortcuts.min.css");
+            }
+        }
+
+        /// <summary>
         /// Gets the URI for the GC Design System JavaScript module from the CDN.
         /// </summary>
         public Uri GCDSJavaScriptCDN
@@ -58,7 +69,7 @@ namespace GCFoundation.Common.Settings
         /// <summary>
         /// Gets or sets the version of the GC Design System being used.
         /// </summary>
-        public string GCDSVersion { get; set; } = "0.41.0";
+        public string GCDSVersion { get; set; } = "0.43.1";
 
         /// <summary>
         /// Gets or sets the version of Font Awesome being used.
