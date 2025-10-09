@@ -126,6 +126,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 // Default route
+app.MapControllers();
 app.MapControllerRoute(
     name: "default",
     pattern: "{culture=en}/{controller=Home}/{action=Index}/{id?}"

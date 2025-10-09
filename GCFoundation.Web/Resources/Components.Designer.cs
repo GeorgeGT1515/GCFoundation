@@ -2144,6 +2144,78 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to FDCP Grid Table.
+        /// </summary>
+        public static string FDCPGridTable_Name {
+            get {
+                return ResourceManager.GetString("FDCPGridTable_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string for FDCP Grid Table overview.
+        /// </summary>
+        public static string FDCPGridTable_Overview {
+            get {
+                return ResourceManager.GetString("FDCPGridTable_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accessible server-side table (Grid.js).
+        /// </summary>
+        public static string FDCPGridTable_Description {
+            get {
+                return ResourceManager.GetString("FDCPGridTable_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic Usage.
+        /// </summary>
+        public static string FDCPGridTable_Basic_Title {
+            get {
+                return ResourceManager.GetString("FDCPGridTable_Basic_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to basic.
+        /// </summary>
+        public static string FDCPGridTable_Basic_Anchor {
+            get {
+                return ResourceManager.GetString("FDCPGridTable_Basic_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string for FDCP Grid Table basic example text.
+        /// </summary>
+        public static string FDCPGridTable_Basic_Text {
+            get {
+                return ResourceManager.GetString("FDCPGridTable_Basic_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FDCP Grid Table.
+        /// </summary>
+        public static string Index_FDCPGridTable_Title {
+            get {
+                return ResourceManager.GetString("Index_FDCPGridTable_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accessible server-side table (Grid.js).
+        /// </summary>
+        public static string Index_FDCPGridTable_Description {
+            get {
+                return ResourceManager.GetString("Index_FDCPGridTable_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ♿ Accessible.
         /// </summary>
         public static string UserLogin_Accessible {

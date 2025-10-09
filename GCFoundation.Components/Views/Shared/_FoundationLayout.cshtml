@@ -64,6 +64,18 @@
     <link rel="stylesheet" href="@StaticResourceHelper.GetLibResourcePath("tabulator/dist/css/GCTabulatorTheme.css")" asp-append-version="true" />
     <link rel="stylesheet" href="@StaticResourceHelper.GetCssResourcePath("foundation.min.css")" asp-append-version="true" />
     <link rel="stylesheet" href="@StaticResourceHelper.GetLibResourcePath("prism/css/prism.css")" asp-append-version="true" />
+    @* Grid.js CSS (if enabled) *@
+    @if (settings.Value.IncludeGridJs)
+    {
+        if (settings.Value.UseGridJsCdn)
+        {
+            <link rel="stylesheet" href="@settings.Value.GridJsCdnCssUrl" />
+        }
+        else
+        {
+            <link rel="stylesheet" href="@StaticResourceHelper.GetLibResourcePath("gridjs/theme/mermaid.min.css")" asp-append-version="true" />
+        }
+    }
     
     @* Global CSS files from configuration *@
     @foreach (var cssFile in settings.Value.GlobalCssFiles)
@@ -174,6 +186,18 @@
     @* Default foundation JavaScript files (always included) *@
     <script src="@StaticResourceHelper.GetLibResourcePath("prism/js/prism.js")" asp-append-version="true"></script>
     <script src="@StaticResourceHelper.GetLibResourcePath("tabulator/dist/js/tabulator.min.js")" asp-append-version="true"></script>
+    @* Grid.js JS (if enabled) - load BEFORE foundation so our wrappers can detect it *@
+    @if (settings.Value.IncludeGridJs)
+    {
+        if (settings.Value.UseGridJsCdn)
+        {
+            <script src="@settings.Value.GridJsCdnJsUrl"></script>
+        }
+        else
+        {
+            <script src="@StaticResourceHelper.GetLibResourcePath("gridjs/gridjs.production.min.js")" asp-append-version="true"></script>
+        }
+    }
     <script src="@StaticResourceHelper.GetJsResourcePath("foundation.min.js")" asp-append-version="true"></script>
 
     @* Global JavaScript files from configuration *@

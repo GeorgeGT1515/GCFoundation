@@ -9,6 +9,8 @@
     "test:e2e:ci": "playwright test",
     "test:a11y": "playwright test -g @a11y",
     "test:a11y:ci": "playwright test -g @a11y --output test-artifacts-a11y",
+    "test:a11y:grid": "playwright test fdcp-grid-table-a11y.spec.ts",
+    "test:a11y:grid:headed": "playwright test fdcp-grid-table-a11y.spec.ts --headed",
     "test:i18n": "playwright test -g @i18n",
     "test:i18n:warn": "cross-env I18N_WARN_ONLY=1 playwright test -g @i18n",
     "test:smoke": "playwright test -g @smoke",

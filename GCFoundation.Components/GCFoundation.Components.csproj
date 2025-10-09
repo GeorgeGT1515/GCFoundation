@@ -64,6 +64,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ErrorsPage.resx</DependentUpon>
     </Compile>
+    <Compile Update="Resources\GridTable.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>GridTable.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\Localization.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -104,6 +109,10 @@
     <EmbeddedResource Update="Resources\Validation.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Validation.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\GridTable.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>GridTable.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 

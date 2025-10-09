@@ -36,6 +36,7 @@ namespace GCFoundation.Components.Configuration
             var cssCDNs = Enumerable.Empty<string>();
             var cssHashes = Enumerable.Empty<string>();
             var fontCDNs = Enumerable.Empty<string>();
+            var connectCDNs = Enumerable.Empty<string>();
 
 
             jsCDNs = jsCDNs.Append(_componentSettings.GCDSJavaScriptCDN.Host.ToString());
@@ -50,10 +51,26 @@ namespace GCFoundation.Components.Configuration
                 .Append(_componentSettings.FontAwesomeCDN.Host.ToString())
                 .Append(_componentSettings.GCDSCssCDN.Host.ToString());
 
+            // Grid.js CDN
+            if (_componentSettings.UseGridJsCdn && _componentSettings.IncludeGridJs)
+            {
+                // Extract host from configured URLs
+                if (Uri.TryCreate(_componentSettings.GridJsCdnJsUrl, UriKind.Absolute, out var gridJsJs))
+                {
+                    jsCDNs = jsCDNs.Append(gridJsJs.GetLeftPart(UriPartial.Authority));
+                    connectCDNs = connectCDNs.Append(gridJsJs.GetLeftPart(UriPartial.Authority));
+                }
+                if (Uri.TryCreate(_componentSettings.GridJsCdnCssUrl, UriKind.Absolute, out var gridJsCss))
+                {
+                    cssCDNs = cssCDNs.Append(gridJsCss.GetLeftPart(UriPartial.Authority));
+                }
+            }
+
             options.JavascriptCDN = jsCDNs;
             options.CssCDN = cssCDNs;
             options.CssCDNHash = cssHashes;
             options.FontCDN = fontCDNs;
+            options.ConnectCDN = connectCDNs;
         }
     }
 }
