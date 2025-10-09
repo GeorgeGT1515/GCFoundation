@@ -385,4 +385,10 @@
   <data name="Stepper_Notes" xml:space="preserve">
     <value>Restez concis pour chaque étape. Validez à chaque étape et résumez les erreurs en haut de la page.</value>
   </data>
+  <data name="Basic_Demo_YourContentStartsHere" xml:space="preserve">
+    <value>Votre contenu commence ici</value>
+  </data>
+  <data name="Basic_Demo_YourContentEndsHere" xml:space="preserve">
+    <value>Votre contenu se termine ici</value>
+  </data>
 </root>
