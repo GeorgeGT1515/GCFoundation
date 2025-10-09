@@ -20,10 +20,10 @@
     var ariaLabel = isFrench ? "Tableau des employés" : "Employees table";
 }
 
-<h3>@Components.FDCPGridTable_Basic_Title</h3>
-<gcds-text>@Html.Raw(Components.FDCPGridTable_Basic_Text)</gcds-text>
+<h3>@Components.TableGridJs_Basic_Title</h3>
+<gcds-text>@Html.Raw(Components.TableGridJs_Basic_Text)</gcds-text>
 
-<fdcp-grid-table id="employees-grid"
+<fdcp-table-gridjs id="employees-grid"
                   ajax-url="@Url.Content("~/api/grid/employees")"
                   caption="@caption"
                   summary="@summary"
@@ -32,7 +32,7 @@
                   lang="@currentCulture"
                   columns="@columns"
                   class="fdcp-table-responsive">
-</fdcp-grid-table>
+</fdcp-table-gridjs>
 
 <pre><code class="language-cshtml">@Html.Raw(@"@using GCFoundation.Components.Models
 @using System.Globalization
@@ -55,7 +55,7 @@
     var ariaLabel = isFrench ? ""Tableau des employés"" : ""Employees table"";
 }
 
-&lt;fdcp-grid-table id=""employees-grid""
+&lt;fdcp-table-gridjs id=""employees-grid""
                   ajax-url=""/api/grid/employees""
                   caption=""@caption""
                   summary=""@summary""
@@ -64,6 +64,6 @@
                   lang=""@currentCulture""
                   columns=""@cols""
                   class=""fdcp-table-responsive"">
-&lt;/fdcp-grid-table>")</code></pre>
+&lt;/fdcp-table-gridjs>")</code></pre>
 
 

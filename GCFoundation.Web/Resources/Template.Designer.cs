@@ -594,6 +594,51 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Stepper Page Template.
+        /// </summary>
+        public static string Stepper_Name {
+            get {
+                return ResourceManager.GetString("Stepper_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A page template including a step indicator and a simple form for short multi-step flows.
+        /// </summary>
+        public static string Stepper_Intro {
+            get {
+                return ResourceManager.GetString("Stepper_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use when guiding users through a short multi-step process with clear progress.
+        /// </summary>
+        public static string Stepper_WhenToUse {
+            get {
+                return ResourceManager.GetString("Stepper_WhenToUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add a stepper and a simple form as shown in the demo. Reuse &lt;code&gt;_FoundationLayout&lt;/code&gt; for the page layout.
+        /// </summary>
+        public static string Stepper_HowToImplement {
+            get {
+                return ResourceManager.GetString("Stepper_HowToImplement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keep steps concise. Validate at each step and summarize errors at the top.
+        /// </summary>
+        public static string Stepper_Notes {
+            get {
+                return ResourceManager.GetString("Stepper_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Notes.
         /// </summary>
         public static string Notes {

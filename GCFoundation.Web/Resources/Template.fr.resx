@@ -370,4 +370,19 @@
   <data name="Index_Template_UnderDevelopment" xml:space="preserve">
     <value>En développement</value>
   </data>
+  <data name="Stepper_Name" xml:space="preserve">
+    <value>Modèle de page avec indicateur d'étapes</value>
+  </data>
+  <data name="Stepper_Intro" xml:space="preserve">
+    <value>Un modèle de page comprenant un indicateur d'étapes et un simple formulaire pour des parcours courts à plusieurs étapes.</value>
+  </data>
+  <data name="Stepper_WhenToUse" xml:space="preserve">
+    <value>À utiliser pour guider les utilisateurs au travers d’un court processus à plusieurs étapes avec une progression claire.</value>
+  </data>
+  <data name="Stepper_HowToImplement" xml:space="preserve">
+    <value>Ajoutez un indicateur d'étapes et un simple formulaire comme dans la démo. Réutilisez &lt;code&gt;_FoundationLayout&lt;/code&gt; pour la mise en page.</value>
+  </data>
+  <data name="Stepper_Notes" xml:space="preserve">
+    <value>Restez concis pour chaque étape. Validez à chaque étape et résumez les erreurs en haut de la page.</value>
+  </data>
 </root>

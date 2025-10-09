@@ -196,6 +196,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Table (Grid.js).
+        /// </summary>
+        public static string Nav_Components_TableGridJs {
+            get {
+                return ResourceManager.GetString("Nav_Components_TableGridJs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User Login Partial.
         /// </summary>
         public static string Nav_Components_UserLogin {

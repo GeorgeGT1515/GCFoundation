@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Globalization;
-using System.Resources;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -14,8 +13,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// Outputs a semantic table skeleton for no-JS environments and a data bootstrap for JS.
     /// Server-side sorting, searching, and pagination are enforced.
     /// </summary>
-    [HtmlTargetElement("fdcp-grid-table")]
-    public sealed class FdcpGridTableTagHelper : TagHelper
+    [HtmlTargetElement("fdcp-table-gridjs")]
+    public sealed class FdcpTableGridJsTagHelper : TagHelper
     {
         [ViewContext]
         public ViewContext ViewContext { get; set; } = null!;
@@ -97,11 +96,11 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             ArgumentNullException.ThrowIfNull(output);
             if (string.IsNullOrWhiteSpace(AjaxUrl))
             {
-                throw new InvalidOperationException("ajax-url is required for fdcp-grid-table.");
+                throw new InvalidOperationException("ajax-url is required for fdcp-table-gridjs.");
             }
             if (string.IsNullOrWhiteSpace(Caption))
             {
-                throw new InvalidOperationException("Caption is required for fdcp-grid-table to meet AAA.");
+                throw new InvalidOperationException("Caption is required for fdcp-table-gridjs to meet AAA.");
             }
 
             // Set culture based on Lang attribute if provided

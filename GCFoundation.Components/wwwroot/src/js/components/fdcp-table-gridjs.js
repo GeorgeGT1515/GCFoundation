@@ -383,7 +383,7 @@
         initAll();
     }
 
-    global.FdcpGridTable = { initAll, init: buildGrid };
+    global.TableGridJs = { initAll, init: buildGrid };
 })();
 
 

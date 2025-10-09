@@ -1,0 +1,39 @@
+@using GCFoundation.Web.Resources
+
+<gcds-heading tag="h1">@Template.Index_Stepper_Title</gcds-heading>
+@* Concise code sample *@
+<pre><code class="language-cshtml">@@using GCFoundation.Components.Models
+@@model GCFoundation.Web.Models.Stepper.StepperFormModel
+
+@@{
+    Layout = "_FoundationLayout";
+}
+
+&lt;fdcp-stepper current-step="2"
+              steps=&quot;@@(new List&lt;StepperStep&gt;
+                                {
+                                    new StepperStep { StepNumber = 1, Label = &quot;Intro&quot; },
+                                    new StepperStep { StepNumber = 2, Label = &quot;Info&quot; },
+                                    new StepperStep { StepNumber = 3, Label = &quot;Details&quot; },
+                                    new StepperStep { StepNumber = 4, Label = &quot;Review&quot; },
+                                    new StepperStep { StepNumber = 5, Label = &quot;Submit&quot; }
+                                })&quot;&gt;&lt;/fdcp-stepper&gt;
+
+&lt;form asp-action=&quot;StepperDemo&quot; method=&quot;post&quot; novalidate&gt;
+  @@Html.AntiForgeryToken()
+  &lt;gcds-input for=&quot;Model.FirstName&quot; /&gt;
+  &lt;gcds-input for=&quot;Model.LastName&quot; /&gt;
+  &lt;gcds-select label=&quot;Province or territory&quot; select-id=&quot;province&quot; name=&quot;Province&quot;&gt;
+    &lt;option value=&quot;&quot;&gt;-- Select --&lt;/option&gt;
+    &lt;option&gt;Alberta&lt;/option&gt;
+    &lt;option&gt;British Columbia&lt;/option&gt;
+    &lt;option&gt;Ontario&lt;/option&gt;
+  &lt;/gcds-select&gt;
+  &lt;gcds-checkboxes legend=&quot;Options&quot; name=&quot;Options&quot; options='[{&quot;label&quot;:&quot;Email&quot;,&quot;value&quot;:&quot;email&quot;},{&quot;label&quot;:&quot;SMS&quot;,&quot;value&quot;:&quot;sms&quot;}]'&gt;&lt;/gcds-checkboxes&gt;
+  &lt;div class=&quot;fdcp-mt-200&quot;&gt;
+    &lt;gcds-button type=&quot;submit&quot; name=&quot;nav&quot; value=&quot;prev&quot; button-role=&quot;secondary&quot;&gt;Previous&lt;/gcds-button&gt;
+    &lt;gcds-button type=&quot;submit&quot; name=&quot;nav&quot; value=&quot;next&quot;&gt;Next&lt;/gcds-button&gt;
+    &lt;gcds-button type=&quot;reset&quot; button-role=&quot;secondary&quot;&gt;Reset&lt;/gcds-button&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+</code></pre>

@@ -371,4 +371,19 @@
   <data name="Index_Template_UnderDevelopment" xml:space="preserve">
     <value>Under Development</value>
   </data>
+  <data name="Stepper_Name" xml:space="preserve">
+    <value>Stepper Page Template</value>
+  </data>
+  <data name="Stepper_Intro" xml:space="preserve">
+    <value>A page template including a step indicator and a simple form for short multi-step flows.</value>
+  </data>
+  <data name="Stepper_WhenToUse" xml:space="preserve">
+    <value>Use when guiding users through a short multi-step process with clear progress.</value>
+  </data>
+  <data name="Stepper_HowToImplement" xml:space="preserve">
+    <value>Add a stepper and a simple form as shown in the demo. Reuse &lt;code&gt;_FoundationLayout&lt;/code&gt; for the page layout.</value>
+  </data>
+  <data name="Stepper_Notes" xml:space="preserve">
+    <value>Keep steps concise. Validate at each step and summarize errors at the top.</value>
+  </data>
 </root>

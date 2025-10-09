@@ -240,4 +240,7 @@
   <data name="Nav_Template_Error_Code" xml:space="preserve">
     <value>Code du modèle de page d'erreur</value>
   </data>
+  <data name="Nav_Components_TableGridJs" xml:space="preserve">
+    <value>Tableau (Grid.js)</value>
+  </data>
 </root>

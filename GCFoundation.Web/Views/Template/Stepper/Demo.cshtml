@@ -1,0 +1,50 @@
+@using GCFoundation.Components.Models
+@model GCFoundation.Web.Models.Template.TemplateStepperFormViewModel
+
+<fdcp-stepper current-step="2"
+              steps="@(new List<StepperStep>
+                                {
+                                    new StepperStep { StepNumber = 1, Label = "Intro", DisplayMode = StepDisplayMode.Number },
+                                    new StepperStep { StepNumber = 2, Label = "Info", DisplayMode = StepDisplayMode.Number },
+                                    new StepperStep { StepNumber = 3, Label = "Details", DisplayMode = StepDisplayMode.Number },
+                                    new StepperStep { StepNumber = 4, Label = "Review", DisplayMode = StepDisplayMode.Number },
+                                    new StepperStep { StepNumber = 5, Label = "Submit", DisplayMode = StepDisplayMode.Number }
+                                })"></fdcp-stepper>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <gcds-error-summary>
+        <gcds-heading tag="h2">There are errors on this page</gcds-heading>
+        <ul>
+            @foreach (var kv in ViewData.ModelState)
+            {
+                foreach (var error in kv.Value!.Errors)
+                {
+                    <li><a href="#@kv.Key">@error.ErrorMessage</a></li>
+                }
+            }
+        </ul>
+    </gcds-error-summary>
+}
+
+<fdcp-form method="post" action="@Url.Action("Form", "Components")" for="@Model">
+    @Html.AntiForgeryToken()
+
+    <fdcp-input for="@Model.FirstName" />
+    <fdcp-input for="@Model.LastName" />
+
+    <gcds-select label="Province or territory" select-id="province" name="Province">
+        <option value="">-- Select --</option>
+        <option>Alberta</option>
+        <option>British Columbia</option>
+        <option>Ontario</option>
+    </gcds-select>
+
+    <gcds-checkboxes legend="Options" name="Options" options='[{"label":"Email","value":"email"},{"label":"SMS","value":"sms"}]'></gcds-checkboxes>
+
+    <div class="fdcp-mt-200">
+        <gcds-button type="submit" name="nav" value="prev" button-role="secondary">Previous</gcds-button>
+        <gcds-button type="submit" name="nav" value="next">Next</gcds-button>
+        <gcds-button type="reset" button-role="secondary">Reset</gcds-button>
+    </div>
+</fdcp-form>

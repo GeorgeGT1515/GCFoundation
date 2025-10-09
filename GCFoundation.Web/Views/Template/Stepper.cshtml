@@ -1,0 +1,28 @@
+@using GCFoundation.Components.Resources
+@using GCFoundation.Web.Resources
+
+<gcds-heading tag="h1">@Template.Stepper_Name</gcds-heading>
+
+<div class="documentation-content">
+    @* Introduction *@
+    <gcds-text>@Template.Stepper_Intro</gcds-text>
+
+    @* When to Use *@
+    <gcds-heading tag="h2" id="@Template.WhenToUse_Anchor">@Template.WhenToUse</gcds-heading>
+    <gcds-text>@Template.Stepper_WhenToUse</gcds-text>
+
+    @* Preview *@
+    <gcds-heading tag="h2" id="@Template.Preview_Anchor">@Template.Preview</gcds-heading>
+    <p>
+        <gcds-button button-role="secondary" type="link" href="@Url.Action("StepperDemo", "Template")" target="_blank">@Template.Demo_Button <i class="fdcp-ms-100 fa-solid fa-desktop"></i></gcds-button>
+        <gcds-button button-role="secondary" type="link" href="@Url.Action("StepperCode", "Template")">@Template.Code_Button <i class="fdcp-ms-100 fa-solid fa-code"></i></gcds-button>
+    </p>
+
+    @* How to implement *@
+    <gcds-heading tag="h2" id="@Template.HowToImplement_Anchor">@Template.HowToImplement</gcds-heading>
+    <gcds-text>@Html.Raw(Template.Stepper_HowToImplement)</gcds-text>
+
+    @* Notes *@
+    <gcds-heading tag="h2" id="@Template.Notes_Anchor">@Template.Notes</gcds-heading>
+    <gcds-text>@Template.Stepper_Notes</gcds-text>
+</div>
