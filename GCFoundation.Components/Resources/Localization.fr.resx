@@ -246,4 +246,10 @@
   <data name="OpensInNewTab" xml:space="preserve">
     <value>S'ouvre dans un nouvel onglet.</value>
   </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Précédent</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Prochain</value>
+  </data>
 </root>

@@ -1,4 +1,5 @@
 using GCFoundation.Components.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
 namespace GCFoundation.Web.Models.Template
@@ -9,29 +10,49 @@ namespace GCFoundation.Web.Models.Template
     public sealed class TemplateStepperFormViewModel : BaseViewModel
     {
         /// <summary>
+        /// Gets or sets the selected contact options.
+        /// </summary>
+        [Display(Name = "Stepper_Demo_ContactOptions_Label", Description = "Stepper_Demo_ContactOptions_Hint", ResourceType = typeof(Resources.Template))]
+        public IEnumerable<string>? ContactOptions { get; set; }
+
+        /// <summary>
         /// Gets or sets the user's first name.
         /// </summary>
         [Required]
-        [Display(Name = "First name")]
+        [Display(Name = "Stepper_Demo_FirstName_Label", Description = "Stepper_Demo_FirstName_Hint", ResourceType = typeof(Resources.Template))]
         public string? FirstName { get; set; }
 
         /// <summary>
         /// Gets or sets the user's last name.
         /// </summary>
         [Required]
-        [Display(Name = "Last name")]
+        [Display(Name = "Stepper_Demo_LastName_Label", Description = "Stepper_Demo_LastName_Hint", ResourceType = typeof(Resources.Template))]
         public string? LastName { get; set; }
 
         /// <summary>
         /// Gets or sets the selected province or territory.
         /// </summary>
-        [Display(Name = "Province or territory")]
+        [Display(Name = "Stepper_Demo_Province_Label", ResourceType = typeof(Resources.Template))]
         public string? Province { get; set; }
 
         /// <summary>
-        /// Gets or sets the selected contact options.
+        /// Available options.
         /// </summary>
-        [Display(Name = "Contact options", Description = "Choose one or more ways we can contact you")]
-        public IEnumerable<string>? Options { get; set; }
+        public IEnumerable<SelectListItem> ContactOptionsList { get; set; } =
+        [
+            new() { Value = "email", Text = Resources.Template.Stepper_Demo_ContactOptions_Email },
+            new() { Value = "sms", Text = Resources.Template.Stepper_Demo_ContactOptions_Sms }
+        ];
+
+        /// <summary>
+        /// Available province options.
+        /// </summary>
+        public IEnumerable<SelectListItem> ProvinceList { get; set; } =
+        [
+            new() { Value = "AB", Text = Resources.Template.Stepper_Demo_Province_Alberta },
+            new() { Value = "BC", Text = Resources.Template.Stepper_Demo_Province_BritishColumbia },
+            new() { Value = "ON", Text = Resources.Template.Stepper_Demo_Province_Ontario },
+            new() { Value = "QC", Text = Resources.Template.Stepper_Demo_Province_Quebec }
+        ];
     }
 }
