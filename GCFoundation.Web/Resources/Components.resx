@@ -498,6 +498,12 @@
   <data name="Index_Table_Description" xml:space="preserve">
     <value>A way to display information in a table</value>
   </data>
+  <data name="Index_FDCPGridTable_Title" xml:space="preserve">
+    <value>FDCP Grid Table</value>
+  </data>
+  <data name="Index_FDCPGridTable_Description" xml:space="preserve">
+    <value>Accessible server-side table (Grid.js)</value>
+  </data>
   <data name="Index_Modal_Title" xml:space="preserve">
     <value>Modal</value>
   </data>
@@ -1060,6 +1066,24 @@
   </data>
   <data name="Table_Basic_Text" xml:space="preserve">
     <value>A basic sample table:</value>
+  </data>
+  <data name="FDCPGridTable_Name" xml:space="preserve">
+    <value>FDCP Grid Table</value>
+  </data>
+  <data name="FDCPGridTable_Overview" xml:space="preserve">
+    <value>This FDCP Grid Table wraps Grid.js to provide an accessible, WCAG 2.1 AAA-oriented data table with server-side sorting, search, and pagination. It progressively enhances a semantic table fallback and aligns styling with the GC Design System.</value>
+  </data>
+  <data name="FDCPGridTable_Description" xml:space="preserve">
+    <value>Accessible server-side table (Grid.js)</value>
+  </data>
+  <data name="FDCPGridTable_Basic_Title" xml:space="preserve">
+    <value>Basic Usage</value>
+  </data>
+  <data name="FDCPGridTable_Basic_Anchor" xml:space="preserve">
+    <value>basic</value>
+  </data>
+  <data name="FDCPGridTable_Basic_Text" xml:space="preserve">
+    <value>A basic example of the FDCP Grid Table with server-side sorting, search, and pagination:</value>
   </data>
   <data name="Table_Properties_Id" xml:space="preserve">
     <value>The HTML element ID to assign to the Tabulator container (must be unique).</value>

@@ -1,0 +1,345 @@
+@use '../variables' as vars;
+
+// FDCP Grid Table styles (Grid.js integration) aligned with GC Design System
+// Reference: https://design-system.alpha.canada.ca/en/styles/colour/
+
+// Override Grid.js default borders and border-radius
+.gridjs-wrapper {
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.gridjs-container {
+    font-family: var(--gcds-font-families-body);
+    font-size: var(--gcds-font-sizes-text);
+    color: var(--gcds-text-primary);
+    margin: var(--gcds-spacing-400) 0;
+}
+
+// Search bar - Match GCDS Input styling
+.gridjs-search {
+    margin-bottom: var(--gcds-spacing-300);
+    
+    label {
+        display: block;
+        font-weight: 700;
+        margin-bottom: var(--gcds-spacing-100);
+        color: var(--gcds-text-primary);
+    }
+    
+    input[type="search"],
+    input[type="text"] {
+        font-family: var(--gcds-font-families-body);
+        font-size: var(--gcds-font-sizes-text);
+        padding: var(--gcds-spacing-150) var(--gcds-spacing-200);
+        border: 1px solid var(--gcds-border-default);
+        border-radius: var(--gcds-border-radius-input);
+        width: 100%;
+        max-width: 26rem;
+        background-color: var(--gcds-bg-white);
+        color: var(--gcds-text-primary);
+
+        &:focus {
+            outline: 3px solid var(--gcds-focus-border);
+            outline-offset: 0;
+            border-color: var(--gcds-focus-border);
+        }
+
+        &::placeholder {
+            color: var(--gcds-color-grayscale-700);
+        }
+    }
+}
+
+// Table - Match GCDS table styling from colour tokens page
+table.gridjs-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: var(--gcds-bg-white);
+    border: none;
+
+    thead tr.gridjs-tr{
+        border-block-end: var(--gcds-border-width-md) solid vars.$gcds-border-default;
+    }
+    // Table header - Clean, minimal styling like GCDS
+    thead th.gridjs-th {
+        background-color: var(--gcds-bg-white);
+        // border-bottom: 2px solid var(--gcds-border-default);
+        font-weight: 700;
+        font-size: var(--gcds-font-sizes-text);
+        padding: var(--gcds-spacing-200) var(--gcds-spacing-200);
+        text-align: left;
+        color: var(--gcds-text-primary);
+        vertical-align: bottom;
+
+        // Sortable column styling
+        &.gridjs-th-sort {
+            cursor: pointer;
+            user-select: none;
+            
+            &:hover {
+                background-color: var(--gcds-bg-light);
+            }
+        }
+
+        &.gridjs-th-sort:focus,
+        &:focus {
+            outline: 3px solid var(--gcds-focus-border);
+            outline-offset: -3px;
+        }
+
+        // Sort indicator
+        .gridjs-th-content {
+            display: flex;
+            align-items: center;
+            gap: var(--gcds-spacing-100);
+        }
+    }
+
+    // Table body - Simple borders like GCDS (no vertical borders)
+    tbody td.gridjs-td {
+        padding: var(--gcds-spacing-200) var(--gcds-spacing-200);
+        border-bottom: 1px solid var(--gcds-border-default);
+        border-left: none !important;
+        border-right: none !important;
+        color: var(--gcds-text-primary);
+        vertical-align: top;
+    }
+
+    // Row hover state - Subtle like GCDS
+    tbody tr:hover {
+        background-color: var(--gcds-bg-light);
+    }
+
+    // Last row
+    tbody tr:last-child td {
+        border-bottom: 2px solid var(--gcds-border-default);
+    }
+}
+
+// Footer - Remove default borders, radius, and shadow
+.gridjs-footer {
+    display: flex !important;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-top: var(--gcds-spacing-300);
+    margin-top: var(--gcds-spacing-300);
+    border: none !important;
+    border-top: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+// Pagination container - Use flexbox to align summary left and pages right
+// Reference: https://design-system.alpha.canada.ca/en/components/pagination/
+.gridjs-pagination {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: var(--gcds-spacing-200) !important;
+    width: 100% !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+// Summary text (e.g., "Showing 1 to 25 of 250 results")
+// Explicitly align left
+.gridjs-summary {
+    font-size: var(--gcds-font-sizes-text);
+    color: var(--gcds-text-secondary);
+    flex: 0 1 auto !important;
+    order: 1 !important;
+}
+
+// Pagination pages container - Align right
+.gridjs-pages {
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--gcds-spacing-100) !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    flex: 0 1 auto !important;
+    order: 2 !important;
+}
+
+// All pagination buttons - Match GCDS button styling (no borders)
+// Use !important to override Grid.js default styles
+.gridjs-pagination button {
+        font-family: var(--gcds-font-families-body) !important;
+        font-size: var(--gcds-font-sizes-text) !important;
+        font-weight: 400 !important;
+        line-height: 1.5 !important;
+        min-width: 2.75rem !important;
+        min-height: 2.75rem !important;
+        padding: 0.5rem 0.75rem !important;
+        border: none !important;
+        border-radius: 0 !important;
+        background-color: transparent !important;
+        color: var(--gcds-link-default) !important;
+        cursor: pointer !important;
+        transition: all 0.15s ease !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-decoration: underline !important;
+        box-shadow: none !important;
+
+        &:hover:not([disabled]):not(.gridjs-currentPage) {
+            background-color: transparent !important;
+            color: var(--gcds-link-hover) !important;
+            text-decoration: underline !important;
+            box-shadow: none !important;
+        }
+
+        &:focus {
+            outline: 3px solid var(--gcds-focus-border) !important;
+            outline-offset: 0 !important;
+            position: relative !important;
+            z-index: 1 !important;
+            box-shadow: none !important;
+        }
+
+        // Current/Active page - No background, bold text
+        &.gridjs-currentPage {
+            background-color: transparent !important;
+            color: var(--gcds-text-primary) !important;
+            font-weight: 700 !important;
+            cursor: default !important;
+            text-decoration: none !important;
+            box-shadow: none !important;
+
+            &:hover {
+                background-color: transparent !important;
+                color: var(--gcds-text-primary) !important;
+                text-decoration: none !important;
+            }
+        }
+
+        // Disabled state (e.g., Previous on first page)
+        &[disabled] {
+            background-color: transparent !important;
+            color: var(--gcds-color-grayscale-500) !important;
+            cursor: not-allowed !important;
+            opacity: 0.5 !important;
+            text-decoration: none !important;
+            box-shadow: none !important;
+
+            &:hover {
+                background-color: transparent !important;
+                color: var(--gcds-color-grayscale-500) !important;
+                text-decoration: none !important;
+            }
+        }
+
+    // Previous/Next buttons - Link style
+    &.gridjs-prevPage,
+    &.gridjs-nextPage {
+        font-weight: 400 !important;
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+    }
+}
+
+// Spread indicator (...)
+.gridjs-pagination .gridjs-spread {
+    padding: 0 var(--gcds-spacing-100);
+    color: var(--gcds-text-secondary);
+    pointer-events: none;
+}
+
+// Responsive wrapper applied by JS
+.fdcp-table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar { 
+        height: 8px; 
+    }
+    
+    &::-webkit-scrollbar-track {
+        background-color: var(--gcds-bg-light);
+        border-radius: 4px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--gcds-border-default);
+        border-radius: 4px;
+        
+        &:hover {
+            background-color: var(--gcds-color-grayscale-700);
+        }
+    }
+}
+
+// Loading state
+.gridjs-loading {
+    text-align: center;
+    padding: var(--gcds-spacing-400);
+    color: var(--gcds-text-secondary);
+    font-style: italic;
+}
+
+// Empty/No results state
+.gridjs-notfound {
+    text-align: center;
+    padding: var(--gcds-spacing-400);
+    color: var(--gcds-text-secondary);
+    font-size: var(--gcds-font-sizes-text);
+}
+
+// Error state
+.gridjs-error {
+    padding: var(--gcds-spacing-300);
+    background-color: var(--gcds-danger-background);
+    border: 1px solid var(--gcds-danger-border);
+    border-radius: var(--gcds-border-radius-button);
+    color: var(--gcds-danger-text);
+}
+
+// Caption styling (from noscript fallback) - Screen reader only
+.gridjs-table caption {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+// Responsive breakpoints - Stack pagination on small screens
+@media (max-width: 768px) {
+    .gridjs-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .gridjs-pagination {
+        width: 100%;
+        justify-content: center;
+        
+        .gridjs-pages {
+            flex-wrap: wrap;
+        }
+    }
+
+    // Make search full width on mobile
+    .gridjs-search input[type="search"],
+    .gridjs-search input[type="text"] {
+        max-width: 100%;
+    }
+}
+
+

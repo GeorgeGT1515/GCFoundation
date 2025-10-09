@@ -242,6 +242,17 @@ namespace GCFoundation.Web.Controllers
         }
 
         /// <summary>
+        /// Displays the FDCP Grid Table demo page.
+        /// </summary>
+        [HttpGet("fdcp-grid-table")]
+        public IActionResult FDCPGridTable()
+        {
+            SetPageTitle($"{Menu.Menu_Components} : FDCP Grid Table");
+            var vm = BuildFdcpGridTableComponentViewModel();
+            return View("Component", vm);
+        }
+
+        /// <summary>
         /// Displays the User Login Partial component demo page.
         /// </summary>
         /// <returns>
@@ -407,7 +418,35 @@ namespace GCFoundation.Web.Controllers
                 new () { Name = Resources.Components.Index_PageHeading_Title, ShortDescription = Resources.Components.Index_PageHeading_Description, Href = Url.Action("PageHeading", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-page-heading.svg") },
                 new () { Name = Resources.Components.Index_Stepper_Title, ShortDescription = Resources.Components.Index_Stepper_Description, Href = Url.Action("Stepper", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-stepper-fdcp.svg") },
                 new () { Name = Resources.Components.Index_Table_Title, ShortDescription = Resources.Components.Index_Table_Description, Href = Url.Action("Table", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-table.svg") },
+                new () { Name = Resources.Components.Index_FDCPGridTable_Title, ShortDescription = Resources.Components.Index_FDCPGridTable_Description, Href = Url.Action("FDCPGridTable", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-table.svg") },
                 new () { Name = Resources.Components.Index_UserLoginPartial_Title, ShortDescription = Resources.Components.Index_UserLoginPartial_Description, Href = Url.Action("UserLogin", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-user-login-partial.svg") }
+            };
+            return vm;
+        }
+
+        private static ComponentViewModel BuildFdcpGridTableComponentViewModel()
+        {
+            var vm = new ComponentViewModel();
+            vm.Name = Resources.Components.FDCPGridTable_Name;
+            vm.Tag = "<fdcp-grid-table>";
+            vm.Overview = Resources.Components.FDCPGridTable_Overview;
+            vm.Properties = new List<ComponentPropertyViewModel>
+            {
+                new() { Name = "id", DataType = "string", Description = "Unique container id (auto-generated if omitted)." },
+                new() { Name = "ajax-url", DataType = "string", Description = "Data endpoint for server-side sort/search/pagination." },
+                new() { Name = "columns", DataType = "IEnumerable<GridTableColumn>", Description = "Column headers and field keys." },
+                new() { Name = "page-size", DataType = "int", DefaultValue = "25", Description = "Rows per page." },
+                new() { Name = "search-enabled", DataType = "bool", DefaultValue = "true", Description = "Enable server search." },
+                new() { Name = "sort-enabled", DataType = "bool", DefaultValue = "true", Description = "Enable server sorting." },
+                new() { Name = "caption", DataType = "string", Description = "Visible caption (required for AAA)." },
+                new() { Name = "summary", DataType = "string", Description = "Additional context announced to SR users." },
+                new() { Name = "aria-label", DataType = "string", Description = "Optional ARIA label for the table." },
+                new() { Name = "lang", DataType = "string", Description = "Language hint (e.g., en, fr)." },
+                new() { Name = "class", DataType = "string", Description = "Extra CSS classes applied to the enhanced table." }
+            };
+            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>
+            {
+                new() { Id = "fdcp-grid-table-basic", Title = "Basic", PartialViewName = "FDCPGridTable/_Basic" }
             };
             return vm;
         }

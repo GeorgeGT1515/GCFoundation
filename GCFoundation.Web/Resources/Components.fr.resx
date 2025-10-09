@@ -502,6 +502,12 @@
   <data name="Index_Table_Description" xml:space="preserve">
     <value>Un moyen d'afficher des informations dans un tableau</value>
   </data>
+  <data name="Index_FDCPGridTable_Title" xml:space="preserve">
+    <value>Tableau FDCP Grid</value>
+  </data>
+  <data name="Index_FDCPGridTable_Description" xml:space="preserve">
+    <value>Tableau accessible côté serveur (Grid.js)</value>
+  </data>
   <data name="Index_Modal_Title" xml:space="preserve">
     <value>Fenêtre modale</value>
   </data>
@@ -1064,6 +1070,24 @@
   </data>
   <data name="Table_Basic_Text" xml:space="preserve">
     <value>Un exemple de tableau simple&amp;nbsp;:</value>
+  </data>
+  <data name="FDCPGridTable_Name" xml:space="preserve">
+    <value>Tableau FDCP Grid</value>
+  </data>
+  <data name="FDCPGridTable_Overview" xml:space="preserve">
+    <value>Ce tableau FDCP Grid enveloppe Grid.js pour fournir un tableau de données accessible conforme à WCAG 2.1 AAA avec tri, recherche et pagination côté serveur. Il améliore progressivement une table sémantique de repli et aligne le style avec le Système de design GC.</value>
+  </data>
+  <data name="FDCPGridTable_Description" xml:space="preserve">
+    <value>Tableau accessible côté serveur (Grid.js)</value>
+  </data>
+  <data name="FDCPGridTable_Basic_Title" xml:space="preserve">
+    <value>Utilisation de base</value>
+  </data>
+  <data name="FDCPGridTable_Basic_Anchor" xml:space="preserve">
+    <value>base</value>
+  </data>
+  <data name="FDCPGridTable_Basic_Text" xml:space="preserve">
+    <value>Un exemple de base du tableau FDCP Grid avec tri, recherche et pagination côté serveur&amp;nbsp;:</value>
   </data>
   <data name="Table_Properties_Id" xml:space="preserve">
     <value>L'identifiant HTML à être assigné à l'élément &lt;em&gt;Tabulator&lt;/em&gt;(doit être unique).</value>

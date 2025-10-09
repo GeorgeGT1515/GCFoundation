@@ -373,3 +373,4 @@ e2e/.eslintcache
 e2e/.env
 e2e/.env.local
 e2e/.env.*.local
+/.playwright-mcp

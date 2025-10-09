@@ -1,0 +1,69 @@
+@using GCFoundation.Components.Models
+@using GCFoundation.Web.Resources
+@using System.Globalization
+
+@{
+    var currentCulture = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+    var isFrench = currentCulture == "fr";
+    
+    var columns = new[]
+    {
+        new GridTableColumn { Field = "id", Header = "ID", Sortable = true },
+        new GridTableColumn { Field = "name", Header = isFrench ? "Nom" : "Name", Sortable = true },
+        new GridTableColumn { Field = "department", Header = isFrench ? "Département" : "Department", Sortable = true }
+    };
+    
+    var caption = isFrench ? "Employés" : "Employees";
+    var summary = isFrench 
+        ? "Tableau triable, recherchable et paginé des employés" 
+        : "Sortable, searchable and paginated table of employees";
+    var ariaLabel = isFrench ? "Tableau des employés" : "Employees table";
+}
+
+<h3>@Components.FDCPGridTable_Basic_Title</h3>
+<gcds-text>@Html.Raw(Components.FDCPGridTable_Basic_Text)</gcds-text>
+
+<fdcp-grid-table id="employees-grid"
+                  ajax-url="@Url.Content("~/api/grid/employees")"
+                  caption="@caption"
+                  summary="@summary"
+                  page-size="25"
+                  aria-label="@ariaLabel"
+                  lang="@currentCulture"
+                  columns="@columns"
+                  class="fdcp-table-responsive">
+</fdcp-grid-table>
+
+<pre><code class="language-cshtml">@Html.Raw(@"@using GCFoundation.Components.Models
+@using System.Globalization
+
+@{
+    var currentCulture = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+    var isFrench = currentCulture == ""fr"";
+    
+    var cols = new[]
+    {
+        new GridTableColumn { Field = ""id"", Header = ""ID"", Sortable = true },
+        new GridTableColumn { Field = ""name"", Header = isFrench ? ""Nom"" : ""Name"", Sortable = true },
+        new GridTableColumn { Field = ""department"", Header = isFrench ? ""Département"" : ""Department"", Sortable = true }
+    };
+    
+    var caption = isFrench ? ""Employés"" : ""Employees"";
+    var summary = isFrench 
+        ? ""Tableau triable, recherchable et paginé des employés"" 
+        : ""Sortable, searchable and paginated table of employees"";
+    var ariaLabel = isFrench ? ""Tableau des employés"" : ""Employees table"";
+}
+
+&lt;fdcp-grid-table id=""employees-grid""
+                  ajax-url=""/api/grid/employees""
+                  caption=""@caption""
+                  summary=""@summary""
+                  page-size=""25""
+                  aria-label=""@ariaLabel""
+                  lang=""@currentCulture""
+                  columns=""@cols""
+                  class=""fdcp-table-responsive"">
+&lt;/fdcp-grid-table>")</code></pre>
+
+

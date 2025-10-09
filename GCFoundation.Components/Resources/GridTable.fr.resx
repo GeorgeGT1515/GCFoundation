@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Search_Placeholder" xml:space="preserve">
+    <value>Recherche...</value>
+    <comment>Placeholder text for search input</comment>
+  </data>
+  <data name="Search_AriaLabel" xml:space="preserve">
+    <value>Rechercher dans le tableau</value>
+    <comment>ARIA label for search input</comment>
+  </data>
+  <data name="Pagination_Previous" xml:space="preserve">
+    <value>Précédent</value>
+    <comment>Previous page button text</comment>
+  </data>
+  <data name="Pagination_Next" xml:space="preserve">
+    <value>Suivant</value>
+    <comment>Next page button text</comment>
+  </data>
+  <data name="Pagination_Showing" xml:space="preserve">
+    <value>Affichage</value>
+    <comment>Text before showing page range</comment>
+  </data>
+  <data name="Pagination_Results" xml:space="preserve">
+    <value>résultats</value>
+    <comment>Text for results count</comment>
+  </data>
+  <data name="Pagination_Page" xml:space="preserve">
+    <value>Page</value>
+    <comment>Page label for pagination</comment>
+  </data>
+  <data name="Pagination_Of" xml:space="preserve">
+    <value>de</value>
+    <comment>Used in 'Page X of Y'</comment>
+  </data>
+  <data name="Loading_Text" xml:space="preserve">
+    <value>Chargement...</value>
+    <comment>Loading indicator text</comment>
+  </data>
+  <data name="NoData_Text" xml:space="preserve">
+    <value>Aucune donnée</value>
+    <comment>Message shown when no data is available</comment>
+  </data>
+  <data name="NoResults_Text" xml:space="preserve">
+    <value>Aucune donnée trouvée</value>
+    <comment>Message shown when no search results match</comment>
+  </data>
+  <data name="Sort_Ascending" xml:space="preserve">
+    <value>Trier la colonne par ordre croissant</value>
+    <comment>ARIA label for sort ascending button</comment>
+  </data>
+  <data name="Sort_Descending" xml:space="preserve">
+    <value>Trier la colonne par ordre décroissant</value>
+    <comment>ARIA label for sort descending button</comment>
+  </data>
+  <data name="AriaLive_Results" xml:space="preserve">
+    <value>{0} résultats, page {1}, {2} par page.</value>
+    <comment>ARIA live region announcement. Parameters: total results, current page, page size</comment>
+  </data>
+</root>
+
