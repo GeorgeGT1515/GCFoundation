@@ -178,7 +178,7 @@
     <value>Une mise en page générique comprenant les composants nécessaires pour construire une page accessible pour le GC.</value>
   </data>
   <data name="Index_Error_Description" xml:space="preserve">
-    <value>Description d'un modèle de page d'erreur</value>
+    <value>Standardisez la gestion et l'affichage des erreurs lancées par votre application.</value>
   </data>
   <data name="Index_LanguageChooser_Description" xml:space="preserve">
     <value>Une page d'accueil bilingue similaire à celle retrouvée sur Canada.ca</value>
@@ -196,7 +196,7 @@
     <value>Tableau de bord</value>
   </data>
   <data name="Index_Stepper_Description" xml:space="preserve">
-    <value>Description d'un modèle de page avec indicateur d'étapes</value>
+    <value>Laissez vos utilisateurs suivre leur progression dans un formulaire multi-page.</value>
   </data>
   <data name="Dashboard_Intro" xml:space="preserve">
     <value>Le composant &lt;code&gt;&amp;lt;fdcp-badge&amp;gt;&lt;/code&gt; est utilisé pour mettre en évidence de petites informations...</value>
@@ -374,7 +374,7 @@
     <value>Modèle de page avec indicateur d'étapes</value>
   </data>
   <data name="Stepper_Intro" xml:space="preserve">
-    <value>Un modèle de page comprenant un indicateur d'étapes et un simple formulaire pour des parcours courts à plusieurs étapes.</value>
+    <value>Un modèle de page avec indicateur d'étapes permet d'offrir à l'utilisateur un aperçu de sa progression à l'intérieur d'un formulaire multi-page.</value>
   </data>
   <data name="Stepper_WhenToUse" xml:space="preserve">
     <value>À utiliser pour guider les utilisateurs au travers d’un court processus à plusieurs étapes avec une progression claire.</value>

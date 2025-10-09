@@ -531,7 +531,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Description of an error page template.
+        ///   Looks up a localized string similar to Standardize the management and the display of the errors thrown by your application..
         /// </summary>
         public static string Index_Error_Description {
             get {
@@ -585,7 +585,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Description of a stepper/wizard page.
+        ///   Looks up a localized string similar to Let users track their progress within a multi-page form..
         /// </summary>
         public static string Index_Stepper_Description {
             get {

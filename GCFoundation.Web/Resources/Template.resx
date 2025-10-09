@@ -178,7 +178,7 @@
     <value>A generic page layout including the necessary components for any accessible GC pages.</value>
   </data>
   <data name="Index_Error_Description" xml:space="preserve">
-    <value>Description of an error page template</value>
+    <value>Standardize the management and the display of the errors thrown by your application.</value>
   </data>
   <data name="Index_LanguageChooser_Description" xml:space="preserve">
     <value>A bilingual splash page similar to the one used on Canada.ca</value>
@@ -196,7 +196,7 @@
     <value>Dashboard Page</value>
   </data>
   <data name="Index_Stepper_Description" xml:space="preserve">
-    <value>Description of a stepper/wizard page</value>
+    <value>Let users track their progress within a multi-page form.</value>
   </data>
   <data name="Dashboard_Intro" xml:space="preserve">
     <value>The &lt;code&gt;&amp;lt;fdcp-badge&amp;gt;&lt;/code&gt; component is used to highlight small pieces of information...</value>
