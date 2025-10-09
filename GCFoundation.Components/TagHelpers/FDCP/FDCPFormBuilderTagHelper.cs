@@ -1,4 +1,5 @@
 ﻿using GCFoundation.Common.Utilities;
+using GCFoundation.Components.Helpers;
 using GCFoundation.Components.Models.FormBuilder;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Newtonsoft.Json;
@@ -58,7 +59,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         private void BuildFormContent(StringBuilder content)
         {
             // Include validation script for GCDS v0.39.0+ support
-            content.AppendLine("<script src='~/js/gcds-validation-handler.js' defer></script>");
+            content.AppendLine(CultureInfo.InvariantCulture,
+                $"<script src='{StaticResourceHelper.GetResourcePath("js/gcds-validation-handler.js")}' defer></script>");
 
             // Form wrapper with validation attributes for GCDS v0.39.0+ compatibility
             content.AppendFormat(CultureInfo.InvariantCulture,

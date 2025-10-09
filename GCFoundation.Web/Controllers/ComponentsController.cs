@@ -242,13 +242,16 @@ namespace GCFoundation.Web.Controllers
         }
 
         /// <summary>
-        /// Displays the FDCP Grid Table demo page.
+        /// Displays the Table (Grid.js) component demo page.
         /// </summary>
-        [HttpGet("fdcp-grid-table")]
-        public IActionResult FDCPGridTable()
+        /// <returns>
+        /// The Table (Grid.js) component view.
+        /// </returns>
+        [HttpGet("table-grid-js")]
+        public IActionResult TableGridJs()
         {
             SetPageTitle($"{Menu.Menu_Components} : FDCP Grid Table");
-            var vm = BuildFdcpGridTableComponentViewModel();
+            var vm = BuildTableGridJsComponentViewModel();
             return View("Component", vm);
         }
 
@@ -418,18 +421,18 @@ namespace GCFoundation.Web.Controllers
                 new () { Name = Resources.Components.Index_PageHeading_Title, ShortDescription = Resources.Components.Index_PageHeading_Description, Href = Url.Action("PageHeading", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-page-heading.svg") },
                 new () { Name = Resources.Components.Index_Stepper_Title, ShortDescription = Resources.Components.Index_Stepper_Description, Href = Url.Action("Stepper", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-stepper-fdcp.svg") },
                 new () { Name = Resources.Components.Index_Table_Title, ShortDescription = Resources.Components.Index_Table_Description, Href = Url.Action("Table", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-table.svg") },
-                new () { Name = Resources.Components.Index_FDCPGridTable_Title, ShortDescription = Resources.Components.Index_FDCPGridTable_Description, Href = Url.Action("FDCPGridTable", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-table.svg") },
+                new () { Name = Resources.Components.Index_TableGridJs_Title, ShortDescription = Resources.Components.Index_TableGridJs_Description, Href = Url.Action("TableGridJs", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-table.svg") },
                 new () { Name = Resources.Components.Index_UserLoginPartial_Title, ShortDescription = Resources.Components.Index_UserLoginPartial_Description, Href = Url.Action("UserLogin", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-user-login-partial.svg") }
             };
             return vm;
         }
 
-        private static ComponentViewModel BuildFdcpGridTableComponentViewModel()
+        private static ComponentViewModel BuildTableGridJsComponentViewModel()
         {
             var vm = new ComponentViewModel();
-            vm.Name = Resources.Components.FDCPGridTable_Name;
-            vm.Tag = "<fdcp-grid-table>";
-            vm.Overview = Resources.Components.FDCPGridTable_Overview;
+            vm.Name = Resources.Components.TableGridJs_Name;
+            vm.Tag = "<fdcp-table-gridjs>";
+            vm.Overview = Resources.Components.TableGridJs_Overview;
             vm.Properties = new List<ComponentPropertyViewModel>
             {
                 new() { Name = "id", DataType = "string", Description = "Unique container id (auto-generated if omitted)." },
@@ -446,7 +449,7 @@ namespace GCFoundation.Web.Controllers
             };
             vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>
             {
-                new() { Id = "fdcp-grid-table-basic", Title = "Basic", PartialViewName = "FDCPGridTable/_Basic" }
+                new() { Id = "fdcp-table-gridjs-basic", Title = "Basic", PartialViewName = "TableGridJs/_Basic" }
             };
             return vm;
         }

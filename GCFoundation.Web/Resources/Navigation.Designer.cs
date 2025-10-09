@@ -196,6 +196,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Table (Grid.js).
+        /// </summary>
+        public static string Nav_Components_TableGridJs {
+            get {
+                return ResourceManager.GetString("Nav_Components_TableGridJs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User Login Partial.
         /// </summary>
         public static string Nav_Components_UserLogin {
@@ -394,6 +403,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error Page Demo.
+        /// </summary>
+        public static string Nav_Template_Error_Demo1 {
+            get {
+                return ResourceManager.GetString("Nav_Template_Error_Demo1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Language Chooser Page.
         /// </summary>
         public static string Nav_Template_LanguageChooser {
@@ -408,6 +426,15 @@ namespace GCFoundation.Web.Resources {
         public static string Nav_Template_Stepper {
             get {
                 return ResourceManager.GetString("Nav_Template_Stepper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stepper Page Code.
+        /// </summary>
+        public static string Nav_Template_Stepper_Code {
+            get {
+                return ResourceManager.GetString("Nav_Template_Stepper_Code", resourceCulture);
             }
         }
         

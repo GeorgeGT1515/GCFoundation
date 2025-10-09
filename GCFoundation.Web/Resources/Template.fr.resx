@@ -175,10 +175,10 @@
     <value>Page avec indicateur d'étapes</value>
   </data>
   <data name="Index_Basic_Description" xml:space="preserve">
-    <value>Une mise en page générique comprenant les composants nécessaires pour construire une page accessible pour le GC.</value>
+    <value>Une mise en page générique comprenant les composants nécessaires pour construire une page accessible pour le GC</value>
   </data>
   <data name="Index_Error_Description" xml:space="preserve">
-    <value>Description d'un modèle de page d'erreur</value>
+    <value>Standardisez la gestion et l'affichage des erreurs lancées par votre application</value>
   </data>
   <data name="Index_LanguageChooser_Description" xml:space="preserve">
     <value>Une page d'accueil bilingue similaire à celle retrouvée sur Canada.ca</value>
@@ -196,7 +196,7 @@
     <value>Tableau de bord</value>
   </data>
   <data name="Index_Stepper_Description" xml:space="preserve">
-    <value>Description d'un modèle de page avec indicateur d'étapes</value>
+    <value>Laissez vos utilisateurs suivre leur progression dans un formulaire multi-page</value>
   </data>
   <data name="Dashboard_Intro" xml:space="preserve">
     <value>Le composant &lt;code&gt;&amp;lt;fdcp-badge&amp;gt;&lt;/code&gt; est utilisé pour mettre en évidence de petites informations...</value>
@@ -369,5 +369,86 @@
   </data>
   <data name="Index_Template_UnderDevelopment" xml:space="preserve">
     <value>En développement</value>
+  </data>
+  <data name="Stepper_Name" xml:space="preserve">
+    <value>Modèle de page avec indicateur d'étapes</value>
+  </data>
+  <data name="Stepper_Intro" xml:space="preserve">
+    <value>Un modèle de page avec indicateur d'étapes permet d'offrir à l'utilisateur un aperçu de sa progression à l'intérieur d'un formulaire multi-page.</value>
+  </data>
+  <data name="Stepper_WhenToUse" xml:space="preserve">
+    <value>À utiliser pour guider les utilisateurs au travers d’un court processus à plusieurs étapes avec une progression claire.</value>
+  </data>
+  <data name="Stepper_HowToImplement" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Ajoutez un indicateur d'étapes et un simple formulaire comme dans la démo. Rendez vous sur la page de documentation des &lt;gcds-link href="{0}"&gt;Composants&lt;/gcds-link&gt; pour des instructions plus spécifiques.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Stepper_Notes" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;Restez concis pour chaque étape.&lt;/li&gt;
+&lt;li&gt;Utilisez les composants GCFoundation pour développer le formulaire pour vous assurer que la validation et les autres fonctionnalités soient intégrés.&lt;/li&gt;
+&lt;/ul&gt;</value>
+  </data>
+  <data name="Basic_Demo_YourContentStartsHere" xml:space="preserve">
+    <value>Votre contenu commence ici</value>
+  </data>
+  <data name="Basic_Demo_YourContentEndsHere" xml:space="preserve">
+    <value>Votre contenu se termine ici</value>
+  </data>
+  <data name="Stepper_Demo_FirstName_Label" xml:space="preserve">
+    <value>Prénom</value>
+  </data>
+  <data name="Stepper_Demo_ContactOptions_Label" xml:space="preserve">
+    <value>Options de contact</value>
+  </data>
+  <data name="Stepper_Demo_ContactOptions_Hint" xml:space="preserve">
+    <value>Choisissez un ou plusieurs moyen(s) de vous contacter</value>
+  </data>
+  <data name="Stepper_Demo_FirstName_Hint" xml:space="preserve">
+    <value>Entrer votre prénom</value>
+  </data>
+  <data name="Stepper_Demo_LastName_Hint" xml:space="preserve">
+    <value>Entrer votre nom de famille</value>
+  </data>
+  <data name="Stepper_Demo_LastName_Label" xml:space="preserve">
+    <value>Nom de famille</value>
+  </data>
+  <data name="Stepper_Demo_Province_Label" xml:space="preserve">
+    <value>Province ou territoire</value>
+  </data>
+  <data name="Stepper_Demo_Province_Alberta" xml:space="preserve">
+    <value>Alberta</value>
+  </data>
+  <data name="Stepper_Demo_Province_Ontario" xml:space="preserve">
+    <value>Ontario</value>
+  </data>
+  <data name="Stepper_Demo_Province_BritishColumbia" xml:space="preserve">
+    <value>Colombie-Britannique</value>
+  </data>
+  <data name="Stepper_Demo_Province_Quebec" xml:space="preserve">
+    <value>Québec</value>
+  </data>
+  <data name="Stepper_Demo_ContactOptions_Email" xml:space="preserve">
+    <value>Par courriel</value>
+  </data>
+  <data name="Stepper_Demo_ContactOptions_Sms" xml:space="preserve">
+    <value>Par texto</value>
+  </data>
+  <data name="Stepper_Demo_Image_AltText" xml:space="preserve">
+    <value>Un modèle de page avec indicateur d'étapes comprend l’en-tête et le pied de page du gouvernement du Canada, un composant indicateur d'étapes GCFoundation et un composant formulaire (ou constructeur de formulaire) GCFoundation.</value>
+  </data>
+  <data name="Stepper_Demo_Step1_Label" xml:space="preserve">
+    <value>Intro</value>
+  </data>
+  <data name="Stepper_Demo_Step2_Label" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Stepper_Demo_Step3_Label" xml:space="preserve">
+    <value>Détails</value>
+  </data>
+  <data name="Stepper_Demo_Step4_Label" xml:space="preserve">
+    <value>Aperçu</value>
+  </data>
+  <data name="Stepper_Demo_Step5_Label" xml:space="preserve">
+    <value>Soumettre</value>
   </data>
 </root>

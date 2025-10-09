@@ -125,6 +125,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your content ends here.
+        /// </summary>
+        public static string Basic_Demo_YourContentEndsHere {
+            get {
+                return ResourceManager.GetString("Basic_Demo_YourContentEndsHere", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your content starts here.
+        /// </summary>
+        public static string Basic_Demo_YourContentStartsHere {
+            get {
+                return ResourceManager.GetString("Basic_Demo_YourContentStartsHere", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to design-considerations-side-nav.
         /// </summary>
         public static string Basic_Design_SideNav_Anchor {
@@ -459,7 +477,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A generic page layout including the necessary components for any accessible GC pages..
+        ///   Looks up a localized string similar to A generic page layout including the necessary components for any accessible GC pages.
         /// </summary>
         public static string Index_Basic_Description {
             get {
@@ -513,7 +531,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Description of an error page template.
+        ///   Looks up a localized string similar to Standardize the management and the display of the errors thrown by your application.
         /// </summary>
         public static string Index_Error_Description {
             get {
@@ -567,7 +585,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Description of a stepper/wizard page.
+        ///   Looks up a localized string similar to Let users track their progress within a multi-page form.
         /// </summary>
         public static string Index_Stepper_Description {
             get {
@@ -743,6 +761,225 @@ namespace GCFoundation.Web.Resources {
         public static string SideNav_UserLoginPartial {
             get {
                 return ResourceManager.GetString("SideNav_UserLoginPartial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string Stepper_Demo_ContactOptions_Email {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_ContactOptions_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose one or more ways we can contact you.
+        /// </summary>
+        public static string Stepper_Demo_ContactOptions_Hint {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_ContactOptions_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact options.
+        /// </summary>
+        public static string Stepper_Demo_ContactOptions_Label {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_ContactOptions_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SMS.
+        /// </summary>
+        public static string Stepper_Demo_ContactOptions_Sms {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_ContactOptions_Sms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your first name.
+        /// </summary>
+        public static string Stepper_Demo_FirstName_Hint {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_FirstName_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to First name.
+        /// </summary>
+        public static string Stepper_Demo_FirstName_Label {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_FirstName_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A stepper page template includes the Government of Canada header and footer, a GCFoundation stepper component and a GCFoundation form (or form builder) component..
+        /// </summary>
+        public static string Stepper_Demo_Image_AltText {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Image_AltText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your last name.
+        /// </summary>
+        public static string Stepper_Demo_LastName_Hint {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_LastName_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last name.
+        /// </summary>
+        public static string Stepper_Demo_LastName_Label {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_LastName_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alberta.
+        /// </summary>
+        public static string Stepper_Demo_Province_Alberta {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Province_Alberta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to British Columbia.
+        /// </summary>
+        public static string Stepper_Demo_Province_BritishColumbia {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Province_BritishColumbia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Province or territory.
+        /// </summary>
+        public static string Stepper_Demo_Province_Label {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Province_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ontario.
+        /// </summary>
+        public static string Stepper_Demo_Province_Ontario {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Province_Ontario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quebec.
+        /// </summary>
+        public static string Stepper_Demo_Province_Quebec {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Province_Quebec", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Intro.
+        /// </summary>
+        public static string Stepper_Demo_Step1_Label {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Step1_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info.
+        /// </summary>
+        public static string Stepper_Demo_Step2_Label {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Step2_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Details.
+        /// </summary>
+        public static string Stepper_Demo_Step3_Label {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Step3_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Review.
+        /// </summary>
+        public static string Stepper_Demo_Step4_Label {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Step4_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit.
+        /// </summary>
+        public static string Stepper_Demo_Step5_Label {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Step5_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Add a stepper and a simple form as shown in the demo. Refer to the &lt;gcds-link href=&quot;{0}&quot;&gt;Components&lt;/gcds-link&gt; documentation for more specific instructions.&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Stepper_HowToImplement {
+            get {
+                return ResourceManager.GetString("Stepper_HowToImplement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A page template including a step indicator and a simple form for short multi-step flows..
+        /// </summary>
+        public static string Stepper_Intro {
+            get {
+                return ResourceManager.GetString("Stepper_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stepper Page Template.
+        /// </summary>
+        public static string Stepper_Name {
+            get {
+                return ResourceManager.GetString("Stepper_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ul&gt;
+        ///&lt;li&gt;Keep steps concise.&lt;/li&gt;
+        ///&lt;li&gt;Use GCFoundation components to develop the form to ensure validation and other features are included.&lt;/li&gt;
+        ///&lt;/ul&gt;.
+        /// </summary>
+        public static string Stepper_Notes {
+            get {
+                return ResourceManager.GetString("Stepper_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use when guiding users through a short multi-step process with clear progress..
+        /// </summary>
+        public static string Stepper_WhenToUse {
+            get {
+                return ResourceManager.GetString("Stepper_WhenToUse", resourceCulture);
             }
         }
         

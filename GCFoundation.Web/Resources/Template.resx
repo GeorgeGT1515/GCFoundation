@@ -175,10 +175,10 @@
     <value>Stepper Page</value>
   </data>
   <data name="Index_Basic_Description" xml:space="preserve">
-    <value>A generic page layout including the necessary components for any accessible GC pages.</value>
+    <value>A generic page layout including the necessary components for any accessible GC pages</value>
   </data>
   <data name="Index_Error_Description" xml:space="preserve">
-    <value>Description of an error page template</value>
+    <value>Standardize the management and the display of the errors thrown by your application</value>
   </data>
   <data name="Index_LanguageChooser_Description" xml:space="preserve">
     <value>A bilingual splash page similar to the one used on Canada.ca</value>
@@ -196,7 +196,7 @@
     <value>Dashboard Page</value>
   </data>
   <data name="Index_Stepper_Description" xml:space="preserve">
-    <value>Description of a stepper/wizard page</value>
+    <value>Let users track their progress within a multi-page form</value>
   </data>
   <data name="Dashboard_Intro" xml:space="preserve">
     <value>The &lt;code&gt;&amp;lt;fdcp-badge&amp;gt;&lt;/code&gt; component is used to highlight small pieces of information...</value>
@@ -370,5 +370,86 @@
   </data>
   <data name="Index_Template_UnderDevelopment" xml:space="preserve">
     <value>Under Development</value>
+  </data>
+  <data name="Stepper_Name" xml:space="preserve">
+    <value>Stepper Page Template</value>
+  </data>
+  <data name="Stepper_Intro" xml:space="preserve">
+    <value>A page template including a step indicator and a simple form for short multi-step flows.</value>
+  </data>
+  <data name="Stepper_WhenToUse" xml:space="preserve">
+    <value>Use when guiding users through a short multi-step process with clear progress.</value>
+  </data>
+  <data name="Stepper_HowToImplement" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Add a stepper and a simple form as shown in the demo. Refer to the &lt;gcds-link href="{0}"&gt;Components&lt;/gcds-link&gt; documentation for more specific instructions.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Stepper_Notes" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;Keep steps concise.&lt;/li&gt;
+&lt;li&gt;Use GCFoundation components to develop the form to ensure validation and other features are included.&lt;/li&gt;
+&lt;/ul&gt;</value>
+  </data>
+  <data name="Basic_Demo_YourContentStartsHere" xml:space="preserve">
+    <value>Your content starts here</value>
+  </data>
+  <data name="Basic_Demo_YourContentEndsHere" xml:space="preserve">
+    <value>Your content ends here</value>
+  </data>
+  <data name="Stepper_Demo_FirstName_Label" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="Stepper_Demo_ContactOptions_Label" xml:space="preserve">
+    <value>Contact options</value>
+  </data>
+  <data name="Stepper_Demo_ContactOptions_Hint" xml:space="preserve">
+    <value>Choose one or more ways we can contact you</value>
+  </data>
+  <data name="Stepper_Demo_FirstName_Hint" xml:space="preserve">
+    <value>Enter your first name</value>
+  </data>
+  <data name="Stepper_Demo_LastName_Hint" xml:space="preserve">
+    <value>Enter your last name</value>
+  </data>
+  <data name="Stepper_Demo_LastName_Label" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="Stepper_Demo_Province_Label" xml:space="preserve">
+    <value>Province or territory</value>
+  </data>
+  <data name="Stepper_Demo_Province_Alberta" xml:space="preserve">
+    <value>Alberta</value>
+  </data>
+  <data name="Stepper_Demo_Province_Ontario" xml:space="preserve">
+    <value>Ontario</value>
+  </data>
+  <data name="Stepper_Demo_Province_BritishColumbia" xml:space="preserve">
+    <value>British Columbia</value>
+  </data>
+  <data name="Stepper_Demo_Province_Quebec" xml:space="preserve">
+    <value>Quebec</value>
+  </data>
+  <data name="Stepper_Demo_ContactOptions_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Stepper_Demo_ContactOptions_Sms" xml:space="preserve">
+    <value>SMS</value>
+  </data>
+  <data name="Stepper_Demo_Image_AltText" xml:space="preserve">
+    <value>A stepper page template includes the Government of Canada header and footer, a GCFoundation stepper component and a GCFoundation form (or form builder) component.</value>
+  </data>
+  <data name="Stepper_Demo_Step1_Label" xml:space="preserve">
+    <value>Intro</value>
+  </data>
+  <data name="Stepper_Demo_Step2_Label" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Stepper_Demo_Step3_Label" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Stepper_Demo_Step4_Label" xml:space="preserve">
+    <value>Review</value>
+  </data>
+  <data name="Stepper_Demo_Step5_Label" xml:space="preserve">
+    <value>Submit</value>
   </data>
 </root>

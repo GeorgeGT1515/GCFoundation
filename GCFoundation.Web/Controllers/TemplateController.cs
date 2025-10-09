@@ -1,4 +1,5 @@
 ﻿using GCFoundation.Components.Controllers;
+using GCFoundation.Web.Models.Template;
 using GCFoundation.Web.Resources;
 using Microsoft.AspNetCore.Mvc;
 
@@ -72,6 +73,20 @@ namespace GCFoundation.Web.Controllers
         public IActionResult Error()
         {
             SetPageTitle($"{Menu.Menu_Template} : {Resources.Template.Index_Error_Title}");
+
+            return View();
+        }
+
+        /// <summary>
+        /// Displays the Stepper page template documentation page.
+        /// </summary>
+        /// <returns>
+        /// The documentation view for the Stepper page template.
+        /// </returns>
+        [HttpGet("stepper")]
+        public IActionResult Stepper()
+        {
+            SetPageTitle($"{Menu.Menu_Template} : {Resources.Template.Index_Stepper_Title}");
 
             return View();
         }
@@ -163,5 +178,52 @@ namespace GCFoundation.Web.Controllers
             return View("error/demo");
         }
         #endregion Error Page Template (Code, Demo) Controller Actions
+
+        #region Stepper Page Template (Code, Demo) Controller Actions
+        /// <summary>
+        /// Displays a page containing sample code for the Stepper page template.
+        /// </summary>
+        /// <returns>
+        /// The view for the sample code for a Stepper page template.
+        /// </returns>
+        [HttpGet("stepper/code")]
+        public IActionResult StepperCode()
+        {
+            SetPageTitle($"{Menu.Menu_Template} : {Resources.Template.Index_Stepper_Title}");
+
+            return View("stepper/code");
+        }
+
+        /// <summary>
+        /// Displays a page containing a demo of a Stepper page template.
+        /// </summary>
+        /// <returns>
+        /// The view for the demo of a Stepper page template.
+        /// </returns>
+        [HttpGet("stepper/demo")]
+        public IActionResult StepperDemo()
+        {
+            SetPageTitle($"{Menu.Menu_Template} : {Resources.Template.Index_Stepper_Title}");
+
+            return View("stepper/demo", new TemplateStepperFormViewModel());
+        }
+
+        /// <summary>
+        /// Handles postbacks from the Stepper demo form.
+        /// </summary>
+        /// <param name="model">Bound form model.</param>
+        /// <param name="nav">Navigation intent (prev/next).</param>
+        /// <returns>The demo view.</returns>
+        [HttpPost("stepper/demo")]
+        [ValidateAntiForgeryToken]
+        public IActionResult StepperDemo(TemplateStepperFormViewModel model, string? nav)
+        {
+            SetPageTitle($"{Menu.Menu_Template} : {Resources.Template.Index_Stepper_Title}");
+
+            // This demo intentionally posts back to the same view regardless of navigation intent.
+            // Validation errors will be surfaced via the error summary in the view.
+            return View("stepper/demo", model);
+        }
+        #endregion Stepper Page Template (Code, Demo) Controller Actions
     }
 }

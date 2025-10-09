@@ -1,4 +1,5 @@
 ﻿using GCFoundation.Common.Utilities;
+using GCFoundation.Components.Helpers;
 using GCFoundation.Components.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.TagHelpers;
@@ -62,7 +63,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             // Include validation script for GCDS v0.39.0+ support
             var scriptTag = new TagBuilder("script");
-            scriptTag.Attributes.Add("src", "~/js/gcds-validation-handler.js");
+            scriptTag.Attributes.Add("src", StaticResourceHelper.GetResourcePath("js/gcds-validation-handler.js"));
             scriptTag.Attributes.Add("defer", "defer");
 
             var errorSummaryTag = new TagBuilder("gcds-error-summary");
@@ -78,12 +79,12 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
                 var errorJson = JsonSerializer.Serialize(errorLinks);
                 errorSummaryTag.Attributes.Add("error-links", errorJson);
-                errorSummaryTag.Attributes.Add("style", "display: block;");
+                errorSummaryTag.Attributes.Add("class", "d-block");
             }
             else
             {
                 // Hide error summary initially if no server-side errors
-                errorSummaryTag.Attributes.Add("style", "display: none;");
+                errorSummaryTag.Attributes.Add("class", "d-none");
             }
 
             // Add script first (in head or before form)

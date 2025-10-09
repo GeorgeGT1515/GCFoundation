@@ -1101,6 +1101,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Accessible server-side table (Grid.js).
+        /// </summary>
+        public static string Index_TableGridJs_Description {
+            get {
+                return ResourceManager.GetString("Index_TableGridJs_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Table (Grid.js).
+        /// </summary>
+        public static string Index_TableGridJs_Title {
+            get {
+                return ResourceManager.GetString("Index_TableGridJs_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Configurable user login information display with bilingual support.
         /// </summary>
         public static string Index_UserLoginPartial_Description {
@@ -2145,74 +2163,56 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FDCP Grid Table.
+        ///   Looks up a localized string similar to basic.
         /// </summary>
-        public static string FDCPGridTable_Name {
+        public static string TableGridJs_Basic_Anchor {
             get {
-                return ResourceManager.GetString("FDCPGridTable_Name", resourceCulture);
+                return ResourceManager.GetString("TableGridJs_Basic_Anchor", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string for FDCP Grid Table overview.
+        ///   Looks up a localized string similar to A basic example of the Table (Grid.js) with server-side sorting, search, and pagination:.
         /// </summary>
-        public static string FDCPGridTable_Overview {
+        public static string TableGridJs_Basic_Text {
             get {
-                return ResourceManager.GetString("FDCPGridTable_Overview", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Accessible server-side table (Grid.js).
-        /// </summary>
-        public static string FDCPGridTable_Description {
-            get {
-                return ResourceManager.GetString("FDCPGridTable_Description", resourceCulture);
+                return ResourceManager.GetString("TableGridJs_Basic_Text", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Basic Usage.
         /// </summary>
-        public static string FDCPGridTable_Basic_Title {
+        public static string TableGridJs_Basic_Title {
             get {
-                return ResourceManager.GetString("FDCPGridTable_Basic_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to basic.
-        /// </summary>
-        public static string FDCPGridTable_Basic_Anchor {
-            get {
-                return ResourceManager.GetString("FDCPGridTable_Basic_Anchor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string for FDCP Grid Table basic example text.
-        /// </summary>
-        public static string FDCPGridTable_Basic_Text {
-            get {
-                return ResourceManager.GetString("FDCPGridTable_Basic_Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to FDCP Grid Table.
-        /// </summary>
-        public static string Index_FDCPGridTable_Title {
-            get {
-                return ResourceManager.GetString("Index_FDCPGridTable_Title", resourceCulture);
+                return ResourceManager.GetString("TableGridJs_Basic_Title", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Accessible server-side table (Grid.js).
         /// </summary>
-        public static string Index_FDCPGridTable_Description {
+        public static string TableGridJs_Description {
             get {
-                return ResourceManager.GetString("Index_FDCPGridTable_Description", resourceCulture);
+                return ResourceManager.GetString("TableGridJs_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Table (Grid.js).
+        /// </summary>
+        public static string TableGridJs_Name {
+            get {
+                return ResourceManager.GetString("TableGridJs_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This Table (Grid.js) wraps Grid.js to provide an accessible, WCAG 2.1 AAA-oriented data table with server-side sorting, search, and pagination. It progressively enhances a semantic table fallback and aligns styling with the GC Design System..
+        /// </summary>
+        public static string TableGridJs_Overview {
+            get {
+                return ResourceManager.GetString("TableGridJs_Overview", resourceCulture);
             }
         }
         

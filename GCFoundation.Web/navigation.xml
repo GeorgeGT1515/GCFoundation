@@ -12,7 +12,7 @@
         <NavNode key="components-filtered-search" controller="Components" action="FilteredSearch" area="" preservedRouteParameters="culture" text="Nav_Components_FilteredSearch" />
 				<NavNode key="components-modal" controller="Components" action="Modal" area="" preservedRouteParameters="culture" text="Nav_Components_Modal" />
 				<NavNode key="components-table" controller="Components" action="Table" area="" preservedRouteParameters="culture" text="Nav_Components_Table" />
-				<NavNode key="components-fdcp-grid-table" controller="Components" action="FDCPGridTable" area="" preservedRouteParameters="culture" text="FDCP Grid Table" />
+				<NavNode key="components-table-gridjs" controller="Components" action="TableGridJs" area="" preservedRouteParameters="culture" text="Nav_Components_TableGridJs" />
 				<NavNode key="components-page-heading" controller="Components" action="PageHeading" area="" preservedRouteParameters="culture" text="Nav_Components_PageHeading" />
 				<NavNode key="components-stepper" controller="Components" action="Stepper" area="" preservedRouteParameters="culture" text="Nav_Components_Stepper" />
 				<NavNode key="components-user-login" controller="Components" action="UserLogin" area="" preservedRouteParameters="culture" text="Nav_Components_UserLogin" >
@@ -48,7 +48,12 @@
 					</Children>
 				</NavNode>
         <NavNode key="template-language-chooser" controller="Template" action="LanguageChooser" area="" preservedRouteParameters="culture" text="Nav_Template_LanguageChooser" />
-        <NavNode key="template-stepper" controller="Template" action="Stepper" area="" preservedRouteParameters="culture" text="Nav_Template_Stepper" />
+        <NavNode key="template-stepper" controller="Template" action="Stepper" area="" preservedRouteParameters="culture" text="Nav_Template_Stepper">
+					<Children>
+						<NavNode key="template-stepper-code" controller="Template" action="StepperCode" area="" preservedRouteParameters="culture" text="Nav_Template_Stepper_Code" />
+						<NavNode key="template-stepper-demo" controller="Template" action="StepperDemo" area="" preservedRouteParameters="culture" text="Nav_Template_Stepper_Demo" />
+					</Children>
+				</NavNode>
       </Children>
     </NavNode>
 		<NavNode key="language" controller="Language" action="Index" area="" preservedRouteParameters="culture" text="Nav_Language" />

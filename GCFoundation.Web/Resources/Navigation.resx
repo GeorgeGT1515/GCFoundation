@@ -240,4 +240,13 @@
   <data name="Nav_Template_Error_Code" xml:space="preserve">
     <value>Error Page Code</value>
   </data>
+  <data name="Nav_Components_TableGridJs" xml:space="preserve">
+    <value>Table (Grid.js)</value>
+  </data>
+  <data name="Nav_Template_Stepper_Code" xml:space="preserve">
+    <value>Stepper Page Code</value>
+  </data>
+  <data name="Nav_Template_Error_Demo1" xml:space="preserve">
+    <value>Error Page Demo</value>
+  </data>
 </root>
