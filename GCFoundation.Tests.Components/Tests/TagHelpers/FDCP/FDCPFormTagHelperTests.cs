@@ -53,7 +53,7 @@ public class FDCPFormTagHelperTests
         Assert.Contains("defer", preContent);
         
         // Error summary should be hidden initially when no errors
-        Assert.Contains("style=\"display: none;\"", content);
+        Assert.Contains("class=\"d-none\"", content);
     }
 
     [Fact]
@@ -89,7 +89,7 @@ public class FDCPFormTagHelperTests
         Assert.Contains("error-links", content);
 
         // Verify error summary is visible when there are server-side errors
-        Assert.Contains("style=\"display: block;\"", content);
+        Assert.Contains("class=\"d-block\"", content);
 
         // Verify error links JSON structure
         var expectedErrors = new Dictionary<string, string>
@@ -287,7 +287,7 @@ public class FDCPFormTagHelperTests
         
         // For GCDS v0.39.0+, error summary is always rendered but hidden when no errors
         Assert.Contains("<gcds-error-summary", content);
-        Assert.Contains("style=\"display: none;\"", content);
+        Assert.Contains("class=\"d-none\"", content);
         
         // Should not have error-links attribute when no errors
         Assert.DoesNotContain("error-links", content);
