@@ -765,6 +765,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Copy this code to recreate the demo of the stepper page template.&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Stepper_Code_Intro {
+            get {
+                return ResourceManager.GetString("Stepper_Code_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code of the Stepper Page Template.
+        /// </summary>
+        public static string Stepper_Code_Name {
+            get {
+                return ResourceManager.GetString("Stepper_Code_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string Stepper_Demo_ContactOptions_Email {
@@ -842,6 +860,15 @@ namespace GCFoundation.Web.Resources {
         public static string Stepper_Demo_LastName_Label {
             get {
                 return ResourceManager.GetString("Stepper_Demo_LastName_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Demo of the Stepper Page Template.
+        /// </summary>
+        public static string Stepper_Demo_Name {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Name", resourceCulture);
             }
         }
         
