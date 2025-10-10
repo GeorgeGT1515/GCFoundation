@@ -451,4 +451,13 @@
   <data name="Stepper_Demo_Step5_Label" xml:space="preserve">
     <value>Soumettre</value>
   </data>
+  <data name="Stepper_Demo_Name" xml:space="preserve">
+    <value>Démo du modèle de page avec indicateur d'étapes</value>
+  </data>
+  <data name="Stepper_Code_Intro" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Copiez ce code pour recréer la démo du modèle de page avec indicateur d'étapes.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Stepper_Code_Name" xml:space="preserve">
+    <value>Code du modèle de page avec indicateur d'étapes</value>
+  </data>
 </root>

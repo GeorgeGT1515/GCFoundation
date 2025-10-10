@@ -14,7 +14,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// Server-side sorting, searching, and pagination are enforced.
     /// </summary>
     [HtmlTargetElement("fdcp-table-gridjs")]
-    public sealed class FdcpTableGridJsTagHelper : TagHelper
+    public sealed class FDCPTableGridJsTagHelper : TagHelper
     {
         [ViewContext]
         public ViewContext ViewContext { get; set; } = null!;

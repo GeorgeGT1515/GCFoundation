@@ -1,11 +1,15 @@
 @using GCFoundation.Components.Resources
 @using GCFoundation.Web.Resources
 
-<gcds-heading tag="h1">@Template.Index_Stepper_Title</gcds-heading>
+<gcds-heading tag="h1">@Template.Stepper_Code_Name</gcds-heading>
+@Html.Raw(Template.Stepper_Code_Intro)
 
 <pre><code class="language-cshtml">@@using GCFoundation.Components.Models
-@@model GCFoundation.Web.Models.Stepper.StepperFormModel
+@@using GCFoundation.Components.Resources
+@@using GCFoundation.Web.Resources
+@@model GCFoundation.Web.Models.Template.TemplateStepperFormViewModel
 
+&lt;gcds-heading tag="h1"&gt;@Template.Stepper_Demo_Name&lt;/gcds-heading&gt;
 &lt;fdcp-stepper current-step="2"
               steps="@@(new List&lt;StepperStep&gt;
                                 {
@@ -22,7 +26,7 @@
 }
 
 &lt;fdcp-form method="post" action="@Url.Action("StepperDemo", "Template")" for="@@Model"&gt;
-    @Html.AntiForgeryToken()
+    @@Html.AntiForgeryToken()
 
     &lt;fdcp-input for="@@Model.FirstName" /&gt;
     &lt;fdcp-input for="@@Model.LastName" /&gt;

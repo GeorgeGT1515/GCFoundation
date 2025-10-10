@@ -168,5 +168,35 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             var content = _output.Content.GetContent();
             Assert.Contains("<gcds-link href='/step1'>Step 1</gcds-link>", content);
         }
+
+        [Fact]
+        public void Process_WithCustomHeading_RendersHeadingCorrectly()
+        {
+            // Arrange
+            var steps = new[]
+            {
+                new StepperStep {
+                    StepNumber = 1,
+                    Label = "Step 1",
+                    IsLink = true,
+                    LinkUrl = "/step1"
+                }
+            };
+
+            var tagHelper = new FDCPStepperTagHelper
+            {
+                CurrentStep = 1,
+                HeadingTag = GCFoundation.Components.Enums.HeadingTag.h3,
+                HeadingTitle = "Custom title",
+                Steps = steps
+            };
+
+            // Act
+            tagHelper.Process(_context, _output);
+
+            // Assert
+            var content = _output.Content.GetContent();
+            Assert.Contains("<gcds-heading tag='h3'>Custom title</gcds-heading>", content);
+        }
     }
 }

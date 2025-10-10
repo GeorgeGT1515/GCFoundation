@@ -79,6 +79,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Modal.resx</DependentUpon>
     </Compile>
+    <Compile Update="Resources\Stepper.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Stepper.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\Validation.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -105,6 +110,10 @@
     <EmbeddedResource Update="Resources\Modal.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Modal.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Stepper.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Stepper.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Validation.resx">
       <Generator>ResXFileCodeGenerator</Generator>

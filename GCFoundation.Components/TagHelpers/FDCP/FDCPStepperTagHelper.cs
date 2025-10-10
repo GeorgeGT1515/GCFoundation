@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Razor.TagHelpers;
+﻿using GCFoundation.Components.Enums;
+using GCFoundation.Components.Models;
+using GCFoundation.Components.Resources;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Globalization;
 using System.Text;
-using GCFoundation.Components.Models;
 
 namespace GCFoundation.Components.TagHelpers.FDCP
 {
@@ -25,6 +27,17 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public int CurrentStep { get; set; } = 1;
 
         /// <summary>
+        /// The main heading text to display in the stepper's heading.
+        /// </summary>
+        public string HeadingTitle { get; set; } = Stepper.Title_Default;
+
+        /// <summary>
+        /// The HTML heading tag to be used (e.g., h1, h2, etc.) in the stepper's heading.
+        /// Default is <see cref="HeadingTag.h2"/>.
+        /// </summary>
+        public HeadingTag HeadingTag { get; set; } = HeadingTag.h2;
+
+        /// <summary>
         /// Gets or sets the collection of steps for the process.
         /// </summary>
         public IEnumerable<StepperStep> Steps { get; set; } = new List<StepperStep>();
@@ -42,7 +55,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             output.TagName = "div";
             var html = new StringBuilder();
 
-            html.AppendLine("<gcds-heading tag='h2'>Current step</gcds-heading>");
+            html.AppendLine(CultureInfo.InvariantCulture, $"<gcds-heading tag='{HeadingTag}'>{HeadingTitle}</gcds-heading>");
             html.AppendLine("<div class='fdcp-stepper'>");
 
             foreach (var step in Steps)
