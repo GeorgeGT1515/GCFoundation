@@ -23,29 +23,6 @@
 <h3>@Components.TableGridJs_Basic_Title</h3>
 <gcds-text>@Html.Raw(Components.TableGridJs_Basic_Text)</gcds-text>
 
-<table class="fdcp-table fdcp-table-hover fdcp-table-striped">
-    <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Shawn</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Phil</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Antoine</td>
-        </tr>
-    </tbody>
-</table>
-
 <div class="fdcp-table-responsive">
     <fdcp-table-gridjs  id="employees-grid"
                         ajax-url="@Url.Content("~/api/grid/employees")"
