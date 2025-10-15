@@ -32,9 +32,44 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public string AjaxUrl { get; set; } = string.Empty;
 
         /// <summary>
+        /// Optional aria-label for the table element.
+        /// </summary>
+        public string? AriaLabel { get; set; }
+
+        /// <summary>
+        /// Visible caption text (required for WCAG 2.1 (AAA) Standards).
+        /// </summary>
+        public string Caption { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Optional CSS classes to add to the enhanced table element.
+        /// </summary>
+        public string? Class { get; set; }
+
+        /// <summary>
         /// Column definitions: header text, field key, sortable (default true).
         /// </summary>
         public IEnumerable<GridTableColumn>? Columns { get; set; }
+
+        /// <summary>
+        /// Debounce for search in milliseconds (default 300).
+        /// </summary>
+        public int DebounceMs { get; set; } = 300;
+
+        /// <summary>
+        /// Language hint ("en" or "fr") for client messages.
+        /// </summary>
+        public string? Lang { get; set; }
+
+        /// <summary>
+        /// Localized loading text.
+        /// </summary>
+        public string? LoadingText { get; set; }
+
+        /// <summary>
+        /// Localized string when no records found (fallbacks applied client-side as well).
+        /// </summary>
+        public string? NoDataText { get; set; }
 
         /// <summary>
         /// Page size (default 25). Server-side enforced.
@@ -52,44 +87,9 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public bool SortEnabled { get; set; } = true;
 
         /// <summary>
-        /// Visible caption text (required for AAA).
-        /// </summary>
-        public string Caption { get; set; } = string.Empty;
-
-        /// <summary>
         /// Optional summary/description referenced via aria-describedby.
         /// </summary>
         public string? Summary { get; set; }
-
-        /// <summary>
-        /// Optional aria-label for the table element.
-        /// </summary>
-        public string? AriaLabel { get; set; }
-
-        /// <summary>
-        /// Localized string when no records found (fallbacks applied client-side as well).
-        /// </summary>
-        public string? NoDataText { get; set; }
-
-        /// <summary>
-        /// Localized loading text.
-        /// </summary>
-        public string? LoadingText { get; set; }
-
-        /// <summary>
-        /// Optional CSS classes to add to the enhanced table element.
-        /// </summary>
-        public string? Class { get; set; }
-
-        /// <summary>
-        /// Language hint ("en" or "fr") for client messages.
-        /// </summary>
-        public string? Lang { get; set; }
-
-        /// <summary>
-        /// Debounce for search in milliseconds (default 300).
-        /// </summary>
-        public int DebounceMs { get; set; } = 300;
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
@@ -100,7 +100,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             }
             if (string.IsNullOrWhiteSpace(Caption))
             {
-                throw new InvalidOperationException("Caption is required for fdcp-table-gridjs to meet AAA.");
+                throw new InvalidOperationException("Caption is required for fdcp-table-gridjs to meet WCAG 2.1 (AAA) Standards.");
             }
 
             // Set culture based on Lang attribute if provided
@@ -134,35 +134,35 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             var noResultsText = rm.GetString("NoResults_Text", culture) ?? "No records found";
             var noDataText = rm.GetString("NoData_Text", culture) ?? "No data";
 
-            var id = string.IsNullOrWhiteSpace(Id) ? $"fdcp-grid-{Guid.NewGuid():N}" : Id!;
+            var id = string.IsNullOrWhiteSpace(Id) ? $"fdcp-gridjs-{Guid.NewGuid():N}" : Id!;
 
             output.TagName = "div";
             output.TagMode = TagMode.StartTagAndEndTag;
             output.Attributes.SetAttribute("id", id);
-            output.Attributes.SetAttribute("class", "fdcp-grid-container gridjs-container");
+            output.Attributes.SetAttribute("class", "fdcp-gridjs-container");
 
             // Build client config payload with localized strings
             var clientConfig = new ClientConfig
             {
+                ariaLabel = AriaLabel,
+                columns = Columns?.Select(c => new ClientColumn { field = c.Field, header = c.Header, sortable = c.Sortable }).ToArray() ?? Array.Empty<ClientColumn>(),
                 dataUrl = AjaxUrl,
+                noDataText = NoDataText ?? noDataText,
+                lang = culture.TwoLetterISOLanguageName,
+                loadingText = LoadingText ?? loadingText,
                 pageSize = PageSize,
                 searchEnabled = SearchEnabled,
                 sortEnabled = SortEnabled,
-                columns = Columns?.Select(c => new ClientColumn { field = c.Field, header = c.Header, sortable = c.Sortable }).ToArray() ?? Array.Empty<ClientColumn>(),
                 tableClass = Class,
-                ariaLabel = AriaLabel,
-                noDataText = NoDataText ?? noDataText,
-                loadingText = LoadingText ?? loadingText,
-                lang = culture.TwoLetterISOLanguageName,
-                debounceMs = DebounceMs,
+
                 // Add localized UI strings for Grid.js
-                searchPlaceholder = searchPlaceholder,
-                searchLabel = searchAriaLabel,
-                paginationPrevious = paginationPrevious,
                 paginationNext = paginationNext,
-                paginationShowing = paginationShowing,
+                paginationPrevious = paginationPrevious,
                 paginationResults = paginationResults,
-                noResultsText = noResultsText
+                paginationShowing = paginationShowing,
+                noResultsText = noResultsText,
+                searchLabel = searchAriaLabel,
+                searchPlaceholder = searchPlaceholder
             };
 
             var jsonOptions = new JsonSerializerOptions
@@ -175,12 +175,12 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             // Output markup: live region, controls, semantic table fallback
             var summaryId = !string.IsNullOrWhiteSpace(Summary) ? $"{id}-summary" : null;
             var captionHtml = $"<caption>{System.Net.WebUtility.HtmlEncode(Caption)}</caption>";
-            var summaryHtml = summaryId != null ? $"<div id=\"{summaryId}\" class=\"fdcp-sr-only\">{System.Net.WebUtility.HtmlEncode(Summary)}</div>" : string.Empty;
+            var summaryHtml = summaryId != null ? $"<div id=\"{summaryId}\" class=\"visibility-sr-only\">{System.Net.WebUtility.HtmlEncode(Summary)}</div>" : string.Empty;
 
             output.Attributes.SetAttribute("data-fdcp-grid", cfgJson);
             output.Content.AppendHtml($@"
 {summaryHtml}
-<div class='fdcp-grid-controls'>
+<div class='fdcp-gridjs-controls'>
   <!-- Grid.js will render its own search and pagination; this container exists for structure/fallback -->
 </div>
 <noscript>
@@ -195,8 +195,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
       <tr><td>{System.Net.WebUtility.HtmlEncode(NoDataText ?? (Lang == "fr" ? "Aucune donnée" : "No data"))}</td></tr>
     </tbody>
   </table>
-</noscript>
-            ");
+</noscript>");
         }
 
         private static string RenderHeaders(IEnumerable<GridTableColumn>? columns)
@@ -207,25 +206,25 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
         private sealed class ClientConfig
         {
+            public string? ariaLabel { get; set; }
+            public IEnumerable<ClientColumn>? columns { get; set; }
             public string? dataUrl { get; set; }
+            public string? lang { get; set; }
+            public string? loadingText { get; set; }
+            public string? noDataText { get; set; }
             public int pageSize { get; set; }
             public bool searchEnabled { get; set; }
             public bool sortEnabled { get; set; }
-            public IEnumerable<ClientColumn>? columns { get; set; }
             public string? tableClass { get; set; }
-            public string? ariaLabel { get; set; }
-            public string? noDataText { get; set; }
-            public string? loadingText { get; set; }
-            public string? lang { get; set; }
-            public int debounceMs { get; set; }
+
             // Localized UI strings
-            public string? searchPlaceholder { get; set; }
-            public string? searchLabel { get; set; }
-            public string? paginationPrevious { get; set; }
-            public string? paginationNext { get; set; }
-            public string? paginationShowing { get; set; }
-            public string? paginationResults { get; set; }
             public string? noResultsText { get; set; }
+            public string? paginationNext { get; set; }
+            public string? paginationPrevious { get; set; }
+            public string? paginationResults { get; set; }
+            public string? paginationShowing { get; set; }
+            public string? searchLabel { get; set; }
+            public string? searchPlaceholder { get; set; }
         }
 
         private sealed class ClientColumn
@@ -236,5 +235,3 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         }
     }
 }
-
-

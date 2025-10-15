@@ -7,7 +7,7 @@
     var displayDefaultColumn = Model.Properties.Where(p => !string.IsNullOrEmpty(p.DefaultValue)).Any();
 
     <gcds-heading tag="h2" id="@Components.Properties_Anchor">@Components.Properties</gcds-heading>
-    <table class="fdcp-table fdcp-table-striped fdcp-table-hover fdcp-table-sm">
+    <table class="fdcp-table fdcp-table-striped fdcp-table-hover fdcp-table-condensed">
         <thead>
             <tr>
                 <th scope="col">@Components.Properties_Property</th>
