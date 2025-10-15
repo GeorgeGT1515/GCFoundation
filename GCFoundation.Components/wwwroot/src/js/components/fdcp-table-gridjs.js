@@ -22,14 +22,6 @@
         return u.toString();
     }
 
-    function debounce(fn, delayMs) {
-        let t;
-        return (...args) => {
-            clearTimeout(t);
-            t = setTimeout(() => fn(...args), delayMs);
-        };
-    }
-
     function createLiveRegion(container) {
         const live = document.createElement('div');
         live.setAttribute('role', 'status');
@@ -102,11 +94,10 @@
         const dataUrl = cfg.dataUrl || cfg['data-url'] || root.getAttribute('data-url');
         if (!dataUrl) return;
 
+        const columnsInput = Array.isArray(cfg.columns) ? cfg.columns : [];
+        const pageSize = Number(cfg.pageSize || 25);
         const searchEnabled = cfg.searchEnabled !== false;
         const sortEnabled = cfg.sortEnabled !== false;
-        const pageSize = Number(cfg.pageSize || 25);
-        const debounceMs = Number(cfg.debounceMs || 300);
-        const columnsInput = Array.isArray(cfg.columns) ? cfg.columns : [];
 
         const columnDefs = columnsInput.map(col => ({
             id: col.field || col.id || col.name,
@@ -128,9 +119,9 @@
                 url: dataUrl,
                 then: data => {
                     const items = (data && Array.isArray(data.items)) ? data.items : [];
-                    const total = Number((data && data.total != null) ? data.total : items.length);
                     const page = Number((data && data.page != null) ? data.page : 1);
                     const pageSizeResp = Number((data && data.pageSize != null) ? data.pageSize : pageSize);
+                    const total = Number((data && data.total != null) ? data.total : items.length);
                     liveRegion.textContent = `${total} results, page ${page}, ${pageSizeResp} per page.`;
                     return items.map(item => columnIdByIndex.map(function (cid) {
                         if (item && Object.prototype.hasOwnProperty.call(item, cid)) {
@@ -188,10 +179,10 @@
         });
 
         // Create a dedicated mount point inside root
-        let mount = root.querySelector('.fdcp-grid-mount');
+        let mount = root.querySelector('.fdcp-gridjs-mount');
         if (!mount) {
             mount = document.createElement('div');
-            mount.className = 'fdcp-grid-mount';
+            mount.className = 'fdcp-gridjs-mount';
             root.appendChild(mount);
         }
         grid.render(mount);
@@ -268,7 +259,7 @@
             // Apply GC Design System table classes and ARIA
             const tableEl = root.querySelector('table.gridjs-table');
             if (tableEl) {
-                tableEl.classList.add('fdcp-table', 'fdcp-table-hover', 'fdcp-table-striped');
+                tableEl.classList.add('fdcp-table');
                 if (cfg.tableClass && typeof cfg.tableClass === 'string') {
                     cfg.tableClass.split(/\s+/).forEach(c => c && tableEl.classList.add(c));
                 }
@@ -311,9 +302,6 @@
                 // Add scope="row" to first cell of each row
                 updateRowHeaders(root);
             }
-
-            // Add responsive wrapper class to root
-            root.classList.add('fdcp-table-responsive');
 
             // Debounce search input
             if (searchEnabled) {
@@ -360,7 +348,7 @@
     }
 
     function initAll() {
-        const nodes = document.querySelectorAll('[data-fdcp-grid]');
+        const nodes = document.querySelectorAll('.fdcp-gridjs-container[data-fdcp-grid]');
         
         // Exit early if no grid tables found on page
         if (nodes.length === 0) {

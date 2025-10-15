@@ -1,44 +1,55 @@
 // Modern table styles - both default and class-based
 table,
 .fdcp-table {
-    width: 100%;
     border-collapse: separate;
+    border-radius: 4px;
     border-spacing: 0;
-    margin: 1.5rem 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     color: var(--gcds-text-primary);
     font: var(--gcds-font-text);
-    border-radius: 4px;
+    margin: var(--gcds-spacing-300) 0;
     overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
+    width: 100%;
+    // Table header styles
+    th {
+        font-weight: var(--gcds-font-weights-bold);
+        padding: var(--gcds-spacing-200);
+        position: relative;
+        text-align: left;
+    }
 
-// Table header styles
-th {
-    font-weight: 700;
-    padding: 1rem;
-    position: relative;
-    text-align: left;
-}
-th[scope=col],
-th[scope=colgroup],
-.fdcp-table th[scope=col],
-.fdcp-table th[scope=colgroup] {
-    background-color: var(--gcds-color-grayscale-100);
-    border-bottom: 2px solid var(--gcds-border-default);
-}
-th[scope=row],
-th[scope=rowgroup],
-.fdcp-table th[scope=row],
-.fdcp-table th[scope=rowgroup] {
-    border-bottom: 1px solid var(--gcds-border-default);
-}
+    th[scope=col],
+    th[scope=colgroup] {
+        background-color: var(--gcds-color-grayscale-100);
+        border-bottom: 2px solid var(--gcds-border-default);
+    }
 
-// Table cell styles
-td,
-.fdcp-table td {
-    padding: 1rem;
-    vertical-align: middle;
-    border-bottom: 1px solid var(--gcds-border-default);
+    th[scope=row],
+    th[scope=rowgroup] {
+        border-bottom: 1px solid var(--gcds-border-default);
+    }
+    // Table cell styles
+    td {
+        padding: var(--gcds-spacing-200);
+        vertical-align: middle;
+        border-bottom: 1px solid var(--gcds-border-default);
+    }
+    // Focus styles for keyboard navigation
+    th:focus,
+    td:focus {
+        outline: 3px solid var(--gcds-focus-border);
+        outline-offset: -3px;
+        position: relative;
+        z-index: 1;
+    }
+    // Caption styles
+    caption {
+        font: var(--gcds-font-header-h4);
+        color: var(--gcds-text-primary);
+        text-align: left;
+        margin-bottom: var(--gcds-spacing-200);
+        padding: var(--gcds-spacing-100) 0;
+    }
 }
 
 // Striped rows variant
@@ -59,52 +70,49 @@ td,
     }
 }
 
-// Compact variant
-.fdcp-table-sm {
+// Condensed
+.fdcp-table-condensed {
     th, td {
-        padding: 0.5rem 1rem;
+        padding: var(--gcds-spacing-100) var(--gcds-spacing-200);
     }
 }
 
 // Responsive tables
-@media screen and (max-width: 768px) {
-    .fdcp-table-responsive {
-        display: block;
-        width: 100%;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        
-        // Remove horizontal scroll on mobile for better UX
-        &::-webkit-scrollbar {
-            height: 6px;
-        }
-        
-        &::-webkit-scrollbar-thumb {
-            background-color: var(--gcds-border-default);
-            border-radius: 3px;
+.fdcp-table-responsive {
+    display: block;
+    min-height: .01%;
+    overflow-x: auto;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: var(--gcds-bg-light);
+        border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--gcds-border-default);
+        border-radius: 4px;
+
+        &:hover {
+            background-color: var(--gcds-color-grayscale-700);
         }
     }
 }
+@media screen and (max-width: 768px) {
+    .fdcp-table-responsive {
+        &::-webkit-scrollbar {
+            height: 6px;
+        }
 
-// Focus styles for keyboard navigation
-th:focus,
-td:focus,
-.fdcp-table th:focus,
-.fdcp-table td:focus {
-    outline: 3px solid var(--gcds-focus-border);
-    outline-offset: -3px;
-    position: relative;
-    z-index: 1;
-}
-
-// Caption styles
-caption,
-.fdcp-table caption {
-    font: var(--gcds-font-header-h4);
-    color: var(--gcds-text-primary);
-    text-align: left;
-    margin-bottom: 1rem;
-    padding: 0.5rem 0;
+        &::-webkit-scrollbar-thumb {
+            border-radius: 3px;
+        }
+    }
 }
 
 // Status variants

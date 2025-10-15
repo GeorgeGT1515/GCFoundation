@@ -76,11 +76,11 @@ namespace GCFoundation.Web.Controllers
 
         private static object BuildResponse<T>(IEnumerable<T> source, GridQuery query)
         {
-            var page = Math.Max(1, query.Page);
+            var page = query.Page;
             var pageSize = Math.Clamp(query.PageSize <= 0 ? 25 : query.PageSize, 1, 100);
 
             var total = source.Count();
-            var items = source.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+            var items = source.Skip(page * pageSize).Take(pageSize).ToList();
 
             return new
             {
