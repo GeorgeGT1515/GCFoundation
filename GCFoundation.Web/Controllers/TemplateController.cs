@@ -78,6 +78,20 @@ namespace GCFoundation.Web.Controllers
         }
 
         /// <summary>
+        /// Displays the Language Chooser page template demo page.
+        /// </summary>
+        /// <returns>
+        /// The view for the Language Chooser page template.
+        /// </returns>
+        [HttpGet("language-chooser")]
+        public IActionResult LanguageChooser()
+        {
+            SetPageTitle($"{Menu.Menu_Template} : {Resources.Template.Index_LanguageChooser_Title}");
+
+            return View();
+        }
+
+        /// <summary>
         /// Displays the Stepper page template documentation page.
         /// </summary>
         /// <returns>
@@ -149,6 +163,36 @@ namespace GCFoundation.Web.Controllers
         }
         #endregion Basic Page Template Controller Actions
 
+        #region Dashboard Page Template (Code, Demo) Controller Actions
+        /// <summary>
+        /// Displays a page containing sample code for the use of a generic Dashboard page template.
+        /// </summary>
+        /// <returns>
+        /// The view for the sample code for a generic Dashboard page template.
+        /// </returns>
+        [HttpGet("dashboard/code")]
+        public IActionResult DashboardCode()
+        {
+            SetPageTitle($"{Menu.Menu_Template} : {Resources.Navigation.Nav_Template_Dashboard_Code}");
+
+            return View("dashboard/code");
+        }
+
+        /// <summary>
+        /// Displays a page containing a demo of a generic Dashboard page template.
+        /// </summary>
+        /// <returns>
+        /// The view for the demo of a generic Dashboard page template.
+        /// </returns>
+        [HttpGet("dashboard/demo")]
+        public IActionResult DashboardDemo()
+        {
+            SetPageTitle($"{Menu.Menu_Template} : {Resources.Navigation.Nav_Template_Dashboard_Demo}");
+
+            return View("dashboard/demo");
+        }
+        #endregion Dashboard Page Template (Code, Demo) Controller Actions
+
         #region Error Page Template (Code, Demo) Controller Actions
         /// <summary>
         /// Displays a page containing sample code for the use of a generic Error page template.
@@ -178,6 +222,36 @@ namespace GCFoundation.Web.Controllers
             return View("error/demo");
         }
         #endregion Error Page Template (Code, Demo) Controller Actions
+
+        #region Language Chooser Page Template (Code, Demo) Controller Actions
+        /// <summary>
+        /// Displays a page containing sample code for the use of a generic Language Chooser page template.
+        /// </summary>
+        /// <returns>
+        /// The view for the sample code for a generic Language Chooser page template.
+        /// </returns>
+        [HttpGet("language-chooser/code")]
+        public IActionResult LanguageChooserCode()
+        {
+            SetPageTitle($"{Menu.Menu_Template} : {Resources.Navigation.Nav_Template_LanguageChooser_Code}");
+
+            return View("LanguageChooser/code");
+        }
+
+        /// <summary>
+        /// Displays a page containing a demo of a generic Language Chooser page template.
+        /// </summary>
+        /// <returns>
+        /// The view for the demo of a generic Language Chooser page template.
+        /// </returns>
+        [HttpGet("language-chooser/demo")]
+        public IActionResult LanguageChooserDemo()
+        {
+            SetPageTitle($"{Menu.Menu_Template} : {Resources.Navigation.Nav_Template_LanguageChooser_Demo}");
+
+            return View("LanguageChooser/demo");
+        }
+        #endregion Language Chooser Page Template (Code, Demo) Controller Actions
 
         #region Stepper Page Template (Code, Demo) Controller Actions
         /// <summary>

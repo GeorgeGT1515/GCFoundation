@@ -246,7 +246,16 @@
   <data name="Nav_Template_Stepper_Code" xml:space="preserve">
     <value>Stepper Page Code</value>
   </data>
-  <data name="Nav_Template_Error_Demo1" xml:space="preserve">
-    <value>Error Page Demo</value>
+  <data name="Nav_Template_LanguageChooser_Demo" xml:space="preserve">
+    <value>Language Chooser Page Demo</value>
+  </data>
+  <data name="Nav_Template_LanguageChooser_Code" xml:space="preserve">
+    <value>Language Chooser Page Code</value>
+  </data>
+  <data name="Nav_Template_Dashboard_Demo" xml:space="preserve">
+    <value>Dashboard Page Demo</value>
+  </data>
+  <data name="Nav_Template_Dashboard_Code" xml:space="preserve">
+    <value>Dashboard Page Code</value>
   </data>
 </root>

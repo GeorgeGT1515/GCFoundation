@@ -376,6 +376,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dashboard Page Code.
+        /// </summary>
+        public static string Nav_Template_Dashboard_Code {
+            get {
+                return ResourceManager.GetString("Nav_Template_Dashboard_Code", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dashboard Page Demo.
+        /// </summary>
+        public static string Nav_Template_Dashboard_Demo {
+            get {
+                return ResourceManager.GetString("Nav_Template_Dashboard_Demo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error Page.
         /// </summary>
         public static string Nav_Template_Error {
@@ -403,20 +421,29 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Error Page Demo.
-        /// </summary>
-        public static string Nav_Template_Error_Demo1 {
-            get {
-                return ResourceManager.GetString("Nav_Template_Error_Demo1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Language Chooser Page.
         /// </summary>
         public static string Nav_Template_LanguageChooser {
             get {
                 return ResourceManager.GetString("Nav_Template_LanguageChooser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language Chooser Page Code.
+        /// </summary>
+        public static string Nav_Template_LanguageChooser_Code {
+            get {
+                return ResourceManager.GetString("Nav_Template_LanguageChooser_Code", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language Chooser Page Demo.
+        /// </summary>
+        public static string Nav_Template_LanguageChooser_Demo {
+            get {
+                return ResourceManager.GetString("Nav_Template_LanguageChooser_Demo", resourceCulture);
             }
         }
         

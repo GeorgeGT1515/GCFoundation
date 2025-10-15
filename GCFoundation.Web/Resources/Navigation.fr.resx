@@ -214,7 +214,7 @@
     <value>Page de base</value>
   </data>
   <data name="Nav_Template_Dashboard" xml:space="preserve">
-    <value>Tableau de bord</value>
+    <value>Page de tableau de bord</value>
   </data>
   <data name="Nav_Template_Error" xml:space="preserve">
     <value>Page d'erreur</value>
@@ -246,7 +246,16 @@
   <data name="Nav_Template_Stepper_Code" xml:space="preserve">
     <value>Code du modèle de page avec indicateur d'étapes</value>
   </data>
-  <data name="Nav_Template_Error_Demo1" xml:space="preserve">
-    <value>Démo du modèle de page d'erreur</value>
+  <data name="Nav_Template_LanguageChooser_Demo" xml:space="preserve">
+    <value>Démo du modèle de page de sélection de language</value>
+  </data>
+  <data name="Nav_Template_LanguageChooser_Code" xml:space="preserve">
+    <value>Code du modèle de page de sélection de language</value>
+  </data>
+  <data name="Nav_Template_Dashboard_Demo" xml:space="preserve">
+    <value>Démo du modèle de page de tableau de bord</value>
+  </data>
+  <data name="Nav_Template_Dashboard_Code" xml:space="preserve">
+    <value>Code du modèle de page de tableau de bord</value>
   </data>
 </root>
