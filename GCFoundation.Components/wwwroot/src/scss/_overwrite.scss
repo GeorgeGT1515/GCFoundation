@@ -15,7 +15,7 @@
 
         pre {
             margin: 0;
-            padding: 1rem;
+            padding: var(--gcds-spacing-200);
 
             code {
                 display: block;
@@ -24,22 +24,14 @@
                 font-family: "Source Code Pro", monospace;
                 font-size: 0.95em;
                 line-height: 1.5;
-                padding-bottom: 1.5rem;
+                padding-bottom: var(--gcds-spacing-300);
             }
         }
     }
+}
 
-    /* Prefer scroll on wrapper, not on table, to keep table semantics focusable */
-    .gcfoundation-table-responsive {
-        display: block;
-        width: 100%;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    /* Let tables render normally; wrapper handles scrolling */
-    table {
-        width: 100%;
-        max-width: 100%;
-    }
+pre {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
 }

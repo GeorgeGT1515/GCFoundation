@@ -151,6 +151,15 @@ namespace GCFoundation.Components.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to to.
+        /// </summary>
+        internal static string Pagination_To {
+            get {
+                return ResourceManager.GetString("Pagination_To", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search table.
         /// </summary>
         internal static string Search_AriaLabel {
