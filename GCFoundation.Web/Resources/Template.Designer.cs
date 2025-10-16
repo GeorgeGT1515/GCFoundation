@@ -302,6 +302,16 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Getting the basic page template up-and-running is mostly about configuring your application correctly. All you&apos;ll need to do is follow the instructions of the &lt;a href=&quot;{0}&quot;&gt;GCFoundation Installation page&lt;/a&gt;.&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;This will load to the underlying &lt;code&gt;_FoundationLayout&lt;/code&gt; shared view. Finally, just ensure that you include the following statement in &lt;code&gt;Views/_ViewStart.cshtml&lt;/code&gt; to make the &lt;code&gt;_FoundationLayout&lt;/code&gt; the default page template for your application [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Dashboard_HowToImplement {
+            get {
+                return ResourceManager.GetString("Dashboard_HowToImplement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-badge&amp;gt;&lt;/code&gt; component is used to highlight small pieces of information....
         /// </summary>
         public static string Dashboard_Intro {
@@ -316,6 +326,34 @@ namespace GCFoundation.Web.Resources {
         public static string Dashboard_Name {
             get {
                 return ResourceManager.GetString("Dashboard_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;The Basic Page Template is built using the following GCFoundation components that are built off of GC Design System components that meet WCAG 2.1 AA accessibility standards:&lt;/gcds-text&gt;
+        ///&lt;ul&gt;
+        ///&lt;li&gt;&lt;code&gt;&amp;lt;gcds-container&amp;gt;&lt;/code&gt;&lt;/li&gt;
+        ///&lt;li&gt;&lt;code&gt;&amp;lt;gcds-date-modified&amp;gt;&lt;/code&gt;&lt;/li&gt;
+        ///&lt;li&gt;&lt;code&gt;&amp;lt;gcds-footer&amp;gt;&lt;/code&gt;&lt;/li&gt;
+        ///&lt;li&gt;&lt;code&gt;&amp;lt;gcds-header&amp;gt;&lt;/code&gt;&lt;/li&gt;
+        ///&lt;li&gt;&lt;code&gt;&amp;lt;gcds-heading&amp;gt;&lt;/code&gt;&lt;/li&gt;
+        ///&lt;li&gt;&lt;code&gt;&amp;lt;gcds-link&amp;gt;&lt;/code&gt;&lt;/li&gt;
+        ///&lt;li&gt;&lt;code&gt;&amp;lt;gcds-text&amp;gt;&lt;/code&gt;&lt;/li&gt;
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Dashboard_Notes {
+            get {
+                return ResourceManager.GetString("Dashboard_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;For use on ASP.Net GC applications.&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;The basic page template is for non-specialized pages across Canada.ca and is an optional template. It has the starting elements needed for a simple page and those required for most GC pages and applications. You can use it as a canvas to add or combine &lt;a href=&quot;{0}&quot;&gt;components&lt;/a&gt; from GCFoundation (via TagHelpers) and the GC Design System.&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Dashboard_WhenToUse {
+            get {
+                return ResourceManager.GetString("Dashboard_WhenToUse", resourceCulture);
             }
         }
         
@@ -531,7 +569,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Standardize the management and the display of the errors thrown by your application.
+        ///   Looks up a localized string similar to Standardize the display and the handling of errors thrown by your application.
         /// </summary>
         public static string Index_Error_Description {
             get {
@@ -608,6 +646,62 @@ namespace GCFoundation.Web.Resources {
         public static string Index_Template_UnderDevelopment {
             get {
                 return ResourceManager.GetString("Index_Template_UnderDevelopment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Getting the basic page template up-and-running is mostly about configuring your application correctly. All you&apos;ll need to do is follow the instructions of the &lt;a href=&quot;{0}&quot;&gt;GCFoundation Installation page&lt;/a&gt;.&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;This will load to the underlying &lt;code&gt;_FoundationLayout&lt;/code&gt; shared view. Finally, just ensure that you include the following statement in &lt;code&gt;Views/_ViewStart.cshtml&lt;/code&gt; to make the &lt;code&gt;_FoundationLayout&lt;/code&gt; the default page template for your application [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string LanguageChooser_HowToImplement {
+            get {
+                return ResourceManager.GetString("LanguageChooser_HowToImplement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The basic (or default) layout template provides the base structure used across GCFoundation pages. It&apos;s provides accessibility essentials for page structure and heading hierarchy. Brand elements, like the header and footer, make it recognizable as a Government of Canada page..
+        /// </summary>
+        public static string LanguageChooser_Intro {
+            get {
+                return ResourceManager.GetString("LanguageChooser_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language Chooser Page Template.
+        /// </summary>
+        public static string LanguageChooser_Name {
+            get {
+                return ResourceManager.GetString("LanguageChooser_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;The Basic Page Template is built using the following GCFoundation components that are built off of GC Design System components that meet WCAG 2.1 AA accessibility standards:&lt;/gcds-text&gt;
+        ///&lt;ul&gt;
+        ///&lt;li&gt;&lt;code&gt;&amp;lt;gcds-container&amp;gt;&lt;/code&gt;&lt;/li&gt;
+        ///&lt;li&gt;&lt;code&gt;&amp;lt;gcds-date-modified&amp;gt;&lt;/code&gt;&lt;/li&gt;
+        ///&lt;li&gt;&lt;code&gt;&amp;lt;gcds-footer&amp;gt;&lt;/code&gt;&lt;/li&gt;
+        ///&lt;li&gt;&lt;code&gt;&amp;lt;gcds-header&amp;gt;&lt;/code&gt;&lt;/li&gt;
+        ///&lt;li&gt;&lt;code&gt;&amp;lt;gcds-heading&amp;gt;&lt;/code&gt;&lt;/li&gt;
+        ///&lt;li&gt;&lt;code&gt;&amp;lt;gcds-link&amp;gt;&lt;/code&gt;&lt;/li&gt;
+        ///&lt;li&gt;&lt;code&gt;&amp;lt;gcds-text&amp;gt;&lt;/code&gt;&lt;/li&gt;
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string LanguageChooser_Notes {
+            get {
+                return ResourceManager.GetString("LanguageChooser_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;For use on ASP.Net GC applications.&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;The basic page template is for non-specialized pages across Canada.ca and is an optional template. It has the starting elements needed for a simple page and those required for most GC pages and applications. You can use it as a canvas to add or combine &lt;a href=&quot;{0}&quot;&gt;components&lt;/a&gt; from GCFoundation (via TagHelpers) and the GC Design System.&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string LanguageChooser_WhenToUse {
+            get {
+                return ResourceManager.GetString("LanguageChooser_WhenToUse", resourceCulture);
             }
         }
         

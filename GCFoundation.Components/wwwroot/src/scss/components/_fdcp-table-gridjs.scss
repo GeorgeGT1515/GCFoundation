@@ -9,6 +9,7 @@
     font-family: var(--gcds-font-families-body);
     font-size: var(--gcds-font-sizes-text);
     margin: 0;
+    overflow: visible;
     padding: 0;
 }
 
@@ -105,7 +106,7 @@
     border-radius: 0;
     box-shadow: none;
     margin: var(--gcds-spacing-200) 0 0 0;
-    padding: 0;
+    padding: var(--gcds-spacing-50) 0;
     // Pagination container - Use flexbox to align summary left and pages right
     // Reference: https://design-system.alpha.canada.ca/en/components/pagination/
     .gridjs-pagination {
@@ -346,4 +347,14 @@ table.gridjs-table {
 .gridjs-table.fdcp-table.fdcp-table-hover tr:hover td.gridjs-td {
     background-color: var(--gcds-color-blue-100) !important;
     transition: background-color 0.2s ease;
+}
+
+// Overrides for responsive table variant
+.fdcp-table-responsive {
+    .gridjs-head > .gridjs-search {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        padding-left: var(--gcds-spacing-50);
+    }
 }

@@ -93,6 +93,93 @@ namespace GCFoundation.Web.Infrastructure.Extensions
                 .WhereAction(nameof(TemplateController.Index))
                 .TranslateAction("");
 
+                setup.UseCulture("fr")
+                .WhereController(nameof(TemplateController))
+                .WhereAction(nameof(TemplateController.Basic))
+                .TranslateAction("base");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(TemplateController))
+                .WhereAction(nameof(TemplateController.BasicCode))
+                .TranslateAction("base/code");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(TemplateController))
+                .WhereAction(nameof(TemplateController.BasicDemo))
+                .TranslateAction("base/demo");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(TemplateController))
+                .WhereAction(nameof(TemplateController.BasicSideNavCode))
+                .TranslateAction("base/navigation-laterale/code");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(TemplateController))
+                .WhereAction(nameof(TemplateController.BasicSideNavDemo))
+                .TranslateAction("base/navigation-laterale/demo");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(TemplateController))
+                .WhereAction(nameof(TemplateController.Dashboard))
+                .TranslateAction("tableau-de-bord");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(TemplateController))
+                .WhereAction(nameof(TemplateController.DashboardCode))
+                .TranslateAction("tableau-de-bord/code");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(TemplateController))
+                .WhereAction(nameof(TemplateController.DashboardDemo))
+                .TranslateAction("tableau-de-bord/demo");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(TemplateController))
+                .WhereAction(nameof(TemplateController.Error))
+                .TranslateAction("erreur");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(TemplateController))
+                .WhereAction(nameof(TemplateController.ErrorCode))
+                .TranslateAction("erreur/code");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(TemplateController))
+                .WhereAction(nameof(TemplateController.ErrorDemo))
+                .TranslateAction("erreur/demo");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(TemplateController))
+                .WhereAction(nameof(TemplateController.LanguageChooser))
+                .TranslateAction("selection-de-langue");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(TemplateController))
+                .WhereAction(nameof(TemplateController.LanguageChooserCode))
+                .TranslateAction("selection-de-langue/code");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(TemplateController))
+                .WhereAction(nameof(TemplateController.LanguageChooserDemo))
+                .TranslateAction("selection-de-langue/demo");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(TemplateController))
+                .WhereAction(nameof(TemplateController.Stepper))
+                .TranslateAction("indicateur-detapes");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(TemplateController))
+                .WhereAction(nameof(TemplateController.StepperCode))
+                .TranslateAction("indicateur-detapes/code");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(TemplateController))
+                .WhereAction(nameof(TemplateController.StepperDemo))
+                .TranslateAction("indicateur-detapes/demo");
+
+                // - Translate Template Actions.
+
                 // Authentication Controller
                 setup.UseCulture("fr")
                 .WhereController(nameof(AuthenticationController))

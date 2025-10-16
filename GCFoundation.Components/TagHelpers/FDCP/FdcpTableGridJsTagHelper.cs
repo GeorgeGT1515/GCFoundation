@@ -126,10 +126,12 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             var rm = Resources.GridTable.ResourceManager;
             var searchPlaceholder = rm.GetString("Search_Placeholder", culture) ?? "Search...";
             var searchAriaLabel = rm.GetString("Search_AriaLabel", culture) ?? "Search table";
-            var paginationPrevious = rm.GetString("Pagination_Previous", culture) ?? "Previous";
             var paginationNext = rm.GetString("Pagination_Next", culture) ?? "Next";
-            var paginationShowing = rm.GetString("Pagination_Showing", culture) ?? "Showing";
+            var paginationOf = rm.GetString("Pagination_Of", culture) ?? "of";
+            var paginationPrevious = rm.GetString("Pagination_Previous", culture) ?? "Previous";
             var paginationResults = rm.GetString("Pagination_Results", culture) ?? "results";
+            var paginationShowing = rm.GetString("Pagination_Showing", culture) ?? "Showing";
+            var paginationTo = rm.GetString("Pagination_To", culture) ?? "to";
             var loadingText = rm.GetString("Loading_Text", culture) ?? "Loading...";
             var noResultsText = rm.GetString("NoResults_Text", culture) ?? "No records found";
             var noDataText = rm.GetString("NoData_Text", culture) ?? "No data";
@@ -157,9 +159,11 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
                 // Add localized UI strings for Grid.js
                 paginationNext = paginationNext,
+                paginationOf = paginationOf,
                 paginationPrevious = paginationPrevious,
                 paginationResults = paginationResults,
                 paginationShowing = paginationShowing,
+                paginationTo = paginationTo,
                 noResultsText = noResultsText,
                 searchLabel = searchAriaLabel,
                 searchPlaceholder = searchPlaceholder
@@ -220,9 +224,11 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             // Localized UI strings
             public string? noResultsText { get; set; }
             public string? paginationNext { get; set; }
+            public string? paginationOf { get; set; }
             public string? paginationPrevious { get; set; }
             public string? paginationResults { get; set; }
             public string? paginationShowing { get; set; }
+            public string? paginationTo { get; set; }
             public string? searchLabel { get; set; }
             public string? searchPlaceholder { get; set; }
         }

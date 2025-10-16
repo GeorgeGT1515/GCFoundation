@@ -170,7 +170,9 @@
                 pagination: { 
                     previous: cfg.paginationPrevious || 'Previous', 
                     next: cfg.paginationNext || 'Next', 
-                    showing: cfg.paginationShowing || 'Showing', 
+                    showing: cfg.paginationShowing || 'Showing',
+                    of: cfg.paginationOf || 'of',
+                    to: cfg.paginationTo || 'to',
                     results: () => cfg.paginationResults || 'results' 
                 },
                 loading: cfg.loadingText || 'Loading...',
