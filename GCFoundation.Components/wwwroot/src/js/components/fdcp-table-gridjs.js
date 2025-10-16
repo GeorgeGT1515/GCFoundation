@@ -176,7 +176,8 @@
                     results: () => cfg.paginationResults || 'results' 
                 },
                 loading: cfg.loadingText || 'Loading...',
-                noRecordsFound: cfg.noResultsText || cfg.noDataText || 'No records found'
+                noRecordsFound: cfg.noResultsText || cfg.noDataText || 'No records found',
+                error: cfg.errorFetchText || 'An error happened while fetching the data'
             }
         });
 

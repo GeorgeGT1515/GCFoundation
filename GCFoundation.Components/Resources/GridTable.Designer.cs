@@ -70,6 +70,15 @@ namespace GCFoundation.Components.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An error happened while fetching the data.
+        /// </summary>
+        internal static string ErrorFetch_Text {
+            get {
+                return ResourceManager.GetString("ErrorFetch_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Loading....
         /// </summary>
         internal static string Loading_Text {

@@ -124,17 +124,18 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             // Get localized strings using strongly-typed resources
             var rm = Resources.GridTable.ResourceManager;
-            var searchPlaceholder = rm.GetString("Search_Placeholder", culture) ?? "Search...";
-            var searchAriaLabel = rm.GetString("Search_AriaLabel", culture) ?? "Search table";
+            var errorFetchText = rm.GetString("ErrorFetch_Text", culture) ?? "An error happened while fetching the data";
+            var loadingText = rm.GetString("Loading_Text", culture) ?? "Loading...";
+            var noDataText = rm.GetString("NoData_Text", culture) ?? "No data";
+            var noResultsText = rm.GetString("NoResults_Text", culture) ?? "No records found";
             var paginationNext = rm.GetString("Pagination_Next", culture) ?? "Next";
             var paginationOf = rm.GetString("Pagination_Of", culture) ?? "of";
             var paginationPrevious = rm.GetString("Pagination_Previous", culture) ?? "Previous";
             var paginationResults = rm.GetString("Pagination_Results", culture) ?? "results";
             var paginationShowing = rm.GetString("Pagination_Showing", culture) ?? "Showing";
             var paginationTo = rm.GetString("Pagination_To", culture) ?? "to";
-            var loadingText = rm.GetString("Loading_Text", culture) ?? "Loading...";
-            var noResultsText = rm.GetString("NoResults_Text", culture) ?? "No records found";
-            var noDataText = rm.GetString("NoData_Text", culture) ?? "No data";
+            var searchAriaLabel = rm.GetString("Search_AriaLabel", culture) ?? "Search table";
+            var searchPlaceholder = rm.GetString("Search_Placeholder", culture) ?? "Search...";
 
             var id = string.IsNullOrWhiteSpace(Id) ? $"fdcp-gridjs-{Guid.NewGuid():N}" : Id!;
 
@@ -149,9 +150,10 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 ariaLabel = AriaLabel,
                 columns = Columns?.Select(c => new ClientColumn { field = c.Field, header = c.Header, sortable = c.Sortable }).ToArray() ?? Array.Empty<ClientColumn>(),
                 dataUrl = AjaxUrl,
-                noDataText = NoDataText ?? noDataText,
+                errorFetchText = errorFetchText,
                 lang = culture.TwoLetterISOLanguageName,
                 loadingText = LoadingText ?? loadingText,
+                noDataText = NoDataText ?? noDataText,
                 pageSize = PageSize,
                 searchEnabled = SearchEnabled,
                 sortEnabled = SortEnabled,
@@ -213,6 +215,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             public string? ariaLabel { get; set; }
             public IEnumerable<ClientColumn>? columns { get; set; }
             public string? dataUrl { get; set; }
+            public string? errorFetchText { get; set; }
             public string? lang { get; set; }
             public string? loadingText { get; set; }
             public string? noDataText { get; set; }
