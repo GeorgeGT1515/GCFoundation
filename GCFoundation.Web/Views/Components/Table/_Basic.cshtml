@@ -25,36 +25,3 @@
 &lt;fdcp-table-tabulator id="usersTable"
                       columns="@@columns"
                       ajax-url="@@Url.Action("GetData", "TabulatorTest")" /&gt;</code></pre>
-
-<div class="fdcp-table-responsive">
-    <table class="fdcp-table fdcp-table-striped" id="simple-datatable">
-        <caption>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tellus erat, bibendum sed tempor quis, porttitor eget arcu. Praesent et pellentesque nulla. Donec vestibulum est quis orci pharetra tristique. Nullam nec nisi sapien.</caption>
-        <thead>
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            @{
-                List<TestUser> users = [.. Enumerable.Range(1, 15).Select(i => new TestUser
-                    {
-                        Id = i,
-                        Name = $"User {i}",
-                        Email = $"user{i}@example.com"
-                    })]; 
-            }
-            @foreach (var user in users)
-            {
-                <tr>
-                    <th scope="row">@user.Id</th>
-                    <td>@user.Name</td>
-                    <td>@user.Email</td>
-                    <td>Sed vestibulum dui ac magna pretium, tempus accumsan risus rhoncus. Curabitur fringilla posuere mauris, ac aliquam odio sollicitudin a.</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>

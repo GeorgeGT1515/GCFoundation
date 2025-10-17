@@ -95,16 +95,20 @@
         if (!dataUrl) return;
 
         const columnsInput = Array.isArray(cfg.columns) ? cfg.columns : [];
+        const localization = cfg.localization;
         const pageSize = Number(cfg.pageSize || 25);
+        const paginationEnabled = cfg.paginationEnabled !== false;
         const searchEnabled = cfg.searchEnabled !== false;
-        const sortEnabled = cfg.sortEnabled !== false;
+        const sortingEnabled = cfg.sortingEnabled !== false;
 
         const columnDefs = columnsInput.map(col => ({
-            id: col.field || col.id || col.name,
-            name: col.header || col.name || col.field || ''
+            id: col.id || col.name,
+            name: col.name || col.id || '',
+            hidden: col.hidden || false,
+            width: col.width || ''
             // Note: 'sort' property is for client-side sorting only
             // For server-side, all columns are sortable if server.sort is configured
-            // Individual column sortability will be controlled via the sortEnabled flag and col.sortable check below
+            // Individual column sortability will be controlled via the sortingEnabled flag and col.sortable check below
         }));
         const columnIdByIndex = columnDefs.map(c => c.id);
 
@@ -138,7 +142,7 @@
                     url: (prev, keyword) => addOrReplaceParams(prev, { q: (keyword == null ? '' : keyword) })
                 }
             } : false,
-            sort: sortEnabled ? {
+            sort: sortingEnabled ? {
                 multiColumn: false,
                 server: {
                     url: (prev, columns) => {
@@ -150,33 +154,38 @@
                         const col = columns[0];
                         const index = col.index;
                         const dir = col.direction; // 1 for asc, -1 for desc
-                        const field = columnIdByIndex[index];
+                        const colId = columnIdByIndex[index];
                         
                         // Store sort state for aria-sort updates
                         currentSortState = { columnIndex: index, direction: dir };
                         
-                        return addOrReplaceParams(prev, { sortBy: field, sortDir: dir === 1 ? 'asc' : 'desc' });
+                        return addOrReplaceParams(prev, { sortBy: colId, sortDir: dir === 1 ? 'asc' : 'desc' });
                     }
                 }
             } : false,
-            pagination: {
+            pagination: paginationEnabled ? {
                 limit: pageSize,
                 server: {
                     url: (prev, page, limit) => addOrReplaceParams(prev, { page, pageSize: limit })
                 }
-            },
+            } : false,
             language: {
-                search: { placeholder: cfg.searchPlaceholder || 'Search...' },
-                pagination: { 
-                    previous: cfg.paginationPrevious || 'Previous', 
-                    next: cfg.paginationNext || 'Next', 
-                    showing: cfg.paginationShowing || 'Showing',
-                    of: cfg.paginationOf || 'of',
-                    to: cfg.paginationTo || 'to',
-                    results: () => cfg.paginationResults || 'results' 
+                search: { placeholder: cfg.localization.searchPlaceholder || 'Search...' },
+                sort: {
+                    sortAsc: cfg.localization.sortAscending || 'Sort column ascending',
+                    sortDesc: cfg.localization.sortDescending || 'Sort column descending',
                 },
-                loading: cfg.loadingText || 'Loading...',
-                noRecordsFound: cfg.noResultsText || cfg.noDataText || 'No records found'
+                pagination: { 
+                    previous: cfg.localization.paginationPrevious || 'Previous', 
+                    next: cfg.localization.paginationNext || 'Next', 
+                    showing: cfg.localization.paginationShowing || 'Showing',
+                    of: cfg.localization.paginationOf || 'of',
+                    to: cfg.localization.paginationTo || 'to',
+                    results: () => cfg.localization.paginationResults || 'results' 
+                },
+                loading: cfg.localization.loadingText || 'Loading...',
+                noRecordsFound: cfg.localization.noResultsText || cfg.localization.noDataText || 'No records found',
+                error: cfg.localization.errorFetchText || 'An error happened while fetching the data'
             }
         });
 
@@ -262,8 +271,8 @@
             const tableEl = root.querySelector('table.gridjs-table');
             if (tableEl) {
                 tableEl.classList.add('fdcp-table');
-                if (cfg.tableClass && typeof cfg.tableClass === 'string') {
-                    cfg.tableClass.split(/\s+/).forEach(c => c && tableEl.classList.add(c));
+                if (cfg.class && typeof cfg.class === 'string') {
+                    cfg.class.split(/\s+/).forEach(c => c && tableEl.classList.add(c));
                 }
                 if (cfg.ariaLabel && !tableEl.hasAttribute('aria-label')) {
                     tableEl.setAttribute('aria-label', String(cfg.ariaLabel));
@@ -310,7 +319,7 @@
                 const input = root.querySelector('.gridjs-search input');
                 if (input) {
                     // Label the input for SR users and link to table
-                    const label = cfg.searchLabel || 'Search table';
+                    const label = cfg.localization.searchAriaLabel || 'Search table';
                     input.setAttribute('aria-label', label);
                     const tableFor = root.querySelector('table.gridjs-table');
                     if (tableFor && tableFor.id) input.setAttribute('aria-controls', tableFor.id);
@@ -375,5 +384,3 @@
 
     global.TableGridJs = { initAll, init: buildGrid };
 })();
-
-

@@ -177,4 +177,7 @@
     <value>to</value>
     <comment>Used in 'Page X to Y of Z'</comment>
   </data>
+  <data name="ErrorFetch_Text" xml:space="preserve">
+    <value>An error happened while fetching the data</value>
+  </data>
 </root>

@@ -221,126 +221,79 @@
     }
 }
 
-/*
-// Table - Match GCDS table styling from colour tokens page
-table.gridjs-table {
-    border: none;
-    border-collapse: collapse;
-    border-spacing: 0;
+// Loading state
+.gridjs-loading {
+    color: var(--gcds-text-secondary);
+    font-size: var(--gcds-font-sizes-text);
+    font-style: italic;
+    padding: var(--gcds-spacing-400);
+    text-align: center;
+}
 
-    thead tr.gridjs-tr {
-        border-block-end: var(--gcds-border-width-md) solid vars.$gcds-border-default;
-    }
-    // Table header - Clean, minimal styling like GCDS
-    thead th.gridjs-th {
-        background-color: var(--gcds-bg-white);
-        border-bottom: 2px solid var(--gcds-border-default);
-        font-weight: 700;
-        font-size: var(--gcds-font-sizes-text);
-        padding: var(--gcds-spacing-200) var(--gcds-spacing-200);
-        text-align: left;
-        color: var(--gcds-text-primary);
-        vertical-align: bottom;
-        // Sortable column styling
-        &.gridjs-th-sort {
-            cursor: pointer;
-            user-select: none;
+// Empty/No results state
+.gridjs-notfound {
+    color: var(--gcds-text-secondary);
+    font-size: var(--gcds-font-sizes-text);
+    padding: var(--gcds-spacing-400);
+    text-align: center;
+}
 
-            &:hover {
-                background-color: var(--gcds-bg-light);
-            }
-        }
+// Error state
+.gridjs-error {
+    padding: var(--gcds-spacing-300);
+    background-color: var(--gcds-danger-background);
+    border: 1px solid var(--gcds-danger-border);
+    border-radius: var(--gcds-border-radius-button);
+    color: var(--gcds-danger-text);
+}
 
-        &.gridjs-th-sort:focus,
-        &:focus {
-            outline: 3px solid var(--gcds-focus-border);
-            outline-offset: -3px;
-        }
-        // Sort indicator
-        .gridjs-th-content {
-            display: flex;
-            align-items: center;
-            gap: var(--gcds-spacing-100);
-        }
-    }
-    // Table body - Simple borders like GCDS (no vertical borders)
-    tbody td.gridjs-td {
-        padding: var(--gcds-spacing-200) var(--gcds-spacing-200);
-        border-bottom: 1px solid var(--gcds-border-default);
-        border-left: none !important;
-        border-right: none !important;
-        color: var(--gcds-text-primary);
-        vertical-align: top;
-    }
-    // Row hover state - Subtle like GCDS
-    tbody tr:hover {
-        background-color: var(--gcds-bg-light);
-    }
-    // Last row
-    tbody tr:last-child td {
-        border-bottom: 2px solid var(--gcds-border-default);
-    }
-}*/
+// Caption styling (from noscript fallback) - Screen reader only
+.gridjs-table caption {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
 
-    // Loading state
-    .gridjs-loading {
-        text-align: center;
-        padding: var(--gcds-spacing-400);
-        color: var(--gcds-text-secondary);
-        font-style: italic;
+// Responsive breakpoints - Stack pagination on small screens
+@media (max-width: 768px) {
+    .gridjs-footer {
+        flex-direction: column;
+        align-items: flex-start;
     }
-    // Empty/No results state
-    .gridjs-notfound {
-        text-align: center;
-        padding: var(--gcds-spacing-400);
-        color: var(--gcds-text-secondary);
-        font-size: var(--gcds-font-sizes-text);
-    }
-    // Error state
-    .gridjs-error {
-        padding: var(--gcds-spacing-300);
-        background-color: var(--gcds-danger-background);
-        border: 1px solid var(--gcds-danger-border);
-        border-radius: var(--gcds-border-radius-button);
-        color: var(--gcds-danger-text);
-    }
-    // Caption styling (from noscript fallback) - Screen reader only
-    .gridjs-table caption {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
-    }
-    // Responsive breakpoints - Stack pagination on small screens
-    @media (max-width: 768px) {
-        .gridjs-footer {
-            flex-direction: column;
-            align-items: flex-start;
-        }
 
-        .gridjs-pagination {
-            width: 100%;
-            justify-content: center;
+    .gridjs-pagination {
+        width: 100%;
+        justify-content: center;
 
-            .gridjs-pages {
-                flex-wrap: wrap;
-            }
-        }
-        // Make search full width on mobile
-        .gridjs-search input[type="search"],
-        .gridjs-search input[type="text"] {
-            max-width: 100%;
+        .gridjs-pages {
+            flex-wrap: wrap;
         }
     }
+    // Make search full width on mobile
+    .gridjs-search input[type="search"],
+    .gridjs-search input[type="text"] {
+        max-width: 100%;
+    }
+}
 
-// Striped rows variant
-.gridjs-table.fdcp-table.fdcp-table-striped tbody tr:nth-of-type(even) td.gridjs-td {
-    background-color: var(--gcds-bg-light);
+// Bordered
+.gridjs-table.fdcp-table.fdcp-table-bordered {
+    th.gridjs-th, td.gridjs-td {
+        border: 1px solid var(--gcds-border-default);
+    }
+}
+
+// Condensed
+.gridjs-table.fdcp-table.fdcp-table-condensed {
+    th.gridjs-th, td.gridjs-td {
+        padding: var(--gcds-spacing-100) var(--gcds-spacing-200);
+    }
 }
 
 // Modern hover effects
@@ -349,12 +302,18 @@ table.gridjs-table {
     transition: background-color 0.2s ease;
 }
 
+// Striped rows variant
+.gridjs-table.fdcp-table.fdcp-table-striped tbody tr:nth-of-type(even) td.gridjs-td {
+    background-color: var(--gcds-bg-light);
+}
+
 // Overrides for responsive table variant
 .fdcp-table-responsive {
     .gridjs-head > .gridjs-search {
         box-sizing: border-box;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
+        margin-left: calc(-1 * var(--gcds-spacing-50));
         padding-left: var(--gcds-spacing-50);
     }
 }

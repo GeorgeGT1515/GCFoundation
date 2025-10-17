@@ -177,4 +177,7 @@
     <value>à</value>
     <comment>Used in 'Page X of Y'</comment>
   </data>
+  <data name="ErrorFetch_Text" xml:space="preserve">
+    <value>Une erreur est survenue en retrouvant les données</value>
+  </data>
 </root>

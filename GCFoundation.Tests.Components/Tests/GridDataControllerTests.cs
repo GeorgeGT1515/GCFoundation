@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Xunit;
 using GCFoundation.Web.Controllers;
+using GCFoundation.Components.Models.TableGridJs;
+using GCFoundation.Web.Models.Components;
 
 namespace GCFoundation.Tests.Components.Tests
 {
@@ -14,7 +16,7 @@ namespace GCFoundation.Tests.Components.Tests
         {
             // Arrange
             var controller = new GridDataController();
-            var query = new GridDataController.GridQuery
+            var query = new TableGridJsQuery
             {
                 Page = 1,
                 PageSize = 25,
@@ -31,7 +33,7 @@ namespace GCFoundation.Tests.Components.Tests
             
             var data = result.Value;
             var itemsProperty = data?.GetType().GetProperty("items");
-            var items = itemsProperty?.GetValue(data) as IEnumerable<GridDataController.Employee>;
+            var items = itemsProperty?.GetValue(data) as IEnumerable<Employee>;
             
             Assert.NotNull(items);
             var itemsList = items.ToList();
@@ -59,7 +61,7 @@ namespace GCFoundation.Tests.Components.Tests
         {
             // Arrange
             var controller = new GridDataController();
-            var query = new GridDataController.GridQuery
+            var query = new TableGridJsQuery
             {
                 Page = 1,
                 PageSize = 10,
@@ -74,7 +76,7 @@ namespace GCFoundation.Tests.Components.Tests
             Assert.NotNull(result);
             var data = result.Value;
             var itemsProperty = data?.GetType().GetProperty("items");
-            var items = itemsProperty?.GetValue(data) as IEnumerable<GridDataController.Employee>;
+            var items = itemsProperty?.GetValue(data) as IEnumerable<Employee>;
             
             Assert.NotNull(items);
             var itemsList = items.ToList();
@@ -90,7 +92,7 @@ namespace GCFoundation.Tests.Components.Tests
         {
             // Arrange
             var controller = new GridDataController();
-            var query = new GridDataController.GridQuery
+            var query = new TableGridJsQuery
             {
                 Page = 1,
                 PageSize = 5,
@@ -105,7 +107,7 @@ namespace GCFoundation.Tests.Components.Tests
             Assert.NotNull(result);
             var data = result.Value;
             var itemsProperty = data?.GetType().GetProperty("items");
-            var items = itemsProperty?.GetValue(data) as IEnumerable<GridDataController.Employee>;
+            var items = itemsProperty?.GetValue(data) as IEnumerable<Employee>;
             
             Assert.NotNull(items);
             var itemsList = items.ToList();
@@ -122,7 +124,7 @@ namespace GCFoundation.Tests.Components.Tests
         {
             // Arrange
             var controller = new GridDataController();
-            var query = new GridDataController.GridQuery
+            var query = new TableGridJsQuery
             {
                 Page = 1,
                 PageSize = 100,
@@ -136,7 +138,7 @@ namespace GCFoundation.Tests.Components.Tests
             Assert.NotNull(result);
             var data = result.Value;
             var itemsProperty = data?.GetType().GetProperty("items");
-            var items = itemsProperty?.GetValue(data) as IEnumerable<GridDataController.Employee>;
+            var items = itemsProperty?.GetValue(data) as IEnumerable<Employee>;
             
             Assert.NotNull(items);
             var itemsList = items.ToList();
@@ -150,7 +152,7 @@ namespace GCFoundation.Tests.Components.Tests
         {
             // Arrange
             var controller = new GridDataController();
-            var query = new GridDataController.GridQuery
+            var query = new TableGridJsQuery
             {
                 Page = 1,
                 PageSize = 25,
@@ -169,7 +171,7 @@ namespace GCFoundation.Tests.Components.Tests
         {
             // Arrange
             var controller = new GridDataController();
-            var query = new GridDataController.GridQuery
+            var query = new TableGridJsQuery
             {
                 Page = 1,
                 PageSize = 25,
@@ -189,7 +191,7 @@ namespace GCFoundation.Tests.Components.Tests
         {
             // Arrange
             var controller = new GridDataController();
-            var query = new GridDataController.GridQuery
+            var query = new TableGridJsQuery
             {
                 Page = 1,
                 PageSize = 25,
@@ -208,7 +210,7 @@ namespace GCFoundation.Tests.Components.Tests
         {
             // Arrange
             var controller = new GridDataController();
-            var query = new GridDataController.GridQuery
+            var query = new TableGridJsQuery
             {
                 Page = 2,
                 PageSize = 25
@@ -235,7 +237,7 @@ namespace GCFoundation.Tests.Components.Tests
         {
             // Arrange
             var controller = new GridDataController();
-            var query = new GridDataController.GridQuery
+            var query = new TableGridJsQuery
             {
                 Page = 1,
                 PageSize = 15,
@@ -250,7 +252,7 @@ namespace GCFoundation.Tests.Components.Tests
             Assert.NotNull(result);
             var data = result.Value;
             var itemsProperty = data?.GetType().GetProperty("items");
-            var items = itemsProperty?.GetValue(data) as IEnumerable<GridDataController.Article>;
+            var items = itemsProperty?.GetValue(data) as IEnumerable<Article>;
             
             Assert.NotNull(items);
             var itemsList = items.ToList();

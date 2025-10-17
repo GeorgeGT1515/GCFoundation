@@ -199,7 +199,7 @@
     <value>Laissez vos utilisateurs suivre leur progression dans un formulaire multi-page</value>
   </data>
   <data name="Dashboard_Intro" xml:space="preserve">
-    <value>Le composant &lt;code&gt;&amp;lt;fdcp-badge&amp;gt;&lt;/code&gt; est utilisé pour mettre en évidence de petites informations...</value>
+    <value>&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;</value>
   </data>
   <data name="Dashboard_Name" xml:space="preserve">
     <value>Modèle de page de tableau de bord</value>
@@ -465,45 +465,25 @@
   </data>
   <data name="LanguageChooser_WhenToUse" xml:space="preserve">
     <value>&lt;gcds-text&gt;À utiliser sur des applications ASP.Net du GC.&lt;/gcds-text&gt;
-&lt;gcds-text&gt;The basic page template is for non-specialized pages across Canada.ca and is an optional template. It has the starting elements needed for a simple page and those required for most GC pages and applications. You can use it as a canvas to add or combine &lt;a href="{0}"&gt;components&lt;/a&gt; from GCFoundation (via TagHelpers) and the GC Design System.&lt;/gcds-text&gt;</value>
+&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;</value>
   </data>
   <data name="LanguageChooser_Intro" xml:space="preserve">
-    <value>Le modèle de base (ou par défaut) fournit la structure de base utilisée sur les pages GCFoundation. Il offre l'essentiel pour structurer une page et hiérarchiser des titres de façon accessible. Les éléments de marque, comme l'en-tête et le pied de page, permettent de reconnaître que la page vient du gouvernement du Canada.</value>
+    <value>&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;</value>
   </data>
   <data name="LanguageChooser_HowToImplement" xml:space="preserve">
-    <value>&lt;gcds-text&gt;Initialiser le modèle de page de base n'est qu'une question de configurer votre projet correctement. Vous n'avez qu'à suivre les instructions de la page d'&lt;a href="{0}"&gt;installation de GCFoundation&lt;/a&gt;.&lt;/gcds-text&gt;
-&lt;gcds-text&gt;Ce faisant, vous chargerez en arrière-plan la vue partagée &lt;code&gt;_FoundationLayout&lt;/code&gt;. Finalement, vous n'aurez qu'à vous assurer que la déclaration suivante est incluse dans le fichier &lt;code&gt;Views/_ViewStart.cshtml&lt;/code&gt; pour définir le &lt;code&gt;_FoundationLayout&lt;/code&gt; comme étant le modèle de page par défault de votre application.&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;</value>
   </data>
   <data name="LanguageChooser_Notes" xml:space="preserve">
-    <value>&lt;gcds-text&gt;Le modèle de base de page est construit en utilisant les composants GCFoundation suivants qui sont développés en utilisant les composants du Système de design GC qui respectent le niveau AA des Règles pour l'accessibilité des contenus Web (WCAG) 2.1&amp;nbsp;:&lt;/gcds-text&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;gcds-container&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;gcds-date-modified&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;gcds-footer&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;gcds-header&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;gcds-heading&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;gcds-link&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;gcds-text&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;</value>
+    <value>&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;</value>
   </data>
   <data name="Dashboard_WhenToUse" xml:space="preserve">
     <value>&lt;gcds-text&gt;À utiliser sur des applications ASP.Net du GC.&lt;/gcds-text&gt;
-&lt;gcds-text&gt;The basic page template is for non-specialized pages across Canada.ca and is an optional template. It has the starting elements needed for a simple page and those required for most GC pages and applications. You can use it as a canvas to add or combine &lt;a href="{0}"&gt;components&lt;/a&gt; from GCFoundation (via TagHelpers) and the GC Design System.&lt;/gcds-text&gt;</value>
+&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;</value>
   </data>
   <data name="Dashboard_HowToImplement" xml:space="preserve">
-    <value>&lt;gcds-text&gt;Initialiser le modèle de page de base n'est qu'une question de configurer votre projet correctement. Vous n'avez qu'à suivre les instructions de la page d'&lt;a href="{0}"&gt;installation de GCFoundation&lt;/a&gt;.&lt;/gcds-text&gt;
-&lt;gcds-text&gt;Ce faisant, vous chargerez en arrière-plan la vue partagée &lt;code&gt;_FoundationLayout&lt;/code&gt;. Finalement, vous n'aurez qu'à vous assurer que la déclaration suivante est incluse dans le fichier &lt;code&gt;Views/_ViewStart.cshtml&lt;/code&gt; pour définir le &lt;code&gt;_FoundationLayout&lt;/code&gt; comme étant le modèle de page par défault de votre application.&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;</value>
   </data>
   <data name="Dashboard_Notes" xml:space="preserve">
-    <value>&lt;gcds-text&gt;Le modèle de base de page est construit en utilisant les composants GCFoundation suivants qui sont développés en utilisant les composants du Système de design GC qui respectent le niveau AA des Règles pour l'accessibilité des contenus Web (WCAG) 2.1&amp;nbsp;:&lt;/gcds-text&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;gcds-container&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;gcds-date-modified&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;gcds-footer&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;gcds-header&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;gcds-heading&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;gcds-link&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;gcds-text&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;</value>
+    <value>&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;</value>
   </data>
 </root>

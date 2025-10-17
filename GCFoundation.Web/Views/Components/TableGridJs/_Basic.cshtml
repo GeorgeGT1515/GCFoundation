@@ -1,23 +1,24 @@
-@using GCFoundation.Components.Models
+@using GCFoundation.Components.Enums
+@using GCFoundation.Components.Models.TableGridJs
 @using GCFoundation.Web.Resources
 @using System.Globalization
 
 @{
     var currentCulture = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
-    var isFrench = currentCulture == "fr";
-    
+    var currentLang = currentCulture == "fr" ? Language.fr : Language.en;
+
     var columns = new[]
     {
-        new GridTableColumn { Field = "id", Header = "ID", Sortable = true },
-        new GridTableColumn { Field = "name", Header = isFrench ? "Nom" : "Name", Sortable = true },
-        new GridTableColumn { Field = "department", Header = isFrench ? "Département" : "Department", Sortable = true }
+        new TableGridJsColumn { Id = "id", Name = "ID", Sortable = true, Width = "99px" },
+        new TableGridJsColumn { Id = "name", Name = currentLang == Language.fr ? "Nom" : "Name", Sortable = true },
+        new TableGridJsColumn { Id = "department", Name = currentLang == Language.fr ? "Département" : "Department", Sortable = true }
     };
     
-    var caption = isFrench ? "Employés" : "Employees";
-    var summary = isFrench 
+    var caption = currentLang == Language.fr ? "Employés" : "Employees";
+    var summary = currentLang == Language.fr
         ? "Tableau triable, recherchable et paginé des employés" 
         : "Sortable, searchable and paginated table of employees";
-    var ariaLabel = isFrench ? "Tableau des employés" : "Employees table";
+    var ariaLabel = currentLang == Language.fr ? "Tableau des employés" : "Employees table";
 }
 
 <h3>@Components.TableGridJs_Basic_Title</h3>
@@ -30,42 +31,40 @@
                         summary="@summary"
                         page-size="10"
                         aria-label="@ariaLabel"
-                        lang="@currentCulture"
+                        lang="@currentLang"
                         columns="@columns"
-                        class="fdcp-table-condensed fdcp-table-hover fdcp-table-striped">
+                        class="fdcp-table-bordered fdcp-table-condensed fdcp-table-hover fdcp-table-striped">
     </fdcp-table-gridjs>
 </div>
 
-<pre><code class="language-cshtml">@Html.Raw(@"@using GCFoundation.Components.Models
-@using System.Globalization
+<pre><code class="language-cshtml">@@using GCFoundation.Components.Enums
+@@using GCFoundation.Components.Models.TableGridJs
+@@using GCFoundation.Web.Resources
+@@using System.Globalization
 
-@{
-    var currentCulture = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
-    var isFrench = currentCulture == ""fr"";
-    
-    var cols = new[]
+@@{
+    var columns = new[]
     {
-        new GridTableColumn { Field = ""id"", Header = ""ID"", Sortable = true },
-        new GridTableColumn { Field = ""name"", Header = isFrench ? ""Nom"" : ""Name"", Sortable = true },
-        new GridTableColumn { Field = ""department"", Header = isFrench ? ""Département"" : ""Department"", Sortable = true }
+        new TableGridJsColumn { Id = "id", Name = "ID", Sortable = true, Width = "99px" },
+        new TableGridJsColumn { Id = "name", Name = "@(currentLang == Language.fr ? "Nom" : "Name")", Sortable = true },
+        new TableGridJsColumn { Id = "department", Name = "@(currentLang == Language.fr ? "Département" : "Department")", Sortable = true }
     };
-    
-    var caption = isFrench ? ""Employés"" : ""Employees"";
-    var summary = isFrench 
-        ? ""Tableau triable, recherchable et paginé des employés"" 
-        : ""Sortable, searchable and paginated table of employees"";
-    var ariaLabel = isFrench ? ""Tableau des employés"" : ""Employees table"";
 }
 
-&lt;fdcp-table-gridjs id=""employees-grid""
-                  ajax-url=""/api/grid/employees""
-                  caption=""@caption""
-                  summary=""@summary""
-                  page-size=""25""
-                  aria-label=""@ariaLabel""
-                  lang=""@currentCulture""
-                  columns=""@cols""
-                  class=""fdcp-table-responsive"">
-&lt;/fdcp-table-gridjs>")</code></pre>
+&lt;h3&gt;@Components.TableGridJs_Basic_Title&lt;/h3&gt;
+&lt;gcds-text&gt;@Html.Raw(Components.TableGridJs_Basic_Text)&lt;/gcds-text&gt;
+
+&lt;div class="fdcp-table-responsive"&gt;
+    &lt;fdcp-table-gridjs  id="employees-grid"
+                        ajax-url="@Url.Content("~/api/grid/employees")"
+                        caption="@(currentLang == Language.fr ? "Employés" : "Employees")"
+                        summary="@(currentLang == Language.fr ? "Tableau triable, recherchable et paginé des employés" : "Sortable, searchable and paginated table of employees")"
+                        page-size="10"
+                        aria-label="@(currentLang == Language.fr ? "Tableau des employés" : "Employees table")"
+                        lang="@currentLang"
+                        columns="@@columns"
+                        class="fdcp-table-condensed fdcp-table-hover fdcp-table-striped"&gt;
+    &lt;/fdcp-table-gridjs&gt;
+&lt;/div&gt;</code></pre>
 
 

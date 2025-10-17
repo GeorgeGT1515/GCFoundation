@@ -1,4 +1,6 @@
+using GCFoundation.Components.Enums;
 using GCFoundation.Components.Models;
+using GCFoundation.Components.Models.TableGridJs;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
@@ -32,7 +34,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public string AjaxUrl { get; set; } = string.Empty;
 
         /// <summary>
-        /// Optional aria-label for the table element.
+        /// (Optional) Aria-label for the table element.
         /// </summary>
         public string? AriaLabel { get; set; }
 
@@ -42,14 +44,14 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public string Caption { get; set; } = string.Empty;
 
         /// <summary>
-        /// Optional CSS classes to add to the enhanced table element.
+        /// (Optional) CSS classes to add to the enhanced table element.
         /// </summary>
         public string? Class { get; set; }
 
         /// <summary>
-        /// Column definitions: header text, field key, sortable (default true).
+        /// Column definitions.
         /// </summary>
-        public IEnumerable<GridTableColumn>? Columns { get; set; }
+        public IEnumerable<TableGridJsColumn>? Columns { get; set; }
 
         /// <summary>
         /// Debounce for search in milliseconds (default 300).
@@ -57,9 +59,9 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public int DebounceMs { get; set; } = 300;
 
         /// <summary>
-        /// Language hint ("en" or "fr") for client messages.
+        /// Language for client messages.
         /// </summary>
-        public string? Lang { get; set; }
+        public Language Lang { get; set; }
 
         /// <summary>
         /// Localized loading text.
@@ -77,64 +79,33 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public int PageSize { get; set; } = 25;
 
         /// <summary>
+        /// Enable pagination (default true). Always server-side.
+        /// </summary>
+        public bool PaginationEnabled { get; set; } = true;
+
+        /// <summary>
         /// Enable search (default true). Always server-side.
         /// </summary>
         public bool SearchEnabled { get; set; } = true;
 
         /// <summary>
-        /// Enable sort (default true). Always server-side.
+        /// Enable sorting (default true). Always server-side.
         /// </summary>
-        public bool SortEnabled { get; set; } = true;
+        public bool SortingEnabled { get; set; } = true;
 
         /// <summary>
-        /// Optional summary/description referenced via aria-describedby.
+        /// (Optional) Summary/description referenced via aria-describedby.
         /// </summary>
         public string? Summary { get; set; }
 
+        /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             ArgumentNullException.ThrowIfNull(output);
             if (string.IsNullOrWhiteSpace(AjaxUrl))
-            {
                 throw new InvalidOperationException("ajax-url is required for fdcp-table-gridjs.");
-            }
             if (string.IsNullOrWhiteSpace(Caption))
-            {
                 throw new InvalidOperationException("Caption is required for fdcp-table-gridjs to meet WCAG 2.1 (AAA) Standards.");
-            }
-
-            // Set culture based on Lang attribute if provided
-            CultureInfo culture;
-            if (!string.IsNullOrWhiteSpace(Lang))
-            {
-                try
-                {
-                    culture = new CultureInfo(Lang);
-                }
-                catch (CultureNotFoundException)
-                {
-                    // Fall back to current culture if invalid
-                    culture = CultureInfo.CurrentUICulture;
-                }
-            }
-            else
-            {
-                culture = CultureInfo.CurrentUICulture;
-            }
-
-            // Get localized strings using strongly-typed resources
-            var rm = Resources.GridTable.ResourceManager;
-            var searchPlaceholder = rm.GetString("Search_Placeholder", culture) ?? "Search...";
-            var searchAriaLabel = rm.GetString("Search_AriaLabel", culture) ?? "Search table";
-            var paginationNext = rm.GetString("Pagination_Next", culture) ?? "Next";
-            var paginationOf = rm.GetString("Pagination_Of", culture) ?? "of";
-            var paginationPrevious = rm.GetString("Pagination_Previous", culture) ?? "Previous";
-            var paginationResults = rm.GetString("Pagination_Results", culture) ?? "results";
-            var paginationShowing = rm.GetString("Pagination_Showing", culture) ?? "Showing";
-            var paginationTo = rm.GetString("Pagination_To", culture) ?? "to";
-            var loadingText = rm.GetString("Loading_Text", culture) ?? "Loading...";
-            var noResultsText = rm.GetString("NoResults_Text", culture) ?? "No records found";
-            var noDataText = rm.GetString("NoData_Text", culture) ?? "No data";
 
             var id = string.IsNullOrWhiteSpace(Id) ? $"fdcp-gridjs-{Guid.NewGuid():N}" : Id!;
 
@@ -143,38 +114,32 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             output.Attributes.SetAttribute("id", id);
             output.Attributes.SetAttribute("class", "fdcp-gridjs-container");
 
-            // Build client config payload with localized strings
-            var clientConfig = new ClientConfig
-            {
-                ariaLabel = AriaLabel,
-                columns = Columns?.Select(c => new ClientColumn { field = c.Field, header = c.Header, sortable = c.Sortable }).ToArray() ?? Array.Empty<ClientColumn>(),
-                dataUrl = AjaxUrl,
-                noDataText = NoDataText ?? noDataText,
-                lang = culture.TwoLetterISOLanguageName,
-                loadingText = LoadingText ?? loadingText,
-                pageSize = PageSize,
-                searchEnabled = SearchEnabled,
-                sortEnabled = SortEnabled,
-                tableClass = Class,
+            // Build config payload.
+            var config = new TableGridJsConfiguration();
+            config.AriaLabel = AriaLabel;
+            config.Class = Class;
+            config.Columns = Columns;
+            config.DataUrl = AjaxUrl;
+            config.PageSize = PageSize;
+            config.PaginationEnabled = PaginationEnabled;
+            config.SearchEnabled = SearchEnabled;
+            config.SortingEnabled = SortingEnabled;
 
-                // Add localized UI strings for Grid.js
-                paginationNext = paginationNext,
-                paginationOf = paginationOf,
-                paginationPrevious = paginationPrevious,
-                paginationResults = paginationResults,
-                paginationShowing = paginationShowing,
-                paginationTo = paginationTo,
-                noResultsText = noResultsText,
-                searchLabel = searchAriaLabel,
-                searchPlaceholder = searchPlaceholder
-            };
+            // Localize messages.
+            config.Localization.Localize(Lang);
+            
+            // Overwrite defaults messages (if defined).
+            if (!string.IsNullOrEmpty(LoadingText))
+                config.Localization.LoadingText = LoadingText;
+            if (!string.IsNullOrEmpty(NoDataText))
+                config.Localization.NoDataText = NoDataText;
 
             var jsonOptions = new JsonSerializerOptions
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
                 DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
             };
-            var cfgJson = JsonSerializer.Serialize(clientConfig, jsonOptions);
+            var cfgJson = JsonSerializer.Serialize(config, jsonOptions);
 
             // Output markup: live region, controls, semantic table fallback
             var summaryId = !string.IsNullOrWhiteSpace(Summary) ? $"{id}-summary" : null;
@@ -196,48 +161,16 @@ namespace GCFoundation.Components.TagHelpers.FDCP
       </tr>
     </thead>
     <tbody>
-      <tr><td>{System.Net.WebUtility.HtmlEncode(NoDataText ?? (Lang == "fr" ? "Aucune donnée" : "No data"))}</td></tr>
+      <tr><td>{System.Net.WebUtility.HtmlEncode(NoDataText ?? (Lang == Language.fr ? "Aucune donnée" : "No data"))}</td></tr>
     </tbody>
   </table>
 </noscript>");
         }
 
-        private static string RenderHeaders(IEnumerable<GridTableColumn>? columns)
+        private static string RenderHeaders(IEnumerable<TableGridJsColumn>? columns)
         {
             if (columns == null) return string.Empty;
-            return string.Join(string.Empty, columns.Select(c => $"<th scope='col'>{System.Net.WebUtility.HtmlEncode(c.Header)}</th>"));
-        }
-
-        private sealed class ClientConfig
-        {
-            public string? ariaLabel { get; set; }
-            public IEnumerable<ClientColumn>? columns { get; set; }
-            public string? dataUrl { get; set; }
-            public string? lang { get; set; }
-            public string? loadingText { get; set; }
-            public string? noDataText { get; set; }
-            public int pageSize { get; set; }
-            public bool searchEnabled { get; set; }
-            public bool sortEnabled { get; set; }
-            public string? tableClass { get; set; }
-
-            // Localized UI strings
-            public string? noResultsText { get; set; }
-            public string? paginationNext { get; set; }
-            public string? paginationOf { get; set; }
-            public string? paginationPrevious { get; set; }
-            public string? paginationResults { get; set; }
-            public string? paginationShowing { get; set; }
-            public string? paginationTo { get; set; }
-            public string? searchLabel { get; set; }
-            public string? searchPlaceholder { get; set; }
-        }
-
-        private sealed class ClientColumn
-        {
-            public string? field { get; set; }
-            public string? header { get; set; }
-            public bool? sortable { get; set; }
+            return string.Join(string.Empty, columns.Select(c => $"<th scope='col'>{System.Net.WebUtility.HtmlEncode(c.Name)}</th>"));
         }
     }
 }
