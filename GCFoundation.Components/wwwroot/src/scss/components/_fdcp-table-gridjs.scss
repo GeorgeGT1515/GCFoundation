@@ -282,6 +282,13 @@
     }
 }
 
+// Bordered
+.gridjs-table.fdcp-table.fdcp-table-bordered {
+    th.gridjs-th, td.gridjs-td {
+        border: 1px solid var(--gcds-border-default);
+    }
+}
+
 // Condensed
 .gridjs-table.fdcp-table.fdcp-table-condensed {
     th.gridjs-th, td.gridjs-td {
@@ -306,6 +313,7 @@
         box-sizing: border-box;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
+        margin-left: calc(-1 * var(--gcds-spacing-50));
         padding-left: var(--gcds-spacing-50);
     }
 }
