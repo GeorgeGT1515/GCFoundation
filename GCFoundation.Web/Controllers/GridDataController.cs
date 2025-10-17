@@ -1,8 +1,12 @@
+using GCFoundation.Components.Models.TableGridJs;
+using GCFoundation.Web.Models.Components;
 using Microsoft.AspNetCore.Mvc;
-using System.Text.Json.Serialization;
 
 namespace GCFoundation.Web.Controllers
 {
+    /// <summary>
+    /// Provides API endpoints for the Table component demo.
+    /// </summary>
     [ApiController]
     [Route("api/grid")]
     public class GridDataController : Controller
@@ -16,39 +20,18 @@ namespace GCFoundation.Web.Controllers
         {
             nameof(Article.Title), nameof(Article.Author), nameof(Article.Summary)
         };
-        [HttpGet("employees")]
-        [Produces("application/json")]
-        [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
-        public IActionResult GetEmployees([FromQuery] GridQuery query)
-        {
-            var all = Enumerable.Range(1, 250).Select(i => new Employee
-            {
-                Id = i,
-                Name = $"Employee {i}",
-                Department = i % 3 == 0 ? "Finance" : i % 3 == 1 ? "HR" : "IT"
-            });
 
-            var pd = ValidateQuery(query, EmployeeSortAllowList);
-            if (pd != null) return BadRequest(pd);
-
-            if (!string.IsNullOrWhiteSpace(query.Q))
-            {
-                var q = query.Q.Trim();
-                all = all.Where(e =>
-                    e.Id.ToString().Contains(q, StringComparison.OrdinalIgnoreCase) ||
-                    (e.Name?.Contains(q, StringComparison.OrdinalIgnoreCase) ?? false) ||
-                    (e.Department?.Contains(q, StringComparison.OrdinalIgnoreCase) ?? false)
-                );
-            }
-            all = ApplySort(all, query.SortBy, query.SortDir);
-
-            return Ok(BuildResponse(all, query));
-        }
-
+        /// <summary>
+        /// Retrieves a filtered/sorted sample list of articles.
+        /// </summary>
+        /// <param name="query">Query object containing sorting, paging and query information.</param>
+        /// <returns>
+        /// An OK response containing a sample list of articles.
+        /// </returns>
         [HttpGet("articles")]
         [Produces("application/json")]
         [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
-        public IActionResult GetArticles([FromQuery] GridQuery query)
+        public IActionResult GetArticles([FromQuery] TableGridJsQuery query)
         {
             var all = Enumerable.Range(1, 120).Select(i => new Article
             {
@@ -74,7 +57,43 @@ namespace GCFoundation.Web.Controllers
             return Ok(BuildResponse(all, query));
         }
 
-        private static object BuildResponse<T>(IEnumerable<T> source, GridQuery query)
+        /// <summary>
+        /// Retrieves a filtered/sorted sample list of employees.
+        /// </summary>
+        /// <param name="query">Query object containing sorting, paging and query information.</param>
+        /// <returns>
+        /// An OK response containing a sample list of employees.
+        /// </returns>
+        [HttpGet("employees")]
+        [Produces("application/json")]
+        [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
+        public IActionResult GetEmployees([FromQuery] TableGridJsQuery query)
+        {
+            var all = Enumerable.Range(1, 250).Select(i => new Employee
+            {
+                Id = i,
+                Name = $"Employee {i}",
+                Department = i % 3 == 0 ? "Finance" : i % 3 == 1 ? "HR" : "IT"
+            });
+
+            var pd = ValidateQuery(query, EmployeeSortAllowList);
+            if (pd != null) return BadRequest(pd);
+
+            if (!string.IsNullOrWhiteSpace(query.Q))
+            {
+                var q = query.Q.Trim();
+                all = all.Where(e =>
+                    e.Id.ToString().Contains(q, StringComparison.OrdinalIgnoreCase) ||
+                    (e.Name?.Contains(q, StringComparison.OrdinalIgnoreCase) ?? false) ||
+                    (e.Department?.Contains(q, StringComparison.OrdinalIgnoreCase) ?? false)
+                );
+            }
+            all = ApplySort(all, query.SortBy, query.SortDir);
+
+            return Ok(BuildResponse(all, query));
+        }
+
+        private static object BuildResponse<T>(IEnumerable<T> source, TableGridJsQuery query)
         {
             var page = query.Page;
             var pageSize = Math.Clamp(query.PageSize <= 0 ? 25 : query.PageSize, 1, 100);
@@ -128,7 +147,7 @@ namespace GCFoundation.Web.Controllers
             return match.Success && int.TryParse(match.Value, out var number) ? number : 0;
         }
 
-        private static ProblemDetails? ValidateQuery(GridQuery query, HashSet<string> allowList)
+        private static ProblemDetails? ValidateQuery(TableGridJsQuery query, HashSet<string> allowList)
         {
             if (!string.IsNullOrEmpty(query.SortBy) && !allowList.Contains(query.SortBy))
             {
@@ -159,30 +178,5 @@ namespace GCFoundation.Web.Controllers
             }
             return null;
         }
-
-        public sealed class GridQuery
-        {
-            [FromQuery(Name = "page")] public int Page { get; set; } = 1;
-            [FromQuery(Name = "pageSize")] public int PageSize { get; set; } = 25;
-            [FromQuery(Name = "sortBy")] public string? SortBy { get; set; }
-            [FromQuery(Name = "sortDir")] public string? SortDir { get; set; }
-            [FromQuery(Name = "q")] public string? Q { get; set; }
-        }
-
-        public sealed class Employee
-        {
-            public int Id { get; set; }
-            public string Name { get; set; } = string.Empty;
-            public string Department { get; set; } = string.Empty;
-        }
-
-        public sealed class Article
-        {
-            public string Title { get; set; } = string.Empty;
-            public string Author { get; set; } = string.Empty;
-            public string Summary { get; set; } = string.Empty;
-        }
     }
 }
-
-
