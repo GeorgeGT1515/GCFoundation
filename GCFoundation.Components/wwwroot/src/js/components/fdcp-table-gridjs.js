@@ -41,13 +41,11 @@
     }
 
     function updateAriaSortForState(container, sortState) {
-        const headers = container.querySelectorAll('thead .gridjs-th');
+        const headers = container.querySelectorAll('thead th.gridjs-th');
         
         headers.forEach((h, index) => {
             // Ensure scope="col" is always set for accessibility
-            if (!h.hasAttribute('scope')) {
-                h.setAttribute('scope', 'col');
-            }
+            if (!h.hasAttribute('scope')) h.setAttribute('scope', 'col');
 
             // Check if this header is sortable (has the gridjs-th-sort class)
             if (h.classList.contains('gridjs-th-sort')) {
@@ -73,14 +71,46 @@
         });
     }
 
-    function updateRowHeaders(container) {
-        // Add scope="row" to first cell of each data row for accessibility
+    function updateRowHeaders(container, columnDefs) {
+        // Convert configured (isRowHeader) data cells into row header cells (<th scope="row">) in tbody
+        // NOTE: Ensure that no duplicate <th>s are <td>s are left in the table.
         const rows = container.querySelectorAll('tbody tr');
+        const rowHeaders = columnDefs.filter(col => col.isRowHeader);
+        if (!rowHeaders.length) return;
+
         rows.forEach(row => {
-            const firstCell = row.querySelector('td:first-child');
-            if (firstCell && !firstCell.hasAttribute('scope')) {
-                firstCell.setAttribute('scope', 'row');
-            }
+            rowHeaders.forEach(rowHeader => {
+                // Check if the row header has already been converted to <th scope="row">; also, ensure there are no duplicate <td>s.
+                const existingHeaderCell = row.querySelector('th[data-column-id="' + rowHeader.id + '"]');
+                const cells = Array.from(row.querySelectorAll('td[data-column-id="' + rowHeader.id + '"]'));
+                if (existingHeaderCell) {
+                    if (!existingHeaderCell.hasAttribute('scope')) existingHeaderCell.setAttribute('scope', 'row');
+                    if (existingHeaderCell.classList.contains('gridjs-td')) {
+                        existingHeaderCell.className = existingHeaderCell.className.replace(/\bgridjs-td\b/g, 'gridjs-th');
+                    }
+                    // Remove any stray TDs for this column-id (prevents an empty TD after TH)
+                    cells.forEach(td => td.remove());
+                    return;
+                }
+                if (cells.length === 0) return;
+
+                // Create a new header cell (i.e. <th>).
+                const cell = cells[0];
+                const headerCell = document.createElement('th');
+                Array.from(cell.attributes).forEach(attr => {
+                    if (attr.name === 'class') {
+                        headerCell.setAttribute('class', attr.value.replace(/\bgridjs-td\b/g, 'gridjs-th'));
+                    } else {
+                        headerCell.setAttribute(attr.name, attr.value);
+                    }
+                });
+                while (cell.firstChild) { headerCell.appendChild(cell.firstChild); }
+                headerCell.setAttribute('scope', 'row');
+
+                // Replace the <td> with the new <th>. Remove any additional <td>s.
+                cell.replaceWith(headerCell);
+                cells.slice(1).forEach(td => td.remove());
+            });
         });
     }
 
@@ -104,11 +134,12 @@
         const columnDefs = columnsInput.map(col => ({
             id: col.id || col.name,
             name: col.name || col.id || '',
-            hidden: col.hidden || false,
+            hidden: col.isHidden || false,
+            isRowHeader: col.isRowHeader || false,
             width: col.width || ''
             // Note: 'sort' property is for client-side sorting only
             // For server-side, all columns are sortable if server.sort is configured
-            // Individual column sortability will be controlled via the sortingEnabled flag and col.sortable check below
+            // Individual column sortability will be controlled via the sortingEnabled flag and col.isSortable check below
         }));
         const columnIdByIndex = columnDefs.map(c => c.id);
 
@@ -201,7 +232,7 @@
         // Listen to Grid.js events for updates
         grid.on('ready', () => {
             updateAriaSortForState(root, currentSortState);
-            updateRowHeaders(root);
+            updateRowHeaders(root, columnDefs);
             
             // Add both click and keyboard listeners to sortable headers
             const sortableHeaders = root.querySelectorAll('.gridjs-th-sort');
@@ -246,10 +277,6 @@
                     }
                 });
             });
-        });
-
-        grid.on('rowUpdate', () => {
-            updateRowHeaders(root);
         });
 
         grid.on('sort', () => {
@@ -309,9 +336,6 @@
                         th.setAttribute('scope', 'col');
                     }
                 });
-
-                // Add scope="row" to first cell of each row
-                updateRowHeaders(root);
             }
 
             // Debounce search input
@@ -329,33 +353,52 @@
                 }
             }
             
-            // Update aria-sort and row headers
+            // Update aria-sort.
             updateAriaSortForState(root, currentSortState);
-            updateRowHeaders(root);
         }, 0);
 
         // Keep aria-sort and row headers in sync when table changes (on re-render/sort/pagination)
-        const mo = new MutationObserver((mutations) => {
-            // Check if the mutation affected the table structure
-            const hasTableChanges = mutations.some(m => 
-                m.target.classList.contains('gridjs-table') ||
-                m.target.classList.contains('gridjs-tbody') ||
-                m.target.classList.contains('gridjs-th') ||
-                m.target.tagName === 'TBODY' ||
-                m.target.tagName === 'THEAD'
-            );
-            
-            if (hasTableChanges) {
-                updateAriaSortForState(root, currentSortState);
-                updateRowHeaders(root);
-            }
-        });
-        mo.observe(root, { 
-            subtree: true, 
-            attributes: true, 
+        const observerConfig = {
+            subtree: true,
+            attributes: true,
             attributeFilter: ['class'],
-            childList: true // Watch for row additions/removals
+            childList: true
+        };
+
+        let refreshScheduled = false;
+        const mo = new MutationObserver((mutations) => {
+            // Only react to relevant table mutations
+            const hasTableChanges = mutations.some(m => {
+                const t = m.target;
+                return (t && (
+                    t.tagName === 'TBODY' ||
+                    t.tagName === 'THEAD' ||
+                    (t.classList && (
+                        t.classList.contains('gridjs-table') ||
+                        t.classList.contains('gridjs-tbody') ||
+                        t.classList.contains('gridjs-th')
+                    ))
+                ));
+            });
+
+            if (!hasTableChanges) return;
+
+            if (refreshScheduled) return;
+            refreshScheduled = true;
+
+            // Defer to allow Grid.js to finish DOM updates, and avoid re-entrancy by disconnecting
+            setTimeout(() => {
+                refreshScheduled = false;
+                mo.disconnect();
+                try {
+                    updateAriaSortForState(root, currentSortState);
+                    updateRowHeaders(root, columnDefs);
+                } finally {
+                    mo.observe(root, observerConfig);
+                }
+            }, 0);
         });
+        mo.observe(root, observerConfig);
     }
 
     function initAll() {

@@ -426,33 +426,6 @@ namespace GCFoundation.Web.Controllers
             };
             return vm;
         }
-
-        private static ComponentViewModel BuildTableGridJsComponentViewModel()
-        {
-            var vm = new ComponentViewModel();
-            vm.Name = Resources.Components.TableGridJs_Name;
-            vm.Tag = "<fdcp-table-gridjs>";
-            vm.Overview = Resources.Components.TableGridJs_Overview;
-            vm.Properties = new List<ComponentPropertyViewModel>
-            {
-                new() { Name = "id", DataType = "string", Description = "Unique container id (auto-generated if omitted)." },
-                new() { Name = "ajax-url", DataType = "string", Description = "Data endpoint for server-side sort/search/pagination." },
-                new() { Name = "columns", DataType = "IEnumerable<GridTableColumn>", Description = "Column headers and field keys." },
-                new() { Name = "page-size", DataType = "int", DefaultValue = "25", Description = "Rows per page." },
-                new() { Name = "search-enabled", DataType = "bool", DefaultValue = "true", Description = "Enable server search." },
-                new() { Name = "sort-enabled", DataType = "bool", DefaultValue = "true", Description = "Enable server sorting." },
-                new() { Name = "caption", DataType = "string", Description = "Visible caption (required for AAA)." },
-                new() { Name = "summary", DataType = "string", Description = "Additional context announced to SR users." },
-                new() { Name = "aria-label", DataType = "string", Description = "Optional ARIA label for the table." },
-                new() { Name = "lang", DataType = "string", Description = "Language hint (e.g., en, fr)." },
-                new() { Name = "class", DataType = "string", Description = "Extra CSS classes applied to the enhanced table." }
-            };
-            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>
-            {
-                new() { Id = "fdcp-table-gridjs-basic", Title = "Basic", PartialViewName = "TableGridJs/_Basic" }
-            };
-            return vm;
-        }
         private static ComponentViewModel BuildModalComponentViewModel()
         {
             var vm = new ComponentViewModel();
@@ -582,6 +555,32 @@ namespace GCFoundation.Web.Controllers
             };
             vm.Tag = "<fdcp-table-tabulator>";
 
+            return vm;
+        }
+        private static ComponentViewModel BuildTableGridJsComponentViewModel()
+        {
+            var vm = new ComponentViewModel();
+            vm.Name = Resources.Components.TableGridJs_Name;
+            vm.Tag = "<fdcp-table-gridjs>";
+            vm.Overview = Resources.Components.TableGridJs_Overview;
+            vm.Properties = new List<ComponentPropertyViewModel>
+            {
+                new() { Name = "id", DataType = "string", Description = Resources.Components.TableGridJs_Properties_Id },
+                new() { Name = "ajax-url", DataType = "string", Description = Resources.Components.TableGridJs_Properties_AjaxUrl },
+                new() { Name = "columns", DataType = "IEnumerable<GridTableColumn>", Description = Resources.Components.TableGridJs_Properties_Columns },
+                new() { Name = "page-size", DataType = "int", DefaultValue = "10", Description = Resources.Components.TableGridJs_Properties_PageSize },
+                new() { Name = "search-enabled", DataType = "bool", DefaultValue = "true", Description = Resources.Components.TableGridJs_Properties_SearchEnabled },
+                new() { Name = "sort-enabled", DataType = "bool", DefaultValue = "true", Description = Resources.Components.TableGridJs_Properties_SortEnabled },
+                new() { Name = "caption", DataType = "string", Description = Resources.Components.TableGridJs_Properties_Caption },
+                new() { Name = "summary", DataType = "string", Description = Resources.Components.TableGridJs_Properties_Summary },
+                new() { Name = "aria-label", DataType = "string", Description = Resources.Components.TableGridJs_Properties_AriaLabel },
+                new() { Name = "lang", DataType = "string", Description = Resources.Components.TableGridJs_Properties_Lang },
+                new() { Name = "class", DataType = "string", Description = Resources.Components.TableGridJs_Properties_Class }
+            };
+            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>
+            {
+                new() { Description = Resources.Components.TableGridJs_Basic_Text, Id = Resources.Components.TableGridJs_Basic_Anchor, PartialViewName = "TableGridJs/_Basic", Title = Resources.Components.TableGridJs_Basic_Title }
+            };
             return vm;
         }
         private FormDefinition GenerateSampleFormDefinition()

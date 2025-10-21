@@ -9,9 +9,9 @@
 
     var columns = new[]
     {
-        new TableGridJsColumn { Id = "id", Name = "ID", Sortable = true, Width = "99px" },
-        new TableGridJsColumn { Id = "name", Name = currentLang == Language.fr ? "Nom" : "Name", Sortable = true },
-        new TableGridJsColumn { Id = "department", Name = currentLang == Language.fr ? "Département" : "Department", Sortable = true }
+        new TableGridJsColumn { Id = "id", Name = "ID", IsRowHeader = true, IsSortable = true, Width = "99px" },
+        new TableGridJsColumn { Id = "name", Name = currentLang == Language.fr ? "Nom" : "Name", IsSortable = true },
+        new TableGridJsColumn { Id = "department", Name = currentLang == Language.fr ? "Département" : "Department", IsSortable = true }
     };
     
     var caption = currentLang == Language.fr ? "Employés" : "Employees";
@@ -20,9 +20,6 @@
         : "Sortable, searchable and paginated table of employees";
     var ariaLabel = currentLang == Language.fr ? "Tableau des employés" : "Employees table";
 }
-
-<h3>@Components.TableGridJs_Basic_Title</h3>
-<gcds-text>@Html.Raw(Components.TableGridJs_Basic_Text)</gcds-text>
 
 <div class="fdcp-table-responsive">
     <fdcp-table-gridjs  id="employees-grid"
@@ -45,14 +42,11 @@
 @@{
     var columns = new[]
     {
-        new TableGridJsColumn { Id = "id", Name = "ID", Sortable = true, Width = "99px" },
-        new TableGridJsColumn { Id = "name", Name = "@(currentLang == Language.fr ? "Nom" : "Name")", Sortable = true },
-        new TableGridJsColumn { Id = "department", Name = "@(currentLang == Language.fr ? "Département" : "Department")", Sortable = true }
+        new TableGridJsColumn { Id = "id", Name = "ID", IsRowHeader = true, IsSortable = true, Width = "99px" },
+        new TableGridJsColumn { Id = "name", Name = "@(currentLang == Language.fr ? "Nom" : "Name")", IsSortable = true },
+        new TableGridJsColumn { Id = "department", Name = "@(currentLang == Language.fr ? "Département" : "Department")", IsSortable = true }
     };
 }
-
-&lt;h3&gt;@Components.TableGridJs_Basic_Title&lt;/h3&gt;
-&lt;gcds-text&gt;@Html.Raw(Components.TableGridJs_Basic_Text)&lt;/gcds-text&gt;
 
 &lt;div class="fdcp-table-responsive"&gt;
     &lt;fdcp-table-gridjs  id="employees-grid"

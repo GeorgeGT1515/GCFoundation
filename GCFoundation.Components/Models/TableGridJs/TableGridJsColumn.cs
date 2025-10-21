@@ -6,24 +6,29 @@
     public class TableGridJsColumn
     {
         /// <summary>
-        /// Determines whether or not the column will be displayed to the end-user.
-        /// </summary>
-        public bool Hidden { get; set; }
-
-        /// <summary>
         /// (Optional) Identifier of the column.
         /// </summary>
         public string? Id { get; set; }
 
         /// <summary>
-        /// Name of the column.
+        /// Determines whether or not the column will be displayed to the end-user.
         /// </summary>
-        public string Name { get; set; } = string.Empty;
+        public bool IsHidden { get; set; }
+
+        /// <summary>
+        /// Determines whether or not the column should be defined as a header of its row (i.e. &lt;th scope="row"&gt;).
+        /// </summary>
+        public bool IsRowHeader { get; set; }
 
         /// <summary>
         /// Determines whether or not the column will be sortable.
         /// </summary>
-        public bool Sortable { get; set; } = true;
+        public bool IsSortable { get; set; } = true;
+
+        /// <summary>
+        /// Name of the column.
+        /// </summary>
+        public string Name { get; set; } = string.Empty;
 
         /// <summary>
         /// Width of the column.

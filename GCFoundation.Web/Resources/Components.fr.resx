@@ -1089,6 +1089,39 @@
   <data name="TableGridJs_Basic_Text" xml:space="preserve">
     <value>Un exemple de base du tableau (Grid.js) avec tri, recherche et pagination côté serveur&amp;nbsp;:</value>
   </data>
+  <data name="TableGridJs_Properties_Id" xml:space="preserve">
+    <value>Identifiant unique du conteneur (généré automatiquement si omis).</value>
+  </data>
+  <data name="TableGridJs_Properties_AjaxUrl" xml:space="preserve">
+    <value>Point d'accès de données pour le tri, la recherche et la pagination côté serveur.</value>
+  </data>
+  <data name="TableGridJs_Properties_Columns" xml:space="preserve">
+    <value>En-têtes de colonnes et clés de champs.</value>
+  </data>
+  <data name="TableGridJs_Properties_PageSize" xml:space="preserve">
+    <value>Lignes par page.</value>
+  </data>
+  <data name="TableGridJs_Properties_SearchEnabled" xml:space="preserve">
+    <value>Activer la recherche côté serveur.</value>
+  </data>
+  <data name="TableGridJs_Properties_SortEnabled" xml:space="preserve">
+    <value>Activer le tri côté serveur.</value>
+  </data>
+  <data name="TableGridJs_Properties_Caption" xml:space="preserve">
+    <value>Légende visible (requise pour AAA).</value>
+  </data>
+  <data name="TableGridJs_Properties_Summary" xml:space="preserve">
+    <value>Contexte supplémentaire annoncé aux utilisateurs de lecteurs d'écran.</value>
+  </data>
+  <data name="TableGridJs_Properties_AriaLabel" xml:space="preserve">
+    <value>Libellé ARIA optionnel pour le tableau.</value>
+  </data>
+  <data name="TableGridJs_Properties_Lang" xml:space="preserve">
+    <value>Indication de langue (p. ex., en, fr).</value>
+  </data>
+  <data name="TableGridJs_Properties_Class" xml:space="preserve">
+    <value>Classes CSS supplémentaires appliquées au tableau amélioré.</value>
+  </data>
   <data name="Table_Properties_Id" xml:space="preserve">
     <value>L'identifiant HTML à être assigné à l'élément &lt;em&gt;Tabulator&lt;/em&gt;(doit être unique).</value>
   </data>
