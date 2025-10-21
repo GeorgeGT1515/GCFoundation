@@ -568,7 +568,7 @@ namespace GCFoundation.Web.Controllers
                 new() { Name = "id", DataType = "string", Description = Resources.Components.TableGridJs_Properties_Id },
                 new() { Name = "ajax-url", DataType = "string", Description = Resources.Components.TableGridJs_Properties_AjaxUrl },
                 new() { Name = "columns", DataType = "IEnumerable<GridTableColumn>", Description = Resources.Components.TableGridJs_Properties_Columns },
-                new() { Name = "page-size", DataType = "int", DefaultValue = "25", Description = Resources.Components.TableGridJs_Properties_PageSize },
+                new() { Name = "page-size", DataType = "int", DefaultValue = "10", Description = Resources.Components.TableGridJs_Properties_PageSize },
                 new() { Name = "search-enabled", DataType = "bool", DefaultValue = "true", Description = Resources.Components.TableGridJs_Properties_SearchEnabled },
                 new() { Name = "sort-enabled", DataType = "bool", DefaultValue = "true", Description = Resources.Components.TableGridJs_Properties_SortEnabled },
                 new() { Name = "caption", DataType = "string", Description = Resources.Components.TableGridJs_Properties_Caption },
