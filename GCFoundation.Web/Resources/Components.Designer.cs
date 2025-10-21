@@ -2217,6 +2217,105 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unique container id (auto-generated if omitted)..
+        /// </summary>
+        public static string TableGridJs_Properties_Id {
+            get {
+                return ResourceManager.GetString("TableGridJs_Properties_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data endpoint for server-side sort/search/pagination..
+        /// </summary>
+        public static string TableGridJs_Properties_AjaxUrl {
+            get {
+                return ResourceManager.GetString("TableGridJs_Properties_AjaxUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Column headers and field keys..
+        /// </summary>
+        public static string TableGridJs_Properties_Columns {
+            get {
+                return ResourceManager.GetString("TableGridJs_Properties_Columns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rows per page..
+        /// </summary>
+        public static string TableGridJs_Properties_PageSize {
+            get {
+                return ResourceManager.GetString("TableGridJs_Properties_PageSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable server search..
+        /// </summary>
+        public static string TableGridJs_Properties_SearchEnabled {
+            get {
+                return ResourceManager.GetString("TableGridJs_Properties_SearchEnabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable server sorting..
+        /// </summary>
+        public static string TableGridJs_Properties_SortEnabled {
+            get {
+                return ResourceManager.GetString("TableGridJs_Properties_SortEnabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visible caption (required for AAA)..
+        /// </summary>
+        public static string TableGridJs_Properties_Caption {
+            get {
+                return ResourceManager.GetString("TableGridJs_Properties_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Additional context announced to SR users..
+        /// </summary>
+        public static string TableGridJs_Properties_Summary {
+            get {
+                return ResourceManager.GetString("TableGridJs_Properties_Summary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional ARIA label for the table..
+        /// </summary>
+        public static string TableGridJs_Properties_AriaLabel {
+            get {
+                return ResourceManager.GetString("TableGridJs_Properties_AriaLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language hint (e.g., en, fr)..
+        /// </summary>
+        public static string TableGridJs_Properties_Lang {
+            get {
+                return ResourceManager.GetString("TableGridJs_Properties_Lang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Extra CSS classes applied to the enhanced table..
+        /// </summary>
+        public static string TableGridJs_Properties_Class {
+            get {
+                return ResourceManager.GetString("TableGridJs_Properties_Class", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ♿ Accessible.
         /// </summary>
         public static string UserLogin_Accessible {

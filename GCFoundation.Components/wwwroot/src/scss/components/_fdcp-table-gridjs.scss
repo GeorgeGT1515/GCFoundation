@@ -87,6 +87,7 @@
 
         th[scope=row],
         th[scope=rowgroup] {
+            background-color: var(--gcds-bg-white);
             border: 0;
             border-bottom: 1px solid var(--gcds-border-default);
         }
@@ -297,23 +298,31 @@
 }
 
 // Modern hover effects
-.gridjs-table.fdcp-table.fdcp-table-hover tr:hover td.gridjs-td {
-    background-color: var(--gcds-color-blue-100) !important;
-    transition: background-color 0.2s ease;
+.gridjs-table.fdcp-table.fdcp-table-hover tr:hover {
+    th.gridjs-th[scope=row],
+    th.gridjs-th[scope=rowgroup],
+    td.gridjs-td {
+        background-color: var(--gcds-color-blue-100) !important;
+        transition: background-color 0.2s ease;
+    }
 }
 
 // Striped rows variant
-.gridjs-table.fdcp-table.fdcp-table-striped tbody tr:nth-of-type(even) td.gridjs-td {
-    background-color: var(--gcds-bg-light);
+.gridjs-table.fdcp-table.fdcp-table-striped tbody tr:nth-of-type(even) {
+    th.gridjs-th[scope=row],
+    th.gridjs-th[scope=rowgroup],
+    td.gridjs-td {
+        background-color: var(--gcds-bg-light);
+    }
 }
 
 // Overrides for responsive table variant
 .fdcp-table-responsive {
     .gridjs-head > .gridjs-search {
         box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
         margin-left: calc(-1 * var(--gcds-spacing-50));
         padding-left: var(--gcds-spacing-50);
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
     }
 }

@@ -1085,6 +1085,39 @@
   <data name="TableGridJs_Basic_Text" xml:space="preserve">
     <value>A basic example of the Table (Grid.js) with server-side sorting, search, and pagination:</value>
   </data>
+  <data name="TableGridJs_Properties_Id" xml:space="preserve">
+    <value>Unique container id (auto-generated if omitted).</value>
+  </data>
+  <data name="TableGridJs_Properties_AjaxUrl" xml:space="preserve">
+    <value>Data endpoint for server-side sort/search/pagination.</value>
+  </data>
+  <data name="TableGridJs_Properties_Columns" xml:space="preserve">
+    <value>Column headers and field keys.</value>
+  </data>
+  <data name="TableGridJs_Properties_PageSize" xml:space="preserve">
+    <value>Rows per page.</value>
+  </data>
+  <data name="TableGridJs_Properties_SearchEnabled" xml:space="preserve">
+    <value>Enable server search.</value>
+  </data>
+  <data name="TableGridJs_Properties_SortEnabled" xml:space="preserve">
+    <value>Enable server sorting.</value>
+  </data>
+  <data name="TableGridJs_Properties_Caption" xml:space="preserve">
+    <value>Visible caption (required for AAA).</value>
+  </data>
+  <data name="TableGridJs_Properties_Summary" xml:space="preserve">
+    <value>Additional context announced to SR users.</value>
+  </data>
+  <data name="TableGridJs_Properties_AriaLabel" xml:space="preserve">
+    <value>Optional ARIA label for the table.</value>
+  </data>
+  <data name="TableGridJs_Properties_Lang" xml:space="preserve">
+    <value>Language hint (e.g., en, fr).</value>
+  </data>
+  <data name="TableGridJs_Properties_Class" xml:space="preserve">
+    <value>Extra CSS classes applied to the enhanced table.</value>
+  </data>
   <data name="Table_Properties_Id" xml:space="preserve">
     <value>The HTML element ID to assign to the Tabulator container (must be unique).</value>
   </data>
