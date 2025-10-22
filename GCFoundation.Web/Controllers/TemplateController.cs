@@ -50,6 +50,20 @@ namespace GCFoundation.Web.Controllers
         }
 
         /// <summary>
+        /// Displays the CRUD page template demo page.
+        /// </summary>
+        /// <returns>
+        /// The view for the CRUD page template.
+        /// </returns>
+        [HttpGet("crud")]
+        public IActionResult Crud()
+        {
+            SetPageTitle($"{Menu.Menu_Template} : {Resources.Template.Index_Crud_Title}");
+
+            return View();
+        }
+
+        /// <summary>
         /// Displays the Dashboard page template demo page.
         /// </summary>
         /// <returns>

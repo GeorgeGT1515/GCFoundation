@@ -304,6 +304,52 @@ namespace GCFoundation.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to &lt;gcds-text&gt;(...)&lt;/gcds-text&gt;.
         /// </summary>
+        public static string Crud_HowToImplement {
+            get {
+                return ResourceManager.GetString("Crud_HowToImplement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;(...)&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Crud_Intro {
+            get {
+                return ResourceManager.GetString("Crud_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;abbr title=&quot;Create, Read, Update and Delete&quot;&gt;CRUD&lt;/abbr&gt; Page Templates.
+        /// </summary>
+        public static string Crud_Name {
+            get {
+                return ResourceManager.GetString("Crud_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;(...)&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Crud_Notes {
+            get {
+                return ResourceManager.GetString("Crud_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;For use on ASP.Net GC applications.&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Crud_WhenToUse {
+            get {
+                return ResourceManager.GetString("Crud_WhenToUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;(...)&lt;/gcds-text&gt;.
+        /// </summary>
         public static string Dashboard_HowToImplement {
             get {
                 return ResourceManager.GetString("Dashboard_HowToImplement", resourceCulture);
@@ -537,6 +583,24 @@ namespace GCFoundation.Web.Resources {
         public static string Index_Browse_Title {
             get {
                 return ResourceManager.GetString("Index_Browse_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A collection of page templates for the implementation of standard &lt;abbr title=&quot;Create, Read, Update and Delete&quot;&gt;CRUD&lt;/abbr&gt; operations.
+        /// </summary>
+        public static string Index_Crud_Description {
+            get {
+                return ResourceManager.GetString("Index_Crud_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CRUD Pages.
+        /// </summary>
+        public static string Index_Crud_Title {
+            get {
+                return ResourceManager.GetString("Index_Crud_Title", resourceCulture);
             }
         }
         

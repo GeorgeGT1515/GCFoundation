@@ -367,6 +367,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CRUD Pages.
+        /// </summary>
+        public static string Nav_Template_Crud {
+            get {
+                return ResourceManager.GetString("Nav_Template_Crud", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dashboard Page.
         /// </summary>
         public static string Nav_Template_Dashboard {

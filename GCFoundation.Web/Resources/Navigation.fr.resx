@@ -258,4 +258,7 @@
   <data name="Nav_Template_Dashboard_Code" xml:space="preserve">
     <value>Code du modèle de page de tableau de bord</value>
   </data>
+  <data name="Nav_Template_Crud" xml:space="preserve">
+    <value>Pages CRUD</value>
+  </data>
 </root>

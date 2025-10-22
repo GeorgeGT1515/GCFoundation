@@ -487,4 +487,26 @@
   <data name="Dashboard_Notes" xml:space="preserve">
     <value>&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;</value>
   </data>
+  <data name="Crud_WhenToUse" xml:space="preserve">
+    <value>&lt;gcds-text&gt;For use on ASP.Net GC applications.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Crud_HowToImplement" xml:space="preserve">
+    <value>&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Crud_Intro" xml:space="preserve">
+    <value>&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Crud_Name" xml:space="preserve">
+    <value>&lt;abbr title="Create, Read, Update and Delete"&gt;CRUD&lt;/abbr&gt; Page Templates</value>
+  </data>
+  <data name="Crud_Notes" xml:space="preserve">
+    <value>&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Index_Crud_Description" xml:space="preserve">
+    <value>A collection of page templates for the implementation of standard &lt;abbr title="Create, Read, Update and Delete"&gt;CRUD&lt;/abbr&gt; operations</value>
+  </data>
+  <data name="Index_Crud_Title" xml:space="preserve">
+    <value>CRUD Pages</value>
+  </data>
 </root>
