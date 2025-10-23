@@ -11,7 +11,7 @@ variables:
   solution: '**/*.sln'
   outputDir: '$(Build.ArtifactStagingDirectory)/nuget'
   nugetSource: 'TBS_Custom_Feed'
-  componentsProject: 'GCFoundation.Components/CGFoundation.Components.csproj'
+  componentsProject: 'GCFoundation.Components/GCFoundation.Components.csproj'
   commonProject: 'GCFoundation.Common/GCFoundation.Common.csproj'
   securityProject: 'GCFoundation.Security/GCFoundation.Security.csproj'
 
@@ -33,7 +33,7 @@ stages:
           projectPath: 'GCFoundation.Common/GCFoundation.Common.csproj'
           projectName: 'GCFoundation.Common'
         Components:
-          projectPath: 'GCFoundation.Components/CGFoundation.Components.csproj'
+          projectPath: 'GCFoundation.Components/GCFoundation.Components.csproj'
           projectName: 'GCFoundation.Components'
         Security:
           projectPath: 'GCFoundation.Security/GCFoundation.Security.csproj'
