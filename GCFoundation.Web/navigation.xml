@@ -11,7 +11,6 @@
         <NavNode key="components-card" controller="Components" action="Card" area="" preservedRouteParameters="culture" text="Nav_Components_Card" />
         <NavNode key="components-filtered-search" controller="Components" action="FilteredSearch" area="" preservedRouteParameters="culture" text="Nav_Components_FilteredSearch" />
 				<NavNode key="components-modal" controller="Components" action="Modal" area="" preservedRouteParameters="culture" text="Nav_Components_Modal" />
-				<NavNode key="components-table" controller="Components" action="Table" area="" preservedRouteParameters="culture" text="Nav_Components_Table" />
 				<NavNode key="components-table-gridjs" controller="Components" action="TableGridJs" area="" preservedRouteParameters="culture" text="Nav_Components_TableGridJs" />
 				<NavNode key="components-page-heading" controller="Components" action="PageHeading" area="" preservedRouteParameters="culture" text="Nav_Components_PageHeading" />
 				<NavNode key="components-stepper" controller="Components" action="Stepper" area="" preservedRouteParameters="culture" text="Nav_Components_Stepper" />

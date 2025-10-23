@@ -73,8 +73,8 @@ namespace GCFoundation.Web.Infrastructure.Extensions
 
                 setup.UseCulture("fr")
                 .WhereController(nameof(ComponentsController))
-                .WhereAction(nameof(ComponentsController.Table))
-                .TranslateAction("tableau");
+                .WhereAction(nameof(ComponentsController.TableGridJs))
+                .TranslateAction("tableau-grid-js");
 
                 setup.UseCulture("fr")
                 .WhereController(nameof(ComponentsController))

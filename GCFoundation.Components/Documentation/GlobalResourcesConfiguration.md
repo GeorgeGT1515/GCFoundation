@@ -38,7 +38,7 @@ The GCFoundation framework now supports configurable global resources that can b
 }
 ```
 
-**Note:** Default foundation CSS and JavaScript files (foundation.min.css, foundation.min.js, tabulator, prism) are **always included** and cannot be disabled. The `IncludeDefaultCss` and `IncludeDefaultJavaScript` settings are deprecated and no longer used.
+**Note:** Default foundation CSS and JavaScript files (foundation.min.css, foundation.min.js, grid.js, prism) are **always included** and cannot be disabled. The `IncludeDefaultCss` and `IncludeDefaultJavaScript` settings are deprecated and no longer used.
 
 ### Global CSS Files
 
@@ -204,7 +204,6 @@ The resources are loaded in the following order:
 
 ### CSS (in `<head>`)
 1. **Default foundation CSS** (always included):
-   - `tabulator/dist/css/GCTabulatorTheme.css`
    - `foundation.min.css`
    - `prism/css/prism.css`
 2. GCDS CSS from CDN (if enabled)
@@ -216,7 +215,6 @@ The resources are loaded in the following order:
 1. GCDS JavaScript from CDN (if enabled)
 2. **Default foundation JavaScript** (always included):
    - `prism/js/prism.js`
-   - `tabulator/dist/js/tabulator.min.js`
    - `foundation.min.js`
 3. Global JavaScript files from configuration
 4. Page-specific scripts (`@RenderSectionAsync("Scripts")`)

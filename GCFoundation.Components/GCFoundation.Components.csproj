@@ -150,6 +150,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Converters\" />
     <Folder Include="wwwroot\images\Icons\" />
     <Folder Include="wwwroot\images\splash\" />
   </ItemGroup>

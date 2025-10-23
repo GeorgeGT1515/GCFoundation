@@ -56,7 +56,13 @@ table,
 
 // Striped rows variant
 .fdcp-table-striped tbody tr:nth-of-type(even) {
-    background-color: var(--gcds-bg-light);
+    th, td {
+        background-color: var(--gcds-bg-light);
+    }
+
+    code {
+        background-color: var(--gcds-bg-white);
+    }
 }
 
 // Modern hover effects
