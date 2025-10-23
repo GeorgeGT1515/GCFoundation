@@ -227,21 +227,6 @@ namespace GCFoundation.Web.Controllers
         }
 
         /// <summary>
-        /// Displays the Table component demo page.
-        /// </summary>
-        /// <returns>
-        /// The Table component view.
-        /// </returns>
-        [HttpGet("table")]
-        public IActionResult Table()
-        {
-            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Table_Title}");
-
-            var vm = BuildTableComponentViewModel();
-            return View("Component", vm);
-        }
-
-        /// <summary>
         /// Displays the Table (Grid.js) component demo page.
         /// </summary>
         /// <returns>
@@ -250,7 +235,7 @@ namespace GCFoundation.Web.Controllers
         [HttpGet("table-grid-js")]
         public IActionResult TableGridJs()
         {
-            SetPageTitle($"{Menu.Menu_Components} : FDCP Grid Table");
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_TableGridJs_Title}");
             var vm = BuildTableGridJsComponentViewModel();
             return View("Component", vm);
         }
@@ -420,7 +405,6 @@ namespace GCFoundation.Web.Controllers
                 new () { Name = Resources.Components.Index_Modal_Title, ShortDescription = Resources.Components.Index_Modal_Description, Href = Url.Action("Modal", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-modal.svg") },
                 new () { Name = Resources.Components.Index_PageHeading_Title, ShortDescription = Resources.Components.Index_PageHeading_Description, Href = Url.Action("PageHeading", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-page-heading.svg") },
                 new () { Name = Resources.Components.Index_Stepper_Title, ShortDescription = Resources.Components.Index_Stepper_Description, Href = Url.Action("Stepper", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-stepper-fdcp.svg") },
-                new () { Name = Resources.Components.Index_Table_Title, ShortDescription = Resources.Components.Index_Table_Description, Href = Url.Action("Table", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-table.svg") },
                 new () { Name = Resources.Components.Index_TableGridJs_Title, ShortDescription = Resources.Components.Index_TableGridJs_Description, Href = Url.Action("TableGridJs", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-table.svg") },
                 new () { Name = Resources.Components.Index_UserLoginPartial_Title, ShortDescription = Resources.Components.Index_UserLoginPartial_Description, Href = Url.Action("UserLogin", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-user-login-partial.svg") }
             };
@@ -524,36 +508,6 @@ namespace GCFoundation.Web.Controllers
                 new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Stepper_WithLinks_Anchor, Id = Resources.Components.Stepper_WithLinks_Anchor, PartialViewName = "Stepper/_WithLinks", Title = Resources.Components.Stepper_WithLinks_Title }
             };
             vm.Tag = "<fdcp-stepper>";
-
-            return vm;
-        }
-        private static ComponentViewModel BuildTableComponentViewModel()
-        {
-            var vm = new ComponentViewModel();
-
-            vm.Name = Resources.Components.Table_Name;
-            //vm.Notes = new List<string>()
-            //{
-            //    Resources.Components.Table_Notes_1,
-            //    Resources.Components.Table_Notes_2,
-            //    Resources.Components.Table_Notes_3,
-            //    Resources.Components.Table_Notes_4
-            //};
-            //vm.Overview = Resources.Components.Table_Overview;
-            vm.Properties = new List<ComponentPropertyViewModel>()
-            {
-                new ComponentPropertyViewModel() { Name = "ajax-url", DataType = "string", Description = Resources.Components.Table_Properties_AjaxUrl },
-                new ComponentPropertyViewModel() { Name = "columns", DataType = "IEnumerable<TabulatorColumn>", Description = Resources.Components.Table_Properties_Columns },
-                new ComponentPropertyViewModel() { Name = "data", DataType = "IEnumerable<object>", Description = Resources.Components.Table_Properties_Data },
-                new ComponentPropertyViewModel() { Name = "id", DataType = "IEnumerable<StepperStep>", Description = Resources.Components.Table_Properties_Id },
-                new ComponentPropertyViewModel() { Name = "pagination-size", DataType = "int", DefaultValue = "10", Description = Resources.Components.Table_Properties_PaginationSize },
-                new ComponentPropertyViewModel() { Name = "use-static-data", DataType = "bool", DefaultValue = "false", Description = Resources.Components.Table_Properties_UseStaticData },
-            };
-            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
-            {
-                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Table_Basic_Text, Id = Resources.Components.Table_Basic_Anchor, PartialViewName = "Table/_Basic", Title = Resources.Components.Stepper_Basic_Title }
-            };
-            vm.Tag = "<fdcp-table-tabulator>";
 
             return vm;
         }

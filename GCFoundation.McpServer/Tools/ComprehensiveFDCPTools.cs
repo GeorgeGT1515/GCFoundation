@@ -458,52 +458,6 @@ public class ComprehensiveFDCPTools
     #region Data Components
 
     [McpServerTool]
-    [Description("Generates FDCP Tabulator table component for advanced data display with pagination, sorting, and filtering.")]
-    public string GenerateFDCPTabulatorTable(
-        [Description("Table container ID")] string tableId,
-        [Description("Table data source URL (for AJAX)")] string? ajaxUrl = null,
-        [Description("Static data in JSON format (alternative to AJAX)")] string? staticData = null,
-        [Description("Table columns in JSON format: [{\"title\":\"Name\",\"field\":\"name\",\"sorter\":\"string\"}]")] string columnsJson = "[]",
-        [Description("Records per page")] int paginationSize = 10,
-        [Description("Enable search functionality")] bool enableSearch = true,
-        [Description("Table layout: fitData, fitColumns, fitDataFill, fitDataStretch, fitDataTable")] string layout = "fitColumns",
-        [Description("Enable column resizing")] bool resizableColumns = true,
-        [Description("Enable row selection")] bool selectableRows = false)
-    {
-        var sb = new StringBuilder();
-        sb.Append($"<fdcp-table-tabulator");
-        sb.Append($" id=\"{tableId}\"");
-        sb.Append($" pagination-size=\"{paginationSize}\"");
-        
-        if (!string.IsNullOrEmpty(ajaxUrl))
-        {
-            sb.Append($" ajax-url=\"{ajaxUrl}\"");
-            sb.Append(" use-static-data=\"false\"");
-        }
-        else if (!string.IsNullOrEmpty(staticData))
-        {
-            sb.Append(" use-static-data=\"true\"");
-            sb.Append($" data='{staticData}'");
-        }
-        
-        sb.Append($" columns='{columnsJson}'");
-        
-        if (!enableSearch)
-            sb.Append(" enable-search=\"false\"");
-        
-        sb.Append($" layout=\"{layout}\"");
-        
-        if (!resizableColumns)
-            sb.Append(" resizable-columns=\"false\"");
-        
-        if (selectableRows)
-            sb.Append(" selectable-rows=\"true\"");
-        
-        sb.Append("></fdcp-table-tabulator>");
-        return sb.ToString();
-    }
-
-    [McpServerTool]
     [Description("Generates FDCP filter box component for advanced search and filtering.")]
     public string GenerateFDCPFilterBox(
         [Description("Filter box ID")] string filterId,
@@ -752,7 +706,6 @@ public class ComprehensiveFDCPTools
                 
             case "data":
                 sb.AppendLine("## FDCP Data Components:");
-                sb.AppendLine("- fdcp-table-tabulator: Advanced data tables with sorting, filtering, pagination");
                 sb.AppendLine("- fdcp-filter-box: Powerful search and filter interfaces");
                 sb.AppendLine("- Support for AJAX data loading and static data");
                 sb.AppendLine("- Built-in export functionality (CSV, PDF, Excel)");
@@ -780,7 +733,6 @@ public class ComprehensiveFDCPTools
             default:
                 sb.AppendLine("## FDCP (Federal Design Component Package)");
                 sb.AppendLine("### Advanced form components with enhanced validation");
-                sb.AppendLine("### Powerful data tables with Tabulator.js integration");
                 sb.AppendLine("### Flexible layout components for complex applications");
                 sb.AppendLine("### Enhanced UI elements with advanced functionality");
                 sb.AppendLine("### Built-in accessibility and responsive design");

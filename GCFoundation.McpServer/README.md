@@ -47,7 +47,7 @@ A Model Context Protocol (MCP) server that provides AI assistants with tools to 
 | Category | Tools Available |
 |----------|-----------------|
 | **Advanced Forms** | Enhanced inputs, selects, checkboxes with validation |
-| **Data Components** | Tabulator tables, filter boxes with search capabilities |
+| **Data Components** | Grid.js tables, filter boxes with search capabilities |
 | **UI Elements** | Cards with slots, badges, modals, session management |
 | **Layout** | Page headers with breadcrumbs and actions |
 | **Specialized** | Stepper components, form builders, error handling |

@@ -82,8 +82,8 @@
     <gcds-text>@Installation.GlobalResources_ResourceInclusion_Description</gcds-text>
 
     <ul>
-        <li><strong>@Installation.GlobalResources_DefaultCss_Label</strong> <span class="status-enabled">@Installation.GlobalResources_AlwaysEnabled</span> (foundation.min.css, tabulator, prism)</li>
-        <li><strong>@Installation.GlobalResources_DefaultJavaScript_Label</strong> <span class="status-enabled">@Installation.GlobalResources_AlwaysEnabled</span> (foundation.min.js, tabulator, prism)</li>
+        <li><strong>@Installation.GlobalResources_DefaultCss_Label</strong> <span class="status-enabled">@Installation.GlobalResources_AlwaysEnabled</span> (foundation.min.css, grid.js, prism)</li>
+        <li><strong>@Installation.GlobalResources_DefaultJavaScript_Label</strong> <span class="status-enabled">@Installation.GlobalResources_AlwaysEnabled</span> (foundation.min.js, grid.js, prism)</li>
         <li><strong>@Installation.GlobalResources_GCDSResources_Label</strong> @(ResourceHelper.ShouldIncludeGCDSResources() ? Localization.Enabled : Localization.Disabled)</li>
         <li><strong>@Installation.GlobalResources_FontAwesome_Label</strong> @(ResourceHelper.ShouldIncludeFontAwesome() ? Localization.Enabled : Localization.Disabled)</li>
     </ul>
@@ -100,7 +100,6 @@
         <ol>
             <li><strong>Default foundation CSS</strong> (always included):
                 <ul>
-                    <li><code>tabulator/dist/css/GCTabulatorTheme.css</code></li>
                     <li><code>foundation.min.css</code></li>
                     <li><code>prism/css/prism.css</code></li>
                 </ul>
@@ -118,7 +117,6 @@
             <li><strong>Default foundation JavaScript</strong> (always included):
                 <ul>
                     <li><code>prism/js/prism.js</code></li>
-                    <li><code>tabulator/dist/js/tabulator.min.js</code></li>
                     <li><code>foundation.min.js</code></li>
                 </ul>
             </li>
