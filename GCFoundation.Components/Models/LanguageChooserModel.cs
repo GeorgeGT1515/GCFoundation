@@ -42,11 +42,11 @@ namespace GCFoundation.Components.Models
         /// </summary>
         private readonly ReadOnlyCollection<string> _backgroundImagePaths = new ReadOnlyCollection<string>(
             new[] {
-                "/_content/GCFoundation.Components/images/splash/sp-bg-1.jpg",
-                "/_content/GCFoundation.Components/images/splash/sp-bg-2.jpg",
-                "/_content/GCFoundation.Components/images/splash/sp-bg-3.jpg",
-                "/_content/GCFoundation.Components/images/splash/sp-bg-4.jpg",
-                "/_content/GCFoundation.Components/images/splash/sp-bg-5.jpg"
+                "splash/sp-bg-1.jpg",
+                "splash/sp-bg-2.jpg",
+                "splash/sp-bg-3.jpg",
+                "splash/sp-bg-4.jpg",
+                "splash/sp-bg-5.jpg"
             }
         );
 
