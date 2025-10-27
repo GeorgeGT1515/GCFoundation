@@ -1,11 +1,12 @@
 ﻿.fdcp-page-heading-container {
     /*align-items: center;*/
+    box-sizing: border-box;
     display: block;
     left: 50%;
     margin-left: -50vw;
     margin-top: calc(-1 * var(--gcds-spacing-600));
-    padding-left: 0;
-    padding-right: 0;
+    padding-block: var(--gcds-spacing-100);
+    padding-inline: 0;
     position: relative;
     top: 0;
     width: 100vw;
@@ -20,10 +21,6 @@
         background-repeat: no-repeat;
         background-size: cover;
         margin: calc(-1 * var(--gcds-spacing-150));
-    }
-
-    .fdcp-page-heading-large {
-        padding-block: var(--gcds-spacing-600);
     }
 
     .mx-auto {
@@ -49,6 +46,13 @@
     article.text-container.fdcp-bg-primary.fdcp-text-light > gcds-heading {
         color: var(--gcds-text-light) !important;
     }
+}
+.fdcp-page-heading-container.fdcp-page-heading-compact > div {
+    padding-block: var(--gcds-spacing-0) !important;
+}
+
+.fdcp-page-heading-container.fdcp-page-heading-large > div {
+    padding-block: var(--gcds-spacing-1250) !important;
 }
 
 .full-width-section {

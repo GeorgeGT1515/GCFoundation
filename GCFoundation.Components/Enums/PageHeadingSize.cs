@@ -11,6 +11,11 @@
         Default,
 
         /// <summary>
+        /// Represents a more compact page heading. 
+        /// </summary>
+        Compact,
+
+        /// <summary>
         /// Represents a large page heading.
         /// This size is larger than the default and is typically used for a more prominent heading.
         /// </summary>

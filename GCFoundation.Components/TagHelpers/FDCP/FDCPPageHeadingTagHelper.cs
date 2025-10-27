@@ -17,6 +17,11 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public required string Title { get; set; }
 
         /// <summary>
+        /// Sets the colour of the background of the text container to emphasize the content.
+        /// </summary>
+        public BackgroundColour BackgroundColour { get; set; } = BackgroundColour.primary;
+
+        /// <summary>
         /// The description text displayed below the title.
         /// </summary>
         public string Description { get; set; } = string.Empty;
@@ -32,6 +37,11 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public string? Src { get; set; }
 
         /// <summary>
+        /// Sets the colour of the text content.
+        /// </summary>
+        public TextColour TextColour { get; set; } = TextColour.light;
+
+        /// <summary>
         /// Adds a light background and a border around the text container to emphasize the content.
         /// </summary>
         public bool TextEmphasis { get; set; }
@@ -45,28 +55,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         {
             ArgumentNullException.ThrowIfNull(output, nameof(output));
 
-            /*
-            <section>
-                <div class="md:py-1250 py-900"> (.my-hero-class) // image background
-                    <div class="container-xl mx-auto">
-                        <article class="sm:py-750 py-450 xl:ps-0 sm:ps-600 ps-450 sm:pe-750 pe-300">
-                            (.my-hero-class .my-hero-content = position: relative; width: 80%; max-width: 40.625rem;)
-                            (bg-primary text-light) // Dependent on selection
-                            <hx>Title
-                            <content>
-                    
-             */
-            /*
-            <fdcp-page-heading class="fdcp-page-heading-container fdcp-page-heading-has-bg(?) fdcp-page-heading-large(?)">
-                <div class="md:py-1250 py-900 fdcp-page-heading-bg">
-                    <div class="container-xl mx-auto">
-                        <article class="sm:py-750 py-450 xl:ps-0 sm:ps-600 ps-450 sm:pe-750 pe-300">
-                            x. (.my-hero-class .my-hero-content = "position: relative; width: 80%; max-width: 40.625rem;")
-                            ?. (bg-primary text-light) // Dependent on selection
-                            x. <hx>Title
-                            x. <content>
-             */
-
             var classValue = "fdcp-page-heading-container";
             if (!string.IsNullOrWhiteSpace(Src))
             {
@@ -76,6 +64,9 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             switch (Size)
             {
+                case PageHeadingSize.Compact:
+                    classValue += " fdcp-page-heading-compact";
+                    break;
                 case PageHeadingSize.Large:
                     classValue += " fdcp-page-heading-large";
                     break;
@@ -93,7 +84,37 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             var textContainerClass = "sm:fdcp-py-750 fdcp-py-450 xl:fdcp-ps-0 sm:fdcp-ps-600 fdcp-ps-450 sm:fdcp-pe-750 fdcp-pe-300 text-container";
             if (TextEmphasis)
-                textContainerClass += " fdcp-bg-primary fdcp-text-light";
+            {
+                switch (BackgroundColour)
+                {
+                    case BackgroundColour.dark:
+                        textContainerClass += " fdcp-bg-dark";
+                        break;
+                    case BackgroundColour.light:
+                        textContainerClass += " fdcp-bg-light";
+                        break;
+                    case BackgroundColour.white:
+                        textContainerClass += " fdcp-bg-white";
+                        break;
+                    case BackgroundColour.primary:
+                    default:
+                        textContainerClass += " fdcp-bg-primary";
+                        break;
+                }
+            }
+            switch (TextColour)
+            {
+                case TextColour.primary:
+                    textContainerClass += " fdcp-text-primary";
+                    break;
+                case TextColour.secondary:
+                    textContainerClass += " fdcp-text-secondary";
+                    break;
+                case TextColour.light:
+                default:
+                    textContainerClass += " fdcp-text-light";
+                    break;
+            }
             content.AppendLine(CultureInfo.InvariantCulture, $"<article class='{textContainerClass}'>");
             content.AppendLine(CultureInfo.InvariantCulture, $"<gcds-heading tag='h1'>{Title}</gcds-heading>");
 
