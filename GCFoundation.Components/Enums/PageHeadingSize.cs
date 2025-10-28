@@ -6,14 +6,19 @@
     public enum PageHeadingSize
     {
         /// <summary>
-        /// Represents the default page heading. 
+        /// Represents the regular page heading. 
         /// </summary>
-        Default,
+        regular,
+
+        /// <summary>
+        /// Represents a more compact page heading. 
+        /// </summary>
+        compact,
 
         /// <summary>
         /// Represents a large page heading.
-        /// This size is larger than the default and is typically used for a more prominent heading.
+        /// This size is larger than the regular and is typically used for a more prominent heading.
         /// </summary>
-        Large
+        large
     }
 }

@@ -17,6 +17,11 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public required string Title { get; set; }
 
         /// <summary>
+        /// Sets the colour of the background of the text container to emphasize the content.
+        /// </summary>
+        public BackgroundColour BackgroundColour { get; set; } = BackgroundColour.primary;
+
+        /// <summary>
         /// The description text displayed below the title.
         /// </summary>
         public string Description { get; set; } = string.Empty;
@@ -24,12 +29,17 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         /// <summary>
         /// Sets the size of the page header. Default, or Large.
         /// </summary>
-        public PageHeadingSize Size { get; set; } = PageHeadingSize.Default;
+        public PageHeadingSize Size { get; set; } = PageHeadingSize.regular;
 
         /// <summary>
         /// The URL of the background image for the page header.
         /// </summary>
         public string? Src { get; set; }
+
+        /// <summary>
+        /// Sets the colour of the text content.
+        /// </summary>
+        public TextColour TextColour { get; set; } = TextColour.light;
 
         /// <summary>
         /// Adds a light background and a border around the text container to emphasize the content.
@@ -45,63 +55,93 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         {
             ArgumentNullException.ThrowIfNull(output, nameof(output));
 
-            /*
-            <section>
-                <div class="md:py-1250 py-900"> (.my-hero-class) // image background
-                    <div class="container-xl mx-auto">
-                        <article class="sm:py-750 py-450 xl:ps-0 sm:ps-600 ps-450 sm:pe-750 pe-300">
-                            (.my-hero-class .my-hero-content = position: relative; width: 80%; max-width: 40.625rem;)
-                            (bg-primary text-light) // Dependent on selection
-                            <hx>Title
-                            <content>
-                    
-             */
-            /*
-            <fdcp-page-heading class="fdcp-page-heading-container fdcp-page-heading-has-bg(?) fdcp-page-heading-large(?)">
-                <div class="md:py-1250 py-900 fdcp-page-heading-bg">
-                    <div class="container-xl mx-auto">
-                        <article class="sm:py-750 py-450 xl:ps-0 sm:ps-600 ps-450 sm:pe-750 pe-300">
-                            x. (.my-hero-class .my-hero-content = "position: relative; width: 80%; max-width: 40.625rem;")
-                            ?. (bg-primary text-light) // Dependent on selection
-                            x. <hx>Title
-                            x. <content>
-             */
+            var articleClass = "text-container";
+            var containerClass = "fdcp-page-heading-container";
+            var pageHeadingBgClass = "fdcp-page-heading-bg";
 
-            var classValue = "fdcp-page-heading-container";
             if (!string.IsNullOrWhiteSpace(Src))
             {
-                classValue += " fdcp-page-heading-has-bg";
+                containerClass += " fdcp-page-heading-has-bg";
                 output.Attributes.SetAttribute("data-bg-src", Src);
             }
 
             switch (Size)
             {
-                case PageHeadingSize.Large:
-                    classValue += " fdcp-page-heading-large";
+                case PageHeadingSize.compact:
+                    articleClass += " sm:fdcp-py-350 fdcp-py-200 xl:fdcp-ps-0 sm:fdcp-ps-600 fdcp-ps-450 sm:fdcp-pe-750 fdcp-pe-450";
+                    containerClass += " fdcp-page-heading-compact";
+                    pageHeadingBgClass += " md:fdcp-py-500 fdcp-py-250";
                     break;
-                case PageHeadingSize.Default:
+                case PageHeadingSize.large:
+                    articleClass += " sm:fdcp-py-750 fdcp-py-450 xl:fdcp-ps-0 sm:fdcp-ps-600 fdcp-ps-450 sm:fdcp-pe-750 fdcp-pe-450";
+                    containerClass += " fdcp-page-heading-large";
+                    pageHeadingBgClass += " md:fdcp-py-1250 fdcp-py-900";
+                    break;
+                case PageHeadingSize.regular:
                 default:
+                    articleClass += " sm:fdcp-py-600 fdcp-py-300 xl:fdcp-ps-0 sm:fdcp-ps-600 fdcp-ps-450 sm:fdcp-pe-750 fdcp-pe-450";
+                    pageHeadingBgClass += " md:fdcp-py-900 fdcp-py-600";
                     break;
             }
 
-            output.Attributes.SetAttribute("class", classValue);
+            output.Attributes.SetAttribute("class", containerClass);
 
             var content = new StringBuilder();
 
-            content.AppendLine(CultureInfo.InvariantCulture, $"<div class='md:fdcp-py-1250 fdcp-py-900 fdcp-page-heading-bg'>");
+            content.AppendLine(CultureInfo.InvariantCulture, $"<div class='{pageHeadingBgClass}'>");
             content.AppendLine(CultureInfo.InvariantCulture, $"<div class='container-xl mx-auto'>");
 
-            var textContainerClass = "sm:fdcp-py-750 fdcp-py-450 xl:fdcp-ps-0 sm:fdcp-ps-600 fdcp-ps-450 sm:fdcp-pe-750 fdcp-pe-300 text-container";
             if (TextEmphasis)
-                textContainerClass += " fdcp-bg-primary fdcp-text-light";
-            content.AppendLine(CultureInfo.InvariantCulture, $"<article class='{textContainerClass}'>");
+            {
+                switch (BackgroundColour)
+                {
+                    case BackgroundColour.dark:
+                        articleClass += " fdcp-bg-dark";
+                        break;
+                    case BackgroundColour.light:
+                        articleClass += " fdcp-bg-light";
+                        break;
+                    case BackgroundColour.white:
+                        articleClass += " fdcp-bg-white";
+                        break;
+                    case BackgroundColour.primary:
+                    default:
+                        articleClass += " fdcp-bg-primary";
+                        break;
+                }
+            }
+            switch (TextColour)
+            {
+                case TextColour.primary:
+                    articleClass += " fdcp-text-primary";
+                    break;
+                case TextColour.secondary:
+                    articleClass += " fdcp-text-secondary";
+                    break;
+                case TextColour.light:
+                default:
+                    articleClass += " fdcp-text-light";
+                    break;
+            }
+            content.AppendLine(CultureInfo.InvariantCulture, $"<article class='{articleClass}'>");
             content.AppendLine(CultureInfo.InvariantCulture, $"<gcds-heading tag='h1'>{Title}</gcds-heading>");
 
             if (!string.IsNullOrWhiteSpace(Description))
             {
                 var descriptionTextRole = string.Empty;
-                if (TextEmphasis)
-                    descriptionTextRole = " text-role='light'";
+                switch (TextColour)
+                {
+                    case TextColour.primary:
+                        descriptionTextRole = " text-role='primary'";
+                        break;
+                    case TextColour.secondary:
+                        descriptionTextRole = " text-role='secondary'";
+                        break;
+                    case TextColour.light:
+                    default:
+                        descriptionTextRole = " text-role='light'";
+                        break;
+                }
                 content.AppendLine(CultureInfo.InvariantCulture, $"<gcds-text{descriptionTextRole}>{Description}</gcds-text>");
             }
 

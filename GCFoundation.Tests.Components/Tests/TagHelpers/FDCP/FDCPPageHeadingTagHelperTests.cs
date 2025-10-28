@@ -59,7 +59,7 @@ public class FDCPPageHeadingTagHelperTests
         // Assert
         Assert.Equal("fdcp-page-heading-container", output.Attributes["class"].Value);
         Assert.Contains("<gcds-heading tag='h1'>Test Title</gcds-heading>", output.Content.GetContent());
-        Assert.Contains("<gcds-text>Test Description</gcds-text>", output.Content.GetContent());
+        Assert.Contains("<gcds-text text-role='light'>Test Description</gcds-text>", output.Content.GetContent());
     }
 
     [Fact]
@@ -110,6 +110,72 @@ public class FDCPPageHeadingTagHelperTests
     }
 
     [Fact]
+    public void Process_SizeCompactWithDefaultTextEmphasis_RendersExpectedOutput()
+    {
+        // Arrange
+        var tagHelper = new FDCPPageHeadingTagHelper
+        {
+            Title = "Test Title",
+            Description = "Test Description",
+            Size = GCFoundation.Components.Enums.PageHeadingSize.compact,
+            TextEmphasis = true
+        };
+
+        var context = new TagHelperContext(
+            new TagHelperAttributeList(),
+            new Dictionary<object, object>(),
+            "test"
+        );
+
+        var output = new TagHelperOutput("fdcp-page-heading",
+            new TagHelperAttributeList(),
+            (_, _) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
+
+        // Act
+        tagHelper.Process(context, output);
+
+        // Assert
+        Assert.Equal("fdcp-page-heading-container fdcp-page-heading-compact", output.Attributes["class"].Value);
+        Assert.Contains("<article class='text-container sm:fdcp-py-350 fdcp-py-200 xl:fdcp-ps-0 sm:fdcp-ps-600 fdcp-ps-450 sm:fdcp-pe-750 fdcp-pe-450 fdcp-bg-primary fdcp-text-light'>", output.Content.GetContent());
+        Assert.Contains("<gcds-heading tag='h1'>Test Title</gcds-heading>", output.Content.GetContent());
+        Assert.Contains("<gcds-text text-role='light'>Test Description</gcds-text>", output.Content.GetContent());
+    }
+
+    [Fact]
+    public void Process_SizeCompactWithTextEmphasisBgLightAndTextPrimary_RendersExpectedOutput()
+    {
+        // Arrange
+        var tagHelper = new FDCPPageHeadingTagHelper
+        {
+            Title = "Test Title",
+            Description = "Test Description",
+            Size = GCFoundation.Components.Enums.PageHeadingSize.compact,
+            BackgroundColour = GCFoundation.Components.Enums.BackgroundColour.light,
+            TextColour = GCFoundation.Components.Enums.TextColour.primary,
+            TextEmphasis = true
+        };
+
+        var context = new TagHelperContext(
+            new TagHelperAttributeList(),
+            new Dictionary<object, object>(),
+            "test"
+        );
+
+        var output = new TagHelperOutput("fdcp-page-heading",
+            new TagHelperAttributeList(),
+            (_, _) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
+
+        // Act
+        tagHelper.Process(context, output);
+
+        // Assert
+        Assert.Equal("fdcp-page-heading-container fdcp-page-heading-compact", output.Attributes["class"].Value);
+        Assert.Contains("<article class='text-container sm:fdcp-py-350 fdcp-py-200 xl:fdcp-ps-0 sm:fdcp-ps-600 fdcp-ps-450 sm:fdcp-pe-750 fdcp-pe-450 fdcp-bg-light fdcp-text-primary'>", output.Content.GetContent());
+        Assert.Contains("<gcds-heading tag='h1'>Test Title</gcds-heading>", output.Content.GetContent());
+        Assert.Contains("<gcds-text text-role='primary'>Test Description</gcds-text>", output.Content.GetContent());
+    }
+
+    [Fact]
     public void Process_SizeLargeWithTitleAndDescription_RendersExpectedOutput()
     {
         // Arrange
@@ -117,7 +183,7 @@ public class FDCPPageHeadingTagHelperTests
         {
             Title = "Test Title",
             Description = "Test Description",
-            Size = GCFoundation.Components.Enums.PageHeadingSize.Large
+            Size = GCFoundation.Components.Enums.PageHeadingSize.large
         };
 
         var context = new TagHelperContext(
@@ -136,7 +202,7 @@ public class FDCPPageHeadingTagHelperTests
         // Assert
         Assert.Equal("fdcp-page-heading-container fdcp-page-heading-large", output.Attributes["class"].Value);
         Assert.Contains("<gcds-heading tag='h1'>Test Title</gcds-heading>", output.Content.GetContent());
-        Assert.Contains("<gcds-text>Test Description</gcds-text>", output.Content.GetContent());
+        Assert.Contains("<gcds-text text-role='light'>Test Description</gcds-text>", output.Content.GetContent());
     }
 
     [Fact]
@@ -147,7 +213,7 @@ public class FDCPPageHeadingTagHelperTests
         {
             Title = "Test Title",
             Description = "Test Description",
-            Size = GCFoundation.Components.Enums.PageHeadingSize.Large,
+            Size = GCFoundation.Components.Enums.PageHeadingSize.large,
             TextEmphasis = true
         };
 
@@ -167,7 +233,7 @@ public class FDCPPageHeadingTagHelperTests
         // Assert
         Assert.Equal("fdcp-page-heading-container fdcp-page-heading-large", output.Attributes["class"].Value);
         Assert.Contains("<gcds-heading tag='h1'>Test Title</gcds-heading>", output.Content.GetContent());
-        Assert.Contains("<article class='sm:fdcp-py-750 fdcp-py-450 xl:fdcp-ps-0 sm:fdcp-ps-600 fdcp-ps-450 sm:fdcp-pe-750 fdcp-pe-300 text-container fdcp-bg-primary fdcp-text-light'>", output.Content.GetContent());
+        Assert.Contains("<article class='text-container sm:fdcp-py-750 fdcp-py-450 xl:fdcp-ps-0 sm:fdcp-ps-600 fdcp-ps-450 sm:fdcp-pe-750 fdcp-pe-450 fdcp-bg-primary fdcp-text-light'>", output.Content.GetContent());
         Assert.Contains("<gcds-text text-role='light'>Test Description</gcds-text>", output.Content.GetContent());
     }
 }
