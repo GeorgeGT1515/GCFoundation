@@ -29,7 +29,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         /// <summary>
         /// Sets the size of the page header. Default, or Large.
         /// </summary>
-        public PageHeadingSize Size { get; set; } = PageHeadingSize.Default;
+        public PageHeadingSize Size { get; set; } = PageHeadingSize.regular;
 
         /// <summary>
         /// The URL of the background image for the page header.
@@ -55,74 +55,93 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         {
             ArgumentNullException.ThrowIfNull(output, nameof(output));
 
-            var classValue = "fdcp-page-heading-container";
+            var articleClass = "text-container";
+            var containerClass = "fdcp-page-heading-container";
+            var pageHeadingBgClass = "fdcp-page-heading-bg";
+
             if (!string.IsNullOrWhiteSpace(Src))
             {
-                classValue += " fdcp-page-heading-has-bg";
+                containerClass += " fdcp-page-heading-has-bg";
                 output.Attributes.SetAttribute("data-bg-src", Src);
             }
 
             switch (Size)
             {
-                case PageHeadingSize.Compact:
-                    classValue += " fdcp-page-heading-compact";
+                case PageHeadingSize.compact:
+                    articleClass += " sm:fdcp-py-350 fdcp-py-200 xl:fdcp-ps-0 sm:fdcp-ps-600 fdcp-ps-450 sm:fdcp-pe-750 fdcp-pe-450";
+                    containerClass += " fdcp-page-heading-compact";
+                    pageHeadingBgClass += " md:fdcp-py-500 fdcp-py-250";
                     break;
-                case PageHeadingSize.Large:
-                    classValue += " fdcp-page-heading-large";
+                case PageHeadingSize.large:
+                    articleClass += " sm:fdcp-py-750 fdcp-py-450 xl:fdcp-ps-0 sm:fdcp-ps-600 fdcp-ps-450 sm:fdcp-pe-750 fdcp-pe-450";
+                    containerClass += " fdcp-page-heading-large";
+                    pageHeadingBgClass += " md:fdcp-py-1250 fdcp-py-900";
                     break;
-                case PageHeadingSize.Default:
+                case PageHeadingSize.regular:
                 default:
+                    articleClass += " sm:fdcp-py-600 fdcp-py-300 xl:fdcp-ps-0 sm:fdcp-ps-600 fdcp-ps-450 sm:fdcp-pe-750 fdcp-pe-450";
+                    pageHeadingBgClass += " md:fdcp-py-900 fdcp-py-600";
                     break;
             }
 
-            output.Attributes.SetAttribute("class", classValue);
+            output.Attributes.SetAttribute("class", containerClass);
 
             var content = new StringBuilder();
 
-            content.AppendLine(CultureInfo.InvariantCulture, $"<div class='md:fdcp-py-1250 fdcp-py-900 fdcp-page-heading-bg'>");
+            content.AppendLine(CultureInfo.InvariantCulture, $"<div class='{pageHeadingBgClass}'>");
             content.AppendLine(CultureInfo.InvariantCulture, $"<div class='container-xl mx-auto'>");
 
-            var textContainerClass = "sm:fdcp-py-750 fdcp-py-450 xl:fdcp-ps-0 sm:fdcp-ps-600 fdcp-ps-450 sm:fdcp-pe-750 fdcp-pe-300 text-container";
             if (TextEmphasis)
             {
                 switch (BackgroundColour)
                 {
                     case BackgroundColour.dark:
-                        textContainerClass += " fdcp-bg-dark";
+                        articleClass += " fdcp-bg-dark";
                         break;
                     case BackgroundColour.light:
-                        textContainerClass += " fdcp-bg-light";
+                        articleClass += " fdcp-bg-light";
                         break;
                     case BackgroundColour.white:
-                        textContainerClass += " fdcp-bg-white";
+                        articleClass += " fdcp-bg-white";
                         break;
                     case BackgroundColour.primary:
                     default:
-                        textContainerClass += " fdcp-bg-primary";
+                        articleClass += " fdcp-bg-primary";
                         break;
                 }
             }
             switch (TextColour)
             {
                 case TextColour.primary:
-                    textContainerClass += " fdcp-text-primary";
+                    articleClass += " fdcp-text-primary";
                     break;
                 case TextColour.secondary:
-                    textContainerClass += " fdcp-text-secondary";
+                    articleClass += " fdcp-text-secondary";
                     break;
                 case TextColour.light:
                 default:
-                    textContainerClass += " fdcp-text-light";
+                    articleClass += " fdcp-text-light";
                     break;
             }
-            content.AppendLine(CultureInfo.InvariantCulture, $"<article class='{textContainerClass}'>");
+            content.AppendLine(CultureInfo.InvariantCulture, $"<article class='{articleClass}'>");
             content.AppendLine(CultureInfo.InvariantCulture, $"<gcds-heading tag='h1'>{Title}</gcds-heading>");
 
             if (!string.IsNullOrWhiteSpace(Description))
             {
                 var descriptionTextRole = string.Empty;
-                if (TextEmphasis)
-                    descriptionTextRole = " text-role='light'";
+                switch (TextColour)
+                {
+                    case TextColour.primary:
+                        descriptionTextRole = " text-role='primary'";
+                        break;
+                    case TextColour.secondary:
+                        descriptionTextRole = " text-role='secondary'";
+                        break;
+                    case TextColour.light:
+                    default:
+                        descriptionTextRole = " text-role='light'";
+                        break;
+                }
                 content.AppendLine(CultureInfo.InvariantCulture, $"<gcds-text{descriptionTextRole}>{Description}</gcds-text>");
             }
 

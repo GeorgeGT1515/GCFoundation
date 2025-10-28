@@ -1,11 +1,9 @@
 ﻿.fdcp-page-heading-container {
-    /*align-items: center;*/
     box-sizing: border-box;
     display: block;
     left: 50%;
     margin-left: -50vw;
     margin-top: calc(-1 * var(--gcds-spacing-600));
-    padding-block: var(--gcds-spacing-100);
     padding-inline: 0;
     position: relative;
     top: 0;
@@ -33,8 +31,8 @@
         width: 80%;
     }
 
-    article.text-container.fdcp-bg-primary:before {
-        background-color: var(--gcds-bg-primary);
+    article.text-container:before {
+        background-color: inherit;
         content: "";
         height: 100%;
         left: calc(-100vw + 0.01px);
@@ -42,17 +40,9 @@
         top: 0;
         width: 100vw;
     }
-    // Solving an issue with text colour not being inherited by children.
-    article.text-container.fdcp-bg-primary.fdcp-text-light > gcds-heading {
-        color: var(--gcds-text-light) !important;
-    }
-}
-.fdcp-page-heading-container.fdcp-page-heading-compact > div {
-    padding-block: var(--gcds-spacing-0) !important;
-}
 
-.fdcp-page-heading-container.fdcp-page-heading-large > div {
-    padding-block: var(--gcds-spacing-1250) !important;
+    // Solving an issue with text colour not being inherited by children.
+    article.text-container > gcds-heading { color: inherit; }
 }
 
 .full-width-section {
