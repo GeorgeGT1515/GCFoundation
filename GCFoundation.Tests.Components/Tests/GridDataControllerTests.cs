@@ -18,7 +18,7 @@ namespace GCFoundation.Tests.Components.Tests
             var controller = new GridDataController();
             var query = new TableGridJsQuery
             {
-                Page = 1,
+                Page = 0,
                 PageSize = 25,
                 SortBy = "name",
                 SortDir = "asc"
@@ -63,7 +63,7 @@ namespace GCFoundation.Tests.Components.Tests
             var controller = new GridDataController();
             var query = new TableGridJsQuery
             {
-                Page = 1,
+                Page = 0,
                 PageSize = 10,
                 SortBy = "name",
                 SortDir = "desc"
@@ -94,7 +94,7 @@ namespace GCFoundation.Tests.Components.Tests
             var controller = new GridDataController();
             var query = new TableGridJsQuery
             {
-                Page = 1,
+                Page = 0,
                 PageSize = 5,
                 SortBy = "id",
                 SortDir = "asc"
@@ -239,7 +239,7 @@ namespace GCFoundation.Tests.Components.Tests
             var controller = new GridDataController();
             var query = new TableGridJsQuery
             {
-                Page = 1,
+                Page = 0,
                 PageSize = 15,
                 SortBy = "title",
                 SortDir = "asc"
