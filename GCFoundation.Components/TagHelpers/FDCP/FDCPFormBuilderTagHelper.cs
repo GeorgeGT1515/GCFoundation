@@ -58,10 +58,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
         private void BuildFormContent(StringBuilder content)
         {
-            // Include validation script for GCDS v0.39.0+ support
-            content.AppendLine(CultureInfo.InvariantCulture,
-                $"<script src='{StaticResourceHelper.GetResourcePath("js/gcds-validation-handler.js")}' defer></script>");
-
             // Form wrapper with validation attributes for GCDS v0.39.0+ compatibility
             content.AppendFormat(CultureInfo.InvariantCulture,
                 "<form action='{0}' method='{1}' class='gc-form' data-gcds-validation='true' novalidate='true'>",
