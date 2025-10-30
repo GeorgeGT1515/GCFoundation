@@ -61,11 +61,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             output.Attributes.SetAttribute("data-gcds-validation", "true");
             output.Attributes.SetAttribute("novalidate", "true"); // Disable HTML5 validation
 
-            // Include validation script for GCDS v0.39.0+ support
-            var scriptTag = new TagBuilder("script");
-            scriptTag.Attributes.Add("src", StaticResourceHelper.GetResourcePath("js/gcds-validation-handler.js"));
-            scriptTag.Attributes.Add("defer", "defer");
-
             var errorSummaryTag = new TagBuilder("gcds-error-summary");
             errorSummaryTag.Attributes.Add("lang", LanguageUtility.GetCurrentApplicationLanguage());
 
@@ -86,9 +81,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 // Hide error summary initially if no server-side errors
                 errorSummaryTag.Attributes.Add("class", "d-none");
             }
-
-            // Add script first (in head or before form)
-            output.PreContent.AppendHtml(scriptTag);
             
             // Add error summary at the beginning of form content
             output.Content.AppendHtml(errorSummaryTag);
