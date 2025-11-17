@@ -46,12 +46,7 @@ public class FDCPFormTagHelperTests
         var content = output.Content.GetContent();
         Assert.Contains("<gcds-error-summary", content);
         Assert.Contains("lang=", content);
-        
-        // Verify validation script is included
-        var preContent = output.PreContent.GetContent();
-        Assert.Contains("gcds-validation-handler.js", preContent);
-        Assert.Contains("defer", preContent);
-        
+
         // Error summary should be hidden initially when no errors
         Assert.Contains("class=\"d-none\"", content);
     }

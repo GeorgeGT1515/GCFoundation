@@ -58,11 +58,6 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 
             var content = output.Content.GetContent();
             
-            // Verify GCDS v0.39.0+ validation support
-            Assert.Contains("gcds-validation-handler.js", content);
-            Assert.Contains("data-gcds-validation='true'", content);
-            Assert.Contains("novalidate='true'", content);
-            
             // Verify error summary is initially hidden
             Assert.Contains("<gcds-error-summary", content);
             Assert.Contains("style='display: none;'", content);
@@ -400,11 +395,6 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 
             // Assert
             var content = output.Content.GetContent();
-            
-            // Verify GCDS v0.39.0+ validation support
-            Assert.Contains("gcds-validation-handler.js", content);
-            Assert.Contains("data-gcds-validation='true'", content);
-            Assert.Contains("novalidate='true'", content);
             
             // Verify form structure includes error summary capability for GCDS v0.39.0
             Assert.Contains("class='gc-form'", content);

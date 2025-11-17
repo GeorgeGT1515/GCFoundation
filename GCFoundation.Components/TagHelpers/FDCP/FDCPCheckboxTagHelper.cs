@@ -49,14 +49,14 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 throw new InvalidOperationException("For is NULL in FDCPCheckbox.");
             }
 
-            string fieldName = For.Name;
             PropertyInfo? propertyInfo = PropertyInfo;
-
             if (propertyInfo == null)
             {
                 throw new InvalidOperationException("Missing properties");
             }
 
+            string fieldName = Name ?? For.Name;
+            string fieldId = Id ?? fieldName;
             string label = GetLocalizedLabel(propertyInfo);
             string hint = GetLocalizedHint(propertyInfo);
             bool required = For.Metadata.ValidatorMetadata.OfType<RequiredAttribute>().Any()
@@ -71,7 +71,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             // Create the single checkbox option
             var option = new CheckboxOption
             {
-                Id = fieldName,
+                Id = fieldId,
                 Label = label,
                 Value = "true",
                 @Checked = currentValue,
