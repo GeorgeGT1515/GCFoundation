@@ -38,15 +38,15 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             {
                 throw new InvalidOperationException("For is NULL in FDCPRadios.");
             }
-
-            string fieldName = For.Name;
+            
             PropertyInfo? propertyInfo = PropertyInfo;
-
             if (propertyInfo == null)
             {
                 throw new InvalidOperationException("Missing properties");
             }
 
+            string fieldName = Name ?? For.Name;
+            string fieldId = Id ?? fieldName;
             string legend = GetLocalizedLabel(propertyInfo);
             string hint = GetLocalizedHint(propertyInfo);
             bool required = For.Metadata.ValidatorMetadata.OfType<RequiredAttribute>().Any()
@@ -61,7 +61,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             // Convert SelectListItems to the required options format
             var options = Items.Select(item => new
             {
-                id = $"{fieldName}_{item.Value}",
+                id = $"{fieldId}_{item.Value}",
                 label = item.Text,
                 value = item.Value,
                 @checked = selectedValue == item.Value

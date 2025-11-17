@@ -26,9 +26,12 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             // Call base class to handle label, hint, and errors
             base.Process(context, output);
 
+            string fieldName = Name ?? For.Name;
+            string fieldId = Id ?? fieldName;
+
             output.TagName = "gcds-select"; // Render as `<select>`
-            output.Attributes.SetAttribute("name", For.Name);
-            output.Attributes.SetAttribute("select-id", For.Name);
+            output.Attributes.SetAttribute("name", fieldName);
+            output.Attributes.SetAttribute("select-id", fieldId);
             output.Attributes.SetAttribute("class", "gcds-select");
             output.Attributes.SetAttribute("default-value", "Select option");
 

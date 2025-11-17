@@ -29,6 +29,19 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         [HtmlAttributeName("for")]
         public ModelExpression For { get; set; } = default!;
 
+        /// <summary>
+        /// Defines the <strong>id</strong> attribute of the form component.
+        /// </summary>
+        /// <remarks><em>Overrides the value derived from any bindings.</em></remarks>
+        [HtmlAttributeName("id")]
+        public string? Id { get; set; }
+
+        /// <summary>
+        /// Defines the <strong>name</strong> attribute of the form component.
+        /// </summary>
+        /// <remarks><em>Overrides the value derived from any bindings.</em></remarks>
+        [HtmlAttributeName("name")]
+        public string? Name { get; set; }
 
         /// <summary>
         /// Injects the current ViewContext to access ModelState for validation.
@@ -88,7 +101,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             output.TagName = "gcds-input";
             output.TagMode = TagMode.StartTagAndEndTag;
-            string fieldName = For.Name;
+            string fieldName = Name ?? For.Name;
+            string fieldId = Id ?? fieldName;
 
             string label = GetLocalizedLabel(property);
             string hint = GetLocalizedHint(property);
@@ -100,7 +114,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             output.Attributes.SetAttribute("value", fieldValue);
             output.Attributes.SetAttribute("name", fieldName);
             output.Attributes.SetAttribute("label", label);
-            output.Attributes.SetAttribute("input-id", fieldName); // Required by GCDS
+            output.Attributes.SetAttribute("input-id", fieldId); // Required by GCDS
             
             // Optional attributes
             if (!string.IsNullOrEmpty(hint))

@@ -48,13 +48,16 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         {
             output.TagName = GetTagNameByInputType(tagType);
 
+            string fieldName = Name ?? For.Name;
+            string fieldId = Id ?? fieldName;
+
             if (tagType == TagType.checkbox)
             {
-                output.Attributes.SetAttribute("checkbox-id", For.Name);
+                output.Attributes.SetAttribute("checkbox-id", fieldId);
             }
             else if (tagType == TagType.textArea)
             {
-                output.Attributes.SetAttribute("textarea-id", For.Name);
+                output.Attributes.SetAttribute("textarea-id", fieldId);
             }
             else if (tagType == TagType.date)
             {
@@ -73,7 +76,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             {
                 string gcdsType = GetInputType();
                 output.Attributes.SetAttribute("type", gcdsType);
-                output.Attributes.SetAttribute("input-id", For.Name); // Already correctly setting input-id
+                output.Attributes.SetAttribute("input-id", fieldId); // Already correctly setting input-id
             }
         }
 
