@@ -99,15 +99,3 @@ code:not([class*=language-]) {
 .gc-form-hidden {
     display: none !important;
 }
-
-//=========================================
-// CSS Animations
-//=========================================
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-.spinning-image:active, .spinning-image:hover {
-    animation: spin 2s linear 2;
-}
