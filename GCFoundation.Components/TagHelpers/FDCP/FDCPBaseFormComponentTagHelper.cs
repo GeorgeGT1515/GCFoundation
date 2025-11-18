@@ -37,6 +37,13 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public string? Id { get; set; }
 
         /// <summary>
+        /// Defines whether the form component is required or not.
+        /// </summary>
+        /// <remarks><em>Overrides the [Required] data annotation (if applicable).</em></remarks>
+        [HtmlAttributeName("required")]
+        public bool? IsRequired { get; set; }
+
+        /// <summary>
         /// Defines the <strong>name</strong> attribute of the form component.
         /// </summary>
         /// <remarks><em>Overrides the value derived from any bindings.</em></remarks>
@@ -125,6 +132,9 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             output.Attributes.SetAttribute("lang", LanguageUtility.GetCurrentApplicationLanguage());
 
             // Validation attributes
+            // If a "required" attribute was defined on the tag helper, use that value.
+            // Otherwise, look at the default [Required] data annotation.
+            if (IsRequired.HasValue) required = IsRequired.Value;
             if (required)
             {
                 output.Attributes.SetAttribute("required", required);
