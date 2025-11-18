@@ -20,15 +20,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         [HtmlAttributeName("items")]
         public IEnumerable<SelectListItem> Items { get; set; } = new List<SelectListItem>();
 
-        /// <summary>
-        /// Gets or sets whether the checkbox group is required.
-        /// </summary>
-        /// <remarks>
-        /// This attribute will overwrite the [Required] data annotation (if applicable).
-        /// </remarks>
-        [HtmlAttributeName("required")]
-        public bool? IsRequired { get; set; }
-
         /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {

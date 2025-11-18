@@ -24,6 +24,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             ArgumentNullException.ThrowIfNull(output, nameof(output));
+
             // Call base class to handle label, hint, and errors
             base.Process(context, output);
 
