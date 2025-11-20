@@ -72,6 +72,13 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
                 output.Attributes.SetAttribute("legend", label);
                 output.Attributes.SetAttribute("format", formatAttr != null ? formatAttr.Format : "full");
+
+                // Ensure the value attribute is in expected format by gcds-date-input (YYYY-MM-DD).
+				if (For?.Model is DateTime dateValue)
+				{
+					output.Attributes.SetAttribute("value", dateValue.ToString("yyyy-MM-dd"));
+				}
+
             }
             else
             {
