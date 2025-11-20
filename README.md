@@ -21,21 +21,21 @@ This guide shows how to create a new .NET 8 ASP.NET MVC app using the latest GCF
 ### 1. Create Solution and MVC Project
 
 ```powershell
-mkdir GCFHello && cd GCFHello
-dotnet new sln -n GCFHello
-dotnet new mvc -n GCFHello.Web -f net8.0
-dotnet sln add GCFHello.Web
+mkdir MyGCApp && cd MyGCApp
+dotnet new sln -n MyGCApp
+dotnet new mvc -n MyGCApp.Web -f net8.0
+dotnet sln add MyGCApp.Web
 ```
 
 ### 2. Add GCFoundation Packages
 
 ```powershell
-dotnet add GCFHello.Web package GCFoundation.Common
-dotnet add GCFHello.Web package GCFoundation.Components
-dotnet add GCFHello.Web package GCFoundation.Security
+dotnet add MyGCApp.Web package GCFoundation.Common
+dotnet add MyGCApp.Web package GCFoundation.Components
+dotnet add MyGCApp.Web package GCFoundation.Security
 # (Optional) Additional packages
-dotnet add GCFHello.Web package cloudscribe.Web.Navigation
-dotnet add GCFHello.Web package cloudscribe.Web.Localization
+dotnet add MyGCApp.Web package cloudscribe.Web.Navigation
+dotnet add MyGCApp.Web package cloudscribe.Web.Localization
 ```
 
 ### 3. Configuration
@@ -96,7 +96,7 @@ Add the `GCFoundation` configuration section.
 
 ```powershell
 dotnet build
-dotnet run --project GCFHello.Web
+dotnet run --project MyGCApp.Web
 ```
 
 ## Architecture
@@ -135,21 +135,21 @@ Ce guide montre comment créer une nouvelle application .NET 8 ASP.NET MVC en ut
 ### 1. Créer la solution et le projet MVC
 
 ```powershell
-mkdir GCFHello && cd GCFHello
-dotnet new sln -n GCFHello
-dotnet new mvc -n GCFHello.Web -f net8.0
-dotnet sln add GCFHello.Web
+mkdir MyGCApp && cd MyGCApp
+dotnet new sln -n MyGCApp
+dotnet new mvc -n MyGCApp.Web -f net8.0
+dotnet sln add MyGCApp.Web
 ```
 
 ### 2. Ajouter les paquets GCFoundation
 
 ```powershell
-dotnet add GCFHello.Web package GCFoundation.Common
-dotnet add GCFHello.Web package GCFoundation.Components
-dotnet add GCFHello.Web package GCFoundation.Security
+dotnet add MyGCApp.Web package GCFoundation.Common
+dotnet add MyGCApp.Web package GCFoundation.Components
+dotnet add MyGCApp.Web package GCFoundation.Security
 # (Facultatif) Paquets supplémentaires
-dotnet add GCFHello.Web package cloudscribe.Web.Navigation
-dotnet add GCFHello.Web package cloudscribe.Web.Localization
+dotnet add MyGCApp.Web package cloudscribe.Web.Navigation
+dotnet add MyGCApp.Web package cloudscribe.Web.Localization
 ```
 
 ### 3. Configuration
@@ -210,7 +210,7 @@ Ajouter la section de configuration `GCFoundation`.
 
 ```powershell
 dotnet build
-dotnet run --project GCFHello.Web
+dotnet run --project MyGCApp.Web
 ```
 
 ## Architecture
