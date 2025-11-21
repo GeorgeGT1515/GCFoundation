@@ -1,0 +1,114 @@
+name: CI Validation & Security
+
+on:
+  push:
+    branches: [ master, develop ]
+  pull_request:
+    branches: [ master, develop ]
+
+jobs:
+  build-and-test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.x'
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22.x'
+
+    - name: Install NPM packages
+      working-directory: GCFoundation.Components
+      run: npm install
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build --no-restore --configuration Release
+
+    - name: Test
+      run: dotnet test --no-build --configuration Release --collect:"XPlat Code Coverage"
+
+  e2e-tests:
+    name: Playwright E2E Tests
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.49.0-jammy
+    
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.x'
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22.x'
+
+    - name: Install NPM packages
+      working-directory: GCFoundation.Components
+      run: npm install
+
+    - name: Install E2E dependencies
+      working-directory: e2e
+      run: npm ci
+
+    - name: Start Web App
+      run: |
+        cd GCFoundation.Web
+        dotnet run --urls "http://localhost:5215" &
+        echo "Waiting for web app to start..."
+        timeout 60 bash -c 'until curl -s http://localhost:5215 > /dev/null; do sleep 2; done'
+      env:
+        FoundationComponentsSettings__IncludeGCDSResources: 'false'
+        FoundationComponentsSettings__IncludeFontAwesome: 'false'
+        DISABLE_HTTPS_REDIRECT: 'true'
+
+    - name: Run Playwright Smoke Tests
+      working-directory: e2e
+      run: npm run test:smoke
+      env:
+        PLAYWRIGHT_BASE_URL: http://localhost:5215
+
+    - uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: playwright-report
+        path: e2e/playwright-report/
+        retention-days: 30
+
+  security-scan:
+    name: Security Analysis
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v3
+      with:
+        languages: csharp, javascript
+
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v3
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v3
+
