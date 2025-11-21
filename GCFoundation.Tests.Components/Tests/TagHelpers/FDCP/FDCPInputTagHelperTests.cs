@@ -43,6 +43,9 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             [DataType(DataType.Date)]
             public DateTime DateProperty { get; set; }
 
+            [DataType(DataType.DateTime)]
+            public DateTime DateTimeProperty { get; set; }
+
             public bool BoolProperty { get; set; }
 
             [DataType(DataType.MultilineText)]
@@ -198,7 +201,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         {
             // Arrange
             var tagHelper = SetupTagHelper("RequiredTextProperty");
-            
+
             // Act
             tagHelper.Process(_context, _output);
 
@@ -209,7 +212,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Equal("RequiredTextProperty", _output.Attributes["name"].Value);
             Assert.Contains("label", _output.Attributes.Select(a => a.Name));
             Assert.Contains("lang", _output.Attributes.Select(a => a.Name));
-            
+
             // Note: Validation attributes (like validate-on) are handled by the metadata provider
             // In a real application with proper ASP.NET Core model binding, these would be present
             // This test focuses on verifying the tag helper works with properties that have validation attributes
@@ -246,5 +249,25 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Equal("NumberProperty", _output.Attributes["input-id"].Value);
             Assert.Equal("NumberProperty", _output.Attributes["name"].Value);
         }
+
+        [Fact]
+        public void Process_DateTimeProperty_Correctly()
+        {
+
+            // Arrange
+            var tagHelper = SetupTagHelper(
+                "DateTimeProperty",
+                new TestModel { DateTimeProperty = new DateTime(2024, 01, 01) }
+            );
+
+            // Act
+            tagHelper.Process(_context, _output);
+
+            // Assert
+            Assert.Equal("2024-01-01", _output.Attributes["value"].Value);
+            Assert.Equal("date", _output.Attributes["type"].Value);
+
+        }
+
     }
 }
