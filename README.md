@@ -1,5 +1,9 @@
 # GCFoundation
 
+[![CI Validation & Security](https://github.com/tbs-imtd/GCFoundation/actions/workflows/ci-validation.yml/badge.svg)](https://github.com/tbs-imtd/GCFoundation/actions/workflows/ci-validation.yml)
+[![Publish NuGet Packages](https://github.com/tbs-imtd/GCFoundation/actions/workflows/publish-nuget.yml/badge.svg)](https://github.com/tbs-imtd/GCFoundation/actions/workflows/publish-nuget.yml)
+[![Deploy Web App](https://github.com/tbs-imtd/GCFoundation/actions/workflows/deploy-web.yml/badge.svg)](https://github.com/tbs-imtd/GCFoundation/actions/workflows/deploy-web.yml)
+
 **GCFoundation** is a comprehensive .NET 8 ASP.NET MVC foundation designed for building Government of Canada (GC) web applications. It provides a robust starting point with pre-configured components, security policies, session management, and localization features, ensuring compliance with GC standards.
 
 ## Features

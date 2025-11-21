@@ -1,0 +1,41 @@
+name: Publish NuGet Packages
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  publish:
+    name: Pack and Publish
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.x'
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22.x'
+
+    - name: Install NPM packages
+      working-directory: GCFoundation.Components
+      run: npm install
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Pack GCFoundation.Common
+      run: dotnet pack GCFoundation.Common/GCFoundation.Common.csproj --configuration Release --output ./nupkgs
+
+    - name: Pack GCFoundation.Components
+      run: dotnet pack GCFoundation.Components/GCFoundation.Components.csproj --configuration Release --output ./nupkgs
+
+    - name: Publish to NuGet.org
+      run: dotnet nuget push ./nupkgs/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+
