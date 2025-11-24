@@ -126,7 +126,7 @@
   <data name="Index_Features" xml:space="preserve">
     <value>&lt;gcds-heading tag="h2"&gt;Features:&lt;/gcds-heading&gt;
 &lt;gcds-text&gt;
-    &lt;ul&gt;
+    &lt;ul class="list-disc"&gt;
         &lt;li&gt;Implements the &lt;gcds-link href="https://design-system.alpha.canada.ca/en/" target="_blank"&gt;GC Design System&lt;/gcds-link&gt;&lt;/li&gt;
         &lt;li&gt;Includes a security module&lt;/li&gt;
         &lt;li&gt;Standardizes form error handling&lt;/li&gt;

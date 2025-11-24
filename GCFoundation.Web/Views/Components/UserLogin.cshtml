@@ -23,7 +23,7 @@
     </gcds-grid>
 
     <!-- Live Examples Section -->
-    <gcds-grid columns="1fr" class="fdcp-mt-400">
+    <gcds-grid columns="1fr" class="mt-400">
         <div>
             <gcds-heading tag="h2">@Components.UserLogin_LiveExamples</gcds-heading>
             <gcds-text>
@@ -33,10 +33,10 @@
     </gcds-grid>
 
     <!-- Live Example with Actual Authentication State -->
-    <gcds-grid columns="1fr" class="fdcp-mt-300">
+    <gcds-grid columns="1fr" class="mt-300">
         <div>
             <gcds-heading tag="h3" size="h4" >@Components.UserLogin_CurrentUserState</gcds-heading>
-            <gcds-text class="fdcp-mb-200">
+            <gcds-text class="mb-200">
                 @Components.UserLogin_CurrentUserState_Description
                 @if (User?.Identity?.IsAuthenticated == true)
                 {
@@ -58,7 +58,7 @@
             
             @if (User?.Identity?.IsAuthenticated != true)
             {
-                <div class="fdcp-mt-200">
+                <div class="mt-200">
                     <gcds-text>@Components.UserLogin_SimulateLoginNote</gcds-text>
                 </div>
             }
@@ -66,10 +66,10 @@
     </gcds-grid>
 
     <!-- Static Examples Grid -->
-    <gcds-grid columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr" class="fdcp-mt-300" equal-row-height>
+    <gcds-grid columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr" class="mt-300" equal-row-height>
         <fdcp-card>
             <gcds-heading tag="h3" size="h4" >@Components.UserLogin_DefaultMode</gcds-heading>
-            <gcds-text class="fdcp-mb-200">@Components.UserLogin_DefaultMode_Description</gcds-text>
+            <gcds-text class="mb-200">@Components.UserLogin_DefaultMode_Description</gcds-text>
             @{
                 var defaultUser = UserLoginService.CreateViewModel(
                     userName: "Marie Dubois",
@@ -90,7 +90,7 @@
 
         <fdcp-card>
             <gcds-heading tag="h3" size="h4" >@Components.UserLogin_SessionExpiring</gcds-heading>
-            <gcds-text class="fdcp-mb-200">@Components.UserLogin_SessionExpiring_Description</gcds-text>
+            <gcds-text class="mb-200">@Components.UserLogin_SessionExpiring_Description</gcds-text>
             @{
                 var expiringUser = UserLoginService.CreateViewModel(
                     userName: "Sarah Johnson",
@@ -110,10 +110,10 @@
     </gcds-grid>
 
     <!-- Not Authenticated Example -->
-    <gcds-grid columns="1fr" class="fdcp-mt-200">
+    <gcds-grid columns="1fr" class="mt-200">
         <div>
             <gcds-heading tag="h3" size="h4" >@Components.UserLogin_NotAuthenticatedState</gcds-heading>
-            <gcds-text class="fdcp-mb-200">@Components.UserLogin_NotAuthenticatedState_Description</gcds-text>
+            <gcds-text class="mb-200">@Components.UserLogin_NotAuthenticatedState_Description</gcds-text>
             @{
                 var anonymousUser = UserLoginService.CreateAnonymousViewModel();
             }
@@ -122,7 +122,7 @@
     </gcds-grid>
 
     <!-- Configuration Section -->
-    <gcds-grid columns="1fr" class="fdcp-mt-500">
+    <gcds-grid columns="1fr" class="mt-500">
         <div>
             <gcds-heading tag="h2">@Components.UserLogin_ConfigurationOptions</gcds-heading>
             <gcds-text>
@@ -143,7 +143,7 @@
     "ProfileUrl": "/profile",
     "LogoutUrl": "/authentication/logout",
     "LoginUrl": "/authentication/login",
-    "ContainerCssClasses": "fdcp-mb-200",
+    "ContainerCssClasses": "mb-200",
     "ShowUserAvatar": false,
     "CustomGreetingKey": null,
     "Position": "header"
@@ -187,20 +187,20 @@ userModel.Settings = customSettings;</code></pre>
         </gcds-details>
 
     <!-- Authentication Methods -->
-    <gcds-grid columns="1fr" class="fdcp-mt-400">
+    <gcds-grid columns="1fr" class="mt-400">
         <div>
             <gcds-heading tag="h2">@Components.UserLogin_SupportedAuthMethods</gcds-heading>
             <gcds-text>
                 @Components.UserLogin_SupportedAuthMethods_Description
             </gcds-text>
             
-            <gcds-grid columns="1fr" columns-tablet="1fr 1fr" class="fdcp-mt-300">
+            <gcds-grid columns="1fr" columns-tablet="1fr 1fr" class="mt-300">
                 <div>
                     <gcds-heading tag="h3" size="h4" >@Components.UserLogin_CookieAuth</gcds-heading>
                     <gcds-text>
                         @Components.UserLogin_CookieAuth_Description
                     </gcds-text>
-                    <gcds-text class="fdcp-mt-200">
+                    <gcds-text class="mt-200">
                         @Html.Raw(Components.UserLogin_CookieAuth_Benefits)
                     </gcds-text>
                 </div>
@@ -210,7 +210,7 @@ userModel.Settings = customSettings;</code></pre>
                     <gcds-text>
                         @Components.UserLogin_AzureAD_Description
                     </gcds-text>
-                    <gcds-text class="fdcp-mt-200">
+                    <gcds-text class="mt-200">
                         @Html.Raw(Components.UserLogin_AzureAD_Benefits)
                     </gcds-text>
                 </div>
@@ -220,7 +220,7 @@ userModel.Settings = customSettings;</code></pre>
                     <gcds-text>
                         @Components.UserLogin_JWTTokens_Description
                     </gcds-text>
-                    <gcds-text class="fdcp-mt-200">
+                    <gcds-text class="mt-200">
                         @Html.Raw(Components.UserLogin_JWTTokens_Benefits)
                     </gcds-text>
                 </div>
@@ -230,7 +230,7 @@ userModel.Settings = customSettings;</code></pre>
                     <gcds-text>
                         @Components.UserLogin_ExternalProviders_Description
                     </gcds-text>
-                    <gcds-text class="fdcp-mt-200">
+                    <gcds-text class="mt-200">
                         @Html.Raw(Components.UserLogin_ExternalProviders_Benefits)
                     </gcds-text>
                 </div>
@@ -239,10 +239,10 @@ userModel.Settings = customSettings;</code></pre>
     </gcds-grid>
 
     <!-- Documentation Links -->
-    <gcds-grid columns="1fr" class="fdcp-mt-400">
+    <gcds-grid columns="1fr" class="mt-400">
         <div>
             <gcds-heading tag="h2">@Components.UserLogin_AdditionalResources</gcds-heading>
-            <gcds-grid columns="1fr" columns-tablet="1fr 1fr 1fr" class="fdcp-mt-200" equal-row-height>
+            <gcds-grid columns="1fr" columns-tablet="1fr 1fr 1fr" class="mt-200" equal-row-height>
 
                 <gcds-card card-title="@Components.UserLogin_CompleteExamples" href="@Url.Action("Index", "UserLoginExample")" description="@Components.UserLogin_CompleteExamples_Description" card-title-tag="h4">
                 </gcds-card>
@@ -258,7 +258,7 @@ userModel.Settings = customSettings;</code></pre>
     </gcds-grid>
 
     <!-- Implementation Guide -->
-    <gcds-grid columns="1fr" class="fdcp-mt-400">
+    <gcds-grid columns="1fr" class="mt-400">
         <div>
             <gcds-heading tag="h2">@Components.UserLogin_QuickImplementation</gcds-heading>
             <ol>

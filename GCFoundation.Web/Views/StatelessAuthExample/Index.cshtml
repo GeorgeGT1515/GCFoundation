@@ -17,7 +17,7 @@
     </gcds-grid>
 
     <!-- Current Authentication Status -->
-    <gcds-grid columns="1fr" class="fdcp-mt-300">
+    <gcds-grid columns="1fr" class="mt-300">
         <fdcp-card card-title="@Components.StatelessAuth_Current_Status_Title" tag="article">
             @if (User?.Identity?.IsAuthenticated == true)
             {
@@ -33,10 +33,10 @@
     </gcds-grid>
 
     <!-- Interactive Demo -->
-    <gcds-grid columns="1fr" columns-tablet="1fr 1fr" class="fdcp-mt-400" equal-row-height="true">
+    <gcds-grid columns="1fr" columns-tablet="1fr 1fr" class="mt-400" equal-row-height="true">
         <fdcp-card card-title="@Components.StatelessAuth_Interactive_Demo_Title" tag="article">
             <gcds-text>@Components.StatelessAuth_Demo_Description</gcds-text>
-            <div class="fdcp-mt-200">
+            <div class="mt-200">
                 @if (User?.Identity?.IsAuthenticated == true)
                 {
                     <form method="post" asp-controller="StatelessAuthExample" asp-action="CookieLogout" class="inline-form">
@@ -44,7 +44,7 @@
                             @Components.StatelessAuth_Logout_Button_Text
                         </gcds-button>
                     </form>
-                    <gcds-text class="fdcp-mt-200">@Components.StatelessAuth_Logout_Description</gcds-text>
+                    <gcds-text class="mt-200">@Components.StatelessAuth_Logout_Description</gcds-text>
                 }
                 else
                 {
@@ -53,7 +53,7 @@
                             @Components.StatelessAuth_Login_Button_Text
                         </gcds-button>
                     </form>
-                    <gcds-text class="fdcp-mt-200">@Components.StatelessAuth_Login_Description</gcds-text>
+                    <gcds-text class="mt-200">@Components.StatelessAuth_Login_Description</gcds-text>
                 }
             </div>
         </fdcp-card>
@@ -66,7 +66,7 @@
                 <li>✅ @Components.StatelessAuth_Cookie_Benefit_3</li>
                 <li>✅ Works across load-balanced servers</li>
             </ul>
-            <div class="fdcp-mt-200">
+            <div class="mt-200">
                 <gcds-button button-role="primary" type="button" button-id="load-user-info-btn" size="small">
                     @Components.StatelessAuth_User_Info_Button
                 </gcds-button>
@@ -79,8 +79,8 @@
     </gcds-grid>
 
     <!-- Results Display (hidden by default) -->
-    <div id="demo-results" class="fdcp-d-none">
-        <gcds-grid columns="1fr" class="fdcp-mt-300">
+    <div id="demo-results" class="d-none">
+        <gcds-grid columns="1fr" class="mt-300">
             <fdcp-card card-title="@Components.StatelessAuth_Demo_Results_Title" tag="article">
                 <pre id="results-content"></pre>
             </fdcp-card>
@@ -88,19 +88,19 @@
     </div>
 
     <!-- Stateless Authentication Info -->
-    <gcds-grid columns="1fr" class="fdcp-mt-400">
+    <gcds-grid columns="1fr" class="mt-400">
         <div>
             <gcds-heading tag="h2">@Components.StatelessAuth_Authentication_Methods_Title</gcds-heading>
-            <gcds-text class="fdcp-mt-200">
+            <gcds-text class="mt-200">
                 @Components.StatelessAuth_Demo_Description
             </gcds-text>
         </div>
     </gcds-grid>
 
-    <gcds-grid columns="1fr" columns-tablet="1fr 1fr" class="fdcp-mt-300" equal-row-height="true">
+    <gcds-grid columns="1fr" columns-tablet="1fr 1fr" class="mt-300" equal-row-height="true">
         <fdcp-card card-title="@Components.StatelessAuth_Cookie_Method_Title" tag="article">
             <gcds-text>@Components.StatelessAuth_Demo_Description</gcds-text>
-            <ul class="fdcp-mt-200">
+            <ul class="mt-200">
                 <li>@Components.StatelessAuth_Cookie_Benefit_1</li>
                 <li>@Components.StatelessAuth_Cookie_Benefit_2</li>
                 <li>@Components.StatelessAuth_Cookie_Benefit_3</li>
@@ -109,7 +109,7 @@
 
         <fdcp-card card-title="@Components.StatelessAuth_Azure_Method_Title" tag="article">
             <gcds-text>@Components.StatelessAuth_Azure_Benefit_3</gcds-text>
-            <ul class="fdcp-mt-200">
+            <ul class="mt-200">
                 <li>@Components.StatelessAuth_Azure_Benefit_1</li>
                 <li>@Components.StatelessAuth_Azure_Benefit_2</li>
                 <li>Office 365 integration</li>
@@ -118,7 +118,7 @@
 
         <fdcp-card card-title="@Components.StatelessAuth_JWT_Method_Title" tag="article">
             <gcds-text>@Components.StatelessAuth_JWT_Benefit_2</gcds-text>
-            <ul class="fdcp-mt-200">
+            <ul class="mt-200">
                 <li>@Components.StatelessAuth_JWT_Benefit_1</li>
                 <li>@Components.StatelessAuth_JWT_Benefit_3</li>
                 <li>Can be verified independently</li>
@@ -127,7 +127,7 @@
 
         <fdcp-card card-title="🌐 OAuth Providers" tag="article">
             <gcds-text>External authentication providers (Google, GitHub, etc.). Good for public-facing applications.</gcds-text>
-            <ul class="fdcp-mt-200">
+            <ul class="mt-200">
                 <li>No credential management</li>
                 <li>User convenience</li>
                 <li>Social login options</li>
@@ -135,13 +135,13 @@
         </fdcp-card>
     </gcds-grid>
 
-    <gcds-grid columns="1fr" class="fdcp-mt-400">
+    <gcds-grid columns="1fr" class="mt-400">
         <fdcp-card card-title="💡 Integration with User Login Partial" tag="article">
             <gcds-text>
                 <strong>The User Login Partial works seamlessly with all these authentication methods!</strong>
                 It automatically reads user information from claims rather than sessions, making it perfect for stateless authentication.
             </gcds-text>
-            <gcds-text class="fdcp-mt-200">
+            <gcds-text class="mt-200">
                 Whether you use cookies, Azure AD, JWT, or OAuth - the partial will automatically display the correct user information 
                 by mapping claim types like <code>ClaimTypes.Name</code>, <code>ClaimTypes.Email</code>, <code>ClaimTypes.Role</code>, etc.
             </gcds-text>
@@ -189,7 +189,7 @@
         const resultsContent = document.getElementById('results-content');
         
         resultsContent.textContent = `${title}:\n\n${JSON.stringify(data, null, 2)}`;
-        resultsDiv.classList.remove('fdcp-d-none');
+        resultsDiv.classList.remove('d-none');
         
         // Scroll to results
         resultsDiv.scrollIntoView({ behavior: 'smooth' });

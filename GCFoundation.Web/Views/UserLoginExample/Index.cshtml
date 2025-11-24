@@ -14,7 +14,7 @@
     </gcds-grid>
 
     <!-- Authentication Status -->
-    <gcds-grid columns="1fr" class="fdcp-mt-400">
+    <gcds-grid columns="1fr" class="mt-400">
         <section class="demo-panel demo-panel--accent" aria-labelledby="auth-status-title">
             <div class="demo-panel__header">
                 <gcds-heading tag="h2" size="h4" id="auth-status-title">@Components.UserLogin_AuthStatus_Title</gcds-heading>
@@ -36,17 +36,17 @@
         </section>
     </gcds-grid>
 
-    <gcds-grid columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr" class="fdcp-mt-300" equal-row-height>
+    <gcds-grid columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr" class="mt-300" equal-row-height>
         <fdcp-card>
             <gcds-text>@Components.UserLogin_TestAuthStates</gcds-text>
-            <div class="fdcp-mt-200">
-                <form method="post" asp-action="SimulateLogin" class="fdcp-d-inline-block">
+            <div class="mt-200">
+                <form method="post" asp-action="SimulateLogin" class="d-inline-block">
                     @Html.AntiForgeryToken()
                     <gcds-button button-role="primary" type="submit">
                         @Components.UserLogin_SimulateLogin
                     </gcds-button>
                 </form>
-                <form method="post" asp-action="SimulateLogout" class="fdcp-d-inline-block">
+                <form method="post" asp-action="SimulateLogout" class="d-inline-block">
                     @Html.AntiForgeryToken()
                     <gcds-button button-role="secondary" type="submit">
                         @Components.UserLogin_SimulateLogout
@@ -60,14 +60,14 @@
         </fdcp-card>
     </gcds-grid>
 
-    <gcds-grid columns="1fr" class="fdcp-mt-400">
+    <gcds-grid columns="1fr" class="mt-400">
         <div>
             <gcds-heading tag="h2">@Components.UserLogin_ConfigurationOptions</gcds-heading>
             <gcds-text>
                 @Components.UserLogin_ConfigDescription
             </gcds-text>
             
-            <gcds-details details-title="Configuration Settings" class="fdcp-mt-200">
+            <gcds-details details-title="Configuration Settings" class="mt-200">
                 <pre class="language-json"><code>{
   "UserLoginSettings": {
     "ShowUserName": true,
@@ -79,7 +79,7 @@
     "ProfileUrl": "/profile",
     "LogoutUrl": "/authentication/logout",
     "LoginUrl": "/authentication/login",
-    "ContainerCssClasses": "fdcp-mb-200",
+    "ContainerCssClasses": "mb-200",
     "ShowUserAvatar": false,
     "CustomGreetingKey": "WelcomeMessage",
     "Position": "header"
@@ -87,7 +87,7 @@
 }</code></pre>
             </gcds-details>
 
-            <gcds-details details-title="Usage in Controllers" class="fdcp-mt-200">
+            <gcds-details details-title="Usage in Controllers" class="mt-200">
                 <pre class="language-csharp"><code>// In your controller
 public IActionResult Index()
 {
@@ -114,7 +114,7 @@ public IActionResult CustomLogin()
 }</code></pre>
             </gcds-details>
 
-            <gcds-details details-title="Usage in Views" class="fdcp-mt-200">
+            <gcds-details details-title="Usage in Views" class="mt-200">
                 <pre class="language-cshtml"><code>@using GCFoundation.Components.Models
 @using GCFoundation.Components.Services
 @inject UserLoginService UserLoginService
@@ -128,7 +128,7 @@ public IActionResult CustomLogin()
         </div>
     </gcds-grid>
 
-    <gcds-grid columns="1fr" class="fdcp-mt-400">
+    <gcds-grid columns="1fr" class="mt-400">
         <div>
             <gcds-heading tag="h2">@Components.UserLogin_Features</gcds-heading>
             <ul>

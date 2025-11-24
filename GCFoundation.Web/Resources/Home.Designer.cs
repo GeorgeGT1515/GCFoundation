@@ -19,7 +19,7 @@ namespace GCFoundation.Web.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Home {
@@ -72,7 +72,7 @@ namespace GCFoundation.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to &lt;gcds-heading tag=&quot;h2&quot;&gt;Features:&lt;/gcds-heading&gt;
         ///&lt;gcds-text&gt;
-        ///    &lt;ul&gt;
+        ///    &lt;ul class=&quot;list-disc&quot;&gt;
         ///        &lt;li&gt;Implements the &lt;gcds-link href=&quot;https://design-system.alpha.canada.ca/en/&quot; target=&quot;_blank&quot;&gt;GC Design System&lt;/gcds-link&gt;&lt;/li&gt;
         ///        &lt;li&gt;Includes a security module&lt;/li&gt;
         ///        &lt;li&gt;Standardizes form error handling&lt;/li&gt;

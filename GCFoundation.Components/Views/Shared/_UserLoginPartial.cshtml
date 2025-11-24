@@ -7,7 +7,7 @@
 @{
     var settings = Model.Settings;
     var isAuthenticated = Model.IsAuthenticated;
-    var containerClasses = !string.IsNullOrWhiteSpace(settings.ContainerCssClasses) ? settings.ContainerCssClasses : "fdcp-mb-200";
+    var containerClasses = !string.IsNullOrWhiteSpace(settings.ContainerCssClasses) ? settings.ContainerCssClasses : "mb-200";
 }
 
 @{
@@ -18,8 +18,8 @@
 {
     if (isAuthenticated)
     {
-        <div class="user-login-inline fdcp-mt-150" aria-label="@Authentication.LoginFormAriaLabel">
-            <span class="user-login-inline__text">@Authentication.SignedInAs: <strong class="fdcp-ml-50">@(Model.DisplayName ?? "")</strong></span>
+        <div class="user-login-inline mt-150" aria-label="@Authentication.LoginFormAriaLabel">
+            <span class="user-login-inline__text">@Authentication.SignedInAs: <strong class="ml-50">@(Model.DisplayName ?? "")</strong></span>
             @if (settings.ShowLogoutButton)
             {
                 <gcds-button button-role="secondary" size="small" href="@settings.LogoutUrl">@Authentication.LogoutButton</gcds-button>
@@ -34,10 +34,10 @@ else
         {
             <!-- User logged in: Expanded display -->
                 <div class="user-login-content">
-                    <div class="user-header fdcp-mb-150">
+                    <div class="user-header mb-150">
                         @if (settings.ShowUserAvatar)
                         {
-                            <div class="user-avatar fdcp-mr-100">
+                            <div class="user-avatar mr-100">
                                 <gcds-avatar size="medium" initials="@Model.GeneratedInitials" />
                             </div>
                         }
@@ -45,7 +45,7 @@ else
                         <div class="user-basic-info">
                             @if (settings.ShowUserName && !string.IsNullOrWhiteSpace(Model.DisplayName))
                             {
-                                <h2 class="user-greeting fdcp-mb-050">
+                                <h2 class="user-greeting mb-050">
                                     @{
                                         var greetingKey = !string.IsNullOrWhiteSpace(settings.CustomGreetingKey) ? settings.CustomGreetingKey : "WelcomeMessage";
                                     }
@@ -62,17 +62,17 @@ else
     
                     @if (!string.IsNullOrWhiteSpace(Model.UserRole) || !string.IsNullOrWhiteSpace(Model.Department) || settings.ShowLoginTime)
                     {
-                        <div class="user-details fdcp-mb-150">
+                        <div class="user-details mb-150">
                             @if (!string.IsNullOrWhiteSpace(Model.UserRole))
                             {
-                                <p class="user-role fdcp-mb-050">
+                                <p class="user-role mb-050">
                                     <span class="detail-label">@Authentication.UserRole:</span> @Model.UserRole
                                 </p>
                             }
     
                             @if (!string.IsNullOrWhiteSpace(Model.Department))
                             {
-                                <p class="user-department fdcp-mb-050">
+                                <p class="user-department mb-050">
                                     <span class="detail-label">@Authentication.Department:</span> @Model.Department
                                 </p>
                             }
@@ -88,7 +88,7 @@ else
     
                     @if (settings.ShowSessionTimeout && Model.SessionExpiry.HasValue)
                     {
-                    <div class="session-status fdcp-mb-150" aria-label="@Authentication.LoginFormAriaLabel">
+                    <div class="session-status mb-150" aria-label="@Authentication.LoginFormAriaLabel">
                             @if (Model.IsSessionExpiringSoon)
                             {
                                 <gcds-alert alert-role="warning" hide-close-btn="true">
@@ -126,7 +126,7 @@ else
         {
             <!-- Not Authenticated: Show sign in option -->
             <div class="user-login-content not-authenticated">
-                <div class="login-prompt fdcp-mb-150">
+                <div class="login-prompt mb-150">
                     <gcds-text size="body">@Authentication.NotLoggedIn</gcds-text>
                     <gcds-text size="small">@Authentication.PleaseSignIn</gcds-text>
                 </div>
