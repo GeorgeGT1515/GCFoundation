@@ -126,7 +126,7 @@
   <data name="Index_Features" xml:space="preserve">
     <value>&lt;gcds-heading tag="h2"&gt;Fonctionnalités :&lt;/gcds-heading&gt;
 &lt;gcds-text&gt;
-  &lt;ul&gt;
+  &lt;ul class="list-disc"&gt;
     &lt;li&gt;Implémente le &lt;gcds-link href="https://systeme-design.alpha.canada.ca/fr/" target="_blank"&gt;Système de design GC&lt;/gcds-link&gt;&lt;/li&gt;
     &lt;li&gt;Comprend un module de sécurité&lt;/li&gt;
     &lt;li&gt;Normalise la gestion des erreurs de formulaire&lt;/li&gt;
