@@ -269,5 +269,24 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 
         }
 
+        [Fact]
+        public void Process_DateTimeProperty_IgnoresTimeComponent()
+        {
+            // Arrange
+            var tagHelper = SetupTagHelper(
+                "DateTimeProperty",
+                new TestModel
+                {
+                    // 2024-01-01 at 15:30
+                    DateTimeProperty = new DateTime(2024, 1, 1, 15, 30, 0)
+                });
+
+            // Act
+            tagHelper.Process(_context, _output);
+
+            // Assert
+            Assert.Equal("2024-01-01", _output.Attributes["value"].Value);
+            Assert.Equal("date", _output.Attributes["type"].Value);
+        }
     }
 }
