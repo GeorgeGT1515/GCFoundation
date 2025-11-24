@@ -16,13 +16,13 @@
 
     @if (position == "header")
     {
-        <gcds-alert alert-role="info" class="fdcp-mt-300">
+        <gcds-alert alert-role="info" class="mt-300">
             <gcds-text>@Components.UserLogin_Position_Header_Alert</gcds-text>
         </gcds-alert>
     }
     else if (position == "sidebar")
     {
-        <gcds-grid columns="1fr" columns-tablet="300px 1fr" columns-desktop="300px 1fr" class="fdcp-mt-300">
+        <gcds-grid columns="1fr" columns-tablet="300px 1fr" columns-desktop="300px 1fr" class="mt-300">
             <aside>
                 <section class="demo-panel" aria-labelledby="sidebar-login-title">
                     <div class="demo-panel__header">
@@ -40,11 +40,11 @@
     }
     else if (position == "content")
     {
-        <gcds-grid columns="1fr" class="fdcp-mt-300">
+        <gcds-grid columns="1fr" class="mt-300">
             <div>
                 <gcds-text>@Components.UserLogin_Position_Content_Before</gcds-text>
                 
-                <div class="fdcp-mt-300 fdcp-mb-300">
+                <div class="mt-300 mb-300">
                     <section class="demo-panel" aria-labelledby="inline-login-title">
                         <div class="demo-panel__header">
                             <gcds-heading tag="h2" size="h5" id="inline-login-title">@Components.UserLogin_Position_Inline_Title</gcds-heading>
@@ -61,13 +61,13 @@
     }
     else if (position == "footer")
     {
-        <gcds-grid columns="1fr" class="fdcp-mt-300">
+        <gcds-grid columns="1fr" class="mt-300">
             <div>
                 <gcds-text>@Components.UserLogin_Position_Footer_Content</gcds-text>
             </div>
         </gcds-grid>
         
-        <footer class="fdcp-mt-400 fdcp-pt-300 footer-border">
+        <footer class="mt-400 pt-300 footer-border">
             <section class="demo-panel" aria-labelledby="footer-login-title">
                 <div class="demo-panel__header">
                     <gcds-heading tag="h2" size="h5" id="footer-login-title">@Components.UserLogin_Position_Footer_Title</gcds-heading>
@@ -79,7 +79,7 @@
         </footer>
     }
 
-    <gcds-grid columns="1fr" class="fdcp-mt-400">
+    <gcds-grid columns="1fr" class="mt-400">
         <div>
             <gcds-text>
                 <a href="@Url.Action("Index")">@Components.UserLogin_Position_BackToExamples</a>

@@ -65,9 +65,9 @@ namespace GCFoundation.Components.Settings
 
         /// <summary>
         /// Gets or sets the CSS classes to apply to the login container.
-        /// Default uses foundation and GCDS classes.
+        /// Default uses GCFoundation and GCDS classes.
         /// </summary>
-        public string ContainerCssClasses { get; set; } = "fdcp-mb-200";
+        public string ContainerCssClasses { get; set; } = "mb-200";
 
         /// <summary>
         /// Gets or sets a value indicating whether to show user avatar/initials.

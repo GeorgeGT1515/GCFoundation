@@ -36,7 +36,7 @@ Add the user login settings to your `appsettings.json` file:
     "ProfileUrl": "/profile",
     "LogoutUrl": "/authentication/logout",
     "LoginUrl": "/authentication/login",
-    "ContainerCssClasses": "fdcp-mb-200",
+    "ContainerCssClasses": "mb-200",
     "ShowUserAvatar": false,
     "CustomGreetingKey": null,
     "Position": "header"
@@ -83,7 +83,7 @@ public IActionResult Index()
 | `ProfileUrl` | string | null | URL for the profile page |
 | `LogoutUrl` | string | "/authentication/logout" | URL for logout action |
 | `LoginUrl` | string | "/authentication/login" | URL for login action |
-| `ContainerCssClasses` | string | "fdcp-mb-200" | CSS classes for the container |
+| `ContainerCssClasses` | string | "mb-200" | CSS classes for the container |
 
 | `ShowUserAvatar` | bool | false | Show user avatar/initials |
 | `CustomGreetingKey` | string | null | Custom localization key for greeting |
