@@ -164,6 +164,8 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             // Assert
             Assert.Equal("gcds-checkbox", _output.TagName);
             Assert.Equal("BoolProperty", _output.Attributes["checkbox-id"].Value);
+            // Assert -checkbox sets only checkbox-id (no input-id)
+            Assert.DoesNotContain("input-id", _output.Attributes.Select(a => a.Name));
         }
 
         [Fact]
@@ -268,9 +270,10 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Equal("date", _output.Attributes["type"].Value);
             Assert.Equal("gcds-date-input", _output.TagName);
 
-            //Assert - Test that the TagHelper generates a unique input-id
-            Assert.Contains("input-id", _output.Attributes.Select(a => a.Name));
-            Assert.Contains("DateTimeProperty", _output.Attributes["input-id"].Value.ToString());
+            //Assert - default when no [DateFormat]
+            Assert.Equal("full", _output.Attributes["format"].Value);
+            // Assert -datetime doesn't set just input-id
+            Assert.DoesNotContain("input-id", _output.Attributes.Select(a => a.Name));
 
         }
 
