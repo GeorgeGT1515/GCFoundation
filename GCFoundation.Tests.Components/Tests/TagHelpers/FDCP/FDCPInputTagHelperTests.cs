@@ -266,6 +266,11 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             // Assert
             Assert.Equal("2024-01-01", _output.Attributes["value"].Value);
             Assert.Equal("date", _output.Attributes["type"].Value);
+            Assert.Equal("gcds-date-input", _output.TagName);
+
+            //Assert - Test that the TagHelper generates a unique input-id
+            Assert.Contains("input-id", _output.Attributes.Select(a => a.Name));
+            Assert.Contains("DateTimeProperty", _output.Attributes["input-id"].Value.ToString());
 
         }
 
