@@ -1,9 +1,7 @@
 ﻿using GCFoundation.Common.Utilities;
-using GCFoundation.Components.Helpers;
 using GCFoundation.Components.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.TagHelpers;
-using System.Globalization;
 using System.Text.Json;
 
 namespace GCFoundation.Components.TagHelpers.FDCP
@@ -74,14 +72,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
                 var errorJson = JsonSerializer.Serialize(errorLinks);
                 errorSummaryTag.Attributes.Add("error-links", errorJson);
-                errorSummaryTag.Attributes.Add("class", "d-block");
             }
-            else
-            {
-                // Hide error summary initially if no server-side errors
-                errorSummaryTag.Attributes.Add("class", "d-none");
-            }
-            
+
             // Add error summary at the beginning of form content
             output.Content.AppendHtml(errorSummaryTag);
 

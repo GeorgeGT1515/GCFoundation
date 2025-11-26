@@ -34,7 +34,7 @@ namespace GCFoundation.Common.Settings
         }
 
         /// <summary>
-        /// Gets the URI for the GC Design System CSS - for CSS Shortcuts - from the CDN.
+        /// Gets the URI for the GC Design System - for CSS Shortcuts - from the CDN.
         /// </summary>
         public Uri GCDSCssShortcutsCDN
         {
@@ -80,7 +80,6 @@ namespace GCFoundation.Common.Settings
         /// Gets or sets the version of Font Awesome being used.
         /// </summary>
         public string FontAwesomeVersion { get; set; } = "6.4.2";
-
 
         /// <summary>
         /// Gets or sets the English name of the application.
