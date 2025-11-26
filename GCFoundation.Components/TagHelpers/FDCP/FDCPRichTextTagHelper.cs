@@ -60,6 +60,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             string hintId = $"{fieldId}_hint";
             string labelId = $"{fieldId}_label";
             string errorId = $"{fieldId}_error";
+            string lang = LanguageUtility.GetCurrentApplicationLanguage();
 
             PropertyInfo? property = For.Metadata.ContainerType?.GetProperty(For.Metadata.PropertyName ?? string.Empty);
             string labelText = property != null ? GetLocalizedLabel(property) : fieldName;
@@ -72,11 +73,31 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 required = IsRequired.Value;
             }
 
-            // 1. Render label text container (referenced via aria-labelledby)
-            var label = new TagBuilder("div");
+            // Check for validation errors
+            bool hasError = ViewContext?.ModelState?.ContainsKey(fieldName) == true &&
+                            ViewContext.ModelState[fieldName]?.Errors?.Count > 0;
+            string? errorMessage = hasError 
+                ? ViewContext!.ModelState[fieldName]!.Errors[0].ErrorMessage 
+                : null;
+
+            // Build aria-describedby IDs list
+            var describedByIds = new List<string>();
+            if (!string.IsNullOrEmpty(hintText))
+            {
+                describedByIds.Add(hintId);
+            }
+            if (hasError && !string.IsNullOrEmpty(errorMessage))
+            {
+                describedByIds.Add(errorId);
+            }
+
+            // 1. Render label element
+            // Note: We don't use 'for' attribute because the editor is a contenteditable div, not an input.
+            // The association is made via aria-labelledby on the editor instead.
+            var label = new TagBuilder("span");
             label.AddCssClass("fdcp-rich-text-label");
             label.Attributes.Add("id", labelId);
-            label.Attributes.Add("lang", LanguageUtility.GetCurrentApplicationLanguage());
+            label.Attributes.Add("lang", lang);
 
             var labelTextSpan = new TagBuilder("span");
             labelTextSpan.InnerHtml.Append(labelText);
@@ -94,28 +115,36 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             output.Content.AppendHtml(label);
             
-            // 2. Render Hint (if any) - Typically GCDS puts hint inside or after label, 
-            // but for custom rich text we'll put it after label.
+            // 2. Render Hint (if any) - Placed after label following GCDS pattern
             if (!string.IsNullOrEmpty(hintText))
             {
-                var hintBuilder = new TagBuilder("p");
-                hintBuilder.AddCssClass("gcds-hint");
-                hintBuilder.Attributes.Add("id", hintId);
+                var hintBuilder = new TagBuilder("gcds-hint");
+                hintBuilder.Attributes.Add("hint-id", hintId);
+                hintBuilder.Attributes.Add("id", hintId); // Required for aria-describedby
                 hintBuilder.InnerHtml.Append(hintText);
                 output.Content.AppendHtml(hintBuilder);
             }
 
+            // 3. Render error message (before the editor, following GCDS pattern)
+            if (hasError && !string.IsNullOrEmpty(errorMessage))
+            {
+                var errorBuilder = new TagBuilder("gcds-error-message");
+                errorBuilder.Attributes.Add("message-id", errorId);
+                errorBuilder.Attributes.Add("id", errorId); // Required for aria-describedby
+                errorBuilder.InnerHtml.Append(errorMessage);
+                output.Content.AppendHtml(errorBuilder);
+            }
+
+            // 4. Build the editor container with proper ARIA attributes
             var editorBuilder = new TagBuilder("div");
             editorBuilder.Attributes.Add("id", editorId);
             editorBuilder.AddCssClass("fdcp-rich-text-editor");
             editorBuilder.Attributes.Add("data-fdcp-rich-text", "true");
             editorBuilder.Attributes.Add("data-for", fieldId);
             editorBuilder.Attributes.Add("data-toolbar", Toolbar.ToString().ToLowerInvariant());
+            editorBuilder.Attributes.Add("data-error-id", errorId);
             editorBuilder.Attributes.Add("style", $"height: {Height};");
-            editorBuilder.Attributes.Add("role", "textbox");
-            editorBuilder.Attributes.Add("aria-multiline", "true");
-            editorBuilder.Attributes.Add("lang", LanguageUtility.GetCurrentApplicationLanguage());
-            editorBuilder.Attributes.Add("aria-labelledby", labelId);
+            editorBuilder.Attributes.Add("lang", lang);
 
             if (!string.IsNullOrEmpty(Placeholder))
             {
@@ -128,26 +157,46 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 editorBuilder.Attributes.Add("data-templates", templatesJson);
             }
 
-            var describedByIds = new List<string>();
-            if (!string.IsNullOrEmpty(hintText))
+            // Set aria-invalid if there's an error
+            if (hasError)
             {
-                describedByIds.Add(hintId);
+                editorBuilder.Attributes.Add("aria-invalid", "true");
             }
 
+            // 5. Build the wrapper
             var wrapperBuilder = new TagBuilder("div");
             wrapperBuilder.AddCssClass("fdcp-rich-text-wrapper");
+            if (hasError)
+            {
+                wrapperBuilder.AddCssClass("has-error");
+            }
             wrapperBuilder.InnerHtml.AppendHtml(editorBuilder);
             output.Content.AppendHtml(wrapperBuilder);
 
+            // 6. Hidden input for form submission
             var inputBuilder = new TagBuilder("input");
             inputBuilder.Attributes.Add("type", "hidden");
             inputBuilder.Attributes.Add("id", fieldId);
             inputBuilder.Attributes.Add("name", fieldName);
-            inputBuilder.Attributes.Add("lang", LanguageUtility.GetCurrentApplicationLanguage());
+            inputBuilder.Attributes.Add("lang", lang);
             inputBuilder.Attributes.Add("aria-hidden", "true");
+            inputBuilder.Attributes.Add("data-error-id", errorId);
+            
             if (required)
             {
                 inputBuilder.Attributes.Add("required", "required");
+                // Store required error message for client-side validation
+                var requiredErrorMsg = string.Format(
+                    System.Globalization.CultureInfo.CurrentCulture,
+                    GCFoundation.Components.Resources.Validation.Field_Required, 
+                    labelText);
+                inputBuilder.Attributes.Add("data-required-error", requiredErrorMsg);
+            }
+
+            // Store the error message for client-side access if present
+            if (hasError && !string.IsNullOrEmpty(errorMessage))
+            {
+                inputBuilder.Attributes.Add("data-error-message", errorMessage);
             }
 
             var value = For.Model?.ToString();
@@ -157,29 +206,13 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             }
             output.Content.AppendHtml(inputBuilder);
 
-            bool hasError = ViewContext?.ModelState?.ContainsKey(fieldName) == true &&
-                            ViewContext.ModelState[fieldName]?.Errors?.Count > 0;
-            if (hasError)
-            {
-                string errorMessage = ViewContext!.ModelState[fieldName]!.Errors[0].ErrorMessage;
-                if (!string.IsNullOrEmpty(errorMessage))
-                {
-                    var errorBuilder = new TagBuilder("gcds-error-message");
-                    errorBuilder.Attributes.Add("message-id", errorId);
-                    errorBuilder.Attributes.Add("id", errorId);
-                    errorBuilder.InnerHtml.Append(errorMessage);
-                    output.Content.AppendHtml(errorBuilder);
-
-                    editorBuilder.Attributes.Add("aria-invalid", "true");
-                    describedByIds.Add(errorId);
-                }
-            }
-
-            if (describedByIds.Count > 0)
-            {
-                editorBuilder.Attributes.Add("aria-describedby", string.Join(' ', describedByIds));
-            }
+            // 7. Store label and describedBy info for JavaScript accessibility enhancement
+            output.Attributes.SetAttribute("data-label-id", labelId);
+            output.Attributes.SetAttribute("data-hint-id", !string.IsNullOrEmpty(hintText) ? hintId : "");
+            output.Attributes.SetAttribute("data-error-id", errorId);
+            output.Attributes.SetAttribute("data-described-by", string.Join(' ', describedByIds));
         }
+
         private static void AppendClass(TagHelperOutput output, string classNames)
         {
             if (output.Attributes.TryGetAttribute("class", out var existing))

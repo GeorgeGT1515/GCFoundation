@@ -800,6 +800,9 @@
   <data name="Form_Bio_Hint" xml:space="preserve">
     <value>Write a short biography about yourself.</value>
   </data>
+  <data name="Form_Bio_Placeholder" xml:space="preserve">
+    <value>Share a short biography using headings, emphasis and lists.</value>
+  </data>
   <data name="Form_Bio_Label" xml:space="preserve">
     <value>Bio</value>
   </data>

@@ -5,12 +5,14 @@
     display: block;
     font-family: "Noto Sans", sans-serif;
 
-    // Label styling matching GCDS if not using gcds-label
-    .fdcp-rich-text-label {
+    // Label styling matching GCDS pattern
+    .fdcp-rich-text-label,
+    label.fdcp-rich-text-label {
         display: block;
         color: $gcds-label-text;
         margin-bottom: 0.25rem;
         font: $gcds-label-font-desktop;
+        cursor: pointer;
 
         .label--required {
             font-weight: $gcds-label-required-font-weight;
@@ -18,7 +20,19 @@
         }
     }
 
-    // Hint styling
+    // GCDS hint component styling
+    gcds-hint {
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    // GCDS error message styling
+    gcds-error-message {
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    // Hint styling (legacy)
     p.fdcp-rich-text-hint {
         margin-top: 0;
         margin-bottom: 0.5rem;
@@ -34,10 +48,18 @@
         gap: 0;
 
         &.has-error {
-            .ql-toolbar.ql-snow,
+            .ql-toolbar.ql-snow {
+                border-color: $gcds-danger-border;
+                border-bottom-color: $gcds-danger-border;
+            }
+            
             .ql-container.ql-snow {
                 border-color: $gcds-danger-border;
-                box-shadow: 0 0 0 1px rgba($gcds-danger-border, 0.25);
+                box-shadow: inset 0 0 0 1px $gcds-danger-border;
+            }
+
+            .ql-editor:focus {
+                outline-color: $gcds-danger-border;
             }
         }
 
@@ -47,6 +69,7 @@
             border-width: $gcds-input-border-width;
             background-color: $gcds-bg-light;
             font-family: "Noto Sans", sans-serif;
+            border-radius: 4px 4px 0 0;
             
             button {
                 &:hover, &:focus {
@@ -68,6 +91,7 @@
             font-size: 1rem;
             background-color: $gcds-bg-white;
             color: $gcds-text-primary;
+            border-radius: 0 0 4px 4px;
             
             // Height managed by inline style or CSS
             min-height: 150px; 
@@ -80,8 +104,13 @@
             }
             
             &:focus {
-                outline: 2px solid $gcds-focus-border;
+                outline: 3px solid $gcds-focus-border;
                 outline-offset: 2px;
+            }
+
+            // Accessibility: ensure proper focus indication when aria-invalid
+            &[aria-invalid="true"]:focus {
+                outline-color: $gcds-danger-border;
             }
         }
     }
@@ -105,6 +134,7 @@
             border: 1px solid $gcds-border-default;
             font-size: 0.95rem;
             background-color: $gcds-bg-white;
+            border-radius: 4px;
 
             &:focus {
                 outline: 3px solid rgba($gcds-focus-border, 0.35);

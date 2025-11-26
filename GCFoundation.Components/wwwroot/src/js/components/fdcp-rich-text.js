@@ -4,6 +4,45 @@
     const EDITOR_SELECTOR = '[data-fdcp-rich-text="true"]';
     const TEMPLATE_LABEL_DEFAULT = 'Insert template';
 
+    // Localized error messages
+    const ERROR_MESSAGES = {
+        en: {
+            required: 'This field is required'
+        },
+        fr: {
+            required: 'Ce champ est obligatoire'
+        }
+    };
+
+    /**
+     * Get the current language from the page or element
+     */
+    function getLanguage(element) {
+        // Check element's lang attribute first
+        const elementLang = element?.getAttribute('lang');
+        if (elementLang) {
+            return elementLang.toLowerCase().substring(0, 2);
+        }
+        
+        // Check document lang
+        const docLang = document.documentElement.lang;
+        if (docLang) {
+            return docLang.toLowerCase().substring(0, 2);
+        }
+        
+        // Default to English
+        return 'en';
+    }
+
+    /**
+     * Get localized error message
+     */
+    function getLocalizedErrorMessage(key, element) {
+        const lang = getLanguage(element);
+        const messages = ERROR_MESSAGES[lang] || ERROR_MESSAGES['en'];
+        return messages[key] || ERROR_MESSAGES['en'][key];
+    }
+
     function initWhenReady() {
         if (typeof window.Quill === 'undefined') {
             if (document.querySelector(EDITOR_SELECTOR)) {
@@ -59,6 +98,7 @@
         appendTemplateMenu(editorContainer, quill, templatesPayload, inputId);
         enhanceToolbarAccessibility(editorContainer, hiddenInput);
         enhanceTooltipAccessibility(editorContainer);
+        setupValidation(quill, hiddenInput, editorContainer);
 
         editorContainer.dataset.quillInitialized = 'true';
     }
@@ -78,6 +118,7 @@
         }
 
         const wrapper = editorContainer.closest('.fdcp-rich-text-wrapper');
+        const container = editorContainer.closest('.fdcp-rich-text-container');
 
         quill.on('text-change', () => {
             const html = quill.root.innerHTML;
@@ -89,18 +130,86 @@
                 triggerInputEvents(hiddenInput, newValue);
             }
 
-            if (isEmpty) {
-                removeErrorState(editorContainer, wrapper);
+            // Clear error when user starts typing valid content
+            if (!isEmpty) {
+                removeErrorState(editorContainer, wrapper, container, hiddenInput);
             }
         });
 
-        hiddenInput.addEventListener('invalid', () => {
-            addErrorState(editorContainer, wrapper);
+        hiddenInput.addEventListener('invalid', (e) => {
+            e.preventDefault(); // Prevent default browser validation UI
+            const errorMsg = hiddenInput.getAttribute('data-required-error') || 
+                             getLocalizedErrorMessage('required', hiddenInput);
+            addErrorState(editorContainer, wrapper, container, hiddenInput, errorMsg);
         });
 
         hiddenInput.addEventListener('input', () => {
-            removeErrorState(editorContainer, wrapper);
+            if (hiddenInput.value && hiddenInput.value.trim().length > 0) {
+                removeErrorState(editorContainer, wrapper, container, hiddenInput);
+            }
         });
+    }
+
+    function setupValidation(quill, hiddenInput, editorContainer) {
+        const wrapper = editorContainer.closest('.fdcp-rich-text-wrapper');
+        const container = editorContainer.closest('.fdcp-rich-text-container');
+        const editorArea = editorContainer.querySelector('.ql-editor');
+
+        // Validate on blur (following GCDS pattern)
+        if (editorArea) {
+            editorArea.addEventListener('blur', () => {
+                validateField(quill, hiddenInput, editorContainer, wrapper, container);
+            });
+        }
+
+        // Handle form submission validation
+        const form = hiddenInput.closest('form');
+        if (form && !form.hasAttribute('data-rich-text-validation-bound')) {
+            form.setAttribute('data-rich-text-validation-bound', 'true');
+            form.addEventListener('submit', (e) => {
+                // Find all rich text editors in this form and validate them
+                const richTextInputs = form.querySelectorAll('input[data-error-id]');
+                let hasErrors = false;
+                
+                richTextInputs.forEach(input => {
+                    const editor = form.querySelector(`[data-for="${input.id}"]`);
+                    if (editor && editor.dataset.quillInitialized === 'true') {
+                        const editorWrapper = editor.closest('.fdcp-rich-text-wrapper');
+                        const editorContainer = editor.closest('.fdcp-rich-text-container');
+                        const quillInstance = window.Quill?.find(editor);
+                        
+                        if (quillInstance && !validateField(quillInstance, input, editor, editorWrapper, editorContainer)) {
+                            hasErrors = true;
+                        }
+                    }
+                });
+
+                if (hasErrors) {
+                    e.preventDefault();
+                    // Focus the first error
+                    const firstError = form.querySelector('.fdcp-rich-text-wrapper.has-error .ql-editor');
+                    if (firstError) {
+                        firstError.focus();
+                    }
+                }
+            });
+        }
+    }
+
+    function validateField(quill, hiddenInput, editorContainer, wrapper, container) {
+        const isEmpty = quill.getText().trim().length === 0;
+        const isRequired = hiddenInput.hasAttribute('required');
+
+        if (isRequired && isEmpty) {
+            // Get localized error message - prefer data attribute, fallback to localized default
+            const errorMsg = hiddenInput.getAttribute('data-required-error') || 
+                             getLocalizedErrorMessage('required', hiddenInput);
+            addErrorState(editorContainer, wrapper, container, hiddenInput, errorMsg);
+            return false;
+        }
+
+        removeErrorState(editorContainer, wrapper, container, hiddenInput);
+        return true;
     }
 
     function triggerInputEvents(hiddenInput, value) {
@@ -109,17 +218,87 @@
         hiddenInput.dispatchEvent(new CustomEvent('gcdsChange', { detail: value }));
     }
 
-    function addErrorState(editorContainer, wrapper) {
+    function addErrorState(editorContainer, wrapper, container, hiddenInput, errorMessage) {
+        const editorArea = editorContainer.querySelector('.ql-editor');
+        const errorId = hiddenInput.getAttribute('data-error-id') || `${hiddenInput.id}_error`;
+        
+        // Set aria-invalid on the editor area
+        if (editorArea) {
+            editorArea.setAttribute('aria-invalid', 'true');
+            updateAriaDescribedBy(editorArea, hiddenInput, errorId, true);
+        }
+        
         editorContainer.setAttribute('aria-invalid', 'true');
+        
         if (wrapper) {
             wrapper.classList.add('has-error');
         }
+
+        // Create or update gcds-error-message element
+        if (container && errorMessage) {
+            let errorElement = container.querySelector(`gcds-error-message[message-id="${errorId}"]`);
+            
+            if (!errorElement) {
+                errorElement = document.createElement('gcds-error-message');
+                errorElement.setAttribute('message-id', errorId);
+                errorElement.setAttribute('id', errorId);
+                
+                // Insert before the wrapper (after hint if present)
+                const hint = container.querySelector('gcds-hint');
+                if (hint && hint.nextSibling) {
+                    container.insertBefore(errorElement, hint.nextSibling);
+                } else if (wrapper) {
+                    container.insertBefore(errorElement, wrapper);
+                }
+            }
+            
+            // Set the error message as inner text content (gcds-error-message displays content)
+            errorElement.textContent = errorMessage;
+        }
     }
 
-    function removeErrorState(editorContainer, wrapper) {
+    function removeErrorState(editorContainer, wrapper, container, hiddenInput) {
+        const editorArea = editorContainer.querySelector('.ql-editor');
+        const errorId = hiddenInput.getAttribute('data-error-id') || `${hiddenInput.id}_error`;
+        
+        if (editorArea) {
+            editorArea.removeAttribute('aria-invalid');
+            updateAriaDescribedBy(editorArea, hiddenInput, errorId, false);
+        }
+        
         editorContainer.removeAttribute('aria-invalid');
+        
         if (wrapper) {
             wrapper.classList.remove('has-error');
+        }
+
+        // Remove the gcds-error-message element
+        if (container) {
+            const errorElement = container.querySelector(`gcds-error-message[message-id="${errorId}"]`);
+            if (errorElement) {
+                errorElement.remove();
+            }
+        }
+    }
+
+    function updateAriaDescribedBy(editorArea, hiddenInput, errorId, hasError) {
+        const hintId = `${hiddenInput.id}_hint`;
+        const describedBy = [];
+        
+        // Check if hint exists (now has proper id attribute)
+        const hintElement = document.getElementById(hintId);
+        if (hintElement) {
+            describedBy.push(hintId);
+        }
+        
+        if (hasError) {
+            describedBy.push(errorId);
+        }
+        
+        if (describedBy.length > 0) {
+            editorArea.setAttribute('aria-describedby', describedBy.join(' '));
+        } else {
+            editorArea.removeAttribute('aria-describedby');
         }
     }
 
@@ -129,29 +308,45 @@
             return;
         }
 
-        const label = document.getElementById(`${hiddenInput.id}_label`) || document.querySelector(`label[for="${hiddenInput.id}"]`);
+        // Set proper ARIA role for the editor area
+        editorArea.setAttribute('role', 'textbox');
+        editorArea.setAttribute('aria-multiline', 'true');
+
+        // Find and associate with label (it's a span, not a label element)
+        const labelId = `${hiddenInput.id}_label`;
+        const label = document.getElementById(labelId);
         if (label) {
-            if (!label.id) {
-                label.id = `${hiddenInput.id}-label`;
-            }
             editorArea.setAttribute('aria-labelledby', label.id);
+            
+            // Make label clickable to focus editor (like a real label would)
+            label.style.cursor = 'pointer';
+            label.addEventListener('click', () => {
+                editorArea.focus();
+            });
         }
 
+        // Set required attribute if needed
+        if (hiddenInput.hasAttribute('required')) {
+            editorArea.setAttribute('aria-required', 'true');
+        }
+
+        // Build initial describedby
         const describedBy = [];
-        const hint = document.getElementById(`${hiddenInput.id}_hint`);
+        const hintId = `${hiddenInput.id}_hint`;
+        const hint = document.getElementById(hintId);
         if (hint) {
-            describedBy.push(hint.id);
+            describedBy.push(hintId);
         }
 
-        const error = document.getElementById(`${hiddenInput.id}_error`);
+        const errorId = `${hiddenInput.id}_error`;
+        const error = document.getElementById(errorId);
         if (error) {
-            describedBy.push(error.id);
+            describedBy.push(errorId);
         }
 
         if (describedBy.length) {
             editorArea.setAttribute('aria-describedby', describedBy.join(' '));
         }
-
     }
 
     function appendTemplateMenu(editorContainer, quill, templatesPayload, inputId) {

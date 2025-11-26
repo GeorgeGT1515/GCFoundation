@@ -583,6 +583,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Share a short biography using headings, emphasis and lists..
+        /// </summary>
+        public static string Form_Bio_Placeholder {
+            get {
+                return ResourceManager.GetString("Form_Bio_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bio.
         /// </summary>
         public static string Form_Bio_Label {
