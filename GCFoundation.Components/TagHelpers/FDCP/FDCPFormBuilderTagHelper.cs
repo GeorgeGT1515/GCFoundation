@@ -63,8 +63,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 "<form action='{0}' method='{1}' class='gc-form' data-gcds-validation='true' novalidate='true'>",
                 Form.Action, Form.Method);
 
-            // Error summary component (initially hidden, will be populated by JavaScript)
-            content.AppendLine(CultureInfo.InvariantCulture, $"<gcds-error-summary lang='{LanguageUtility.GetCurrentApplicationLanguage()}' style='display: none;'></gcds-error-summary>");
+            // Error summary component
+            content.AppendLine(CultureInfo.InvariantCulture, $"<gcds-error-summary lang='{LanguageUtility.GetCurrentApplicationLanguage()}'></gcds-error-summary>");
 
             // Form sections
             foreach (var section in Form.Sections)
