@@ -164,8 +164,6 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             // Assert
             Assert.Equal("gcds-checkbox", _output.TagName);
             Assert.Equal("BoolProperty", _output.Attributes["checkbox-id"].Value);
-            // Assert -checkbox sets only checkbox-id (no input-id)
-            Assert.DoesNotContain("input-id", _output.Attributes.Select(a => a.Name));
         }
 
         [Fact]

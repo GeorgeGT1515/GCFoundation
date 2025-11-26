@@ -126,7 +126,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 switch (DataTypeAttribute.DataType)
                 {
                     case DataType.Date:
-                        return TagType.date;
 					case DataType.DateTime:
 						return TagType.date;
                     case DataType.MultilineText:
