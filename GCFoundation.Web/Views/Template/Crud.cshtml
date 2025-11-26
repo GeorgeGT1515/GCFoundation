@@ -3,7 +3,7 @@
 
 <gcds-heading tag="h1">@Html.Raw(Template.Crud_Name)</gcds-heading>
 
-<gcds-notice class="fdcp-mb-200" type="Warning" title="Work in progress..." title-tag="h2">This page is under development.</gcds-notice>
+<gcds-notice class="mb-200" type="Warning" title="Work in progress..." title-tag="h2">This page is under development.</gcds-notice>
 
 <div class="documentation-content">
     @* Introduction *@
@@ -16,8 +16,8 @@
     @* Preview *@
     <gcds-heading tag="h2" id="@Template.Preview_Anchor">@Template.Preview</gcds-heading>
     <p>
-        <gcds-button button-role="secondary" type="link" href="@Url.Action("CrudDemo", "Template")">@Template.Demo_Button <i class="fdcp-ms-100 fa-solid fa-desktop"></i></gcds-button>
-        <gcds-button button-role="secondary" type="link" href="@Url.Action("CrudCode", "Template")">@Template.Code_Button <i class="fdcp-ms-100 fa-solid fa-code"></i></gcds-button>
+        <gcds-button button-role="secondary" type="link" href="@Url.Action("CrudDemo", "Template")">@Template.Demo_Button <i class="ms-100 fa-solid fa-desktop"></i></gcds-button>
+        <gcds-button button-role="secondary" type="link" href="@Url.Action("CrudCode", "Template")">@Template.Code_Button <i class="ms-100 fa-solid fa-code"></i></gcds-button>
     </p>
     @* Preview image *@
     @* <img src="@Url.Content($"~/images/templates/basic-demo-{Localization.ThreeLetterLanguage}.png")" alt="@Template.Basic_Demo_Image_AltText" class="fdcp-border fdcp-rounded fdcp-w-75" /> *@
