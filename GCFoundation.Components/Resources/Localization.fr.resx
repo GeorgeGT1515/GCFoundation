@@ -148,7 +148,7 @@
     <value>Sans objet</value>
   </data>
   <data name="Required" xml:space="preserve">
-    <value>Obligatoire</value>
+    <value>requis</value>
   </data>
   <data name="Unavailable" xml:space="preserve">
     <value>Non-disponible</value>

@@ -40,7 +40,7 @@ namespace GCFoundation.Common.Settings
         {
             get
             {
-                return new Uri($"https://cdn.design-system.alpha.canada.ca/@gcds-core/css-shortcuts@{GCDSVersion}/dist/gcds-css-shortcuts.min.css");
+                return new Uri($"https://cdn.design-system.alpha.canada.ca/@gcds-core/css-shortcuts@1.0.1/dist/gcds-css-shortcuts.min.css");
             }
         }
 

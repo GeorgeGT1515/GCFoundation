@@ -37,7 +37,7 @@ namespace GCFoundation.Security.Middlewares
             string contentSecurityPolicy = $"default-src 'none'; " +
                                $"script-src 'self' {jsCDN} 'nonce-{nonce}'; " +
                                $"object-src 'none'; " +
-                               $"style-src 'self' {cssCDN} {cssHash} 'nonce-{nonce}'; " +
+                               $"style-src 'self' 'unsafe-hashes' {cssCDN} {cssHash} 'nonce-{nonce}'; " +
                                $"font-src 'self' {fontCDN}; " +
                                $"connect-src 'self' {connectCDN} http://localhost:* https://localhost:* ws://localhost:* wss://localhost:* https://cdn.design-system.alpha.canada.ca; " +
                                $"img-src 'self' data:; " +

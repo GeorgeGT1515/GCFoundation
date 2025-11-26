@@ -1119,6 +1119,123 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to table-basic.
+        /// </summary>
+        public static string Table_Basic_Anchor {
+            get {
+                return ResourceManager.GetString("Table_Basic_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee status.
+        /// </summary>
+        public static string Table_Basic_Caption {
+            get {
+                return ResourceManager.GetString("Table_Basic_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A comparison of employee program participation and status indicators..
+        /// </summary>
+        public static string Table_Basic_Summary {
+            get {
+                return ResourceManager.GetString("Table_Basic_Summary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Demonstrates captions, scoped headers, aria-describedby summaries, and the fdcp-table utility classes..
+        /// </summary>
+        public static string Table_Basic_Text {
+            get {
+                return ResourceManager.GetString("Table_Basic_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Responsive table.
+        /// </summary>
+        public static string Table_Basic_Title {
+            get {
+                return ResourceManager.GetString("Table_Basic_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Table.
+        /// </summary>
+        public static string Table_Name {
+            get {
+                return ResourceManager.GetString("Table_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Always include a caption and scoped headers so screen reader users retain table context..
+        /// </summary>
+        public static string Table_Notes_1 {
+            get {
+                return ResourceManager.GetString("Table_Notes_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrap larger tables in .fdcp-table-responsive to enable horizontal scrolling on mobile..
+        /// </summary>
+        public static string Table_Notes_2 {
+            get {
+                return ResourceManager.GetString("Table_Notes_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use FDCP table styles to present tabular data with WCAG-compliant captions, scoped headers, and responsive behaviour..
+        /// </summary>
+        public static string Table_Overview {
+            get {
+                return ResourceManager.GetString("Table_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screen-reader friendly caption that briefly describes the data..
+        /// </summary>
+        public static string Table_Properties_Caption {
+            get {
+                return ResourceManager.GetString("Table_Properties_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FDCP table modifiers such as fdcp-table-striped, fdcp-table-hover, and fdcp-table-condensed..
+        /// </summary>
+        public static string Table_Properties_Class {
+            get {
+                return ResourceManager.GetString("Table_Properties_Class", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use scope=&quot;col&quot; for header cells and scope=&quot;row&quot; for the first cell in each data row..
+        /// </summary>
+        public static string Table_Properties_Scope {
+            get {
+                return ResourceManager.GetString("Table_Properties_Scope", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hidden descriptive element referenced via aria-describedby to provide additional guidance..
+        /// </summary>
+        public static string Table_Properties_Summary {
+            get {
+                return ResourceManager.GetString("Table_Properties_Summary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Configurable user login information display with bilingual support.
         /// </summary>
         public static string Index_UserLoginPartial_Description {

@@ -1,12 +1,17 @@
 ﻿using GCFoundation.Common.Utilities;
+using GCFoundation.Components.Enums;
 using GCFoundation.Components.Helpers;
 using GCFoundation.Components.Models.FormBuilder;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Text.Encodings.Web;
 using System.Text;
+using System.Linq;
+using TextJson = System.Text.Json.JsonSerializer;
 
 namespace GCFoundation.Components.TagHelpers.FDCP
 {
@@ -218,6 +223,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                     input-id='{question.Id}'
                     {commonAttributes}>
                 </gcds-input>",
+                QuestionType.RichText => BuildRichText(question, language),
 
                 _ => throw new ArgumentException($"Unsupported question type: {question.Type}")
             }}</div>";
@@ -306,5 +312,100 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         /// <returns>The attribute string or empty if value is null.</returns>
         private static string AttributeIfNotNull(string name, string? value)
             => value is not null ? $" {name}='{value}'" : string.Empty;
+
+        private static string BuildRichText(FormQuestion question, string language)
+        {
+            var labelId = $"{question.Id}_label";
+            var hintId = $"{question.Id}_hint";
+            var editorId = $"{question.Id}_editor";
+            var errorId = $"{question.Id}_error";
+
+            var value = question.Value?.ToString() ?? string.Empty;
+            var encodedValue = HtmlEncoder.Default.Encode(value);
+            var placeholderAttr = !string.IsNullOrEmpty(question.Placeholder)
+                ? $" data-placeholder='{HtmlEncoder.Default.Encode(question.Placeholder)}'"
+                : string.Empty;
+            var styleAttr = !string.IsNullOrEmpty(question.Height)
+                ? $" style='height: {question.Height};'"
+                : string.Empty;
+            var templatesAttr = string.Empty;
+            if (question.Templates?.Any() == true)
+            {
+                var serializedTemplates = TextJson.Serialize(question.Templates);
+                templatesAttr = $" data-templates='{HtmlEncoder.Default.Encode(serializedTemplates)}'";
+            }
+
+            var toolbar = question.RichTextToolbar.ToString().ToLowerInvariant();
+
+            var describedByIds = new List<string>();
+            if (!string.IsNullOrEmpty(question.Hint))
+            {
+                describedByIds.Add(hintId);
+            }
+            if (!string.IsNullOrEmpty(question.ErrorMessage))
+            {
+                describedByIds.Add(errorId);
+            }
+
+            var ariaDescribedByAttr = describedByIds.Count > 0
+                ? $" aria-describedby='{string.Join(' ', describedByIds)}'"
+                : string.Empty;
+            var ariaRequiredAttr = question.IsRequired ? " aria-required='true'" : string.Empty;
+
+            var sb = new StringBuilder();
+            sb.AppendLine("<div class='gc-form-group fdcp-rich-text-container'>");
+
+            sb.AppendFormat(CultureInfo.InvariantCulture,
+                "<label class='fdcp-rich-text-label gcds-label' for='{0}' id='{1}' lang='{4}'>{2}{3}</label>",
+                question.Id,
+                labelId,
+                HtmlEncoder.Default.Encode(question.Label),
+                question.IsRequired ? "<span class='required'>*</span>" : string.Empty,
+                language);
+            sb.AppendLine();
+
+            if (!string.IsNullOrEmpty(question.Hint))
+            {
+                sb.AppendFormat(CultureInfo.InvariantCulture,
+                    "<p class='fdcp-rich-text-hint gcds-hint' id='{0}'>{1}</p>",
+                    hintId,
+                    HtmlEncoder.Default.Encode(question.Hint));
+                sb.AppendLine();
+            }
+
+            sb.AppendLine("<div class='fdcp-rich-text-wrapper'>");
+            sb.AppendFormat(CultureInfo.InvariantCulture,
+                "<div id='{0}' class='fdcp-rich-text-editor' data-fdcp-rich-text='true' data-for='{1}' data-toolbar='{2}' aria-multiline='true' role='textbox' lang='{8}' aria-labelledby='{6}'{7}{3}{4}{5}></div>",
+                editorId,
+                question.Id,
+                toolbar,
+                placeholderAttr,
+                styleAttr,
+                templatesAttr,
+                labelId,
+                ariaDescribedByAttr + ariaRequiredAttr,
+                language);
+            sb.AppendLine();
+            sb.AppendLine("</div>");
+
+            sb.AppendFormat(CultureInfo.InvariantCulture,
+                "<input type='hidden' id='{0}' name='{0}' value='{1}' {2} />",
+                question.Id,
+                encodedValue,
+                question.IsRequired ? "required='required'" : string.Empty);
+            sb.AppendLine();
+
+            if (!string.IsNullOrEmpty(question.ErrorMessage))
+            {
+                sb.AppendFormat(CultureInfo.InvariantCulture,
+                    "<gcds-error-message message-id='{0}' id='{0}'>{1}</gcds-error-message>",
+                    errorId,
+                    HtmlEncoder.Default.Encode(question.ErrorMessage));
+                sb.AppendLine();
+            }
+
+            sb.AppendLine("</div>");
+            return sb.ToString();
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using GCFoundation.Components.Controllers;
+using GCFoundation.Components.Enums;
 using GCFoundation.Components.Models.FormBuilder;
 using GCFoundation.Components.TagHelpers.GCDS;
 using GCFoundation.Web.Models;
@@ -71,6 +72,19 @@ namespace GCFoundation.Web.Controllers
             SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_FilteredSearch_Title}");
 
             var vm = BuildFilteredSearchComponentViewModel();
+            return View("Component", vm);
+        }
+
+        /// <summary>
+        /// Displays the standard table component demo page.
+        /// </summary>
+        /// <returns>The Table component view.</returns>
+        [HttpGet("table")]
+        public IActionResult Table()
+        {
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Table_Title}");
+
+            var vm = BuildTableComponentViewModel();
             return View("Component", vm);
         }
 
@@ -241,6 +255,16 @@ namespace GCFoundation.Web.Controllers
         }
 
         /// <summary>
+        /// Provides a friendly alias for the FDCP Grid Table documentation.
+        /// </summary>
+        /// <returns>The FDCP Grid Table component view.</returns>
+        [HttpGet("fdcp-grid-table")]
+        public IActionResult FdcpGridTable()
+        {
+            return TableGridJs();
+        }
+
+        /// <summary>
         /// Displays the User Login Partial component demo page.
         /// </summary>
         /// <returns>
@@ -393,6 +417,38 @@ namespace GCFoundation.Web.Controllers
 
             return vm;
         }
+        private static ComponentViewModel BuildTableComponentViewModel()
+        {
+            var vm = new ComponentViewModel();
+
+            vm.Name = Resources.Components.Table_Name;
+            vm.Overview = Resources.Components.Table_Overview;
+            vm.Notes = new List<string>()
+            {
+                Resources.Components.Table_Notes_1,
+                Resources.Components.Table_Notes_2
+            };
+            vm.Properties = new List<ComponentPropertyViewModel>()
+            {
+                new() { Name = "caption", DataType = "string", Description = Resources.Components.Table_Properties_Caption },
+                new() { Name = "aria-describedby", DataType = "string", Description = Resources.Components.Table_Properties_Summary },
+                new() { Name = "scope", DataType = "string", Description = Resources.Components.Table_Properties_Scope },
+                new() { Name = "class", DataType = "string", Description = Resources.Components.Table_Properties_Class }
+            };
+            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
+            {
+                new()
+                {
+                    Id = Resources.Components.Table_Basic_Anchor,
+                    Title = Resources.Components.Table_Basic_Title,
+                    Description = Resources.Components.Table_Basic_Text,
+                    PartialViewName = "DataTable/_Basic"
+                }
+            };
+            vm.Tag = "<table class=\"fdcp-table\">";
+
+            return vm;
+        }
         private List<ComponentIndexViewModel> BuildIndexComponentViewModel()
         {
             var vm = new List<ComponentIndexViewModel>()
@@ -405,6 +461,7 @@ namespace GCFoundation.Web.Controllers
                 new () { Name = Resources.Components.Index_Modal_Title, ShortDescription = Resources.Components.Index_Modal_Description, Href = Url.Action("Modal", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-modal.svg") },
                 new () { Name = Resources.Components.Index_PageHeading_Title, ShortDescription = Resources.Components.Index_PageHeading_Description, Href = Url.Action("PageHeading", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-page-heading.svg") },
                 new () { Name = Resources.Components.Index_Stepper_Title, ShortDescription = Resources.Components.Index_Stepper_Description, Href = Url.Action("Stepper", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-stepper-fdcp.svg") },
+                new () { Name = Resources.Components.Index_Table_Title, ShortDescription = Resources.Components.Index_Table_Description, Href = Url.Action("Table", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-table.svg") },
                 new () { Name = Resources.Components.Index_TableGridJs_Title, ShortDescription = Resources.Components.Index_TableGridJs_Description, Href = Url.Action("TableGridJs", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-table.svg") },
                 new () { Name = Resources.Components.Index_UserLoginPartial_Title, ShortDescription = Resources.Components.Index_UserLoginPartial_Description, Href = Url.Action("UserLogin", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-user-login-partial.svg") }
             };
@@ -818,6 +875,28 @@ namespace GCFoundation.Web.Controllers
                                         TargetQuestionId = "phoneNumber",
                                         Action = DependencyAction.Require,
                                         TriggerValue = "PHONE"
+                                    }
+                                }
+                            },
+                            new FormQuestion
+                            {
+                                Id = "projectSummary",
+                                Label = "Project Summary",
+                                Type = QuestionType.RichText,
+                                Hint = "Provide a summary (you can format text, add lists, etc.)",
+                                IsRequired = true,
+                                Placeholder = "Describe your project goals, milestones and outcomes.",
+                                Height = "260px",
+                                RichTextToolbar = FDCPRichTextToolbar.Standard,
+                                Templates = new Dictionary<string, string>
+                                {
+                                    {
+                                        "Accordion",
+                                        "<details class='gcds-details'><summary>Accordion title</summary><p>Accordion body content.</p></details>"
+                                    },
+                                    {
+                                        "Callout",
+                                        "<div class='fdcp-callout'><strong>Callout title</strong><p>Important supporting details go here.</p></div>"
                                     }
                                 }
                             },

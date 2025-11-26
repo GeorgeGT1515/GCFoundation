@@ -502,6 +502,45 @@
   <data name="Index_Table_Description" xml:space="preserve">
     <value>Un moyen d'afficher des informations dans un tableau</value>
   </data>
+  <data name="Table_Name" xml:space="preserve">
+    <value>Tableau de données</value>
+  </data>
+  <data name="Table_Overview" xml:space="preserve">
+    <value>Utilisez les styles de tableau FDCP pour présenter des données tabulaires conformes aux WCAG avec légendes et en-têtes structurés.</value>
+  </data>
+  <data name="Table_Basic_Title" xml:space="preserve">
+    <value>Tableau réactif</value>
+  </data>
+  <data name="Table_Basic_Anchor" xml:space="preserve">
+    <value>tableau-base</value>
+  </data>
+  <data name="Table_Basic_Text" xml:space="preserve">
+    <value>Démontre la légende, le résumé, les en-têtes avec portée et les classes utilitaires fdcp-table.</value>
+  </data>
+  <data name="Table_Basic_Caption" xml:space="preserve">
+    <value>Statut des employés</value>
+  </data>
+  <data name="Table_Basic_Summary" xml:space="preserve">
+    <value>Comparaison de la participation des employés aux programmes et des indicateurs d'état.</value>
+  </data>
+  <data name="Table_Notes_1" xml:space="preserve">
+    <value>Incluez toujours une légende et des en-têtes avec l’attribut scope pour conserver le contexte des lecteurs d’écran.</value>
+  </data>
+  <data name="Table_Notes_2" xml:space="preserve">
+    <value>Encapsulez les tableaux dans .fdcp-table-responsive afin de permettre le défilement horizontal sur mobile.</value>
+  </data>
+  <data name="Table_Properties_Caption" xml:space="preserve">
+    <value>Description, lisible par lecteur d'écran, qui explique ce que représentent les données.</value>
+  </data>
+  <data name="Table_Properties_Summary" xml:space="preserve">
+    <value>Élément masqué référencé par aria-describedby pour fournir des indications supplémentaires.</value>
+  </data>
+  <data name="Table_Properties_Scope" xml:space="preserve">
+    <value>Utilisez scope="col" pour les en-têtes de colonne et scope="row" pour l'en-tête de chaque ligne.</value>
+  </data>
+  <data name="Table_Properties_Class" xml:space="preserve">
+    <value>Modificateurs FDCP comme fdcp-table-striped, fdcp-table-hover ou fdcp-table-condensed.</value>
+  </data>
   <data name="Index_TableGridJs_Title" xml:space="preserve">
     <value>Tableau (Grid.js)</value>
   </data>

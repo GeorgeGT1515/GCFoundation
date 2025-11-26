@@ -1,0 +1,117 @@
+@use "../variables" as *;
+
+.fdcp-rich-text-container {
+    margin-bottom: 1.5rem; // Standard form spacing
+    display: block;
+    font-family: "Noto Sans", sans-serif;
+
+    // Label styling matching GCDS if not using gcds-label
+    .fdcp-rich-text-label {
+        display: block;
+        color: $gcds-label-text;
+        margin-bottom: 0.25rem;
+        font: $gcds-label-font-desktop;
+
+        .label--required {
+            font-weight: $gcds-label-required-font-weight;
+            margin-left: 0.25rem;
+        }
+    }
+
+    // Hint styling
+    p.fdcp-rich-text-hint {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        color: $gcds-text-secondary;
+        font-size: 0.875rem;
+        line-height: 1.4;
+    }
+
+    .fdcp-rich-text-wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+
+        &.has-error {
+            .ql-toolbar.ql-snow,
+            .ql-container.ql-snow {
+                border-color: $gcds-danger-border;
+                box-shadow: 0 0 0 1px rgba($gcds-danger-border, 0.25);
+            }
+        }
+
+        // Quill Overrides
+        .ql-toolbar.ql-snow {
+            border-color: $gcds-color-grayscale-900;
+            border-width: $gcds-input-border-width;
+            background-color: $gcds-bg-light;
+            font-family: "Noto Sans", sans-serif;
+            
+            button {
+                &:hover, &:focus {
+                    color: $gcds-focus-background;
+                    .ql-stroke {
+                        stroke: $gcds-focus-background;
+                    }
+                    .ql-fill {
+                        fill: $gcds-focus-background;
+                    }
+                }
+            }
+        }
+
+        .ql-container.ql-snow {
+            border-color: $gcds-color-grayscale-900;
+            border-width: $gcds-input-border-width;
+            font-family: "Noto Sans", sans-serif;
+            font-size: 1rem;
+            background-color: $gcds-bg-white;
+            color: $gcds-text-primary;
+            
+            // Height managed by inline style or CSS
+            min-height: 150px; 
+        }
+
+        .ql-editor {
+            &.ql-blank::before {
+                font-style: italic;
+                color: $gcds-text-secondary;
+            }
+            
+            &:focus {
+                outline: 2px solid $gcds-focus-border;
+                outline-offset: 2px;
+            }
+        }
+    }
+
+    .fdcp-rich-text-template-menu {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.25rem 0 0.5rem;
+
+        .fdcp-rich-text-template-label {
+            font-weight: 600;
+            color: $gcds-text-secondary;
+            font-size: 0.9rem;
+        }
+
+        .fdcp-rich-text-template-select {
+            min-width: 200px;
+            padding: 0.3rem 0.5rem;
+            border: 1px solid $gcds-border-default;
+            font-size: 0.95rem;
+            background-color: $gcds-bg-white;
+
+            &:focus {
+                outline: 3px solid rgba($gcds-focus-border, 0.35);
+                border-color: $gcds-focus-border;
+            }
+        }
+    }
+}
+
+

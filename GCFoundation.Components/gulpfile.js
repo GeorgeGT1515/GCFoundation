@@ -23,8 +23,12 @@ const isDev = process.env.NODE_ENV === 'development';
 // Paths
 const paths = {
     scss: {
-        // Only process main SCSS files (not partials)
-        src: 'wwwroot/src/scss/**/*.scss',
+        // Entry files only; partials (prefixed with "_") are excluded
+        entries: [
+            'wwwroot/src/scss/**/*.scss',
+            '!wwwroot/src/scss/**/_*.scss'
+        ],
+        watch: 'wwwroot/src/scss/**/*.scss',
         dest: 'wwwroot/css'
     },
     js: {
@@ -37,6 +41,12 @@ const paths = {
             css: 'node_modules/gridjs/dist/theme/*.min.css',
             dest: 'wwwroot/lib/gridjs',
             cssDest: 'wwwroot/lib/gridjs/theme'
+        },
+        quill: {
+            js: 'node_modules/quill/dist/quill.js',
+            css: 'node_modules/quill/dist/quill.snow.css',
+            dest: 'wwwroot/lib/quill',
+            cssDest: 'wwwroot/lib/quill'
         }
     }
 };
@@ -59,9 +69,8 @@ async function clean() {
 
 // Compile SCSS
 function styles() {
-    return src(paths.scss.src)
+    return src(paths.scss.entries)
         .pipe(plumber(errorHandler))
-        .pipe(newer({ dest: paths.scss.dest, ext: '.min.css' }))
         .pipe(sourcemaps.init())
         .pipe(sass({
             includePaths: ['wwwroot/src/scss'],
@@ -105,10 +114,25 @@ function copyGridjsCss() {
         .pipe(dest(paths.vendor.gridjs.cssDest));
 }
 
+// Copy Quill vendor assets
+function copyQuillJs() {
+    return src(paths.vendor.quill.js)
+        .pipe(plumber(errorHandler))
+        .pipe(newer(paths.vendor.quill.dest))
+        .pipe(dest(paths.vendor.quill.dest));
+}
+
+function copyQuillCss() {
+    return src(paths.vendor.quill.css)
+        .pipe(plumber(errorHandler))
+        .pipe(newer(paths.vendor.quill.cssDest))
+        .pipe(dest(paths.vendor.quill.cssDest));
+}
+
 // Build tasks
 export const build = series(
     clean,
-    parallel(styles, scripts, copyGridjsJs, copyGridjsCss)
+    parallel(styles, scripts, copyGridjsJs, copyGridjsCss, copyQuillJs, copyQuillCss)
 );
 
 // Watch task (run separately with 'gulp watch')
@@ -117,7 +141,7 @@ export const watchTask = function() {
     build();
     
     // Then watch for changes
-    watch(paths.scss.src, styles);
+    watch(paths.scss.watch, styles);
     watch(paths.js.src, scripts);
 };
 

@@ -1,4 +1,5 @@
-﻿@using GCFoundation.Web.Resources
+﻿@using GCFoundation.Components.Enums
+@using GCFoundation.Web.Resources
 @model GCFoundation.Web.Models.FormTestViewModel
 
 @* Sample form *@
@@ -31,7 +32,10 @@ else
         <fdcp-input for="@Model.Password" />
         <fdcp-input for="@Model.Website" />
         <fdcp-input for="@Model.Age" />
-        <fdcp-input for="@Model.Bio" />
+        <fdcp-rich-text for="@Model.Bio"
+                        toolbar="Standard"
+                        height="240px"
+                        placeholder="Share a short biography using headings, emphasis and lists." />
         <fdcp-input for="@Model.DateOfBirth" />
 
         <fdcp-select for="@Model.SelectedCountry" items="@Model.CountryOptions" />
@@ -53,7 +57,10 @@ else
         <fdcp-input for=""@Model.Password"" />
         <fdcp-input for=""@Model.Website"" />
         <fdcp-input for=""@Model.Age"" />
-        <fdcp-input for=""@Model.Bio"" />
+        <fdcp-rich-text for=""@Model.Bio""
+                        toolbar=""Standard""
+                        height=""240px""
+                        placeholder=""Share a short biography using headings, emphasis and lists."" />
         <fdcp-input for=""@Model.DateOfBirth"" />
 
         <fdcp-select for=""@Model.SelectedCountry"" items=""@Model.CountryOptions"" />

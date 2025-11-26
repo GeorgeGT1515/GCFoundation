@@ -148,7 +148,7 @@
     <value>Not available</value>
   </data>
   <data name="Required" xml:space="preserve">
-    <value>Required</value>
+    <value>required</value>
   </data>
   <data name="Unavailable" xml:space="preserve">
     <value>Unavailable</value>
