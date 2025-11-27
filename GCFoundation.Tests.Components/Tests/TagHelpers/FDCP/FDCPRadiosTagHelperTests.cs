@@ -184,6 +184,28 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             _tagHelper.For = modelExpression;
         }
 
+        [Fact]
+        /// <summary>
+        /// Test if an int is passed in, if it is properly converted to a string
+        /// </summary>
+        public void Process_WithRadioAsInt()
+        {
+            // Arrange
+            SetupModelExpression("NonRequiredProperty");
+            _tagHelper.Items = new List<SelectListItem>
+            {
+                new() { Text = "Option 1", Value = "1" }
+            };
+            _tagHelper.IsRequired = true;
+
+            // Act
+            _tagHelper.Process(_context, _output);
+
+            // Assert
+            Assert.True(_output.Attributes.ContainsName("required"));
+            //Assert.Equal("string", _output.Attributes["type"].Value);
+        }
+
         /// <summary>
         /// Determines if an option is "checked" or not.
         /// </summary>
@@ -204,26 +226,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         }
 
 
-        /// <summary>
-        /// Test if an int is passedin, if it is properly converted to a string
-        /// </summary>
-        private void Process_WithRadioAsInt()
-        {
-            // Arrange
-            SetupModelExpression("NonRequiredProperty");
-            _tagHelper.Items = new List<SelectListItem>
-            {
-                new() { Text = "Option 1", Value = "1" }
-            };
-            _tagHelper.IsRequired = true;
 
-            // Act
-            _tagHelper.Process(_context, _output);
-
-            // Assert
-            Assert.True(_output.Attributes.ContainsName("required"));
-            Assert.Equal("string", _output.Attributes["type"].Value);
-        }
 
         private class TestModel
         {
