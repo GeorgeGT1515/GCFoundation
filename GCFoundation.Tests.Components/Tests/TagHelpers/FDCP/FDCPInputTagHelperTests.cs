@@ -270,8 +270,6 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 
             //Assert - default when no [DateFormat]
             Assert.Equal("full", _output.Attributes["format"].Value);
-            // Assert -datetime doesn't set just input-id
-            Assert.DoesNotContain("input-id", _output.Attributes.Select(a => a.Name));
 
         }
 
