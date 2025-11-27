@@ -36,6 +36,7 @@ namespace GCFoundation.Components.Models.FormBuilder
         /// <summary>
         /// Gets or sets reusable HTML templates (label + markup) that can be inserted into the rich text editor.
         /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA2227:Collection properties should be read only", Justification = "Model property needs to be settable for deserialization")]
         public Dictionary<string, string>? Templates { get; set; }
 
         /// <summary>

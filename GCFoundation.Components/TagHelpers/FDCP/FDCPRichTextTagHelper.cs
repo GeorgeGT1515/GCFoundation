@@ -37,6 +37,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         /// Gets or sets the set of templates available for insertion within the editor.
         /// The dictionary key is the template name, the value is the HTML snippet.
         /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA2227:Collection properties should be read only", Justification = "Property is set by tag helper binding")]
         public IDictionary<string, string>? Templates { get; set; }
 
         /// <inheritdoc/>
@@ -186,10 +187,12 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             {
                 inputBuilder.Attributes.Add("required", "required");
                 // Store required error message for client-side validation
+#pragma warning disable CA1863 // Use CompositeFormat - not a performance-critical path
                 var requiredErrorMsg = string.Format(
                     System.Globalization.CultureInfo.CurrentCulture,
                     GCFoundation.Components.Resources.Validation.Field_Required, 
                     labelText);
+#pragma warning restore CA1863
                 inputBuilder.Attributes.Add("data-required-error", requiredErrorMsg);
             }
 

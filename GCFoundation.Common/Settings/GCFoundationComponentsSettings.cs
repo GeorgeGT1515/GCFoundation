@@ -36,7 +36,7 @@ namespace GCFoundation.Common.Settings
         /// <summary>
         /// Gets the URI for the GC Design System CSS - for CSS Shortcuts - from the CDN.
         /// </summary>
-        public Uri GCDSCssCssShortcutsCDN
+        public static Uri GCDSCssCssShortcutsCDN
         {
             get
             {
@@ -176,18 +176,20 @@ namespace GCFoundation.Common.Settings
         /// <summary>
         /// Gets or sets whether to load Grid.js from CDN instead of local assets.
         /// </summary>
-        public bool UseGridJsCdn { get; set; } = false;
+        public bool UseGridJsCdn { get; set; }
 
         /// <summary>
         /// Gets or sets the Grid.js CDN URL for the production bundle (minified).
         /// Example: https://unpkg.com/gridjs/dist/gridjs.production.min.js
         /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1056:URI-like properties should not be strings", Justification = "Configuration property bound from appsettings.json")]
         public string GridJsCdnJsUrl { get; set; } = "https://unpkg.com/gridjs/dist/gridjs.production.min.js";
 
         /// <summary>
         /// Gets or sets the Grid.js CDN CSS URL for the default theme (minified).
         /// Example: https://unpkg.com/gridjs/dist/theme/mermaid.min.css
         /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1056:URI-like properties should not be strings", Justification = "Configuration property bound from appsettings.json")]
         public string GridJsCdnCssUrl { get; set; } = "https://unpkg.com/gridjs/dist/theme/mermaid.min.css";
     }
 }

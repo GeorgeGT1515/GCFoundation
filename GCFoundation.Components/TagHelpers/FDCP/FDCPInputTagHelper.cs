@@ -76,7 +76,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 // Ensure the value attribute is in expected format by gcds-date-input (YYYY-MM-DD).
 				if (For?.Model is DateTime dateValue)
 				{
-					output.Attributes.SetAttribute("value", dateValue.ToString("yyyy-MM-dd"));
+					output.Attributes.SetAttribute("value", dateValue.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture));
 				}
 
             }

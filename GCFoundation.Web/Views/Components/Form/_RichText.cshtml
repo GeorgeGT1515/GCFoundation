@@ -1,0 +1,99 @@
+@using GCFoundation.Web.Resources
+@model GCFoundation.Web.Models.FormTestViewModel
+
+@* Rich Text Editor Documentation *@
+<gcds-heading tag="h2" id="@Components.Form_RichText_Anchor">@Components.Form_RichText_Title</gcds-heading>
+
+@Html.Raw(Components.Form_RichText_Description)
+
+<gcds-heading tag="h3">@Components.Form_RichText_Features_Title</gcds-heading>
+<ul class="fdcp-list">
+    <li>@Components.Form_RichText_Feature_Accessible</li>
+    <li>@Components.Form_RichText_Feature_Validation</li>
+    <li>@Components.Form_RichText_Feature_Bilingual</li>
+    <li>@Components.Form_RichText_Feature_Toolbars</li>
+    <li>@Components.Form_RichText_Feature_Templates</li>
+</ul>
+
+<gcds-heading tag="h3">@Components.Form_RichText_Usage_Title</gcds-heading>
+<pre><code class="language-cshtml">@Html.Raw(Html.Encode(@"<fdcp-rich-text for=""@Model.Bio""
+                toolbar=""Standard""
+                height=""240px""
+                placeholder=""@Components.Form_Bio_Placeholder"" />"))</code></pre>
+
+<gcds-heading tag="h3">@Components.Form_RichText_Model_Title</gcds-heading>
+@Html.Raw(Components.Form_RichText_Model_Description)
+
+<pre><code class="language-csharp">@Html.Raw(Html.Encode(@"[Required]
+[MinLength(10)]
+[MaxLength(2000)]
+[DataType(DataType.MultilineText)]
+[Display(Name = ""Form_Bio_Label"", Description = ""Form_Bio_Hint"", ResourceType = typeof(Resources.Components))]
+public string Bio { get; set; } = string.Empty;"))</code></pre>
+
+<gcds-heading tag="h3">@Components.Properties</gcds-heading>
+<div class="fdcp-table-responsive">
+    <table class="fdcp-table fdcp-table-striped" aria-describedby="richtext-properties-summary">
+        <caption class="visually-hidden">@Components.Form_RichText_Title @Components.Properties</caption>
+        <span id="richtext-properties-summary" class="visually-hidden">@Components.Form_RichText_Title properties table</span>
+        <thead>
+            <tr>
+                <th scope="col">@Components.Properties_Property</th>
+                <th scope="col">@Components.Properties_DataType</th>
+                <th scope="col">@Components.Properties_DefaultValue</th>
+                <th scope="col">@Components.Properties_Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>for</code></td>
+                <td><code>ModelExpression</code></td>
+                <td>—</td>
+                <td>@Components.Form_RichText_Properties_For</td>
+            </tr>
+            <tr>
+                <td><code>toolbar</code></td>
+                <td><code>RichTextToolbar</code></td>
+                <td><code>Basic</code></td>
+                <td>@Components.Form_RichText_Properties_Toolbar</td>
+            </tr>
+            <tr>
+                <td><code>height</code></td>
+                <td><code>string</code></td>
+                <td><code>200px</code></td>
+                <td>@Components.Form_RichText_Properties_Height</td>
+            </tr>
+            <tr>
+                <td><code>placeholder</code></td>
+                <td><code>string</code></td>
+                <td>—</td>
+                <td>@Components.Form_RichText_Properties_Placeholder</td>
+            </tr>
+            <tr>
+                <td><code>templates</code></td>
+                <td><code>IEnumerable&lt;RichTextTemplate&gt;</code></td>
+                <td>—</td>
+                <td>@Components.Form_RichText_Properties_Templates</td>
+            </tr>
+            <tr>
+                <td><code>is-required</code></td>
+                <td><code>bool?</code></td>
+                <td>—</td>
+                <td>@Components.Form_RichText_Properties_IsRequired</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<gcds-heading tag="h3">@Components.Form_RichText_Accessibility_Title</gcds-heading>
+@Html.Raw(Components.Form_RichText_Accessibility_Description)
+
+<ul class="fdcp-list">
+    <li>@Components.Form_RichText_Accessibility_Label</li>
+    <li>@Components.Form_RichText_Accessibility_Hint</li>
+    <li>@Components.Form_RichText_Accessibility_Error</li>
+    <li>@Components.Form_RichText_Accessibility_Keyboard</li>
+    <li>@Components.Form_RichText_Accessibility_Focus</li>
+</ul>
+
+

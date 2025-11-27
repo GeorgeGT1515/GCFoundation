@@ -27,7 +27,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         /// This attribute will overwrite the [Required] data annotation (if applicable).
         /// </remarks>
         [HtmlAttributeName("required")]
-        public bool? IsRequired { get; set; }
+        public new bool? IsRequired { get; set; }
 
         /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)

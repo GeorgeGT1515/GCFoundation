@@ -329,7 +329,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 ? $" style='height: {question.Height};'"
                 : string.Empty;
             var templatesAttr = string.Empty;
-            if (question.Templates?.Any() == true)
+            if (question.Templates?.Count > 0)
             {
                 var serializedTemplates = TextJson.Serialize(question.Templates);
                 templatesAttr = $" data-templates='{HtmlEncoder.Default.Encode(serializedTemplates)}'";

@@ -592,6 +592,231 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rich Text Editor.
+        /// </summary>
+        public static string Form_RichText_Title {
+            get {
+                return ResourceManager.GetString("Form_RichText_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to rich-text.
+        /// </summary>
+        public static string Form_RichText_Anchor {
+            get {
+                return ResourceManager.GetString("Form_RichText_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rich text editor description.
+        /// </summary>
+        public static string Form_RichText_Description {
+            get {
+                return ResourceManager.GetString("Form_RichText_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Features.
+        /// </summary>
+        public static string Form_RichText_Features_Title {
+            get {
+                return ResourceManager.GetString("Form_RichText_Features_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accessible feature.
+        /// </summary>
+        public static string Form_RichText_Feature_Accessible {
+            get {
+                return ResourceManager.GetString("Form_RichText_Feature_Accessible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Validation feature.
+        /// </summary>
+        public static string Form_RichText_Feature_Validation {
+            get {
+                return ResourceManager.GetString("Form_RichText_Feature_Validation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bilingual feature.
+        /// </summary>
+        public static string Form_RichText_Feature_Bilingual {
+            get {
+                return ResourceManager.GetString("Form_RichText_Feature_Bilingual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toolbars feature.
+        /// </summary>
+        public static string Form_RichText_Feature_Toolbars {
+            get {
+                return ResourceManager.GetString("Form_RichText_Feature_Toolbars", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Templates feature.
+        /// </summary>
+        public static string Form_RichText_Feature_Templates {
+            get {
+                return ResourceManager.GetString("Form_RichText_Feature_Templates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For property description.
+        /// </summary>
+        public static string Form_RichText_Properties_For {
+            get {
+                return ResourceManager.GetString("Form_RichText_Properties_For", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toolbar property description.
+        /// </summary>
+        public static string Form_RichText_Properties_Toolbar {
+            get {
+                return ResourceManager.GetString("Form_RichText_Properties_Toolbar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Height property description.
+        /// </summary>
+        public static string Form_RichText_Properties_Height {
+            get {
+                return ResourceManager.GetString("Form_RichText_Properties_Height", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Placeholder property description.
+        /// </summary>
+        public static string Form_RichText_Properties_Placeholder {
+            get {
+                return ResourceManager.GetString("Form_RichText_Properties_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Templates property description.
+        /// </summary>
+        public static string Form_RichText_Properties_Templates {
+            get {
+                return ResourceManager.GetString("Form_RichText_Properties_Templates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IsRequired property description.
+        /// </summary>
+        public static string Form_RichText_Properties_IsRequired {
+            get {
+                return ResourceManager.GetString("Form_RichText_Properties_IsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usage Example.
+        /// </summary>
+        public static string Form_RichText_Usage_Title {
+            get {
+                return ResourceManager.GetString("Form_RichText_Usage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model Setup.
+        /// </summary>
+        public static string Form_RichText_Model_Title {
+            get {
+                return ResourceManager.GetString("Form_RichText_Model_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model description.
+        /// </summary>
+        public static string Form_RichText_Model_Description {
+            get {
+                return ResourceManager.GetString("Form_RichText_Model_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accessibility.
+        /// </summary>
+        public static string Form_RichText_Accessibility_Title {
+            get {
+                return ResourceManager.GetString("Form_RichText_Accessibility_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accessibility description.
+        /// </summary>
+        public static string Form_RichText_Accessibility_Description {
+            get {
+                return ResourceManager.GetString("Form_RichText_Accessibility_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Label accessibility.
+        /// </summary>
+        public static string Form_RichText_Accessibility_Label {
+            get {
+                return ResourceManager.GetString("Form_RichText_Accessibility_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hint accessibility.
+        /// </summary>
+        public static string Form_RichText_Accessibility_Hint {
+            get {
+                return ResourceManager.GetString("Form_RichText_Accessibility_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error accessibility.
+        /// </summary>
+        public static string Form_RichText_Accessibility_Error {
+            get {
+                return ResourceManager.GetString("Form_RichText_Accessibility_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keyboard accessibility.
+        /// </summary>
+        public static string Form_RichText_Accessibility_Keyboard {
+            get {
+                return ResourceManager.GetString("Form_RichText_Accessibility_Keyboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Focus accessibility.
+        /// </summary>
+        public static string Form_RichText_Accessibility_Focus {
+            get {
+                return ResourceManager.GetString("Form_RichText_Accessibility_Focus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bio.
         /// </summary>
         public static string Form_Bio_Label {
