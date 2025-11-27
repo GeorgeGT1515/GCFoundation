@@ -53,7 +53,11 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                             || propertyInfo.GetCustomAttribute<RequiredAttribute>() != null;
 
             // Retrieve the selected value (if any)
-            var selectedValue = For.Model as string ?? string.Empty;
+            //var selectedValue = For.Model as string ?? string.Empty; //old code
+
+            //Always set as string to fix issue with int being passed in
+            var selectedValue = For.Model?.ToString() ?? string.Empty;
+            //IsSelected = (metadata.Value.Equals(Value, StringComparison.InvariantCultureIgnoreCase));
 
             output.TagName = "gcds-radios";
             output.TagMode = TagMode.StartTagAndEndTag;
