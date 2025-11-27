@@ -46,20 +46,39 @@
         display: flex;
         flex-direction: column;
         gap: 0;
+        border-radius: var(--gcds-input-border-radius);
+        outline-width: 0;
+        outline-style: solid;
+        outline-color: transparent;
+        outline-offset: 0;
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out, outline-width .15s ease-in-out, outline-color .15s ease-in-out, outline-offset .15s ease-in-out !important;
+
+        // Focus state when editor inside is focused
+        &:focus-within {
+            box-shadow: var(--gcds-input-focus-box-shadow);
+            outline-color: var(--gcds-input-focus-border);
+            outline-width: var(--gcds-input-outline-width);
+            outline-offset: var(--gcds-input-border-width);
+
+            .ql-toolbar.ql-snow {
+                border-color: var(--gcds-input-focus-border);
+            }
+
+            .ql-container.ql-snow {
+                border-color: var(--gcds-input-focus-border);
+            }
+        }
 
         &.has-error {
-            .ql-toolbar.ql-snow {
-                border-color: $gcds-danger-border;
-                border-bottom-color: $gcds-danger-border;
-            }
-            
             .ql-container.ql-snow {
                 border-color: $gcds-danger-border;
                 box-shadow: inset 0 0 0 1px $gcds-danger-border;
             }
 
-            .ql-editor:focus {
-                outline-color: $gcds-danger-border;
+            &:focus-within {
+                .ql-container.ql-snow {
+                    border-color: var(--gcds-input-focus-border);
+                }
             }
         }
 
@@ -70,6 +89,7 @@
             background-color: $gcds-bg-light;
             font-family: "Noto Sans", sans-serif;
             border-radius: 4px 4px 0 0;
+            transition: border-color .15s ease-in-out;
             
             button {
                 &:hover, &:focus {
@@ -92,25 +112,16 @@
             background-color: $gcds-bg-white;
             color: $gcds-text-primary;
             border-radius: 0 0 4px 4px;
+            transition: border-color .15s ease-in-out;
             
             // Height managed by inline style or CSS
-            min-height: 150px; 
+            min-height: 150px;
         }
 
         .ql-editor {
             &.ql-blank::before {
                 font-style: italic;
                 color: $gcds-text-secondary;
-            }
-            
-            &:focus {
-                outline: 3px solid $gcds-focus-border;
-                outline-offset: 2px;
-            }
-
-            // Accessibility: ensure proper focus indication when aria-invalid
-            &[aria-invalid="true"]:focus {
-                outline-color: $gcds-danger-border;
             }
         }
     }
