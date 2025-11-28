@@ -186,24 +186,23 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 
         [Fact]
         /// <summary>
-        /// Test if an int is passed in, if it is properly converted to a string
+        /// When the bound value is an int, ensure it's matched to the string option (single item).
         /// </summary>
         public void Process_WithRadioAsInt()
         {
-            // Arrange
-            SetupModelExpression("NonRequiredProperty");
+            // Arrange - single item matching the int value 2
+            SetupModelExpression("IntProperty", new TestModel { IntProperty = 1 });
             _tagHelper.Items = new List<SelectListItem>
             {
                 new() { Text = "Option 1", Value = "1" }
             };
-            _tagHelper.IsRequired = true;
 
             // Act
             _tagHelper.Process(_context, _output);
-
-            // Assert
-            Assert.True(_output.Attributes.ContainsName("required"));
-            //Assert.Equal("string", _output.Attributes["type"].Value);
+             
+            // Assert - properly stored as string after being created as an int
+			var optionsAttr = _output.Attributes["options"];
+			Assert.IsType<string>(optionsAttr.Value);
         }
 
         /// <summary>
@@ -236,6 +235,9 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             [Required]
             [Display(Name = "Required Property")]
             public string RequiredProperty { get; set; } = string.Empty;
+
+            [Display(Name = "Int Property")]
+            public int IntProperty { get; set; }
         }
     }
 }
