@@ -399,3 +399,4 @@ secrets.json
 # Temporary files
 temp_*.html
 *.temp
+dummy.ipynb

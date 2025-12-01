@@ -4,18 +4,21 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-	<AnalysisMode>All</AnalysisMode>
+    <AnalysisMode>All</AnalysisMode>
 
-	<PackageId>GCFoundation.Security</PackageId>
-	<Version>1.0.0</Version>
-	<Authors>Philippe G. Vadnais</Authors>
-	<Company>TBS-SCT</Company>
-	<Description>Foundation security module help to secure your application</Description>
-	<PackageLicenseExpression>MIT</PackageLicenseExpression>
-	<RepositoryUrl></RepositoryUrl>
-	<IncludeSymbols>true</IncludeSymbols>
-	<IncludeSource>true</IncludeSource>
-	<ErrorLog>Foundation.Components.Security.sarif,version=2.1</ErrorLog>
+    <PackageId>GCFoundation.Security</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Philippe G. Vadnais</Authors>
+    <Company>TBS-SCT</Company>
+    <Description>Security middleware and helpers for GCFoundation applications.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/tbs-imtd/GCFoundation</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/tbs-imtd/GCFoundation</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <IncludeSource>true</IncludeSource>
+    <PackageTags>GCFoundation;GCDS;GC Design System;Government of Canada;Security;CSP;Headers;ASP.NET;NET</PackageTags>
+    <ErrorLog>Foundation.Components.Security.sarif,version=2.1</ErrorLog>
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,6 +32,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GCFoundation.Common\GCFoundation.Common.csproj" />
+  </ItemGroup>
+
+  <!-- README for NuGet.org -->
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>
