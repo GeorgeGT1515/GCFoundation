@@ -502,6 +502,45 @@
   <data name="Index_Table_Description" xml:space="preserve">
     <value>Un moyen d'afficher des informations dans un tableau</value>
   </data>
+  <data name="Table_Name" xml:space="preserve">
+    <value>Tableau de données</value>
+  </data>
+  <data name="Table_Overview" xml:space="preserve">
+    <value>Utilisez les styles de tableau FDCP pour présenter des données tabulaires conformes aux WCAG avec légendes et en-têtes structurés.</value>
+  </data>
+  <data name="Table_Basic_Title" xml:space="preserve">
+    <value>Tableau réactif</value>
+  </data>
+  <data name="Table_Basic_Anchor" xml:space="preserve">
+    <value>tableau-base</value>
+  </data>
+  <data name="Table_Basic_Text" xml:space="preserve">
+    <value>Démontre la légende, le résumé, les en-têtes avec portée et les classes utilitaires fdcp-table.</value>
+  </data>
+  <data name="Table_Basic_Caption" xml:space="preserve">
+    <value>Statut des employés</value>
+  </data>
+  <data name="Table_Basic_Summary" xml:space="preserve">
+    <value>Comparaison de la participation des employés aux programmes et des indicateurs d'état.</value>
+  </data>
+  <data name="Table_Notes_1" xml:space="preserve">
+    <value>Incluez toujours une légende et des en-têtes avec l’attribut scope pour conserver le contexte des lecteurs d’écran.</value>
+  </data>
+  <data name="Table_Notes_2" xml:space="preserve">
+    <value>Encapsulez les tableaux dans .fdcp-table-responsive afin de permettre le défilement horizontal sur mobile.</value>
+  </data>
+  <data name="Table_Properties_Caption" xml:space="preserve">
+    <value>Description, lisible par lecteur d'écran, qui explique ce que représentent les données.</value>
+  </data>
+  <data name="Table_Properties_Summary" xml:space="preserve">
+    <value>Élément masqué référencé par aria-describedby pour fournir des indications supplémentaires.</value>
+  </data>
+  <data name="Table_Properties_Scope" xml:space="preserve">
+    <value>Utilisez scope="col" pour les en-têtes de colonne et scope="row" pour l'en-tête de chaque ligne.</value>
+  </data>
+  <data name="Table_Properties_Class" xml:space="preserve">
+    <value>Modificateurs FDCP comme fdcp-table-striped, fdcp-table-hover ou fdcp-table-condensed.</value>
+  </data>
   <data name="Index_TableGridJs_Title" xml:space="preserve">
     <value>Tableau (Grid.js)</value>
   </data>
@@ -764,6 +803,84 @@
   </data>
   <data name="Form_Bio_Hint" xml:space="preserve">
     <value>Écrivez une courte biographie sur vous-même.</value>
+  </data>
+  <data name="Form_Bio_Placeholder" xml:space="preserve">
+    <value>Partagez une courte biographie en utilisant des titres, de l'emphase et des listes.</value>
+  </data>
+  <data name="Form_RichText_Title" xml:space="preserve">
+    <value>Éditeur de texte enrichi</value>
+  </data>
+  <data name="Form_RichText_Anchor" xml:space="preserve">
+    <value>texte-enrichi</value>
+  </data>
+  <data name="Form_RichText_Description" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Le composant &lt;code&gt;&amp;lt;fdcp-rich-text&amp;gt;&lt;/code&gt; fournit un éditeur de texte enrichi conforme aux WCAG 2.1 AAA, propulsé par Quill.js et intégré avec les styles et les patrons de validation du SGDC.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Form_RichText_Features_Title" xml:space="preserve">
+    <value>Fonctionnalités</value>
+  </data>
+  <data name="Form_RichText_Feature_Accessible" xml:space="preserve">
+    <value>Entièrement accessible avec les attributs ARIA appropriés (aria-labelledby, aria-describedby, aria-required, aria-invalid)</value>
+  </data>
+  <data name="Form_RichText_Feature_Validation" xml:space="preserve">
+    <value>Intégré au patron de validation d'erreurs du SGDC utilisant gcds-error-message</value>
+  </data>
+  <data name="Form_RichText_Feature_Bilingual" xml:space="preserve">
+    <value>Support bilingue pour les étiquettes, les indices, les textes d'espace réservé et les messages d'erreur</value>
+  </data>
+  <data name="Form_RichText_Feature_Toolbars" xml:space="preserve">
+    <value>Plusieurs configurations de barre d'outils : Basic, Standard et Full</value>
+  </data>
+  <data name="Form_RichText_Feature_Templates" xml:space="preserve">
+    <value>Support de modèles pour insérer des extraits de contenu prédéfinis</value>
+  </data>
+  <data name="Form_RichText_Properties_For" xml:space="preserve">
+    <value>Expression de modèle liant l'éditeur à une propriété. Les étiquettes et indices sont dérivés des attributs Display.</value>
+  </data>
+  <data name="Form_RichText_Properties_Toolbar" xml:space="preserve">
+    <value>Configuration de la barre d'outils : Basic (gras, italique, lien), Standard (+ titres, listes) ou Full (toutes les options de formatage).</value>
+  </data>
+  <data name="Form_RichText_Properties_Height" xml:space="preserve">
+    <value>Hauteur de la zone d'édition (ex: "200px", "15rem").</value>
+  </data>
+  <data name="Form_RichText_Properties_Placeholder" xml:space="preserve">
+    <value>Texte d'espace réservé affiché lorsque l'éditeur est vide.</value>
+  </data>
+  <data name="Form_RichText_Properties_Templates" xml:space="preserve">
+    <value>Une collection d'objets RichTextTemplate pour insérer du contenu prédéfini.</value>
+  </data>
+  <data name="Form_RichText_Properties_IsRequired" xml:space="preserve">
+    <value>Surcharge l'état obligatoire. Par défaut, dérivé des attributs de validation du modèle.</value>
+  </data>
+  <data name="Form_RichText_Usage_Title" xml:space="preserve">
+    <value>Exemple d'utilisation</value>
+  </data>
+  <data name="Form_RichText_Model_Title" xml:space="preserve">
+    <value>Configuration du modèle</value>
+  </data>
+  <data name="Form_RichText_Model_Description" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Définissez votre propriété de modèle avec les attributs de validation appropriés. Utilisez l'attribut &lt;code&gt;Display&lt;/code&gt; pour définir les étiquettes et indices localisés.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Form_RichText_Accessibility_Title" xml:space="preserve">
+    <value>Accessibilité</value>
+  </data>
+  <data name="Form_RichText_Accessibility_Description" xml:space="preserve">
+    <value>&lt;gcds-text&gt;L'éditeur de texte enrichi est conçu pour respecter les normes WCAG 2.1 AAA :&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Form_RichText_Accessibility_Label" xml:space="preserve">
+    <value>L'étiquette est associée via aria-labelledby pour les lecteurs d'écran</value>
+  </data>
+  <data name="Form_RichText_Accessibility_Hint" xml:space="preserve">
+    <value>Le texte d'indice est lié via aria-describedby</value>
+  </data>
+  <data name="Form_RichText_Accessibility_Error" xml:space="preserve">
+    <value>Les messages d'erreur sont annoncés via aria-describedby et aria-invalid</value>
+  </data>
+  <data name="Form_RichText_Accessibility_Keyboard" xml:space="preserve">
+    <value>Navigation au clavier complète pour tous les contrôles de la barre d'outils</value>
+  </data>
+  <data name="Form_RichText_Accessibility_Focus" xml:space="preserve">
+    <value>Indicateurs de focus visibles suivant les patrons de design du SGDC</value>
   </data>
   <data name="Form_Bio_Label" xml:space="preserve">
     <value>Biographie</value>

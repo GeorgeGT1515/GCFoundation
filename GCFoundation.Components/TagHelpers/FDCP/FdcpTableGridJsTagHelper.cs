@@ -18,6 +18,15 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     [HtmlTargetElement("fdcp-table-gridjs")]
     public sealed class FDCPTableGridJsTagHelper : TagHelper
     {
+        private static readonly JsonSerializerOptions CamelCaseJsonOptions = new()
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+        };
+
+        /// <summary>
+        /// Gets or sets the current ViewContext for accessing HTTP context and request information.
+        /// </summary>
         [ViewContext]
         public ViewContext ViewContext { get; set; } = null!;
 
@@ -134,12 +143,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             if (!string.IsNullOrEmpty(NoDataText))
                 config.Localization.NoDataText = NoDataText;
 
-            var jsonOptions = new JsonSerializerOptions
-            {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-            };
-            var cfgJson = JsonSerializer.Serialize(config, jsonOptions);
+            var cfgJson = JsonSerializer.Serialize(config, CamelCaseJsonOptions);
 
             // Output markup: live region, controls, semantic table fallback
             var summaryId = !string.IsNullOrWhiteSpace(Summary) ? $"{id}-summary" : null;

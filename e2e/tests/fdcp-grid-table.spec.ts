@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { runAxeAndAttach } from '../utils/a11y';
 
-const GRID_TABLE_URL = '/components/fdcp-grid-table';
+const GRID_TABLE_URL = '/en/components/table-grid-js';
 const GRID_CONTAINER = '#employees-grid';
 const SEARCH_INPUT = `${GRID_CONTAINER} .gridjs-search input`;
 const TABLE_SELECTOR = `${GRID_CONTAINER} table.gridjs-table`;

@@ -1,4 +1,7 @@
-﻿namespace GCFoundation.Components.Models.FormBuilder
+﻿using GCFoundation.Components.Enums;
+using System.Collections.Generic;
+
+namespace GCFoundation.Components.Models.FormBuilder
 {
     /// <summary>
     /// Represents a question within a form, including its metadata, type, options, and dependencies.
@@ -19,6 +22,27 @@
         /// Gets or sets an optional hint or description for the question.
         /// </summary>
         public string? Hint { get; set; }
+
+        /// <summary>
+        /// Gets or sets placeholder/help text that appears inside the component.
+        /// </summary>
+        public string? Placeholder { get; set; }
+
+        /// <summary>
+        /// Gets or sets the height of the component (when applicable).
+        /// </summary>
+        public string? Height { get; set; }
+
+        /// <summary>
+        /// Gets or sets reusable HTML templates (label + markup) that can be inserted into the rich text editor.
+        /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA2227:Collection properties should be read only", Justification = "Model property needs to be settable for deserialization")]
+        public Dictionary<string, string>? Templates { get; set; }
+
+        /// <summary>
+        /// Gets or sets the toolbar configuration to apply when rendering a rich text editor.
+        /// </summary>
+        public FDCPRichTextToolbar RichTextToolbar { get; set; } = FDCPRichTextToolbar.Basic;
 
         /// <summary>
         /// Gets or sets the type of the question (e.g., Text, Email, Radio).
@@ -118,6 +142,10 @@
         /// A multi-line text area input.
         /// </summary>
         TextArea,
+        /// <summary>
+        /// A rich text (WYSIWYG) editor.
+        /// </summary>
+        RichText,
         /// <summary>
         /// A numeric input.
         /// </summary>

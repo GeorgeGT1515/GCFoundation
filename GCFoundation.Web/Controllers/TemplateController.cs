@@ -26,6 +26,12 @@ namespace GCFoundation.Web.Controllers
         }
 
 
+        /// <summary>
+        /// Displays the old template view (deprecated).
+        /// </summary>
+        /// <returns>
+        /// The old template view result.
+        /// </returns>
         [HttpGet("old-index")]
         public IActionResult OldIndex()
         {

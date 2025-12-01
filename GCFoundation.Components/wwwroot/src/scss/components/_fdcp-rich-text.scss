@@ -1,0 +1,158 @@
+@use "../variables" as *;
+
+.fdcp-rich-text-container {
+    margin-bottom: 1.5rem; // Standard form spacing
+    display: block;
+    font-family: "Noto Sans", sans-serif;
+
+    // Label styling matching GCDS pattern
+    .fdcp-rich-text-label,
+    label.fdcp-rich-text-label {
+        display: block;
+        color: $gcds-label-text;
+        margin-bottom: 0.25rem;
+        font: $gcds-label-font-desktop;
+        cursor: pointer;
+
+        .label--required {
+            font-weight: $gcds-label-required-font-weight;
+            margin-left: 0.25rem;
+        }
+    }
+
+    // GCDS hint component styling
+    gcds-hint {
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    // GCDS error message styling
+    gcds-error-message {
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    // Hint styling (legacy)
+    p.fdcp-rich-text-hint {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        color: $gcds-text-secondary;
+        font-size: 0.875rem;
+        line-height: 1.4;
+    }
+
+    .fdcp-rich-text-wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        border-radius: var(--gcds-input-border-radius);
+        outline-width: 0;
+        outline-style: solid;
+        outline-color: transparent;
+        outline-offset: 0;
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out, outline-width .15s ease-in-out, outline-color .15s ease-in-out, outline-offset .15s ease-in-out !important;
+
+        // Focus state when editor inside is focused
+        &:focus-within {
+            box-shadow: var(--gcds-input-focus-box-shadow);
+            outline-color: var(--gcds-input-focus-border);
+            outline-width: var(--gcds-input-outline-width);
+            outline-offset: var(--gcds-input-border-width);
+
+            .ql-toolbar.ql-snow {
+                border-color: var(--gcds-input-focus-border);
+            }
+
+            .ql-container.ql-snow {
+                border-color: var(--gcds-input-focus-border);
+            }
+        }
+
+        &.has-error {
+            .ql-container.ql-snow {
+                border-color: $gcds-danger-border;
+                box-shadow: inset 0 0 0 1px $gcds-danger-border;
+            }
+
+            &:focus-within {
+                .ql-container.ql-snow {
+                    border-color: var(--gcds-input-focus-border);
+                }
+            }
+        }
+
+        // Quill Overrides
+        .ql-toolbar.ql-snow {
+            border-color: $gcds-color-grayscale-900;
+            border-width: $gcds-input-border-width;
+            background-color: $gcds-bg-light;
+            font-family: "Noto Sans", sans-serif;
+            border-radius: 4px 4px 0 0;
+            transition: border-color .15s ease-in-out;
+            
+            button {
+                &:hover, &:focus {
+                    color: $gcds-focus-background;
+                    .ql-stroke {
+                        stroke: $gcds-focus-background;
+                    }
+                    .ql-fill {
+                        fill: $gcds-focus-background;
+                    }
+                }
+            }
+        }
+
+        .ql-container.ql-snow {
+            border-color: $gcds-color-grayscale-900;
+            border-width: $gcds-input-border-width;
+            font-family: "Noto Sans", sans-serif;
+            font-size: 1rem;
+            background-color: $gcds-bg-white;
+            color: $gcds-text-primary;
+            border-radius: 0 0 4px 4px;
+            transition: border-color .15s ease-in-out;
+            
+            // Height managed by inline style or CSS
+            min-height: 150px;
+        }
+
+        .ql-editor {
+            &.ql-blank::before {
+                font-style: italic;
+                color: $gcds-text-secondary;
+            }
+        }
+    }
+
+    .fdcp-rich-text-template-menu {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.25rem 0 0.5rem;
+
+        .fdcp-rich-text-template-label {
+            font-weight: 600;
+            color: $gcds-text-secondary;
+            font-size: 0.9rem;
+        }
+
+        .fdcp-rich-text-template-select {
+            min-width: 200px;
+            padding: 0.3rem 0.5rem;
+            border: 1px solid $gcds-border-default;
+            font-size: 0.95rem;
+            background-color: $gcds-bg-white;
+            border-radius: 4px;
+
+            &:focus {
+                outline: 3px solid rgba($gcds-focus-border, 0.35);
+                border-color: $gcds-focus-border;
+            }
+        }
+    }
+}
+
+

@@ -498,6 +498,45 @@
   <data name="Index_Table_Description" xml:space="preserve">
     <value>A way to display information in a table</value>
   </data>
+  <data name="Table_Name" xml:space="preserve">
+    <value>Table</value>
+  </data>
+  <data name="Table_Overview" xml:space="preserve">
+    <value>Use FDCP table styles to present tabular data with WCAG-compliant captions, scoped headers, and responsive behaviour.</value>
+  </data>
+  <data name="Table_Basic_Title" xml:space="preserve">
+    <value>Responsive table</value>
+  </data>
+  <data name="Table_Basic_Anchor" xml:space="preserve">
+    <value>table-basic</value>
+  </data>
+  <data name="Table_Basic_Text" xml:space="preserve">
+    <value>Demonstrates captions, scoped headers, aria-describedby summaries, and the fdcp-table utility classes.</value>
+  </data>
+  <data name="Table_Basic_Caption" xml:space="preserve">
+    <value>Employee status</value>
+  </data>
+  <data name="Table_Basic_Summary" xml:space="preserve">
+    <value>A comparison of employee program participation and status indicators.</value>
+  </data>
+  <data name="Table_Notes_1" xml:space="preserve">
+    <value>Always include a caption and scoped headers so screen reader users retain table context.</value>
+  </data>
+  <data name="Table_Notes_2" xml:space="preserve">
+    <value>Wrap larger tables in .fdcp-table-responsive to enable horizontal scrolling on mobile.</value>
+  </data>
+  <data name="Table_Properties_Caption" xml:space="preserve">
+    <value>Screen-reader friendly caption that briefly describes the data.</value>
+  </data>
+  <data name="Table_Properties_Summary" xml:space="preserve">
+    <value>Hidden descriptive element referenced via aria-describedby to provide additional guidance.</value>
+  </data>
+  <data name="Table_Properties_Scope" xml:space="preserve">
+    <value>Use scope="col" for header cells and scope="row" for the first cell in each data row.</value>
+  </data>
+  <data name="Table_Properties_Class" xml:space="preserve">
+    <value>FDCP table modifiers such as fdcp-table-striped, fdcp-table-hover, and fdcp-table-condensed.</value>
+  </data>
   <data name="Index_TableGridJs_Title" xml:space="preserve">
     <value>Table (Grid.js)</value>
   </data>
@@ -760,6 +799,84 @@
   </data>
   <data name="Form_Bio_Hint" xml:space="preserve">
     <value>Write a short biography about yourself.</value>
+  </data>
+  <data name="Form_Bio_Placeholder" xml:space="preserve">
+    <value>Share a short biography using headings, emphasis and lists.</value>
+  </data>
+  <data name="Form_RichText_Title" xml:space="preserve">
+    <value>Rich Text Editor</value>
+  </data>
+  <data name="Form_RichText_Anchor" xml:space="preserve">
+    <value>rich-text</value>
+  </data>
+  <data name="Form_RichText_Description" xml:space="preserve">
+    <value>&lt;gcds-text&gt;The &lt;code&gt;&amp;lt;fdcp-rich-text&amp;gt;&lt;/code&gt; component provides a WCAG 2.1 AAA compliant rich text editor powered by Quill.js, integrated with GCDS styling and validation patterns.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Form_RichText_Features_Title" xml:space="preserve">
+    <value>Features</value>
+  </data>
+  <data name="Form_RichText_Feature_Accessible" xml:space="preserve">
+    <value>Fully accessible with proper ARIA attributes (aria-labelledby, aria-describedby, aria-required, aria-invalid)</value>
+  </data>
+  <data name="Form_RichText_Feature_Validation" xml:space="preserve">
+    <value>Integrated with GCDS error validation pattern using gcds-error-message</value>
+  </data>
+  <data name="Form_RichText_Feature_Bilingual" xml:space="preserve">
+    <value>Bilingual support for labels, hints, placeholders, and error messages</value>
+  </data>
+  <data name="Form_RichText_Feature_Toolbars" xml:space="preserve">
+    <value>Multiple toolbar configurations: Basic, Standard, and Full</value>
+  </data>
+  <data name="Form_RichText_Feature_Templates" xml:space="preserve">
+    <value>Template support for inserting predefined content snippets</value>
+  </data>
+  <data name="Form_RichText_Properties_For" xml:space="preserve">
+    <value>Model expression binding the editor to a property. Labels and hints are derived from Display attributes.</value>
+  </data>
+  <data name="Form_RichText_Properties_Toolbar" xml:space="preserve">
+    <value>Toolbar configuration: Basic (bold, italic, link), Standard (+ headings, lists), or Full (all formatting options).</value>
+  </data>
+  <data name="Form_RichText_Properties_Height" xml:space="preserve">
+    <value>Height of the editor area (e.g., "200px", "15rem").</value>
+  </data>
+  <data name="Form_RichText_Properties_Placeholder" xml:space="preserve">
+    <value>Placeholder text displayed when the editor is empty.</value>
+  </data>
+  <data name="Form_RichText_Properties_Templates" xml:space="preserve">
+    <value>A collection of RichTextTemplate objects for inserting predefined content.</value>
+  </data>
+  <data name="Form_RichText_Properties_IsRequired" xml:space="preserve">
+    <value>Override the required state. By default, derived from model validation attributes.</value>
+  </data>
+  <data name="Form_RichText_Usage_Title" xml:space="preserve">
+    <value>Usage Example</value>
+  </data>
+  <data name="Form_RichText_Model_Title" xml:space="preserve">
+    <value>Model Setup</value>
+  </data>
+  <data name="Form_RichText_Model_Description" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Define your model property with appropriate validation attributes. Use the &lt;code&gt;Display&lt;/code&gt; attribute to set localized labels and hints.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Form_RichText_Accessibility_Title" xml:space="preserve">
+    <value>Accessibility</value>
+  </data>
+  <data name="Form_RichText_Accessibility_Description" xml:space="preserve">
+    <value>&lt;gcds-text&gt;The rich text editor is designed to meet WCAG 2.1 AAA standards:&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Form_RichText_Accessibility_Label" xml:space="preserve">
+    <value>Label is associated via aria-labelledby for screen readers</value>
+  </data>
+  <data name="Form_RichText_Accessibility_Hint" xml:space="preserve">
+    <value>Hint text is linked via aria-describedby</value>
+  </data>
+  <data name="Form_RichText_Accessibility_Error" xml:space="preserve">
+    <value>Error messages are announced via aria-describedby and aria-invalid</value>
+  </data>
+  <data name="Form_RichText_Accessibility_Keyboard" xml:space="preserve">
+    <value>Full keyboard navigation support for all toolbar controls</value>
+  </data>
+  <data name="Form_RichText_Accessibility_Focus" xml:space="preserve">
+    <value>Visible focus indicators following GCDS design patterns</value>
   </data>
   <data name="Form_Bio_Label" xml:space="preserve">
     <value>Bio</value>

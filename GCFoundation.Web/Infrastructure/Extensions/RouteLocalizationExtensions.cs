@@ -58,6 +58,11 @@ namespace GCFoundation.Web.Infrastructure.Extensions
 
                 setup.UseCulture("fr")
                 .WhereController(nameof(ComponentsController))
+                .WhereAction(nameof(ComponentsController.Table))
+                .TranslateAction("tableau");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(ComponentsController))
                 .WhereAction(nameof(ComponentsController.FormBuilder))
                 .TranslateAction("constructeur-formulaires");
 
@@ -75,6 +80,11 @@ namespace GCFoundation.Web.Infrastructure.Extensions
                 .WhereController(nameof(ComponentsController))
                 .WhereAction(nameof(ComponentsController.TableGridJs))
                 .TranslateAction("tableau-grid-js");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(ComponentsController))
+                .WhereAction(nameof(ComponentsController.FdcpGridTable))
+                .TranslateAction("fdcp-grid-table");
 
                 setup.UseCulture("fr")
                 .WhereController(nameof(ComponentsController))

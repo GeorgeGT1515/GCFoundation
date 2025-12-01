@@ -33,6 +33,8 @@ namespace GCFoundation.Web.Controllers
         [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
         public IActionResult GetArticles([FromQuery] TableGridJsQuery query)
         {
+            ArgumentNullException.ThrowIfNull(query);
+
             var all = Enumerable.Range(1, 120).Select(i => new Article
             {
                 Title = $"Article {i}",
@@ -69,6 +71,8 @@ namespace GCFoundation.Web.Controllers
         [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
         public IActionResult GetEmployees([FromQuery] TableGridJsQuery query)
         {
+            ArgumentNullException.ThrowIfNull(query);
+
             var all = Enumerable.Range(1, 250).Select(i => new Employee
             {
                 Id = i,
@@ -83,7 +87,7 @@ namespace GCFoundation.Web.Controllers
             {
                 var q = query.Q.Trim();
                 all = all.Where(e =>
-                    e.Id.ToString().Contains(q, StringComparison.OrdinalIgnoreCase) ||
+                    e.Id.ToString(System.Globalization.CultureInfo.InvariantCulture).Contains(q, StringComparison.OrdinalIgnoreCase) ||
                     (e.Name?.Contains(q, StringComparison.OrdinalIgnoreCase) ?? false) ||
                     (e.Department?.Contains(q, StringComparison.OrdinalIgnoreCase) ?? false)
                 );
@@ -98,8 +102,10 @@ namespace GCFoundation.Web.Controllers
             var page = query.Page;
             var pageSize = Math.Clamp(query.PageSize <= 0 ? 25 : query.PageSize, 1, 100);
 
-            var total = source.Count();
-            var items = source.Skip(page * pageSize).Take(pageSize).ToList();
+            // Materialize to list once to avoid multiple enumerations
+            var sourceList = source.ToList();
+            var total = sourceList.Count;
+            var items = sourceList.Skip(page * pageSize).Take(pageSize).ToList();
 
             return new
             {
@@ -113,13 +119,13 @@ namespace GCFoundation.Web.Controllers
         private static IEnumerable<Employee> ApplySort(IEnumerable<Employee> src, string? sortBy, string? dir)
         {
             var d = string.Equals(dir, "desc", StringComparison.OrdinalIgnoreCase) ? "desc" : "asc";
-            return sortBy?.ToLowerInvariant() switch
+            return sortBy?.ToUpperInvariant() switch
             {
-                "id" => d == "desc" ? src.OrderByDescending(e => e.Id) : src.OrderBy(e => e.Id),
-                "name" => d == "desc" 
+                "ID" => d == "desc" ? src.OrderByDescending(e => e.Id) : src.OrderBy(e => e.Id),
+                "NAME" => d == "desc" 
                     ? src.OrderByDescending(e => ExtractNumberFromString(e.Name)).ThenByDescending(e => e.Name) 
                     : src.OrderBy(e => ExtractNumberFromString(e.Name)).ThenBy(e => e.Name),
-                "department" => d == "desc" ? src.OrderByDescending(e => e.Department) : src.OrderBy(e => e.Department),
+                "DEPARTMENT" => d == "desc" ? src.OrderByDescending(e => e.Department) : src.OrderBy(e => e.Department),
                 _ => src
             };
         }
@@ -127,13 +133,13 @@ namespace GCFoundation.Web.Controllers
         private static IEnumerable<Article> ApplySort(IEnumerable<Article> src, string? sortBy, string? dir)
         {
             var d = string.Equals(dir, "desc", StringComparison.OrdinalIgnoreCase) ? "desc" : "asc";
-            return sortBy?.ToLowerInvariant() switch
+            return sortBy?.ToUpperInvariant() switch
             {
-                "title" => d == "desc" 
+                "TITLE" => d == "desc" 
                     ? src.OrderByDescending(e => ExtractNumberFromString(e.Title)).ThenByDescending(e => e.Title) 
                     : src.OrderBy(e => ExtractNumberFromString(e.Title)).ThenBy(e => e.Title),
-                "author" => d == "desc" ? src.OrderByDescending(e => e.Author) : src.OrderBy(e => e.Author),
-                "summary" => d == "desc" ? src.OrderByDescending(e => e.Summary) : src.OrderBy(e => e.Summary),
+                "AUTHOR" => d == "desc" ? src.OrderByDescending(e => e.Author) : src.OrderBy(e => e.Author),
+                "SUMMARY" => d == "desc" ? src.OrderByDescending(e => e.Summary) : src.OrderBy(e => e.Summary),
                 _ => src
             };
         }
