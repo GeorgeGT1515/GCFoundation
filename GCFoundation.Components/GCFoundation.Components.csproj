@@ -16,12 +16,15 @@
     <Version>1.0.0</Version>
     <Authors>Philippe G. Vadnais</Authors>
     <Company>TBS-SCT</Company>
-    <Description>Razor components base on the GC Desing system</Description>
+    <Description>Razor components and tag helpers based on the GC Design System (GCDS) for Government of Canada web applications.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <RepositoryUrl>https://dev.azure.com/foc-poc/EGCS/_git/Foundation</RepositoryUrl>
+    <RepositoryUrl>https://github.com/tbs-imtd/GCFoundation</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/tbs-imtd/GCFoundation</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <IncludeSymbols>true</IncludeSymbols>
     <IncludeSource>true</IncludeSource>
-	<ErrorLog>Foundation.Components.sarif,version=2.1</ErrorLog>
+    <PackageTags>GCFoundation;GCDS;GC Design System;Government of Canada;Razor;Components;TagHelpers;ASP.NET;MVC;NET</PackageTags>
+    <ErrorLog>Foundation.Components.sarif,version=2.1</ErrorLog>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -162,6 +165,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GCFoundation.Common\GCFoundation.Common.csproj" />
+  </ItemGroup>
+
+  <!-- README for NuGet.org -->
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup>
