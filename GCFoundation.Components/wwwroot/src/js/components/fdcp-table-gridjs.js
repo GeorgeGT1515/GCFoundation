@@ -79,6 +79,15 @@
         if (!rowHeaders.length) return;
 
         rows.forEach(row => {
+            const orderedCells = Array.from(row.querySelectorAll('td, th'));
+            orderedCells.forEach((cell, cellIndex) => {
+                const column = columnDefs[cellIndex];
+                if (!column || !column.id) return;
+                if (!cell.hasAttribute('data-column-id')) {
+                    cell.setAttribute('data-column-id', column.id);
+                }
+            });
+
             rowHeaders.forEach(rowHeader => {
                 // Check if the row header has already been converted to <th scope="row">; also, ensure there are no duplicate <td>s.
                 const existingHeaderCell = row.querySelector('th[data-column-id="' + rowHeader.id + '"]');

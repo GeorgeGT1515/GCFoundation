@@ -2,6 +2,14 @@
 // GCDS Variable
 //=========================================
 
+// font
+$gcds-label-font-desktop:600 1.25rem / 160% "Noto Sans", sans-serif;
+
+// input
+$gcds-label-text: #333333;
+$gcds-label-required-font-weight: 400;
+$gcds-input-border-radius: 0.125rem;
+
 // Text color
 $gcds-text-light: #ffffff;
 $gcds-text-primary: #333333;
@@ -19,8 +27,9 @@ $gcds-bg-light: #F1F2F3;
 $gcds-bg-primary: #26374A;
 $gcds-bg-white: #ffffff;
 
-// Border Color
+// Border
 $gcds-border-default: #7D828B;
+$gcds-input-border-width: 0.125rem;
 
 //State Colors
 $gcds-danger-background: #FBDDDA;

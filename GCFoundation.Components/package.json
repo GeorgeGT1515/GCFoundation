@@ -31,6 +31,7 @@
         "sass": "^1.87.0"
     },
     "dependencies": {
-        "gridjs": "^6.2.0"
+        "gridjs": "^6.2.0",
+        "quill": "^2.0.2"
     }
 }

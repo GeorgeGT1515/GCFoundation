@@ -63,7 +63,7 @@ namespace GCFoundation.Web.Models
         /// </summary>
         [Required]
         [MinLength(10)]
-        [MaxLength(200)]
+        [MaxLength(2000)]
         [DataType(DataType.MultilineText)]
         [Display(Name = "Form_Bio_Label", Description = "Form_Bio_Hint", ResourceType = typeof(Resources.Components))]
         public string Bio { get; set; } = string.Empty;

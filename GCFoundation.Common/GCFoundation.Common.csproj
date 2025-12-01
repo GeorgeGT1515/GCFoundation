@@ -4,9 +4,23 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-	<AnalysisMode>All</AnalysisMode>
-	<GenerateDocumentationFile>true</GenerateDocumentationFile>
-	<ErrorLog>$(OutputPath)Foundation.Components.Common.sarif</ErrorLog>
+    <AnalysisMode>All</AnalysisMode>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <ErrorLog>$(OutputPath)Foundation.Components.Common.sarif</ErrorLog>
+
+    <!-- NuGet package metadata -->
+    <PackageId>GCFoundation.Common</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Philippe G. Vadnais</Authors>
+    <Company>TBS-SCT</Company>
+    <Description>Shared utilities and models used across GCFoundation applications.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/tbs-imtd/GCFoundation</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/tbs-imtd/GCFoundation</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <IncludeSource>true</IncludeSource>
+    <PackageTags>GCFoundation;GCDS;GC Design System;Government of Canada;Common;Utilities;ASP.NET;NET</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,6 +32,11 @@
 
   <ItemGroup>
     <Folder Include="Enums\" />
+  </ItemGroup>
+
+  <!-- README for NuGet.org -->
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>

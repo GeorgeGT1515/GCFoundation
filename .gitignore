@@ -374,3 +374,29 @@ e2e/.env
 e2e/.env.local
 e2e/.env.*.local
 /.playwright-mcp
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Cursor IDE
+.cursor/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# ASP.NET Core local settings (for sensitive local config)
+appsettings.*.local.json
+secrets.json
+
+# User secrets (outside of standard location)
+*.secrets.json
+
+# Temporary files
+temp_*.html
+*.temp
+dummy.ipynb
