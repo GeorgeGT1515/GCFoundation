@@ -186,11 +186,11 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 
         [Fact]
         /// <summary>
-        /// When the bound value is an int, ensure it's matched to the string option (single item).
+		/// When the bound value is an int, ensure it matches and selects the string option.
         /// </summary>
         public void Process_WithRadioAsInt()
         {
-            // Arrange - single item matching the int value 2
+			// Arrange - single item matching the int value 1
             SetupModelExpression("IntProperty", new TestModel { IntProperty = 1 });
             _tagHelper.Items = new List<SelectListItem>
             {
@@ -200,9 +200,18 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             // Act
             _tagHelper.Process(_context, _output);
              
-            // Assert - properly stored as string after being created as an int
-			var optionsAttr = _output.Attributes["options"];
-			Assert.IsType<string>(optionsAttr.Value);
+			// Assert - JSON options exist and the matching item is checked
+			var optionsJson = _output.Attributes["options"].Value!.ToString()!;
+			Assert.IsType<string>(_output.Attributes["options"].Value);
+
+			var options = JsonSerializer.Deserialize<List<Dictionary<string, object>>>(
+				optionsJson,
+				new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+			// Confirms that the single option’s "value" is "1".
+			Assert.Equal("1", options![0]["value"].ToString());
+            //Asserts that this option is marked checked
+			Assert.True(GetChecked(options[0])); // proves int 1 matched "1"
         }
 
         /// <summary>
