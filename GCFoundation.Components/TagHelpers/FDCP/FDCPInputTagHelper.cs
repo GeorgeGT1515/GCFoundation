@@ -72,6 +72,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
                 output.Attributes.SetAttribute("legend", label);
                 output.Attributes.SetAttribute("format", formatAttr != null ? formatAttr.Format : "full");
+				output.Attributes.SetAttribute("type", "date");
 
                 // Ensure the value attribute is in expected format by gcds-date-input (YYYY-MM-DD).
 				if (For?.Model is DateTime dateValue)
@@ -125,7 +126,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 switch (DataTypeAttribute.DataType)
                 {
                     case DataType.Date:
-                        return TagType.date;
+					case DataType.DateTime:
+						return TagType.date;
                     case DataType.MultilineText:
                         return TagType.textArea;
                     default:

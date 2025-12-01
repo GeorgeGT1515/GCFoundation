@@ -56,7 +56,7 @@ namespace GCFoundation.Components.Middleware
                         html = html.Replace("</head>", @$"
                         <link rel=""stylesheet"" href=""{_foundationComponentsSettings.FontAwesomeCDN}"" crossorigin=""anonymous"">
                         <link rel=""stylesheet"" href=""{_foundationComponentsSettings.GCDSCssCDN}"">
-                        <link rel=""stylesheet"" href=""{GCFoundationComponentsSettings.GCDSCssCssShortcutsCDN}"">
+                        <link rel=""stylesheet"" href=""{_foundationComponentsSettings.GCDSCssShortcutsCDN}"">
                         <script type=""module"" src=""{_foundationComponentsSettings.GCDSJavaScriptCDN}""></script>
                     </head>", StringComparison.OrdinalIgnoreCase);
 

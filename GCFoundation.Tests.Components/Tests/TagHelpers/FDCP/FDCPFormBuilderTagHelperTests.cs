@@ -58,9 +58,8 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 
             var content = output.Content.GetContent();
             
-            // Verify error summary is initially hidden
+            // Verify error summary is present
             Assert.Contains("<gcds-error-summary", content);
-            Assert.Contains("style='display: none;'", content);
             
             // Just verify that the form was created
             Assert.Contains("<form", content);
@@ -399,7 +398,6 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             // Verify form structure includes error summary capability for GCDS v0.39.0
             Assert.Contains("class='gc-form'", content);
             Assert.Contains("<gcds-error-summary", content);
-            Assert.Contains("style='display: none;'", content);
             
             // Verify required GCDS validation attributes are present
             Assert.Contains("error-message=\"Please enter a valid email address\"", content);

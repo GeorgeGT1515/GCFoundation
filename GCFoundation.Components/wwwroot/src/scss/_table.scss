@@ -54,34 +54,36 @@ table,
     }
 }
 
-// Striped rows variant
-.fdcp-table-striped tbody tr:nth-of-type(even) {
-    th, td {
-        background-color: var(--gcds-bg-light);
-    }
-
-    code {
-        background-color: var(--gcds-bg-white);
-    }
-}
-
-// Modern hover effects
-.fdcp-table-hover tr:hover {
-    background-color: var(--gcds-color-blue-100) !important;
-    transition: background-color 0.2s ease;
-}
-
 // Bordered variant
-.fdcp-table-bordered {
+.fdcp-table.fdcp-table-bordered {
     th, td {
         border: 1px solid var(--gcds-border-default);
     }
 }
 
 // Condensed
-.fdcp-table-condensed {
+.fdcp-table.fdcp-table-condensed {
     th, td {
         padding: var(--gcds-spacing-100) var(--gcds-spacing-200);
+    }
+}
+
+// Modern hover effects
+.fdcp-table.fdcp-table-hover tbody tr:hover {
+    th, td {
+        background-color: var(--gcds-color-blue-100) !important;
+        transition: background-color 0.2s ease;
+    }
+}
+
+// Striped rows variant
+.fdcp-table.fdcp-table-striped tbody tr:nth-of-type(even) {
+    th, td {
+        background-color: var(--gcds-bg-light);
+    }
+
+    code {
+        background-color: var(--gcds-bg-white);
     }
 }
 
@@ -125,13 +127,19 @@ table,
 
 // Status variants
 .fdcp-table-success {
-    background-color: var(--gcds-success-light);
+    th, td {
+        background-color: var(--gcds-success-light);
+    }
 }
 
 .fdcp-table-warning {
-    background-color: var(--gcds-warning-light);
+    th, td {
+        background-color: var(--gcds-warning-light);
+    }
 }
 
 .fdcp-table-danger {
-    background-color: var(--gcds-error-light);
+    th, td {
+        background-color: var(--gcds-error-light);
+    }
 }

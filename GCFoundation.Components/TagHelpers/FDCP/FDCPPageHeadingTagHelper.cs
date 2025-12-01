@@ -68,19 +68,19 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             switch (Size)
             {
                 case PageHeadingSize.compact:
-                    articleClass += " sm:fdcp-py-350 fdcp-py-200 xl:fdcp-ps-0 sm:fdcp-ps-600 fdcp-ps-450 sm:fdcp-pe-750 fdcp-pe-450";
+                    articleClass += " sm:py-350 py-200 xl:ps-0 sm:ps-600 ps-450 sm:pe-750 pe-450";
                     containerClass += " fdcp-page-heading-compact";
-                    pageHeadingBgClass += " md:fdcp-py-500 fdcp-py-250";
+                    pageHeadingBgClass += " md:py-500 py-250";
                     break;
                 case PageHeadingSize.large:
-                    articleClass += " sm:fdcp-py-750 fdcp-py-450 xl:fdcp-ps-0 sm:fdcp-ps-600 fdcp-ps-450 sm:fdcp-pe-750 fdcp-pe-450";
+                    articleClass += " sm:py-750 py-450 xl:ps-0 sm:ps-600 ps-450 sm:pe-750 pe-450";
                     containerClass += " fdcp-page-heading-large";
-                    pageHeadingBgClass += " md:fdcp-py-1250 fdcp-py-900";
+                    pageHeadingBgClass += " md:py-1250 py-900";
                     break;
                 case PageHeadingSize.regular:
                 default:
-                    articleClass += " sm:fdcp-py-600 fdcp-py-300 xl:fdcp-ps-0 sm:fdcp-ps-600 fdcp-ps-450 sm:fdcp-pe-750 fdcp-pe-450";
-                    pageHeadingBgClass += " md:fdcp-py-900 fdcp-py-600";
+                    articleClass += " sm:py-600 py-300 xl:ps-0 sm:ps-600 ps-450 sm:pe-750 pe-450";
+                    pageHeadingBgClass += " md:py-900 py-600";
                     break;
             }
 
@@ -113,14 +113,14 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             switch (TextColour)
             {
                 case TextColour.primary:
-                    articleClass += " fdcp-text-primary";
+                    articleClass += " text-primary";
                     break;
                 case TextColour.secondary:
-                    articleClass += " fdcp-text-secondary";
+                    articleClass += " text-secondary";
                     break;
                 case TextColour.light:
                 default:
-                    articleClass += " fdcp-text-light";
+                    articleClass += " text-light";
                     break;
             }
             content.AppendLine(CultureInfo.InvariantCulture, $"<article class='{articleClass}'>");
