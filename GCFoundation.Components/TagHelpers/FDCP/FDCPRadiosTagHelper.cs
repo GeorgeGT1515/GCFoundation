@@ -52,8 +52,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             bool required = For.Metadata.ValidatorMetadata.OfType<RequiredAttribute>().Any()
                             || propertyInfo.GetCustomAttribute<RequiredAttribute>() != null;
 
-            // Retrieve the selected value (if any)
-            var selectedValue = For.Model as string ?? string.Empty;
+            // Retrieve the selected value (if any) & bind as string
+            var selectedValue = For.Model?.ToString() ?? string.Empty;
 
             output.TagName = "gcds-radios";
             output.TagMode = TagMode.StartTagAndEndTag;

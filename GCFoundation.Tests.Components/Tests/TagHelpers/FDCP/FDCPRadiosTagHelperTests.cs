@@ -184,6 +184,40 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             _tagHelper.For = modelExpression;
         }
 
+        [Fact]
+        /// <summary>
+		/// When the bound value is an int, ensure it matches and selects the string option.
+        /// </summary>
+        public void Process_WithRadioAsInt()
+        {
+			// Arrange - list with 3 raiod, radio 2 checked
+            SetupModelExpression("IntProperty", new TestModel { IntProperty = 2 });
+            _tagHelper.Items = new List<SelectListItem>
+            {
+                new() { Text = "Option 1", Value = "1" },
+                new() { Text = "Option 2", Value = "2" },
+                new() { Text = "Option 3", Value = "3" }
+            };
+
+            // Act
+            _tagHelper.Process(_context, _output);
+             
+			// Assert - JSON options exist and the matching item is checked
+			var optionsJson = _output.Attributes["options"].Value!.ToString()!;
+			Assert.IsType<string>(_output.Attributes["options"].Value);
+
+			var options = JsonSerializer.Deserialize<List<Dictionary<string, object>>>(
+				optionsJson,
+				new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+			// Confirms each options value
+			Assert.Equal("1", options![0]["value"].ToString());
+            Assert.Equal("2", options![1]["value"].ToString());
+			Assert.Equal("3", options![2]["value"].ToString());
+            //Asserts that option 2 is cehcked
+			Assert.True(GetChecked(options[1])); 
+        }
+
         /// <summary>
         /// Determines if an option is "checked" or not.
         /// </summary>
@@ -203,6 +237,9 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             throw new InvalidCastException("Cannot convert checked value to bool.");
         }
 
+
+
+
         private class TestModel
         {
             [Display(Name = "Non-Required Property")]
@@ -211,6 +248,9 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             [Required]
             [Display(Name = "Required Property")]
             public string RequiredProperty { get; set; } = string.Empty;
+
+            [Display(Name = "Int Property")]
+            public int IntProperty { get; set; }
         }
     }
 }
