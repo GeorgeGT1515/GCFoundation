@@ -190,11 +190,13 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         /// </summary>
         public void Process_WithRadioAsInt()
         {
-			// Arrange - single item matching the int value 1
-            SetupModelExpression("IntProperty", new TestModel { IntProperty = 1 });
+			// Arrange - list with 3 raiod, radio 2 checked
+            SetupModelExpression("IntProperty", new TestModel { IntProperty = 2 });
             _tagHelper.Items = new List<SelectListItem>
             {
-                new() { Text = "Option 1", Value = "1" }
+                new() { Text = "Option 1", Value = "1" },
+                new() { Text = "Option 2", Value = "2" },
+                new() { Text = "Option 3", Value = "3" }
             };
 
             // Act
@@ -208,10 +210,12 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 				optionsJson,
 				new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
-			// Confirms that the single option’s "value" is "1".
+			// Confirms each options value
 			Assert.Equal("1", options![0]["value"].ToString());
-            //Asserts that this option is marked checked
-			Assert.True(GetChecked(options[0])); // proves int 1 matched "1"
+            Assert.Equal("2", options![1]["value"].ToString());
+			Assert.Equal("3", options![2]["value"].ToString());
+            //Asserts that option 2 is cehcked
+			Assert.True(GetChecked(options[1])); 
         }
 
         /// <summary>
