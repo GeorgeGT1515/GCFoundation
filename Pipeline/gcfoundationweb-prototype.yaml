@@ -38,7 +38,7 @@ resources:
      name: 'TBS DevOps Master/DevOps Templates'
      ref: 'refs/heads/develop'
 variables:
-- template: commonVariables.yaml
+- template: variables.yaml
 # these are control parameters for DevSecOps tasks - not included in commonVariables for visibility.
 - name: enableTruffleHogScan
   value: false
