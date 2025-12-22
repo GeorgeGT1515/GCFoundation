@@ -27,26 +27,43 @@
         <hr />
 
         <gcds-heading tag="h2" id="nuget-configuration">NuGet Configuration</gcds-heading>
-        <p>Contact your administrator for access to the NuGet feed containing GCFoundation packages. Once available on nuget.org, packages can be installed directly.</p>
+        <p>GCFoundation packages are published on nuget.org and can be installed directly using the <code>dotnet</code> CLI or the Visual Studio Package Manager Console.</p>
 
         <hr />
 
         <gcds-heading tag="h2" id="package-installation">Package Installation</gcds-heading>
-        <p>Install the following core NuGet packages:</p>
-<pre><code class="language-powershell">Install-Package GCFoundation.Components
-Install-Package GCFoundation.Security
-Install-Package GCFoundation.Common</code></pre>
+        <p>Install the following core NuGet packages (using the <code>dotnet</code> CLI):</p>
+<pre><code class="language-powershell">dotnet add YourApp.Web package GCFoundation.Common
+dotnet add YourApp.Web package GCFoundation.Components
+dotnet add YourApp.Web package GCFoundation.Security</code></pre>
 
-        <p>For URL translation and navigation support, install:</p>
-<pre><code class="language-powershell">Install-Package cloudscribe.Web.Navigation
+        <p>For navigation, breadcrumbs, and URL translation support, install:</p>
+<pre><code class="language-powershell">dotnet add YourApp.Web package cloudscribe.Web.Navigation
+dotnet add YourApp.Web package cloudscribe.Web.Localization
+dotnet add YourApp.Web package cloudscribe.Web.SiteMap
+dotnet add YourApp.Web package cloudscribe.Web.SiteMap.FromNavigation
+dotnet add YourApp.Web package RouteLocalization.AspNetCore</code></pre>
+
+        <p>If you prefer the Visual Studio Package Manager Console, you can use:</p>
+<pre><code class="language-powershell">Install-Package GCFoundation.Common
+Install-Package GCFoundation.Components
+Install-Package GCFoundation.Security
+Install-Package cloudscribe.Web.Navigation
 Install-Package cloudscribe.Web.Localization
-Install-Package Microsoft.AspNetCore.Localization.Routing</code></pre>
+Install-Package cloudscribe.Web.SiteMap
+Install-Package cloudscribe.Web.SiteMap.FromNavigation
+Install-Package RouteLocalization.AspNetCore</code></pre>
 
         <hr />
 
         <gcds-heading tag="h2" id="basic-setup">Basic Setup</gcds-heading>
-        <p>Add the following services in your Program.cs:</p>
-<pre><code class="language-csharp">// Add foundation services
+        <p>Add the following services in your <code>Program.cs</code>:</p>
+<pre><code class="language-csharp">// MVC with localization support
+builder.Services.AddControllersWithViews()
+    .AddViewLocalization()
+    .AddDataAnnotationsLocalization();
+
+// Register GCFoundation services
 builder.Services.AddGCFoundationComponents(builder.Configuration);
 builder.Services.AddGCFoundationContentPolicies(builder.Configuration);
 builder.Services.AddGCFoundationSession(builder.Configuration);
@@ -55,9 +72,8 @@ builder.Services.AddGCFoundationSession(builder.Configuration);
         <hr />
 
         <gcds-heading tag="h2" id="components-setup">Components Setup</gcds-heading>
-        <p>Configure the middleware in your Program.cs:</p>
-<pre><code class="language-csharp">// Load components and GCDS dependencies
-app.UseMiddleware<GCFoundationComponentsMiddleware>();
+        <p>Enable GCFoundation components and session middleware in <code>Program.cs</code>:</p>
+<pre><code class="language-csharp">// Load GCFoundation components and GCDS dependencies
 app.UseGCFoundationComponents();
 app.UseGCFoundationSession();
 </code></pre>
@@ -65,9 +81,8 @@ app.UseGCFoundationSession();
         <hr />
 
         <gcds-heading tag="h2" id="security-setup">Security Setup</gcds-heading>
-        <p>Add security policies and middleware:</p>
-<pre><code class="language-csharp">// Add security middleware (CSP)
-app.UseMiddleware<GCFoundationContentPoliciesMiddleware>();
+        <p>Add GCFoundation security policies and secure cookie configuration:</p>
+<pre><code class="language-csharp">// Add GCFoundation Content Security Policy (CSP)
 app.UseGCFoundationContentPolicies();
 
 // Configure secure cookies
@@ -82,13 +97,13 @@ app.UseCookiePolicy(new CookiePolicyOptions
         <hr />
 
         <gcds-heading tag="h2" id="language-setup">Language Setup</gcds-heading>
-        <p>Configure language services in Program.cs:</p>
-<pre><code class="language-csharp">// Add localization services
+        <p>Configure localization, global resources, and culture selection in <code>Program.cs</code>:</p>
+<pre><code class="language-csharp">// Configure global resources (resx)
 builder.Services.Configure<GlobalResourceOptions>(builder.Configuration.GetSection("GlobalResourceOptions"));
 builder.Services.AddSingleton<IStringLocalizerFactory, GlobalResourceManagerStringLocalizerFactory>();
 builder.Services.AddLocalization();
 
-// Configure supported cultures
+// Configure supported cultures (e.g., en-CA, fr-CA)
 var supportedCultures = LanguageUtility.GetSupportedCulture();
 var routeSegmentLocalizationProvider = new FirstUrlSegmentRequestCultureProvider(supportedCultures.ToList());
 
@@ -100,36 +115,36 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
     options.RequestCultureProviders.Insert(0, routeSegmentLocalizationProvider);
 });
 
-// Add route localization
+// Add route localization (translated URLs)
 builder.Services.AddCustomRouteLocalization();
 </code></pre>
 
-        <p>Enable localization middleware:</p>
-<pre><code class="language-csharp">// Add language middleware
+        <p>Enable language and localization middleware:</p>
+<pre><code class="language-csharp">// Add GCFoundation language middleware
 app.UseMiddleware<GCFoundationLanguageMiddleware>();
 
-// Enable localization
-var localizationOptions = app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value;
+// Enable ASP.NET Core request localization
+var localizationOptions = app.Services.GetRequiredService&lt;IOptions&lt;RequestLocalizationOptions&gt;&gt;().Value;
 app.UseRequestLocalization(localizationOptions);
 </code></pre>
 
         <hr />
 
         <gcds-heading tag="h2" id="breadcrumbs-setup">Breadcrumbs Setup</gcds-heading>
-        <p>Configure breadcrumbs services:</p>
-<pre><code class="language-csharp">// Configure breadcrumbs localization service
-builder.Services.AddSingleton(typeof(IBreadcrumbsLocalizationService), 
-    typeof(BreadcrumbsLocalizationService<GCFoundation.Web.Resources.Navigation>));
-
-// Configure navigation services
-builder.Services.AddScoped<ISiteMapNodeService, NavigationTreeSiteMapNodeService>();
+        <p>Configure navigation and breadcrumbs services in <code>Program.cs</code>:</p>
+<pre><code class="language-csharp">// Configure navigation services
+builder.Services.AddScoped&lt;ISiteMapNodeService, NavigationTreeSiteMapNodeService&gt;();
 builder.Services.AddCloudscribeNavigation(builder.Configuration.GetSection("NavigationOptions"));
+
+// Configure breadcrumbs localization service
+builder.Services.AddSingleton(typeof(IBreadcrumbsLocalizationService),
+    typeof(BreadcrumbsLocalizationService&lt;YourApp.Resources.Navigation&gt;));
 </code></pre>
 
         <hr />
 
         <gcds-heading tag="h2" id="url-translation">URL Translation</gcds-heading>
-        <p>Configure routing with culture parameter:</p>
+        <p>Configure routing with a culture parameter and translated URLs:</p>
 <pre><code class="language-csharp">// Configure default route with culture parameter
 app.MapControllerRoute(
     name: "default",
@@ -137,71 +152,77 @@ app.MapControllerRoute(
 );
 </code></pre>
 
-        <p>Configure appsettings.json for navigation:</p>
+        <p>Configure <code>appsettings.json</code> for navigation and global resources:</p>
 <pre><code class="language-json">{
   "NavigationOptions": {
     "EnableLocalization": true,
-    "LocalizationNamespace": "GCFoundation.Web.Resources.Navigation"
+    "LocalizationNamespace": "YourApp.Resources.Navigation"
   },
   "GlobalResourceOptions": {
-    "ResourcePath": "Resources"
+    "ResourcePath": "Resources",
+    "SupportedCultures": [ "en-CA", "fr-CA" ]
   }
 }
 </code></pre>
 
         <p>Key features:</p>
         <ul>
-            <li>URL-based culture selection using the first segment (e.g., /fr/home)</li>
-            <li>Default culture is en-CA</li>
+            <li>URL-based culture selection using the first segment (e.g., <code>/fr/home</code>)</li>
+            <li>Default culture is <code>en-CA</code></li>
             <li>Automatic breadcrumb localization using resource files</li>
-            <li>Support for culture-specific routing</li>
+            <li>Support for culture-specific routing and translated routes using <code>RouteLocalization.AspNetCore</code></li>
         </ul>
 
         <hr />
 
         <gcds-heading tag="h2" id="complete-example">Complete Program.cs Example</gcds-heading>
-        <p>Here's a complete Program.cs configuration:</p>
-<pre><code class="language-csharp">using cloudscribe.Web.Localization;
+        <p>Here's a complete <code>Program.cs</code> configuration that ties all of the above together for a typical MVC application:</p>
+<pre><code class="language-csharp">using System.Globalization;
 using cloudscribe.Web.Navigation;
+using cloudscribe.Web.SiteMap;
+using GCFoundation.Common.Utilities;
 using GCFoundation.Components.Middleware;
 using GCFoundation.Components.Services;
 using GCFoundation.Components.Services.Interfaces;
 using GCFoundation.Security.Middlewares;
-using GCFoundation.Web.Infrastructure.Extensions;
+using YourApp.Infrastructure.Extensions; // AddCustomRouteLocalization
+using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.AspNetCore.Localization;
-using Microsoft.AspNetCore.Localization.Routing;
+using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add core services
-builder.Services.AddRazorPages()
+// MVC and localization
+builder.Services.AddControllersWithViews()
     .AddViewLocalization()
     .AddDataAnnotationsLocalization();
 
-// Foundation services
+// Navigation and breadcrumbs
+builder.Services.AddScoped&lt;ISiteMapNodeService, NavigationTreeSiteMapNodeService&gt;();
+builder.Services.AddCloudscribeNavigation(builder.Configuration.GetSection("NavigationOptions"));
+builder.Services.AddSingleton(typeof(IBreadcrumbsLocalizationService),
+    typeof(BreadcrumbsLocalizationService&lt;YourApp.Resources.Navigation&gt;));
+
+// Global resources and localization
+builder.Services.Configure&lt;GlobalResourceOptions&gt;(builder.Configuration.GetSection("GlobalResourceOptions"));
+builder.Services.AddSingleton&lt;IStringLocalizerFactory, GlobalResourceManagerStringLocalizerFactory&gt;();
+builder.Services.AddLocalization();
+
+// GCFoundation services
 builder.Services.AddGCFoundationComponents(builder.Configuration);
 builder.Services.AddGCFoundationContentPolicies(builder.Configuration);
 builder.Services.AddGCFoundationSession(builder.Configuration);
 
-// Navigation and breadcrumbs
-builder.Services.AddScoped<ISiteMapNodeService, NavigationTreeSiteMapNodeService>();
-builder.Services.AddCloudscribeNavigation(builder.Configuration.GetSection("NavigationOptions"));
-builder.Services.AddSingleton(typeof(IBreadcrumbsLocalizationService), 
-    typeof(BreadcrumbsLocalizationService<YourApp.Resources.Navigation>));
-
-// Localization setup
-builder.Services.Configure<GlobalResourceOptions>(builder.Configuration.GetSection("GlobalResourceOptions"));
-builder.Services.AddSingleton<IStringLocalizerFactory, GlobalResourceManagerStringLocalizerFactory>();
-builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
-
-// Configure supported cultures
+// Culture and URL-based localization
 var supportedCultures = new[] { "en-CA", "fr-CA" }
     .Select(x => new CultureInfo(x))
     .ToList();
 
 var routeSegmentLocalizationProvider = new FirstUrlSegmentRequestCultureProvider(supportedCultures);
 
-builder.Services.Configure<RequestLocalizationOptions>(options =>
+builder.Services.Configure&lt;RequestLocalizationOptions&gt;(options =&gt;
 {
     options.DefaultRequestCulture = new RequestCulture("en-CA");
     options.SupportedCultures = supportedCultures;
@@ -209,41 +230,32 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
     options.RequestCultureProviders.Insert(0, routeSegmentLocalizationProvider);
 });
 
+// Add route localization extensions (translated routes)
 builder.Services.AddCustomRouteLocalization();
 
 var app = builder.Build();
 
-// Development error handling
+// Error handling (production)
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
     app.UseHsts();
 }
 
-// Foundation middleware
-app.UseMiddleware<GCFoundationComponentsMiddleware>();
-app.UseGCFoundationComponents();
-app.UseGCFoundationSession();
+// GCFoundation language middleware
+app.UseMiddleware&lt;GCFoundationLanguageMiddleware&gt;();
 
-// Security middleware
-app.UseMiddleware<GCFoundationContentPoliciesMiddleware>();
-app.UseGCFoundationContentPolicies();
-
-// Language middleware
-app.UseMiddleware<GCFoundationLanguageMiddleware>();
-
+// Security and static files
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
 
-// Configure localization
-var localizationOptions = app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value;
+// Request localization
+var localizationOptions = app.Services.GetRequiredService&lt;IOptions&lt;RequestLocalizationOptions&gt;&gt;().Value;
 app.UseRequestLocalization(localizationOptions);
 
-app.UseAuthorization();
-
-// Configure secure cookies
+// Secure cookies
 app.UseCookiePolicy(new CookiePolicyOptions
 {
     MinimumSameSitePolicy = SameSiteMode.Strict,
@@ -251,38 +263,40 @@ app.UseCookiePolicy(new CookiePolicyOptions
     HttpOnly = HttpOnlyPolicy.Always
 });
 
-// Configure routes with culture parameter
-app.MapRazorPages();
+// GCFoundation components and security
+app.UseGCFoundationComponents();
+app.UseGCFoundationContentPolicies();
+app.UseGCFoundationSession();
+
+// Authorization and routing
+app.UseAuthorization();
+
 app.MapControllerRoute(
     name: "default",
-    pattern: "{culture=en-CA}/{controller=Home}/{action=Index}/{id?}");
+    pattern: "{culture=en}/{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
 </code></pre>
 
-        <p>Required appsettings.json configuration:</p>
+        <p>Required <code>appsettings.json</code> configuration:</p>
 <pre><code class="language-json">{
   "NavigationOptions": {
     "EnableLocalization": true,
-    "LocalizationNamespace": "YourApp.Resources.Navigation",
-    "NavigationSources": {
-      "MainNavigation": "/Navigation/main-nav.json"
-    }
+    "LocalizationNamespace": "YourApp.Resources.Navigation"
   },
   "GlobalResourceOptions": {
     "ResourcePath": "Resources",
-    "SupportedCultures": ["en-CA", "fr-CA"]
+    "SupportedCultures": [ "en-CA", "fr-CA" ]
   }
 }
 </code></pre>
 
-        <p>Project structure for resources:</p>
+        <p>Example project structure for navigation resources:</p>
 <pre><code>YourApp/
   └── Resources/
       ├── Navigation.en-CA.resx
       ├── Navigation.fr-CA.resx
-      └── Navigation/
-          └── main-nav.json
+      └── Navigation/   (optional additional navigation resources)
 </code></pre>
     </div>
 </gcds-grid>
