@@ -17,7 +17,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// <summary>
         /// Defines the alignment of items in the grid container.
         /// </summary>
-        public AlignItem? AlingItem { get; set; }
+        public AlignItem? AlignItem { get; set; }
 
         /// <summary>
         /// Specifies the number of columns for the grid.
@@ -93,7 +93,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             AddAttributeIfNotNullWithCaseConversion(output, "align-content", AlignContent);
-            AddAttributeIfNotNullWithCaseConversion(output, "align-items", AlingItem);
+            AddAttributeIfNotNullWithCaseConversion(output, "align-items", AlignItem);
             AddAttributeIfNotNull(output, "columns", Columns);
             AddAttributeIfNotNull(output, "columns-desktop", ColumnsDesktop);
             AddAttributeIfNotNull(output, "columns-tablet", ColumnsTablet);

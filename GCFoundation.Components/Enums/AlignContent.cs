@@ -19,7 +19,7 @@
         /// <summary>
         /// Distributes the content with space around each item, leaving equal space around the content.
         /// </summary>
-        spaceArround,
+        spaceAround,
 
         /// <summary>
         /// Distributes the content with equal space between each item, but no space at the ends.
