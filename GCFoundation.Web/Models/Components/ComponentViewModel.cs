@@ -61,6 +61,36 @@ namespace GCFoundation.Web.Models.Components
         public string Tag { get; set; } = string.Empty;
 
         /// <summary>
+        /// Brief description of the component's purpose.
+        /// </summary>
+        public string Purpose { get; set; } = string.Empty;
+
+        /// <summary>
+        /// List of scenarios when to use this component.
+        /// </summary>
+        public IEnumerable<string> WhenToUse { get; set; } = new List<string>();
+
+        /// <summary>
+        /// List of scenarios when NOT to use this component.
+        /// </summary>
+        public IEnumerable<string> WhenNotToUse { get; set; } = new List<string>();
+
+        /// <summary>
+        /// List of accessibility requirements (DO).
+        /// </summary>
+        public IEnumerable<string> AccessibilityDo { get; set; } = new List<string>();
+
+        /// <summary>
+        /// List of accessibility requirements (DO NOT).
+        /// </summary>
+        public IEnumerable<string> AccessibilityDoNot { get; set; } = new List<string>();
+
+        /// <summary>
+        /// List of UX/UI best practices.
+        /// </summary>
+        public IEnumerable<string> UxBestPractices { get; set; } = new List<string>();
+
+        /// <summary>
         /// Builds default side navigation based on the current properties of the ViewModel (i.e. include links to the Overview, SampleCodeSections, Properties and Notes).
         /// </summary>
         /// <returns></returns>
@@ -70,6 +100,16 @@ namespace GCFoundation.Web.Models.Components
 
             if (!string.IsNullOrEmpty(Overview))
                 items.Add(new NavLink() { Href = Resources.Components.Overview_Anchor, Label = Resources.Components.Overview });
+            if (!string.IsNullOrEmpty(Purpose))
+                items.Add(new NavLink() { Href = Resources.Components.Guidance_Purpose_Anchor, Label = Resources.Components.Guidance_Purpose });
+            if (WhenToUse != null && WhenToUse.Any())
+                items.Add(new NavLink() { Href = Resources.Components.Guidance_WhenToUse_Anchor, Label = Resources.Components.Guidance_WhenToUse });
+            if (WhenNotToUse != null && WhenNotToUse.Any())
+                items.Add(new NavLink() { Href = Resources.Components.Guidance_WhenNotToUse_Anchor, Label = Resources.Components.Guidance_WhenNotToUse });
+            if ((AccessibilityDo != null && AccessibilityDo.Any()) || (AccessibilityDoNot != null && AccessibilityDoNot.Any()))
+                items.Add(new NavLink() { Href = Resources.Components.Guidance_Accessibility_Anchor, Label = Resources.Components.Guidance_Accessibility });
+            if (UxBestPractices != null && UxBestPractices.Any())
+                items.Add(new NavLink() { Href = Resources.Components.Guidance_UxBestPractices_Anchor, Label = Resources.Components.Guidance_UxBestPractices });
             if (SampleCodeSections != null && SampleCodeSections.Any())
                 items.AddRange(SampleCodeSections.Select(s => new NavLink() { Href = s.Id, Label = s.Title }).ToList());
             if (Properties != null && Properties.Any())

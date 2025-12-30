@@ -291,6 +291,39 @@ namespace GCFoundation.Web.Controllers
                 Resources.Components.Badge_Notes_3
             };
             vm.Overview = Resources.Components.Badge_Overview;
+            vm.Purpose = Resources.Components.Badge_Purpose;
+            vm.WhenToUse = new List<string>()
+            {
+                Resources.Components.Badge_WhenToUse_1,
+                Resources.Components.Badge_WhenToUse_2,
+                Resources.Components.Badge_WhenToUse_3
+            };
+            vm.WhenNotToUse = new List<string>()
+            {
+                Resources.Components.Badge_WhenNotToUse_1,
+                Resources.Components.Badge_WhenNotToUse_2,
+                Resources.Components.Badge_WhenNotToUse_3
+            };
+            vm.AccessibilityDo = new List<string>()
+            {
+                Resources.Components.Badge_Accessibility_Do_1,
+                Resources.Components.Badge_Accessibility_Do_2,
+                Resources.Components.Badge_Accessibility_Do_3,
+                Resources.Components.Badge_Accessibility_Do_4,
+                Resources.Components.Badge_Accessibility_Do_5
+            };
+            vm.AccessibilityDoNot = new List<string>()
+            {
+                Resources.Components.Badge_Accessibility_DoNot_1,
+                Resources.Components.Badge_Accessibility_DoNot_2
+            };
+            vm.UxBestPractices = new List<string>()
+            {
+                Resources.Components.Badge_UxBestPractices_1,
+                Resources.Components.Badge_UxBestPractices_2,
+                Resources.Components.Badge_UxBestPractices_3,
+                Resources.Components.Badge_UxBestPractices_4
+            };
             vm.Properties = new List<ComponentPropertyViewModel>()
             {
                 new ComponentPropertyViewModel() { Name = "style", DataType = "FDCPBadgeStyle", Description = Resources.Components.Badge_Properties_Style },
