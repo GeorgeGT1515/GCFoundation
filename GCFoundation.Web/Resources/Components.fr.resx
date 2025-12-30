@@ -1359,4 +1359,100 @@
   <data name="StatelessAuth_Integration_Description2" xml:space="preserve">
     <value />
   </data>
+  <data name="Guidance_Purpose" xml:space="preserve">
+    <value>Objectif</value>
+  </data>
+  <data name="Guidance_Purpose_Anchor" xml:space="preserve">
+    <value>objectif</value>
+  </data>
+  <data name="Guidance_WhenToUse" xml:space="preserve">
+    <value>Quand l'utiliser</value>
+  </data>
+  <data name="Guidance_WhenToUse_Anchor" xml:space="preserve">
+    <value>quand-utiliser</value>
+  </data>
+  <data name="Guidance_WhenToUse_Intro" xml:space="preserve">
+    <value>Utilisez un badge lorsque :</value>
+  </data>
+  <data name="Guidance_WhenNotToUse" xml:space="preserve">
+    <value>Quand ne pas l'utiliser</value>
+  </data>
+  <data name="Guidance_WhenNotToUse_Anchor" xml:space="preserve">
+    <value>quand-ne-pas-utiliser</value>
+  </data>
+  <data name="Guidance_WhenNotToUse_Intro" xml:space="preserve">
+    <value>Évitez les badges lorsque :</value>
+  </data>
+  <data name="Guidance_Accessibility" xml:space="preserve">
+    <value>Exigences d'accessibilité</value>
+  </data>
+  <data name="Guidance_Accessibility_Anchor" xml:space="preserve">
+    <value>accessibilite</value>
+  </data>
+  <data name="Guidance_Accessibility_Do" xml:space="preserve">
+    <value>À FAIRE :</value>
+  </data>
+  <data name="Guidance_Accessibility_DoNot" xml:space="preserve">
+    <value>À NE PAS FAIRE :</value>
+  </data>
+  <data name="Guidance_UxBestPractices" xml:space="preserve">
+    <value>Meilleures pratiques UX/UI</value>
+  </data>
+  <data name="Guidance_UxBestPractices_Anchor" xml:space="preserve">
+    <value>meilleures-pratiques-ux</value>
+  </data>
+  <data name="Badge_Purpose" xml:space="preserve">
+    <value>Les badges mettent en évidence de courts éléments d'information catégoriques tels que le statut, la priorité ou les métadonnées. Ils aident les utilisateurs à parcourir rapidement et à différencier les détails clés.</value>
+  </data>
+  <data name="Badge_WhenToUse_1" xml:space="preserve">
+    <value>Vous devez signaler un petit élément d'information basé sur le statut ou la catégorie.</value>
+  </data>
+  <data name="Badge_WhenToUse_2" xml:space="preserve">
+    <value>Vous souhaitez ajouter un contexte supplémentaire aux titres, étiquettes, listes, cartes ou tableaux.</value>
+  </data>
+  <data name="Badge_WhenToUse_3" xml:space="preserve">
+    <value>Les utilisateurs doivent distinguer les types ou les états d'un coup d'œil.</value>
+  </data>
+  <data name="Badge_WhenNotToUse_1" xml:space="preserve">
+    <value>L'information nécessite une explication ou est plus longue qu'une courte phrase.</value>
+  </data>
+  <data name="Badge_WhenNotToUse_2" xml:space="preserve">
+    <value>Le badge est le seul moyen pour un utilisateur de comprendre une information critique.</value>
+  </data>
+  <data name="Badge_WhenNotToUse_3" xml:space="preserve">
+    <value>Trop de badges ensemble créent une surcharge cognitive ou un encombrement visuel.</value>
+  </data>
+  <data name="Badge_Accessibility_Do_1" xml:space="preserve">
+    <value>Utilisez du texte ou de l'iconographie en plus de la couleur pour transmettre le sens.</value>
+  </data>
+  <data name="Badge_Accessibility_Do_2" xml:space="preserve">
+    <value>Respectez les exigences de contraste WCAG 2.1 AA pour le texte et l'arrière-plan.</value>
+  </data>
+  <data name="Badge_Accessibility_Do_3" xml:space="preserve">
+    <value>Utilisez une sémantique de couleur cohérente alignée sur les jetons du système (p. ex., vert pour le succès, rouge pour les avertissements, gris pour les métadonnées neutres).</value>
+  </data>
+  <data name="Badge_Accessibility_Do_4" xml:space="preserve">
+    <value>Restez lisible et utilisable à un zoom de 200 % et sur les petits écrans.</value>
+  </data>
+  <data name="Badge_Accessibility_Do_5" xml:space="preserve">
+    <value>N'utilisez les variantes colorées que lorsque la couleur soutient une distinction claire — p. ex., vert pour le succès, rouge pour les avertissements, gris pour les métadonnées neutres. Mais TOUJOURS l'associer à une icône ou une forme significative.</value>
+  </data>
+  <data name="Badge_Accessibility_DoNot_1" xml:space="preserve">
+    <value>Utiliser un badge rouge avec l'étiquette « Erreur » et un badge gris avec l'étiquette « Erreur » de façon interchangeable si la couleur est la seule différence.</value>
+  </data>
+  <data name="Badge_Accessibility_DoNot_2" xml:space="preserve">
+    <value>Utiliser la couleur seule pour communiquer des catégories telles que les niveaux de priorité.</value>
+  </data>
+  <data name="Badge_UxBestPractices_1" xml:space="preserve">
+    <value>Gardez les badges brefs (un à deux mots) et placez-les près de l'élément qu'ils décrivent.</value>
+  </data>
+  <data name="Badge_UxBestPractices_2" xml:space="preserve">
+    <value>Utilisez de manière cohérente dans tout le produit pour la même signification ou catégorie.</value>
+  </data>
+  <data name="Badge_UxBestPractices_3" xml:space="preserve">
+    <value>Évitez d'empiler plusieurs badges sauf si chacun communique une information clairement distincte.</value>
+  </data>
+  <data name="Badge_UxBestPractices_4" xml:space="preserve">
+    <value>Suivez les directives d'espacement, de dimensionnement et de couleur du système pour maintenir l'harmonie visuelle.</value>
+  </data>
 </root>

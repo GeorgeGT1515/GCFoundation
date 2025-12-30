@@ -1226,4 +1226,100 @@
   <data name="Index_Card_ImgAlt_Template" xml:space="preserve">
     <value>Graphical representation of the GCFoundation "{0}" component.</value>
   </data>
+  <data name="Guidance_Purpose" xml:space="preserve">
+    <value>Purpose</value>
+  </data>
+  <data name="Guidance_Purpose_Anchor" xml:space="preserve">
+    <value>purpose</value>
+  </data>
+  <data name="Guidance_WhenToUse" xml:space="preserve">
+    <value>When to Use</value>
+  </data>
+  <data name="Guidance_WhenToUse_Anchor" xml:space="preserve">
+    <value>when-to-use</value>
+  </data>
+  <data name="Guidance_WhenToUse_Intro" xml:space="preserve">
+    <value>Use a badge when:</value>
+  </data>
+  <data name="Guidance_WhenNotToUse" xml:space="preserve">
+    <value>When Not to Use</value>
+  </data>
+  <data name="Guidance_WhenNotToUse_Anchor" xml:space="preserve">
+    <value>when-not-to-use</value>
+  </data>
+  <data name="Guidance_WhenNotToUse_Intro" xml:space="preserve">
+    <value>Avoid badges when:</value>
+  </data>
+  <data name="Guidance_Accessibility" xml:space="preserve">
+    <value>Accessibility Requirements</value>
+  </data>
+  <data name="Guidance_Accessibility_Anchor" xml:space="preserve">
+    <value>accessibility</value>
+  </data>
+  <data name="Guidance_Accessibility_Do" xml:space="preserve">
+    <value>DO:</value>
+  </data>
+  <data name="Guidance_Accessibility_DoNot" xml:space="preserve">
+    <value>DO NOT:</value>
+  </data>
+  <data name="Guidance_UxBestPractices" xml:space="preserve">
+    <value>UX/UI Best Practices</value>
+  </data>
+  <data name="Guidance_UxBestPractices_Anchor" xml:space="preserve">
+    <value>ux-best-practices</value>
+  </data>
+  <data name="Badge_Purpose" xml:space="preserve">
+    <value>Badges highlight short, categorical pieces of information such as status, priority, or metadata. They help users quickly scan and differentiate key details.</value>
+  </data>
+  <data name="Badge_WhenToUse_1" xml:space="preserve">
+    <value>You need to call out a small piece of status- or category-based information.</value>
+  </data>
+  <data name="Badge_WhenToUse_2" xml:space="preserve">
+    <value>You want to add supplemental context to headings, labels, lists, cards, or tables.</value>
+  </data>
+  <data name="Badge_WhenToUse_3" xml:space="preserve">
+    <value>Users need to distinguish between types or states at a glance.</value>
+  </data>
+  <data name="Badge_WhenNotToUse_1" xml:space="preserve">
+    <value>The information requires explanation or is longer than a short phrase.</value>
+  </data>
+  <data name="Badge_WhenNotToUse_2" xml:space="preserve">
+    <value>The badge is the only way a user can understand critical information.</value>
+  </data>
+  <data name="Badge_WhenNotToUse_3" xml:space="preserve">
+    <value>Too many badges together create cognitive overload or visual clutter.</value>
+  </data>
+  <data name="Badge_Accessibility_Do_1" xml:space="preserve">
+    <value>Use text or iconography in addition to colour to convey meaning.</value>
+  </data>
+  <data name="Badge_Accessibility_Do_2" xml:space="preserve">
+    <value>Meet WCAG 2.1 AA contrast requirements for text and background.</value>
+  </data>
+  <data name="Badge_Accessibility_Do_3" xml:space="preserve">
+    <value>Use consistent colour semantics aligned to system tokens (e.g., green for success, red for warnings, grey for neutral metadata).</value>
+  </data>
+  <data name="Badge_Accessibility_Do_4" xml:space="preserve">
+    <value>Remain readable and operable at 200% zoom and on small screens.</value>
+  </data>
+  <data name="Badge_Accessibility_Do_5" xml:space="preserve">
+    <value>Use coloured variants only when colour supports a clear distinction— e.g., green for success, red for warnings, grey for neutral metadata. But ALWAYS pair it with a meaningful icon or shape.</value>
+  </data>
+  <data name="Badge_Accessibility_DoNot_1" xml:space="preserve">
+    <value>Use a red badge with the label "Error" and a grey badge with the label "Error" interchangeably if colour is the only difference.</value>
+  </data>
+  <data name="Badge_Accessibility_DoNot_2" xml:space="preserve">
+    <value>Use colour alone to communicate categories such as priority levels.</value>
+  </data>
+  <data name="Badge_UxBestPractices_1" xml:space="preserve">
+    <value>Keep badges brief (one–two words) and place them close to the element they describe.</value>
+  </data>
+  <data name="Badge_UxBestPractices_2" xml:space="preserve">
+    <value>Use consistently across the product for the same meaning or category.</value>
+  </data>
+  <data name="Badge_UxBestPractices_3" xml:space="preserve">
+    <value>Avoid stacking multiple badges unless each communicates clearly distinct information.</value>
+  </data>
+  <data name="Badge_UxBestPractices_4" xml:space="preserve">
+    <value>Follow system spacing, sizing, and colour guidance to maintain visual harmony.</value>
+  </data>
 </root>

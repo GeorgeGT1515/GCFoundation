@@ -1,0 +1,76 @@
+@using GCFoundation.Web.Resources
+@model GCFoundation.Web.Models.Components.ComponentViewModel
+
+@* Purpose *@
+@if (!string.IsNullOrEmpty(Model.Purpose))
+{
+    <gcds-heading tag="h2" id="@Components.Guidance_Purpose_Anchor">@Components.Guidance_Purpose</gcds-heading>
+    <gcds-text>@Html.Raw(Model.Purpose)</gcds-text>
+}
+
+@* When to Use *@
+@if (Model.WhenToUse != null && Model.WhenToUse.Any())
+{
+    <gcds-heading tag="h2" id="@Components.Guidance_WhenToUse_Anchor">@Components.Guidance_WhenToUse</gcds-heading>
+    <gcds-text>@Components.Guidance_WhenToUse_Intro</gcds-text>
+    <ul class="list-disc">
+        @foreach (var item in Model.WhenToUse)
+        {
+            <li>@Html.Raw(item)</li>
+        }
+    </ul>
+}
+
+@* When Not to Use *@
+@if (Model.WhenNotToUse != null && Model.WhenNotToUse.Any())
+{
+    <gcds-heading tag="h2" id="@Components.Guidance_WhenNotToUse_Anchor">@Components.Guidance_WhenNotToUse</gcds-heading>
+    <gcds-text>@Components.Guidance_WhenNotToUse_Intro</gcds-text>
+    <ul class="list-disc">
+        @foreach (var item in Model.WhenNotToUse)
+        {
+            <li>@Html.Raw(item)</li>
+        }
+    </ul>
+}
+
+@* Accessibility Requirements *@
+@if ((Model.AccessibilityDo != null && Model.AccessibilityDo.Any()) || (Model.AccessibilityDoNot != null && Model.AccessibilityDoNot.Any()))
+{
+    <gcds-heading tag="h2" id="@Components.Guidance_Accessibility_Anchor">@Components.Guidance_Accessibility</gcds-heading>
+    
+    @if (Model.AccessibilityDo != null && Model.AccessibilityDo.Any())
+    {
+        <gcds-text><strong>@Components.Guidance_Accessibility_Do</strong></gcds-text>
+        <ul class="list-disc">
+            @foreach (var item in Model.AccessibilityDo)
+            {
+                <li>@Html.Raw(item)</li>
+            }
+        </ul>
+    }
+    
+    @if (Model.AccessibilityDoNot != null && Model.AccessibilityDoNot.Any())
+    {
+        <gcds-text margin-top="300"><strong>@Components.Guidance_Accessibility_DoNot</strong></gcds-text>
+        <ul class="list-disc">
+            @foreach (var item in Model.AccessibilityDoNot)
+            {
+                <li>@Html.Raw(item)</li>
+            }
+        </ul>
+    }
+}
+
+@* UX/UI Best Practices *@
+@if (Model.UxBestPractices != null && Model.UxBestPractices.Any())
+{
+    <gcds-heading tag="h2" id="@Components.Guidance_UxBestPractices_Anchor">@Components.Guidance_UxBestPractices</gcds-heading>
+    <ul class="list-disc">
+        @foreach (var item in Model.UxBestPractices)
+        {
+            <li>@Html.Raw(item)</li>
+        }
+    </ul>
+}
+
