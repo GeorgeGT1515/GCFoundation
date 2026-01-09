@@ -64,6 +64,7 @@ table[tabindex]:focus {
 }
 
 /* Ensure muted text meets contrast on white backgrounds */
-.fdcp-text-muted {
+/* DEPRECATED: Use GCDS text-colour classes instead */
+.text-muted {
     color: var(--gcds-color-grayscale-800, #43474e) !important;
 }
