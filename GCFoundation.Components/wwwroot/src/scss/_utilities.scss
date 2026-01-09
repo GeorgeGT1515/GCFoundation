@@ -1,11 +1,18 @@
 //=========================================
 // GCDS Utility Classes
 //=========================================
+// DEPRECATED: These fdcp-* utility classes are deprecated.
+// Use GCDS CSS Shortcuts instead: https://design-system.alpha.canada.ca/en/css-shortcuts/
+// Example: fdcp-mx-auto -> mx-auto, fdcp-bg-primary -> bg-primary
+//=========================================
 
 @use './_variables' as vars;
 
 //=========================================
 // Spacing Utilities
+// DEPRECATED: Use GCDS CSS Shortcuts instead (e.g., fdcp-m-300 -> m-300)
+// https://design-system.alpha.canada.ca/en/css-shortcuts/margin/
+// https://design-system.alpha.canada.ca/en/css-shortcuts/padding/
 //=========================================
 
 // Spacing scale based on GCDS design system
@@ -120,6 +127,10 @@
 
 //=========================================
 // Alignment Utilities
+// DEPRECATED: Use GCDS CSS Shortcuts instead
+// https://design-system.alpha.canada.ca/en/css-shortcuts/text-align/
+// https://design-system.alpha.canada.ca/en/css-shortcuts/display/
+// https://design-system.alpha.canada.ca/en/css-shortcuts/flex-direction/
 //=========================================
 
 // Text Alignment
@@ -185,6 +196,9 @@
 
 //=========================================
 // Color Utilities
+// DEPRECATED: Use GCDS CSS Shortcuts instead
+// https://design-system.alpha.canada.ca/en/css-shortcuts/text-colour/
+// https://design-system.alpha.canada.ca/en/css-shortcuts/background-colour/
 //=========================================
 
 // Text Colors
@@ -296,6 +310,9 @@
 
 //=========================================
 // Border Utilities
+// DEPRECATED: Use GCDS CSS Shortcuts instead
+// https://design-system.alpha.canada.ca/en/css-shortcuts/border-width/
+// https://design-system.alpha.canada.ca/en/css-shortcuts/border-radius/
 //=========================================
 
 .fdcp-border { border: 1px solid vars.$gcds-border-default !important; }
@@ -316,6 +333,8 @@
 
 //=========================================
 // Position Utilities
+// DEPRECATED: Use GCDS CSS Shortcuts instead
+// https://design-system.alpha.canada.ca/en/css-shortcuts/position/
 //=========================================
 
 .fdcp-position-static { position: static !important; }
@@ -326,6 +345,8 @@
 
 //=========================================
 // Visibility Utilities
+// DEPRECATED: Use GCDS CSS Shortcuts instead
+// https://design-system.alpha.canada.ca/en/css-shortcuts/visibility/
 //=========================================
 
 .fdcp-visible { visibility: visible !important; }
@@ -333,6 +354,8 @@
 
 //=========================================
 // Overflow Utilities
+// DEPRECATED: Use GCDS CSS Shortcuts instead
+// https://design-system.alpha.canada.ca/en/css-shortcuts/overflow/
 //=========================================
 
 .fdcp-overflow-auto { overflow: auto !important; }
@@ -342,6 +365,8 @@
 
 //=========================================
 // Width and Height Utilities
+// DEPRECATED: Use GCDS CSS Shortcuts instead
+// https://design-system.alpha.canada.ca/en/css-shortcuts/container-sizing/
 //=========================================
 
 .fdcp-w-25 { width: 25% !important; }
@@ -358,6 +383,8 @@
 
 //=========================================
 // Responsive Utilities
+// DEPRECATED: Use GCDS CSS Shortcuts with responsive prefixes instead
+// https://design-system.alpha.canada.ca/en/css-shortcuts/responsive-layout/
 //=========================================
 
 // Small devices (landscape phones, 576px and up)

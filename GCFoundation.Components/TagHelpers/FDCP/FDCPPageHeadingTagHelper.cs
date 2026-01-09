@@ -93,20 +93,21 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             if (TextEmphasis)
             {
+                // Using GCDS CSS Shortcuts for background colours
                 switch (BackgroundColour)
                 {
                     case BackgroundColour.dark:
-                        articleClass += " fdcp-bg-dark";
+                        articleClass += " bg-dark";
                         break;
                     case BackgroundColour.light:
-                        articleClass += " fdcp-bg-light";
+                        articleClass += " bg-light";
                         break;
                     case BackgroundColour.white:
-                        articleClass += " fdcp-bg-white";
+                        articleClass += " bg-white";
                         break;
                     case BackgroundColour.primary:
                     default:
-                        articleClass += " fdcp-bg-primary";
+                        articleClass += " bg-primary";
                         break;
                 }
             }
