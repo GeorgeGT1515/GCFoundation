@@ -27,15 +27,15 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public int CurrentStep { get; set; } = 1;
 
         /// <summary>
-        /// The main heading text to display in the stepper's heading.
-        /// </summary>
-        public string HeadingTitle { get; set; } = Stepper.Title_Default;
-
-        /// <summary>
         /// The HTML heading tag to be used (e.g., h1, h2, etc.) in the stepper's heading.
         /// Default is <see cref="HeadingTag.h2"/>.
         /// </summary>
         public HeadingTag HeadingTag { get; set; } = HeadingTag.h2;
+
+        /// <summary>
+        /// The main heading text to display in the stepper's heading.
+        /// </summary>
+        public string HeadingTitle { get; set; } = Stepper.Title_Default;
 
         /// <summary>
         /// Gets or sets the collection of steps for the process.
@@ -63,9 +63,9 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 if (step.IsHidden || string.IsNullOrWhiteSpace(step.Label))
                     continue;
 
-                string stepClass = step.GetStatusByCurrentStep(CurrentStep);
+                StepperStepStatus stepStatus = step.GetStatusByCurrentStep(CurrentStep);
 
-                html.AppendLine(CultureInfo.InvariantCulture, $"<div class='fdcp-step {stepClass}'>");
+                html.AppendLine(CultureInfo.InvariantCulture, $"<div class='fdcp-step {stepStatus.ToString().ToLower(CultureInfo.CurrentCulture)}'>");
 
                 string circleContent = step.GetDisplayHtml(CurrentStep);
 

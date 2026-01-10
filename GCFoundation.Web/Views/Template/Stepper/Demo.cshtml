@@ -1,3 +1,4 @@
+@using GCFoundation.Components.Enums
 @using GCFoundation.Components.Models
 @using GCFoundation.Components.Resources
 @using GCFoundation.Web.Resources
@@ -7,11 +8,11 @@
 <fdcp-stepper current-step="2"
               steps="@(new List<StepperStep>
                                 {
-                                    new StepperStep { StepNumber = 1, Label = Template.Stepper_Demo_Step1_Label, DisplayMode = StepDisplayMode.Icon, CompletedIconHtml = "<i class='fa fa-check'></i>" },
-                                    new StepperStep { StepNumber = 2, Label = Template.Stepper_Demo_Step2_Label, DisplayMode = StepDisplayMode.Icon, InProgressIconHtml = "<i class='fa fa-spinner'></i>" },
-                                    new StepperStep { StepNumber = 3, Label = Template.Stepper_Demo_Step3_Label, DisplayMode = StepDisplayMode.Number },
-                                    new StepperStep { StepNumber = 4, Label = Template.Stepper_Demo_Step4_Label, DisplayMode = StepDisplayMode.Number },
-                                    new StepperStep { StepNumber = 5, Label = Template.Stepper_Demo_Step5_Label, DisplayMode = StepDisplayMode.Number }
+                                    new StepperStep { StepNumber = 1, Label = Template.Stepper_Demo_Step1_Label, DisplayMode = StepperStepDisplayMode.Icon, CompletedIconHtml = "<i class='fa fa-check'></i>" },
+                                    new StepperStep { StepNumber = 2, Label = Template.Stepper_Demo_Step2_Label, DisplayMode = StepperStepDisplayMode.Icon, InProgressIconHtml = "<i class='fa fa-spinner'></i>" },
+                                    new StepperStep { StepNumber = 3, Label = Template.Stepper_Demo_Step3_Label, DisplayMode = StepperStepDisplayMode.Number },
+                                    new StepperStep { StepNumber = 4, Label = Template.Stepper_Demo_Step4_Label, DisplayMode = StepperStepDisplayMode.Number },
+                                    new StepperStep { StepNumber = 5, Label = Template.Stepper_Demo_Step5_Label, DisplayMode = StepperStepDisplayMode.Number }
                                 })"></fdcp-stepper>
 
 @if (!ViewData.ModelState.IsValid)

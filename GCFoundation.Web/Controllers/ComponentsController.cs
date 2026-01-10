@@ -584,7 +584,7 @@ namespace GCFoundation.Web.Controllers
                 new ComponentPropertyViewModel() { Name = "steps", DataType = "IEnumerable<StepperStep>", Description = Resources.Components.Stepper_Properties_Steps },
                 new ComponentPropertyViewModel() { Name = "StepperStep.StepNumber", DataType = "int", Description = Resources.Components.Stepper_Properties_StepperStep_StepNumber },
                 new ComponentPropertyViewModel() { Name = "StepperStep.Label", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_Label },
-                new ComponentPropertyViewModel() { Name = "StepperStep.DisplayMode", DataType = "string", DefaultValue = "StepDisplayMode.Number", Description = Resources.Components.Stepper_Properties_StepperStep_DisplayMode },
+                new ComponentPropertyViewModel() { Name = "StepperStep.DisplayMode", DataType = "string", DefaultValue = "StepperStepDisplayMode.Number", Description = Resources.Components.Stepper_Properties_StepperStep_DisplayMode },
                 new ComponentPropertyViewModel() { Name = "StepperStep.IsLink", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_IsLink },
                 new ComponentPropertyViewModel() { Name = "StepperStep.LinkUrl", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_LinkUrl },
                 new ComponentPropertyViewModel() { Name = "StepperStep.CompletedIconHtml", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_CompletedIconHtml },
