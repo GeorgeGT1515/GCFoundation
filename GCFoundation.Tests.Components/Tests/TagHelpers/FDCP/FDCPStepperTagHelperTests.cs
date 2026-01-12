@@ -1,8 +1,7 @@
+using GCFoundation.Components.Enums;
+using GCFoundation.Components.Models;
 using GCFoundation.Components.TagHelpers.FDCP;
 using Microsoft.AspNetCore.Razor.TagHelpers;
-using System.Globalization;
-using Xunit;
-using GCFoundation.Components.Models;
 
 namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 {
@@ -197,6 +196,154 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             // Assert
             var content = _output.Content.GetContent();
             Assert.Contains("<gcds-heading tag='h3'>Custom title</gcds-heading>", content);
+        }
+
+        [Fact]
+        public void Process_WithNullStatusBadgeLabel_DoesNotRenderBadge()
+        {
+            // Arrange
+            var steps = new[]
+            {
+                new StepperStep
+                {
+                    StepNumber = 1,
+                    Label = "Step 1",
+                    StatusBadgeLabel = null
+                }
+            };
+
+            var tagHelper = new FDCPStepperTagHelper
+            {
+                CurrentStep = 1,
+                Steps = steps
+            };
+
+            // Act
+            tagHelper.Process(_context, _output);
+
+            // Assert
+            var content = _output.Content.GetContent();
+            Assert.DoesNotContain("fdcp-badge", content);
+        }
+
+        [Fact]
+        public void Process_WithEmptyStatusBadgeLabel_DoesNotRenderBadge()
+        {
+            // Arrange
+            var steps = new[]
+            {
+                new StepperStep
+                {
+                    StepNumber = 1,
+                    Label = "Step 1",
+                    StatusBadgeLabel = ""
+                }
+            };
+
+            var tagHelper = new FDCPStepperTagHelper
+            {
+                CurrentStep = 1,
+                Steps = steps
+            };
+
+            // Act
+            tagHelper.Process(_context, _output);
+
+            // Assert
+            var content = _output.Content.GetContent();
+            Assert.DoesNotContain("fdcp-badge", content);
+        }
+
+        [Fact]
+        public void Process_WithStatusBadgeLabel_RendersBadgeWithDefaultStyle()
+        {
+            // Arrange
+            var steps = new[]
+            {
+                new StepperStep
+                {
+                    StepNumber = 1,
+                    Label = "Step 1",
+                    StatusBadgeLabel = "New"
+                }
+            };
+
+            var tagHelper = new FDCPStepperTagHelper
+            {
+                CurrentStep = 1,
+                Steps = steps
+            };
+
+            // Act
+            tagHelper.Process(_context, _output);
+
+            // Assert
+            var content = _output.Content.GetContent();
+            Assert.Contains("fdcp-badge", content);
+            Assert.Contains("fdcp-badge-primary", content);
+            Assert.Contains("<span class='fdcp-badge-content'>New</span>", content);
+        }
+
+        [Fact]
+        public void Process_WithStatusBadgeStyle_RendersBadgeWithSpecifiedStyle()
+        {
+            // Arrange
+            var steps = new[]
+            {
+                new StepperStep
+                {
+                    StepNumber = 1,
+                    Label = "Step 1",
+                    StatusBadgeLabel = "Complete",
+                    StatusBadgeStyle = BadgeStyle.success
+                }
+            };
+
+            var tagHelper = new FDCPStepperTagHelper
+            {
+                CurrentStep = 1,
+                Steps = steps
+            };
+
+            // Act
+            tagHelper.Process(_context, _output);
+
+            // Assert
+            var content = _output.Content.GetContent();
+            Assert.Contains("fdcp-badge-success", content);
+            Assert.Contains("<span class='fdcp-badge-content'>Complete</span>", content);
+        }
+
+        [Fact]
+        public void Process_WithStatusBadgeStyleInvertedTrue_RendersInvertedBadge()
+        {
+            // Arrange
+            var steps = new[]
+            {
+                new StepperStep
+                {
+                    StepNumber = 1,
+                    Label = "Step 1",
+                    StatusBadgeLabel = "In review",
+                    StatusBadgeStyle = BadgeStyle.primary,
+                    StatusBadgeStyleInverted = true
+                }
+            };
+
+            var tagHelper = new FDCPStepperTagHelper
+            {
+                CurrentStep = 1,
+                Steps = steps
+            };
+
+            // Act
+            tagHelper.Process(_context, _output);
+
+            // Assert
+            var content = _output.Content.GetContent();
+            Assert.Contains("fdcp-badge-primary", content);
+            Assert.Contains("inverted", content);
+            Assert.Contains("<span class='fdcp-badge-content'>In review</span>", content);
         }
     }
 }
