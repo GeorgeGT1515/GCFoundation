@@ -2654,7 +2654,7 @@ namespace GCFoundation.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to &lt;gcds-text&gt;This implementation adds a small status badge next to a step label (for example, “Done” or “Not required”).&lt;/gcds-text&gt;
         ///&lt;gcds-text&gt;Set &lt;code&gt;StatusBadgeLabel&lt;/code&gt; and choose a &lt;code&gt;StatusBadgeStyle&lt;/code&gt; to match your UI semantics. You can also invert the badge style when you need more emphasis or contrast.&lt;/gcds-text&gt;
-        ///&lt;gcds-text&gt;This pattern can also be used when one or more steps are automatically skipped because a user’s earlier answers make those steps not applicable. To support clarity [rest of string was truncated]&quot;;.
+        ///&lt;gcds-text&gt;This pattern can also be used when one or more steps are identified as &quot;not required&quot; because a user’s earlier choices make those steps not applicable. To support  [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Stepper_WithStatus_Text {
             get {

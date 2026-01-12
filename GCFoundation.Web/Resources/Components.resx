@@ -1334,10 +1334,10 @@
   <data name="Stepper_WithStatus_Text" xml:space="preserve">
     <value>&lt;gcds-text&gt;This implementation adds a small status badge next to a step label (for example, “Done” or “Not required”).&lt;/gcds-text&gt;
 &lt;gcds-text&gt;Set &lt;code&gt;StatusBadgeLabel&lt;/code&gt; and choose a &lt;code&gt;StatusBadgeStyle&lt;/code&gt; to match your UI semantics. You can also invert the badge style when you need more emphasis or contrast.&lt;/gcds-text&gt;
-&lt;gcds-text&gt;This pattern can also be used when one or more steps are automatically skipped because a user’s earlier answers make those steps not applicable. To support clarity, consistency, and accessibility:
+&lt;gcds-text&gt;This pattern can also be used when one or more steps are identified as "not required" because a user’s earlier choices make those steps not applicable. To support clarity, consistency, and accessibility:
 &lt;ul class="list-square"&gt;
 &lt;li&gt;Skipped steps must visually include a label/badge such as “N/A” or “Not required” as shown in the design system pattern.&lt;/li&gt;
-&lt;li&gt;A notification at the top of the page is &lt;em&gt;recommended&lt;/em&gt; to inform users that steps have been skipped and why. Here is an example:
+&lt;li&gt;A notice at the top of the page is &lt;em&gt;recommended&lt;/em&gt; to inform users that steps have been skipped and why. Here is an example:
 &lt;gcds-notice type="info" notice-title="Steps not required" notice-title-tag="h4"&gt;&lt;gcds-text&gt;Steps shown as N/A were skipped because your previous answers provided enough information to move ahead.&lt;/gcds-text&gt;&lt;/gcds-notice&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/gcds-text&gt;</value>
   </data>
   <data name="Stepper_Accessibility_Do_1" xml:space="preserve">
