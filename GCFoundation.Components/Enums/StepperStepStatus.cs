@@ -6,18 +6,18 @@
     public enum StepperStepStatus
     {
         /// <summary>  
-        /// Step before the current step.  
-        /// </summary>  
-        Completed,
-
-        /// <summary>  
         /// Step is the current step.  
         /// </summary>  
-        Active,
+        active,
 
         /// <summary>  
-        /// Step after the current step.  
+        /// Step is before the current step.  
         /// </summary>  
-        Incomplete
+        completed,
+
+        /// <summary>  
+        /// Step is after the current step.  
+        /// </summary>  
+        incomplete
     }
 }

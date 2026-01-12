@@ -14,7 +14,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// <remarks>
     /// Usage example:
     /// <code>
-    /// &lt;fdcp-stepper current-step=&quot;2&quot; steps=&quot;@(new[] { new Step { StepNumber = 1, Status = StepStatus.Completed }, new Step { StepNumber = 2, Status = StepStatus.InProgress }, new Step { StepNumber = 3, Status = StepStatus.NotStarted } })&quot;&gt;
+    /// &lt;fdcp-stepper current-step=&quot;2&quot; steps=&quot;@(new[] { new Step { StepNumber = 1, Status = StepStatus.completed }, new Step { StepNumber = 2, Status = StepStatus.InProgress }, new Step { StepNumber = 3, Status = StepStatus.NotStarted } })&quot;&gt;
     /// &lt;/fdcp-stepper&gt;
     /// </code>
     /// </remarks>
@@ -65,7 +65,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
                 StepperStepStatus stepStatus = step.GetStatusByCurrentStep(CurrentStep);
 
-                html.AppendLine(CultureInfo.InvariantCulture, $"<div class='fdcp-step {stepStatus.ToString().ToLower(CultureInfo.CurrentCulture)}'>");
+                html.AppendLine(CultureInfo.InvariantCulture, $"<div class='fdcp-step {stepStatus}'>");
 
                 string circleContent = step.GetDisplayHtml(CurrentStep);
 

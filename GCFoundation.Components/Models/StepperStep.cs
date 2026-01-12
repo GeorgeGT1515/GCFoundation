@@ -1,4 +1,5 @@
 ﻿using GCFoundation.Components.Enums;
+using GCFoundation.Components.TagHelpers.FDCP;
 using System.Globalization;
 
 namespace GCFoundation.Components.Models
@@ -10,10 +11,21 @@ namespace GCFoundation.Components.Models
     public class StepperStep
     {
         /// <summary>
+        /// Gets or sets the HTML for the FontAwesome icon to display when the step is completed.
+        /// Example: "&lt;i class='fa fa-check'&gt;&lt;/i&gt;"
+        /// </summary>
+        public string? CompletedIconHtml { get; set; }
+
+        /// <summary>
         /// Gets or sets how the step should be displayed (as a number or icon).
         /// Defaults to Number display mode.
         /// </summary>
         public StepperStepDisplayMode DisplayMode { get; set; } = StepperStepDisplayMode.Number;
+
+        /// <summary>
+        /// Gets or sets the HTML for the FontAwesome icon to display when the step is in progress.
+        /// </summary>
+        public string? InProgressIconHtml { get; set; }
 
         /// <summary>
         /// Gets or sets whether the step should be hidden from display.
@@ -38,26 +50,24 @@ namespace GCFoundation.Components.Models
 #pragma warning restore CA1056 // URI-like properties should not be strings
 
         /// <summary>
-        /// Gets or sets the numerical position of the step in the sequence.
-        /// </summary>
-        public int StepNumber { get; set; }
-
-
-        /// <summary>
-        /// Gets or sets the HTML for the FontAwesome icon to display when the step is completed.
-        /// Example: "&lt;i class='fa fa-check'&gt;&lt;/i&gt;"
-        /// </summary>
-        public string? CompletedIconHtml { get; set; }
-
-        /// <summary>
-        /// Gets or sets the HTML for the FontAwesome icon to display when the step is in progress.
-        /// </summary>
-        public string? InProgressIconHtml { get; set; }
-
-        /// <summary>
         /// Gets or sets the HTML for the FontAwesome icon to display when the step hasn't been started.
         /// </summary>
         public string? NotStartedIconHtml { get; set; }
+
+        /// <summary>
+        /// Gets or sets the text of the badge describing the status of the step.
+        /// </summary>
+        public string? StatusBadgeLabel { get; set; }
+
+        /// <summary>
+        /// Gets or sets the style of the badge describing the status of the step.
+        /// </summary>
+        public FDCPBadgeStyle? StatusBadgeStyle { get; set; }
+
+        /// <summary>
+        /// Gets or sets the numerical position of the step in the sequence.
+        /// </summary>
+        public int StepNumber { get; set; }
 
 
         /// <summary>
@@ -74,8 +84,8 @@ namespace GCFoundation.Components.Models
             {
                 return GetStatusByCurrentStep(currentStep) switch
                 {
-                    StepperStepStatus.Completed => !string.IsNullOrEmpty(CompletedIconHtml) ? CompletedIconHtml : StepNumber.ToString(CultureInfo.InvariantCulture),
-                    StepperStepStatus.Active => !string.IsNullOrEmpty(InProgressIconHtml) ? InProgressIconHtml : StepNumber.ToString(CultureInfo.InvariantCulture),
+                    StepperStepStatus.completed => !string.IsNullOrEmpty(CompletedIconHtml) ? CompletedIconHtml : StepNumber.ToString(CultureInfo.InvariantCulture),
+                    StepperStepStatus.active => !string.IsNullOrEmpty(InProgressIconHtml) ? InProgressIconHtml : StepNumber.ToString(CultureInfo.InvariantCulture),
                     _ => !string.IsNullOrEmpty(NotStartedIconHtml) ? NotStartedIconHtml : StepNumber.ToString(CultureInfo.InvariantCulture)
                 };
             }
@@ -92,11 +102,11 @@ namespace GCFoundation.Components.Models
         public StepperStepStatus GetStatusByCurrentStep(int currentStep)
         {
             if (StepNumber < currentStep)
-                return StepperStepStatus.Completed;
+                return StepperStepStatus.completed;
             else if (StepNumber == currentStep)
-                return StepperStepStatus.Active;
+                return StepperStepStatus.active;
             else
-                return StepperStepStatus.Incomplete;
+                return StepperStepStatus.incomplete;
         }
     }
 }
