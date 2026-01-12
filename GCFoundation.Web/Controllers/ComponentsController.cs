@@ -570,6 +570,13 @@ namespace GCFoundation.Web.Controllers
             var vm = new ComponentViewModel();
 
             vm.Name = Resources.Components.Stepper_Name;
+
+            vm.AccessibilityDo = new List<string>()
+            {
+                Resources.Components.Stepper_Accessibility_Do_1,
+                Resources.Components.Stepper_Accessibility_Do_2,
+                Resources.Components.Stepper_Accessibility_Do_3
+            };
             vm.Notes = new List<string>()
             {
                 Resources.Components.Stepper_Notes_1,

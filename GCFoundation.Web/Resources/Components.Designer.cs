@@ -2370,6 +2370,51 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;&lt;strong&gt;Clearly identify skipped steps:&lt;/strong&gt;
+        ///&lt;ul class=&quot;list-circle&quot;&gt;
+        ///&lt;li&gt;Given a step has been skipped due to previous answers&lt;/li&gt;
+        ///&lt;li&gt;Then the step must display a visual badge reading “N/A” or “Not required”&lt;/li&gt;
+        ///&lt;li&gt;And, an accessible label must be present (e.g., “Step 2 not required based on your previous answers”)&lt;/li&gt;
+        ///&lt;/ul&gt;
+        ///&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Stepper_Accessibility_Do_1 {
+            get {
+                return ResourceManager.GetString("Stepper_Accessibility_Do_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;&lt;strong&gt;Make skipped steps non-interactive:&lt;/strong&gt;
+        ///&lt;ul class=&quot;list-circle&quot;&gt;
+        ///&lt;li&gt;Given a step is in a skipped state&lt;/li&gt;
+        ///&lt;li&gt;Then, it must not be reachable via keyboard navigation&lt;/li&gt;
+        ///&lt;li&gt;Then, it must not behave like an interactive element (no hover, no click, no focus ring)&lt;/li&gt;
+        ///&lt;li&gt;And, the user must not be able to activate or navigate into skipped steps.&lt;/li&gt;
+        ///&lt;/ul&gt;
+        ///&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Stepper_Accessibility_Do_2 {
+            get {
+                return ResourceManager.GetString("Stepper_Accessibility_Do_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;&lt;strong&gt;Announce skipped steps programmatically (A11y):&lt;/strong&gt;
+        ///&lt;ul class=&quot;list-circle&quot;&gt;
+        ///&lt;li&gt;Given a screen-reader user encounters a skipped step&lt;/li&gt;
+        ///&lt;li&gt;Then, the skipped step must announce: “Step X: Skipped: (Optional) This step is not required based on your previous answers.”&lt;/li&gt;
+        ///&lt;/ul&gt;
+        ///&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Stepper_Accessibility_Do_3 {
+            get {
+                return ResourceManager.GetString("Stepper_Accessibility_Do_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to basic.
         /// </summary>
         public static string Stepper_Basic_Anchor {
@@ -2379,7 +2424,8 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A basic stepper with numbered steps:.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;This is the default numbered implementation. Set &lt;code&gt;current-step&lt;/code&gt; to indicate which step the user is currently on; earlier steps render as completed and later steps render as not started.&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;The &lt;code&gt;steps&lt;/code&gt; attribute receives a list of &lt;code&gt;StepperStep&lt;/code&gt; objects (at minimum &lt;code&gt;StepNumber&lt;/code&gt; + &lt;code&gt;Label&lt;/code&gt;). Using &lt;code&gt;DisplayMode = Number&lt;/code&gt; renders the step numbers.&lt;/gcds-text&gt;.
         /// </summary>
         public static string Stepper_Basic_Text {
             get {
@@ -2550,7 +2596,8 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stepper with custom icons for different states:.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;This implementation uses &lt;code&gt;DisplayMode = Icon&lt;/code&gt; to show an icon instead of a number.&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;Provide HTML for the icons you want to display using &lt;code&gt;CompletedIconHtml&lt;/code&gt; and &lt;code&gt;InProgressIconHtml&lt;/code&gt;. If an icon isn’t provided for a given state, the step number will be shown as a fallback.&lt;/gcds-text&gt;.
         /// </summary>
         public static string Stepper_WithIcons_Text {
             get {
@@ -2577,7 +2624,8 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stepper with clickable steps:.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;This implementation makes a step clickable by setting &lt;code&gt;IsLink = true&lt;/code&gt; and providing a &lt;code&gt;LinkUrl&lt;/code&gt; (for example, an anchor link or a route to an earlier step).&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;Use links thoughtfully: steps typically link back to completed steps so users can review or edit previous inputs without losing context.&lt;/gcds-text&gt;.
         /// </summary>
         public static string Stepper_WithLinks_Text {
             get {
@@ -2604,7 +2652,9 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stepper with custom status badges:.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;This implementation adds a small status badge next to a step label (for example, “Done” or “Not required”).&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;Set &lt;code&gt;StatusBadgeLabel&lt;/code&gt; and choose a &lt;code&gt;StatusBadgeStyle&lt;/code&gt; to match your UI semantics. You can also invert the badge style when you need more emphasis or contrast.&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;This pattern can also be used when one or more steps are automatically skipped because a user’s earlier answers make those steps not applicable. To support clarity [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Stepper_WithStatus_Text {
             get {

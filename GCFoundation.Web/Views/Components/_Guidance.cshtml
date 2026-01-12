@@ -13,7 +13,7 @@
 {
     <gcds-heading tag="h2" id="@Components.Guidance_WhenToUse_Anchor">@Components.Guidance_WhenToUse</gcds-heading>
     <gcds-text>@Components.Guidance_WhenToUse_Intro</gcds-text>
-    <ul class="list-disc">
+    <ul class="list-square">
         @foreach (var item in Model.WhenToUse)
         {
             <li>@Html.Raw(item)</li>
@@ -26,7 +26,7 @@
 {
     <gcds-heading tag="h2" id="@Components.Guidance_WhenNotToUse_Anchor">@Components.Guidance_WhenNotToUse</gcds-heading>
     <gcds-text>@Components.Guidance_WhenNotToUse_Intro</gcds-text>
-    <ul class="list-disc">
+    <ul class="list-square">
         @foreach (var item in Model.WhenNotToUse)
         {
             <li>@Html.Raw(item)</li>
@@ -42,7 +42,7 @@
     @if (Model.AccessibilityDo != null && Model.AccessibilityDo.Any())
     {
         <gcds-text><strong>@Components.Guidance_Accessibility_Do</strong></gcds-text>
-        <ul class="list-disc">
+        <ul class="list-square">
             @foreach (var item in Model.AccessibilityDo)
             {
                 <li>@Html.Raw(item)</li>
@@ -53,7 +53,7 @@
     @if (Model.AccessibilityDoNot != null && Model.AccessibilityDoNot.Any())
     {
         <gcds-text margin-top="300"><strong>@Components.Guidance_Accessibility_DoNot</strong></gcds-text>
-        <ul class="list-disc">
+        <ul class="list-square">
             @foreach (var item in Model.AccessibilityDoNot)
             {
                 <li>@Html.Raw(item)</li>
@@ -66,7 +66,7 @@
 @if (Model.UxBestPractices != null && Model.UxBestPractices.Any())
 {
     <gcds-heading tag="h2" id="@Components.Guidance_UxBestPractices_Anchor">@Components.Guidance_UxBestPractices</gcds-heading>
-    <ul class="list-disc">
+    <ul class="list-square">
         @foreach (var item in Model.UxBestPractices)
         {
             <li>@Html.Raw(item)</li>

@@ -1329,6 +1329,20 @@
   <data name="Badge_UxBestPractices_4" xml:space="preserve">
     <value>Suivez les directives d'espacement, de dimensionnement et de couleur du système pour maintenir l'harmonie visuelle.</value>
   </data>
+  <data name="Stepper_WithStatus_Title" xml:space="preserve">
+    <value>Avec état</value>
+  </data>
+  <data name="Stepper_WithStatus_Anchor" xml:space="preserve">
+    <value>avec-etat</value>
+  </data>
+  <data name="Stepper_WithStatus_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Cette implémentation ajoute un petit badge d’état à côté de l’étiquette d’une étape (par exemple « Fait » ou « Non requis »).&lt;/gcds-text&gt;
+&lt;gcds-text&gt;Définissez &lt;code&gt;StatusBadgeLabel&lt;/code&gt; et choisissez un &lt;code&gt;StatusBadgeStyle&lt;/code&gt; cohérent avec la signification visuelle voulue. Vous pouvez aussi inverser le style du badge lorsque vous avez besoin de plus d’emphase ou de contraste.&lt;/gcds-text&gt;</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Stepper_Accessibility_Do_1" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
   <data name="StatelessAuth_CurrentStatus_Title" xml:space="preserve">
     <value>Statut d'authentification actuel</value>
   </data>
@@ -1458,14 +1472,10 @@
   <data name="StatelessAuth_Integration_Description2" xml:space="preserve">
     <value />
   </data>
-  <data name="Stepper_WithStatus_Title" xml:space="preserve">
-    <value>Avec état</value>
+  <data name="Stepper_Accessibility_Do_2" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
   </data>
-  <data name="Stepper_WithStatus_Anchor" xml:space="preserve">
-    <value>avec-etat</value>
-  </data>
-  <data name="Stepper_WithStatus_Text" xml:space="preserve">
-    <value>&lt;gcds-text&gt;Cette implémentation ajoute un petit badge d’état à côté de l’étiquette d’une étape (par exemple « Fait » ou « Non requis »).&lt;/gcds-text&gt;
-&lt;gcds-text&gt;Définissez &lt;code&gt;StatusBadgeLabel&lt;/code&gt; et choisissez un &lt;code&gt;StatusBadgeStyle&lt;/code&gt; cohérent avec la signification visuelle voulue. Vous pouvez aussi inverser le style du badge lorsque vous avez besoin de plus d’emphase ou de contraste.&lt;/gcds-text&gt;</value>
+  <data name="Stepper_Accessibility_Do_3" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
   </data>
 </root>

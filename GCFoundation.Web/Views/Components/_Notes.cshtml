@@ -4,7 +4,7 @@
 @if (Model.Notes != null && Model.Notes.Any())
 {
     <gcds-heading tag="h2" id="@Components.Notes_Anchor">@Components.Notes</gcds-heading>
-    <ul class="list-disc">
+    <ul class="list-square">
         @foreach (var note in Model.Notes)
         {
             <li>@Html.Raw(note)</li>
