@@ -61,6 +61,69 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Use text or iconography in addition to colour to convey meaning..
+        /// </summary>
+        public static string Badge_Accessibility_Do_1 {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_Do_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Meet WCAG 2.1 AA contrast requirements for text and background..
+        /// </summary>
+        public static string Badge_Accessibility_Do_2 {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_Do_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use consistent colour semantics aligned to system tokens (e.g., green for success, red for warnings, grey for neutral metadata)..
+        /// </summary>
+        public static string Badge_Accessibility_Do_3 {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_Do_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remain readable and operable at 200% zoom and on small screens..
+        /// </summary>
+        public static string Badge_Accessibility_Do_4 {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_Do_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use coloured variants only when colour supports a clear distinction— e.g., green for success, red for warnings, grey for neutral metadata. But ALWAYS pair it with a meaningful icon or shape..
+        /// </summary>
+        public static string Badge_Accessibility_Do_5 {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_Do_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use a red badge with the label &quot;Error&quot; and a grey badge with the label &quot;Error&quot; interchangeably if colour is the only difference..
+        /// </summary>
+        public static string Badge_Accessibility_DoNot_1 {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_DoNot_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use colour alone to communicate categories such as priority levels..
+        /// </summary>
+        public static string Badge_Accessibility_DoNot_2 {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_DoNot_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dismissible Badge.
         /// </summary>
         public static string Badge_Dismissible_Title {
@@ -187,6 +250,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Badges highlight short, categorical pieces of information such as status, priority, or metadata. They help users quickly scan and differentiate key details..
+        /// </summary>
+        public static string Badge_Purpose {
+            get {
+                return ResourceManager.GetString("Badge_Purpose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to start-end.
         /// </summary>
         public static string Badge_Slot_Anchor {
@@ -237,6 +309,96 @@ namespace GCFoundation.Web.Resources {
         public static string Badge_Solid_Title {
             get {
                 return ResourceManager.GetString("Badge_Solid_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keep badges brief (one–two words) and place them close to the element they describe..
+        /// </summary>
+        public static string Badge_UxBestPractices_1 {
+            get {
+                return ResourceManager.GetString("Badge_UxBestPractices_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use consistently across the product for the same meaning or category..
+        /// </summary>
+        public static string Badge_UxBestPractices_2 {
+            get {
+                return ResourceManager.GetString("Badge_UxBestPractices_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Avoid stacking multiple badges unless each communicates clearly distinct information..
+        /// </summary>
+        public static string Badge_UxBestPractices_3 {
+            get {
+                return ResourceManager.GetString("Badge_UxBestPractices_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Follow system spacing, sizing, and colour guidance to maintain visual harmony..
+        /// </summary>
+        public static string Badge_UxBestPractices_4 {
+            get {
+                return ResourceManager.GetString("Badge_UxBestPractices_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The information requires explanation or is longer than a short phrase..
+        /// </summary>
+        public static string Badge_WhenNotToUse_1 {
+            get {
+                return ResourceManager.GetString("Badge_WhenNotToUse_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The badge is the only way a user can understand critical information..
+        /// </summary>
+        public static string Badge_WhenNotToUse_2 {
+            get {
+                return ResourceManager.GetString("Badge_WhenNotToUse_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Too many badges together create cognitive overload or visual clutter..
+        /// </summary>
+        public static string Badge_WhenNotToUse_3 {
+            get {
+                return ResourceManager.GetString("Badge_WhenNotToUse_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You need to call out a small piece of status- or category-based information..
+        /// </summary>
+        public static string Badge_WhenToUse_1 {
+            get {
+                return ResourceManager.GetString("Badge_WhenToUse_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You want to add supplemental context to headings, labels, lists, cards, or tables..
+        /// </summary>
+        public static string Badge_WhenToUse_2 {
+            get {
+                return ResourceManager.GetString("Badge_WhenToUse_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Users need to distinguish between types or states at a glance..
+        /// </summary>
+        public static string Badge_WhenToUse_3 {
+            get {
+                return ResourceManager.GetString("Badge_WhenToUse_3", resourceCulture);
             }
         }
         
@@ -583,245 +745,20 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Share a short biography using headings, emphasis and lists..
-        /// </summary>
-        public static string Form_Bio_Placeholder {
-            get {
-                return ResourceManager.GetString("Form_Bio_Placeholder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Rich Text Editor.
-        /// </summary>
-        public static string Form_RichText_Title {
-            get {
-                return ResourceManager.GetString("Form_RichText_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to rich-text.
-        /// </summary>
-        public static string Form_RichText_Anchor {
-            get {
-                return ResourceManager.GetString("Form_RichText_Anchor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Rich text editor description.
-        /// </summary>
-        public static string Form_RichText_Description {
-            get {
-                return ResourceManager.GetString("Form_RichText_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Features.
-        /// </summary>
-        public static string Form_RichText_Features_Title {
-            get {
-                return ResourceManager.GetString("Form_RichText_Features_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Accessible feature.
-        /// </summary>
-        public static string Form_RichText_Feature_Accessible {
-            get {
-                return ResourceManager.GetString("Form_RichText_Feature_Accessible", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Validation feature.
-        /// </summary>
-        public static string Form_RichText_Feature_Validation {
-            get {
-                return ResourceManager.GetString("Form_RichText_Feature_Validation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Bilingual feature.
-        /// </summary>
-        public static string Form_RichText_Feature_Bilingual {
-            get {
-                return ResourceManager.GetString("Form_RichText_Feature_Bilingual", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Toolbars feature.
-        /// </summary>
-        public static string Form_RichText_Feature_Toolbars {
-            get {
-                return ResourceManager.GetString("Form_RichText_Feature_Toolbars", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Templates feature.
-        /// </summary>
-        public static string Form_RichText_Feature_Templates {
-            get {
-                return ResourceManager.GetString("Form_RichText_Feature_Templates", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to For property description.
-        /// </summary>
-        public static string Form_RichText_Properties_For {
-            get {
-                return ResourceManager.GetString("Form_RichText_Properties_For", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Toolbar property description.
-        /// </summary>
-        public static string Form_RichText_Properties_Toolbar {
-            get {
-                return ResourceManager.GetString("Form_RichText_Properties_Toolbar", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Height property description.
-        /// </summary>
-        public static string Form_RichText_Properties_Height {
-            get {
-                return ResourceManager.GetString("Form_RichText_Properties_Height", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Placeholder property description.
-        /// </summary>
-        public static string Form_RichText_Properties_Placeholder {
-            get {
-                return ResourceManager.GetString("Form_RichText_Properties_Placeholder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Templates property description.
-        /// </summary>
-        public static string Form_RichText_Properties_Templates {
-            get {
-                return ResourceManager.GetString("Form_RichText_Properties_Templates", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to IsRequired property description.
-        /// </summary>
-        public static string Form_RichText_Properties_IsRequired {
-            get {
-                return ResourceManager.GetString("Form_RichText_Properties_IsRequired", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Usage Example.
-        /// </summary>
-        public static string Form_RichText_Usage_Title {
-            get {
-                return ResourceManager.GetString("Form_RichText_Usage_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Model Setup.
-        /// </summary>
-        public static string Form_RichText_Model_Title {
-            get {
-                return ResourceManager.GetString("Form_RichText_Model_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Model description.
-        /// </summary>
-        public static string Form_RichText_Model_Description {
-            get {
-                return ResourceManager.GetString("Form_RichText_Model_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Accessibility.
-        /// </summary>
-        public static string Form_RichText_Accessibility_Title {
-            get {
-                return ResourceManager.GetString("Form_RichText_Accessibility_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Accessibility description.
-        /// </summary>
-        public static string Form_RichText_Accessibility_Description {
-            get {
-                return ResourceManager.GetString("Form_RichText_Accessibility_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Label accessibility.
-        /// </summary>
-        public static string Form_RichText_Accessibility_Label {
-            get {
-                return ResourceManager.GetString("Form_RichText_Accessibility_Label", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hint accessibility.
-        /// </summary>
-        public static string Form_RichText_Accessibility_Hint {
-            get {
-                return ResourceManager.GetString("Form_RichText_Accessibility_Hint", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Error accessibility.
-        /// </summary>
-        public static string Form_RichText_Accessibility_Error {
-            get {
-                return ResourceManager.GetString("Form_RichText_Accessibility_Error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Keyboard accessibility.
-        /// </summary>
-        public static string Form_RichText_Accessibility_Keyboard {
-            get {
-                return ResourceManager.GetString("Form_RichText_Accessibility_Keyboard", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Focus accessibility.
-        /// </summary>
-        public static string Form_RichText_Accessibility_Focus {
-            get {
-                return ResourceManager.GetString("Form_RichText_Accessibility_Focus", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Bio.
         /// </summary>
         public static string Form_Bio_Label {
             get {
                 return ResourceManager.GetString("Form_Bio_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Share a short biography using headings, emphasis and lists..
+        /// </summary>
+        public static string Form_Bio_Placeholder {
+            get {
+                return ResourceManager.GetString("Form_Bio_Placeholder", resourceCulture);
             }
         }
         
@@ -1015,6 +952,231 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;The rich text editor is designed to meet WCAG 2.1 AAA standards:&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Form_RichText_Accessibility_Description {
+            get {
+                return ResourceManager.GetString("Form_RichText_Accessibility_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error messages are announced via aria-describedby and aria-invalid.
+        /// </summary>
+        public static string Form_RichText_Accessibility_Error {
+            get {
+                return ResourceManager.GetString("Form_RichText_Accessibility_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visible focus indicators following GCDS design patterns.
+        /// </summary>
+        public static string Form_RichText_Accessibility_Focus {
+            get {
+                return ResourceManager.GetString("Form_RichText_Accessibility_Focus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hint text is linked via aria-describedby.
+        /// </summary>
+        public static string Form_RichText_Accessibility_Hint {
+            get {
+                return ResourceManager.GetString("Form_RichText_Accessibility_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Full keyboard navigation support for all toolbar controls.
+        /// </summary>
+        public static string Form_RichText_Accessibility_Keyboard {
+            get {
+                return ResourceManager.GetString("Form_RichText_Accessibility_Keyboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Label is associated via aria-labelledby for screen readers.
+        /// </summary>
+        public static string Form_RichText_Accessibility_Label {
+            get {
+                return ResourceManager.GetString("Form_RichText_Accessibility_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accessibility.
+        /// </summary>
+        public static string Form_RichText_Accessibility_Title {
+            get {
+                return ResourceManager.GetString("Form_RichText_Accessibility_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to rich-text.
+        /// </summary>
+        public static string Form_RichText_Anchor {
+            get {
+                return ResourceManager.GetString("Form_RichText_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;The &lt;code&gt;&amp;lt;fdcp-rich-text&amp;gt;&lt;/code&gt; component provides a WCAG 2.1 AAA compliant rich text editor powered by Quill.js, integrated with GCDS styling and validation patterns.&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Form_RichText_Description {
+            get {
+                return ResourceManager.GetString("Form_RichText_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fully accessible with proper ARIA attributes (aria-labelledby, aria-describedby, aria-required, aria-invalid).
+        /// </summary>
+        public static string Form_RichText_Feature_Accessible {
+            get {
+                return ResourceManager.GetString("Form_RichText_Feature_Accessible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bilingual support for labels, hints, placeholders, and error messages.
+        /// </summary>
+        public static string Form_RichText_Feature_Bilingual {
+            get {
+                return ResourceManager.GetString("Form_RichText_Feature_Bilingual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Template support for inserting predefined content snippets.
+        /// </summary>
+        public static string Form_RichText_Feature_Templates {
+            get {
+                return ResourceManager.GetString("Form_RichText_Feature_Templates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Multiple toolbar configurations: Basic, Standard, and Full.
+        /// </summary>
+        public static string Form_RichText_Feature_Toolbars {
+            get {
+                return ResourceManager.GetString("Form_RichText_Feature_Toolbars", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Integrated with GCDS error validation pattern using gcds-error-message.
+        /// </summary>
+        public static string Form_RichText_Feature_Validation {
+            get {
+                return ResourceManager.GetString("Form_RichText_Feature_Validation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Features.
+        /// </summary>
+        public static string Form_RichText_Features_Title {
+            get {
+                return ResourceManager.GetString("Form_RichText_Features_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Define your model property with appropriate validation attributes. Use the &lt;code&gt;Display&lt;/code&gt; attribute to set localized labels and hints.&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Form_RichText_Model_Description {
+            get {
+                return ResourceManager.GetString("Form_RichText_Model_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model Setup.
+        /// </summary>
+        public static string Form_RichText_Model_Title {
+            get {
+                return ResourceManager.GetString("Form_RichText_Model_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model expression binding the editor to a property. Labels and hints are derived from Display attributes..
+        /// </summary>
+        public static string Form_RichText_Properties_For {
+            get {
+                return ResourceManager.GetString("Form_RichText_Properties_For", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Height of the editor area (e.g., &quot;200px&quot;, &quot;15rem&quot;)..
+        /// </summary>
+        public static string Form_RichText_Properties_Height {
+            get {
+                return ResourceManager.GetString("Form_RichText_Properties_Height", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Override the required state. By default, derived from model validation attributes..
+        /// </summary>
+        public static string Form_RichText_Properties_IsRequired {
+            get {
+                return ResourceManager.GetString("Form_RichText_Properties_IsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Placeholder text displayed when the editor is empty..
+        /// </summary>
+        public static string Form_RichText_Properties_Placeholder {
+            get {
+                return ResourceManager.GetString("Form_RichText_Properties_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A collection of RichTextTemplate objects for inserting predefined content..
+        /// </summary>
+        public static string Form_RichText_Properties_Templates {
+            get {
+                return ResourceManager.GetString("Form_RichText_Properties_Templates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toolbar configuration: Basic (bold, italic, link), Standard (+ headings, lists), or Full (all formatting options)..
+        /// </summary>
+        public static string Form_RichText_Properties_Toolbar {
+            get {
+                return ResourceManager.GetString("Form_RichText_Properties_Toolbar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rich Text Editor.
+        /// </summary>
+        public static string Form_RichText_Title {
+            get {
+                return ResourceManager.GetString("Form_RichText_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usage Example.
+        /// </summary>
+        public static string Form_RichText_Usage_Title {
+            get {
+                return ResourceManager.GetString("Form_RichText_Usage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to sample-form.
         /// </summary>
         public static string Form_SampleForm_Anchor {
@@ -1149,6 +1311,132 @@ namespace GCFoundation.Web.Resources {
         public static string GcdsParagraph2 {
             get {
                 return ResourceManager.GetString("GcdsParagraph2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accessibility Requirements.
+        /// </summary>
+        public static string Guidance_Accessibility {
+            get {
+                return ResourceManager.GetString("Guidance_Accessibility", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to accessibility.
+        /// </summary>
+        public static string Guidance_Accessibility_Anchor {
+            get {
+                return ResourceManager.GetString("Guidance_Accessibility_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DO:.
+        /// </summary>
+        public static string Guidance_Accessibility_Do {
+            get {
+                return ResourceManager.GetString("Guidance_Accessibility_Do", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DO NOT:.
+        /// </summary>
+        public static string Guidance_Accessibility_DoNot {
+            get {
+                return ResourceManager.GetString("Guidance_Accessibility_DoNot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Purpose.
+        /// </summary>
+        public static string Guidance_Purpose {
+            get {
+                return ResourceManager.GetString("Guidance_Purpose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to purpose.
+        /// </summary>
+        public static string Guidance_Purpose_Anchor {
+            get {
+                return ResourceManager.GetString("Guidance_Purpose_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UX/UI Best Practices.
+        /// </summary>
+        public static string Guidance_UxBestPractices {
+            get {
+                return ResourceManager.GetString("Guidance_UxBestPractices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ux-best-practices.
+        /// </summary>
+        public static string Guidance_UxBestPractices_Anchor {
+            get {
+                return ResourceManager.GetString("Guidance_UxBestPractices_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When Not to Use.
+        /// </summary>
+        public static string Guidance_WhenNotToUse {
+            get {
+                return ResourceManager.GetString("Guidance_WhenNotToUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to when-not-to-use.
+        /// </summary>
+        public static string Guidance_WhenNotToUse_Anchor {
+            get {
+                return ResourceManager.GetString("Guidance_WhenNotToUse_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Avoid badges when:.
+        /// </summary>
+        public static string Guidance_WhenNotToUse_Intro {
+            get {
+                return ResourceManager.GetString("Guidance_WhenNotToUse_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When to Use.
+        /// </summary>
+        public static string Guidance_WhenToUse {
+            get {
+                return ResourceManager.GetString("Guidance_WhenToUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to when-to-use.
+        /// </summary>
+        public static string Guidance_WhenToUse_Anchor {
+            get {
+                return ResourceManager.GetString("Guidance_WhenToUse_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use a badge when:.
+        /// </summary>
+        public static string Guidance_WhenToUse_Intro {
+            get {
+                return ResourceManager.GetString("Guidance_WhenToUse_Intro", resourceCulture);
             }
         }
         
@@ -1349,123 +1637,6 @@ namespace GCFoundation.Web.Resources {
         public static string Index_TableGridJs_Title {
             get {
                 return ResourceManager.GetString("Index_TableGridJs_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to table-basic.
-        /// </summary>
-        public static string Table_Basic_Anchor {
-            get {
-                return ResourceManager.GetString("Table_Basic_Anchor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Employee status.
-        /// </summary>
-        public static string Table_Basic_Caption {
-            get {
-                return ResourceManager.GetString("Table_Basic_Caption", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to A comparison of employee program participation and status indicators..
-        /// </summary>
-        public static string Table_Basic_Summary {
-            get {
-                return ResourceManager.GetString("Table_Basic_Summary", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Demonstrates captions, scoped headers, aria-describedby summaries, and the fdcp-table utility classes..
-        /// </summary>
-        public static string Table_Basic_Text {
-            get {
-                return ResourceManager.GetString("Table_Basic_Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Responsive table.
-        /// </summary>
-        public static string Table_Basic_Title {
-            get {
-                return ResourceManager.GetString("Table_Basic_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Table.
-        /// </summary>
-        public static string Table_Name {
-            get {
-                return ResourceManager.GetString("Table_Name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Always include a caption and scoped headers so screen reader users retain table context..
-        /// </summary>
-        public static string Table_Notes_1 {
-            get {
-                return ResourceManager.GetString("Table_Notes_1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Wrap larger tables in .fdcp-table-responsive to enable horizontal scrolling on mobile..
-        /// </summary>
-        public static string Table_Notes_2 {
-            get {
-                return ResourceManager.GetString("Table_Notes_2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Use FDCP table styles to present tabular data with WCAG-compliant captions, scoped headers, and responsive behaviour..
-        /// </summary>
-        public static string Table_Overview {
-            get {
-                return ResourceManager.GetString("Table_Overview", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Screen-reader friendly caption that briefly describes the data..
-        /// </summary>
-        public static string Table_Properties_Caption {
-            get {
-                return ResourceManager.GetString("Table_Properties_Caption", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to FDCP table modifiers such as fdcp-table-striped, fdcp-table-hover, and fdcp-table-condensed..
-        /// </summary>
-        public static string Table_Properties_Class {
-            get {
-                return ResourceManager.GetString("Table_Properties_Class", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Use scope=&quot;col&quot; for header cells and scope=&quot;row&quot; for the first cell in each data row..
-        /// </summary>
-        public static string Table_Properties_Scope {
-            get {
-                return ResourceManager.GetString("Table_Properties_Scope", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hidden descriptive element referenced via aria-describedby to provide additional guidance..
-        /// </summary>
-        public static string Table_Properties_Summary {
-            get {
-                return ResourceManager.GetString("Table_Properties_Summary", resourceCulture);
             }
         }
         
@@ -2424,6 +2595,150 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to with-status.
+        /// </summary>
+        public static string Stepper_WithStatus_Anchor {
+            get {
+                return ResourceManager.GetString("Stepper_WithStatus_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stepper with custom status badges:.
+        /// </summary>
+        public static string Stepper_WithStatus_Text {
+            get {
+                return ResourceManager.GetString("Stepper_WithStatus_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to With Status.
+        /// </summary>
+        public static string Stepper_WithStatus_Title {
+            get {
+                return ResourceManager.GetString("Stepper_WithStatus_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to table-basic.
+        /// </summary>
+        public static string Table_Basic_Anchor {
+            get {
+                return ResourceManager.GetString("Table_Basic_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee status.
+        /// </summary>
+        public static string Table_Basic_Caption {
+            get {
+                return ResourceManager.GetString("Table_Basic_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A comparison of employee program participation and status indicators..
+        /// </summary>
+        public static string Table_Basic_Summary {
+            get {
+                return ResourceManager.GetString("Table_Basic_Summary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Demonstrates captions, scoped headers, aria-describedby summaries, and the fdcp-table utility classes..
+        /// </summary>
+        public static string Table_Basic_Text {
+            get {
+                return ResourceManager.GetString("Table_Basic_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Responsive table.
+        /// </summary>
+        public static string Table_Basic_Title {
+            get {
+                return ResourceManager.GetString("Table_Basic_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Table.
+        /// </summary>
+        public static string Table_Name {
+            get {
+                return ResourceManager.GetString("Table_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Always include a caption and scoped headers so screen reader users retain table context..
+        /// </summary>
+        public static string Table_Notes_1 {
+            get {
+                return ResourceManager.GetString("Table_Notes_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrap larger tables in .fdcp-table-responsive to enable horizontal scrolling on mobile..
+        /// </summary>
+        public static string Table_Notes_2 {
+            get {
+                return ResourceManager.GetString("Table_Notes_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use FDCP table styles to present tabular data with WCAG-compliant captions, scoped headers, and responsive behaviour..
+        /// </summary>
+        public static string Table_Overview {
+            get {
+                return ResourceManager.GetString("Table_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screen-reader friendly caption that briefly describes the data..
+        /// </summary>
+        public static string Table_Properties_Caption {
+            get {
+                return ResourceManager.GetString("Table_Properties_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FDCP table modifiers such as fdcp-table-striped, fdcp-table-hover, and fdcp-table-condensed..
+        /// </summary>
+        public static string Table_Properties_Class {
+            get {
+                return ResourceManager.GetString("Table_Properties_Class", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use scope=&quot;col&quot; for header cells and scope=&quot;row&quot; for the first cell in each data row..
+        /// </summary>
+        public static string Table_Properties_Scope {
+            get {
+                return ResourceManager.GetString("Table_Properties_Scope", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hidden descriptive element referenced via aria-describedby to provide additional guidance..
+        /// </summary>
+        public static string Table_Properties_Summary {
+            get {
+                return ResourceManager.GetString("Table_Properties_Summary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to basic.
         /// </summary>
         public static string TableGridJs_Basic_Anchor {
@@ -3374,294 +3689,6 @@ namespace GCFoundation.Web.Resources {
         public static string UserLogin_TestAuthStates {
             get {
                 return ResourceManager.GetString("UserLogin_TestAuthStates", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Purpose.
-        /// </summary>
-        public static string Guidance_Purpose {
-            get {
-                return ResourceManager.GetString("Guidance_Purpose", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to purpose.
-        /// </summary>
-        public static string Guidance_Purpose_Anchor {
-            get {
-                return ResourceManager.GetString("Guidance_Purpose_Anchor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to When to Use.
-        /// </summary>
-        public static string Guidance_WhenToUse {
-            get {
-                return ResourceManager.GetString("Guidance_WhenToUse", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to when-to-use.
-        /// </summary>
-        public static string Guidance_WhenToUse_Anchor {
-            get {
-                return ResourceManager.GetString("Guidance_WhenToUse_Anchor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Use a badge when:.
-        /// </summary>
-        public static string Guidance_WhenToUse_Intro {
-            get {
-                return ResourceManager.GetString("Guidance_WhenToUse_Intro", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to When Not to Use.
-        /// </summary>
-        public static string Guidance_WhenNotToUse {
-            get {
-                return ResourceManager.GetString("Guidance_WhenNotToUse", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to when-not-to-use.
-        /// </summary>
-        public static string Guidance_WhenNotToUse_Anchor {
-            get {
-                return ResourceManager.GetString("Guidance_WhenNotToUse_Anchor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Avoid badges when:.
-        /// </summary>
-        public static string Guidance_WhenNotToUse_Intro {
-            get {
-                return ResourceManager.GetString("Guidance_WhenNotToUse_Intro", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Accessibility Requirements.
-        /// </summary>
-        public static string Guidance_Accessibility {
-            get {
-                return ResourceManager.GetString("Guidance_Accessibility", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to accessibility.
-        /// </summary>
-        public static string Guidance_Accessibility_Anchor {
-            get {
-                return ResourceManager.GetString("Guidance_Accessibility_Anchor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to DO:.
-        /// </summary>
-        public static string Guidance_Accessibility_Do {
-            get {
-                return ResourceManager.GetString("Guidance_Accessibility_Do", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to DO NOT:.
-        /// </summary>
-        public static string Guidance_Accessibility_DoNot {
-            get {
-                return ResourceManager.GetString("Guidance_Accessibility_DoNot", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to UX/UI Best Practices.
-        /// </summary>
-        public static string Guidance_UxBestPractices {
-            get {
-                return ResourceManager.GetString("Guidance_UxBestPractices", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ux-best-practices.
-        /// </summary>
-        public static string Guidance_UxBestPractices_Anchor {
-            get {
-                return ResourceManager.GetString("Guidance_UxBestPractices_Anchor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Badges highlight short, categorical pieces of information....
-        /// </summary>
-        public static string Badge_Purpose {
-            get {
-                return ResourceManager.GetString("Badge_Purpose", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to You need to call out a small piece of status- or category-based information..
-        /// </summary>
-        public static string Badge_WhenToUse_1 {
-            get {
-                return ResourceManager.GetString("Badge_WhenToUse_1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to You want to add supplemental context to headings, labels, lists, cards, or tables..
-        /// </summary>
-        public static string Badge_WhenToUse_2 {
-            get {
-                return ResourceManager.GetString("Badge_WhenToUse_2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Users need to distinguish between types or states at a glance..
-        /// </summary>
-        public static string Badge_WhenToUse_3 {
-            get {
-                return ResourceManager.GetString("Badge_WhenToUse_3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The information requires explanation or is longer than a short phrase..
-        /// </summary>
-        public static string Badge_WhenNotToUse_1 {
-            get {
-                return ResourceManager.GetString("Badge_WhenNotToUse_1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The badge is the only way a user can understand critical information..
-        /// </summary>
-        public static string Badge_WhenNotToUse_2 {
-            get {
-                return ResourceManager.GetString("Badge_WhenNotToUse_2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Too many badges together create cognitive overload or visual clutter..
-        /// </summary>
-        public static string Badge_WhenNotToUse_3 {
-            get {
-                return ResourceManager.GetString("Badge_WhenNotToUse_3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Use text or iconography in addition to colour to convey meaning..
-        /// </summary>
-        public static string Badge_Accessibility_Do_1 {
-            get {
-                return ResourceManager.GetString("Badge_Accessibility_Do_1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Meet WCAG 2.1 AA contrast requirements for text and background..
-        /// </summary>
-        public static string Badge_Accessibility_Do_2 {
-            get {
-                return ResourceManager.GetString("Badge_Accessibility_Do_2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Use consistent colour semantics aligned to system tokens....
-        /// </summary>
-        public static string Badge_Accessibility_Do_3 {
-            get {
-                return ResourceManager.GetString("Badge_Accessibility_Do_3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Remain readable and operable at 200% zoom and on small screens..
-        /// </summary>
-        public static string Badge_Accessibility_Do_4 {
-            get {
-                return ResourceManager.GetString("Badge_Accessibility_Do_4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Use coloured variants only when colour supports a clear distinction....
-        /// </summary>
-        public static string Badge_Accessibility_Do_5 {
-            get {
-                return ResourceManager.GetString("Badge_Accessibility_Do_5", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Use a red badge with the label "Error" and a grey badge with the label "Error" interchangeably....
-        /// </summary>
-        public static string Badge_Accessibility_DoNot_1 {
-            get {
-                return ResourceManager.GetString("Badge_Accessibility_DoNot_1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Use colour alone to communicate categories such as priority levels..
-        /// </summary>
-        public static string Badge_Accessibility_DoNot_2 {
-            get {
-                return ResourceManager.GetString("Badge_Accessibility_DoNot_2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Keep badges brief (one–two words) and place them close to the element they describe..
-        /// </summary>
-        public static string Badge_UxBestPractices_1 {
-            get {
-                return ResourceManager.GetString("Badge_UxBestPractices_1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Use consistently across the product for the same meaning or category..
-        /// </summary>
-        public static string Badge_UxBestPractices_2 {
-            get {
-                return ResourceManager.GetString("Badge_UxBestPractices_2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Avoid stacking multiple badges unless each communicates clearly distinct information..
-        /// </summary>
-        public static string Badge_UxBestPractices_3 {
-            get {
-                return ResourceManager.GetString("Badge_UxBestPractices_3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Follow system spacing, sizing, and colour guidance to maintain visual harmony..
-        /// </summary>
-        public static string Badge_UxBestPractices_4 {
-            get {
-                return ResourceManager.GetString("Badge_UxBestPractices_4", resourceCulture);
             }
         }
     }

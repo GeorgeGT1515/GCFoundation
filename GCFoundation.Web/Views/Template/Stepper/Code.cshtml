@@ -13,11 +13,11 @@
 &lt;fdcp-stepper current-step="2"
               steps="@@(new List&lt;StepperStep&gt;
                                 {
-                                    new StepperStep { StepNumber = 1, Label = "@Template.Stepper_Demo_Step1_Label", DisplayMode = StepDisplayMode.Icon, CompletedIconHtml = "&lt;i class='fa fa-check'&gt;&lt;/i&gt;" },
-                                    new StepperStep { StepNumber = 2, Label = "@Template.Stepper_Demo_Step2_Label", DisplayMode = StepDisplayMode.Icon, InProgressIconHtml = "&lt;i class='fa fa-spinner'&gt;&lt;/i&gt;" },
-                                    new StepperStep { StepNumber = 3, Label = "@Template.Stepper_Demo_Step3_Label", DisplayMode = StepDisplayMode.Number },
-                                    new StepperStep { StepNumber = 4, Label = "@Template.Stepper_Demo_Step4_Label", DisplayMode = StepDisplayMode.Number },
-                                    new StepperStep { StepNumber = 5, Label = "@Template.Stepper_Demo_Step5_Label", DisplayMode = StepDisplayMode.Number }
+                                    new StepperStep { StepNumber = 1, Label = "@Template.Stepper_Demo_Step1_Label", DisplayMode = StepperStepDisplayMode.Icon, CompletedIconHtml = "&lt;i class='fa fa-check'&gt;&lt;/i&gt;" },
+                                    new StepperStep { StepNumber = 2, Label = "@Template.Stepper_Demo_Step2_Label", DisplayMode = StepperStepDisplayMode.Icon, InProgressIconHtml = "&lt;i class='fa fa-spinner'&gt;&lt;/i&gt;" },
+                                    new StepperStep { StepNumber = 3, Label = "@Template.Stepper_Demo_Step3_Label", DisplayMode = StepperStepDisplayMode.Number },
+                                    new StepperStep { StepNumber = 4, Label = "@Template.Stepper_Demo_Step4_Label", DisplayMode = StepperStepDisplayMode.Number },
+                                    new StepperStep { StepNumber = 5, Label = "@Template.Stepper_Demo_Step5_Label", DisplayMode = StepperStepDisplayMode.Number }
                                 })"&gt;&lt;/fdcp-stepper&gt;
 
 @@if (!ViewData.ModelState.IsValid)

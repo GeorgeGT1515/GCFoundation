@@ -1,17 +1,18 @@
-﻿using GCFoundation.Components.TagHelpers.FDCP;
+﻿using GCFoundation.Components.Enums;
+using GCFoundation.Components.TagHelpers.FDCP;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 {
-    public class FDCPBadgeHelperTests
+    public class FDCPBadgeTagHelperTests
     {
         [Fact]
         public async Task ProcessAsync_BasicBadge_RendersCorrectly()
         {
             // Arrange
-            var helper = new FDCPBadgeHelper
+            var helper = new FDCPBadgeTagHelper
             {
-                Style = FDCPBadgeStyle.Primary
+                Style = BadgeStyle.primary
             };
 
             var context = new TagHelperContext(
@@ -39,9 +40,9 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         public async Task ProcessAsync_WithStartAndEndContent_RendersAllSections()
         {
             // Arrange
-            var helper = new FDCPBadgeHelper
+            var helper = new FDCPBadgeTagHelper
             {
-                Style = FDCPBadgeStyle.Info,
+                Style = BadgeStyle.info,
                 StartContent = "Start",
                 EndContent = "End"
             };
@@ -72,9 +73,9 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         public async Task ProcessAsync_WithSlots_PrefersSlotsOverProps()
         {
             // Arrange
-            var helper = new FDCPBadgeHelper
+            var helper = new FDCPBadgeTagHelper
             {
-                Style = FDCPBadgeStyle.Warning,
+                Style = BadgeStyle.warning,
                 StartContent = "PropStart",
                 EndContent = "PropEnd"
             };
@@ -110,9 +111,9 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         public async Task ProcessAsync_WithInverted_AddsInvertedClass()
         {
             // Arrange
-            var helper = new FDCPBadgeHelper
+            var helper = new FDCPBadgeTagHelper
             {
-                Style = FDCPBadgeStyle.Success,
+                Style = BadgeStyle.success,
                 Inverted = true
             };
 
@@ -133,18 +134,18 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         }
 
         [Theory]
-        [InlineData(FDCPBadgeStyle.Primary, "fdcp-badge-primary")]
-        [InlineData(FDCPBadgeStyle.Secondary, "fdcp-badge-secondary")]
-        [InlineData(FDCPBadgeStyle.Success, "fdcp-badge-success")]
-        [InlineData(FDCPBadgeStyle.Danger, "fdcp-badge-danger")]
-        [InlineData(FDCPBadgeStyle.Info, "fdcp-badge-info")]
-        [InlineData(FDCPBadgeStyle.Warning, "fdcp-badge-warning")]
-        [InlineData(FDCPBadgeStyle.Light, "fdcp-badge-light")]
-        [InlineData(FDCPBadgeStyle.Dark, "fdcp-badge-dark")]
-        public async Task ProcessAsync_WithDifferentStyles_RendersCorrectClass(FDCPBadgeStyle style, string expectedClass)
+        [InlineData(BadgeStyle.primary, "fdcp-badge-primary")]
+        [InlineData(BadgeStyle.secondary, "fdcp-badge-secondary")]
+        [InlineData(BadgeStyle.success, "fdcp-badge-success")]
+        [InlineData(BadgeStyle.danger, "fdcp-badge-danger")]
+        [InlineData(BadgeStyle.info, "fdcp-badge-info")]
+        [InlineData(BadgeStyle.warning, "fdcp-badge-warning")]
+        [InlineData(BadgeStyle.light, "fdcp-badge-light")]
+        [InlineData(BadgeStyle.dark, "fdcp-badge-dark")]
+        public async Task ProcessAsync_WithDifferentStyles_RendersCorrectClass(BadgeStyle style, string expectedClass)
         {
             // Arrange
-            var helper = new FDCPBadgeHelper { Style = style };
+            var helper = new FDCPBadgeTagHelper { Style = style };
             var context = new TagHelperContext(
                 new TagHelperAttributeList(),
                 new Dictionary<object, object>(),
@@ -165,9 +166,9 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         public async Task ProcessAsync_WithTagId_RendersIdAttribute()
         {
             // Arrange
-            var helper = new FDCPBadgeHelper
+            var helper = new FDCPBadgeTagHelper
             {
-                Style = FDCPBadgeStyle.Primary,
+                Style = BadgeStyle.primary,
                 TagId = "test-id"
             };
 

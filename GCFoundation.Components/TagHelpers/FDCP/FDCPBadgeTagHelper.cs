@@ -1,4 +1,5 @@
-﻿using HtmlAgilityPack;
+﻿using GCFoundation.Components.Enums;
+using HtmlAgilityPack;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Text;
 
@@ -9,7 +10,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// Supports styles, dismissible button, inversion, and start/end content via props or slot elements.
     /// </summary>
     [HtmlTargetElement("fdcp-badge")]
-    public class FDCPBadgeHelper : TagHelper
+    public class FDCPBadgeTagHelper : TagHelper
     {
 
         /// <summary>
@@ -20,7 +21,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         /// <summary>
         /// Gets or sets the visual style of the badge (e.g., Success, Danger, Info, etc.).
         /// </summary>
-        public FDCPBadgeStyle Style { get; set; }
+        public BadgeStyle Style { get; set; }
 
         /// <summary>
         /// Gets or sets whether the badge should render with inverted colors.
@@ -49,7 +50,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             var classes = new StringBuilder("fdcp-badge");
 #pragma warning disable CA1308 // Normalize strings to uppercase
-            classes.Append(' ').Append("fdcp-badge-").Append(Style.ToString().ToLowerInvariant());
+            classes.Append(' ').Append("fdcp-badge-").Append(Style);
 #pragma warning restore CA1308 // Normalize strings to uppercase
 
 
@@ -134,35 +135,5 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             return doc.DocumentNode.InnerHtml.Trim();
         }
-    }
-
-    /// <summary>
-    /// Enumerates available badge styles (color variations).
-    /// </summary>
-    public enum FDCPBadgeStyle
-    {
-        /// <summary>Use the primary theme color.</summary>
-        Primary,
-
-        /// <summary>Use the secondary theme color.</summary>
-        Secondary,
-
-        /// <summary>Success state (typically green).</summary>
-        Success,
-
-        /// <summary>Danger or error state (typically red).</summary>
-        Danger,
-
-        /// <summary>Informational message (typically blue).</summary>
-        Info,
-
-        /// <summary>Warning state (typically yellow).</summary>
-        Warning,
-
-        /// <summary>Light/neutral background.</summary>
-        Light,
-
-        /// <summary>Dark/contrasting background.</summary>
-        Dark
     }
 }

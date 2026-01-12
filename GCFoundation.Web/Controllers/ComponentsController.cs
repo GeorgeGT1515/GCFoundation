@@ -1,4 +1,4 @@
-﻿using GCFoundation.Components.Controllers;
+using GCFoundation.Components.Controllers;
 using GCFoundation.Components.Enums;
 using GCFoundation.Components.Models.FormBuilder;
 using GCFoundation.Components.TagHelpers.GCDS;
@@ -584,7 +584,7 @@ namespace GCFoundation.Web.Controllers
                 new ComponentPropertyViewModel() { Name = "steps", DataType = "IEnumerable<StepperStep>", Description = Resources.Components.Stepper_Properties_Steps },
                 new ComponentPropertyViewModel() { Name = "StepperStep.StepNumber", DataType = "int", Description = Resources.Components.Stepper_Properties_StepperStep_StepNumber },
                 new ComponentPropertyViewModel() { Name = "StepperStep.Label", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_Label },
-                new ComponentPropertyViewModel() { Name = "StepperStep.DisplayMode", DataType = "string", DefaultValue = "StepDisplayMode.Number", Description = Resources.Components.Stepper_Properties_StepperStep_DisplayMode },
+                new ComponentPropertyViewModel() { Name = "StepperStep.DisplayMode", DataType = "string", DefaultValue = "StepperStepDisplayMode.Number", Description = Resources.Components.Stepper_Properties_StepperStep_DisplayMode },
                 new ComponentPropertyViewModel() { Name = "StepperStep.IsLink", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_IsLink },
                 new ComponentPropertyViewModel() { Name = "StepperStep.LinkUrl", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_LinkUrl },
                 new ComponentPropertyViewModel() { Name = "StepperStep.CompletedIconHtml", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_CompletedIconHtml },
@@ -594,8 +594,9 @@ namespace GCFoundation.Web.Controllers
             vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
             {
                 new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Stepper_Basic_Text, Id = Resources.Components.Stepper_Basic_Anchor, PartialViewName = "Stepper/_Basic", Title = Resources.Components.Stepper_Basic_Title },
-                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Stepper_WithIcons_Anchor, Id = Resources.Components.Stepper_WithIcons_Anchor, PartialViewName = "Stepper/_WithIcons", Title = Resources.Components.Stepper_WithIcons_Title },
-                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Stepper_WithLinks_Anchor, Id = Resources.Components.Stepper_WithLinks_Anchor, PartialViewName = "Stepper/_WithLinks", Title = Resources.Components.Stepper_WithLinks_Title }
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Stepper_WithIcons_Text, Id = Resources.Components.Stepper_WithIcons_Anchor, PartialViewName = "Stepper/_WithIcons", Title = Resources.Components.Stepper_WithIcons_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Stepper_WithLinks_Text, Id = Resources.Components.Stepper_WithLinks_Anchor, PartialViewName = "Stepper/_WithLinks", Title = Resources.Components.Stepper_WithLinks_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Stepper_WithStatus_Text, Id = Resources.Components.Stepper_WithStatus_Anchor, PartialViewName = "Stepper/_WithStatus", Title = Resources.Components.Stepper_WithStatus_Title }
             };
             vm.Tag = "<fdcp-stepper>";
 

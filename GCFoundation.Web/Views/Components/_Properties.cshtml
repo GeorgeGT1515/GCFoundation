@@ -7,31 +7,33 @@
     var displayDefaultColumn = Model.Properties.Where(p => !string.IsNullOrEmpty(p.DefaultValue)).Any();
 
     <gcds-heading tag="h2" id="@Components.Properties_Anchor">@Components.Properties</gcds-heading>
-    <table class="fdcp-table fdcp-table-striped fdcp-table-hover fdcp-table-condensed">
-        <thead>
-            <tr>
-                <th scope="col">@Components.Properties_Property</th>
-                <th scope="col">@Components.Properties_DataType</th>
-                @if (displayDefaultColumn)
-                {
-                    <th scope="col">@Components.Properties_DefaultValue</th>
-                }
-                <th scope="col">@Components.Properties_Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var property in Model.Properties.OrderBy(p => p.Name))
-            {
+    <div class="fdcp-table-responsive">
+        <table class="fdcp-table fdcp-table-striped fdcp-table-hover fdcp-table-condensed">
+            <thead>
                 <tr>
-                    <th scope="row"><code>@property.Name</code></th>
-                    <td><code>@property.DataType</code></td>
+                    <th scope="col">@Components.Properties_Property</th>
+                    <th scope="col">@Components.Properties_DataType</th>
                     @if (displayDefaultColumn)
                     {
-                        <td>@(!string.IsNullOrEmpty(property.DefaultValue) ? property.DefaultValue : Html.Raw($"-<span class=\"sr-only\">{Components.Properties_DefaultValue_NoDefaultValue}</span>"))</td>
+                        <th scope="col">@Components.Properties_DefaultValue</th>
                     }
-                    <td>@property.Description</td>
+                    <th scope="col">@Components.Properties_Description</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var property in Model.Properties.OrderBy(p => p.Name))
+                {
+                    <tr>
+                        <th scope="row"><code>@property.Name</code></th>
+                        <td><code>@property.DataType</code></td>
+                        @if (displayDefaultColumn)
+                        {
+                            <td>@(!string.IsNullOrEmpty(property.DefaultValue) ? property.DefaultValue : Html.Raw($"-<span class=\"sr-only\">{Components.Properties_DefaultValue_NoDefaultValue}</span>"))</td>
+                        }
+                        <td>@property.Description</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 }

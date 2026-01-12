@@ -1,18 +1,19 @@
-﻿@using GCFoundation.Components.Models
+﻿@using GCFoundation.Components.Enums
+@using GCFoundation.Components.Models
 
 <fdcp-stepper current-step="2"
               steps="@(new List<StepperStep>
                                 {
-                                    new StepperStep { StepNumber = 1, Label = "Complete", DisplayMode = StepDisplayMode.Icon, CompletedIconHtml = "<i class='fa fa-check'></i>" },
-                                    new StepperStep { StepNumber = 2, Label = "In Progress", DisplayMode = StepDisplayMode.Icon, InProgressIconHtml = "<i class='fa fa-spinner'></i>" },
-                                    new StepperStep { StepNumber = 3, Label = "Not Started", DisplayMode = StepDisplayMode.Icon }
+                                    new StepperStep { StepNumber = 1, Label = "Complete", DisplayMode = StepperStepDisplayMode.Icon, CompletedIconHtml = "<i class='fa fa-check'></i>" },
+                                    new StepperStep { StepNumber = 2, Label = "In Progress", DisplayMode = StepperStepDisplayMode.Icon, InProgressIconHtml = "<i class='fa fa-spinner'></i>" },
+                                    new StepperStep { StepNumber = 3, Label = "Not Started", DisplayMode = StepperStepDisplayMode.Icon }
                                 })"></fdcp-stepper>
 <pre><code class="language-cshtml">
 &lt;fdcp-stepper current-step="2"
-    steps="@@(new List&lt;Step&gt;
+    steps="@@(new List&lt;StepperStep&gt;
           {
-              new Step { StepNumber = 1, Label = "Complete", DisplayMode = StepDisplayMode.Icon, CompletedIconHtml = "&lt;i class='fa fa-check'&gt;&lt;/i&gt;" },
-              new Step { StepNumber = 2, Label = "In Progress", DisplayMode = StepDisplayMode.Icon, InProgressIconHtml = "&lt;i class='fa fa-spinner'&gt;&lt;/i&gt;" },
-              new Step { StepNumber = 3, Label = "Not Started", DisplayMode = StepDisplayMode.Icon }
+              new StepperStep { StepNumber = 1, Label = "Complete", DisplayMode = StepperStepDisplayMode.Icon, CompletedIconHtml = "&lt;i class='fa fa-check'&gt;&lt;/i&gt;" },
+              new StepperStep { StepNumber = 2, Label = "In Progress", DisplayMode = StepperStepDisplayMode.Icon, InProgressIconHtml = "&lt;i class='fa fa-spinner'&gt;&lt;/i&gt;" },
+              new StepperStep { StepNumber = 3, Label = "Not Started", DisplayMode = StepperStepDisplayMode.Icon }
           })"&gt;&lt;/fdcp-stepper&gt;
 </code></pre>
