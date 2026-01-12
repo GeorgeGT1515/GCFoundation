@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -1120,7 +1120,8 @@
     <value>Mode d'affichage pour l'étape (Number or Icon)</value>
   </data>
   <data name="Stepper_Basic_Text" xml:space="preserve">
-    <value>Un indicateur d'étapes de base avec les étapes numérotées&amp;nbsp;:</value>
+    <value>&lt;gcds-text&gt;Il s’agit de l’implémentation numérotée par défaut. Définissez &lt;code&gt;current-step&lt;/code&gt; pour indiquer l’étape courante; les étapes précédentes s’affichent comme complétées et les étapes suivantes comme non commencées.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;L’attribut &lt;code&gt;steps&lt;/code&gt; reçoit une liste d’objets &lt;code&gt;StepperStep&lt;/code&gt; (au minimum &lt;code&gt;StepNumber&lt;/code&gt; et &lt;code&gt;Label&lt;/code&gt;). Avec &lt;code&gt;DisplayMode = Number&lt;/code&gt;, le composant affiche les numéros des étapes.&lt;/gcds-text&gt;</value>
   </data>
   <data name="Stepper_Notes_3" xml:space="preserve">
     <value>Les étapes cachées (&lt;code&gt;IsHidden = true&lt;/code&gt;) ne seront pas affichées dans l'indicateur d'étapes</value>
@@ -1147,7 +1148,8 @@
     <value>avec-icones</value>
   </data>
   <data name="Stepper_WithIcons_Text" xml:space="preserve">
-    <value>Indicateur d'étapes avec des icônes personalisés à différentes étapes&amp;nbsp;:</value>
+    <value>&lt;gcds-text&gt;Cette implémentation utilise &lt;code&gt;DisplayMode = Icon&lt;/code&gt; afin d’afficher une icône au lieu d’un numéro.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;Fournissez le HTML des icônes via &lt;code&gt;CompletedIconHtml&lt;/code&gt; et &lt;code&gt;InProgressIconHtml&lt;/code&gt;. Si aucune icône n’est définie pour un état donné, le numéro de l’étape sera affiché par défaut.&lt;/gcds-text&gt;</value>
   </data>
   <data name="Stepper_WithLinks_Title" xml:space="preserve">
     <value>Avec liens</value>
@@ -1156,7 +1158,8 @@
     <value>avec-liens</value>
   </data>
   <data name="Stepper_WithLinks_Text" xml:space="preserve">
-    <value>Un indicateur d'étapes avec des étapes cliquables&amp;nbsp;:</value>
+    <value>&lt;gcds-text&gt;Cette implémentation rend une étape cliquable en définissant &lt;code&gt;IsLink = true&lt;/code&gt; et en fournissant &lt;code&gt;LinkUrl&lt;/code&gt; (par exemple, une ancre ou une route vers une étape précédente).&lt;/gcds-text&gt;
+&lt;gcds-text&gt;Utilisez les liens de façon réfléchie : on relie généralement les étapes déjà complétées pour permettre aux utilisateurs de revoir ou de modifier leurs réponses sans perdre le contexte.&lt;/gcds-text&gt;</value>
   </data>
   <data name="FormBuilder_Name" xml:space="preserve">
     <value>Constructeur de formulaire</value>
@@ -1462,6 +1465,7 @@
     <value>avec-etat</value>
   </data>
   <data name="Stepper_WithStatus_Text" xml:space="preserve">
-    <value>Indicateur d'étapes avec un badge d'état personalisé&amp;nbsp;:</value>
+    <value>&lt;gcds-text&gt;Cette implémentation ajoute un petit badge d’état à côté de l’étiquette d’une étape (par exemple « Fait » ou « Non requis »).&lt;/gcds-text&gt;
+&lt;gcds-text&gt;Définissez &lt;code&gt;StatusBadgeLabel&lt;/code&gt; et choisissez un &lt;code&gt;StatusBadgeStyle&lt;/code&gt; cohérent avec la signification visuelle voulue. Vous pouvez aussi inverser le style du badge lorsque vous avez besoin de plus d’emphase ou de contraste.&lt;/gcds-text&gt;</value>
   </data>
 </root>
