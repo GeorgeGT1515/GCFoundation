@@ -2533,6 +2533,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Optional. Should the step be hidden from display..
+        /// </summary>
+        public static string Stepper_Properties_StepperStep_IsHidden {
+            get {
+                return ResourceManager.GetString("Stepper_Properties_StepperStep_IsHidden", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Determines if the step is clickable.
         /// </summary>
         public static string Stepper_Properties_StepperStep_IsLink {
@@ -2565,6 +2574,33 @@ namespace GCFoundation.Web.Resources {
         public static string Stepper_Properties_StepperStep_NotStartedIconHtml {
             get {
                 return ResourceManager.GetString("Stepper_Properties_StepperStep_NotStartedIconHtml", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. Label of the status badge..
+        /// </summary>
+        public static string Stepper_Properties_StepperStep_StatusBadgeLabel {
+            get {
+                return ResourceManager.GetString("Stepper_Properties_StepperStep_StatusBadgeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. Style of the status badge..
+        /// </summary>
+        public static string Stepper_Properties_StepperStep_StatusBadgeStyle {
+            get {
+                return ResourceManager.GetString("Stepper_Properties_StepperStep_StatusBadgeStyle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. Inverted variant of the style of the status badge..
+        /// </summary>
+        public static string Stepper_Properties_StepperStep_StatusBadgeStyleInverted {
+            get {
+                return ResourceManager.GetString("Stepper_Properties_StepperStep_StatusBadgeStyleInverted", resourceCulture);
             }
         }
         

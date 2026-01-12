@@ -113,7 +113,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             var badgeHelper = new FDCPBadgeTagHelper
             {
-                Style = step.StatusBadgeStyle ?? BadgeStyle.primary,
+                Style = step.StatusBadgeStyle,
                 Inverted = step.StatusBadgeStyleInverted ?? false
             };
 

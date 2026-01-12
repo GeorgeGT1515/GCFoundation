@@ -1367,4 +1367,16 @@
 &lt;/ul&gt;
 &lt;/gcds-text&gt;</value>
   </data>
+  <data name="Stepper_Properties_StepperStep_IsHidden" xml:space="preserve">
+    <value>Optional. Should the step be hidden from display.</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_StatusBadgeLabel" xml:space="preserve">
+    <value>Optional. Label of the status badge.</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_StatusBadgeStyle" xml:space="preserve">
+    <value>Optional. Style of the status badge.</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_StatusBadgeStyleInverted" xml:space="preserve">
+    <value>Optional. Inverted variant of the style of the status badge.</value>
+  </data>
 </root>

@@ -592,11 +592,15 @@ namespace GCFoundation.Web.Controllers
                 new ComponentPropertyViewModel() { Name = "StepperStep.StepNumber", DataType = "int", Description = Resources.Components.Stepper_Properties_StepperStep_StepNumber },
                 new ComponentPropertyViewModel() { Name = "StepperStep.Label", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_Label },
                 new ComponentPropertyViewModel() { Name = "StepperStep.DisplayMode", DataType = "string", DefaultValue = "StepperStepDisplayMode.Number", Description = Resources.Components.Stepper_Properties_StepperStep_DisplayMode },
-                new ComponentPropertyViewModel() { Name = "StepperStep.IsLink", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_IsLink },
+                new ComponentPropertyViewModel() { Name = "StepperStep.IsHidden", DataType = "bool", Description = Resources.Components.Stepper_Properties_StepperStep_IsHidden },
+                new ComponentPropertyViewModel() { Name = "StepperStep.IsLink", DataType = "bool", Description = Resources.Components.Stepper_Properties_StepperStep_IsLink },
                 new ComponentPropertyViewModel() { Name = "StepperStep.LinkUrl", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_LinkUrl },
                 new ComponentPropertyViewModel() { Name = "StepperStep.CompletedIconHtml", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_CompletedIconHtml },
                 new ComponentPropertyViewModel() { Name = "StepperStep.InProgressIconHtml", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_InProgressIconHtml },
-                new ComponentPropertyViewModel() { Name = "StepperStep.NotStartedIconHtml", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_NotStartedIconHtml }
+                new ComponentPropertyViewModel() { Name = "StepperStep.NotStartedIconHtml", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_NotStartedIconHtml },
+                new ComponentPropertyViewModel() { Name = "StepperStep.StatusBadgeLabel", DataType = "string", Description = Resources.Components.Stepper_Properties_StepperStep_StatusBadgeLabel },
+                new ComponentPropertyViewModel() { Name = "StepperStep.StatusBadgeStyle", DataType = "BadgeStyle", DefaultValue = "BadgeStyle.primary", Description = Resources.Components.Stepper_Properties_StepperStep_StatusBadgeStyle },
+                new ComponentPropertyViewModel() { Name = "StepperStep.StatusBadgeStyleInverted", DataType = "bool", Description = Resources.Components.Stepper_Properties_StepperStep_StatusBadgeStyleInverted }
             };
             vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
             {
