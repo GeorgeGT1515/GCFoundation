@@ -4,6 +4,7 @@ using GCFoundation.Components.Resources;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Globalization;
 using System.Text;
+using System.Text.Encodings.Web;
 
 namespace GCFoundation.Components.TagHelpers.FDCP
 {
@@ -63,28 +64,85 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 if (step.IsHidden || string.IsNullOrWhiteSpace(step.Label))
                     continue;
 
-                StepperStepStatus stepStatus = step.GetStatusByCurrentStep(CurrentStep);
+                html.AppendLine(CultureInfo.InvariantCulture, $"<div class='fdcp-step {step.GetStatusByCurrentStep(CurrentStep)}'>");
 
-                html.AppendLine(CultureInfo.InvariantCulture, $"<div class='fdcp-step {stepStatus}'>");
+                // Circle.
+                html.AppendLine(CultureInfo.InvariantCulture, $"<div class='fdcp-step-circle'>{step.GetDisplayHtml(CurrentStep)}</div>");
 
-                string circleContent = step.GetDisplayHtml(CurrentStep);
-
+                // Label.
+                string labelHtml;
                 if (step.IsLink && !string.IsNullOrEmpty(step.LinkUrl))
                 {
-                    html.AppendLine(CultureInfo.InvariantCulture, $"<div class='fdcp-step-circle'>{circleContent}</div>");
-                    html.AppendLine(CultureInfo.InvariantCulture, $"<div class='fdcp-step-label'><gcds-link href='{step.LinkUrl}'>{step.Label}</gcds-link></div>");
+                    labelHtml = string.Format(
+                        CultureInfo.InvariantCulture,
+                        "<gcds-link href='{0}'>{1}</gcds-link>",
+                        step.LinkUrl,
+                        step.Label);
                 }
                 else
                 {
-                    html.AppendLine(CultureInfo.InvariantCulture, $"<div class='fdcp-step-circle'>{circleContent}</div>");
-                    html.AppendLine(CultureInfo.InvariantCulture, $"<div class='fdcp-step-label'>{step.Label}</div>");
+                    labelHtml = step.Label;
+                }
+                html.AppendLine(CultureInfo.InvariantCulture, $"<div class='fdcp-step-label'>{labelHtml}</div>");
+
+                // Status badge (if defined).
+                if (!string.IsNullOrEmpty(step.StatusBadgeLabel))
+                {
+                    var badgeHtml = RenderStatusBadge(step);
+                    if (!string.IsNullOrEmpty(badgeHtml))
+                        html.AppendLine(badgeHtml);
                 }
 
-                html.AppendLine("</div>");
+                html.AppendLine("</div>"); // <div class='fdcp-step'>
             }
 
             html.AppendLine("</div>");
             output.Content.SetHtmlContent(html.ToString());
+        }
+
+        /// <summary>
+        /// Renders the status badge for a step by delegating to <see cref="FDCPBadgeTagHelper"/>.
+        /// This ensures any changes to the badge tag helper are automatically reflected here.
+        /// </summary>
+        /// <param name="step">The step whose status badge should be rendered.</param>
+        /// <returns>HTML string for the badge, or an empty string if rendering fails.</returns>
+        private static string RenderStatusBadge(StepperStep step)
+        {
+            if (string.IsNullOrEmpty(step.StatusBadgeLabel))
+                return string.Empty;
+
+            var badgeHelper = new FDCPBadgeTagHelper
+            {
+                Style = step.StatusBadgeStyle ?? BadgeStyle.primary,
+                Inverted = step.StatusBadgeStyleInverted ?? false
+            };
+
+            var context = new TagHelperContext(
+                tagName: "fdcp-badge",
+                allAttributes: new TagHelperAttributeList(),
+                items: new Dictionary<object, object?>(),
+                uniqueId: string.Create(CultureInfo.InvariantCulture, $"fdcp-badge-{step.StepNumber}")
+            );
+
+            var childContent = new DefaultTagHelperContent();
+            childContent.SetContent(step.StatusBadgeLabel);
+
+            var output = new TagHelperOutput(
+                "fdcp-badge",
+                new TagHelperAttributeList(),
+                (useCachedResult, encoder) =>
+                {
+                    return Task.FromResult<TagHelperContent>(childContent);
+                })
+            {
+                TagMode = TagMode.StartTagAndEndTag
+            };
+
+            badgeHelper.ProcessAsync(context, output).GetAwaiter().GetResult();
+
+            using var writer = new StringWriter(CultureInfo.InvariantCulture);
+            output.WriteTo(writer, HtmlEncoder.Default);
+            return writer.ToString();
         }
     }
 }

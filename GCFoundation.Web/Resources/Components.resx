@@ -1322,4 +1322,13 @@
   <data name="Badge_UxBestPractices_4" xml:space="preserve">
     <value>Follow system spacing, sizing, and colour guidance to maintain visual harmony.</value>
   </data>
+  <data name="Stepper_WithStatus_Title" xml:space="preserve">
+    <value>With Status</value>
+  </data>
+  <data name="Stepper_WithStatus_Anchor" xml:space="preserve">
+    <value>with-status</value>
+  </data>
+  <data name="Stepper_WithStatus_Text" xml:space="preserve">
+    <value>Stepper with custom status badges:</value>
+  </data>
 </root>

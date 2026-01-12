@@ -1,5 +1,4 @@
 ﻿using GCFoundation.Components.Enums;
-using GCFoundation.Components.TagHelpers.FDCP;
 using System.Globalization;
 
 namespace GCFoundation.Components.Models
@@ -62,7 +61,12 @@ namespace GCFoundation.Components.Models
         /// <summary>
         /// Gets or sets the style of the badge describing the status of the step.
         /// </summary>
-        public FDCPBadgeStyle? StatusBadgeStyle { get; set; }
+        public BadgeStyle? StatusBadgeStyle { get; set; }
+
+        /// <summary>
+        /// Gets or sets the inverted variant of the style of the badge describing the status of the step.
+        /// </summary>
+        public bool? StatusBadgeStyleInverted { get; set; }
 
         /// <summary>
         /// Gets or sets the numerical position of the step in the sequence.

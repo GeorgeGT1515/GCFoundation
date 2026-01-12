@@ -10,10 +10,10 @@
                                 })"></fdcp-stepper>
 <pre><code class="language-cshtml">
 &lt;fdcp-stepper current-step="2"
-    steps="@@(new List&lt;Step&gt;
+    steps="@@(new List&lt;StepperStep&gt;
           {
-              new Step { StepNumber = 1, Label = "Step One", DisplayMode = StepperStepDisplayMode.Number },
-              new Step { StepNumber = 2, Label = "Step Two", DisplayMode = StepperStepDisplayMode.Number },
-              new Step { StepNumber = 3, Label = "Step Three", DisplayMode = StepperStepDisplayMode.Number }
+              new StepperStep { StepNumber = 1, Label = "Step One", DisplayMode = StepperStepDisplayMode.Number },
+              new StepperStep { StepNumber = 2, Label = "Step Two", DisplayMode = StepperStepDisplayMode.Number },
+              new StepperStep { StepNumber = 3, Label = "Step Three", DisplayMode = StepperStepDisplayMode.Number }
           })"&gt;&lt;/fdcp-stepper&gt;
 </code></pre>
