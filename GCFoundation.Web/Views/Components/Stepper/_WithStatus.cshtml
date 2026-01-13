@@ -2,6 +2,7 @@
 @using GCFoundation.Components.Models
 
 <fdcp-stepper current-step="3"
+              heading-tag="h3"
               steps="@(new List<StepperStep>
                                 {
                                     new StepperStep { StepNumber = 1, Label = "Step 1", DisplayMode = StepperStepDisplayMode.Icon, StatusBadgeLabel = "Done", StatusBadgeStyle = BadgeStyle.secondary, StatusBadgeStyleInverted = false, CompletedIconHtml = "<i class='fa fa-check'></i>" },
@@ -11,6 +12,7 @@
                                 })"></fdcp-stepper>
 <pre><code class="language-cshtml">
 &lt;fdcp-stepper current-step="3"
+    heading-tag="h3"
     steps="@@(new List&lt;StepperStep&gt;
           {
             new StepperStep { StepNumber = 1, Label = "Step 1", DisplayMode = StepperStepDisplayMode.Icon, StatusBadgeLabel = "Done", StatusBadgeStyle = BadgeStyle.secondary, StatusBadgeStyleInverted = false, CompletedIconHtml = "&lt;i class='fa fa-check'&gt;&lt;/i&gt;" },

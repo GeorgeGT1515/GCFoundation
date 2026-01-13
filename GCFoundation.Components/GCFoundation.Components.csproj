@@ -134,9 +134,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Converters\**" />
     <Compile Remove="wwwroot\scss\**" />
+    <Content Remove="Converters\**" />
     <Content Remove="wwwroot\scss\**" />
+    <EmbeddedResource Remove="Converters\**" />
     <EmbeddedResource Remove="wwwroot\scss\**" />
+    <None Remove="Converters\**" />
     <None Remove="wwwroot\scss\**" />
   </ItemGroup>
 
@@ -153,7 +157,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Converters\" />
     <Folder Include="wwwroot\images\Icons\" />
     <Folder Include="wwwroot\images\splash\" />
   </ItemGroup>

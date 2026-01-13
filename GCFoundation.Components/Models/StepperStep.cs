@@ -61,7 +61,7 @@ namespace GCFoundation.Components.Models
         /// <summary>
         /// Gets or sets the style of the badge describing the status of the step.
         /// </summary>
-        public BadgeStyle? StatusBadgeStyle { get; set; }
+        public BadgeStyle StatusBadgeStyle { get; set; } = BadgeStyle.primary;
 
         /// <summary>
         /// Gets or sets the inverted variant of the style of the badge describing the status of the step.

@@ -1333,6 +1333,50 @@
   </data>
   <data name="Stepper_WithStatus_Text" xml:space="preserve">
     <value>&lt;gcds-text&gt;This implementation adds a small status badge next to a step label (for example, “Done” or “Not required”).&lt;/gcds-text&gt;
-&lt;gcds-text&gt;Set &lt;code&gt;StatusBadgeLabel&lt;/code&gt; and choose a &lt;code&gt;StatusBadgeStyle&lt;/code&gt; to match your UI semantics. You can also invert the badge style when you need more emphasis or contrast.&lt;/gcds-text&gt;</value>
+&lt;gcds-text&gt;Set &lt;code&gt;StatusBadgeLabel&lt;/code&gt; and choose a &lt;code&gt;StatusBadgeStyle&lt;/code&gt; to match your UI semantics. You can also invert the badge style when you need more emphasis or contrast.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;This pattern can also be used when one or more steps are identified as "not required" because a user’s earlier choices make those steps not applicable. To support clarity, consistency, and accessibility:
+&lt;ul class="list-square"&gt;
+&lt;li&gt;Skipped steps must visually include a label/badge such as “N/A” or “Not required” as shown in the design system pattern.&lt;/li&gt;
+&lt;li&gt;A notice at the top of the page is &lt;em&gt;recommended&lt;/em&gt; to inform users that steps have been skipped and why. Here is an example:
+&lt;gcds-notice type="info" notice-title="Steps not required" notice-title-tag="h4"&gt;&lt;gcds-text&gt;Steps shown as N/A were skipped because your previous answers provided enough information to move ahead.&lt;/gcds-text&gt;&lt;/gcds-notice&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Stepper_Accessibility_Do_1" xml:space="preserve">
+    <value>&lt;gcds-text&gt;&lt;strong&gt;Clearly identify skipped steps:&lt;/strong&gt;
+&lt;ul class="list-circle"&gt;
+&lt;li&gt;Given a step has been skipped due to previous answers&lt;/li&gt;
+&lt;li&gt;Then the step must display a visual badge reading “N/A” or “Not required”&lt;/li&gt;
+&lt;li&gt;And, an accessible label must be present (e.g., “Step 2 not required based on your previous answers”)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Stepper_Accessibility_Do_2" xml:space="preserve">
+    <value>&lt;gcds-text&gt;&lt;strong&gt;Make skipped steps non-interactive:&lt;/strong&gt;
+&lt;ul class="list-circle"&gt;
+&lt;li&gt;Given a step is in a skipped state&lt;/li&gt;
+&lt;li&gt;Then, it must not be reachable via keyboard navigation&lt;/li&gt;
+&lt;li&gt;Then, it must not behave like an interactive element (no hover, no click, no focus ring)&lt;/li&gt;
+&lt;li&gt;And, the user must not be able to activate or navigate into skipped steps.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Stepper_Accessibility_Do_3" xml:space="preserve">
+    <value>&lt;gcds-text&gt;&lt;strong&gt;Announce skipped steps programmatically (A11y):&lt;/strong&gt;
+&lt;ul class="list-circle"&gt;
+&lt;li&gt;Given a screen-reader user encounters a skipped step&lt;/li&gt;
+&lt;li&gt;Then, the skipped step must announce: “Step X: Skipped: (Optional) This step is not required based on your previous answers.”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_IsHidden" xml:space="preserve">
+    <value>Optional. Should the step be hidden from display.</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_StatusBadgeLabel" xml:space="preserve">
+    <value>Optional. Label of the status badge.</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_StatusBadgeStyle" xml:space="preserve">
+    <value>Optional. Style of the status badge.</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_StatusBadgeStyleInverted" xml:space="preserve">
+    <value>Optional. Inverted variant of the style of the status badge.</value>
   </data>
 </root>

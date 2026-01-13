@@ -2,6 +2,7 @@
 @using GCFoundation.Components.Models
 
 <fdcp-stepper current-step="2"
+              heading-tag="h3"
               steps="@(new List<StepperStep>
                                 {
                                     new StepperStep { StepNumber = 1, Label = "Step One", DisplayMode = StepperStepDisplayMode.Number },
@@ -10,6 +11,7 @@
                                 })"></fdcp-stepper>
 <pre><code class="language-cshtml">
 &lt;fdcp-stepper current-step="2"
+    heading-tag="h3"
     steps="@@(new List&lt;StepperStep&gt;
           {
               new StepperStep { StepNumber = 1, Label = "Step One", DisplayMode = StepperStepDisplayMode.Number },

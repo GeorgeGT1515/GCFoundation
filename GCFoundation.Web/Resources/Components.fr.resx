@@ -1141,6 +1141,18 @@
   <data name="Stepper_Properties_StepperStep_NotStartedIconHtml" xml:space="preserve">
     <value>Optionnel. HTML pour l'icône d'étape non démarrée</value>
   </data>
+  <data name="Stepper_Properties_StepperStep_IsHidden" xml:space="preserve">
+    <value>Optionnel. Indique si l'étape doit être masquée à l'affichage.</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_StatusBadgeLabel" xml:space="preserve">
+    <value>Optionnel. Libellé du badge d’état.</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_StatusBadgeStyle" xml:space="preserve">
+    <value>Optionnel. Style du badge d’état.</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_StatusBadgeStyleInverted" xml:space="preserve">
+    <value>Optionnel. Variante inversée du style du badge d’état.</value>
+  </data>
   <data name="Stepper_WithIcons_Title" xml:space="preserve">
     <value>Avec icônes</value>
   </data>
@@ -1329,6 +1341,48 @@
   <data name="Badge_UxBestPractices_4" xml:space="preserve">
     <value>Suivez les directives d'espacement, de dimensionnement et de couleur du système pour maintenir l'harmonie visuelle.</value>
   </data>
+  <data name="Stepper_WithStatus_Title" xml:space="preserve">
+    <value>Avec état</value>
+  </data>
+  <data name="Stepper_WithStatus_Anchor" xml:space="preserve">
+    <value>avec-etat</value>
+  </data>
+  <data name="Stepper_WithStatus_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Cette implémentation ajoute un petit badge d’état à côté de l’étiquette d’une étape (par exemple « Fait » ou « Non requis »).&lt;/gcds-text&gt;
+&lt;gcds-text&gt;Définissez &lt;code&gt;StatusBadgeLabel&lt;/code&gt; et choisissez un &lt;code&gt;StatusBadgeStyle&lt;/code&gt; cohérent avec la signification visuelle voulue. Vous pouvez aussi inverser le style du badge lorsque vous avez besoin de plus d’emphase ou de contraste.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;Ce modèle peut aussi être utilisé lorsqu’une ou plusieurs étapes sont identifiées comme « non requises » parce que les choix précédents de l’utilisateur rendent ces étapes non applicables. Afin d’assurer la clarté, la cohérence et l’accessibilité :
+&lt;ul class="list-square"&gt;
+&lt;li&gt;Les étapes ignorées doivent afficher visuellement une étiquette ou un badge, tel que « N/A » ou « Non requis », comme le montre le modèle du système de conception.&lt;/li&gt;
+&lt;li&gt;Un avis en haut de la page est &lt;em&gt;recommandé&lt;/em&gt; afin d’informer les utilisateurs que des étapes ont été ignorées et pourquoi. Voici un exemple :
+&lt;gcds-notice type="info" notice-title="Étapes non requises" notice-title-tag="h4"&gt;&lt;gcds-text&gt;Les étapes indiquées comme N/A ont été ignorées, car vos réponses précédentes ont fourni suffisamment d’information pour continuer.&lt;/gcds-text&gt;&lt;/gcds-notice&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Stepper_Accessibility_Do_1" xml:space="preserve">
+    <value>&lt;gcds-text&gt;&lt;strong&gt;Identifier clairement les étapes ignorées :&lt;/strong&gt;
+&lt;ul class="list-circle"&gt;
+&lt;li&gt;Étant donné qu’une étape a été ignorée en raison de réponses précédentes&lt;/li&gt;
+&lt;li&gt;Alors l’étape doit afficher un badge visuel indiquant « N/A » ou « Non requis »&lt;/li&gt;
+&lt;li&gt;Et une étiquette accessible doit être présente (p. ex. « Étape 2 non requise selon vos réponses précédentes »)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Stepper_Accessibility_Do_2" xml:space="preserve">
+    <value>&lt;gcds-text&gt;&lt;strong&gt;Rendre les étapes ignorées non interactives :&lt;/strong&gt;
+&lt;ul class="list-circle"&gt;
+&lt;li&gt;Étant donné qu’une étape est dans un état « ignoré »&lt;/li&gt;
+&lt;li&gt;Alors elle ne doit pas être accessible via la navigation au clavier&lt;/li&gt;
+&lt;li&gt;Alors elle ne doit pas se comporter comme un élément interactif (aucun survol, aucun clic, aucun indicateur de focus)&lt;/li&gt;
+&lt;li&gt;Et l’utilisateur ne doit pas pouvoir activer les étapes ignorées ni y naviguer.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Stepper_Accessibility_Do_3" xml:space="preserve">
+    <value>&lt;gcds-text&gt;&lt;strong&gt;Annoncer les étapes ignorées de façon programmatique (A11y) :&lt;/strong&gt;
+&lt;ul class="list-circle"&gt;
+&lt;li&gt;Étant donné qu’un utilisateur de lecteur d’écran rencontre une étape ignorée&lt;/li&gt;
+&lt;li&gt;Alors l’étape ignorée doit annoncer : « Étape X : Ignorée : (Facultatif) Cette étape n’est pas requise selon vos réponses précédentes. »&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/gcds-text&gt;</value>
+  </data>
   <data name="StatelessAuth_CurrentStatus_Title" xml:space="preserve">
     <value>Statut d'authentification actuel</value>
   </data>
@@ -1457,15 +1511,5 @@
   </data>
   <data name="StatelessAuth_Integration_Description2" xml:space="preserve">
     <value />
-  </data>
-  <data name="Stepper_WithStatus_Title" xml:space="preserve">
-    <value>Avec état</value>
-  </data>
-  <data name="Stepper_WithStatus_Anchor" xml:space="preserve">
-    <value>avec-etat</value>
-  </data>
-  <data name="Stepper_WithStatus_Text" xml:space="preserve">
-    <value>&lt;gcds-text&gt;Cette implémentation ajoute un petit badge d’état à côté de l’étiquette d’une étape (par exemple « Fait » ou « Non requis »).&lt;/gcds-text&gt;
-&lt;gcds-text&gt;Définissez &lt;code&gt;StatusBadgeLabel&lt;/code&gt; et choisissez un &lt;code&gt;StatusBadgeStyle&lt;/code&gt; cohérent avec la signification visuelle voulue. Vous pouvez aussi inverser le style du badge lorsque vous avez besoin de plus d’emphase ou de contraste.&lt;/gcds-text&gt;</value>
   </data>
 </root>

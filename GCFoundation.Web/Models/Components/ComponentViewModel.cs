@@ -8,6 +8,16 @@ namespace GCFoundation.Web.Models.Components
     public class ComponentViewModel : BaseViewModel
     {
         /// <summary>
+        /// List of accessibility requirements (DO).
+        /// </summary>
+        public IEnumerable<string> AccessibilityDo { get; set; } = new List<string>();
+
+        /// <summary>
+        /// List of accessibility requirements (DO NOT).
+        /// </summary>
+        public IEnumerable<string> AccessibilityDoNot { get; set; } = new List<string>();
+
+        /// <summary>
         /// Name of the component.
         /// </summary>
         public string Name { get; set; } = string.Empty;
@@ -28,6 +38,11 @@ namespace GCFoundation.Web.Models.Components
         public IEnumerable<ComponentPropertyViewModel> Properties { get; set; } = new List<ComponentPropertyViewModel>();
 
         /// <summary>
+        /// Brief description of the component's purpose.
+        /// </summary>
+        public string Purpose { get; set; } = string.Empty;
+
+        /// <summary>
         /// List of sample code sections for the component.
         /// </summary>
         public IEnumerable<ComponentSampleCodeSectionViewModel> SampleCodeSections { get; set; } = new List<ComponentSampleCodeSectionViewModel>();
@@ -41,7 +56,8 @@ namespace GCFoundation.Web.Models.Components
         /// <summary>
         /// (Optional) Model representing the list of links to the sections of the page for the side navigation.
         /// </summary>
-        public SideNavigationViewModel? SideNavigation {
+        public SideNavigationViewModel? SideNavigation
+        {
             get
             {
                 if (sideNavigation == null)
@@ -61,14 +77,9 @@ namespace GCFoundation.Web.Models.Components
         public string Tag { get; set; } = string.Empty;
 
         /// <summary>
-        /// Brief description of the component's purpose.
+        /// List of UX/UI best practices.
         /// </summary>
-        public string Purpose { get; set; } = string.Empty;
-
-        /// <summary>
-        /// List of scenarios when to use this component.
-        /// </summary>
-        public IEnumerable<string> WhenToUse { get; set; } = new List<string>();
+        public IEnumerable<string> UxBestPractices { get; set; } = new List<string>();
 
         /// <summary>
         /// List of scenarios when NOT to use this component.
@@ -76,19 +87,10 @@ namespace GCFoundation.Web.Models.Components
         public IEnumerable<string> WhenNotToUse { get; set; } = new List<string>();
 
         /// <summary>
-        /// List of accessibility requirements (DO).
+        /// List of scenarios when to use this component.
         /// </summary>
-        public IEnumerable<string> AccessibilityDo { get; set; } = new List<string>();
+        public IEnumerable<string> WhenToUse { get; set; } = new List<string>();
 
-        /// <summary>
-        /// List of accessibility requirements (DO NOT).
-        /// </summary>
-        public IEnumerable<string> AccessibilityDoNot { get; set; } = new List<string>();
-
-        /// <summary>
-        /// List of UX/UI best practices.
-        /// </summary>
-        public IEnumerable<string> UxBestPractices { get; set; } = new List<string>();
 
         /// <summary>
         /// Builds default side navigation based on the current properties of the ViewModel (i.e. include links to the Overview, SampleCodeSections, Properties and Notes).
