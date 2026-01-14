@@ -285,6 +285,36 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         }
 
         [Fact]
+        public void Process_WithStatusBadgeLabelHtml_RendersHtmlInBadgeContent()
+        {
+            // Arrange
+            var steps = new[]
+            {
+                new StepperStep
+                {
+                    StepNumber = 1,
+                    Label = "Step 1",
+                    StatusBadgeLabel = "<strong>New</strong> <em>today</em>"
+                }
+            };
+
+            var tagHelper = new FDCPStepperTagHelper
+            {
+                CurrentStep = 1,
+                Steps = steps
+            };
+
+            // Act
+            tagHelper.Process(_context, _output);
+
+            // Assert
+            var content = _output.Content.GetContent();
+            Assert.Contains("<span class='fdcp-badge-content'><strong>New</strong> <em>today</em></span>", content);
+            Assert.DoesNotContain("&lt;strong&gt;", content);
+            Assert.DoesNotContain("&lt;em&gt;", content);
+        }
+
+        [Fact]
         public void Process_WithStatusBadgeStyle_RendersBadgeWithSpecifiedStyle()
         {
             // Arrange
