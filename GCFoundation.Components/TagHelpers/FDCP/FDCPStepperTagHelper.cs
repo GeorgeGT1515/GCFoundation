@@ -125,7 +125,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             );
 
             var childContent = new DefaultTagHelperContent();
-            childContent.SetContent(step.StatusBadgeLabel);
+            childContent.SetHtmlContent(step.StatusBadgeLabel);
 
             var output = new TagHelperOutput(
                 "fdcp-badge",
