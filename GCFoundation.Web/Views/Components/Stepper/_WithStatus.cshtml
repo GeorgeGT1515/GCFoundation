@@ -6,7 +6,7 @@
               steps="@(new List<StepperStep>
                                 {
                                     new StepperStep { StepNumber = 1, Label = "Step 1", DisplayMode = StepperStepDisplayMode.Icon, StatusBadgeLabel = "Done", StatusBadgeStyle = BadgeStyle.secondary, StatusBadgeStyleInverted = false, CompletedIconHtml = "<i class='fa fa-check'></i>" },
-                                    new StepperStep { StepNumber = 2, Label = "Step 2", DisplayMode = StepperStepDisplayMode.Icon, StatusBadgeLabel = "Not required", StatusBadgeStyle = BadgeStyle.secondary, StatusBadgeStyleInverted = true, CompletedIconHtml = "<i class='fa-solid fa-xmark'></i>" },
+                                    new StepperStep { StepNumber = 2, Label = "Step 2", DisplayMode = StepperStepDisplayMode.Icon, StatusBadgeLabel = "<span class=\"visibility-sr-only\">This step is</span> Not required <span class=\"visibility-sr-only\">based on your previous answers.</span>", StatusBadgeStyle = BadgeStyle.secondary, StatusBadgeStyleInverted = true, CompletedIconHtml = "<i class='fa-solid fa-xmark'></i>" },
                                     new StepperStep { StepNumber = 3, Label = "Step 3", DisplayMode = StepperStepDisplayMode.Icon, InProgressIconHtml = "<i class='fa fa-spinner'></i>" },
                                     new StepperStep { StepNumber = 4, Label = "Step 4", DisplayMode = StepperStepDisplayMode.Icon }
                                 })"></fdcp-stepper>
@@ -16,7 +16,7 @@
     steps="@@(new List&lt;StepperStep&gt;
           {
             new StepperStep { StepNumber = 1, Label = "Step 1", DisplayMode = StepperStepDisplayMode.Icon, StatusBadgeLabel = "Done", StatusBadgeStyle = BadgeStyle.secondary, StatusBadgeStyleInverted = false, CompletedIconHtml = "&lt;i class='fa fa-check'&gt;&lt;/i&gt;" },
-            new StepperStep { StepNumber = 2, Label = "Step 2", DisplayMode = StepperStepDisplayMode.Icon, StatusBadgeLabel = "Not required", StatusBadgeStyle = BadgeStyle.secondary, StatusBadgeStyleInverted = true, CompletedIconHtml = "&lt;i class='fa-solid fa-xmark'&gt;&lt;/i&gt;" },
+            new StepperStep { StepNumber = 2, Label = "Step 2", DisplayMode = StepperStepDisplayMode.Icon, StatusBadgeLabel = "&lt;span class='visibility-sr-only'&gt;This step is&lt;/span&gt; Not required &lt;span class='visibility-sr-only'&gt;based on your previous answers.&lt;/span&gt;", StatusBadgeStyle = BadgeStyle.secondary, StatusBadgeStyleInverted = true, CompletedIconHtml = "&lt;i class='fa-solid fa-xmark'&gt;&lt;/i&gt;" },
             new StepperStep { StepNumber = 3, Label = "Step 3", DisplayMode = StepperStepDisplayMode.Icon, InProgressIconHtml = "&lt;i class='fa fa-spinner'&gt;&lt;/i&gt;" },
             new StepperStep { StepNumber = 4, Label = "Step 4", DisplayMode = StepperStepDisplayMode.Icon }
           })"&gt;&lt;/fdcp-stepper&gt;
