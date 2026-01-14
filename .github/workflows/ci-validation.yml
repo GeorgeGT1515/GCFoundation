@@ -65,6 +65,12 @@ jobs:
       working-directory: e2e
       run: npm ci
 
+    - name: Install Playwright browsers
+      run: |
+        npx playwright install chrome
+        npx playwright install firefox
+        npx playwright install msedge
+
     - name: Start Web App
       run: |
         cd GCFoundation.Web
