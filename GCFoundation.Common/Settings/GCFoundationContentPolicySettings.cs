@@ -7,11 +7,11 @@
     public class GCFoundationContentPolicySettings
     {
         /// <summary>
-        /// Gets or sets the list of JavaScript CDN hosts that are allowed to load scripts.
-        /// These will be added to the 'script-src' directive in the CSP header.
-        /// Example: "https://cdn.jsdelivr.net"
+        /// Gets or sets the list of origins allowed for network connections (XHR/fetch/WebSocket/EventSource).
+        /// These will be added to the 'connect-src' directive in the CSP header.
+        /// Example: "https://cdn.design-system.alpha.canada.ca"
         /// </summary>
-        public IEnumerable<string> JavascriptCDN { get; set; } = Enumerable.Empty<string>();
+        public IEnumerable<string> ConnectCDN { get; set; } = Enumerable.Empty<string>();
 
         /// <summary>
         /// Gets or sets the list of CSS CDN hosts that are allowed to load stylesheets.
@@ -35,10 +35,10 @@
         public IEnumerable<string> FontCDN { get; set; } = Enumerable.Empty<string>();
 
         /// <summary>
-        /// Gets or sets the list of origins allowed for network connections (XHR/fetch/WebSocket/EventSource).
-        /// These will be added to the 'connect-src' directive in the CSP header.
-        /// Example: "https://cdn.design-system.alpha.canada.ca"
+        /// Gets or sets the list of JavaScript CDN hosts that are allowed to load scripts.
+        /// These will be added to the 'script-src' directive in the CSP header.
+        /// Example: "https://cdn.jsdelivr.net"
         /// </summary>
-        public IEnumerable<string> ConnectCDN { get; set; } = Enumerable.Empty<string>();
+        public IEnumerable<string> JavascriptCDN { get; set; } = Enumerable.Empty<string>();
     }
 }

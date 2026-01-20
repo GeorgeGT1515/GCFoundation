@@ -27,17 +27,17 @@ namespace GCFoundation.Security.Middlewares
             context.Items["CspNonce"] = nonce; // Store for use in views (if required)
 
             // Convert lists to space-separated strings
-            string cssCDN = string.Join(" ", _settings.CssCDN ?? Enumerable.Empty<string>());
-            string jsCDN = string.Join(" ", _settings.JavascriptCDN ?? Enumerable.Empty<string>());
-            string fontCDN = string.Join(" ", _settings.FontCDN ?? Enumerable.Empty<string>());
-            string cssHash = string.Join(" ", _settings.CssCDNHash ?? Enumerable.Empty<string>());
             string connectCDN = string.Join(" ", _settings.ConnectCDN ?? Enumerable.Empty<string>());
+            string cssCDN = string.Join(" ", _settings.CssCDN ?? Enumerable.Empty<string>());
+            string cssCDNHash = string.Join(" ", _settings.CssCDNHash ?? Enumerable.Empty<string>());
+            string fontCDN = string.Join(" ", _settings.FontCDN ?? Enumerable.Empty<string>());
+            string jsCDN = string.Join(" ", _settings.JavascriptCDN ?? Enumerable.Empty<string>());
 
             // Build Content Security Policy (CSP)
             string contentSecurityPolicy = $"default-src 'none'; " +
                                $"script-src 'self' {jsCDN} 'nonce-{nonce}'; " +
                                $"object-src 'none'; " +
-                               $"style-src 'self' 'unsafe-hashes' {cssCDN} {cssHash} 'nonce-{nonce}'; " +
+                               $"style-src 'self' 'unsafe-hashes' {cssCDN} {cssCDNHash} 'nonce-{nonce}'; " +
                                $"font-src 'self' {fontCDN}; " +
                                $"connect-src 'self' {connectCDN} http://localhost:* https://localhost:* ws://localhost:* wss://localhost:* https://cdn.design-system.alpha.canada.ca; " +
                                $"img-src 'self' data:; " +
