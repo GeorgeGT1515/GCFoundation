@@ -40,6 +40,12 @@
     
     <title>@ViewData["Title"] - @settings.Value.ApplicationName</title>
     
+    @* Adobe Analytics (if enabled) *@
+    @if (settings.Value.IncludeAdobeAnalytics)
+    {
+        <script src="@settings.Value.AdobeAnalyticsCdnJsUrl"></script>
+    }
+
     @* Global link tags from configuration *@
     @foreach (var linkTag in settings.Value.GlobalLinkTags)
     {
@@ -213,6 +219,12 @@
         }
     }
     
+    @* Adobe Analytics (if enabled) *@
+    @if (settings.Value.IncludeAdobeAnalytics)
+    {
+        <script type="text/javascript" nonce="@(Context.Items["CspNonce"])">_satellite.pageBottom();</script>
+    }
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

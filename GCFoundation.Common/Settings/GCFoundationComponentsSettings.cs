@@ -12,6 +12,33 @@ namespace GCFoundation.Common.Settings
     public class GCFoundationComponentsSettings
     {
         /// <summary>
+        /// Gets or sets the version of Font Awesome being used.
+        /// </summary>
+        public string FontAwesomeVersion { get; set; } = "6.4.2";
+
+        /// <summary>
+        /// Gets or sets the version of the GC Design System CSS Shortcuts being used.
+        /// </summary>
+        public string GCDSCssShortcutsVersion { get; set; } = "1.0.1";
+
+        /// <summary>
+        /// Gets or sets the version of the GC Design System being used.
+        /// </summary>
+        public string GCDSVersion { get; set; } = "0.43.1";
+
+
+        /// <summary>
+        /// Gets the URI for the Font Awesome CSS from the CDN.
+        /// </summary>
+        public Uri FontAwesomeCDN
+        {
+            get
+            {
+                return new Uri($"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/{FontAwesomeVersion}/css/all.min.css");
+            }
+        }
+
+        /// <summary>
         /// Gets the URI for the GC Design System CSS from the CDN.
         /// </summary>
         public Uri GCDSCssCDN
@@ -55,31 +82,24 @@ namespace GCFoundation.Common.Settings
             }
         }
 
+
         /// <summary>
-        /// Gets the URI for the Font Awesome CSS from the CDN.
+        /// Gets or sets the Adobe Analytics CDN URL for the script (minified).
+        /// Example: //assets.adobedtm.com/be5dfd287373/0127575cd23a/launch-f7c3e6060667.min.js
         /// </summary>
-        public Uri FontAwesomeCDN
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1056:URI-like properties should not be strings", Justification = "Configuration property bound from appsettings.json")]
+        public string AdobeAnalyticsCdnJsUrl { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Gets the application name based on the current language context.
+        /// </summary>
+        public string ApplicationName
         {
             get
             {
-                return new Uri($"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/{FontAwesomeVersion}/css/all.min.css");
+                return LanguageUtility.IsEnglish() ? ApplicationNameEn : ApplicationNameFr;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the version of the GC Design System CSS Shortcuts being used.
-        /// </summary>
-        public string GCDSCssShortcutsVersion { get; set; } = "1.0.1";
-
-        /// <summary>
-        /// Gets or sets the version of the GC Design System being used.
-        /// </summary>
-        public string GCDSVersion { get; set; } = "0.43.1";
-
-        /// <summary>
-        /// Gets or sets the version of Font Awesome being used.
-        /// </summary>
-        public string FontAwesomeVersion { get; set; } = "6.4.2";
 
         /// <summary>
         /// Gets or sets the English name of the application.
@@ -97,21 +117,9 @@ namespace GCFoundation.Common.Settings
         public string ApplicationVersion { get; set; } = string.Empty;
 
         /// <summary>
-        /// Gets or sets the virtual directory name when the app is hosted under a path base.
-        /// Example: "/myapp" or "myapp". Leave empty for root.
+        /// Gets or sets the support link (or mailto) for English users.
         /// </summary>
-        public string VirtualDirectoryName { get; set; } = string.Empty;
-
-        /// <summary>
-        /// Gets the application name based on the current language context.
-        /// </summary>
-        public string ApplicationName
-        {
-            get
-            {
-                return LanguageUtility.IsEnglish() ? ApplicationNameEn : ApplicationNameFr;
-            }
-        }
+        public string SupportLinkEn { get; set; } = default!;
 
         /// <summary>
         /// Gets or sets the support link (or mailto) for French users.
@@ -119,9 +127,11 @@ namespace GCFoundation.Common.Settings
         public string SupportLinkFr { get; set; } = default!;
 
         /// <summary>
-        /// Gets or sets the support link (or mailto) for English users.
+        /// Gets or sets the virtual directory name when the app is hosted under a path base.
+        /// Example: "/myapp" or "myapp". Leave empty for root.
         /// </summary>
-        public string SupportLinkEn { get; set; } = default!;
+        public string VirtualDirectoryName { get; set; } = string.Empty;
+
 
         /// <summary>
         /// Gets the list of additional CSS files to include globally.
@@ -147,6 +157,13 @@ namespace GCFoundation.Common.Settings
         /// </summary>
         public Collection<string> GlobalLinkTags { get; } = new Collection<string>();
 
+
+        /// <summary>
+        /// Determines whether to include the Adobe Analytics' script.
+        /// Set to false to disable automatic reporting to Adobe Analytics.
+        /// </summary>
+        public bool IncludeAdobeAnalytics { get; set; }
+
         /// <summary>
         /// Gets or sets whether to include the default foundation CSS files.
         /// Set to false to disable automatic inclusion of foundation.min.css and other default styles.
@@ -170,6 +187,7 @@ namespace GCFoundation.Common.Settings
         /// Set to false to disable automatic inclusion of Font Awesome CSS from CDN.
         /// </summary>
         public bool IncludeFontAwesome { get; set; } = true;
+
 
         // Grid.js configuration
         /// <summary>
