@@ -17,23 +17,6 @@ namespace GCFoundation.Components.Controllers
         private readonly ILogger<GCFoundationBaseController> _logger;
 
         /// <summary>
-        /// Optional heading text to display in the footer's contextual section.
-        /// </summary>
-        protected string? FooterContextualHeading { get; }
-
-        /// <summary>
-        /// Optional collection of (custom) contextual links to be included in the footer of the shared _FoundationLayout. If empty, this section of the footer is hidden by default.
-        /// Derived controllers can add to this list to inject per-page contextual links to the footer.
-        /// </summary>
-        protected IEnumerable<FooterLink> FooterContextualLinks{ get; } = new List<FooterLink>();
-
-        /// <summary>
-        /// Optional collection of (custom) links to replace the links in the sub-section of te footer of the shared _FoundationLayout. If empty, the default GCDS links will be used.
-        /// Derived controllers can add to this list to inject per-page links to the sub-section of the footer.
-        /// </summary>
-        protected IEnumerable<FooterLink> FooterSubLinks { get; } = new List<FooterLink>();
-
-        /// <summary>
         /// Collection of custom meta tags to be rendered in the shared layout.
         /// Derived controllers can add to this list to inject per-page meta tags.
         /// </summary>
@@ -73,6 +56,38 @@ namespace GCFoundation.Components.Controllers
         {
             if (dateModified != DateTime.MinValue)
                 ViewData["DateModified"] = dateModified.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+        }
+
+        /// <summary>
+        /// Sets the optional heading text to display in the footer's contextual section..
+        /// </summary>
+        /// <param name="heading">The heading of the contextual section of the footer.</param>
+        protected void SetFooterContextualHeading(string heading)
+        {
+            if (!string.IsNullOrWhiteSpace(heading))
+                ViewData["FooterContextualHeading"] = heading;
+        }
+
+        /// <summary>
+        /// Sets the optional collection of (custom) contextual links to be included in the footer of the shared _FoundationLayout. If empty, this section of the footer is hidden by default.
+        /// Derived controllers can add to this list to inject per-page contextual links to the footer.
+        /// </summary>
+        /// <param name="contextualLinks">The collection of contextual links.</param>
+        protected void SetFooterContextualLinks(IEnumerable<FooterLink> contextualLinks)
+        {
+            if (contextualLinks != null && contextualLinks.Any())
+                ViewData["FooterContextualLinks"] = contextualLinks;
+        }
+
+        /// <summary>
+        /// Sets the optional collection of (custom) links to replace the links in the sub-section of the footer of the shared _FoundationLayout. If empty, the default GCDS links will be used.
+        /// Derived controllers can add to this list to inject per-page links to the sub-section of the footer.
+        /// </summary>
+        /// <param name="subLinks">The collection of links to replace the links in the sub-section of the footer of the shared _FoundationLayout.</param>
+        protected void SetFooterSubLinks(IEnumerable<FooterLink> subLinks)
+        {
+            if (subLinks != null && subLinks.Any())
+                ViewData["FooterSubLinks"] = subLinks;
         }
 
         /// <summary>
@@ -124,14 +139,6 @@ namespace GCFoundation.Components.Controllers
         /// <param name="context">The action executed context.</param>
         public override void OnActionExecuted(ActionExecutedContext context)
         {
-            // Footer optional properties.
-            if (!string.IsNullOrWhiteSpace(FooterContextualHeading))
-                ViewData["FooterContextualHeading"] = FooterContextualHeading;
-            if (FooterContextualLinks != null && FooterContextualLinks.Any())
-                ViewData["FooterContextualLinks"] = FooterContextualLinks;
-            if (FooterSubLinks != null && FooterSubLinks.Any())
-                ViewData["FooterSubLinks"] = FooterSubLinks;
-
             ViewData["MetaTags"] = MetaTags;
             base.OnActionExecuted(context);
         }
