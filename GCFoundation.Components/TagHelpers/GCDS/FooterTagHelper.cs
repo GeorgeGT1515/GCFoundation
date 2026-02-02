@@ -16,7 +16,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// <summary>
         /// The optional heading text to display in the footer's contextual section.
         /// </summary>
-        public string? ContextualHeadling { get; set; }
+        public string? ContextualHeading { get; set; }
 
         /// <summary>
         /// The optional heading text to display in the footer's contextual section.
@@ -38,7 +38,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            AddAttributeIfNotNull(output, "contextual-heading", ContextualHeadling);
+            AddAttributeIfNotNull(output, "contextual-heading", ContextualHeading);
 
             if (ContextualLinks != null && ContextualLinks.Any() != false)
             {
@@ -59,7 +59,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
                     SubLinks.ToDictionary(link => link.Label, link => link.Link),
                     JsonOptionsUtility.CamelCase
                 );
-                output.Attributes.SetAttribute("contextual-links", subLinksJson);
+                output.Attributes.SetAttribute("sub-links", subLinksJson);
             }
 
             base.Process(context, output);

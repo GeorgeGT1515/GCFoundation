@@ -28,6 +28,7 @@
     <PackageReference Include="cloudscribe.Web.Navigation" Version="8.0.0" />
     <PackageReference Include="cloudscribe.Web.SiteMap" Version="8.0.0" />
     <PackageReference Include="cloudscribe.Web.SiteMap.FromNavigation" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.3.9" />
     <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.11.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

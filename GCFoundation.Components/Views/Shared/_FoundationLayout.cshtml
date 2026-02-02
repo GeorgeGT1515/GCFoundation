@@ -1,12 +1,13 @@
-﻿@using GCFoundation.Common.Models
+﻿@using cloudscribe.Web.Navigation
+@using GCFoundation.Common.Models
 @using GCFoundation.Common.Settings
 @using GCFoundation.Common.Utilities
 @using GCFoundation.Components.Enums
 @using GCFoundation.Components.Helpers
+@using GCFoundation.Components.Models
 @using GCFoundation.Components.Settings
 @using Microsoft.AspNetCore.Routing
 @using Microsoft.Extensions.Options
-@using cloudscribe.Web.Navigation
 
 @inject IOptions<GCFoundationComponentsSettings> settings;
 @inject IOptions<GCFoundationSessionSetting> sessionSetting;
@@ -172,7 +173,12 @@
     </gcds-container>
 
     @* GC Footer *@
-    <gcds-footer display="full"></gcds-footer>
+    @{
+        var footerContextualHeading = ViewData["FooterContextualHeading"] as string;
+        var footerContextualLinks = ViewData["FooterContextualLinks"] as IEnumerable<FooterLink>;
+        var footerSubLinks = ViewData["FooterSubLinks"] as IEnumerable<FooterLink>;
+    }
+    <gcds-footer display="full" contextual-heading="@footerContextualHeading" contextual-links="@footerContextualLinks" sub-links="@footerSubLinks"></gcds-footer>
 
     @* Render all modal in that section to make sure to block all content on the page *@
     @await RenderSectionAsync("Modals", required: false)

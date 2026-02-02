@@ -1,7 +1,6 @@
 ﻿using GCFoundation.Common.Models;
 using GCFoundation.Components.Enums;
 using GCFoundation.Components.Models;
-using GCFoundation.Components.Resources;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
@@ -16,6 +15,23 @@ namespace GCFoundation.Components.Controllers
     public abstract class GCFoundationBaseController : Controller
     {
         private readonly ILogger<GCFoundationBaseController> _logger;
+
+        /// <summary>
+        /// Optional heading text to display in the footer's contextual section.
+        /// </summary>
+        protected string? FooterContextualHeading { get; }
+
+        /// <summary>
+        /// Optional collection of (custom) contextual links to be included in the footer of the shared _FoundationLayout. If empty, this section of the footer is hidden by default.
+        /// Derived controllers can add to this list to inject per-page contextual links to the footer.
+        /// </summary>
+        protected IEnumerable<FooterLink> FooterContextualLinks{ get; } = new List<FooterLink>();
+
+        /// <summary>
+        /// Optional collection of (custom) links to replace the links in the sub-section of te footer of the shared _FoundationLayout. If empty, the default GCDS links will be used.
+        /// Derived controllers can add to this list to inject per-page links to the sub-section of the footer.
+        /// </summary>
+        protected IEnumerable<FooterLink> FooterSubLinks { get; } = new List<FooterLink>();
 
         /// <summary>
         /// Collection of custom meta tags to be rendered in the shared layout.
@@ -82,7 +98,7 @@ namespace GCFoundation.Components.Controllers
                 AlertType = AlertType.Success
             };
         }
-
+        
         /// <summary>
         /// Sets the HTML page title to appear in the browser's title bar or tab.
         /// </summary>
@@ -108,6 +124,14 @@ namespace GCFoundation.Components.Controllers
         /// <param name="context">The action executed context.</param>
         public override void OnActionExecuted(ActionExecutedContext context)
         {
+            // Footer optional properties.
+            if (!string.IsNullOrWhiteSpace(FooterContextualHeading))
+                ViewData["FooterContextualHeading"] = FooterContextualHeading;
+            if (FooterContextualLinks != null && FooterContextualLinks.Any())
+                ViewData["FooterContextualLinks"] = FooterContextualLinks;
+            if (FooterSubLinks != null && FooterSubLinks.Any())
+                ViewData["FooterSubLinks"] = FooterSubLinks;
+
             ViewData["MetaTags"] = MetaTags;
             base.OnActionExecuted(context);
         }
