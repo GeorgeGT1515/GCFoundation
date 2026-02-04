@@ -750,6 +750,51 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Demo of the Language Chooser Page Template.
+        /// </summary>
+        public static string LanguageChooser_Demo_Name {
+            get {
+                return ResourceManager.GetString("LanguageChooser_Demo_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code of the Language Chooser Page Template.
+        /// </summary>
+        public static string LanguageChooser_Code_Name {
+            get {
+                return ResourceManager.GetString("LanguageChooser_Code_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Copy this code to recreate the language chooser page template.&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string LanguageChooser_Code_Intro {
+            get {
+                return ResourceManager.GetString("LanguageChooser_Code_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screenshot coming soon..
+        /// </summary>
+        public static string LanguageChooser_Screenshot_Placeholder {
+            get {
+                return ResourceManager.GetString("LanguageChooser_Screenshot_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A language chooser page template displays the Government of Canada signature, English and French language buttons side by side, and the Canada wordmark at the bottom..
+        /// </summary>
+        public static string LanguageChooser_Demo_Image_AltText {
+            get {
+                return ResourceManager.GetString("LanguageChooser_Demo_Image_AltText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Notes.
         /// </summary>
         public static string Notes {

@@ -1,1 +1,38 @@
-﻿
+﻿@using GCFoundation.Web.Resources
+
+<gcds-heading tag="h1">@Template.LanguageChooser_Code_Name</gcds-heading>
+@Html.Raw(Template.LanguageChooser_Code_Intro)
+
+<div class="documentation-content">
+<pre><code class="language-cshtml">@@using GCFoundation.Components.Models
+@@using Microsoft.AspNetCore.Mvc
+
+public class LanguageController : Controller
+{
+    [HttpGet("")]
+    public IActionResult Index()
+    {
+        // Redirect if user already has a language preference
+        string? culture = Request.Cookies["Culture"];
+        if (!string.IsNullOrEmpty(culture))
+        {
+            return Redirect(Url.Action("Index", "Home", new { culture }) ?? "/");
+        }
+
+        LanguageChooserModel model = new()
+        {
+            ApplicationTitleEn = "My application",
+            ApplicationTitleFr = "Mon application",
+            EnglishAction = Url.Action("Index", "Home", new { culture = "en" }) ?? "#",
+            FrenchAction = Url.Action("Index", "Home", new { culture = "fr" }) ?? "#",
+            TermLinkEn = "",
+            TermLinkFr = ""
+        };
+
+        ViewData["Title"] = $"{model.ApplicationTitleEn} / {model.ApplicationTitleFr}";
+
+        // Renders the GCFoundation.Components language chooser view (standalone splash page)
+        return View("~/Views/Language/Index.cshtml", model);
+    }
+}</code></pre>
+</div>

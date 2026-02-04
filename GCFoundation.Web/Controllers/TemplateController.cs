@@ -1,4 +1,5 @@
 ﻿using GCFoundation.Components.Controllers;
+using GCFoundation.Components.Models;
 using GCFoundation.Web.Models.Template;
 using GCFoundation.Web.Resources;
 using Microsoft.AspNetCore.Mvc;
@@ -255,7 +256,7 @@ namespace GCFoundation.Web.Controllers
         {
             SetPageTitle($"{Menu.Menu_Template} : {Resources.Navigation.Nav_Template_LanguageChooser_Code}");
 
-            return View("LanguageChooser/code");
+            return View("languagechooser/code");
         }
 
         /// <summary>
@@ -269,7 +270,17 @@ namespace GCFoundation.Web.Controllers
         {
             SetPageTitle($"{Menu.Menu_Template} : {Resources.Navigation.Nav_Template_LanguageChooser_Demo}");
 
-            return View("LanguageChooser/demo");
+            LanguageChooserModel model = new()
+            {
+                ApplicationTitleEn = "GCFoundation Demo",
+                ApplicationTitleFr = "Démo GCFoundation",
+                EnglishAction = Url.Action("Index", "Home", new { culture = "en" }) ?? "#",
+                FrenchAction = Url.Action("Index", "Home", new { culture = "fr" }) ?? "#",
+                TermLinkEn = "",
+                TermLinkFr = ""
+            };
+
+            return View("languagechooser/demo", model);
         }
         #endregion Language Chooser Page Template (Code, Demo) Controller Actions
 
