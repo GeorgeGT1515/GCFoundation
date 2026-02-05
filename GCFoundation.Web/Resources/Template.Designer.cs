@@ -189,7 +189,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;ul&gt;
+        ///   Looks up a localized string similar to &lt;ul class=&quot;list-square&quot;&gt;
         ///&lt;li&gt;Include a side navigation section with bulleted anchor links for pages with four or more sections.&lt;/li&gt;
         ///&lt;li&gt;Anchor links to improve navigation and help people find relevant content.&lt;/li&gt;
         ///&lt;/ul&gt;.
@@ -490,7 +490,7 @@ namespace GCFoundation.Web.Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;gcds-text&gt;Use this template to build simple, bilingual error pages:&lt;/gcds-text&gt;
-        ///&lt;ul&gt;
+        ///&lt;ul class=&quot;list-square&quot;&gt;
         ///&lt;li&gt;Set &lt;code&gt;Layout = &quot;_BilingualErrorTemplate&quot;&lt;/code&gt; in your error view.&lt;/li&gt;
         ///&lt;li&gt;Add a page title and a &lt;code&gt;&amp;lt;gcds-notice type=&quot;danger&quot;&amp;gt;&lt;/code&gt; component with helpful next steps (feedback and a safe link).&lt;/li&gt;
         ///&lt;li&gt;Enable it application-wide by wiring error handling per the &lt;a href=&quot;{0}&quot;&gt;GCFoundation installation page&lt;/a&gt;: &lt;code&gt;UseExceptionHandler(&quot;{{your-url}}&quot;)&lt;/code&gt;.&lt;/li&gt;
@@ -704,7 +704,49 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;gcds-text&gt;(...)&lt;/gcds-text&gt;.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Copy this code to recreate the language chooser page template.&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string LanguageChooser_Code_Intro {
+            get {
+                return ResourceManager.GetString("LanguageChooser_Code_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code of the Language Chooser Page Template.
+        /// </summary>
+        public static string LanguageChooser_Code_Name {
+            get {
+                return ResourceManager.GetString("LanguageChooser_Code_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A language chooser page template displays the Government of Canada signature, English and French language buttons side by side, and the Canada wordmark at the bottom..
+        /// </summary>
+        public static string LanguageChooser_Demo_Image_AltText {
+            get {
+                return ResourceManager.GetString("LanguageChooser_Demo_Image_AltText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Demo of the Language Chooser Page Template.
+        /// </summary>
+        public static string LanguageChooser_Demo_Name {
+            get {
+                return ResourceManager.GetString("LanguageChooser_Demo_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;To use this template:&lt;/gcds-text&gt;
+        ///&lt;ul class=&quot;list-square&quot;&gt;
+        ///&lt;li&gt;Create a controller action that returns the &lt;code&gt;~/Views/Language/Index.cshtml&lt;/code&gt; view from GCFoundation.Components.&lt;/li&gt;
+        ///&lt;li&gt;Pass a &lt;code&gt;LanguageChooserModel&lt;/code&gt; with your application titles and language-specific URLs.&lt;/li&gt;
+        ///&lt;li&gt;The view automatically applies the &lt;code&gt;LanguageChooserPage.min.css&lt;/code&gt; stylesheet.&lt;/li&gt;
+        ///&lt;/ul&gt;
+        ///&lt;gcds-text&gt;For full setup instructions, see the &lt;a href=&quot;{0}&quot;&gt;GCFoundation Installation page&lt;/a [rest of string was truncated]&quot;;.
         /// </summary>
         public static string LanguageChooser_HowToImplement {
             get {
@@ -713,7 +755,8 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;gcds-text&gt;(...)&lt;/gcds-text&gt;.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;GCFoundation provides a ready-to-use language chooser page template that mirrors the Canada.ca splash page. It displays the Government of Canada signature, English and French language buttons, and an optional terms and conditions link.&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;The template includes a random background image feature and is fully responsive for mobile devices.&lt;/gcds-text&gt;.
         /// </summary>
         public static string LanguageChooser_Intro {
             get {
@@ -731,48 +774,17 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;gcds-text&gt;(...)&lt;/gcds-text&gt;.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;The Language Chooser Page Template uses the following GCFoundation and GC Design System components:&lt;/gcds-text&gt;
+        ///&lt;ul class=&quot;list-square&quot;&gt;
+        ///&lt;li&gt;&lt;code&gt;&amp;lt;gcds-signature&amp;gt;&lt;/code&gt; - Government of Canada signature&lt;/li&gt;
+        ///&lt;li&gt;&lt;code&gt;&amp;lt;gcds-button&amp;gt;&lt;/code&gt; - Language selection buttons&lt;/li&gt;
+        ///&lt;li&gt;&lt;code&gt;&amp;lt;gcds-grid&amp;gt;&lt;/code&gt; - Responsive layout&lt;/li&gt;
+        ///&lt;/ul&gt;
+        ///&lt;gcds-text&gt;The template stores background images in &lt;code&gt;wwwroot/images/splash/&lt;/code&gt; and randomly selects one on each page load.&lt;/gcds-text&gt;.
         /// </summary>
         public static string LanguageChooser_Notes {
             get {
                 return ResourceManager.GetString("LanguageChooser_Notes", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;gcds-text&gt;For use on ASP.Net GC applications.&lt;/gcds-text&gt;
-        ///&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;.
-        /// </summary>
-        public static string LanguageChooser_WhenToUse {
-            get {
-                return ResourceManager.GetString("LanguageChooser_WhenToUse", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Demo of the Language Chooser Page Template.
-        /// </summary>
-        public static string LanguageChooser_Demo_Name {
-            get {
-                return ResourceManager.GetString("LanguageChooser_Demo_Name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Code of the Language Chooser Page Template.
-        /// </summary>
-        public static string LanguageChooser_Code_Name {
-            get {
-                return ResourceManager.GetString("LanguageChooser_Code_Name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;gcds-text&gt;Copy this code to recreate the language chooser page template.&lt;/gcds-text&gt;.
-        /// </summary>
-        public static string LanguageChooser_Code_Intro {
-            get {
-                return ResourceManager.GetString("LanguageChooser_Code_Intro", resourceCulture);
             }
         }
         
@@ -786,11 +798,12 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A language chooser page template displays the Government of Canada signature, English and French language buttons side by side, and the Canada wordmark at the bottom..
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;For use on ASP.Net GC applications.&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;The language chooser page template is the bilingual splash page users see before entering your application. It lets visitors select their preferred official language (English or French) while meeting Government of Canada accessibility and bilingualism requirements.&lt;/gcds-text&gt;.
         /// </summary>
-        public static string LanguageChooser_Demo_Image_AltText {
+        public static string LanguageChooser_WhenToUse {
             get {
-                return ResourceManager.GetString("LanguageChooser_Demo_Image_AltText", resourceCulture);
+                return ResourceManager.GetString("LanguageChooser_WhenToUse", resourceCulture);
             }
         }
         
@@ -1173,7 +1186,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;ul&gt;
+        ///   Looks up a localized string similar to &lt;ul class=&quot;list-square&quot;&gt;
         ///&lt;li&gt;Keep steps concise.&lt;/li&gt;
         ///&lt;li&gt;Use GCFoundation components to develop the form to ensure validation and other features are included.&lt;/li&gt;
         ///&lt;/ul&gt;.

@@ -1,4 +1,4 @@
-﻿using GCFoundation.Components.Controllers;
+using GCFoundation.Components.Controllers;
 using GCFoundation.Components.Models;
 using GCFoundation.Web.Models.Template;
 using GCFoundation.Web.Resources;
@@ -280,7 +280,7 @@ namespace GCFoundation.Web.Controllers
                 TermLinkFr = ""
             };
 
-            return View("languagechooser/demo", model);
+            return View("~/Views/Language/Index.cshtml", model);
         }
         #endregion Language Chooser Page Template (Code, Demo) Controller Actions
 

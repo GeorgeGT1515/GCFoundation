@@ -19,17 +19,19 @@ public class LanguageController : Controller
             return Redirect(Url.Action("Index", "Home", new { culture }) ?? "/");
         }
 
+        // Create a LanguageChooserModel
         LanguageChooserModel model = new()
         {
-            ApplicationTitleEn = "My application",
-            ApplicationTitleFr = "Mon application",
+            ApplicationTitleEn = "GCFoundation Demo",
+            ApplicationTitleFr = "Démo GCFoundation",
             EnglishAction = Url.Action("Index", "Home", new { culture = "en" }) ?? "#",
             FrenchAction = Url.Action("Index", "Home", new { culture = "fr" }) ?? "#",
             TermLinkEn = "",
             TermLinkFr = ""
         };
 
-        ViewData["Title"] = $"{model.ApplicationTitleEn} / {model.ApplicationTitleFr}";
+        // Set the title of the page
+        SetPageTitle($"{model.ApplicationTitleEn} / {model.ApplicationTitleFr}");
 
         // Renders the GCFoundation.Components language chooser view (standalone splash page)
         return View("~/Views/Language/Index.cshtml", model);
