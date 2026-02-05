@@ -287,7 +287,7 @@
     <value>Améliorer la navigation dans les longues pages</value>
   </data>
   <data name="Basic_Design_SideNav_Description" xml:space="preserve">
-    <value>&lt;ul&gt;
+    <value>&lt;ul class="list-square"&gt;
 &lt;li&gt;Pour toute page ayant 4 sections ou plus, ajoutez une section de navigation latérale comprenant une liste de liens (ancres) renvoyant aux autres sections.&lt;/li&gt;
 &lt;li&gt;Ajouter des ancres afin d'améliorer la navigation et aider les gens à trouver le contenu dont ils ont besoin.&lt;/li&gt;
 &lt;/ul&gt;</value>
@@ -334,7 +334,7 @@
   </data>
   <data name="Error_HowToImplement" xml:space="preserve">
     <value>&lt;gcds-text&gt;Utilisez ce modèle pour créer des pages d’erreur bilingues simples&amp;nbsp;:&lt;/gcds-text&gt;
-&lt;ul&gt;
+&lt;ul class="list-square"&gt;
 &lt;li&gt;Définissez &lt;code&gt;Layout = "_BilingualErrorTemplate"&lt;/code&gt; dans votre vue d’erreur.&lt;/li&gt;
 &lt;li&gt;Ajoutez un titre de page et un composant &lt;code&gt;&amp;amp;lt;gcds-notice type="danger"&amp;amp;gt;&lt;/code&gt; avec des pistes utiles (rétroaction et lien vers un endroit sécuritaire).&lt;/li&gt;
 &lt;li&gt;Activez-le à l’échelle de l’application en configurant la gestion des erreurs selon la &lt;a href="{0}"&gt;page d’installation de GCFoundation&lt;/a&gt; : &lt;code&gt;UseExceptionHandler("{{your-url}}")&lt;/code&gt;.&lt;/li&gt;
@@ -383,7 +383,7 @@
     <value>&lt;gcds-text&gt;Ajoutez un indicateur d'étapes et un simple formulaire comme dans la démo. Rendez vous sur la page de documentation des &lt;gcds-link href="{0}"&gt;Composants&lt;/gcds-link&gt; pour des instructions plus spécifiques.&lt;/gcds-text&gt;</value>
   </data>
   <data name="Stepper_Notes" xml:space="preserve">
-    <value>&lt;ul&gt;
+    <value>&lt;ul class="list-square"&gt;
 &lt;li&gt;Restez concis pour chaque étape.&lt;/li&gt;
 &lt;li&gt;Utilisez les composants GCFoundation pour développer le formulaire pour vous assurer que la validation et les autres fonctionnalités soient intégrés.&lt;/li&gt;
 &lt;/ul&gt;</value>
@@ -461,20 +461,48 @@
     <value>Code du modèle de page avec indicateur d'étapes</value>
   </data>
   <data name="LanguageChooser_Name" xml:space="preserve">
-    <value>Modèle de page de sélection de language</value>
+    <value>Modèle de page de sélection de langue</value>
   </data>
   <data name="LanguageChooser_WhenToUse" xml:space="preserve">
     <value>&lt;gcds-text&gt;À utiliser sur des applications ASP.Net du GC.&lt;/gcds-text&gt;
-&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;</value>
+&lt;gcds-text&gt;Le modèle de page de sélection de langue est la page d'accueil bilingue que les utilisateurs voient avant d'entrer dans votre application. Il permet aux visiteurs de choisir leur langue officielle préférée (anglais ou français) tout en respectant les exigences d'accessibilité et de bilinguisme du gouvernement du Canada.&lt;/gcds-text&gt;</value>
   </data>
   <data name="LanguageChooser_Intro" xml:space="preserve">
-    <value>&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;GCFoundation fournit un modèle de page de sélection de langue prêt à l'emploi qui reproduit la page d'accueil de Canada.ca. Il affiche la signature du gouvernement du Canada, des boutons de langue anglaise et française, ainsi qu'un lien optionnel vers les conditions d'utilisation.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;Le modèle comprend une fonctionnalité d'image d'arrière-plan aléatoire et est entièrement adaptatif pour les appareils mobiles.&lt;/gcds-text&gt;</value>
   </data>
   <data name="LanguageChooser_HowToImplement" xml:space="preserve">
-    <value>&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;Pour utiliser ce modèle&amp;nbsp;:&lt;/gcds-text&gt;
+&lt;ul class="list-square"&gt;
+&lt;li&gt;Créez une action de contrôleur qui retourne la vue &lt;code&gt;~/Views/Language/Index.cshtml&lt;/code&gt; de GCFoundation.Components.&lt;/li&gt;
+&lt;li&gt;Passez un &lt;code&gt;LanguageChooserModel&lt;/code&gt; avec les titres de votre application et les URLs spécifiques à chaque langue.&lt;/li&gt;
+&lt;li&gt;La vue applique automatiquement la feuille de style &lt;code&gt;LanguageChooserPage.min.css&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;gcds-text&gt;Pour les instructions complètes de configuration, consultez la &lt;a href="{0}"&gt;page d'installation de GCFoundation&lt;/a&gt;.&lt;/gcds-text&gt;</value>
   </data>
   <data name="LanguageChooser_Notes" xml:space="preserve">
-    <value>&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;Le modèle de page de sélection de langue utilise les composants GCFoundation et Système de design GC suivants&amp;nbsp;:&lt;/gcds-text&gt;
+&lt;ul class="list-square"&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;gcds-signature&amp;gt;&lt;/code&gt; - Signature du gouvernement du Canada&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;gcds-button&amp;gt;&lt;/code&gt; - Boutons de sélection de langue&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;gcds-grid&amp;gt;&lt;/code&gt; - Mise en page adaptative&lt;/li&gt;
+&lt;/ul&gt;
+&lt;gcds-text&gt;Le modèle stocke les images d'arrière-plan dans &lt;code&gt;wwwroot/images/splash/&lt;/code&gt; et en sélectionne une au hasard à chaque chargement de page.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="LanguageChooser_Demo_Name" xml:space="preserve">
+    <value>Démo du modèle de page de sélection de langue</value>
+  </data>
+  <data name="LanguageChooser_Code_Name" xml:space="preserve">
+    <value>Code du modèle de page de sélection de langue</value>
+  </data>
+  <data name="LanguageChooser_Code_Intro" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Copiez ce code pour recréer le modèle de page de sélection de langue.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="LanguageChooser_Screenshot_Placeholder" xml:space="preserve">
+    <value>Capture d'écran à venir.</value>
+  </data>
+  <data name="LanguageChooser_Demo_Image_AltText" xml:space="preserve">
+    <value>Un modèle de page de sélection de langue affiche la signature du gouvernement du Canada, des boutons de langue anglaise et française côte à côte, et le mot-symbole Canada en bas.</value>
   </data>
   <data name="Dashboard_WhenToUse" xml:space="preserve">
     <value>&lt;gcds-text&gt;À utiliser sur des applications ASP.Net du GC.&lt;/gcds-text&gt;

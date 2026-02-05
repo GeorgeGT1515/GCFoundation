@@ -288,7 +288,7 @@
     <value>Improve navigation on longer pages</value>
   </data>
   <data name="Basic_Design_SideNav_Description" xml:space="preserve">
-    <value>&lt;ul&gt;
+    <value>&lt;ul class="list-square"&gt;
 &lt;li&gt;Include a side navigation section with bulleted anchor links for pages with four or more sections.&lt;/li&gt;
 &lt;li&gt;Anchor links to improve navigation and help people find relevant content.&lt;/li&gt;
 &lt;/ul&gt;</value>
@@ -335,7 +335,7 @@
   </data>
   <data name="Error_HowToImplement" xml:space="preserve">
     <value>&lt;gcds-text&gt;Use this template to build simple, bilingual error pages:&lt;/gcds-text&gt;
-&lt;ul&gt;
+&lt;ul class="list-square"&gt;
 &lt;li&gt;Set &lt;code&gt;Layout = "_BilingualErrorTemplate"&lt;/code&gt; in your error view.&lt;/li&gt;
 &lt;li&gt;Add a page title and a &lt;code&gt;&amp;lt;gcds-notice type="danger"&amp;gt;&lt;/code&gt; component with helpful next steps (feedback and a safe link).&lt;/li&gt;
 &lt;li&gt;Enable it application-wide by wiring error handling per the &lt;a href="{0}"&gt;GCFoundation installation page&lt;/a&gt;: &lt;code&gt;UseExceptionHandler("{{your-url}}")&lt;/code&gt;.&lt;/li&gt;
@@ -384,7 +384,7 @@
     <value>&lt;gcds-text&gt;Add a stepper and a simple form as shown in the demo. Refer to the &lt;gcds-link href="{0}"&gt;Components&lt;/gcds-link&gt; documentation for more specific instructions.&lt;/gcds-text&gt;</value>
   </data>
   <data name="Stepper_Notes" xml:space="preserve">
-    <value>&lt;ul&gt;
+    <value>&lt;ul class="list-square"&gt;
 &lt;li&gt;Keep steps concise.&lt;/li&gt;
 &lt;li&gt;Use GCFoundation components to develop the form to ensure validation and other features are included.&lt;/li&gt;
 &lt;/ul&gt;</value>
@@ -466,16 +466,44 @@
   </data>
   <data name="LanguageChooser_WhenToUse" xml:space="preserve">
     <value>&lt;gcds-text&gt;For use on ASP.Net GC applications.&lt;/gcds-text&gt;
-&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;</value>
+&lt;gcds-text&gt;The language chooser page template is the bilingual splash page users see before entering your application. It lets visitors select their preferred official language (English or French) while meeting Government of Canada accessibility and bilingualism requirements.&lt;/gcds-text&gt;</value>
   </data>
   <data name="LanguageChooser_Intro" xml:space="preserve">
-    <value>&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;GCFoundation provides a ready-to-use language chooser page template that mirrors the Canada.ca splash page. It displays the Government of Canada signature, English and French language buttons, and an optional terms and conditions link.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;The template includes a random background image feature and is fully responsive for mobile devices.&lt;/gcds-text&gt;</value>
   </data>
   <data name="LanguageChooser_HowToImplement" xml:space="preserve">
-    <value>&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;To use this template:&lt;/gcds-text&gt;
+&lt;ul class="list-square"&gt;
+&lt;li&gt;Create a controller action that returns the &lt;code&gt;~/Views/Language/Index.cshtml&lt;/code&gt; view from GCFoundation.Components.&lt;/li&gt;
+&lt;li&gt;Pass a &lt;code&gt;LanguageChooserModel&lt;/code&gt; with your application titles and language-specific URLs.&lt;/li&gt;
+&lt;li&gt;The view automatically applies the &lt;code&gt;LanguageChooserPage.min.css&lt;/code&gt; stylesheet.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;gcds-text&gt;For full setup instructions, see the &lt;a href="{0}"&gt;GCFoundation Installation page&lt;/a&gt;.&lt;/gcds-text&gt;</value>
   </data>
   <data name="LanguageChooser_Notes" xml:space="preserve">
-    <value>&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;The Language Chooser Page Template uses the following GCFoundation and GC Design System components:&lt;/gcds-text&gt;
+&lt;ul class="list-square"&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;gcds-signature&amp;gt;&lt;/code&gt; - Government of Canada signature&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;gcds-button&amp;gt;&lt;/code&gt; - Language selection buttons&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;gcds-grid&amp;gt;&lt;/code&gt; - Responsive layout&lt;/li&gt;
+&lt;/ul&gt;
+&lt;gcds-text&gt;The template stores background images in &lt;code&gt;wwwroot/images/splash/&lt;/code&gt; and randomly selects one on each page load.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="LanguageChooser_Demo_Name" xml:space="preserve">
+    <value>Demo of the Language Chooser Page Template</value>
+  </data>
+  <data name="LanguageChooser_Code_Name" xml:space="preserve">
+    <value>Code of the Language Chooser Page Template</value>
+  </data>
+  <data name="LanguageChooser_Code_Intro" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Copy this code to recreate the language chooser page template.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="LanguageChooser_Screenshot_Placeholder" xml:space="preserve">
+    <value>Screenshot coming soon.</value>
+  </data>
+  <data name="LanguageChooser_Demo_Image_AltText" xml:space="preserve">
+    <value>A language chooser page template displays the Government of Canada signature, English and French language buttons side by side, and the Canada wordmark at the bottom.</value>
   </data>
   <data name="Dashboard_WhenToUse" xml:space="preserve">
     <value>&lt;gcds-text&gt;For use on ASP.Net GC applications.&lt;/gcds-text&gt;
