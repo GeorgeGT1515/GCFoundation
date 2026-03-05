@@ -58,8 +58,8 @@ namespace GCFoundation.Security.Middlewares
             // COEP "credentialless" allows cross-origin resources (e.g. GCDS CSS from cdn.design-system.alpha.canada.ca)
             // to load without requiring CORP/CORS from the CDN, while still isolating them (no credentials sent).
             // "require-corp" would block GCDS/CDN styles unless the CDN sends Cross-Origin-Resource-Policy.
-            context.Response.Headers.Append("Cross-Origin-Opener-Policy", "same-site");
-            context.Response.Headers.Append("Cross-Origin-Resource-Policy", "same-site");
+            context.Response.Headers.Append("Cross-Origin-Opener-Policy", "same-origin");
+            context.Response.Headers.Append("Cross-Origin-Resource-Policy", "same-origin");
             context.Response.Headers.Append("Cross-Origin-Embedder-Policy", "credentialless");
 
             await _next(context).ConfigureAwait(false);
