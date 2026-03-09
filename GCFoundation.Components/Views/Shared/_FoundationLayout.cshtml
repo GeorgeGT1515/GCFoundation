@@ -228,7 +228,7 @@
     @* Adobe Analytics (if enabled) *@
     @if (settings.Value.IncludeAdobeAnalytics)
     {
-        <script type="text/javascript" nonce="@(Context.Items["CspNonce"])">_satellite.pageBottom();</script>
+        <script type="text/javascript" nonce="@(Context.Items["CspNonce"])">if (typeof _satellite == "object") { _satellite.pageBottom(); } else { console.log("Adobe DTM/Launch has not been loaded yet."); }</script>
     }
 
     @await RenderSectionAsync("Scripts", required: false)
