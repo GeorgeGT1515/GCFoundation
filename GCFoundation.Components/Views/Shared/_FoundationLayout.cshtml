@@ -1,4 +1,5 @@
-﻿@using cloudscribe.Web.Navigation
+﻿@using Microsoft.AspNetCore.Http
+@using cloudscribe.Web.Navigation
 @using GCFoundation.Common.Models
 @using GCFoundation.Common.Settings
 @using GCFoundation.Common.Utilities
@@ -9,6 +10,7 @@
 @using Microsoft.AspNetCore.Routing
 @using Microsoft.Extensions.Options
 
+@inject IHttpContextAccessor HttpContextAccessor
 @inject IOptions<GCFoundationComponentsSettings> settings;
 @inject IOptions<GCFoundationSessionSetting> sessionSetting;
 
@@ -228,7 +230,7 @@
     @* Adobe Analytics (if enabled) *@
     @if (settings.Value.IncludeAdobeAnalytics)
     {
-        <script type="text/javascript" nonce="@(Context.Items["CspNonce"])">_satellite.pageBottom();</script>
+        <script type="text/javascript" nonce="@CspNonceHelper.AddNonceToDirective(HttpContextAccessor.HttpContext!, DirectiveType.Script)">_satellite.pageBottom();</script>
     }
 
     @await RenderSectionAsync("Scripts", required: false)
