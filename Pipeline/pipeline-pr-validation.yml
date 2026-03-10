@@ -16,7 +16,7 @@ variables:
   - name: testProject
     value: 'GCFoundation.Tests.Components/GCFoundation.Tests.Components.csproj'
   - name: dotnetSdkVersion
-    value: '8.x'
+    value: '10.x'
   - name: nodeVersion
     value: '22.x'
   - name: testResultsDir

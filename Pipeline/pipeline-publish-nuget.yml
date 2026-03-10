@@ -45,7 +45,7 @@ stages:
       displayName: 'Install .NET SDK'
       inputs:
         packageType: 'sdk'
-        version: '8.x'
+        version: '10.x'
 
     - task: UseNode@1
       inputs:
@@ -109,7 +109,7 @@ stages:
       displayName: 'Install .NET SDK'
       inputs:
         packageType: 'sdk'
-        version: '8.x'
+        version: '10.x'
 
     - task: NuGetCommand@2
       displayName: 'Restore NuGet Packages'
