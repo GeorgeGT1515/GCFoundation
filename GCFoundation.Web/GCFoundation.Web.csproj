@@ -1,7 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <AnalysisMode>All</AnalysisMode>
@@ -24,16 +24,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="cloudscribe.Web.Localization" Version="8.0.0" />
-    <PackageReference Include="cloudscribe.Web.Navigation" Version="8.0.0" />
-    <PackageReference Include="cloudscribe.Web.SiteMap" Version="8.0.0" />
-    <PackageReference Include="cloudscribe.Web.SiteMap.FromNavigation" Version="8.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.3.9" />
-    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.11.0">
+    <PackageReference Include="cloudscribe.Web.Localization" Version="8.7.0" />
+    <PackageReference Include="cloudscribe.Web.Navigation" Version="8.7.0" />
+    <PackageReference Include="cloudscribe.Web.SiteMap" Version="8.7.0" />
+    <PackageReference Include="cloudscribe.Web.SiteMap.FromNavigation" Version="8.7.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="5.3.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Localization" Version="9.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Localization" Version="10.0.5" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="10.0.5" />
     <PackageReference Include="RouteLocalization.AspNetCore" Version="1.0.0" />
   </ItemGroup>
 

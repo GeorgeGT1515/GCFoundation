@@ -4,7 +4,7 @@
 [![Publish NuGet Packages](https://github.com/tbs-imtd/GCFoundation/actions/workflows/publish-nuget.yml/badge.svg)](https://github.com/tbs-imtd/GCFoundation/actions/workflows/publish-nuget.yml)
 [![Deploy Web App](https://github.com/tbs-imtd/GCFoundation/actions/workflows/deploy-web.yml/badge.svg)](https://github.com/tbs-imtd/GCFoundation/actions/workflows/deploy-web.yml)
 
-**GCFoundation** is a comprehensive .NET 8 ASP.NET MVC foundation designed for building Government of Canada (GC) web applications. It provides a robust starting point with pre-configured components, security policies, session management, and localization features, ensuring compliance with GC standards.
+**GCFoundation** is a comprehensive .NET 10 ASP.NET MVC foundation designed for building Government of Canada (GC) web applications. It provides a robust starting point with pre-configured components, security policies, session management, and localization features, ensuring compliance with GC standards.
 
 ## Features
 
@@ -15,11 +15,11 @@
 
 ## Quick Start
 
-This guide shows how to create a new .NET 8 ASP.NET MVC app using the latest GCFoundation NuGet packages.
+This guide shows how to create a new .NET 10 ASP.NET MVC app using the latest GCFoundation NuGet packages.
 
 ### Prerequisites
 
-- **.NET 8 SDK** installed
+- **.NET 10 SDK** installed
 - **PowerShell** or a terminal
 
 ### 1. Create Solution and MVC Project
@@ -27,7 +27,7 @@ This guide shows how to create a new .NET 8 ASP.NET MVC app using the latest GCF
 ```powershell
 mkdir MyGCApp && cd MyGCApp
 dotnet new sln -n MyGCApp
-dotnet new mvc -n MyGCApp.Web -f net8.0
+dotnet new mvc -n MyGCApp.Web -f net10.0
 dotnet sln add MyGCApp.Web
 ```
 
@@ -118,7 +118,7 @@ dotnet run --project MyGCApp.Web
 
 # GCFoundation
 
-**GCFoundation** est une fondation complète .NET 8 ASP.NET MVC conçue pour la création d'applications web du Gouvernement du Canada (GC). Elle fournit un point de départ robuste avec des composants préconfigurés, des politiques de sécurité, une gestion de session et des fonctionnalités de localisation, assurant la conformité aux normes du GC.
+**GCFoundation** est une fondation complète .NET 10 ASP.NET MVC conçue pour la création d'applications web du Gouvernement du Canada (GC). Elle fournit un point de départ robuste avec des composants préconfigurés, des politiques de sécurité, une gestion de session et des fonctionnalités de localisation, assurant la conformité aux normes du GC.
 
 ## Fonctionnalités
 
@@ -129,11 +129,11 @@ dotnet run --project MyGCApp.Web
 
 ## Démarrage Rapide
 
-Ce guide montre comment créer une nouvelle application .NET 8 ASP.NET MVC en utilisant les derniers paquets NuGet GCFoundation.
+Ce guide montre comment créer une nouvelle application .NET 10 ASP.NET MVC en utilisant les derniers paquets NuGet GCFoundation.
 
 ### Prérequis
 
-- **.NET 8 SDK** installé
+- **.NET 10 SDK** installé
 - **PowerShell** ou un terminal
 
 ### 1. Créer la solution et le projet MVC
@@ -141,7 +141,7 @@ Ce guide montre comment créer une nouvelle application .NET 8 ASP.NET MVC en ut
 ```powershell
 mkdir MyGCApp && cd MyGCApp
 dotnet new sln -n MyGCApp
-dotnet new mvc -n MyGCApp.Web -f net8.0
+dotnet new mvc -n MyGCApp.Web -f net10.0
 dotnet sln add MyGCApp.Web
 ```
 
