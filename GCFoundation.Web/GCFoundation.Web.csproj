@@ -32,6 +32,8 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Localization" Version="10.0.5" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="10.0.5" />
     <PackageReference Include="RouteLocalization.AspNetCore" Version="1.0.0" />
   </ItemGroup>
 
