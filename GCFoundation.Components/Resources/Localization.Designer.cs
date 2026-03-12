@@ -340,7 +340,7 @@ namespace GCFoundation.Components.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Required.
+        ///   Looks up a localized string similar to required.
         /// </summary>
         public static string Required {
             get {

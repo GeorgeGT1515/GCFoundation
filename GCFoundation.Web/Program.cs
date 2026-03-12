@@ -67,6 +67,7 @@ builder.Services.AddCustomRouteLocalization();
 builder.Services.Configure<RazorViewEngineOptions>(options =>
 {
     options.ViewLocationFormats.Add("/Views/Shared/Components/Navigation/{0}.cshtml");
+    options.ViewLocationFormats.Add("/contentFiles/any/net10.0/Views/Shared/Components/Navigation/{0}.cshtml");
     options.ViewLocationFormats.Add("/contentFiles/any/net8.0/Views/Shared/Components/Navigation/{0}.cshtml");
 });
 

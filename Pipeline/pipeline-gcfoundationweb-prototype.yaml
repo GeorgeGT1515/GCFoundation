@@ -55,6 +55,11 @@ stages:
     - checkout: self
       clean: true
       fetchDepth: 1
+    - task: UseDotNet@2
+      displayName: Install .NET SDK
+      inputs:
+        packageType: sdk
+        version: 10.x
     - task: DotNetCoreCLI@2
       displayName: Restore
       inputs:
