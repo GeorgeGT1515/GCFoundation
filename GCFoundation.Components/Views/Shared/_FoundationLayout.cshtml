@@ -112,9 +112,11 @@
     }
     <gcds-header lang-href="@Url.RouteUrl(routeValueDictionary)" skip-to-href="#main-content" lang="@currentLanguage">
         @{
+            string? bannerPartialViewName = ViewData["BannerPartialViewName"] as string;
+            string? breadcrumbsPartialViewName = ViewData["BreadcrumbsPartialViewName"] as string;
             string? menuPartialViewName = ViewData["MenuPartialViewName"] as string;
             string? searchPartialViewName = ViewData["SearchPartialViewName"] as string;
-            string? bannerPartialViewName = ViewData["BannerPartialViewName"] as string;
+            
         }
 
         @* Load a banner view if defined *@
@@ -141,9 +143,15 @@
             </div>
         }
 
-        <div slot="breadcrumb">
+        @* Load a breadcrumbs view if defined; otherwise, use default *@
+        @if (!string.IsNullOrEmpty(breadcrumbsPartialViewName))
+        {
+            @await Html.PartialAsync(breadcrumbsPartialViewName)
+        }
+        else
+        {
             @await Component.InvokeAsync("Navigation", new { viewName = "GCDSBreadcrumbs", filterName = NamedNavigationFilters.Breadcrumbs, startingNodeKey = "" })
-        </div>
+        }
     </gcds-header>
     <gcds-container id="main-content" size="xl" centered tag="main" main-container class="mb-300">
         @{
