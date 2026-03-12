@@ -1,4 +1,4 @@
-﻿using GCFoundation.Common.Settings;
+using GCFoundation.Common.Settings;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 using System.Security.Cryptography;
@@ -56,6 +56,14 @@ namespace GCFoundation.Security.Middlewares
             context.Response.Headers.Append("Permissions-Policy", "geolocation=(), microphone=(), camera=()");
             context.Response.Headers.Append("Expect-CT", "max-age=86400, enforce");
             context.Response.Headers.Append("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
+
+            // Set Cross-Origin Policies.
+            // COEP "credentialless" allows cross-origin resources (e.g. GCDS CSS from cdn.design-system.alpha.canada.ca)
+            // to load without requiring CORP/CORS from the CDN, while still isolating them (no credentials sent).
+            // "require-corp" would block GCDS/CDN styles unless the CDN sends Cross-Origin-Resource-Policy.
+            context.Response.Headers.Append("Cross-Origin-Opener-Policy", "same-origin");
+            context.Response.Headers.Append("Cross-Origin-Resource-Policy", "same-origin");
+            context.Response.Headers.Append("Cross-Origin-Embedder-Policy", "credentialless");
 
             await _next(context).ConfigureAwait(false);
         }
