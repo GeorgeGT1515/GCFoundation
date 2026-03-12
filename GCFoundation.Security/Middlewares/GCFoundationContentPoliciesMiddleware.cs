@@ -7,13 +7,15 @@ namespace GCFoundation.Security.Middlewares
 {
     public class GCFoundationContentPoliciesMiddleware
     {
+        private readonly GCFoundationComponentsSettings _componentsSettings;
         private readonly RequestDelegate _next;
         private readonly GCFoundationContentPolicySettings _settings;
 
-        public GCFoundationContentPoliciesMiddleware(RequestDelegate next, IOptions<GCFoundationContentPolicySettings> settings)
+        public GCFoundationContentPoliciesMiddleware(RequestDelegate next, IOptions<GCFoundationComponentsSettings> componentsSettings, IOptions<GCFoundationContentPolicySettings> settings)
         {
             ArgumentNullException.ThrowIfNull(settings, nameof(settings));
 
+            _componentsSettings = componentsSettings.Value;
             _next = next;
             _settings = settings.Value;
         }
@@ -34,8 +36,9 @@ namespace GCFoundation.Security.Middlewares
             string jsCDN = string.Join(" ", _settings.JavascriptCDN ?? Enumerable.Empty<string>());
 
             // Build Content Security Policy (CSP)
+            // * If Adobe Analytics is enabled, accept "unsafe-inline" for "script-src"; otherwise, generate and set a "nonce".
             string contentSecurityPolicy = $"default-src 'none'; " +
-                               $"script-src 'self' {jsCDN} 'nonce-{nonce}'; " +
+                               $"script-src 'self' {jsCDN} {(_componentsSettings.IncludeAdobeAnalytics ? "'unsafe-inline'" : $"'nonce-{nonce}'")}; " +
                                $"object-src 'none'; " +
                                $"style-src 'self' 'unsafe-hashes' {cssCDN} {cssCDNHash} 'nonce-{nonce}'; " +
                                $"font-src 'self' {fontCDN}; " +
