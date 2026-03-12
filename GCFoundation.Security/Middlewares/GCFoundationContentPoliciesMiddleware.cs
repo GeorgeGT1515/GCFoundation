@@ -13,6 +13,7 @@ namespace GCFoundation.Security.Middlewares
 
         public GCFoundationContentPoliciesMiddleware(RequestDelegate next, IOptions<GCFoundationComponentsSettings> componentsSettings, IOptions<GCFoundationContentPolicySettings> settings)
         {
+            ArgumentNullException.ThrowIfNull(componentsSettings, nameof(componentsSettings));
             ArgumentNullException.ThrowIfNull(settings, nameof(settings));
 
             _componentsSettings = componentsSettings.Value;

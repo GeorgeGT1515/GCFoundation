@@ -41,7 +41,7 @@ builder.Services.AddSingleton<IStringLocalizerFactory, GlobalResourceManagerStri
 builder.Services.AddLocalization();
 
 // Configure breadcrumbs localization service
-builder.Services.AddSingleton(typeof(IBreadcrumbsLocalizationService), typeof(BreadcrumbsLocalizationService<GCFoundation.Web.Resources.Navigation>));
+builder.Services.AddSingleton<IBreadcrumbsLocalizationService, BreadcrumbsLocalizationService<GCFoundation.Web.Resources.Navigation>>();
 
 // Configure GCFoundation
 builder.Services.AddGCFoundationComponents(builder.Configuration);
