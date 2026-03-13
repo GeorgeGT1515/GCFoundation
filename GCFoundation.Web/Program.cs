@@ -41,7 +41,7 @@ builder.Services.AddSingleton<IStringLocalizerFactory, GlobalResourceManagerStri
 builder.Services.AddLocalization();
 
 // Configure breadcrumbs localization service
-builder.Services.AddSingleton(typeof(IBreadcrumbsLocalizationService), typeof(BreadcrumbsLocalizationService<GCFoundation.Web.Resources.Navigation>));
+builder.Services.AddSingleton<IBreadcrumbsLocalizationService, BreadcrumbsLocalizationService<GCFoundation.Web.Resources.Navigation>>();
 
 // Configure GCFoundation
 builder.Services.AddGCFoundationComponents(builder.Configuration);
@@ -67,6 +67,7 @@ builder.Services.AddCustomRouteLocalization();
 builder.Services.Configure<RazorViewEngineOptions>(options =>
 {
     options.ViewLocationFormats.Add("/Views/Shared/Components/Navigation/{0}.cshtml");
+    options.ViewLocationFormats.Add("/contentFiles/any/net10.0/Views/Shared/Components/Navigation/{0}.cshtml");
     options.ViewLocationFormats.Add("/contentFiles/any/net8.0/Views/Shared/Components/Navigation/{0}.cshtml");
 });
 

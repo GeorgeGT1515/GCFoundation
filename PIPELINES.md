@@ -41,7 +41,7 @@ This document describes the Azure pipelines available for the GCFoundation proje
 
 ### Prerequisites
 - Azure DevOps project with self-hosted agent pool: `TBS Self Hosted`
-- .NET 8.0 SDK
+- .NET 10.0 SDK
 - Node.js 22.x (for Foundation.Components build)
 - NuGet package manager
 
@@ -179,7 +179,7 @@ Ensure your test project has the correct configuration:
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <IsTestProject>true</IsTestProject>
     <!-- Remove <OutputType>Exe</OutputType> if present -->
   </PropertyGroup>
