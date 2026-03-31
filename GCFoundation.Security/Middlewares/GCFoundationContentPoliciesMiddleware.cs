@@ -44,7 +44,8 @@ namespace GCFoundation.Security.Middlewares
                                $"style-src 'self' 'unsafe-hashes' {cssCDN} {cssCDNHash} 'nonce-{nonce}'; " +
                                $"font-src 'self' {fontCDN}; " +
                                $"connect-src 'self' {connectCDN} http://localhost:* https://localhost:* ws://localhost:* wss://localhost:* https://cdn.design-system.alpha.canada.ca; " +
-                               $"img-src 'self' data:; " +
+                               $"img-src 'self' {(_componentsSettings.IncludeAdobeAnalytics ? "https://cm.everesttech.net https://canada.sc.omtrdc.net" : string.Empty)} data:; " +
+                               (_componentsSettings.IncludeAdobeAnalytics ? $"frame-src 'self' https://canada.demdex.net; " : string.Empty) +
                                $"frame-ancestors 'none'; " +
                                $"upgrade-insecure-requests;";
 
