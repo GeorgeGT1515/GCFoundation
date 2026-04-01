@@ -34,7 +34,7 @@
         }
         foreach (var tag in metaTags)
         {
-            @Html.Raw(tag.Render());
+            @Html.Raw("\t" + tag.Render() + "\r\n");
         }
     }
     @await RenderSectionAsync("Metas", required: false)
@@ -50,7 +50,7 @@
     @* Global link tags from configuration *@
     @foreach (var linkTag in settings.Value.GlobalLinkTags)
     {
-        @Html.Raw(linkTag)
+        @Html.Raw("\t" + linkTag + "\r\n")
     }
     
     <link href="@StaticResourceHelper.GetImageResourcePath("favicon.ico")" rel="icon" type="image/x-icon">
