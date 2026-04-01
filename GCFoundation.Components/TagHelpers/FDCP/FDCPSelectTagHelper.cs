@@ -13,6 +13,11 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     public class FDCPSelectTagHelper : FDCPBaseFormComponentTagHelper
     {
         /// <summary>
+        /// Gets or sets the default selected value in the dropdown.
+        /// </summary>
+        public string? DefaultValue { get; set; }
+
+        /// <summary>
         /// The list of selectable options for the dropdown.
         /// </summary>
         [HtmlAttributeName("items")]
@@ -33,7 +38,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             output.Attributes.SetAttribute("name", fieldName);
             output.Attributes.SetAttribute("select-id", fieldId);
             output.Attributes.SetAttribute("class", "gcds-select");
-            output.Attributes.SetAttribute("default-value", "Select option");
+            if (!string.IsNullOrWhiteSpace(DefaultValue))
+                output.Attributes.SetAttribute("default-value", DefaultValue);
 
             var sb = new StringBuilder();
 
