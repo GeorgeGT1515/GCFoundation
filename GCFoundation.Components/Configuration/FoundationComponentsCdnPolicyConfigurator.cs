@@ -66,11 +66,11 @@ namespace GCFoundation.Components.Configuration
                 }
             }
 
-            options.JavascriptCDN = jsCDNs;
-            options.CssCDN = cssCDNs;
-            options.CssCDNHash = cssHashes;
-            options.FontCDN = fontCDNs;
-            options.ConnectCDN = connectCDNs;
+            options.ConnectSrc = connectCDNs;
+            options.FontSrc = fontCDNs;
+            options.ScriptSrc = jsCDNs;
+            options.StyleSrc = cssCDNs;
+            options.StyleSrcHash = cssHashes;
         }
     }
 }
