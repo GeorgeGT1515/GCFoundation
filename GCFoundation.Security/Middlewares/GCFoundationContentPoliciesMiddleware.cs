@@ -30,22 +30,24 @@ namespace GCFoundation.Security.Middlewares
             context.Items["CspNonce"] = nonce; // Store for use in views (if required)
 
             // Convert lists to space-separated strings
-            string connectCDN = string.Join(" ", _settings.ConnectCDN ?? Enumerable.Empty<string>());
-            string cssCDN = string.Join(" ", _settings.CssCDN ?? Enumerable.Empty<string>());
-            string cssCDNHash = string.Join(" ", _settings.CssCDNHash ?? Enumerable.Empty<string>());
-            string fontCDN = string.Join(" ", _settings.FontCDN ?? Enumerable.Empty<string>());
-            string jsCDN = string.Join(" ", _settings.JavascriptCDN ?? Enumerable.Empty<string>());
+            string connectSrc = string.Join(" ", _settings.ConnectSrc ?? Enumerable.Empty<string>());
+            string fontSrc = string.Join(" ", _settings.FontSrc ?? Enumerable.Empty<string>());
+            string frameSrc = string.Join(" ", _settings.FrameSrc ?? Enumerable.Empty<string>());
+            string imgSrc = string.Join(" ", _settings.ImgSrc ?? Enumerable.Empty<string>());
+            string scriptSrc = string.Join(" ", _settings.ScriptSrc ?? Enumerable.Empty<string>());
+            string styleSrc = string.Join(" ", _settings.StyleSrc ?? Enumerable.Empty<string>());
+            string styleSrcHash = string.Join(" ", _settings.StyleSrcHash ?? Enumerable.Empty<string>());
 
             // Build Content Security Policy (CSP)
             // * If Adobe Analytics is enabled, accept "unsafe-inline" for "script-src"; otherwise, generate and set a "nonce".
             string contentSecurityPolicy = $"default-src 'none'; " +
-                               $"script-src 'self' {jsCDN} {(_componentsSettings.IncludeAdobeAnalytics ? "'unsafe-inline'" : $"'nonce-{nonce}'")}; " +
+                               $"script-src 'self' {scriptSrc} {(_componentsSettings.IncludeAdobeAnalytics ? "'unsafe-inline'" : $"'nonce-{nonce}'")}; " +
                                $"object-src 'none'; " +
-                               $"style-src 'self' 'unsafe-hashes' {cssCDN} {cssCDNHash} 'nonce-{nonce}'; " +
-                               $"font-src 'self' {fontCDN}; " +
-                               $"connect-src 'self' {connectCDN} http://localhost:* https://localhost:* ws://localhost:* wss://localhost:* https://cdn.design-system.alpha.canada.ca; " +
-                               $"img-src 'self' {(_componentsSettings.IncludeAdobeAnalytics ? "https://cm.everesttech.net https://canada.sc.omtrdc.net" : string.Empty)} data:; " +
-                               (_componentsSettings.IncludeAdobeAnalytics ? $"frame-src 'self' https://canada.demdex.net; " : string.Empty) +
+                               $"style-src 'self' 'unsafe-hashes' {styleSrc} {styleSrcHash} 'nonce-{nonce}'; " +
+                               $"font-src 'self' {fontSrc}; " +
+                               $"connect-src 'self' {connectSrc} http://localhost:* https://localhost:* ws://localhost:* wss://localhost:* https://cdn.design-system.alpha.canada.ca; " +
+                               $"img-src 'self' {imgSrc} data:; " +
+                               $"frame-src 'self' {frameSrc}; " +
                                $"frame-ancestors 'none'; " +
                                $"upgrade-insecure-requests;";
 
