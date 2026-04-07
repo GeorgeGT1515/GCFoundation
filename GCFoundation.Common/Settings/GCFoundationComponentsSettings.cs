@@ -24,7 +24,7 @@ namespace GCFoundation.Common.Settings
         /// <summary>
         /// Gets or sets the version of the GC Design System being used.
         /// </summary>
-        public string GCDSVersion { get; set; } = "0.43.1";
+        public string GCDSVersion { get; set; } = "1.0.0";
 
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace GCFoundation.Common.Settings
         {
             get
             {
-                return new Uri($"https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@{GCDSVersion}/dist/gcds/gcds.css");
+                return new Uri($"https://cdn.design-system.alpha.canada.ca/@gcds-core/components@{GCDSVersion}/dist/gcds/gcds.css");
             }
         }
 
@@ -67,7 +67,7 @@ namespace GCFoundation.Common.Settings
         {
             get
             {
-                return new Uri($"https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@{GCDSVersion}/dist/gcds/gcds.esm.js");
+                return new Uri($"https://cdn.design-system.alpha.canada.ca/@gcds-core/components@{GCDSVersion}/dist/gcds/gcds.esm.js");
             }
         }
 
