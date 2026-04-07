@@ -1,22 +1,23 @@
-﻿using GCFoundation.Common.Settings;
+﻿using System.Text.RegularExpressions;
+using GCFoundation.Common.Settings;
 using Microsoft.Extensions.Options;
 
 namespace GCFoundation.Components.Configuration
 {
     /// <summary>
     /// Configures the CDN and security settings for the content security policy.
-    /// This ensures all component-related CDN URLs and hashes are injected into the CSP.
+    /// This ensures all component-related CDN URLs are injected into the CSP.
     /// </summary>
-    public class FoundationComponentsCdnPolicyConfigurator : IConfigureOptions<GCFoundationContentPolicySettings>
+    public class GCFoundationComponentsCdnPolicyConfigurator : IConfigureOptions<GCFoundationContentPolicySettings>
     {
         private readonly GCFoundationComponentsSettings _componentSettings;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FoundationComponentsCdnPolicyConfigurator"/> class.
+        /// Initializes a new instance of the <see cref="GCFoundationComponentsCdnPolicyConfigurator"/> class.
         /// </summary>
         /// <param name="componentSettings">The options containing the foundation components settings.</param>
         /// <exception cref="ArgumentNullException">Thrown when the componentSettings parameter is null.</exception>
-        public FoundationComponentsCdnPolicyConfigurator(IOptions<GCFoundationComponentsSettings> componentSettings)
+        public GCFoundationComponentsCdnPolicyConfigurator(IOptions<GCFoundationComponentsSettings> componentSettings)
         {
             ArgumentNullException.ThrowIfNull(componentSettings, nameof(componentSettings));
 
@@ -24,7 +25,7 @@ namespace GCFoundation.Components.Configuration
         }
 
         /// <summary>
-        /// Configures the content security policy settings for the application, including the allowed CDNs and hashes.
+        /// Configures the content security policy settings for the application, including the allowed CDNs.
         /// </summary>
         /// <param name="options">The content policy settings to configure.</param>
         /// <exception cref="ArgumentNullException">Thrown when the options parameter is null.</exception>
@@ -32,24 +33,18 @@ namespace GCFoundation.Components.Configuration
         {
             ArgumentNullException.ThrowIfNull(options, nameof(options));
 
-            var jsCDNs = Enumerable.Empty<string>();
-            var cssCDNs = Enumerable.Empty<string>();
-            var cssHashes = Enumerable.Empty<string>();
-            var fontCDNs = Enumerable.Empty<string>();
             var connectCDNs = Enumerable.Empty<string>();
+            var cssCDNs = Enumerable.Empty<string>();
+            var fontCDNs = Enumerable.Empty<string>();
+            var jsCDNs = Enumerable.Empty<string>();
 
-
-            jsCDNs = jsCDNs.Append(_componentSettings.GCDSJavaScriptCDN.Host.ToString());
             cssCDNs = cssCDNs
                 .Append(_componentSettings.GCDSCssCDN.Host.ToString())
                 .Append(_componentSettings.FontAwesomeCDN.Host.ToString());
-
-            cssHashes = GCFoundationComponentsSettings.GCDSCssCDNHash
-                .Split(' ', StringSplitOptions.RemoveEmptyEntries);
-
             fontCDNs = fontCDNs
                 .Append(_componentSettings.FontAwesomeCDN.Host.ToString())
                 .Append(_componentSettings.GCDSCssCDN.Host.ToString());
+            jsCDNs = jsCDNs.Append(_componentSettings.GCDSJavaScriptCDN.Host.ToString());
 
             // Grid.js CDN
             if (_componentSettings.UseGridJsCdn && _componentSettings.IncludeGridJs)
@@ -70,7 +65,6 @@ namespace GCFoundation.Components.Configuration
             options.FontSrc = fontCDNs;
             options.ScriptSrc = jsCDNs;
             options.StyleSrc = cssCDNs;
-            options.StyleSrcHash = cssHashes;
         }
     }
 }

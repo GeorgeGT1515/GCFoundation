@@ -50,17 +50,6 @@ namespace GCFoundation.Common.Settings
         }
 
         /// <summary>
-        /// Gets the SHA-256 hash used for inline GC Design System CSS styles for CSP (Content Security Policy).
-        /// </summary>
-        public static string GCDSCssCDNHash
-        {
-            get
-            {
-                return "'sha256-wdabfDcuif2zK/ylZhFm5RyLtTWesKFJRNnvzHFPrPs=' 'sha256-LovNkyKf6BdeuYHC6NGHXX9NcrDeLb8ho1xZrkXnC0g=' 'sha256-h0iBPaGm9POpej1E2Xyl3CW6D/1Nw7OWarnofqER01I=' 'sha256-biLFinpqYMtWHmXfkA1BPeCY0/fNt46SAZ+BBk5YUog='";
-            }
-        }
-
-        /// <summary>
         /// Gets the URI for the GC Design System - for CSS Shortcuts - from the CDN.
         /// </summary>
         public Uri GCDSCssShortcutsCDN

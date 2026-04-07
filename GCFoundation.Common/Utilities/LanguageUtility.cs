@@ -36,7 +36,7 @@ namespace GCFoundation.Common.Utilities
         /// Gets the opposite language code ("en" if current is "fr", "fr" if current is "en").
         /// </summary>
         /// <returns>The two-letter ISO code of the opposite language ("en" or "fr").</returns>
-        public static string GetOppositeLangauge()
+        public static string GetOppositeLanguage()
         {
             return (CultureInfo.CurrentCulture.Name == _supportedCulture[0].Name ? _supportedCulture[1] : _supportedCulture[0]).Name.Split('-')[0];
         }

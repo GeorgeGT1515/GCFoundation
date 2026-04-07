@@ -17,7 +17,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+    @* GCDS (Stencil) reads this meta and applies the same nonce as GCFoundationContentPoliciesMiddleware to runtime &lt;style&gt; tags. *@
+    <meta name="csp-nonce" content="@(Context.Items["CspNonce"])" />
+
     @* Meta tags (merge Global meta tags and custom meta tags defined in the GCFoundationBaseController) *@
     @{
         var globalMetaTags = settings.Value.GlobalMetaTags;
@@ -58,7 +60,7 @@
     @* GCDS CSS from CDN (if enabled) *@
     @if (settings.Value.IncludeGCDSResources)
     {
-        <link rel="stylesheet" href="@settings.Value.GCDSCssCDN" />
+        <link rel="stylesheet" href="@settings.Value.GCDSCssCDN" nonce="@(Context.Items["CspNonce"])" />
     }
     
     @* Font Awesome CSS from CDN (if enabled) *@
@@ -67,7 +69,7 @@
         <link rel="stylesheet" href="@settings.Value.FontAwesomeCDN" />
     }
     
-    @* Default foundation CSS files (always included) *@
+    @* Default GCFoundation CSS files (always included) *@
     <link rel="stylesheet" href="@StaticResourceHelper.GetLibResourcePath("prism/css/prism.css")" asp-append-version="true" />
     @* Grid.js CSS (if enabled) *@
     @if (settings.Value.IncludeGridJs)
@@ -102,7 +104,7 @@
 <body>
     @{
         RouteValueDictionary routeValueDictionary = new RouteValueDictionary(ViewContext.RouteData.Values);
-        routeValueDictionary["culture"] = LanguageUtility.GetOppositeLangauge();
+        routeValueDictionary["culture"] = LanguageUtility.GetOppositeLanguage();
             Language currentLanguage = Language.en;
 
         if (LanguageUtility.GetCurrentApplicationLanguage() == "fr")
@@ -200,7 +202,7 @@
     @* GCDS JavaScript from CDN (if enabled) *@
     @if (settings.Value.IncludeGCDSResources)
     {
-        <script type="module" src="@settings.Value.GCDSJavaScriptCDN"></script>
+        <script type="module" src="@settings.Value.GCDSJavaScriptCDN" nonce="@(Context.Items["CspNonce"])"></script>
     }
 
     @* Default foundation JavaScript files (always included) *@
