@@ -3,7 +3,7 @@
 @using Microsoft.Extensions.Options
 @inject IOptions<GCFoundationComponentsSettings> settings
 
-<gcds-top-nav label="@settings.Value.ApplicationName" alignment="right">
+<gcds-top-nav label="@settings.Value.ApplicationName" alignment="end">
     <gcds-nav-link href="@Url.Action("Index","Home")" slot="home">@settings.Value.ApplicationName</gcds-nav-link>
     
     <gcds-nav-group open-trigger="@Menu.Menu_GetStarted" menu-label="@Menu.Menu_GetStarted">

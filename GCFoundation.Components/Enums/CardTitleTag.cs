@@ -7,11 +7,6 @@
     public enum CardTitleTag
     {
         /// <summary>
-        /// The <c>&lt;a&gt;</c> tag, typically used for linking the card title to another page or resource.
-        /// </summary>
-        a,
-
-        /// <summary>
         /// The <c>&lt;h3&gt;</c> tag, commonly used for a card title with a heading level of 3.
         /// </summary>
         h3,

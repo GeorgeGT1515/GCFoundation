@@ -16,12 +16,12 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         public bool Border { get; set; }
 
         /// <summary>
-        /// If set to true, centers the content inside the container.
+        /// If set to true, centers the content (GCDS v1: emitted as <c>alignment="center"</c>).
         /// </summary>
         public bool Centered { get; set; }
 
         /// <summary>
-        /// If set to true, marks the container as the main container of the page or section.
+        /// If set to true, marks the container as the main page layout (GCDS v1: emitted as <c>layout="page"</c>).
         /// </summary>
         public bool MainContainer { get; set; }
 
@@ -36,7 +36,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         public string? Padding { get; set; }
 
         /// <summary>
-        /// Defines the size of the container. Default is <see cref="SizeTypeEmum.lg"/>.
+        /// Defines the size of the container. Default is <see cref="SizeTypeEmum.lg"/>. Use with <see cref="MainContainer"/> / <c>layout="page"</c> per current GCDS guidance.
         /// </summary>
         public SizeTypeEmum Size { get; set; } = SizeTypeEmum.lg;
 
@@ -49,8 +49,12 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             AddAttributeIfNotNull(output, "border", Border);
-            AddAttributeIfNotNull(output, "centered", Centered);
-            AddAttributeIfNotNull(output, "main-container", MainContainer);
+            if (Centered)
+                AddAttributeIfNotNull(output, "alignment", "center");
+
+            if (MainContainer)
+                AddAttributeIfNotNull(output, "layout", "page");
+
             AddAttributeIfNotNull(output, "margin", Margin);
             AddAttributeIfNotNull(output, "padding", Padding);
             AddAttributeIfNotNull(output, "size", Size);
