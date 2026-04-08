@@ -5,7 +5,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
 {
     /// <summary>
     /// A TagHelper that renders a GC Design System notice component as a <c>&lt;gcds-notice&gt;</c> element.
-    /// The notice is used to display alerts with a title, type, and associated content. The component can be customized with different heading tags and alert types.
+    /// The notice is used to display alerts with a title, role, and associated content. The component can be customized with different heading tags and alert types.
     /// </summary>
     [HtmlTargetElement("gcds-notice")]
     public class NoticeTagHelper : BaseTagHelper
@@ -21,12 +21,12 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         public HeadingTag TitleTag { get; set; } = HeadingTag.h2;
 
         /// <summary>
-        /// Gets or sets the type of the alert. The default is <see cref="AlertType.Info"/>.
+        /// Gets or sets the notice role (GCDS v1 <c>notice-role</c>). The default is <see cref="AlertType.info"/>.
         /// </summary>
-        public AlertType Type { get; set; } = AlertType.Info;
+        public AlertType Type { get; set; } = AlertType.info;
 
         /// <summary>
-        /// Processes the <c>gcds-notice</c> element by adding the <c>notice-title</c>, <c>notice-title-tag</c>, <c>type</c>, and <c>lang</c> attributes
+        /// Processes the <c>gcds-notice</c> element by adding the <c>notice-title</c>, <c>notice-title-tag</c>, <c>notice-role</c>, and <c>lang</c> attributes
         /// to the rendered output, and sets the tag name to <c>gcds-notice</c>.
         /// </summary>
         /// <param name="context">The context for the tag helper.</param>
@@ -40,7 +40,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
 
             AddAttributeIfNotNull(output, "notice-title-tag", TitleTag);
 #pragma warning disable CA1308 // Normalize strings to uppercase
-            AddAttributeIfNotNull(output, "type", Type.ToString().ToLowerInvariant());
+            AddAttributeIfNotNull(output, "notice-role", Type.ToString().ToLowerInvariant());
 #pragma warning restore CA1308 // Normalize strings to uppercase
 #pragma warning disable CA1308 // Normalize strings to uppercase
             AddAttributeIfNotNull(output, "lang", Lang.ToString().ToLowerInvariant());

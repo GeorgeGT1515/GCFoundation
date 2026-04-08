@@ -336,7 +336,7 @@
     <value>&lt;gcds-text&gt;Utilisez ce modèle pour créer des pages d’erreur bilingues simples&amp;nbsp;:&lt;/gcds-text&gt;
 &lt;ul class="list-square"&gt;
 &lt;li&gt;Définissez &lt;code&gt;Layout = "_BilingualErrorTemplate"&lt;/code&gt; dans votre vue d’erreur.&lt;/li&gt;
-&lt;li&gt;Ajoutez un titre de page et un composant &lt;code&gt;&amp;amp;lt;gcds-notice type="danger"&amp;amp;gt;&lt;/code&gt; avec des pistes utiles (rétroaction et lien vers un endroit sécuritaire).&lt;/li&gt;
+&lt;li&gt;Ajoutez un titre de page et un composant &lt;code&gt;&amp;amp;lt;gcds-notice notice-role="danger"&amp;amp;gt;&lt;/code&gt; avec des pistes utiles (rétroaction et lien vers un endroit sécuritaire).&lt;/li&gt;
 &lt;li&gt;Activez-le à l’échelle de l’application en configurant la gestion des erreurs selon la &lt;a href="{0}"&gt;page d’installation de GCFoundation&lt;/a&gt; : &lt;code&gt;UseExceptionHandler("{{your-url}}")&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;</value>
   </data>

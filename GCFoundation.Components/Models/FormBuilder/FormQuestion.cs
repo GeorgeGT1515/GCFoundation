@@ -70,6 +70,11 @@ namespace GCFoundation.Components.Models.FormBuilder
         public int? Size { get; set; }
 
         /// <summary>
+        /// Gets or sets the maximum character length for <see cref="QuestionType.TextArea"/> (GCDS v1 <c>maxlength</c>).
+        /// </summary>
+        public int? MaxLength { get; set; }
+
+        /// <summary>
         /// Gets or sets the list of selectable options for the question, if applicable.
         /// </summary>
         public IEnumerable<QuestionOption>? Options { get; set; }

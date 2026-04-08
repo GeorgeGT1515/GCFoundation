@@ -18,7 +18,7 @@ namespace GCFoundation.Components.Middleware
     {
         /// <summary>
         /// Registers the foundation components services into the application's dependency injection container.
-        /// This method configures the <see cref="GCFoundationComponentsSettings"/> and registers the <see cref="FoundationComponentsCdnPolicyConfigurator"/>
+        /// This method configures the <see cref="GCFoundationComponentsSettings"/> and registers the <see cref="GCFoundationComponentsCdnPolicyConfigurator"/>
         /// to handle content security policy configuration.
         /// </summary>
         /// <param name="services">The service collection to add services to.</param>
@@ -41,7 +41,7 @@ namespace GCFoundation.Components.Middleware
             services.Configure<GCFoundationUserLoginSettings>(userLoginSection);
 
             // Register the CdnPolicyConfigurator
-            services.AddSingleton<IConfigureOptions<GCFoundationContentPolicySettings>, FoundationComponentsCdnPolicyConfigurator>();
+            services.AddSingleton<IConfigureOptions<GCFoundationContentPolicySettings>, GCFoundationComponentsCdnPolicyConfigurator>();
 
             // Register the GlobalResourceHelper for use in Razor views
             services.AddScoped<GlobalResourceHelper>();

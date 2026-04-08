@@ -36,14 +36,13 @@ namespace GCFoundation.Security.Middlewares
             string imgSrc = string.Join(" ", _settings.ImgSrc ?? Enumerable.Empty<string>());
             string scriptSrc = string.Join(" ", _settings.ScriptSrc ?? Enumerable.Empty<string>());
             string styleSrc = string.Join(" ", _settings.StyleSrc ?? Enumerable.Empty<string>());
-            string styleSrcHash = string.Join(" ", _settings.StyleSrcHash ?? Enumerable.Empty<string>());
 
             // Build Content Security Policy (CSP)
             // * If Adobe Analytics is enabled, accept "unsafe-inline" for "script-src"; otherwise, generate and set a "nonce".
             string contentSecurityPolicy = $"default-src 'none'; " +
                                $"script-src 'self' {scriptSrc} {(_componentsSettings.IncludeAdobeAnalytics ? "'unsafe-inline'" : $"'nonce-{nonce}'")}; " +
                                $"object-src 'none'; " +
-                               $"style-src 'self' 'unsafe-hashes' {styleSrc} {styleSrcHash} 'nonce-{nonce}'; " +
+                               $"style-src 'self' {styleSrc} 'nonce-{nonce}'; " +
                                $"font-src 'self' {fontSrc}; " +
                                $"connect-src 'self' {connectSrc} http://localhost:* https://localhost:* ws://localhost:* wss://localhost:* https://cdn.design-system.alpha.canada.ca; " +
                                $"img-src 'self' {imgSrc} data:; " +

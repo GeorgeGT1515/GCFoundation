@@ -206,6 +206,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 QuestionType.TextArea => $@"<gcds-textarea 
                     textarea-id='{question.Id}'
                     rows='{question.Size ?? 3}'
+                    {GetTextareaMaxLengthAttribute(question)}
                     {commonAttributes}>
                     {question.Value ?? ""}
                 </gcds-textarea>",
@@ -312,6 +313,25 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         /// <returns>The attribute string or empty if value is null.</returns>
         private static string AttributeIfNotNull(string name, string? value)
             => value is not null ? $" {name}='{value}'" : string.Empty;
+
+        /// <summary>
+        /// Returns a <c>maxlength</c> attribute for <c>gcds-textarea</c> from <see cref="FormQuestion.MaxLength"/> or a <see cref="ValidationRuleType.MaxLength"/> rule.
+        /// </summary>
+        private static string GetTextareaMaxLengthAttribute(FormQuestion question)
+        {
+            int? max = question.MaxLength;
+            if (max is null or <= 0)
+            {
+                var rule = question.ValidationRules?.FirstOrDefault(static r =>
+                    r.Type == ValidationRuleType.MaxLength && r.Max.HasValue && r.Max > 0);
+                if (rule != null)
+                {
+                    max = (int)rule.Max!.Value;
+                }
+            }
+
+            return max is > 0 ? $"maxlength='{max.Value}' " : string.Empty;
+        }
 
         private static string BuildRichText(FormQuestion question, string language)
         {

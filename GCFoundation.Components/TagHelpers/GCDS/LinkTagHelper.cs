@@ -50,7 +50,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         public string? Type { get; set; }
 
         /// <summary>
-        /// Gets or sets the variant of the link, which can define the link's appearance (e.g., default or light).
+        /// Gets or sets the link role for styling (GCDS v1 <c>link-role</c>: default or light).
         /// </summary>
         public LinkVariant Variant { get; set; } = LinkVariant.Default;
 
@@ -65,7 +65,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
             AddAttributeIfNotNull(output, "size", Size);
             AddAttributeIfNotNull(output, "target", Target);
             AddAttributeIfNotNull(output, "type", Type);
-            AddAttributeIfNotNull(output, "variant", Variant);
+            AddAttributeIfNotNull(output, "link-role", Variant);
 
             base.Process(context, output);
         }

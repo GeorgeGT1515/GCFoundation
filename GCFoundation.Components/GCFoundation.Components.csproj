@@ -14,7 +14,7 @@
     <RootNamespace>GCFoundation.Components</RootNamespace>
     <AssemblyName>GCFoundation.Components</AssemblyName>
     <Version>1.0.0</Version>
-    <Authors>Philippe G. Vadnais</Authors>
+    <Authors>Philippe G. Vadnais;Shawn Turcotte</Authors>
     <Company>TBS-SCT</Company>
     <Description>Razor components and tag helpers based on the GC Design System (GCDS) for Government of Canada web applications.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

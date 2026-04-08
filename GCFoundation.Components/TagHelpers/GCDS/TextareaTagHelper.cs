@@ -3,7 +3,7 @@
 namespace GCFoundation.Components.TagHelpers.GCDS
 {
     /// <summary>
-    /// Represents a tag helper for rendering a textarea input element with customizable properties like label, row count, and character count.
+    /// Represents a tag helper for rendering a textarea input element with customizable properties like label, row count, and maximum length (GCDS v1).
     /// </summary>
     [HtmlTargetElement("gcds-textarea")]
     public class TextareaTagHelper : BaseFormComponentTagHelper
@@ -19,9 +19,26 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         public required string TextareaId { get; set; }
 
         /// <summary>
-        /// Gets or sets the character count for the textarea. This value determines the maximum number of characters.
+        /// Gets or sets the maximum number of characters (GCDS v1 <c>maxlength</c>).
         /// </summary>
-        public int CharacterCount { get; set; }
+        [HtmlAttributeName("maxlength")]
+        public int MaxLength { get; set; }
+
+        /// <summary>
+        /// Gets or sets the legacy maximum length binding; use <see cref="MaxLength"/> instead.
+        /// </summary>
+        [Obsolete("Use MaxLength (maxlength). character-count was removed in GCDS v1.")]
+        [HtmlAttributeName("character-count")]
+        public int CharacterCount
+        {
+            get => MaxLength;
+            set => MaxLength = value;
+        }
+
+        /// <summary>
+        /// When true, hides the character counter while still applying <see cref="MaxLength"/> (GCDS v1 <c>hide-limit</c>).
+        /// </summary>
+        public bool HideLimit { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether to hide the label for the textarea input element. Default is <c>false</c>.
@@ -42,7 +59,12 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         {
             AddAttributeIfNotNull(output, "label", Label);
             AddAttributeIfNotNull(output, "textarea-id", TextareaId);
-            AddAttributeIfNotNull(output, "character-count", CharacterCount);
+            if (MaxLength > 0)
+                AddAttributeIfNotNull(output, "maxlength", MaxLength);
+
+            if (HideLimit)
+                AddAttributeIfNotNull(output, "hide-limit", true);
+
             AddAttributeIfNotNull(output, "hide-label", HideLabel);
             AddAttributeIfNotNull(output, "rows", Rows);
 

@@ -1,4 +1,5 @@
-﻿@using GCFoundation.Web.Resources
+﻿@using GCFoundation.Components.Enums
+@using GCFoundation.Web.Resources
 @model GCFoundation.Web.Models.FormBuilderTestViewModel
 
 @* Sample form *@
@@ -19,7 +20,7 @@ else
 {
     if (!string.IsNullOrEmpty(Model.SuccessMessage))
     {
-        <gcds-notice type="Success" notice-title-tag="h3" notice-title="@GCFoundation.Components.Resources.Localization.Validation_Success" class="mb-300">
+        <gcds-notice notice-role="@AlertType.success" notice-title-tag="h3" notice-title="@GCFoundation.Components.Resources.Localization.Validation_Success" class="mb-300">
             <gcds-text>@Model.SuccessMessage</gcds-text>
         </gcds-notice>
     }

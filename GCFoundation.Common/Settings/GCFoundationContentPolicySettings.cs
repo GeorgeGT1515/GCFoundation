@@ -2,7 +2,7 @@
 {
     /// <summary>
     /// Represents the configuration settings used to build a Content Security Policy (CSP).
-    /// These settings define which external resources (CDNs, fonts, inline hashes) are allowed by the application.
+    /// These settings define which external resources (CDNs, fonts) are allowed by the application.
     /// </summary>
     public class GCFoundationContentPolicySettings
     {
@@ -45,12 +45,5 @@
         /// Example: "https://fonts.googleapis.com"
         /// </summary>
         public IEnumerable<string> StyleSrc { get; set; } = Enumerable.Empty<string>();
-
-        /// <summary>
-        /// Gets or sets the list of SHA-256 hashes that allow specific inline styles.
-        /// These hashes will also be added to the 'style-src' directive to support safe inline styles.
-        /// Example: "'sha256-AbCdEf123=='"
-        /// </summary>
-        public IEnumerable<string> StyleSrcHash { get; set; } = Enumerable.Empty<string>();
     }
 }

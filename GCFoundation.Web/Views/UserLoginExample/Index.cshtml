@@ -1,9 +1,10 @@
+@using GCFoundation.Components.Enums
 @using GCFoundation.Web.Resources
 @{
     ViewData["Title"] = Components.UserLogin_PageTitle;
 }
 
-<gcds-container size="xl" centered>
+<gcds-container size="xl" alignment="center">
     <gcds-grid columns="1fr" columns-tablet="1fr" columns-desktop="1fr">
         <div>
             <gcds-heading tag="h1">@Components.UserLogin_PageTitle</gcds-heading>
@@ -22,13 +23,13 @@
             <div class="demo-panel__body">
                 @if (User?.Identity?.IsAuthenticated == true)
                 {
-                    <gcds-notice type="Success" notice-title-tag="h2" notice-title="Authenticated">
+                    <gcds-notice notice-role="@AlertType.success" notice-title-tag="h2" notice-title="Authenticated">
                         <gcds-text>@string.Format(Components.UserLogin_Authenticated_Message, User.Identity.Name ?? "Demo User")</gcds-text>
                     </gcds-notice>
                 }
                 else
                 {
-                    <gcds-notice type="Info" notice-title-tag="h2" notice-title="Not Authenticated">
+                    <gcds-notice notice-role="@AlertType.info" notice-title-tag="h2" notice-title="Not Authenticated">
                         <gcds-text>@Components.UserLogin_NotAuthenticated_Message</gcds-text>
                     </gcds-notice>
                 }

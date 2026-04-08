@@ -110,7 +110,7 @@ namespace GCFoundation.Components.Controllers
             {
                 Title = title,
                 Message = message,
-                AlertType = AlertType.Success
+                AlertType = AlertType.success
             };
         }
         

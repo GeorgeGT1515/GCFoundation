@@ -8,6 +8,6 @@
 	string lang = LanguageUtility.GetCurrentApplicationLanguage();
 }
 <gcds-heading tag="h1">@Error.Global_Title</gcds-heading>
-<gcds-notice type="@AlertType.Danger" title="@Error.Global_Notice_Title" title-tag="h2">
+<gcds-notice notice-role="@AlertType.danger" notice-title="@Error.Global_Notice_Title" notice-title-tag="h2">
 	@Html.Raw(Error.Global_Notice_Content)
 </gcds-notice>

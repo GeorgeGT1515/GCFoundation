@@ -332,6 +332,109 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         }
 
         [Fact]
+        public void Process_WithTextAreaMaxLengthFromProperty_RendersMaxlengthAttribute()
+        {
+            var tagHelper = new FDCPFormBuilderTagHelper
+            {
+                Form = new FormDefinition
+                {
+                    Id = "testForm",
+                    Title = "Test Form",
+                    Action = "/submit",
+                    Method = "post",
+                    SubmitButtonText = "Submit",
+                    Sections = new[]
+                    {
+                        new FormSection
+                        {
+                            Title = "Test Section",
+                            Questions = new[]
+                            {
+                                new FormQuestion
+                                {
+                                    Id = "comments",
+                                    Label = "Comments",
+                                    Type = QuestionType.TextArea,
+                                    MaxLength = 500
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            var context = new TagHelperContext(
+                new TagHelperAttributeList(),
+                new Dictionary<object, object>(),
+                "test");
+
+            var output = new TagHelperOutput("fdcp-form-builder",
+                new TagHelperAttributeList(),
+                (result, encoder) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
+
+            tagHelper.Process(context, output);
+
+            var content = output.Content.GetContent();
+            Assert.Contains("maxlength='500'", content);
+            Assert.DoesNotContain("character-count", content);
+        }
+
+        [Fact]
+        public void Process_WithTextAreaMaxLengthFromValidationRule_RendersMaxlengthAttribute()
+        {
+            var tagHelper = new FDCPFormBuilderTagHelper
+            {
+                Form = new FormDefinition
+                {
+                    Id = "testForm",
+                    Title = "Test Form",
+                    Action = "/submit",
+                    Method = "post",
+                    SubmitButtonText = "Submit",
+                    Sections = new[]
+                    {
+                        new FormSection
+                        {
+                            Title = "Test Section",
+                            Questions = new[]
+                            {
+                                new FormQuestion
+                                {
+                                    Id = "comments",
+                                    Label = "Comments",
+                                    Type = QuestionType.TextArea,
+                                    ValidationRules = new[]
+                                    {
+                                        new ValidationRule
+                                        {
+                                            Type = ValidationRuleType.MaxLength,
+                                            Max = 250
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            var context = new TagHelperContext(
+                new TagHelperAttributeList(),
+                new Dictionary<object, object>(),
+                "test");
+
+            var output = new TagHelperOutput("fdcp-form-builder",
+                new TagHelperAttributeList(),
+                (result, encoder) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
+
+            tagHelper.Process(context, output);
+
+            var content = output.Content.GetContent();
+            Assert.Contains("maxlength='250'", content);
+            Assert.DoesNotContain("character-count", content);
+        }
+
+        [Fact]
         public void Process_WithFormValidationErrors_IncludesErrorSummaryForGCDSv039()
         {
             // Arrange

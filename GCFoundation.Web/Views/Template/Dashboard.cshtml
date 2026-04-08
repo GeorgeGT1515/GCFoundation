@@ -1,9 +1,10 @@
-﻿@using GCFoundation.Components.Resources
+﻿@using GCFoundation.Components.Enums
+@using GCFoundation.Components.Resources
 @using GCFoundation.Web.Resources
 
 <gcds-heading tag="h1">@Template.Dashboard_Name</gcds-heading>
 
-<gcds-notice class="mb-200" type="Warning" title="Work in progress..." title-tag="h2">This page is under development.</gcds-notice>
+<gcds-notice class="mb-200" notice-role="@AlertType.warning" notice-title="Work in progress..." notice-title-tag="h2">This page is under development.</gcds-notice>
 
 <div class="documentation-content">
     @* Introduction *@
