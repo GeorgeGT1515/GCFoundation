@@ -376,6 +376,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 
             var content = output.Content.GetContent();
             Assert.Contains("maxlength='500'", content);
+            Assert.DoesNotContain("character-count", content);
         }
 
         [Fact]
@@ -430,6 +431,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 
             var content = output.Content.GetContent();
             Assert.Contains("maxlength='250'", content);
+            Assert.DoesNotContain("character-count", content);
         }
 
         [Fact]
