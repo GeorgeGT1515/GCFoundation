@@ -11,7 +11,7 @@
     <!-- NuGet package metadata -->
     <PackageId>GCFoundation.Common</PackageId>
     <Version>1.0.0</Version>
-    <Authors>Philippe G. Vadnais</Authors>
+    <Authors>Philippe G. Vadnais;Shawn Turcotte</Authors>
     <Company>TBS-SCT</Company>
     <Description>Shared utilities and models used across GCFoundation applications.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
