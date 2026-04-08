@@ -155,7 +155,7 @@
             @await Component.InvokeAsync("Navigation", new { viewName = "GCDSBreadcrumbs", filterName = NamedNavigationFilters.Breadcrumbs, startingNodeKey = "" })
         }
     </gcds-header>
-    <gcds-container id="main-content" size="xl" centered tag="main" main-container class="mb-300">
+    <gcds-container id="main-content" layout="page" alignment="center" tag="main" class="mb-300">
         @{
             string? LoginPartialViewName = ViewData["LoginPartialViewName"] as string;
         }

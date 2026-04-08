@@ -21,9 +21,9 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         public HeadingTag TitleTag { get; set; } = HeadingTag.h2;
 
         /// <summary>
-        /// Gets or sets the notice role (GCDS v1 <c>notice-role</c>). The default is <see cref="AlertType.Info"/>.
+        /// Gets or sets the notice role (GCDS v1 <c>notice-role</c>). The default is <see cref="AlertType.info"/>.
         /// </summary>
-        public AlertType Type { get; set; } = AlertType.Info;
+        public AlertType Type { get; set; } = AlertType.info;
 
         /// <summary>
         /// Processes the <c>gcds-notice</c> element by adding the <c>notice-title</c>, <c>notice-title-tag</c>, <c>notice-role</c>, and <c>lang</c> attributes

@@ -153,7 +153,7 @@ namespace GCFoundation.Web.Controllers
             {
                 Title = "Demo Login Successful",
                 Message = "Demo user has been authenticated. You can now see the user login partial in action!",
-                AlertType = Components.Enums.AlertType.Success
+                AlertType = Components.Enums.AlertType.success
             });
 
             return RedirectToAction("Index");
@@ -174,7 +174,7 @@ namespace GCFoundation.Web.Controllers
             {
                 Title = "Demo Logout Successful",
                 Message = "Demo user has been signed out. The login partial now shows the anonymous state.",
-                AlertType = Components.Enums.AlertType.Info
+                AlertType = Components.Enums.AlertType.info
             });
 
             return RedirectToAction("Index");

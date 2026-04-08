@@ -6,7 +6,7 @@
 
 	if (pageNotification != null)
 	{
-		<gcds-notice type="@pageNotification.AlertType" notice-title-tag="h2" notice-title="@pageNotification.Title">
+		<gcds-notice notice-role="@pageNotification.AlertType" notice-title-tag="h2" notice-title="@pageNotification.Title">
 			<gcds-text>@pageNotification.Message</gcds-text>
 		</gcds-notice>
 	}

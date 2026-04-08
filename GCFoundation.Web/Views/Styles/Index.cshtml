@@ -1,10 +1,11 @@
+@using GCFoundation.Components.Enums
 @{
     ViewData["Title"] = "Styles - Utility Classes Documentation";
 }
 
 <gcds-heading tag="h1" margin-bottom="400">Utility Classes Documentation</gcds-heading>
 
-<gcds-notice type="Warning" title="Deprecation Notice" margin-bottom="400">
+<gcds-notice notice-role="@AlertType.warning" notice-title="Deprecation Notice" notice-title-tag="h2" margin-bottom="400">
     <gcds-text>
         The <code>fdcp-*</code> utility classes documented on this page are deprecated and will be removed in a future release.
         Please use <gcds-link href="https://design-system.alpha.canada.ca/en/css-shortcuts/">GCDS CSS Shortcuts</gcds-link> instead.
@@ -220,7 +221,7 @@
             </div>
 
             <gcds-heading tag="h3" margin-bottom="200">Background Colors</gcds-heading>
-            <gcds-notice type="Warning" title="Deprecated" margin-bottom="200">
+        <gcds-notice notice-role="@AlertType.warning" notice-title="Deprecated" notice-title-tag="h2" margin-bottom="200">
                 <gcds-text>Use <gcds-link href="https://design-system.alpha.canada.ca/en/css-shortcuts/background-colour/">GCDS background-colour</gcds-link> classes instead (e.g., <code>bg-primary</code>, <code>bg-light</code>).</gcds-text>
             </gcds-notice>
             <div class="mb-400">
@@ -243,7 +244,7 @@
         <hr />
 
         <gcds-heading tag="h2" id="borders" margin-bottom="300">Border Utilities</gcds-heading>
-            <gcds-notice type="Warning" title="Deprecated" margin-bottom="200">
+        <gcds-notice notice-role="@AlertType.warning" notice-title="Deprecated" notice-title-tag="h2" margin-bottom="200">
                 <gcds-text>Use GCDS <gcds-link href="https://design-system.alpha.canada.ca/en/css-shortcuts/border-width/">border-width</gcds-link> and <gcds-link href="https://design-system.alpha.canada.ca/en/css-shortcuts/border-radius/">border-radius</gcds-link> classes instead.</gcds-text>
             </gcds-notice>
             <div class="table-responsive mb-400" tabindex="0" aria-label="Scrollable table">
@@ -267,7 +268,7 @@
         <hr />
 
         <gcds-heading tag="h2" id="visibility" margin-bottom="300">Display and Visibility Utilities</gcds-heading>
-            <gcds-notice type="Warning" title="Deprecated" margin-bottom="200">
+        <gcds-notice notice-role="@AlertType.warning" notice-title="Deprecated" notice-title-tag="h2" margin-bottom="200">
                 <gcds-text>Use GCDS <gcds-link href="https://design-system.alpha.canada.ca/en/css-shortcuts/display/">display</gcds-link> and <gcds-link href="https://design-system.alpha.canada.ca/en/css-shortcuts/visibility/">visibility</gcds-link> classes instead.</gcds-text>
             </gcds-notice>
             <div class="table-responsive mb-400" tabindex="0" aria-label="Scrollable table">
@@ -292,7 +293,7 @@
         <hr />
 
         <gcds-heading tag="h2" id="dimensions" margin-bottom="300">Width and Height Utilities</gcds-heading>
-            <gcds-notice type="Warning" title="Deprecated" margin-bottom="200">
+        <gcds-notice notice-role="@AlertType.warning" notice-title="Deprecated" notice-title-tag="h2" margin-bottom="200">
                 <gcds-text>Use GCDS <gcds-link href="https://design-system.alpha.canada.ca/en/css-shortcuts/container-sizing/">container-sizing</gcds-link> classes instead.</gcds-text>
             </gcds-notice>
             <div class="table-responsive mb-400" tabindex="0" aria-label="Scrollable table">

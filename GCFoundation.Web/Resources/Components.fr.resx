@@ -1354,7 +1354,7 @@
 &lt;ul class="list-square"&gt;
 &lt;li&gt;Les étapes ignorées doivent afficher visuellement une étiquette ou un badge, tel que « N/A » ou « Non requis », comme le montre le modèle du système de conception.&lt;/li&gt;
 &lt;li&gt;Un avis en haut de la page est &lt;em&gt;recommandé&lt;/em&gt; afin d’informer les utilisateurs que des étapes ont été ignorées et pourquoi. Voici un exemple :
-&lt;gcds-notice type="info" notice-title="Étapes non requises" notice-title-tag="h4"&gt;&lt;gcds-text&gt;Les étapes indiquées comme N/A ont été ignorées, car vos réponses précédentes ont fourni suffisamment d’information pour continuer.&lt;/gcds-text&gt;&lt;/gcds-notice&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/gcds-text&gt;</value>
+&lt;gcds-notice notice-role="info" notice-title="Étapes non requises" notice-title-tag="h4"&gt;&lt;gcds-text&gt;Les étapes indiquées comme N/A ont été ignorées, car vos réponses précédentes ont fourni suffisamment d’information pour continuer.&lt;/gcds-text&gt;&lt;/gcds-notice&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/gcds-text&gt;</value>
   </data>
   <data name="Stepper_Accessibility_Do_1" xml:space="preserve">
     <value>&lt;gcds-text&gt;&lt;strong&gt;Identifier clairement les étapes ignorées :&lt;/strong&gt;

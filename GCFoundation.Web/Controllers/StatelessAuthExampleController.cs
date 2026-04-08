@@ -98,7 +98,7 @@ namespace GCFoundation.Web.Controllers
             {
                 Title = "Cookie Authentication Successful",
                 Message = "User authenticated using stateless cookie approach. No server-side session storage required.",
-                AlertType = Components.Enums.AlertType.Success
+                AlertType = Components.Enums.AlertType.success
             });
 
             return RedirectToAction("Index");
@@ -118,7 +118,7 @@ namespace GCFoundation.Web.Controllers
             {
                 Title = "Logout Successful",
                 Message = "User has been logged out. Authentication cookie removed.",
-                AlertType = Components.Enums.AlertType.Info
+                AlertType = Components.Enums.AlertType.info
             });
 
             return RedirectToAction("Index");

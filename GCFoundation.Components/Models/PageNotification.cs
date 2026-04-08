@@ -22,7 +22,7 @@ namespace GCFoundation.Components.Models
         /// <summary>
         /// Gets or sets the alert type of the notification, defining its visual appearance and behavior.
         /// </summary>
-        /// <value>The type of the alert. Default is <see cref="AlertType.Info"/>.</value>
-        public AlertType AlertType { get; set; } = AlertType.Info;
+        /// <value>The type of the alert. Default is <see cref="AlertType.info"/>.</value>
+        public AlertType AlertType { get; set; } = AlertType.info;
     }
 }

@@ -492,7 +492,7 @@ namespace GCFoundation.Web.Resources {
         ///   Looks up a localized string similar to &lt;gcds-text&gt;Use this template to build simple, bilingual error pages:&lt;/gcds-text&gt;
         ///&lt;ul class=&quot;list-square&quot;&gt;
         ///&lt;li&gt;Set &lt;code&gt;Layout = &quot;_BilingualErrorTemplate&quot;&lt;/code&gt; in your error view.&lt;/li&gt;
-        ///&lt;li&gt;Add a page title and a &lt;code&gt;&amp;lt;gcds-notice type=&quot;danger&quot;&amp;gt;&lt;/code&gt; component with helpful next steps (feedback and a safe link).&lt;/li&gt;
+        ///&lt;li&gt;Add a page title and a &lt;code&gt;&amp;lt;gcds-notice notice-role=&quot;danger&quot;&amp;gt;&lt;/code&gt; component with helpful next steps (feedback and a safe link).&lt;/li&gt;
         ///&lt;li&gt;Enable it application-wide by wiring error handling per the &lt;a href=&quot;{0}&quot;&gt;GCFoundation installation page&lt;/a&gt;: &lt;code&gt;UseExceptionHandler(&quot;{{your-url}}&quot;)&lt;/code&gt;.&lt;/li&gt;
         ///&lt;/ul&gt;.
         /// </summary>

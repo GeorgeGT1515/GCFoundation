@@ -35,7 +35,7 @@ namespace GCFoundation.Web.Controllers
             {
                 Title = "Your session timeout!",
                 Message = "For inactivity your session timeout.",
-                AlertType = AlertType.Danger
+                AlertType = AlertType.danger
             });
             return RedirectToAction("Index", "Home");
         }
