@@ -40,9 +40,6 @@
         top: 0;
         width: 100vw;
     }
-
-    // Solving an issue with text colour not being inherited by children.
-    article.text-container > gcds-heading { color: inherit; }
 }
 
 .full-width-section {
