@@ -125,7 +125,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                     break;
             }
             content.AppendLine(CultureInfo.InvariantCulture, $"<article class='{articleClass}'>");
-            content.AppendLine(CultureInfo.InvariantCulture, $"<gcds-heading tag='h1'>{Title}</gcds-heading>");
+            content.AppendLine(CultureInfo.InvariantCulture, $"<gcds-heading tag='h1' heading-role='{TextColour}'>{Title}</gcds-heading>");
 
             if (!string.IsNullOrWhiteSpace(Description))
             {
