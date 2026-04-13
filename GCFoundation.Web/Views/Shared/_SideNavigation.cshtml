@@ -4,7 +4,7 @@
 @* Side navigation *@
 @if (Model != null && Model.Items != null)
 {
-    <gcds-side-nav label="@Template.SideNav_Label" class="lg:position-sticky">
+    <gcds-side-nav label="@Template.SideNav_Label" class="side-nav lg:position-sticky box-border overflow-x-visible align-self-start px-75">
         @foreach (var item in Model.Items)
         {
             <partial name="_NavItem" model="item" />
