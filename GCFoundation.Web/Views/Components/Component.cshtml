@@ -1,15 +1,15 @@
 ﻿@using GCFoundation.Web.Resources
 @model GCFoundation.Web.Models.Components.ComponentViewModel
 
-<gcds-heading tag="h1">@Model.Name<br /><code>@Html.Raw(Html.Encode(Model.Tag))</code></gcds-heading>
-
-<gcds-grid columns-desktop="1fr 3fr" columns="1fr">
+<gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" alignment="center" tag="div" container="GCFoundation.Components.Enums.SizeTypeEmum.xl" class="xl:px-0 sm:px-600 px-225 general-layout">
     @* Side navigation *@
     @if (Model.ShowSideNavigation)
     {
         <partial name="_SideNavigation" model="Model.SideNavigation" />
     }
     <div class="documentation-content">
+        <gcds-heading tag="h1">@Model.Name<br /><code>@Html.Raw(Html.Encode(Model.Tag))</code></gcds-heading>
+
         @* Overview *@
         <partial name="_Overview" model="Model" />
 

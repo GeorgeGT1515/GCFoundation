@@ -4,20 +4,6 @@
 @use './_table' as table;
 @use './_utilities' as utilities;
 
-body {
-    overflow-x: hidden;
-    font: var(--gcds-font-text);
-    color: var(--gcds-text-primary);
-    margin: 0;
-    padding: 0;
-}
-
-@media only screen and (width < 48em) {
-    body {
-        font: var(--gcds-font-text-mobile)
-    }
-}
-
 code:not([class*=language-]) {
     font-size: 80%;
     line-height: var(--gcds-line-heights-text-small);
@@ -98,4 +84,12 @@ code:not([class*=language-]) {
 
 .gc-form-hidden {
     display: none !important;
+}
+
+.side-nav {
+    top: 0;
+    max-height: 100dvh;
+    overflow-y: auto;
+    /* avoids jump when the scrollbar appears */
+    scrollbar-gutter: stable;
 }
