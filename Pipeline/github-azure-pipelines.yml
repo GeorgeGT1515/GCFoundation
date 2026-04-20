@@ -1,8 +1,5 @@
-# ASP.NET Core (.NET Framework)
-# Build and test ASP.NET Core projects targeting the full .NET Framework.
-# Add steps that publish symbols, save build artifacts, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
-
+# GCFoundation.Web Build and Deploy pipeline
+# Created: 2026-04-20
 trigger:
 - master
 
@@ -103,5 +100,28 @@ stages:
               pathToPackage: ${{ variables.pathToPackage }}
               resourceGroupName: ${{ variables.resourceGroupName }}
               slotName: ${{ variables.slotName }}
+              virtualDirectoryName: ${{ variables.virtualDirectoryName }}
+              webAppName: ${{ variables.webAppName }}
+
+- stage: deploy_uat
+  #dependsOn: deploy_qa
+  dependsOn: deploy_dev
+  jobs:
+  - deployment: deploy_app_uat
+    variables:
+      - template: './transforms/uat/appsettings.yaml'
+      - template: './transforms/uat/deployment.yaml'
+    environment: ${{ variables.deploymentEnvironment }}
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - template: Deploy/DotNetCore/deploy-steps.yaml@templates
+            parameters:
+              azureSubscription: ${{ variables.azureSubscription }}
+              pathToPackage: ${{ variables.pathToPackage }}
+              resourceGroupName: ${{ variables.resourceGroupName }}
+              slotName: ${{ variables.slotName }}
+              useSlot: ${{ variables.useSlot }}
               virtualDirectoryName: ${{ variables.virtualDirectoryName }}
               webAppName: ${{ variables.webAppName }}
