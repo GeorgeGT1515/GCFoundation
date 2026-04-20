@@ -5,7 +5,7 @@ trigger: none
 pr:
   branches:
     include:
-- master
+      - master
       - develop
 
 name: $(date:yyyyMMdd)$(rev:.r)
@@ -26,7 +26,7 @@ stages:
   jobs:
   - job: Job_1
     displayName: Agent job 1
-steps:
+    steps:
     - checkout: self
       clean: true
       fetchDepth: 1
@@ -85,7 +85,7 @@ steps:
 
           - task: ExtractFiles@1
             displayName: 'Extract TruffleHog'
-  inputs:
+            inputs:
               archiveFilePatterns: '$(PIPELINE.WORKSPACE)\trufflehog.tar.gz' # string. Required. Archive file patterns. Default: **/*.zip.
               destinationFolder: $(PIPELINE.WORKSPACE)
               cleanDestinationFolder: false
@@ -94,7 +94,7 @@ steps:
           - task: PowerShell@2
             displayName: 'Run TruffleHog'
             continueOnError: ${{ variables.allowFlaggedSecrets }}
-  inputs:
+            inputs:
               targettype: 'inline'
               script: |
                 &"$(Pipeline.Workspace)\trufflehog.exe" filesystem $(System.DefaultWorkingDirectory) --no-update --no-verification --fail 
