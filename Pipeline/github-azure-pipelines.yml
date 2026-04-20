@@ -40,7 +40,7 @@ variables:
 
 stages:
 - stage: build_gcfoundationweb_app
-  displayName: 'Build'
+  displayName: 'Build and Scan'
   jobs:
   - job: Job_1
     displayName: Agent job 1
@@ -63,6 +63,59 @@ stages:
         noCache: true
         verbosityRestore: Detailed
         verbosityPack: Detailed
+    - task: PowerShell@2
+      displayName: Scan Packages for Vulnerabilities - PowerShell
+      continueOnError: True
+      env:
+       BUILD_SOURCESDIRECTORY: $(Build.SourcesDirectory)
+      inputs:
+       targetType: 'inline'
+       script: |
+        ($output = dotnet list $env:BUILD_SOURCESDIRECTORY/GCFoundation.Web/GCFoundation.Web.csproj package --vulnerable)
+
+        $errors = $output | Select-String '>'
+
+        if ($errors.Count -gt 0) {
+            foreach ($err in $errors) {
+                Write-Host "##vso[task.logissue type=error]Found vulnerable package $err"
+            }
+
+            exit 1
+        }
+        exit 0
+       failOnStderr: true
+    - ${{ if eq(variables.enableTruffleHogScan, true) }}:
+          - task: PowerShell@2
+            displayName: 'Download TruffleHog'
+            inputs:
+              targettype: 'inline'
+              script: |
+                $fileUrl = "https://github.com/trufflesecurity/trufflehog/releases/download/v3.81.9/trufflehog_3.81.9_windows_amd64.tar.gz"
+                $targetPath = "$(Pipeline.Workspace)\trufflehog.tar.gz"
+                Invoke-WebRequest -Uri $fileUrl -OutFile $targetPath
+                Write-Host "File downloaded to $targetPath"
+                
+                $tempFilePath = "$(Pipeline.Workspace)\_trufflehog.tar.gz_"
+                if (Test-Path $tempFilePath) {
+                  Remove-Item -Path $tempFilePath -Recurse -Force
+                  Write-Host "Cleaned up old temp files"
+                }
+
+          - task: ExtractFiles@1
+            displayName: 'Extract TruffleHog'
+            inputs:
+              archiveFilePatterns: '$(PIPELINE.WORKSPACE)\trufflehog.tar.gz' # string. Required. Archive file patterns. Default: **/*.zip.
+              destinationFolder: $(PIPELINE.WORKSPACE)
+              cleanDestinationFolder: false
+              overwriteExistingFiles: true
+
+          - task: PowerShell@2
+            displayName: 'Run TruffleHog'
+            continueOnError: ${{ variables.allowFlaggedSecrets }}
+            inputs:
+              targettype: 'inline'
+              script: |
+                &"$(Pipeline.Workspace)\trufflehog.exe" filesystem $(System.DefaultWorkingDirectory) --no-update --no-verification --fail 
     - task: DotNetCoreCLI@2
       displayName: Build projects
       inputs:
