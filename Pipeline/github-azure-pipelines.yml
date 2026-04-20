@@ -1,7 +1,22 @@
 # GCFoundation.Web Build and Deploy pipeline
 # Created: 2026-04-20
 trigger:
-- master
+  branches:
+    include:
+      - master
+  paths:
+    include:
+      - GCFoundation.Web/
+      - Pipeline/
+
+pr:
+    branches:
+        include:
+        - master
+    paths:
+        include:
+        - GCFoundation.Web/
+        - Pipeline/
 
 pool:
   vmImage: 'windows-latest'
@@ -28,7 +43,7 @@ variables:
 
 stages:
 - stage: build_gcfoundationweb_app
-  displayName: 'Build and Scan'
+  displayName: 'Build'
   jobs:
   - job: Job_1
     displayName: Agent job 1
