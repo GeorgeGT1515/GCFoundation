@@ -13,6 +13,16 @@ name: $(date:yyyyMMdd)$(rev:.r)
 pool:
   name: TBS Self Hosted
 
+resources:
+  repositories:
+   - repository: self
+     type: git
+     ref: refs/heads/develop
+
+   - repository: templates
+     type: git
+     name: 'TBS DevOps Master/DevOps Templates'
+     ref: 'refs/heads/develop'
 variables:
 - template: variables.yaml
 - name: enableTruffleHogScan
