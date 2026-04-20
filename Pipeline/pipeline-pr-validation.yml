@@ -1,4 +1,11 @@
-trigger: none
+# GCFoundation - Build and Validate Pull Requests Pipeline
+# Modified: 2026-04-16
+trigger:
+  branches:
+    include:
+      - master
+      - develop
+      - release/*
 
 pr:
   branches:
@@ -6,23 +13,16 @@ pr:
       - master
       - develop
 
-pool: 'TBS Self Hosted'
+name: $(date:yyyyMMdd)$(rev:.r)
+pool:
+  name: TBS Self Hosted
 
 variables:
-  - name: buildConfiguration
-    value: 'Release'
-  - name: solution
-    value: '**/*.sln'
-  - name: testProject
-    value: 'GCFoundation.Tests.Components/GCFoundation.Tests.Components.csproj'
-  - name: dotnetSdkVersion
-    value: '10.x'
-  - name: nodeVersion
-    value: '22.x'
-  - name: testResultsDir
-    value: '$(Agent.TempDirectory)/TestResults'
-
-name: PR-$(System.PullRequest.PullRequestNumber)-$(Date:yyyyMMdd)-$(Rev:.r)
+- template: variables.yaml
+- name: enableTruffleHogScan
+  value: false
+- name: allowFlaggedSecrets
+  value: true
 
 schedules:
 - cron: "0 3 * * *"  # daily at 03:00 UTC
@@ -35,40 +35,113 @@ schedules:
 
 stages:
 - stage: Build
-  displayName: 'Build Complete Solution'
+  displayName: 'Build and Scan'
   jobs:
-  - job: Build
-    displayName: 'Build GCFoundation Solution'
+  - job: Job_1
+    displayName: Agent job 1
     steps:
     - checkout: self
       clean: true
-
+      fetchDepth: 1
     - task: UseDotNet@2
-      displayName: 'Install .NET SDK'
+      displayName: Install .NET SDK
       inputs:
-        packageType: 'sdk'
-        version: $(dotnetSdkVersion)
-
-    - task: NuGetToolInstaller@1
-      displayName: 'NuGet Tool Installer'
-
-    - task: NuGetCommand@2
-      displayName: 'Restore NuGet Packages'
+        packageType: sdk
+        version: ${{ variables.dotnetSdkVersion }}
+    - task: DotNetCoreCLI@2
+      displayName: Restore
       inputs:
-        restoreSolution: $(solution)
-
-    - task: Npm@1
-      displayName: 'Install NPM packages for Foundation.Components'
+        command: restore
+        projects: ${{ variables.projects }}
+        feedsToUse: select
+        vstsFeed: TBS_Custom_Feed
+        noCache: true
+        verbosityRestore: Detailed
+        verbosityPack: Detailed
+    - task: PowerShell@2
+      displayName: Scan Packages for Vulnerabilities - PowerShell
+      continueOnError: True
+      env:
+       BUILD_SOURCESDIRECTORY: $(Build.SourcesDirectory)
       inputs:
-        command: 'install'
-        workingDir: 'GCFoundation.Components'
+       targetType: 'inline'
+       script: |
+        ($output = dotnet list $env:BUILD_SOURCESDIRECTORY/GCFoundation.Web/GCFoundation.Web.csproj package --vulnerable)
+
+        $errors = $output | Select-String '>'
+
+        if ($errors.Count -gt 0) {
+            foreach ($err in $errors) {
+                Write-Host "##vso[task.logissue type=error]Found vulnerable package $err"
+            }
+
+            exit 1
+        }
+        exit 0
+       failOnStderr: true
+    - ${{ if eq(variables.enableTruffleHogScan, true) }}:
+          - task: PowerShell@2
+            displayName: 'Download TruffleHog'
+            inputs:
+              targettype: 'inline'
+              script: |
+                $fileUrl = "https://github.com/trufflesecurity/trufflehog/releases/download/v3.81.9/trufflehog_3.81.9_windows_amd64.tar.gz"
+                $targetPath = "$(Pipeline.Workspace)\trufflehog.tar.gz"
+                Invoke-WebRequest -Uri $fileUrl -OutFile $targetPath
+                Write-Host "File downloaded to $targetPath"
+                
+                $tempFilePath = "$(Pipeline.Workspace)\_trufflehog.tar.gz_"
+                if (Test-Path $tempFilePath) {
+                  Remove-Item -Path $tempFilePath -Recurse -Force
+                  Write-Host "Cleaned up old temp files"
+                }
+
+          - task: ExtractFiles@1
+            displayName: 'Extract TruffleHog'
+            inputs:
+              archiveFilePatterns: '$(PIPELINE.WORKSPACE)\trufflehog.tar.gz' # string. Required. Archive file patterns. Default: **/*.zip.
+              destinationFolder: $(PIPELINE.WORKSPACE)
+              cleanDestinationFolder: false
+              overwriteExistingFiles: true
+
+          - task: PowerShell@2
+            displayName: 'Run TruffleHog'
+            continueOnError: ${{ variables.allowFlaggedSecrets }}
+            inputs:
+              targettype: 'inline'
+              script: |
+                &"$(Pipeline.Workspace)\trufflehog.exe" filesystem $(System.DefaultWorkingDirectory) --no-update --no-verification --fail 
 
     - task: DotNetCoreCLI@2
-      displayName: 'Build Complete Solution'
+      displayName: Build projects
       inputs:
-        command: 'build'
-        projects: $(solution)
-        arguments: '--configuration $(buildConfiguration) --no-restore'
+        projects: ${{ variables.projects }}
+        arguments: '--configuration ${{ variables.buildConfiguration }} --no-restore'
+        verbosityRestore: Detailed
+        verbosityPack: Detailed
+    - task: DotNetCoreCLI@2
+      displayName: Publish Web App
+      inputs:
+        command: publish
+        publishWebProjects: True
+        projects: $(BuildParameters.RestoreBuildProjects)
+        arguments: --configuration $(BuildConfiguration) --output $(Build.BinariesDirectory)/publish_output
+        zipAfterPublish: false
+        modifyOutputPath: false
+        verbosityRestore: Detailed
+        verbosityPack: Detailed
+    - task: ArchiveFiles@2
+      displayName: Archive $(Build.BinariesDirectory)/publish_output/
+      inputs:
+        rootFolderOrFile: $(Build.BinariesDirectory)/publish_output
+        includeRootFolder: false
+        archiveFile: $(Build.ArtifactStagingDirectory)/GCFoundation.Web.zip
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Artifact
+      condition: succeededOrFailed()
+      inputs:
+        PathtoPublish: $(build.artifactstagingdirectory)
+        TargetPath: '\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)'
 
 - stage: Validate
   displayName: 'Validate & Test'
@@ -79,27 +152,28 @@ stages:
     displayName: 'Unit Tests with Coverage'
     steps:
     - checkout: self
-
+      clean: true
+      fetchDepth: 1
     - task: UseDotNet@2
-      displayName: 'Install .NET SDK'
+      displayName: Install .NET SDK
       inputs:
-        packageType: 'sdk'
-        version: $(dotnetSdkVersion)
-
-    - task: NuGetToolInstaller@1
-      displayName: 'NuGet Tool Installer'
-
-    - task: NuGetCommand@2
-      displayName: 'Restore NuGet Packages for Tests'
+        packageType: sdk
+        version: ${{ variables.dotnetSdkVersion }}
+    - task: DotNetCoreCLI@2
+      displayName: Restore
       inputs:
-        restoreSolution: $(solution)
-
+        command: restore
+        projects: ${{ variables.projects }}
+        feedsToUse: select
+        vstsFeed: TBS_Custom_Feed
+        noCache: true
+        verbosityRestore: Detailed
+        verbosityPack: Detailed
     - task: Npm@1
-      displayName: 'Install NPM packages for Foundation.Components'
+      displayName: 'Install NPM packages for GCFoundation.Components'
       inputs:
         command: 'install'
         workingDir: 'GCFoundation.Components'
-
     - task: PowerShell@2
       displayName: 'Execute Tests with Coverage Analysis'
       continueOnError: true
@@ -190,20 +264,23 @@ stages:
     condition: or(eq(dependencies.UnitTests.result, 'Succeeded'), eq(dependencies.UnitTests.result, 'SucceededWithIssues'))
     steps:
     - checkout: self
-
+      clean: true
+      fetchDepth: 1
     - task: UseDotNet@2
-      displayName: 'Install .NET SDK'
+      displayName: Install .NET SDK
       inputs:
-        packageType: 'sdk'
-        version: $(dotnetSdkVersion)
-
-    - task: NuGetToolInstaller@1
-      displayName: 'NuGet Tool Installer'
-
-    - task: NuGetCommand@2
-      displayName: 'Restore NuGet Packages (Quality Gates)'
+        packageType: sdk
+        version: ${{ variables.dotnetSdkVersion }}
+    - task: DotNetCoreCLI@2
+      displayName: Restore
       inputs:
-        restoreSolution: $(solution)
+        command: restore
+        projects: ${{ variables.projects }}
+        feedsToUse: select
+        vstsFeed: TBS_Custom_Feed
+        noCache: true
+        verbosityRestore: Detailed
+        verbosityPack: Detailed
 
     - task: DownloadPipelineArtifact@2
       displayName: 'Download Unit Test Artifacts'
@@ -299,7 +376,7 @@ stages:
       continueOnError: true
       inputs:
         command: 'build'
-        projects: $(solution)
+        projects: ${{ variables.solution }}
         arguments: '--configuration $(buildConfiguration) --verbosity normal --no-restore --property WarningsAsErrors="" --property TreatWarningsAsErrors=false --property ErrorLog="$(System.DefaultWorkingDirectory)/CodeAnalysisLogs/build-analysis.sarif,version=2.1"'
 
     - task: PowerShell@2
@@ -312,7 +389,7 @@ stages:
           Write-Host "=================================================" -ForegroundColor Cyan
           
           $sarifFile = "CodeAnalysisLogs/build-analysis.sarif"
-          $fixedSarifFile = "CodeAnalysisLogs/compliant-analysis.sarif"
+          $fixedSarifFile = "CodeAnalysisLogs/compliant-an alysis.sarif"
           
           if (Test-Path $sarifFile) {
             $fileSize = (Get-Item $sarifFile).Length
@@ -852,25 +929,28 @@ stages:
     condition: and(or(eq(variables['Build.Reason'], 'PullRequest'), eq(variables['Build.Reason'], 'Schedule'), eq(variables['Build.Reason'], 'Manual')), or(eq(dependencies.UnitTests.result, 'Succeeded'), eq(dependencies.UnitTests.result, 'SucceededWithIssues')))
     steps:
     - checkout: self
-
+      clean: true
+      fetchDepth: 1
     - task: UseDotNet@2
-      displayName: 'Install .NET SDK'
+      displayName: Install .NET SDK
       inputs:
-        packageType: 'sdk'
-        version: $(dotnetSdkVersion)
-
-    - task: NuGetToolInstaller@1
-      displayName: 'NuGet Tool Installer'
-
-    - task: NuGetCommand@2
+        packageType: sdk
+        version: ${{ variables.dotnetSdkVersion }}
+    - task: DotNetCoreCLI@2
       displayName: 'Restore NuGet Packages for E2E'
       inputs:
-        restoreSolution: $(solution)
+        command: restore
+        projects: ${{ variables.projects }}
+        feedsToUse: select
+        vstsFeed: TBS_Custom_Feed
+        noCache: true
+        verbosityRestore: Detailed
+        verbosityPack: Detailed
 
     - task: UseNode@1
       displayName: 'Install Node.js for E2E'
       inputs:
-        version: $(nodeVersion)
+        version: ${{ variables.nodeVersion }}
 
     - script: |
         npm ci
