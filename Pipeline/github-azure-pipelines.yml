@@ -1,6 +1,7 @@
 # GCFoundation - Build and Deploy pipeline
 # Modified: 2026-04-20
-trigger: none
+trigger:
+- master
 
 pr:
   branches:
