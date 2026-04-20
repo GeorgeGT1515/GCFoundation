@@ -1,5 +1,9 @@
-# GCFoundation.Web Build and Deploy pipeline
+# GCFoundation.Web - Build and Deploy pipeline (from GitHub)
 # Created: 2026-04-20
+#
+# Runs once per change reaching master (merge push), not on every PR sync.
+# Azure Pipelines cannot trigger on GitHub "PR approved" alone; pair this with
+# GitHub branch protection on master (required reviews before merge).
 trigger:
   branches:
     include:
@@ -9,14 +13,7 @@ trigger:
       - GCFoundation.Web/
       - Pipeline/
 
-pr:
-    branches:
-        include:
-        - master
-    paths:
-        include:
-        - GCFoundation.Web/
-        - Pipeline/
+pr: none
 
 pool:
   vmImage: 'windows-latest'
