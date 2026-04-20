@@ -9,6 +9,13 @@ trigger:
 pool:
   vmImage: 'windows-latest'
 
+resources:
+  repositories:
+   - repository: templates
+     type: git
+     name: 'TBS DevOps Master/DevOps Templates'
+     ref: 'refs/heads/develop'
+
 variables:
 - template: variables.yaml
 - name: enableTruffleHogScan
