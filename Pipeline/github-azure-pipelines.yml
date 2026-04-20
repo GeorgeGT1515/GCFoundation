@@ -30,7 +30,7 @@ variables:
   value: 'Release'
 
 stages:
-- stage: Build
+- stage: build_gcfoundationweb_app
   displayName: 'Build and Scan'
   jobs:
   - job: Job_1
@@ -86,9 +86,7 @@ stages:
         TargetPath: '\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)'
 
 - stage: deploy_dev
-  dependsOn: build_gcfoundationweb_app     # must refer to stage, not job
-  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))  ## You would think this is only needed on the build, but all subsequent stages will need it too
-  
+  dependsOn: build_gcfoundationweb_app
   jobs:
   - deployment: deploy_app_dev
     variables:
