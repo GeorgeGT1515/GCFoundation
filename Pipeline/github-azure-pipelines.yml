@@ -13,10 +13,18 @@ trigger:
       - GCFoundation.Web/
       - Pipeline/
 
-pr: none
+# pr: none
+pr:
+    branches:
+        include:
+        - master
+    paths:
+        include:
+        - GCFoundation.Web/
+        - Pipeline/
 
 pool:
-  vmImage: 'windows-latest'
+  name: TBS Self Hosted
 
 resources:
   repositories:
