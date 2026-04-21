@@ -28,14 +28,15 @@ pool:
 
 resources:
   repositories:
-   - repository: templates
-     type: git
-     name: 'TBS DevOps Master/DevOps Templates'
-     ref: refs/heads/develop
    - repository: gcfoundationweb
      type: github
      name: 'tbs-imtd/GCFoundation'
      endpoint: github.com_gcfoundation_tbs-sjturcot
+     ref: refs/heads/master
+   - repository: templates
+     type: git
+     name: 'TBS DevOps Master/DevOps Templates'
+     ref: refs/heads/develop
 
 variables:
 - template: variables.yaml
@@ -60,6 +61,7 @@ stages:
     - checkout: gcfoundationweb
       clean: true
       fetchDepth: 1
+      persistCredentials: true
     - task: UseDotNet@2
       displayName: Install .NET SDK
       inputs:
