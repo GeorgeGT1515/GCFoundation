@@ -32,10 +32,6 @@ resources:
      type: git
      name: 'TBS DevOps Master/DevOps Templates'
      ref: refs/heads/develop
-   - repository: gcfoundationweb
-     type: github
-     name: 'tbs-imtd/GCFoundation'
-     endpoint: 'Github Connection'
 
 variables:
 - template: variables.yaml
@@ -57,9 +53,11 @@ stages:
   - job: Job_1
     displayName: Agent job 1
     steps:
-    - checkout: gcfoundationweb
+    - checkout: self
       clean: true
       fetchDepth: 1
+      endpoint: 'Github Connection'
+      persistCredentials: true
     - task: UseDotNet@2
       displayName: Install .NET SDK
       inputs:
