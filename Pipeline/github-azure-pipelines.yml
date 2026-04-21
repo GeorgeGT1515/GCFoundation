@@ -24,7 +24,7 @@ pr:
         - Pipeline/
 
 pool:
-  name: TBS Self Hosted
+  name: Azure Pipelines
 
 resources:
   repositories:
