@@ -28,14 +28,14 @@ pool:
 
 resources:
   repositories:
-   - repository: GCFoundation
-     type: github
-     name: 'GCFoundation'
-     endpoint: 'Github Connection'
-   - repository: templates
-     type: git
-     name: 'TBS DevOps Master/DevOps Templates'
-     ref: 'refs/heads/develop'
+  - repository: GCFoundation
+    type: github
+    name: 'GCFoundation'
+    endpoint: 'Github Connection'
+  - repository: templates
+    type: git
+    name: 'TBS DevOps Master/DevOps Templates'
+    ref: 'refs/heads/develop'
 
 variables:
 - template: variables.yaml
