@@ -29,9 +29,9 @@ pool:
 resources:
   repositories:
   - repository: GCFoundation
-    type: github
-    name: 'tbs-imtd/GCFoundation'
-    ref: 'refs/heads/master'
+    type: git
+    name: tbs-imtd/GCFoundation
+    endpoint: 'Github Connection'
   - repository: templates
     type: git
     name: 'TBS DevOps Master/DevOps Templates'
