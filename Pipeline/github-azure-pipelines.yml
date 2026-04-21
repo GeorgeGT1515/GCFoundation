@@ -28,6 +28,10 @@ pool:
 
 resources:
   repositories:
+   - repository: GCFoundation
+     type: github
+     name: 'GCFoundation'
+     endpoint: 'Github Connection'
    - repository: templates
      type: git
      name: 'TBS DevOps Master/DevOps Templates'
@@ -53,7 +57,7 @@ stages:
   - job: Job_1
     displayName: Agent job 1
     steps:
-    - checkout: self
+    - checkout: GCFoundation
       clean: true
       fetchDepth: 1
     - task: UseDotNet@2
