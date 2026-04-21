@@ -28,10 +28,11 @@ pool:
 
 resources:
   repositories:
-   - repository: self
+   - repository: gcfoundationweb
      type: github
      name: 'tbs-imtd/GCFoundation'
      endpoint: github.com_gcfoundation_tbs-sjturcot
+     persistCredentials: true
      ref: refs/heads/master
    - repository: templates
      type: git
@@ -58,7 +59,7 @@ stages:
   - job: Job_1
     displayName: Agent job 1
     steps:
-    - checkout: self
+    - checkout: gcfoundationweb
       clean: true
       fetchDepth: 1
       persistCredentials: true
