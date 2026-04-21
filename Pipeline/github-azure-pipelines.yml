@@ -58,7 +58,7 @@ stages:
   - job: Job_1
     displayName: Agent job 1
     steps:
-    - checkout: GCFoundation
+    - checkout: gcfoundationweb
       clean: true
       fetchDepth: 1
     - task: UseDotNet@2
