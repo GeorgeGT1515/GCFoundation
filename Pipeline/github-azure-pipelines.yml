@@ -36,7 +36,6 @@ resources:
      name: 'tbs-imtd/GCFoundation'
      endpoint: Github Connection
      persistCredentials: true
-     ref: refs/heads/master
    - repository: templates
      type: git
      name: 'TBS DevOps Master/DevOps Templates'
