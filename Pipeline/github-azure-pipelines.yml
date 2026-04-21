@@ -34,7 +34,7 @@ resources:
    - repository: gcfoundationweb
      type: github
      name: 'tbs-imtd/GCFoundation'
-     endpoint: github.com_gcfoundation_tbs-sjturcot
+     endpoint: Github Connection
      persistCredentials: true
      ref: refs/heads/master
    - repository: templates
