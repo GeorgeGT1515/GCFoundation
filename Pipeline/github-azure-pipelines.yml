@@ -32,6 +32,11 @@ resources:
      type: git
      name: 'TBS DevOps Master/DevOps Templates'
      ref: refs/heads/develop
+   - repository: gcfoundationweb
+     type: github
+     name: 'tbs-imtd/GCFoundation'
+     endpoint: 'Github Connection'
+     ref: refs/heads/master
 
 variables:
 - template: variables.yaml
@@ -53,7 +58,7 @@ stages:
   - job: Job_1
     displayName: Agent job 1
     steps:
-    - checkout: self
+    - checkout: GCFoundation
       clean: true
       fetchDepth: 1
     - task: UseDotNet@2
