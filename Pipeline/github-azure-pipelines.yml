@@ -58,7 +58,7 @@ stages:
   - job: Job_1
     displayName: Agent job 1
     steps:
-    - checkout: gcfoundationweb
+    - checkout: self
       clean: true
       fetchDepth: 1
       persistCredentials: true
