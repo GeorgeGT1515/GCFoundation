@@ -30,7 +30,7 @@ resources:
   repositories:
   - repository: GCFoundation
     type: github
-    name: 'GCFoundation'
+    name: 'tbs-imtd/GCFoundation'
     endpoint: 'Github Connection'
   - repository: templates
     type: git
