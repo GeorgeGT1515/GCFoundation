@@ -13,27 +13,13 @@ trigger:
       - GCFoundation.Web/
       - Pipeline/
 
-# pr: none
-pr:
-    branches:
-        include:
-        - master
-    paths:
-        include:
-        - GCFoundation.Web/
-        - Pipeline/
+pr: none
 
 pool:
   name: Azure Pipelines
 
 resources:
   repositories:
-   - repository: gcfoundationweb
-     type: github
-     name: 'tbs-imtd/GCFoundation'
-     endpoint: github.com_gcfoundation_tbs-sjturcot
-     persistCredentials: true
-     ref: refs/heads/master
    - repository: templates
      type: git
      name: 'TBS DevOps Master/DevOps Templates'
@@ -59,10 +45,9 @@ stages:
   - job: Job_1
     displayName: Agent job 1
     steps:
-    - checkout: gcfoundationweb
+    - checkout: self
       clean: true
       fetchDepth: 1
-      persistCredentials: true
     - task: UseDotNet@2
       displayName: Install .NET SDK
       inputs:
