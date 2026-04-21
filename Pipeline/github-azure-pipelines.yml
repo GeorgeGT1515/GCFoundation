@@ -60,7 +60,6 @@ stages:
     - checkout: gcfoundationweb
       clean: true
       fetchDepth: 1
-      endpoint: 'Github Connection'
     - task: UseDotNet@2
       displayName: Install .NET SDK
       inputs:
