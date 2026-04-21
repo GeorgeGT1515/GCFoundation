@@ -28,7 +28,7 @@ pool:
 
 resources:
   repositories:
-   - repository: gcfoundationweb
+   - repository: self
      type: github
      name: 'tbs-imtd/GCFoundation'
      endpoint: github.com_gcfoundation_tbs-sjturcot
