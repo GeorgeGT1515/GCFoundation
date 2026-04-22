@@ -14,7 +14,15 @@ trigger:
       - GCFoundation.Web/
       - Pipeline/
 
-pr: none
+# pr: none
+pr:
+    branches:
+        include:
+        - master
+    paths:
+        include:
+        - GCFoundation.Web/
+        - Pipeline/
 
 # NOTE: It seems that TBS Self Hosted Agent Pools don't have access to pull from GitHub repos, even public ones.
 pool:
