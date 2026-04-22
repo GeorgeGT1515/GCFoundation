@@ -17,7 +17,6 @@ trigger:
 pr: none
 
 # NOTE: It seems that TBS Self Hosted Agent Pools don't have access to pull from GitHub repos, even public ones.
-# If this is the case, we may need to switch to other agent pools for this pipeline, or set up a mirror of the GitHub repo in Azure Repos.
 pool:
   name: TBS Self Hosted
 
