@@ -12,7 +12,7 @@ jobs:
     if: github.event.label.name == '2. approved'
     runs-on: ubuntu-latest
 
-    steps:
+ steps:
       - name: Create structured sub-issues
         uses: actions/github-script@v7
         with:
@@ -24,55 +24,63 @@ jobs:
               {
                 title: `[DS] Design - ${issue.title}`,
                 labels: ["design-system", "task", "design"],
-                body: `Parent: #${issue.number}
-
-## Design
-- [ ] Figma page created
-- [ ] Component(s), states, and variants designed
-- [ ] Responsive behaviour defined
-- [ ] Content guidance defined
-- [ ] Accessibility approach defined
-- [ ] Design reviewed against GCDS / GCFoundation`
+                body: [
+                  `Parent: #${issue.number}`,
+                  ``,
+                  `## Design`,
+                  `- [ ] Figma page created`,
+                  `- [ ] Component(s), states, and variants designed`,
+                  `- [ ] Responsive behaviour defined`,
+                  `- [ ] Content guidance defined`,
+                  `- [ ] Accessibility approach defined`,
+                  `- [ ] Design reviewed against GCDS / GCFoundation`
+                ].join('\n')
               },
               {
                 title: `[DS] Build & Code - ${issue.title}`,
                 labels: ["design-system", "task", "build"],
-                body: `Parent: #${issue.number}
-
-## Build & Code
-- [ ] Front-end implementation completed
-- [ ] Back-end implementation completed
-- [ ] Tokens / theming aligned
-- [ ] Reusability and API/interface reviewed
-- [ ] Code review completed
-- [ ] Security scanning passes`
+                body: [
+                  `Parent: #${issue.number}`,
+                  ``,
+                  `## Build & Code`,
+                  `- [ ] Front-end implementation completed`,
+                  `- [ ] Back-end implementation completed`,
+                  `- [ ] Tokens / theming aligned`,
+                  `- [ ] Reusability and API/interface reviewed`,
+                  `- [ ] Code review completed`,
+                  `- [ ] Security scanning passes`
+                ].join('\n')
               },
               {
                 title: `[DS] Validate & Test - ${issue.title}`,
                 labels: ["design-system", "task", "validation"],
-                body: `Parent: #${issue.number}
-
-## Validate & Test
-- [ ] Manual accessibility testing completed
-- [ ] Automated accessibility checks completed
-- [ ] Keyboard testing completed
-- [ ] Screen reader testing completed
-- [ ] Usability validation completed
-- [ ] UAT completed
-- [ ] Cross-browser/device testing completed`
+                body: [
+                  `Parent: #${issue.number}`,
+                  ``,
+                  `## Validate & Test`,
+                  `- [ ] Manual accessibility testing completed`,
+                  `- [ ] Automated accessibility checks completed`,
+                  `- [ ] Keyboard testing completed`,
+                  `- [ ] Screen reader testing completed`,
+                  `- [ ] Usability validation completed`,
+                  `- [ ] UAT completed`,
+                  `- [ ] Cross-browser/device testing completed`
+                ].join('\n')
               },
               {
                 title: `[DS] Release & Governance - ${issue.title}`,
                 labels: ["design-system", "task", "release"],
-                body: `Parent: #${issue.number}
-
-## Release & Governance
-- [ ] Added to Figma library
-- [ ] Design guidance published
-- [ ] Dev documentation published
-- [ ] Versioning / change notes updated
-- [ ] Final approval completed
-- [ ] Comms completed`
+                body: [
+                  `Parent: #${issue.number}`,
+                  ``,
+                  `## Release & Governance`,
+                  `- [ ] Added to Figma library`,
+                  `- [ ] Design guidance published`,
+                  `- [ ] Dev documentation published`,
+                  `- [ ] Versioning / change notes updated`,
+                  `- [ ] Final approval completed`,
+                  `- [ ] Comms completed`
+                ].join('\n')
               }
             ];
 
