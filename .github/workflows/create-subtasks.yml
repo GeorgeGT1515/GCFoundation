@@ -11,7 +11,6 @@ jobs:
   create-subtasks:
     if: github.event.label.name == '2. approved'
     runs-on: ubuntu-latest
-
  steps:
       - name: Create structured sub-issues
         uses: actions/github-script@v7
