@@ -1,6 +1,6 @@
 # GCFoundation.Web - Build and Deploy pipeline (from GitHub)
 # Created: 2026-04-20
-# Modified: 2026-04-21
+# Modified: 2026-04-23
 #
 # Runs once per change reaching master (merge push), not on every PR sync.
 # Azure Pipelines cannot trigger on GitHub "PR approved" alone; pair this with
@@ -14,16 +14,8 @@ trigger:
       - GCFoundation.Web/
       - Pipeline/
 
-# Run pipeline on PRs targeting master, but only when changes are made to specific paths (GCFoundation.Web and Pipeline folders).
-# pr: none
-pr:
-    branches:
-        include:
-        - master
-    paths:
-        include:
-        - GCFoundation.Web/
-        - Pipeline/
+# Do not run pipeline on PRs. This pipeline is meant to run on merges to master, not on every PR sync.
+pr: none
 
 # NOTE: It seems that TBS Self Hosted Agent Pools don't have access to pull from GitHub repos, even public ones.
 pool:
