@@ -1,5 +1,6 @@
 # GCFoundation.Web - Build and Deploy pipeline (from GitHub)
 # Created: 2026-04-20
+# Modified: 2026-04-23
 #
 # Runs once per change reaching master (merge push), not on every PR sync.
 # Azure Pipelines cannot trigger on GitHub "PR approved" alone; pair this with
@@ -13,17 +14,25 @@ trigger:
       - GCFoundation.Web/
       - Pipeline/
 
+# Do not run pipeline on PRs. This pipeline is meant to run on merges to master, not on every PR sync.
 pr: none
 
+# NOTE: It seems that TBS Self Hosted Agent Pools don't have access to pull from GitHub repos, even public ones.
 pool:
-  vmImage: 'windows-latest'
+  name: TBS Self Hosted
 
 resources:
   repositories:
+   - repository: gcfoundationweb
+     type: github
+     name: 'tbs-imtd/GCFoundation'
+     endpoint: github.com_gcfoundation_tbs-sjturcot
+     persistCredentials: true
+     ref: refs/heads/master
    - repository: templates
      type: git
      name: 'TBS DevOps Master/DevOps Templates'
-     ref: 'refs/heads/develop'
+     ref: refs/heads/develop
 
 variables:
 - template: variables.yaml
@@ -45,9 +54,10 @@ stages:
   - job: Job_1
     displayName: Agent job 1
     steps:
-    - checkout: self
+    - checkout: gcfoundationweb
       clean: true
       fetchDepth: 1
+      persistCredentials: true
     - task: UseDotNet@2
       displayName: Install .NET SDK
       inputs:
