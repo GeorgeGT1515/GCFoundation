@@ -14,6 +14,7 @@ trigger:
       - GCFoundation.Web/
       - Pipeline/
 
+# Run pipeline on PRs targeting master, but only when changes are made to specific paths (GCFoundation.Web and Pipeline folders).
 # pr: none
 pr:
     branches:
