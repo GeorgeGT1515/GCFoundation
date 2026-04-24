@@ -56,34 +56,71 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             output.TagName = "div";
             var html = new StringBuilder();
 
-            html.AppendLine(CultureInfo.InvariantCulture, $"<gcds-heading tag='{HeadingTag}'>{HeadingTitle}</gcds-heading>");
-            html.AppendLine("<div class='fdcp-stepper'>");
+            // Only render visible, labeled steps and keep the output stable/deterministic.
+            // This makes the component easier to reason about (and makes SR output match what is actually visible).
+            var visibleSteps = Steps
+                .Where(s => !s.IsHidden && !string.IsNullOrWhiteSpace(s.Label))
+                .OrderBy(s => s.StepNumber)
+                .ToList();
 
-            foreach (var step in Steps)
+            var totalSteps = visibleSteps.Count;
+            // Guard against out-of-range values so the component stays usable even with invalid input.
+            var normalizedCurrentStep = totalSteps == 0 ? 1 : Math.Clamp(CurrentStep, 1, totalSteps);
+
+            // Encode any plain-text values we output as HTML to avoid accidental injection.
+            var headingTitle = HtmlEncoder.Default.Encode(HeadingTitle ?? string.Empty);
+            html.AppendLine(CultureInfo.InvariantCulture, $"<gcds-heading tag='{HeadingTag}'>{headingTitle}</gcds-heading>");
+
+            // Screen reader announcement for the current step (useful if the component updates dynamically).
+            if (totalSteps > 0)
             {
-                if (step.IsHidden || string.IsNullOrWhiteSpace(step.Label))
-                    continue;
+                var current = visibleSteps.FirstOrDefault(s => s.StepNumber == normalizedCurrentStep) ?? visibleSteps[normalizedCurrentStep - 1];
+                var currentLabel = HtmlEncoder.Default.Encode(current.Label ?? string.Empty);
+                html.AppendLine(CultureInfo.InvariantCulture,
+                    $"<div class='visibility-sr-only' aria-live='polite' aria-atomic='true'>{string.Format(CultureInfo.InvariantCulture, Stepper.SR_CurrentStepAnnouncement, normalizedCurrentStep, totalSteps, currentLabel)}</div>");
+            }
 
-                html.AppendLine(CultureInfo.InvariantCulture, $"<div class='fdcp-step {step.GetStatusByCurrentStep(CurrentStep)}'>");
+            // Use nav + ordered list semantics so assistive tech understands this is a progress indicator with N steps.
+            html.AppendLine("<nav class='fdcp-stepper' aria-label='Progress'>");
+            html.AppendLine("<ol class='fdcp-stepper__list'>");
 
-                // Circle.
-                html.AppendLine(CultureInfo.InvariantCulture, $"<div class='fdcp-step-circle'>{step.GetDisplayHtml(CurrentStep)}</div>");
-
-                // Label.
-                string labelHtml;
-                if (step.IsLink && !string.IsNullOrEmpty(step.LinkUrl))
+            foreach (var step in visibleSteps)
+            {
+                var status = step.GetStatusByCurrentStep(normalizedCurrentStep);
+                var statusText = status switch
                 {
-                    labelHtml = string.Format(
-                        CultureInfo.InvariantCulture,
-                        "<gcds-link href='{0}'>{1}</gcds-link>",
-                        step.LinkUrl,
-                        step.Label);
+                    StepperStepStatus.active => Stepper.SR_StatusCurrent,
+                    StepperStepStatus.completed => Stepper.SR_StatusCompleted,
+                    _ => Stepper.SR_StatusUpcoming
+                };
+
+                // Labels are plain text (rendered as text in both link and non-link states).
+                var labelText = HtmlEncoder.Default.Encode(step.Label ?? string.Empty);
+                var circleInnerHtml = step.GetDisplayHtml(normalizedCurrentStep);
+
+                html.AppendLine(CultureInfo.InvariantCulture, $"<li class='fdcp-step {status}'>");
+
+                // Interactive wrapper: only render as link when it's not the current step.
+                // This avoids presenting the "current step" as a link (which is confusing for keyboard and SR users).
+                var isLink = step.IsLink && !string.IsNullOrWhiteSpace(step.LinkUrl) && status != StepperStepStatus.active;
+                if (isLink)
+                {
+                    var href = HtmlEncoder.Default.Encode(step.LinkUrl!);
+                    html.AppendLine(CultureInfo.InvariantCulture, $"<a class='fdcp-step__link' href='{href}'>");
                 }
                 else
                 {
-                    labelHtml = step.Label;
+                    html.AppendLine("<div class='fdcp-step__content'>");
                 }
-                html.AppendLine(CultureInfo.InvariantCulture, $"<div class='fdcp-step-label'>{labelHtml}</div>");
+
+                // Marker (purely visual).
+                // The circle content can contain decorative icons; keep it out of the accessibility tree.
+                html.AppendLine(CultureInfo.InvariantCulture, $"<span class='fdcp-step-circle' aria-hidden='true'>{circleInnerHtml}</span>");
+
+                // Step label + SR-only status.
+                // aria-current="step" is the recommended way to identify the current item in a multi-step process.
+                var ariaCurrent = status == StepperStepStatus.active ? " aria-current='step'" : string.Empty;
+                html.AppendLine(CultureInfo.InvariantCulture, $"<span class='fdcp-step-label'{ariaCurrent}>{labelText}<span class='visibility-sr-only'> ({HtmlEncoder.Default.Encode(statusText)})</span></span>");
 
                 // Status badge (if defined).
                 if (!string.IsNullOrEmpty(step.StatusBadgeLabel))
@@ -93,10 +130,12 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                         html.AppendLine(badgeHtml);
                 }
 
-                html.AppendLine("</div>"); // <div class='fdcp-step'>
+                html.AppendLine(isLink ? "</a>" : "</div>");
+                html.AppendLine("</li>");
             }
 
-            html.AppendLine("</div>");
+            html.AppendLine("</ol>");
+            html.AppendLine("</nav>");
             output.Content.SetHtmlContent(html.ToString());
         }
 
