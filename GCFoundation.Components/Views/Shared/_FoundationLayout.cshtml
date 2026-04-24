@@ -183,10 +183,38 @@
     </gcds-container>
 
     @* GC Footer *@
+    @* Footer links (merge Global and custom footer links defined in the GCFoundationBaseController) *@
     @{
-        var footerContextualHeading = ViewData["FooterContextualHeading"] as string;
-        var footerContextualLinks = ViewData["FooterContextualLinks"] as IEnumerable<FooterLink>;
-        var footerSubLinks = ViewData["FooterSubLinks"] as IEnumerable<FooterLink>;
+        var globalFooterContextualLinks = settings.Value.GlobalFooterContextualLinks;
+        var globalFooterSubLinks = settings.Value.GlobalFooterSubLinks;
+        var controllerFooterContextualHeading = ViewData["FooterContextualHeading"] as string;
+        var controllerFooterContextualLinks = ViewData["FooterContextualLinks"] as IEnumerable<FooterLink>;
+        var controllerFooterSubLinks = ViewData["FooterSubLinks"] as IEnumerable<FooterLink>;
+        var footerContextualHeading = settings.Value.ApplicationName;
+        var footerContextualLinks = new List<FooterLink>();
+        var footerSubLinks = new List<FooterLink>();
+        if (controllerFooterContextualLinks != null && controllerFooterContextualLinks.Any())
+        {
+            footerContextualLinks.AddRange(controllerFooterContextualLinks);
+        }
+        if (globalFooterContextualLinks != null && globalFooterContextualLinks.Any())
+        {
+            // Add any global footer contextual link that does not (already) exist in the list of custom footer contextual links.
+            footerContextualLinks.AddRange(globalFooterContextualLinks.Where(gfcl => !footerContextualLinks.Any(fl => (!string.IsNullOrEmpty(gfcl.GetLocalizedLabel()) && fl.GetLocalizedLabel() == gfcl.GetLocalizedLabel()) || (!string.IsNullOrEmpty(gfcl.GetLocalizedLink()) && fl.GetLocalizedLink() == gfcl.GetLocalizedLink()))).ToList());
+        }
+        if (controllerFooterSubLinks != null && controllerFooterSubLinks.Any())
+        {
+            footerSubLinks.AddRange(controllerFooterSubLinks);
+        }
+        if (globalFooterSubLinks != null && globalFooterSubLinks.Any())
+        {
+            // Add any global footer sub link that does not (already) exist in the list of custom footer sub links.
+            footerSubLinks.AddRange(globalFooterSubLinks.Where(gfsl => !footerSubLinks.Any(fl => (!string.IsNullOrEmpty(gfsl.GetLocalizedLabel()) && fl.GetLocalizedLabel() == gfsl.GetLocalizedLabel()) || (!string.IsNullOrEmpty(gfsl.GetLocalizedLink()) && fl.GetLocalizedLink() == gfsl.GetLocalizedLink()))).ToList());
+        }
+        if (!string.IsNullOrEmpty(controllerFooterContextualHeading))
+        {
+            footerContextualHeading = controllerFooterContextualHeading;
+        }
     }
     <gcds-footer display="full" contextual-heading="@footerContextualHeading" contextual-links="@footerContextualLinks" sub-links="@footerSubLinks"></gcds-footer>
 
