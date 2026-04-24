@@ -1,4 +1,6 @@
-﻿namespace GCFoundation.Common.Models
+﻿using GCFoundation.Common.Utilities;
+
+namespace GCFoundation.Common.Models
 {
     /// <summary>
     /// Represents a generic HTML meta tag. Supports either name/content or property/content pairs,
@@ -27,28 +29,71 @@
         public string? Charset { get; set; }
 
         /// <summary>
-        /// The value of the meta tag 'content' attribute.
+        /// The value of the meta tag 'content' attribute, or the language-neutral fallback when
+        /// <see cref="ContentEn"/> / <see cref="ContentFr"/> are used.
         /// </summary>
         public string? Content { get; set; }
 
         /// <summary>
+        /// English <c>content</c> when the UI culture is English. Falls back to <see cref="Content"/> when unset.
+        /// </summary>
+        public string? ContentEn { get; set; }
+
+        /// <summary>
+        /// French <c>content</c> when the UI culture is French. Falls back to <see cref="Content"/> when unset.
+        /// </summary>
+        public string? ContentFr { get; set; }
+
+        /// <summary>
         /// Clones a 'meta' tag into a new MetaTag object.
         /// </summary>
-        public MetaTag Clone() {
+        public MetaTag Clone()
+        {
             return new MetaTag
             {
                 Name = Name,
                 Property = Property,
                 HttpEquiv = HttpEquiv,
                 Charset = Charset,
-                Content = Content
+                Content = Content,
+                ContentEn = ContentEn,
+                ContentFr = ContentFr
             };
+        }
+
+        /// <summary>
+        /// Resolves the <c>content</c> value for rendering: French and English use locale-specific properties
+        /// when set, otherwise <see cref="Content"/>; other cultures use <see cref="Content"/>, then English, then French.
+        /// </summary>
+        public string? GetLocalizedContent()
+        {
+            if (LanguageUtility.IsFrench())
+            {
+                if (!string.IsNullOrWhiteSpace(ContentFr))
+                    return ContentFr;
+                return Content;
+            }
+            else if (LanguageUtility.IsEnglish())
+            {
+                if (!string.IsNullOrWhiteSpace(ContentEn))
+                    return ContentEn;
+                return Content;
+            }
+
+            if (!string.IsNullOrWhiteSpace(Content))
+                return Content;
+            if (!string.IsNullOrWhiteSpace(ContentEn))
+                return ContentEn;
+            if (!string.IsNullOrWhiteSpace(ContentFr))
+                return ContentFr;
+            return null;
         }
 
         /// <summary>
         /// Renders a 'meta' tag based on the current attributes of the object.
         /// </summary>
-        public string? Render() {
+        public string? Render()
+        {
             if (!string.IsNullOrWhiteSpace(Charset))
                 return $"<meta charset=\"{System.Net.WebUtility.HtmlEncode(Charset)}\">";
 
@@ -59,8 +104,9 @@
                 attributes.Add($"property=\"{System.Net.WebUtility.HtmlEncode(Property)}\"");
             if (!string.IsNullOrWhiteSpace(HttpEquiv))
                 attributes.Add($"http-equiv=\"{System.Net.WebUtility.HtmlEncode(HttpEquiv)}\"");
-            if (!string.IsNullOrWhiteSpace(Content))
-                attributes.Add($"content=\"{System.Net.WebUtility.HtmlEncode(Content)}\"");
+            var content = GetLocalizedContent();
+            if (!string.IsNullOrWhiteSpace(content))
+                attributes.Add($"content=\"{System.Net.WebUtility.HtmlEncode(content)}\"");
             return $"<meta {string.Join(" ", attributes)}>";
         }
     }

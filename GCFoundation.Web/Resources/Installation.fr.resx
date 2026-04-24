@@ -247,7 +247,7 @@
     <value>&lt;strong&gt;Prise en charge du contrôleur de base&lt;/strong&gt; : GCFoundationBaseController collecte les balises meta par page et les expose aux vues via ViewData["MetaTags"] après chaque action.</value>
   </data>
   <data name="Metadata_Overview_Item_TypedModel" xml:space="preserve">
-    <value>&lt;strong&gt;Modèle fortement typé&lt;/strong&gt; : MetaTag prend en charge name/content, property/content (Open Graph, Twitter), http-equiv/content et charset.</value>
+    <value>&lt;strong&gt;Modèle fortement typé&lt;/strong&gt; : MetaTag prend en charge name/content, property/content (Open Graph, Twitter), http-equiv/content, charset, ainsi que du texte anglais ou français facultatif via &lt;code&gt;contentEn&lt;/code&gt; / &lt;code&gt;contentFr&lt;/code&gt;, avec &lt;code&gt;content&lt;/code&gt; comme repli.</value>
   </data>
   <data name="Metadata_Overview_Item_LayoutMerge" xml:space="preserve">
     <value>&lt;strong&gt;Rendu et fusion dans la mise en page&lt;/strong&gt; : _FoundationLayout.cshtml fusionne les balises fournies par le contrôleur avec les balises globales configurées, en évitant les doublons par nom ou propriété. Les balises du contrôleur ont priorité.</value>
@@ -272,6 +272,9 @@
   </data>
   <data name="Metadata_Behavior_Item_Encoding" xml:space="preserve">
     <value>&lt;strong&gt;Encodage&lt;/strong&gt; : Les attributs sont encodés en HTML lors du rendu.</value>
+  </data>
+  <data name="Metadata_Behavior_Item_LocalizedContent" xml:space="preserve">
+    <value>&lt;strong&gt;Contenu localisé&lt;/strong&gt; : les propriétés facultatives &lt;code&gt;contentEn&lt;/code&gt; et &lt;code&gt;contentFr&lt;/code&gt; sont sélectionnées selon &lt;code&gt;CurrentUICulture&lt;/code&gt; au moment du rendu; &lt;code&gt;content&lt;/code&gt; sert de repli et convient aux valeurs non linguistiques (par ex. charset, &lt;code&gt;og:type&lt;/code&gt;).</value>
   </data>
   <data name="Metadata_Behavior_Item_Attributes" xml:space="preserve">
     <value>&lt;strong&gt;Attributs&lt;/strong&gt; : Utilisez soit Name soit Property (pas les deux). Charset est autonome; HttpEquiv est généralement utilisé avec Content.</value>

@@ -87,24 +87,29 @@ Add JavaScript files that will be included on every page:
 
 ### Global Meta Tags
 
-Add meta tags for SEO, social media, and other purposes:
+Add meta tags for SEO, social media, and other purposes. Each entry is a typed `MetaTag` object (not a raw HTML string). Use `content` alone for language-neutral values, or add optional `contentEn` / `contentFr`; rendering picks the string for `CurrentUICulture` with `content` as fallback.
 
 ```json
 {
   "FoundationComponentsSettings": {
     "GlobalMetaTags": [
-      "<meta name=\"description\" content=\"My application description\">",
-      "<meta name=\"keywords\" content=\"keyword1, keyword2, keyword3\">",
-      "<meta name=\"author\" content=\"Your Name\">",
-      "<meta name=\"robots\" content=\"index, follow\">",
-      "<meta property=\"og:title\" content=\"My Application\">",
-      "<meta property=\"og:description\" content=\"Application description for social media\">",
-      "<meta property=\"og:type\" content=\"website\">",
-      "<meta property=\"og:url\" content=\"https://example.com\">",
-      "<meta property=\"og:image\" content=\"https://example.com/og-image.jpg\">",
-      "<meta name=\"twitter:card\" content=\"summary_large_image\">",
-      "<meta name=\"twitter:title\" content=\"My Application\">",
-      "<meta name=\"twitter:description\" content=\"Application description for Twitter\">"
+      {
+        "name": "description",
+        "content": "Fallback or neutral description",
+        "contentEn": "My application description",
+        "contentFr": "Description de mon application"
+      },
+      { "name": "keywords", "content": "keyword1, keyword2, keyword3" },
+      { "name": "author", "content": "Your Name" },
+      { "name": "robots", "content": "index, follow" },
+      { "property": "og:title", "content": "My Application" },
+      { "property": "og:description", "content": "Application description for social media" },
+      { "property": "og:type", "content": "website" },
+      { "property": "og:url", "content": "https://example.com" },
+      { "property": "og:image", "content": "https://example.com/og-image.jpg" },
+      { "name": "twitter:card", "content": "summary_large_image" },
+      { "name": "twitter:title", "content": "My Application" },
+      { "name": "twitter:description", "content": "Application description for Twitter" }
     ]
   }
 }
@@ -152,15 +157,18 @@ Here's a complete example of the `FoundationComponentsSettings` section:
       "/js/analytics.js"
     ],
     "GlobalMetaTags": [
-      "<meta name=\"description\" content=\"GCFoundation - A comprehensive foundation for building Government of Canada applications\">",
-      "<meta name=\"keywords\" content=\"GC Design System, FDCP, Government of Canada, ASP.NET Core\">",
-      "<meta name=\"author\" content=\"TBS-SCT\">",
-      "<meta name=\"robots\" content=\"index, follow\">",
-      "<meta property=\"og:title\" content=\"GCFoundation\">",
-      "<meta property=\"og:description\" content=\"A comprehensive foundation for building Government of Canada applications\">",
-      "<meta property=\"og:type\" content=\"website\">",
-      "<meta property=\"og:url\" content=\"https://example.com\">",
-      "<meta property=\"og:image\" content=\"https://example.com/og-image.jpg\">"
+      {
+        "name": "description",
+        "content": "GCFoundation - A comprehensive foundation for building Government of Canada applications"
+      },
+      { "name": "keywords", "content": "GC Design System, FDCP, Government of Canada, ASP.NET Core" },
+      { "name": "author", "content": "TBS-SCT" },
+      { "name": "robots", "content": "index, follow" },
+      { "property": "og:title", "content": "GCFoundation" },
+      { "property": "og:description", "content": "A comprehensive foundation for building Government of Canada applications" },
+      { "property": "og:type", "content": "website" },
+      { "property": "og:url", "content": "https://example.com" },
+      { "property": "og:image", "content": "https://example.com/og-image.jpg" }
     ],
     "GlobalLinkTags": [
       "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">",
