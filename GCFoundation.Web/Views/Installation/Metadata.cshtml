@@ -100,7 +100,12 @@ public class ArticlesController : GCFoundationBaseController
 		<pre><code class="language-json">{
 	"FoundationComponentsSettings": {
 		"GlobalMetaTags": [
-			{ "name": "description", "content": "GCFoundation - A comprehensive foundation for building Government of Canada applications" },
+			{
+				"name": "description",
+				"content": "Fallback when a locale-specific string is omitted",
+				"contentEn": "GCFoundation — English description",
+				"contentFr": "GCFoundation — description en français"
+			},
 			{ "name": "robots", "content": "index, follow" },
 			{ "property": "og:title", "content": "GCFoundation" },
 			{ "property": "og:type", "content": "website" }
@@ -114,6 +119,7 @@ public class ArticlesController : GCFoundationBaseController
 		<ul>
 			<li>@Html.Raw(Installation.Metadata_Behavior_Item_Dedup)</li>
 			<li>@Html.Raw(Installation.Metadata_Behavior_Item_Encoding)</li>
+			<li>@Html.Raw(Installation.Metadata_Behavior_Item_LocalizedContent)</li>
 			<li>@Html.Raw(Installation.Metadata_Behavior_Item_Attributes)</li>
 			<li>@Html.Raw(Installation.Metadata_Behavior_Item_Order)</li>
 			<li>@Html.Raw(Installation.Metadata_Behavior_Item_NoViewChanges)</li>
@@ -122,9 +128,14 @@ public class ArticlesController : GCFoundationBaseController
 		<hr />
 
 		<gcds-heading tag="h2" id="examples">@Installation.Metadata_Examples_Heading</gcds-heading>
-		<pre><code class="language-csharp">// Open Graph + description
+		<pre><code class="language-csharp">// Open Graph + description (optional bilingual body)
 AddMetaTag(new MetaTag { Property = "og:title", Content = "Welcome" });
-AddMetaTag(new MetaTag { Name = "description", Content = "Page description here" });
+AddMetaTag(new MetaTag {
+	Name = "description",
+	Content = "Neutral fallback",
+	ContentEn = "Page description (EN)",
+	ContentFr = "Description de la page (FR)"
+});
 
 // http-equiv and charset
 AddMetaTag(new MetaTag { HttpEquiv = "refresh", Content = "30" });

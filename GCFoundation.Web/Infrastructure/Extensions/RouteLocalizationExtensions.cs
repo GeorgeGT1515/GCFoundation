@@ -29,6 +29,11 @@ namespace GCFoundation.Web.Infrastructure.Extensions
                 .WhereAction(nameof(HomeController.Index))
                 .TranslateAction("");
 
+                setup.UseCulture("fr")
+                .WhereController(nameof(HomeController))
+                .WhereAction(nameof(HomeController.AccessibilityStatement))
+                .TranslateAction("declaration-daccessibilite");
+
                 // Components Controller
                 setup.UseCulture("fr")
                 .WhereController(nameof(ComponentsController))

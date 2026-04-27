@@ -134,4 +134,57 @@
   &lt;/ul&gt;
 &lt;/gcds-text&gt;</value>
   </data>
+  <data name="AccessibilityStatement_Title" xml:space="preserve">
+    <value>Déclaration d'accessibilité</value>
+  </data>
+  <data name="AccessibilityStatement_BetaNotice_Heading" xml:space="preserve">
+    <value>Avis de version alpha</value>
+  </data>
+  <data name="AccessibilityStatement_BetaNotice" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Ce système de conception est actuellement en version alpha. Nous travaillons activement à améliorer l’accessibilité de tous les composants et modèles personnalisés. Nous sommes conscients que certains composants ne répondent pas encore entièrement aux exigences d’accessibilité, notamment celles décrites dans la norme &lt;gcds-link href="https://accessibilite.canada.ca/elaboration-normes-accessibilite/canasc-en-301-5492024-exigences-daccessibilite-pour-les-produits-et-services-de-tic" target="_blank"&gt;CAN/ASC – EN 301 549&lt;/gcds-link&gt;.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;Nous nous engageons à cerner et à résoudre ces problèmes avant de recommander des composants pour une utilisation plus large dans l’ensemble du gouvernement du Canada. Au fur et à mesure que nous continuerons d’itérer, nous mettrons à jour cette page pour refléter nos progrès et nos limites connues.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="AccessibilityStatement_OurCommitment_Heading" xml:space="preserve">
+    <value>Notre engagement</value>
+  </data>
+  <data name="AccessibilityStatement_OurCommitment" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Nous nous engageons à créer des expériences numériques accessibles au plus grand nombre, y compris aux utilisateurs en situation de handicap. Nous suivons la norme technique &lt;gcds-link href="https://accessibilite.canada.ca/elaboration-normes-accessibilite/canasc-en-301-5492024-exigences-daccessibilite-pour-les-produits-et-services-de-tic" target="_blank"&gt;CAN/ASC – EN 301 549&lt;/gcds-link&gt; pour les technologies de l’information et des communications (TIC) pour guider la conception, le codage, la documentation et la mise à l’essai des composants. Cela garantit que nos solutions respectent les principes de la détectibilité, de l’exploitabilité, de la compréhension et de la robustesse.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="AccessibilityStatement_WhatThisMeans_Heading" xml:space="preserve">
+    <value>Qu’est-ce que cela signifie concrètement?</value>
+  </data>
+  <data name="AccessibilityStatement_WhatThisMeans" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Lorsque vous utilisez notre système de conception ou tout composant construit à partir de celui-ci, vous devez vous attendre à ce qui suit :&lt;/gcds-text&gt;
+&lt;gcds-text&gt;
+&lt;ul class="list-disc"&gt;
+&lt;li&gt;Accessibilité du clavier et gestion de la concentration : Tous les éléments interactifs doivent être accessibles et utilisables avec un clavier, avec des indicateurs de focus clairs.&lt;/li&gt;
+&lt;li&gt;Prise en charge des technologies d’assistance : HTML sémantique, étiquettes précises, ARIA le cas échéant, et structure significative pour que les lecteurs d’écran et autres outils puissent interpréter le contenu de manière fiable.&lt;/li&gt;
+&lt;li&gt;Forte accessibilité visuelle : contraste de couleurs adéquat, interfaces évolutives et repères visuels qui ne dépendent pas uniquement de la couleur.&lt;/li&gt;
+&lt;li&gt;Contenu clair et utilisable : en-têtes pertinents, champs de formulaire accessibles, messages d’erreur et contenu bien structuré.&lt;/li&gt;
+&lt;li&gt;Conception réactive et adaptative : les composants se comportent de manière cohérente et accessible sur tous les appareils et toutes les tailles d’écran.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="AccessibilityStatement_HowWeTest_Heading" xml:space="preserve">
+    <value>Comment nous testons et maintenons l’accessibilité</value>
+  </data>
+  <data name="AccessibilityStatement_HowWeTest" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Pour favoriser l’amélioration continue, nous :&lt;/gcds-text&gt;
+&lt;gcds-text&gt;
+&lt;ul class="list-disc"&gt;
+&lt;li&gt;Utiliser des outils automatisés de mise à l’essai de l’accessibilité pendant le développement.&lt;/li&gt;
+&lt;li&gt;Nous envisageons d’effectuer des tests manuels plus robustes, y compris avec des technologies d’assistance et des utilisateurs qui ont des besoins en matière d’accessibilité, afin de valider la convivialité dans le monde réel.&lt;/li&gt;
+&lt;li&gt;Surveiller les changements apportés aux normes d’accessibilité et mettre à jour les éléments et les directives en conséquence.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="AccessibilityStatement_KnownIssues_Heading" xml:space="preserve">
+    <value>Problèmes connus</value>
+  </data>
+  <data name="AccessibilityStatement_KnownIssues" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Comme ce système de conception est en version alpha, certains composants peuvent ne pas encore répondre aux exigences en matière de contraste, de clavier, de sémantique ou de gestion du focus.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;Nous documentons ces problèmes, en accordant la priorité aux correctifs et nous ne ferons pas la promotion d’un composant pour une utilisation à l’échelle du GC tant qu’il ne répondra pas à nos normes d’accessibilité.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;Si vous rencontrez des obstacles à l’accessibilité ou si vous avez des suggestions d’amélioration, n’hésitez pas à ouvrir un billet GitHub.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;Vos commentaires nous aident à créer des outils plus inclusifs et accessibles pour tous.&lt;/gcds-text&gt;</value>
+  </data>
 </root>

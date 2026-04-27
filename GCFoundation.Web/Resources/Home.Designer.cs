@@ -61,6 +61,121 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;This design system is currently in alpha. We are actively working to improve the accessibility of all custom components and patterns. We are aware that some components do not yet fully meet accessibility requirements, including those outlined in &lt;gcds-link href=&quot;https://accessible.canada.ca/creating-accessibility-standards/canasc-en-301-5492024-accessibility-requirements-ict-products-and-services&quot; target=&quot;_blank&quot;&gt;CAN/ASC – EN 301 549&lt;/gcds-link&gt;.&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;We are committed to identi [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string AccessibilityStatement_BetaNotice {
+            get {
+                return ResourceManager.GetString("AccessibilityStatement_BetaNotice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Beta notice.
+        /// </summary>
+        public static string AccessibilityStatement_BetaNotice_Heading {
+            get {
+                return ResourceManager.GetString("AccessibilityStatement_BetaNotice_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;To support continuous improvement, we:&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;
+        ///&lt;ul class=&quot;list-disc&quot;&gt;
+        ///&lt;li&gt;Use automated accessibility testing tools during development.&lt;/li&gt;
+        ///&lt;li&gt;Are looking into conducting more robust manual testing: including with assistive technologies and with users who have accessibility needs - to validate real-world usability.&lt;/li&gt;
+        ///&lt;li&gt;Monitor changes in accessibility standards and update components and guidance accordingly.&lt;/li&gt;
+        ///&lt;/ul&gt;
+        ///&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string AccessibilityStatement_HowWeTest {
+            get {
+                return ResourceManager.GetString("AccessibilityStatement_HowWeTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How we test and maintain accessibility.
+        /// </summary>
+        public static string AccessibilityStatement_HowWeTest_Heading {
+            get {
+                return ResourceManager.GetString("AccessibilityStatement_HowWeTest_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;As this design system is in alpha, some components may not yet meet contrast, keyboard, semantic, or focus-management requirements.&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;We are documenting these issues, prioritizing fixes, and will not promote a component for GC-wide use until it meets our accessibility standards.&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;If you encounter accessibility barriers or have suggestions for improvement, please feel free to open a GitHub ticket.&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;Your feedback helps us build mor [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string AccessibilityStatement_KnownIssues {
+            get {
+                return ResourceManager.GetString("AccessibilityStatement_KnownIssues", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Known issues.
+        /// </summary>
+        public static string AccessibilityStatement_KnownIssues_Heading {
+            get {
+                return ResourceManager.GetString("AccessibilityStatement_KnownIssues_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;We are committed to building digital experiences that are accessible to as many people as possible, including users with disabilities. We follow the technical standard &lt;gcds-link href=&quot;https://accessible.canada.ca/creating-accessibility-standards/canasc-en-301-5492024-accessibility-requirements-ict-products-and-services&quot; target=&quot;_blank&quot;&gt;CAN/ASC – EN 301 549&lt;/gcds-link&gt; for Information and Communication Technology (ICT) to guide how we design, code, document, and test components. This ensures our  [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string AccessibilityStatement_OurCommitment {
+            get {
+                return ResourceManager.GetString("AccessibilityStatement_OurCommitment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Our commitment.
+        /// </summary>
+        public static string AccessibilityStatement_OurCommitment_Heading {
+            get {
+                return ResourceManager.GetString("AccessibilityStatement_OurCommitment_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accessibility statement.
+        /// </summary>
+        public static string AccessibilityStatement_Title {
+            get {
+                return ResourceManager.GetString("AccessibilityStatement_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;When using our design system or any components built from it, you should expect:&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;
+        ///&lt;ul class=&quot;list-disc&quot;&gt;
+        ///&lt;li&gt;Keyboard accessibility &amp; focus management: All interactive elements must be reachable and usable with a keyboard, with clear focus indicators.&lt;/li&gt;
+        ///&lt;li&gt;Support for assistive technologies: Semantic HTML, accurate labels, ARIA where appropriate, and meaningful structure so screen readers and other tools can interpret content reliably.&lt;/li&gt;
+        ///&lt;li&gt;Strong visual access [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string AccessibilityStatement_WhatThisMeans {
+            get {
+                return ResourceManager.GetString("AccessibilityStatement_WhatThisMeans", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What this means in practice.
+        /// </summary>
+        public static string AccessibilityStatement_WhatThisMeans_Heading {
+            get {
+                return ResourceManager.GetString("AccessibilityStatement_WhatThisMeans_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to GCFoundation is a library that provides helpers to build a GC web application compliant with the latest standards..
         /// </summary>
         public static string Index_Description {

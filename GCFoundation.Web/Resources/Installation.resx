@@ -247,7 +247,7 @@
     <value>&lt;strong&gt;Base controller support&lt;/strong&gt;: GCFoundationBaseController collects per-page meta tags and exposes them to views via ViewData["MetaTags"] after each action.</value>
   </data>
   <data name="Metadata_Overview_Item_TypedModel" xml:space="preserve">
-    <value>&lt;strong&gt;Strongly-typed model&lt;/strong&gt;: MetaTag supports name/content, property/content (Open Graph, Twitter), http-equiv/content, and charset.</value>
+    <value>&lt;strong&gt;Strongly-typed model&lt;/strong&gt;: MetaTag supports name/content, property/content (Open Graph, Twitter), http-equiv/content, charset, and optional English/French strings via &lt;code&gt;contentEn&lt;/code&gt; / &lt;code&gt;contentFr&lt;/code&gt; with &lt;code&gt;content&lt;/code&gt; as fallback.</value>
   </data>
   <data name="Metadata_Overview_Item_LayoutMerge" xml:space="preserve">
     <value>&lt;strong&gt;Layout rendering and merge&lt;/strong&gt;: _FoundationLayout.cshtml merges controller-provided tags with configured global tags, avoiding duplicates by name or property. Controller tags take precedence.</value>
@@ -272,6 +272,9 @@
   </data>
   <data name="Metadata_Behavior_Item_Encoding" xml:space="preserve">
     <value>&lt;strong&gt;Encoding&lt;/strong&gt;: Attributes are HTML-encoded on render.</value>
+  </data>
+  <data name="Metadata_Behavior_Item_LocalizedContent" xml:space="preserve">
+    <value>&lt;strong&gt;Localized content&lt;/strong&gt;: Optional &lt;code&gt;contentEn&lt;/code&gt; and &lt;code&gt;contentFr&lt;/code&gt; are chosen from &lt;code&gt;CurrentUICulture&lt;/code&gt; when rendering; &lt;code&gt;content&lt;/code&gt; is the fallback and suits language-neutral values (for example charset, &lt;code&gt;og:type&lt;/code&gt;).</value>
   </data>
   <data name="Metadata_Behavior_Item_Attributes" xml:space="preserve">
     <value>&lt;strong&gt;Attributes&lt;/strong&gt;: Use either Name or Property (not both). Charset is standalone; HttpEquiv generally pairs with Content.</value>

@@ -146,6 +146,18 @@ namespace GCFoundation.Common.Settings
         /// </summary>
         public Collection<string> GlobalLinkTags { get; } = new Collection<string>();
 
+        /// <summary>
+        /// Gets optional global contextual footer links (shown in the footer's contextual section).
+        /// Bind from appsettings as a JSON array of <see cref="FooterLink"/> objects (label/link and optional locale-specific fields).
+        /// </summary>
+        public Collection<FooterLink> GlobalFooterContextualLinks { get; } = new Collection<FooterLink>();
+
+        /// <summary>
+        /// Gets optional global footer sub-links.
+        /// Bind from appsettings as a JSON array of <see cref="FooterLink"/> objects (label/link and optional locale-specific fields).
+        /// </summary>
+        public Collection<FooterLink> GlobalFooterSubLinks { get; } = new Collection<FooterLink>();
+
 
         /// <summary>
         /// Determines whether to include the Adobe Analytics' script.

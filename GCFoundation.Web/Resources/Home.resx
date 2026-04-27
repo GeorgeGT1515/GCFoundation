@@ -134,4 +134,57 @@
     &lt;/ul&gt;
 &lt;/gcds-text&gt;</value>
   </data>
+  <data name="AccessibilityStatement_Title" xml:space="preserve">
+    <value>Accessibility statement</value>
+  </data>
+  <data name="AccessibilityStatement_BetaNotice_Heading" xml:space="preserve">
+    <value>Beta notice</value>
+  </data>
+  <data name="AccessibilityStatement_BetaNotice" xml:space="preserve">
+    <value>&lt;gcds-text&gt;This design system is currently in alpha. We are actively working to improve the accessibility of all custom components and patterns. We are aware that some components do not yet fully meet accessibility requirements, including those outlined in &lt;gcds-link href="https://accessible.canada.ca/creating-accessibility-standards/canasc-en-301-5492024-accessibility-requirements-ict-products-and-services" target="_blank"&gt;CAN/ASC – EN 301 549&lt;/gcds-link&gt;.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;We are committed to identifying and resolving these issues before recommending components for wider use across the Government of Canada. As we continue to iterate, we will update this page to reflect our progress and known limitations.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="AccessibilityStatement_OurCommitment_Heading" xml:space="preserve">
+    <value>Our commitment</value>
+  </data>
+  <data name="AccessibilityStatement_OurCommitment" xml:space="preserve">
+    <value>&lt;gcds-text&gt;We are committed to building digital experiences that are accessible to as many people as possible, including users with disabilities. We follow the technical standard &lt;gcds-link href="https://accessible.canada.ca/creating-accessibility-standards/canasc-en-301-5492024-accessibility-requirements-ict-products-and-services" target="_blank"&gt;CAN/ASC – EN 301 549&lt;/gcds-link&gt; for Information and Communication Technology (ICT) to guide how we design, code, document, and test components. This ensures our solutions follow the principles of being perceivable, operable, understandable, and robust.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="AccessibilityStatement_WhatThisMeans_Heading" xml:space="preserve">
+    <value>What this means in practice</value>
+  </data>
+  <data name="AccessibilityStatement_WhatThisMeans" xml:space="preserve">
+    <value>&lt;gcds-text&gt;When using our design system or any components built from it, you should expect:&lt;/gcds-text&gt;
+&lt;gcds-text&gt;
+&lt;ul class="list-disc"&gt;
+&lt;li&gt;Keyboard accessibility &amp; focus management: All interactive elements must be reachable and usable with a keyboard, with clear focus indicators.&lt;/li&gt;
+&lt;li&gt;Support for assistive technologies: Semantic HTML, accurate labels, ARIA where appropriate, and meaningful structure so screen readers and other tools can interpret content reliably.&lt;/li&gt;
+&lt;li&gt;Strong visual accessibility: Adequate colour contrast, scalable interfaces, and visual cues that do not rely solely on colour.&lt;/li&gt;
+&lt;li&gt;Clear and usable content: Meaningful headings, accessible form fields and error messaging, and well-structured content.&lt;/li&gt;
+&lt;li&gt;Responsive and adaptive design: Components behave consistently and accessibly across devices and screen sizes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="AccessibilityStatement_HowWeTest_Heading" xml:space="preserve">
+    <value>How we test and maintain accessibility</value>
+  </data>
+  <data name="AccessibilityStatement_HowWeTest" xml:space="preserve">
+    <value>&lt;gcds-text&gt;To support continuous improvement, we:&lt;/gcds-text&gt;
+&lt;gcds-text&gt;
+&lt;ul class="list-disc"&gt;
+&lt;li&gt;Use automated accessibility testing tools during development.&lt;/li&gt;
+&lt;li&gt;Are looking into conducting more robust manual testing: including with assistive technologies and with users who have accessibility needs - to validate real-world usability.&lt;/li&gt;
+&lt;li&gt;Monitor changes in accessibility standards and update components and guidance accordingly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="AccessibilityStatement_KnownIssues_Heading" xml:space="preserve">
+    <value>Known issues</value>
+  </data>
+  <data name="AccessibilityStatement_KnownIssues" xml:space="preserve">
+    <value>&lt;gcds-text&gt;As this design system is in alpha, some components may not yet meet contrast, keyboard, semantic, or focus-management requirements.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;We are documenting these issues, prioritizing fixes, and will not promote a component for GC-wide use until it meets our accessibility standards.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;If you encounter accessibility barriers or have suggestions for improvement, please feel free to open a GitHub ticket.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;Your feedback helps us build more inclusive, accessible tools for everyone.&lt;/gcds-text&gt;</value>
+  </data>
 </root>

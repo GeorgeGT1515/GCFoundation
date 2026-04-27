@@ -20,5 +20,16 @@ namespace GCFoundation.Web.Controllers
 
             return View();
         }
+
+        /// <summary>
+        /// Displays the Accessibility statement.
+        /// </summary>
+        [HttpGet("accessibility-statement")]
+        public IActionResult AccessibilityStatement()
+        {
+            SetPageTitle($"{Resources.Home.AccessibilityStatement_Title}");
+
+            return View();
+        }
     }
 }

@@ -141,8 +141,13 @@
       "https://cdn.jsdelivr.net/npm/some-other-library@1.0.0/dist/script.js"
     ],
     "GlobalMetaTags": [
-      "&lt;meta name=\"description\" content=\"My application description\"&gt;",
-      "&lt;meta property=\"og:title\" content=\"My Application\"&gt;"
+      {
+        "name": "description",
+        "content": "Fallback or language-neutral text",
+        "contentEn": "My application description (English)",
+        "contentFr": "Description de mon application (français)"
+      },
+      { "property": "og:title", "content": "My Application" }
     ],
     "GlobalLinkTags": [
       "&lt;link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"&gt;"

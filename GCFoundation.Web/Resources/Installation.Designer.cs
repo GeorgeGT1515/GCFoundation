@@ -403,6 +403,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;strong&gt;Localized content&lt;/strong&gt;: Optional &lt;code&gt;contentEn&lt;/code&gt; and &lt;code&gt;contentFr&lt;/code&gt; are chosen from &lt;code&gt;CurrentUICulture&lt;/code&gt; when rendering; &lt;code&gt;content&lt;/code&gt; is the fallback and suits language-neutral values (for example charset, &lt;code&gt;og:type&lt;/code&gt;)..
+        /// </summary>
+        public static string Metadata_Behavior_Item_LocalizedContent {
+            get {
+                return ResourceManager.GetString("Metadata_Behavior_Item_LocalizedContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;strong&gt;No view changes needed&lt;/strong&gt;: The layout picks up ViewData[&quot;MetaTags&quot;] automatically..
         /// </summary>
         public static string Metadata_Behavior_Item_NoViewChanges {
@@ -556,7 +565,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;strong&gt;Strongly-typed model&lt;/strong&gt;: MetaTag supports name/content, property/content (Open Graph, Twitter), http-equiv/content, and charset..
+        ///   Looks up a localized string similar to &lt;strong&gt;Strongly-typed model&lt;/strong&gt;: MetaTag supports name/content, property/content (Open Graph, Twitter), http-equiv/content, charset, and optional English/French strings via &lt;code&gt;contentEn&lt;/code&gt; / &lt;code&gt;contentFr&lt;/code&gt; with &lt;code&gt;content&lt;/code&gt; as fallback..
         /// </summary>
         public static string Metadata_Overview_Item_TypedModel {
             get {
