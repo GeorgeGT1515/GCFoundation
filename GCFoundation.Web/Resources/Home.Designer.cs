@@ -105,10 +105,10 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;gcds-text&gt;As this design system is in beta, some components may not yet meet contrast, keyboard, semantic, or focus-management requirements.&lt;/gcds-text&gt;
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;As this design system is in alpha, some components may not yet meet contrast, keyboard, semantic, or focus-management requirements.&lt;/gcds-text&gt;
         ///&lt;gcds-text&gt;We are documenting these issues, prioritizing fixes, and will not promote a component for GC-wide use until it meets our accessibility standards.&lt;/gcds-text&gt;
         ///&lt;gcds-text&gt;If you encounter accessibility barriers or have suggestions for improvement, please feel free to open a GitHub ticket.&lt;/gcds-text&gt;
-        ///&lt;gcds-text&gt;Your feedback helps us build more [rest of string was truncated]&quot;;.
+        ///&lt;gcds-text&gt;Your feedback helps us build mor [rest of string was truncated]&quot;;.
         /// </summary>
         public static string AccessibilityStatement_KnownIssues {
             get {

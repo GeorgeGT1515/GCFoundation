@@ -182,7 +182,7 @@
     <value>Known issues</value>
   </data>
   <data name="AccessibilityStatement_KnownIssues" xml:space="preserve">
-    <value>&lt;gcds-text&gt;As this design system is in beta, some components may not yet meet contrast, keyboard, semantic, or focus-management requirements.&lt;/gcds-text&gt;
+    <value>&lt;gcds-text&gt;As this design system is in alpha, some components may not yet meet contrast, keyboard, semantic, or focus-management requirements.&lt;/gcds-text&gt;
 &lt;gcds-text&gt;We are documenting these issues, prioritizing fixes, and will not promote a component for GC-wide use until it meets our accessibility standards.&lt;/gcds-text&gt;
 &lt;gcds-text&gt;If you encounter accessibility barriers or have suggestions for improvement, please feel free to open a GitHub ticket.&lt;/gcds-text&gt;
 &lt;gcds-text&gt;Your feedback helps us build more inclusive, accessible tools for everyone.&lt;/gcds-text&gt;</value>
