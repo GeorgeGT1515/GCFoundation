@@ -1,6 +1,10 @@
-﻿using GCFoundation.Common.Utilities;
+﻿using GCFoundation.Common.Models;
+using GCFoundation.Common.Utilities;
 using GCFoundation.Components.Enums;
-using GCFoundation.Common.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.Routing;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Text.Json;
 
@@ -11,8 +15,14 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// This tag helper generates a footer with support for customizable headings, links, and display options.
     /// </summary>
     [HtmlTargetElement("gcds-footer")]
-    public class FooterTagHelper : BaseTagHelper
+    public class FooterTagHelper(IUrlHelperFactory urlHelperFactory) : BaseTagHelper
     {
+        private readonly IUrlHelperFactory UrlHelperFactory = urlHelperFactory;
+
+        [ViewContext]
+        [HtmlAttributeNotBound]
+        public ViewContext ViewContext { get; set; }
+
         /// <summary>
         /// The optional heading text to display in the footer's contextual section.
         /// </summary>
@@ -38,15 +48,17 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
+            var urlHelper = UrlHelperFactory.GetUrlHelper(ViewContext);
+
             AddAttributeIfNotNull(output, "contextual-heading", ContextualHeading);
 
-            if (SerializeFooterLinksDictionary(ContextualLinks) is { } contextualLinksJson)
+            if (SerializeFooterLinksDictionary(ContextualLinks, urlHelper) is { } contextualLinksJson)
                 output.Attributes.SetAttribute("contextual-links", contextualLinksJson);
 
             AddAttributeIfNotNull(output, "display", Display);
             AddAttributeIfNotNull(output, "lang", Lang);
 
-            if (SerializeFooterLinksDictionary(SubLinks) is { } subLinksJson)
+            if (SerializeFooterLinksDictionary(SubLinks, urlHelper) is { } subLinksJson)
                 output.Attributes.SetAttribute("sub-links", subLinksJson);
 
             base.Process(context, output);
@@ -55,13 +67,13 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// <summary>
         /// Builds a JSON object keyed by localized label for the GCDS footer attribute, or <c>null</c> when there is nothing to emit.
         /// </summary>
-        private static string? SerializeFooterLinksDictionary(IEnumerable<FooterLink>? links)
+        private static string? SerializeFooterLinksDictionary(IEnumerable<FooterLink>? links, IUrlHelper urlHelper)
         {
             if (links is null)
                 return null;
 
             var pairs = links
-                .Select(link => (Label: link.GetLocalizedLabel(), Link: link.GetLocalizedLink()))
+                .Select(link => (Label: link.GetLocalizedLabel(), Link: urlHelper.Content(link.GetLocalizedLink())))
                 .Where(pair => !string.IsNullOrWhiteSpace(pair.Label) && !string.IsNullOrWhiteSpace(pair.Link))
                 .ToList();
 

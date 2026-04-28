@@ -250,6 +250,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Accessibility statement.
+        /// </summary>
+        public static string Nav_Home_AccessibilityStatement {
+            get {
+                return ResourceManager.GetString("Nav_Home_AccessibilityStatement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Installation.
         /// </summary>
         public static string Nav_Installation {
