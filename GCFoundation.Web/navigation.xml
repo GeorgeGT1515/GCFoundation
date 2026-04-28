@@ -23,6 +23,7 @@
 
 			</Children>
 		</NavNode>
+    <NavNode key="accessibility-statement" controller="Home" action="AccessibilityStatement" area="" preservedRouteParameters="culture" text="Nav_AccessibilityStatement" />
     <NavNode key="installation" controller="Installation" action="Index" area="" preservedRouteParameters="culture" text="Nav_Installation" />
     <NavNode key="date-modified" controller="Installation" action="DateModified" area="" preservedRouteParameters="culture" text="Nav_Installation_DateModified" />
 		<NavNode key="global-resources" controller="Installation" action="GlobalResources" area="" preservedRouteParameters="culture" text="Nav_Installation_GlobalResources" />

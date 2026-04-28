@@ -261,4 +261,7 @@
   <data name="Nav_Template_Crud" xml:space="preserve">
     <value>CRUD Pages</value>
   </data>
+  <data name="Nav_Home_AccessibilityStatement" xml:space="preserve">
+    <value>Accessibility statement</value>
+  </data>
 </root>
