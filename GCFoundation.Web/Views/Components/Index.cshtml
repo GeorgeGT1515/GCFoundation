@@ -1,13 +1,10 @@
-﻿@using GCFoundation.Components.Models
-@using GCFoundation.Components.TagHelpers.GCDS
-@using GCFoundation.Web.Models.Components
+﻿@using GCFoundation.Web.Models.Components
 @using GCFoundation.Web.Resources
-@using Microsoft.AspNetCore.Routing
 @model List<ComponentIndexViewModel>
 
 <gcds-heading tag="h1" margin-bottom="400">@Components.Index_Page_Title</gcds-heading>
 
-<gcds-grid columns="repeat(3, 1fr)" equal-row-height>
+<gcds-grid columns="1fr" columns-desktop="repeat(3, 1fr)" columns-tablet="repeat(2, 1fr)" equal-row-height>
 @foreach (var component in Model.OrderBy(c => c.Name))
 {
     <gcds-card  card-title="@component.Name"
