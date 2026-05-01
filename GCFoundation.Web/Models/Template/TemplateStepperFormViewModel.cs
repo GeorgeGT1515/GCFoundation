@@ -10,6 +10,16 @@ namespace GCFoundation.Web.Models.Template
     public sealed class TemplateStepperFormViewModel : BaseViewModel
     {
         /// <summary>
+        /// Gets or sets the current step in the demo. This is used to drive the Stepper UI.
+        /// </summary>
+        public int CurrentStep { get; set; } = 1;
+
+        /// <summary>
+        /// Total number of steps in the demo Stepper.
+        /// </summary>
+        public int TotalSteps { get; } = 5;
+
+        /// <summary>
         /// Gets or sets the selected contact options.
         /// </summary>
         [Display(Name = "Stepper_Demo_ContactOptions_Label", Description = "Stepper_Demo_ContactOptions_Hint", ResourceType = typeof(Resources.Template))]

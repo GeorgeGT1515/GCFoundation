@@ -5,7 +5,7 @@
 @model GCFoundation.Web.Models.Template.TemplateStepperFormViewModel
 
 <gcds-heading tag="h1">@Template.Stepper_Demo_Name</gcds-heading>
-<fdcp-stepper current-step="2"
+<fdcp-stepper current-step="@Model.CurrentStep"
               steps="@(new List<StepperStep>
                                 {
                                     new StepperStep { StepNumber = 1, Label = Template.Stepper_Demo_Step1_Label, DisplayMode = StepperStepDisplayMode.Icon, CompletedIconHtml = "<i class='fa fa-check'></i>" },
@@ -22,6 +22,7 @@
 
 <fdcp-form method="post" action="@Url.Action("StepperDemo", "Template")" for="@Model">
     @Html.AntiForgeryToken()
+    <input type="hidden" name="CurrentStep" value="@Model.CurrentStep" />
 
     <fdcp-input for="@Model.FirstName" />
     <fdcp-input for="@Model.LastName" />

@@ -310,7 +310,7 @@ namespace GCFoundation.Web.Controllers
         {
             SetPageTitle($"{Menu.Menu_Template} : {Resources.Template.Index_Stepper_Title}");
 
-            return View("stepper/demo", new TemplateStepperFormViewModel());
+            return View("stepper/demo", new TemplateStepperFormViewModel { CurrentStep = 1 });
         }
 
         /// <summary>
@@ -325,8 +325,23 @@ namespace GCFoundation.Web.Controllers
         {
             SetPageTitle($"{Menu.Menu_Template} : {Resources.Template.Index_Stepper_Title}");
 
-            // This demo intentionally posts back to the same view regardless of navigation intent.
-            // Validation errors will be surfaced via the error summary in the view.
+            var totalSteps = model.TotalSteps;
+            var current = Math.Clamp(model.CurrentStep <= 0 ? 1 : model.CurrentStep, 1, totalSteps);
+
+            if (string.Equals(nav, "next", StringComparison.OrdinalIgnoreCase))
+            {
+                // Demo behavior: only advance when the current post is valid.
+                // If invalid, keep the step so the user can correct fields and re-submit.
+                if (ModelState.IsValid)
+                    current = Math.Min(totalSteps, current + 1);
+            }
+            else if (string.Equals(nav, "prev", StringComparison.OrdinalIgnoreCase))
+            {
+                current = Math.Max(1, current - 1);
+            }
+
+            model.CurrentStep = current;
+
             return View("stepper/demo", model);
         }
         #endregion Stepper Page Template (Code, Demo) Controller Actions
