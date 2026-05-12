@@ -87,6 +87,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             foreach (var step in visibleSteps)
             {
                 var status = step.GetStatusByCurrentStep(normalizedCurrentStep);
+                // Pair each visual state with explicit localized text so SR users are not forced to infer status from styling or icons.
                 var statusText = status switch
                 {
                     StepperStepStatus.active => Stepper.SR_StatusCurrent,
@@ -164,6 +165,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             );
 
             var childContent = new DefaultTagHelperContent();
+            // Preserve caller-provided HTML so badges can include SR-only context (for example, explaining why a step is skipped).
             childContent.SetHtmlContent(step.StatusBadgeLabel);
 
             var output = new TagHelperOutput(

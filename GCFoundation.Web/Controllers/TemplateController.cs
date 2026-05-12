@@ -325,6 +325,7 @@ namespace GCFoundation.Web.Controllers
         {
             SetPageTitle($"{Menu.Menu_Template} : {Resources.Template.Index_Stepper_Title}");
 
+            // Clamp posted state before rendering so invalid values cannot desync the stepper from the demo's fixed step count.
             var totalSteps = model.TotalSteps;
             var current = Math.Clamp(model.CurrentStep <= 0 ? 1 : model.CurrentStep, 1, totalSteps);
 
@@ -340,6 +341,7 @@ namespace GCFoundation.Web.Controllers
                 current = Math.Max(1, current - 1);
             }
 
+            // Persist the resolved step back onto the model so the view and hidden field stay in sync.
             model.CurrentStep = current;
 
             return View("stepper/demo", model);

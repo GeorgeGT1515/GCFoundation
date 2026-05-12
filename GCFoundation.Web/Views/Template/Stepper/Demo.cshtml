@@ -5,6 +5,7 @@
 @model GCFoundation.Web.Models.Template.TemplateStepperFormViewModel
 
 <gcds-heading tag="h1">@Template.Stepper_Demo_Name</gcds-heading>
+@* Keep the stepper bound to the posted model so validation errors do not reset the user's progress context. *@
 <fdcp-stepper current-step="@Model.CurrentStep"
               steps="@(new List<StepperStep>
                                 {
@@ -17,11 +18,13 @@
 
 @if (!ViewData.ModelState.IsValid)
 {
+    @* Surface validation feedback before the fields so keyboard and screen-reader users get it immediately. *@
     <fdcp-error-summary for="@Model" />
 }
 
 <fdcp-form method="post" action="@Url.Action("StepperDemo", "Template")" for="@Model">
     @Html.AntiForgeryToken()
+    @* Round-trip the current step so the server can re-render the same progress state after each post. *@
     <input type="hidden" name="CurrentStep" value="@Model.CurrentStep" />
 
     <fdcp-input for="@Model.FirstName" />

@@ -39,8 +39,9 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Equal("div", _output.TagName);
             var content = _output.Content.GetContent();
             Assert.Contains("<gcds-heading tag='h2'>Current step</gcds-heading>", content);
-            Assert.Contains("<div class='fdcp-stepper'>", content);
-            Assert.Contains("</div>", content);
+            // Protect the semantic wrapper added for accessibility: progress should be announced as navigation over an ordered list.
+            Assert.Contains("<nav class='fdcp-stepper' aria-label='Progress'>", content);
+            Assert.Contains("<ol class='fdcp-stepper__list'>", content);
         }
 
         [Fact]
@@ -68,9 +69,12 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Contains("class='fdcp-step completed'", content);
             Assert.Contains("class='fdcp-step active'", content);
             Assert.Contains("class='fdcp-step incomplete'", content);
-            Assert.Contains("<div class='fdcp-step-label'>Step 1</div>", content);
-            Assert.Contains("<div class='fdcp-step-label'>Step 2</div>", content);
-            Assert.Contains("<div class='fdcp-step-label'>Step 3</div>", content);
+            // The live region and SR-only status text ensure step state is announced even when the UI relies on icons or color.
+            Assert.Contains("aria-live='polite'", content);
+            Assert.Contains("aria-current='step'", content);
+            Assert.Contains("<span class='fdcp-step-label'>Step 1<span class='visibility-sr-only'> (Completed)</span></span>", content);
+            Assert.Contains("<span class='fdcp-step-label' aria-current='step'>Step 2<span class='visibility-sr-only'> (Current step)</span></span>", content);
+            Assert.Contains("<span class='fdcp-step-label'>Step 3<span class='visibility-sr-only'> (Upcoming)</span></span>", content);
         }
 
         [Fact]
@@ -156,7 +160,8 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 
             var tagHelper = new FDCPStepperTagHelper
             {
-                CurrentStep = 1,
+                // Render the linked step as non-current so the helper is allowed to output an interactive wrapper.
+                CurrentStep = 2,
                 Steps = steps
             };
 
@@ -165,7 +170,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 
             // Assert
             var content = _output.Content.GetContent();
-            Assert.Contains("<gcds-link href='/step1'>Step 1</gcds-link>", content);
+            Assert.Contains("<a class='fdcp-step__link' href='/step1'>", content);
         }
 
         [Fact]
@@ -309,6 +314,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 
             // Assert
             var content = _output.Content.GetContent();
+            // HTML is intentionally preserved so callers can embed SR-only helper text inside badge content.
             Assert.Contains("<span class='fdcp-badge-content'><strong>New</strong> <em>today</em></span>", content);
             Assert.DoesNotContain("&lt;strong&gt;", content);
             Assert.DoesNotContain("&lt;em&gt;", content);

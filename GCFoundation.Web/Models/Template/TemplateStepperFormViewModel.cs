@@ -10,12 +10,14 @@ namespace GCFoundation.Web.Models.Template
     public sealed class TemplateStepperFormViewModel : BaseViewModel
     {
         /// <summary>
-        /// Gets or sets the current step in the demo. This is used to drive the Stepper UI.
+        /// Gets or sets the current step in the demo. This is round-tripped through a hidden field
+        /// so the server can re-render the same progress context after each post.
         /// </summary>
         public int CurrentStep { get; set; } = 1;
 
         /// <summary>
-        /// Total number of steps in the demo Stepper.
+        /// Total number of steps in the demo Stepper. The controller uses this to clamp navigation
+        /// and the component uses it to announce accurate progress to assistive technology.
         /// </summary>
         public int TotalSteps { get; } = 5;
 

@@ -37,6 +37,7 @@ $progress-line-innactive-color: $fdcp-incomplte-color;
 
         .fdcp-step__link,
         .fdcp-step__content {
+            // Keep link and non-link states visually identical so removing the current-step link only changes semantics.
             display: flex;
             flex-direction: column;
             align-items: center;
