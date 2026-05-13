@@ -123,6 +123,12 @@
   <data name="SR_CurrentStepAnnouncement" xml:space="preserve">
     <value>Étape {0} sur {1} : {2}.</value>
   </data>
+  <data name="SR_ProgressLabel" xml:space="preserve">
+    <value>Progrès</value>
+  </data>
+  <data name="SR_StepSummary" xml:space="preserve">
+    <value>Étape {0} sur {1} : {2} ({3})</value>
+  </data>
   <data name="SR_StatusCompleted" xml:space="preserve">
     <value>Terminée</value>
   </data>

@@ -4,17 +4,27 @@
 @using GCFoundation.Web.Resources
 @model GCFoundation.Web.Models.Template.TemplateStepperFormViewModel
 
+@{
+    const string StepperHeadingId = "stepper-current-step-heading";
+    var stepperSteps = new List<StepperStep>
+    {
+        new() { StepNumber = 1, Label = Template.Stepper_Demo_Step1_Label, DisplayMode = StepperStepDisplayMode.Icon, CompletedIconHtml = "<i class='fa fa-check'></i>", IsLink = true, LinkUrl = Url.Action("StepperDemo", "Template", new { step = 1 }) ?? string.Empty },
+        new() { StepNumber = 2, Label = Template.Stepper_Demo_Step2_Label, DisplayMode = StepperStepDisplayMode.Number, IsLink = true, LinkUrl = Url.Action("StepperDemo", "Template", new { step = 2 }) ?? string.Empty },
+        new() { StepNumber = 3, Label = Template.Stepper_Demo_Step3_Label, DisplayMode = StepperStepDisplayMode.Number, IsLink = true, LinkUrl = Url.Action("StepperDemo", "Template", new { step = 3 }) ?? string.Empty },
+        new() { StepNumber = 4, Label = Template.Stepper_Demo_Step4_Label, DisplayMode = StepperStepDisplayMode.Number, IsLink = true, LinkUrl = Url.Action("StepperDemo", "Template", new { step = 4 }) ?? string.Empty },
+        new() { StepNumber = 5, Label = Template.Stepper_Demo_Step5_Label, DisplayMode = StepperStepDisplayMode.Number, IsLink = true, LinkUrl = Url.Action("StepperDemo", "Template", new { step = 5 }) ?? string.Empty }
+    };
+    var scriptNonce = Context.Items["CspNonce"]?.ToString();
+}
+
 <gcds-heading tag="h1">@Template.Stepper_Demo_Name</gcds-heading>
-@* Keep the stepper bound to the posted model so validation errors do not reset the user's progress context. *@
+@* Keep the stepper bound to the posted model so validation errors do not reset the user's progress context.
+   links-tabbable="false" scopes the stepper's keyboard focus to the active step only: after Next/Previous,
+   focus lands on the active step (programmatically) and pressing Tab moves directly to the first form input. *@
 <fdcp-stepper current-step="@Model.CurrentStep"
-              steps="@(new List<StepperStep>
-                                {
-                                    new StepperStep { StepNumber = 1, Label = Template.Stepper_Demo_Step1_Label, DisplayMode = StepperStepDisplayMode.Icon, CompletedIconHtml = "<i class='fa fa-check'></i>" },
-                                    new StepperStep { StepNumber = 2, Label = Template.Stepper_Demo_Step2_Label, DisplayMode = StepperStepDisplayMode.Icon, InProgressIconHtml = "<i class='fa fa-spinner'></i>" },
-                                    new StepperStep { StepNumber = 3, Label = Template.Stepper_Demo_Step3_Label, DisplayMode = StepperStepDisplayMode.Number },
-                                    new StepperStep { StepNumber = 4, Label = Template.Stepper_Demo_Step4_Label, DisplayMode = StepperStepDisplayMode.Number },
-                                    new StepperStep { StepNumber = 5, Label = Template.Stepper_Demo_Step5_Label, DisplayMode = StepperStepDisplayMode.Number }
-                                })"></fdcp-stepper>
+              heading-id="@StepperHeadingId"
+              links-tabbable="false"
+              steps="@stepperSteps"></fdcp-stepper>
 
 @if (!ViewData.ModelState.IsValid)
 {
@@ -40,3 +50,92 @@
         <gcds-button type="reset" button-role="secondary">@Localization.Reset</gcds-button>
     </div>
 </fdcp-form>
+
+@section Scripts {
+    <script nonce="@scriptNonce">
+        document.addEventListener('DOMContentLoaded', function () {
+            // Legacy flag kept for back-compat with previously cached pages that still set it.
+            const legacyHeadingFlagKey = 'fdcp-stepper-focus-heading';
+            // New flag: when a Next/Previous nav submit occurred, move focus to the active step after reload.
+            const focusActiveStepFlagKey = 'fdcp-stepper-focus-active-step';
+            const heading = document.getElementById('@StepperHeadingId');
+            const form = document.querySelector('form[action$="/template/stepper/demo"]');
+            const stepLinks = document.querySelectorAll('[data-stepper-focus-trigger="true"]');
+            const liveRegion = document.querySelector('[data-stepper-live-region="true"]');
+            const activeStep = document.querySelector('[data-stepper-active-step="true"]');
+
+            // NVDA / JAWS reliably announce step transitions through three independent channels:
+            //   1. The <title> — leads with "Step X of 5: <Label>" so it is the first thing the screen
+            //      reader voices after each Next/Previous reload (no JS timing required).
+            //   2. The polite aria-live region — updated on a settled timer below as a redundant cue.
+            //   3. Programmatic focus on the active step (which carries aria-label="Step X of 5: …").
+            // Steps 2 and 3 are delayed so they don't race with the screen reader's initial page-load
+            // reading, which would cause the announcement to be skipped entirely.
+
+            try {
+                if (window.sessionStorage.getItem(focusActiveStepFlagKey) === 'true') {
+                    window.sessionStorage.removeItem(focusActiveStepFlagKey);
+                    scheduleStepAnnouncement(activeStep ?? heading);
+                } else if (window.sessionStorage.getItem(legacyHeadingFlagKey) === 'true') {
+                    window.sessionStorage.removeItem(legacyHeadingFlagKey);
+                    scheduleStepAnnouncement(heading);
+                }
+            } catch (_) {
+            }
+
+            // Clicking a stepper link is a direct jump; keep heading focus there for context.
+            stepLinks.forEach(function (link) {
+                link.addEventListener('click', function () {
+                    setFlag(legacyHeadingFlagKey);
+                });
+            });
+
+            // On Next/Previous submit, queue focus on the new active step after the page re-renders.
+            form?.addEventListener('submit', function (event) {
+                const submitter = event.submitter;
+                if (submitter && submitter.getAttribute('name') === 'nav') {
+                    setFlag(focusActiveStepFlagKey);
+                }
+            });
+
+            function setFlag(key) {
+                try {
+                    window.sessionStorage.setItem(key, 'true');
+                } catch (_) {
+                }
+            }
+
+            // Wait for the screen reader to finish reading the new <title>, then move focus to the
+            // active step and re-arm the polite live region with the step phrase. The 600 ms delay is
+            // long enough to clear NVDA / JAWS / VoiceOver's initial page-load reading, short enough
+            // that sighted keyboard users barely notice the focus shift.
+            function scheduleStepAnnouncement(focusTarget) {
+                window.setTimeout(function () {
+                    if (focusTarget && typeof focusTarget.focus === 'function') {
+                        focusTarget.focus();
+                    }
+                    refreshLiveRegion();
+                }, 600);
+            }
+
+            // Force-clear then re-write the live region's text so the screen reader observes a discrete
+            // text mutation. Using a tiny secondary timeout (vs. requestAnimationFrame) is more reliable
+            // across NVDA/JAWS/Orca, which poll the accessibility tree on Windows UIA / IAccessible2.
+            function refreshLiveRegion() {
+                if (!liveRegion) {
+                    return;
+                }
+
+                const announcement = liveRegion.getAttribute('data-stepper-announcement');
+                if (!announcement) {
+                    return;
+                }
+
+                liveRegion.textContent = '';
+                window.setTimeout(function () {
+                    liveRegion.textContent = announcement;
+                }, 150);
+            }
+        });
+    </script>
+}

@@ -1,3 +1,4 @@
+using System.Globalization;
 using GCFoundation.Components.Controllers;
 using GCFoundation.Components.Models;
 using GCFoundation.Web.Models.Template;
@@ -302,15 +303,22 @@ namespace GCFoundation.Web.Controllers
         /// <summary>
         /// Displays a page containing a demo of a Stepper page template.
         /// </summary>
+        /// <param name="step">Optional step query used by the clickable stepper to jump directly to a step.</param>
         /// <returns>
         /// The view for the demo of a Stepper page template.
         /// </returns>
         [HttpGet("stepper/demo")]
-        public IActionResult StepperDemo()
+        public IActionResult StepperDemo(int? step)
         {
-            SetPageTitle($"{Menu.Menu_Template} : {Resources.Template.Index_Stepper_Title}");
+            var model = new TemplateStepperFormViewModel();
+            if (step.HasValue)
+            {
+                model.CurrentStep = Math.Clamp(step.Value, 1, model.TotalSteps);
+            }
 
-            return View("stepper/demo", new TemplateStepperFormViewModel { CurrentStep = 1 });
+            SetStepperPageTitle(model);
+
+            return View("stepper/demo", model);
         }
 
         /// <summary>
@@ -323,8 +331,6 @@ namespace GCFoundation.Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult StepperDemo(TemplateStepperFormViewModel model, string? nav)
         {
-            SetPageTitle($"{Menu.Menu_Template} : {Resources.Template.Index_Stepper_Title}");
-
             // Clamp posted state before rendering so invalid values cannot desync the stepper from the demo's fixed step count.
             var totalSteps = model.TotalSteps;
             var current = Math.Clamp(model.CurrentStep <= 0 ? 1 : model.CurrentStep, 1, totalSteps);
@@ -344,7 +350,40 @@ namespace GCFoundation.Web.Controllers
             // Persist the resolved step back onto the model so the view and hidden field stay in sync.
             model.CurrentStep = current;
 
+            SetStepperPageTitle(model);
+
             return View("stepper/demo", model);
+        }
+
+        /// <summary>
+        /// Builds the document title for the Stepper demo so it leads with the current step phrase
+        /// (e.g. "Step 2 of 5: Info") followed by the section label. Screen readers (NVDA, JAWS, VoiceOver)
+        /// announce the document title on every page load, making this the most reliable way to communicate
+        /// step transitions for users navigating with the Next/Previous buttons.
+        /// </summary>
+        private void SetStepperPageTitle(TemplateStepperFormViewModel model)
+        {
+            var stepLabel = model.CurrentStep switch
+            {
+                1 => Resources.Template.Stepper_Demo_Step1_Label,
+                2 => Resources.Template.Stepper_Demo_Step2_Label,
+                3 => Resources.Template.Stepper_Demo_Step3_Label,
+                4 => Resources.Template.Stepper_Demo_Step4_Label,
+                5 => Resources.Template.Stepper_Demo_Step5_Label,
+                _ => string.Empty,
+            };
+
+            // Mirror the announcement format used by FDCPStepperTagHelper / Stepper.SR_CurrentStepAnnouncement
+            // ("Step {0} of {1}: {2}."). Keeping this inline avoids exposing the components-internal resource
+            // class; if it ever diverges, both sides must be updated together.
+            var stepAnnouncement = string.Format(
+                CultureInfo.CurrentCulture,
+                "Step {0} of {1}: {2}.",
+                model.CurrentStep,
+                model.TotalSteps,
+                stepLabel);
+
+            SetPageTitle($"{stepAnnouncement} {Menu.Menu_Template} : {Resources.Template.Index_Stepper_Title}");
         }
         #endregion Stepper Page Template (Code, Demo) Controller Actions
     }

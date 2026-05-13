@@ -39,9 +39,8 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Equal("div", _output.TagName);
             var content = _output.Content.GetContent();
             Assert.Contains("<gcds-heading tag='h2'>Current step</gcds-heading>", content);
-            // Protect the semantic wrapper added for accessibility: progress should be announced as navigation over an ordered list.
             Assert.Contains("<nav class='fdcp-stepper' aria-label='Progress'>", content);
-            Assert.Contains("<ol class='fdcp-stepper__list'>", content);
+            Assert.Contains("<ol class='fdcp-stepper__list' role='list'>", content);
         }
 
         [Fact]
@@ -50,9 +49,9 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             // Arrange
             var steps = new[]
             {
-                new StepperStep { StepNumber = 1, Label = "Step 1" },
-                new StepperStep { StepNumber = 2, Label = "Step 2" },
-                new StepperStep { StepNumber = 3, Label = "Step 3" }
+                new StepperStep { StepNumber = 1, Label = "Intro" },
+                new StepperStep { StepNumber = 2, Label = "Info" },
+                new StepperStep { StepNumber = 3, Label = "Review" }
             };
 
             var tagHelper = new FDCPStepperTagHelper
@@ -69,12 +68,16 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Contains("class='fdcp-step completed'", content);
             Assert.Contains("class='fdcp-step active'", content);
             Assert.Contains("class='fdcp-step incomplete'", content);
-            // The live region and SR-only status text ensure step state is announced even when the UI relies on icons or color.
             Assert.Contains("aria-live='polite'", content);
-            Assert.Contains("aria-current='step'", content);
-            Assert.Contains("<span class='fdcp-step-label'>Step 1<span class='visibility-sr-only'> (Completed)</span></span>", content);
-            Assert.Contains("<span class='fdcp-step-label' aria-current='step'>Step 2<span class='visibility-sr-only'> (Current step)</span></span>", content);
-            Assert.Contains("<span class='fdcp-step-label'>Step 3<span class='visibility-sr-only'> (Upcoming)</span></span>", content);
+            Assert.Contains("data-stepper-live-region='true'", content);
+            Assert.Contains("data-stepper-announcement='Step 2 of 3: Info.'", content);
+            Assert.Contains("<li class='fdcp-step active' aria-label='Step 2 of 3: Info (Current step)' aria-current='step'>", content);
+            Assert.Contains("<span class='visibility-sr-only'>Step 1 of 3: Intro (Completed)</span>", content);
+            Assert.Contains("<span class='visibility-sr-only'>Step 2 of 3: Info (Current step)</span>", content);
+            Assert.Contains("<span class='visibility-sr-only'>Step 3 of 3: Review (Upcoming)</span>", content);
+            Assert.Contains("<span class='fdcp-step-label' aria-hidden='true'>Intro</span>", content);
+            Assert.Contains("<span class='fdcp-step-label' aria-hidden='true'>Info</span>", content);
+            Assert.Contains("<span class='fdcp-step-label' aria-hidden='true'>Review</span>", content);
         }
 
         [Fact]
@@ -155,12 +158,16 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
                     Label = "Step 1",
                     IsLink = true,
                     LinkUrl = "/step1"
+                },
+                new StepperStep
+                {
+                    StepNumber = 2,
+                    Label = "Step 2"
                 }
             };
 
             var tagHelper = new FDCPStepperTagHelper
             {
-                // Render the linked step as non-current so the helper is allowed to output an interactive wrapper.
                 CurrentStep = 2,
                 Steps = steps
             };
@@ -170,7 +177,92 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 
             // Assert
             var content = _output.Content.GetContent();
-            Assert.Contains("<a class='fdcp-step__link' href='/step1'>", content);
+            Assert.Contains("<a class='fdcp-step__link' href='/step1' aria-label='Step 1 of 2: Step 1 (Completed)' data-stepper-focus-trigger='true'>", content);
+        }
+
+        [Fact]
+        public void Process_WithLinksTabbableFalse_RendersStepLinksAsNonTabbable()
+        {
+            // Arrange
+            var steps = new[]
+            {
+                new StepperStep { StepNumber = 1, Label = "Step 1", IsLink = true, LinkUrl = "/step1" },
+                new StepperStep { StepNumber = 2, Label = "Step 2", IsLink = true, LinkUrl = "/step2" },
+                new StepperStep { StepNumber = 3, Label = "Step 3", IsLink = true, LinkUrl = "/step3" }
+            };
+
+            var tagHelper = new FDCPStepperTagHelper
+            {
+                CurrentStep = 2,
+                LinksTabbable = false,
+                Steps = steps
+            };
+
+            // Act
+            tagHelper.Process(_context, _output);
+
+            // Assert
+            // Non-active step links must be removed from the natural tab order so that Tab from the active step
+            // moves directly to the first form input that follows the stepper.
+            var content = _output.Content.GetContent();
+            Assert.Contains("<a class='fdcp-step__link' href='/step1' aria-label='Step 1 of 3: Step 1 (Completed)' data-stepper-focus-trigger='true' tabindex='-1'>", content);
+            Assert.Contains("<a class='fdcp-step__link' href='/step3' aria-label='Step 3 of 3: Step 3 (Upcoming)' data-stepper-focus-trigger='true' tabindex='-1'>", content);
+            // The active step remains focusable programmatically (existing behavior, unchanged).
+            Assert.Contains("<div class='fdcp-step__content' tabindex='-1' data-stepper-active-step='true'>", content);
+        }
+
+        [Fact]
+        public void Process_WithLinksTabbableTrue_RendersStepLinksWithoutTabindex()
+        {
+            // Arrange
+            var steps = new[]
+            {
+                new StepperStep { StepNumber = 1, Label = "Step 1", IsLink = true, LinkUrl = "/step1" },
+                new StepperStep { StepNumber = 2, Label = "Step 2" }
+            };
+
+            var tagHelper = new FDCPStepperTagHelper
+            {
+                CurrentStep = 2,
+                Steps = steps
+            };
+
+            // Act
+            tagHelper.Process(_context, _output);
+
+            // Assert
+            // Default behavior preserved: step links do not carry tabindex when LinksTabbable is true.
+            var content = _output.Content.GetContent();
+            Assert.DoesNotContain("data-stepper-focus-trigger='true' tabindex=", content);
+        }
+
+        [Fact]
+        public void Process_ActiveStep_IsProgrammaticallyFocusable()
+        {
+            // Arrange
+            var steps = new[]
+            {
+                new StepperStep { StepNumber = 1, Label = "Step 1" },
+                new StepperStep { StepNumber = 2, Label = "Step 2" },
+                new StepperStep { StepNumber = 3, Label = "Step 3" }
+            };
+
+            var tagHelper = new FDCPStepperTagHelper
+            {
+                CurrentStep = 2,
+                Steps = steps
+            };
+
+            // Act
+            tagHelper.Process(_context, _output);
+
+            // Assert
+            var content = _output.Content.GetContent();
+            // Active step's content wrapper must be focusable so callers (e.g. Next/Previous buttons) can move focus to it,
+            // and carry a screen-reader-friendly accessible name so NVDA announces "Step X of Y: Label (Current step)".
+            Assert.Contains("<div class='fdcp-step__content' tabindex='-1' data-stepper-active-step='true' aria-label='Step 2 of 3: Step 2 (Current step)'>", content);
+            // Non-active, non-link steps should remain plain wrappers.
+            Assert.Contains("<div class='fdcp-step__content'>", content);
         }
 
         [Fact]
@@ -191,6 +283,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             {
                 CurrentStep = 1,
                 HeadingTag = GCFoundation.Components.Enums.HeadingTag.h3,
+                HeadingId = "stepper-heading",
                 HeadingTitle = "Custom title",
                 Steps = steps
             };
@@ -200,7 +293,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 
             // Assert
             var content = _output.Content.GetContent();
-            Assert.Contains("<gcds-heading tag='h3'>Custom title</gcds-heading>", content);
+            Assert.Contains("<gcds-heading id='stepper-heading' tabindex='-1' tag='h3'>Custom title</gcds-heading>", content);
         }
 
         [Fact]

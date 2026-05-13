@@ -79,6 +79,24 @@ namespace GCFoundation.Components.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Progress.
+        /// </summary>
+        internal static string SR_ProgressLabel {
+            get {
+                return ResourceManager.GetString("SR_ProgressLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Step {0} of {1}: {2} ({3}).
+        /// </summary>
+        internal static string SR_StepSummary {
+            get {
+                return ResourceManager.GetString("SR_StepSummary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Completed.
         /// </summary>
         internal static string SR_StatusCompleted {

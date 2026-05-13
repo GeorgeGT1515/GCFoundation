@@ -13,9 +13,7 @@ $progress-line-innactive-color: $fdcp-incomplte-color;
     margin-top: var(--gcds-spacing-300, 2rem);
     margin-bottom: var(--gcds-spacing-300, 2rem);
 
-    // Stepper uses list markup now; reset list defaults and lay out steps horizontally on desktop.
     .fdcp-stepper__list {
-        // Defensive: ensure ordered list never shows default numbering.
         list-style: none;
         padding: 0;
         margin: 0;
@@ -37,12 +35,35 @@ $progress-line-innactive-color: $fdcp-incomplte-color;
 
         .fdcp-step__link,
         .fdcp-step__content {
-            // Keep link and non-link states visually identical so removing the current-step link only changes semantics.
             display: flex;
             flex-direction: column;
             align-items: center;
             text-decoration: none;
             color: inherit;
+        }
+
+        .fdcp-step__link {
+            width: 100%;
+        }
+
+        .fdcp-step__link:hover .fdcp-step-label,
+        .fdcp-step__link:focus-visible .fdcp-step-label {
+            text-decoration: underline;
+        }
+
+        .fdcp-step__link:focus-visible {
+            outline: 3px solid var(--gcds-color-blue-700, #1a2a3a);
+            outline-offset: 0.25rem;
+            border-radius: var(--gcds-border-radius-sm, 0.25rem);
+        }
+
+        // The active step's content wrapper receives programmatic focus after Next/Previous navigation.
+        // Match the link focus ring so keyboard users can clearly see which step they landed on.
+        .fdcp-step__content:focus,
+        .fdcp-step__content:focus-visible {
+            outline: 3px solid var(--gcds-color-blue-700, #1a2a3a);
+            outline-offset: 0.25rem;
+            border-radius: var(--gcds-border-radius-sm, 0.25rem);
         }
 
         .fdcp-step-circle {
@@ -114,7 +135,6 @@ $progress-line-innactive-color: $fdcp-incomplte-color;
 
 @media only screen and (width < 48em) {
     .fdcp-stepper {
-        // Mobile: stack steps vertically so labels never collide and the component stays readable.
         .fdcp-stepper__list {
             flex-direction: column;
             align-items: stretch;
@@ -135,8 +155,6 @@ $progress-line-innactive-color: $fdcp-incomplte-color;
                 width: 100%;
             }
 
-            // Keep the circular marker from shrinking so it still reads as a step indicator,
-            // not as list text with a leading number.
             .fdcp-step-circle {
                 flex: 0 0 auto;
             }
@@ -147,7 +165,6 @@ $progress-line-innactive-color: $fdcp-incomplte-color;
             }
 
             &:after {
-                // The horizontal connector does not translate well to a vertical layout.
                 display: none;
             }
         }

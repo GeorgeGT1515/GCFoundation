@@ -39,9 +39,23 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public string HeadingTitle { get; set; } = Stepper.Title_Default;
 
         /// <summary>
+        /// Optional id applied to the rendered heading so callers can move focus to it after navigation.
+        /// </summary>
+        public string? HeadingId { get; set; }
+
+        /// <summary>
         /// Gets or sets the collection of steps for the process.
         /// </summary>
         public IEnumerable<StepperStep> Steps { get; set; } = new List<StepperStep>();
+
+        /// <summary>
+        /// Controls whether step links are part of the natural keyboard tab order.
+        /// When <c>true</c> (default), step links can be tabbed to like any other anchor.
+        /// When <c>false</c>, step links are excluded from the tab order (<c>tabindex="-1"</c>)
+        /// so that Tab from the active step moves focus directly to the next focusable element
+        /// after the stepper (e.g. the first form input). Step links remain clickable.
+        /// </summary>
+        public bool LinksTabbable { get; set; } = true;
 
         /// <summary>
         /// Processes the tag helper and generates the HTML output for the stepper component.
@@ -57,71 +71,78 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             var html = new StringBuilder();
 
             // Only render visible, labeled steps and keep the output stable/deterministic.
-            // This makes the component easier to reason about (and makes SR output match what is actually visible).
             var visibleSteps = Steps
                 .Where(s => !s.IsHidden && !string.IsNullOrWhiteSpace(s.Label))
                 .OrderBy(s => s.StepNumber)
                 .ToList();
 
             var totalSteps = visibleSteps.Count;
-            // Guard against out-of-range values so the component stays usable even with invalid input.
             var normalizedCurrentStep = totalSteps == 0 ? 1 : Math.Clamp(CurrentStep, 1, totalSteps);
-
-            // Encode any plain-text values we output as HTML to avoid accidental injection.
             var headingTitle = HtmlEncoder.Default.Encode(HeadingTitle ?? string.Empty);
-            html.AppendLine(CultureInfo.InvariantCulture, $"<gcds-heading tag='{HeadingTag}'>{headingTitle}</gcds-heading>");
+            var headingIdAttribute = !string.IsNullOrWhiteSpace(HeadingId)
+                ? $" id='{HtmlEncoder.Default.Encode(HeadingId)}' tabindex='-1'"
+                : string.Empty;
+            html.AppendLine(CultureInfo.InvariantCulture, $"<gcds-heading{headingIdAttribute} tag='{HeadingTag}'>{headingTitle}</gcds-heading>");
 
-            // Screen reader announcement for the current step (useful if the component updates dynamically).
             if (totalSteps > 0)
             {
                 var current = visibleSteps.FirstOrDefault(s => s.StepNumber == normalizedCurrentStep) ?? visibleSteps[normalizedCurrentStep - 1];
-                var currentLabel = HtmlEncoder.Default.Encode(current.Label ?? string.Empty);
+                var currentAnnouncement = HtmlEncoder.Default.Encode(
+                    string.Format(CultureInfo.InvariantCulture, Stepper.SR_CurrentStepAnnouncement, normalizedCurrentStep, totalSteps, current.Label ?? string.Empty));
                 html.AppendLine(CultureInfo.InvariantCulture,
-                    $"<div class='visibility-sr-only' aria-live='polite' aria-atomic='true'>{string.Format(CultureInfo.InvariantCulture, Stepper.SR_CurrentStepAnnouncement, normalizedCurrentStep, totalSteps, currentLabel)}</div>");
+                    $"<div class='visibility-sr-only' aria-live='polite' aria-atomic='true' data-stepper-live-region='true' data-stepper-announcement='{currentAnnouncement}'>{currentAnnouncement}</div>");
             }
 
-            // Use nav + ordered list semantics so assistive tech understands this is a progress indicator with N steps.
-            html.AppendLine("<nav class='fdcp-stepper' aria-label='Progress'>");
-            html.AppendLine("<ol class='fdcp-stepper__list'>");
+            html.AppendLine(CultureInfo.InvariantCulture, $"<nav class='fdcp-stepper' aria-label='{HtmlEncoder.Default.Encode(Stepper.SR_ProgressLabel)}'>");
+            html.AppendLine("<ol class='fdcp-stepper__list' role='list'>");
 
             foreach (var step in visibleSteps)
             {
                 var status = step.GetStatusByCurrentStep(normalizedCurrentStep);
-                // Pair each visual state with explicit localized text so SR users are not forced to infer status from styling or icons.
                 var statusText = status switch
                 {
                     StepperStepStatus.active => Stepper.SR_StatusCurrent,
                     StepperStepStatus.completed => Stepper.SR_StatusCompleted,
                     _ => Stepper.SR_StatusUpcoming
                 };
-
-                // Labels are plain text (rendered as text in both link and non-link states).
                 var labelText = HtmlEncoder.Default.Encode(step.Label ?? string.Empty);
+                var stepSummary = HtmlEncoder.Default.Encode(
+                    string.Format(
+                        CultureInfo.InvariantCulture,
+                        Stepper.SR_StepSummary,
+                        step.StepNumber,
+                        totalSteps,
+                        step.Label ?? string.Empty,
+                        statusText));
                 var circleInnerHtml = step.GetDisplayHtml(normalizedCurrentStep);
+                var ariaCurrent = status == StepperStepStatus.active ? " aria-current='step'" : string.Empty;
 
-                html.AppendLine(CultureInfo.InvariantCulture, $"<li class='fdcp-step {status}'>");
+                html.AppendLine(CultureInfo.InvariantCulture, $"<li class='fdcp-step {status}' aria-label='{stepSummary}'{ariaCurrent}>");
 
-                // Interactive wrapper: only render as link when it's not the current step.
-                // This avoids presenting the "current step" as a link (which is confusing for keyboard and SR users).
                 var isLink = step.IsLink && !string.IsNullOrWhiteSpace(step.LinkUrl) && status != StepperStepStatus.active;
                 if (isLink)
                 {
                     var href = HtmlEncoder.Default.Encode(step.LinkUrl!);
-                    html.AppendLine(CultureInfo.InvariantCulture, $"<a class='fdcp-step__link' href='{href}'>");
+                    // When LinksTabbable is false, exclude step links from the natural tab order so that
+                    // Tab from the active step lands on the first form input instead of the next step link.
+                    var linkTabIndexAttribute = LinksTabbable ? string.Empty : " tabindex='-1'";
+                    html.AppendLine(CultureInfo.InvariantCulture, $"<a class='fdcp-step__link' href='{href}' aria-label='{stepSummary}' data-stepper-focus-trigger='true'{linkTabIndexAttribute}>");
                 }
                 else
                 {
-                    html.AppendLine("<div class='fdcp-step__content'>");
+                    // Make the active step programmatically focusable so callers (e.g. Next/Previous controls) can move focus to it.
+                    // Carry the step summary as the accessible name so NVDA announces "Step X of Y: Label (Current step)"
+                    // when focus lands here after Next/Previous navigation. Avoid role="group" here: NVDA tends to suppress
+                    // announcing the accessible name of a focused group, which made the previous attempt silent.
+                    var activeAttributes = status == StepperStepStatus.active
+                        ? $" tabindex='-1' data-stepper-active-step='true' aria-label='{stepSummary}'"
+                        : string.Empty;
+                    html.AppendLine(CultureInfo.InvariantCulture, $"<div class='fdcp-step__content'{activeAttributes}>");
                 }
 
-                // Marker (purely visual).
-                // The circle content can contain decorative icons; keep it out of the accessibility tree.
+                html.AppendLine(CultureInfo.InvariantCulture, $"<span class='visibility-sr-only'>{stepSummary}</span>");
                 html.AppendLine(CultureInfo.InvariantCulture, $"<span class='fdcp-step-circle' aria-hidden='true'>{circleInnerHtml}</span>");
-
-                // Step label + SR-only status.
-                // aria-current="step" is the recommended way to identify the current item in a multi-step process.
-                var ariaCurrent = status == StepperStepStatus.active ? " aria-current='step'" : string.Empty;
-                html.AppendLine(CultureInfo.InvariantCulture, $"<span class='fdcp-step-label'{ariaCurrent}>{labelText}<span class='visibility-sr-only'> ({HtmlEncoder.Default.Encode(statusText)})</span></span>");
+                html.AppendLine(CultureInfo.InvariantCulture, $"<span class='fdcp-step-label' aria-hidden='true'>{labelText}</span>");
 
                 // Status badge (if defined).
                 if (!string.IsNullOrEmpty(step.StatusBadgeLabel))
