@@ -19,18 +19,25 @@ namespace GCFoundation.Components.Helpers
             if (string.IsNullOrEmpty(input)) return input;
 
             var builder = new StringBuilder();
+            var index = 0;
 
             foreach (char c in input)
             {
                 if (char.IsUpper(c))
                 {
-                    builder.Append('-');
+                    if (index > 0)
+                    {
+                        builder.Append('-');
+                    }
+
                     builder.Append(char.ToLower(c, CultureInfo.InvariantCulture));
                 }
                 else
                 {
                     builder.Append(c);
                 }
+                
+                index++;
             }
 
             return builder.ToString();
