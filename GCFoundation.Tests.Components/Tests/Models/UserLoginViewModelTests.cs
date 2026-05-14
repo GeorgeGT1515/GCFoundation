@@ -10,6 +10,20 @@ public class UserLoginViewModelTests
     }
     
     [Fact]
+    public void DisplayName_WhenOnlyFirstNameSet_ReturnsUserName()
+    {
+        var model = new UserLoginViewModel { FirstName = "John", UserName = "johndoe" };
+        Assert.Equal("johndoe", model.DisplayName);
+    }
+
+    [Fact]
+    public void DisplayName_WhenOnlyLastNameSet_ReturnsUserName()
+    {
+        var model = new UserLoginViewModel { LastName = "Doe", UserName = "johndoe" };
+        Assert.Equal("johndoe", model.DisplayName);
+    }
+
+    [Fact]
     public void DisplayName_WhenFirstNameAndLastNameNotSet_ReturnsUserName()
     {
         var model = new UserLoginViewModel { UserName = "johndoe" };
