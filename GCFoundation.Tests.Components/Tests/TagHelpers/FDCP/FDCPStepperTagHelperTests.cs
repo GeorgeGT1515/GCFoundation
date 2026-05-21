@@ -207,8 +207,8 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             var content = _output.Content.GetContent();
             Assert.Contains("<a class='fdcp-step__link' href='/step1' aria-label='Step 1 of 3: Step 1 (Completed)' data-stepper-focus-trigger='true' tabindex='-1'>", content);
             Assert.Contains("<a class='fdcp-step__link' href='/step3' aria-label='Step 3 of 3: Step 3 (Upcoming)' data-stepper-focus-trigger='true' tabindex='-1'>", content);
-            // The active step remains focusable programmatically (existing behavior, unchanged).
-            Assert.Contains("<div class='fdcp-step__content' tabindex='-1' data-stepper-active-step='true'>", content);
+            // The active step remains focusable programmatically with a valid region name.
+            Assert.Contains("<div class='fdcp-step__content' tabindex='-1' data-stepper-active-step='true' role='region' aria-label='Step 2 of 3: Step 2 (Current step)'>", content);
         }
 
         [Fact]
@@ -260,7 +260,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             var content = _output.Content.GetContent();
             // Active step's content wrapper must be focusable so callers (e.g. Next/Previous buttons) can move focus to it,
             // and carry a screen-reader-friendly accessible name so NVDA announces "Step X of Y: Label (Current step)".
-            Assert.Contains("<div class='fdcp-step__content' tabindex='-1' data-stepper-active-step='true' aria-label='Step 2 of 3: Step 2 (Current step)'>", content);
+            Assert.Contains("<div class='fdcp-step__content' tabindex='-1' data-stepper-active-step='true' role='region' aria-label='Step 2 of 3: Step 2 (Current step)'>", content);
             // Non-active, non-link steps should remain plain wrappers.
             Assert.Contains("<div class='fdcp-step__content'>", content);
         }
