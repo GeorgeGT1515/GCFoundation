@@ -13,13 +13,14 @@ $progress-line-innactive-color: $fdcp-incomplte-color;
     margin-top: var(--gcds-spacing-300, 2rem);
     margin-bottom: var(--gcds-spacing-300, 2rem);
 
+    // Do not use flex `gap` here: connector lines are drawn with each step's `::after`, which only
+    // spans that step's flex column—gaps would leave visible holes between steps (especially 1→2).
     .fdcp-stepper__list {
         list-style: none;
         padding: 0;
         margin: 0;
         display: flex;
         justify-content: space-between;
-        gap: var(--gcds-spacing-150, 1rem);
         width: 100%;
         position: relative;
     }
