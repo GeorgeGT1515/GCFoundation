@@ -9,6 +9,7 @@ export interface GridTableAccessibilityResult {
   hasCaption: boolean;
   captionText: string;
   hasScreenReaderOnlyCaption: boolean;
+  captionInsideGrid: boolean;
   columnHeaderCount: number;
   allColumnsHaveScope: boolean;
   firstCellsHaveRowScope: boolean;
@@ -27,12 +28,16 @@ export async function checkGridTableAccessibility(
   const table = page.locator(tableSelector);
   await expect(table).toBeVisible();
 
-  // Check caption
-  const caption = table.locator('caption');
-  const hasCaption = await caption.count() > 0;
+  // Caption is outside role="grid" table and linked via aria-labelledby
+  const captionId = await table.getAttribute('aria-labelledby');
+  const caption = captionId
+    ? page.locator(`#${captionId}`)
+    : table.locator('caption');
+  const hasCaption = (await caption.count()) > 0;
   const captionText = hasCaption ? (await caption.textContent()) || '' : '';
   const captionClass = hasCaption ? await caption.getAttribute('class') : '';
   const hasScreenReaderOnlyCaption = captionClass?.includes('visibility-sr-only') || false;
+  const captionInsideGrid = (await table.locator('caption').count()) > 0;
 
   // Check column headers
   const headers = page.locator('thead th.gridjs-th');
@@ -90,6 +95,7 @@ export async function checkGridTableAccessibility(
     hasCaption,
     captionText: captionText.trim(),
     hasScreenReaderOnlyCaption,
+    captionInsideGrid,
     columnHeaderCount,
     allColumnsHaveScope,
     firstCellsHaveRowScope,

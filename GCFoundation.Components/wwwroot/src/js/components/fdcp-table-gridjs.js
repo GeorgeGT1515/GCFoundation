@@ -69,6 +69,127 @@
                 h.removeAttribute('aria-sort');
             }
         });
+
+        updateSortButtonLabels(container);
+    }
+
+    function getSortButtonLabel(header) {
+        const columnLabel = header.querySelector('.gridjs-th-content')?.textContent?.trim()
+            || header.textContent?.trim()
+            || 'Column';
+        const ariaSort = header.getAttribute('aria-sort');
+        let sortState = 'sortable';
+        if (ariaSort === 'ascending') {
+            sortState = 'sorted ascending';
+        } else if (ariaSort === 'descending') {
+            sortState = 'sorted descending';
+        } else if (ariaSort === 'none') {
+            sortState = 'not sorted';
+        }
+        return `${columnLabel}, ${sortState}`;
+    }
+
+    function updateSortButtonLabels(container) {
+        container.querySelectorAll('th.gridjs-th-sort').forEach((header) => {
+            const sortButton = header.querySelector('button');
+            if (!sortButton) {
+                return;
+            }
+            sortButton.setAttribute('aria-label', getSortButtonLabel(header));
+        });
+    }
+
+    function enhanceSortableHeaders(root, getSortState) {
+        // Non-sortable headers must not be in the tab order.
+        root.querySelectorAll('thead th[tabindex]').forEach((header) => {
+            if (!header.classList.contains('gridjs-th-sort')) {
+                header.removeAttribute('tabindex');
+                header.removeAttribute('role');
+            }
+        });
+
+        root.querySelectorAll('th.gridjs-th-sort').forEach((header) => {
+            // Grid.js renders a <button> inside the header; keep that as the only tab stop.
+            header.removeAttribute('tabindex');
+            header.removeAttribute('role');
+
+            const sortButton = header.querySelector('button');
+            if (!sortButton) {
+                return;
+            }
+
+            if (!sortButton.hasAttribute('tabindex')) {
+                sortButton.setAttribute('tabindex', '0');
+            }
+
+            sortButton.setAttribute('aria-label', getSortButtonLabel(header));
+
+            if (sortButton.dataset.fdcpSortEnhanced === 'true') {
+                return;
+            }
+            sortButton.dataset.fdcpSortEnhanced = 'true';
+
+            const refreshSortState = () => updateAriaSortForState(root, getSortState());
+
+            sortButton.addEventListener('click', () => {
+                window.setTimeout(refreshSortState, 100);
+                window.setTimeout(refreshSortState, 300);
+                window.setTimeout(refreshSortState, 600);
+                window.setTimeout(refreshSortState, 1000);
+            });
+
+            sortButton.addEventListener('keydown', (e) => {
+                if (e.key !== ' ' && e.key !== 'Enter') {
+                    return;
+                }
+                e.preventDefault();
+                sortButton.click();
+                window.setTimeout(refreshSortState, 100);
+                window.setTimeout(refreshSortState, 300);
+                window.setTimeout(refreshSortState, 600);
+                window.setTimeout(refreshSortState, 1000);
+            });
+        });
+    }
+
+    function applyTableAccessibleName(root, tableEl, cfg) {
+        if (!tableEl) return;
+
+        const captionId = root.id ? `${root.id}-caption` : null;
+        const captionEl = captionId ? document.getElementById(captionId) : null;
+        const summaryEl = root.id ? document.getElementById(`${root.id}-summary`) : null;
+
+        // <caption> is not a valid owned element of role="grid" (Grid.js sets role="grid" on the table).
+        const injectedCaption = tableEl.querySelector('caption');
+        if (injectedCaption) {
+            injectedCaption.remove();
+        }
+
+        const wrapper = root.querySelector('.gridjs-wrapper');
+
+        if (captionEl && captionId) {
+            tableEl.setAttribute('aria-labelledby', captionId);
+            if (wrapper) {
+                wrapper.setAttribute('aria-labelledby', captionId);
+                wrapper.removeAttribute('aria-label');
+            }
+            // Prefer labelledby over a duplicate aria-label on the grid table.
+            tableEl.removeAttribute('aria-label');
+        } else {
+            if (cfg.ariaLabel && !tableEl.hasAttribute('aria-label')) {
+                tableEl.setAttribute('aria-label', String(cfg.ariaLabel));
+            }
+            if (wrapper && cfg.ariaLabel && !wrapper.hasAttribute('aria-label')) {
+                wrapper.setAttribute('aria-label', String(cfg.ariaLabel));
+            }
+        }
+
+        if (summaryEl && summaryEl.id) {
+            tableEl.setAttribute('aria-describedby', summaryEl.id);
+            if (wrapper) {
+                wrapper.setAttribute('aria-describedby', summaryEl.id);
+            }
+        }
     }
 
     function updateRowHeaders(container, columnDefs) {
@@ -154,6 +275,7 @@
 
         // Track sort state for aria-sort attributes (since server-side sorting doesn't add CSS classes)
         let currentSortState = { columnIndex: null, direction: null }; // direction: 1 for asc, -1 for desc
+        const getSortState = () => currentSortState;
 
         const liveRegion = createLiveRegion(root);
 
@@ -240,52 +362,11 @@
 
         // Listen to Grid.js events for updates
         grid.on('ready', () => {
+            const tableEl = root.querySelector('table.gridjs-table');
+            applyTableAccessibleName(root, tableEl, cfg);
             updateAriaSortForState(root, currentSortState);
             updateRowHeaders(root, columnDefs);
-            
-            // Add both click and keyboard listeners to sortable headers
-            const sortableHeaders = root.querySelectorAll('.gridjs-th-sort');
-            sortableHeaders.forEach(header => {
-                // Make headers keyboard accessible
-                if (!header.hasAttribute('tabindex')) {
-                    header.setAttribute('tabindex', '0');
-                }
-                if (!header.hasAttribute('role')) {
-                    header.setAttribute('role', 'button');
-                }
-                
-                // Click handler
-                header.addEventListener('click', () => {
-                    // Multiple checks with increasing delays to catch Grid.js updates
-                    setTimeout(() => updateAriaSortForState(root, currentSortState), 100);
-                    setTimeout(() => updateAriaSortForState(root, currentSortState), 300);
-                    setTimeout(() => updateAriaSortForState(root, currentSortState), 600);
-                    setTimeout(() => updateAriaSortForState(root, currentSortState), 1000);
-                });
-                
-                // Keyboard handler for Space and Enter
-                header.addEventListener('keydown', (e) => {
-                    if (e.key === ' ' || e.key === 'Enter') {
-                        e.preventDefault(); // Prevent scrolling for Space key
-                        
-                        // Find the sort button inside the header (Grid.js creates this)
-                        const sortButton = header.querySelector('button');
-                        if (sortButton) {
-                            // Trigger click on the actual Grid.js sort button
-                            sortButton.click();
-                        } else {
-                            // Fallback: trigger on header itself
-                            header.click();
-                        }
-                        
-                        // Multiple checks with increasing delays to catch Grid.js updates
-                        setTimeout(() => updateAriaSortForState(root, currentSortState), 100);
-                        setTimeout(() => updateAriaSortForState(root, currentSortState), 300);
-                        setTimeout(() => updateAriaSortForState(root, currentSortState), 600);
-                        setTimeout(() => updateAriaSortForState(root, currentSortState), 1000);
-                    }
-                });
-            });
+            enhanceSortableHeaders(root, getSortState);
         });
 
         grid.on('sort', () => {
@@ -297,12 +378,6 @@
 
         // Post-render hooks
         setTimeout(() => {
-            // Add aria-label to the wrapper div for screen readers
-            const wrapper = root.querySelector('.gridjs-wrapper');
-            if (wrapper && cfg.ariaLabel) {
-                wrapper.setAttribute('aria-label', String(cfg.ariaLabel));
-            }
-
             // Apply GC Design System table classes and ARIA
             const tableEl = root.querySelector('table.gridjs-table');
             if (tableEl) {
@@ -310,25 +385,10 @@
                 if (cfg.class && typeof cfg.class === 'string') {
                     cfg.class.split(/\s+/).forEach(c => c && tableEl.classList.add(c));
                 }
-                if (cfg.ariaLabel && !tableEl.hasAttribute('aria-label')) {
-                    tableEl.setAttribute('aria-label', String(cfg.ariaLabel));
-                }
                 // Ensure an id for aria-controls linkage
                 if (!tableEl.id) tableEl.id = `${root.id || 'fdcp-grid'}-table`;
-                
-                // Add caption if not present (Grid.js doesn't support caption natively)
-                // Caption is screen-reader only for accessibility
-                if (!tableEl.querySelector('caption')) {
-                    const noscriptEl = root.querySelector('noscript');
-                    const noscriptTable = noscriptEl ? noscriptEl.textContent : '';
-                    const captionMatch = noscriptTable.match(/<caption[^>]*>(.*?)<\/caption>/i);
-                    if (captionMatch) {
-                        const caption = document.createElement('caption');
-                        caption.className = 'visibility-sr-only';
-                        caption.innerHTML = captionMatch[1];
-                        tableEl.insertBefore(caption, tableEl.firstChild);
-                    }
-                }
+
+                applyTableAccessibleName(root, tableEl, cfg);
 
                 // Remove Grid.js's default aria-live summary (we have our own)
                 const gridSummary = root.querySelector('.gridjs-summary');
@@ -362,8 +422,8 @@
                 }
             }
             
-            // Update aria-sort.
             updateAriaSortForState(root, currentSortState);
+            enhanceSortableHeaders(root, getSortState);
         }, 0);
 
         // Keep aria-sort and row headers in sync when table changes (on re-render/sort/pagination)
@@ -400,8 +460,11 @@
                 refreshScheduled = false;
                 mo.disconnect();
                 try {
+                    const tableEl = root.querySelector('table.gridjs-table');
+                    applyTableAccessibleName(root, tableEl, cfg);
                     updateAriaSortForState(root, currentSortState);
                     updateRowHeaders(root, columnDefs);
+                    enhanceSortableHeaders(root, getSortState);
                 } finally {
                     mo.observe(root, observerConfig);
                 }

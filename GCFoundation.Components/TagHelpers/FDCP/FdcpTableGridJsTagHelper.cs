@@ -145,19 +145,26 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             var cfgJson = JsonSerializer.Serialize(config, CamelCaseJsonOptions);
 
-            // Output markup: live region, controls, semantic table fallback
+            // Output markup: live region, controls, semantic table fallback.
+            // Caption is rendered outside the Grid.js table (role="grid") and linked via aria-labelledby;
+            // <caption> is only used in the noscript fallback where role="table" allows it.
+            var captionId = $"{id}-caption";
             var summaryId = !string.IsNullOrWhiteSpace(Summary) ? $"{id}-summary" : null;
-            var captionHtml = $"<caption>{System.Net.WebUtility.HtmlEncode(Caption)}</caption>";
+            var encodedCaption = System.Net.WebUtility.HtmlEncode(Caption);
+            var captionHtml = $"<caption>{encodedCaption}</caption>";
+            var captionElementHtml = $"<div id=\"{captionId}\" class=\"visibility-sr-only\">{encodedCaption}</div>";
             var summaryHtml = summaryId != null ? $"<div id=\"{summaryId}\" class=\"visibility-sr-only\">{System.Net.WebUtility.HtmlEncode(Summary)}</div>" : string.Empty;
+            var noscriptLabelledBy = summaryId != null ? $" aria-labelledby=\"{captionId}\" aria-describedby=\"{summaryId}\"" : $" aria-labelledby=\"{captionId}\"";
 
             output.Attributes.SetAttribute("data-fdcp-grid", cfgJson);
             output.Content.AppendHtml($@"
 {summaryHtml}
+{captionElementHtml}
 <div class='fdcp-gridjs-controls'>
   <!-- Grid.js will render its own search and pagination; this container exists for structure/fallback -->
 </div>
 <noscript>
-  <table class='fdcp-table fdcp-table-hover fdcp-table-striped' role='table' aria-describedby='{summaryId}'>
+  <table class='fdcp-table fdcp-table-hover fdcp-table-striped' role='table'{noscriptLabelledBy}>
     {captionHtml}
     <thead>
       <tr>

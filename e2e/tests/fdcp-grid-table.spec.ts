@@ -253,10 +253,12 @@ test.describe('FDCP Grid Table Component', () => {
     test('should have proper table semantics', async ({ page }) => {
       const table = page.locator(TABLE_SELECTOR);
       
-      // Verify table has caption
-      const caption = table.locator('caption');
-      await expect(caption).toBeVisible();
+      // Caption is linked via aria-labelledby (not a child of role="grid")
+      const captionId = await table.getAttribute('aria-labelledby');
+      expect(captionId).toBeTruthy();
+      const caption = page.locator(`#${captionId}`);
       await expect(caption).toHaveText('Employees');
+      await expect(table.locator('caption')).toHaveCount(0);
 
       // Verify table has proper headers
       const headers = table.locator('thead th');

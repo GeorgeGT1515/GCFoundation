@@ -19,11 +19,9 @@ test.describe('FDCP Grid Table - Accessibility @a11y', () => {
   });
 
   test('should pass axe WCAG AAA checks', async ({ page }, testInfo) => {
-    // Run axe with WCAG 2.1 AAA tags
-    // Exclude code syntax highlighting (not part of Grid Table component)
+    // Run axe with WCAG 2.1 AAA tags (includes sample code block contrast)
     const results = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag2aaa'])
-      .exclude('pre') // Exclude code blocks from color contrast checks
       .analyze();
 
     // Attach results manually since we're not using runAxeAndAttach
@@ -36,18 +34,30 @@ test.describe('FDCP Grid Table - Accessibility @a11y', () => {
     expect(serious, 'No serious/critical WCAG AAA violations').toHaveLength(0);
   });
 
+  test('should name focusable code sample regions', async ({ page }) => {
+    const codeBlock = page.locator('.documentation-content pre[tabindex="0"]').first();
+    await expect(codeBlock).toBeAttached();
+    await expect(codeBlock).toHaveAttribute('role', 'region');
+    await expect(codeBlock).toHaveAttribute('aria-label', /.+/);
+  });
+
   test('should have proper table structure and caption', async ({ page }) => {
     // Check for table element
     const table = page.locator('table.gridjs-table');
     await expect(table).toBeVisible();
 
-    // Check for caption with visibility-sr-only class (screen reader only)
-    const caption = table.locator('caption');
-    await expect(caption).toBeVisible(); // toBeVisible checks if element exists in DOM
-    
+    // Caption must not be inside role="grid"; it is a sibling linked via aria-labelledby
+    await expect(table.locator('caption')).toHaveCount(0);
+
+    const captionId = await table.getAttribute('aria-labelledby');
+    expect(captionId, 'Grid table should reference caption element').toBeTruthy();
+
+    const caption = page.locator(`#${captionId}`);
+    await expect(caption).toBeAttached();
+
     const captionClass = await caption.getAttribute('class');
     expect(captionClass).toContain('visibility-sr-only');
-    
+
     const captionText = await caption.textContent();
     expect(captionText?.trim()).toBeTruthy();
     expect(captionText?.trim().length).toBeGreaterThan(0);
@@ -126,6 +136,20 @@ test.describe('FDCP Grid Table - Accessibility @a11y', () => {
       const searchPlaceholder = await searchInput.getAttribute('placeholder');
       expect(searchAriaLabel !== null || searchPlaceholder !== null,
         'Search input should have aria-label or placeholder').toBeTruthy();
+    }
+  });
+
+  test('should expose sort controls only on header buttons, not th cells', async ({ page }) => {
+    const sortableHeaders = page.locator('thead th.gridjs-th-sort');
+    const count = await sortableHeaders.count();
+    expect(count).toBeGreaterThan(0);
+
+    for (let i = 0; i < count; i++) {
+      const header = sortableHeaders.nth(i);
+      await expect(header).not.toHaveAttribute('tabindex', '0');
+      const sortButton = header.locator('button').first();
+      await expect(sortButton).toHaveAttribute('tabindex', '0');
+      await expect(sortButton).toHaveAttribute('aria-label', /.+/);
     }
   });
 
@@ -344,9 +368,10 @@ test.describe('FDCP Grid Table - Accessibility @a11y', () => {
     await page.waitForSelector('.gridjs-wrapper', { state: 'visible', timeout: 10000 });
     await page.waitForTimeout(500);
 
-    // Check that caption is in French
-    const caption = page.locator('table.gridjs-table caption');
-    const captionText = await caption.textContent();
+    // Check that caption is in French (sibling element, not inside role="grid")
+    const table = page.locator('table.gridjs-table');
+    const captionId = await table.getAttribute('aria-labelledby');
+    const captionText = await page.locator(`#${captionId}`).textContent();
     expect(captionText).toContain('Employés'); // French for "Employees"
 
     // Check that headers are in French
