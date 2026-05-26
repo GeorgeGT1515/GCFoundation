@@ -252,7 +252,11 @@ test.describe('FDCP Grid Table Component', () => {
 
     test('should have proper table semantics', async ({ page }) => {
       const table = page.locator(TABLE_SELECTOR);
-      
+      const wrapper = page.locator(`${GRID_CONTAINER} .gridjs-wrapper`);
+
+      await expect(wrapper).not.toHaveAttribute('aria-labelledby');
+      await expect(wrapper).not.toHaveAttribute('aria-describedby');
+
       // Caption is linked via aria-labelledby (not a child of role="grid")
       const captionId = await table.getAttribute('aria-labelledby');
       expect(captionId).toBeTruthy();

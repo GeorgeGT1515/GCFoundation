@@ -121,13 +121,17 @@ test.describe('FDCP Grid Table - Accessibility @a11y', () => {
   });
 
   test('should have proper ARIA labels', async ({ page }) => {
-    // Check table container has aria-label or aria-labelledby
-    const wrapper = page.locator('.gridjs-wrapper');
-    const ariaLabel = await wrapper.getAttribute('aria-label');
-    const ariaLabelledBy = await wrapper.getAttribute('aria-labelledby');
-    
-    expect(ariaLabel !== null || ariaLabelledBy !== null, 
+    const table = page.locator('table.gridjs-table');
+    const ariaLabel = await table.getAttribute('aria-label');
+    const ariaLabelledBy = await table.getAttribute('aria-labelledby');
+
+    expect(ariaLabel !== null || ariaLabelledBy !== null,
       'Table should have aria-label or aria-labelledby').toBeTruthy();
+
+    const wrapper = page.locator('.gridjs-wrapper');
+    await expect(wrapper).not.toHaveAttribute('aria-labelledby');
+    await expect(wrapper).not.toHaveAttribute('aria-describedby');
+    await expect(wrapper).not.toHaveAttribute('aria-label');
 
     // Check search input has label
     const searchInput = page.locator('.gridjs-search input');

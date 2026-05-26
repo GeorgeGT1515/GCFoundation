@@ -85,10 +85,9 @@ export async function checkGridTableAccessibility(
     return styles.outlineWidth !== '0px' || styles.boxShadow !== 'none';
   });
 
-  // Check ARIA labels
-  const wrapper = page.locator('.gridjs-wrapper');
-  const ariaLabel = await wrapper.getAttribute('aria-label');
-  const ariaLabelledBy = await wrapper.getAttribute('aria-labelledby');
+  // Check ARIA labels on the grid table (not the generic wrapper div)
+  const ariaLabel = await table.getAttribute('aria-label');
+  const ariaLabelledBy = await table.getAttribute('aria-labelledby');
   const hasAriaLabels = ariaLabel !== null || ariaLabelledBy !== null;
 
   return {

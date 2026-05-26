@@ -165,30 +165,23 @@
             injectedCaption.remove();
         }
 
+        // Generic containers must not have accessible names (ARIA spec); only the grid table does.
         const wrapper = root.querySelector('.gridjs-wrapper');
+        if (wrapper) {
+            wrapper.removeAttribute('aria-labelledby');
+            wrapper.removeAttribute('aria-describedby');
+            wrapper.removeAttribute('aria-label');
+        }
 
         if (captionEl && captionId) {
             tableEl.setAttribute('aria-labelledby', captionId);
-            if (wrapper) {
-                wrapper.setAttribute('aria-labelledby', captionId);
-                wrapper.removeAttribute('aria-label');
-            }
-            // Prefer labelledby over a duplicate aria-label on the grid table.
             tableEl.removeAttribute('aria-label');
-        } else {
-            if (cfg.ariaLabel && !tableEl.hasAttribute('aria-label')) {
-                tableEl.setAttribute('aria-label', String(cfg.ariaLabel));
-            }
-            if (wrapper && cfg.ariaLabel && !wrapper.hasAttribute('aria-label')) {
-                wrapper.setAttribute('aria-label', String(cfg.ariaLabel));
-            }
+        } else if (cfg.ariaLabel && !tableEl.hasAttribute('aria-label')) {
+            tableEl.setAttribute('aria-label', String(cfg.ariaLabel));
         }
 
         if (summaryEl && summaryEl.id) {
             tableEl.setAttribute('aria-describedby', summaryEl.id);
-            if (wrapper) {
-                wrapper.setAttribute('aria-describedby', summaryEl.id);
-            }
         }
     }
 
