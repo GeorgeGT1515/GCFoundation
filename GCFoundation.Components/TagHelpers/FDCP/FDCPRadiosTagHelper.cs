@@ -10,7 +10,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// Renders a custom radio button component wrapped in a `gcds-fieldset` element.
     /// Use &lt;fdcp-radio&gt; in your Razor views to generate a radio button group.
     /// </summary>
-    [HtmlTargetElement("fdcp-radios", Attributes = "for, items")]
+    [HtmlTargetElement("fdcp-radios", Attributes = "items", TagStructure = TagStructure.NormalOrSelfClosing)]
     public class FDCPRadiosTagHelper : FDCPBaseFormComponentTagHelper
     {
         /// <summary>
@@ -34,26 +34,26 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         {
             ArgumentNullException.ThrowIfNull(output, nameof(output));
 
-            if (For == null)
-            {
-                throw new InvalidOperationException("For is NULL in FDCPRadios.");
-            }
+            //if (For == null)
+            //{
+            //    throw new InvalidOperationException("For is NULL in FDCPRadios.");
+            //}
             
             PropertyInfo? propertyInfo = PropertyInfo;
-            if (propertyInfo == null)
-            {
-                throw new InvalidOperationException("Missing properties");
-            }
+            //if (propertyInfo == null)
+            //{
+            //    throw new InvalidOperationException("Missing properties");
+            //}
 
             string fieldName = Name ?? For.Name;
             string fieldId = Id ?? fieldName;
-            string legend = GetLocalizedLabel(propertyInfo);
-            string hint = GetLocalizedHint(propertyInfo);
-            bool required = For.Metadata.ValidatorMetadata.OfType<RequiredAttribute>().Any()
+            string legend = propertyInfo == null ? fieldName : GetLocalizedLabel(propertyInfo);
+            string hint = propertyInfo == null ? string.Empty : GetLocalizedHint(propertyInfo);
+            bool required = IsRequired ?? For.Metadata.ValidatorMetadata.OfType<RequiredAttribute>().Any()
                             || propertyInfo.GetCustomAttribute<RequiredAttribute>() != null;
 
             // Retrieve the selected value (if any) & bind as string
-            var selectedValue = For.Model?.ToString() ?? string.Empty;
+            var selectedValue = For?.Model?.ToString() ?? string.Empty;
 
             output.TagName = "gcds-radios";
             output.TagMode = TagMode.StartTagAndEndTag;

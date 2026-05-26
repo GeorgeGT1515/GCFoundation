@@ -80,7 +80,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             {
                 PropertyInfo? propertyInfo = null;
 
-                if (!string.IsNullOrEmpty(For.Metadata.PropertyName))
+                if (For != null && !string.IsNullOrEmpty(For.Metadata.PropertyName))
                 {
                     propertyInfo = For.Metadata.ContainerType?.GetProperty(For.Metadata.PropertyName);
                 }
@@ -182,6 +182,5 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             var displayAttr = property.GetCustomAttribute<DisplayAttribute>();
             return displayAttr?.GetDescription() ?? string.Empty;
         }
-
     }
 }
