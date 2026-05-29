@@ -61,6 +61,8 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
+            ArgumentNullException.ThrowIfNull(output, nameof(output));
+
             if (For != null)
             {
                 Name ??= For.Name;
@@ -70,22 +72,17 @@ namespace GCFoundation.Components.TagHelpers.GCDS
             }
 
             AddAttributeIfNotNull(output, "name", Name);
+            AddAttributeIfNotNull(output, "error-message", ErrorMessage);
+            AddAttributeIfNotNull(output, "hint", Hint);
+            AddAttributeIfNotNull(output, "lang", Lang);
+            AddAttributeIfNotNull(output, "validate-on", ValidateOn);
+            AddAttributeIfNotNull(output, "value", Value);
 
             if (Disabled == true)
                 output.Attributes.SetAttribute(new TagHelperAttribute("disabled"));
 
-            AddAttributeIfNotNull(output, "error-message", ErrorMessage);
-
-            if (Required)
-            {
+            if (Required == true)
                 output.Attributes.SetAttribute(new TagHelperAttribute("required"));
-            }
-
-            //AddAttributeIfNotNull(output, "required", Required);
-            AddAttributeIfNotNull(output, "validate-on", ValidateOn);
-            AddAttributeIfNotNull(output, "hint", Hint);
-            AddAttributeIfNotNull(output, "lang", Lang);
-            AddAttributeIfNotNull(output, "value", Value);
 
             base.Process(context, output);
         }
@@ -99,7 +96,6 @@ namespace GCFoundation.Components.TagHelpers.GCDS
             if (propertyInfo == null) return;
 
             Hint = GetLocalizedHint(propertyInfo);
-
         }
 
         /// <summary>
@@ -112,6 +108,5 @@ namespace GCFoundation.Components.TagHelpers.GCDS
             var displayAttr = property.GetCustomAttribute<DisplayAttribute>();
             return displayAttr?.GetDescription() ?? string.Empty;
         }
-
     }
 }

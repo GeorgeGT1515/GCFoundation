@@ -40,20 +40,15 @@ namespace GCFoundation.Components.TagHelpers.GCDS
             {
                 if (attributeValue.GetType().IsEnum || attributeValue.GetType() == typeof(bool))
                 {
-#pragma warning disable CA1308 // Normalize strings to uppercase
                     output.Attributes.SetAttribute(attributeName, attributeValue.ToString()?.ToLowerInvariant());
-#pragma warning restore CA1308 // Normalize strings to uppercase
                 }
                 else
                 {
-
                     if (!string.IsNullOrEmpty(attributeValue.ToString()))
                     {
                         output.Attributes.SetAttribute(attributeName, attributeValue.ToString());
                     }
                 }
-
-
             }
         }
 
