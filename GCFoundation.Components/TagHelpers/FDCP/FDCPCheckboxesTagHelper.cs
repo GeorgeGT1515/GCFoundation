@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using System.Reflection.Emit;
 using System.Text.Json;
 
 namespace GCFoundation.Components.TagHelpers.FDCP
@@ -47,8 +48,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             {
                 Label = Legend,
                 Hint = Hint,
-                Value = Value,
-                MissingBindingMessage = For != null ? "Missing properties" : "Either 'for' or 'name' must be specified."
+                Value = Value
             });
 
             var selectedValues = GetSelectedValues(field);
@@ -68,8 +68,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             AddAttributeIfNotNull(output, "legend", field.Label);
             AddAttributeIfNotNull(output, "hint", field.Hint);
             AddAttributeIfNotNull(output, "options", JsonSerializer.Serialize(options));
-
-            ApplyGcdsRequiredAttribute(output, field.Required, useEmptyStringValue: true);
+            AddBooleanAttribute(output, "required", field.Required);
 
             output.Content.SetHtmlContent(string.Empty);
         }

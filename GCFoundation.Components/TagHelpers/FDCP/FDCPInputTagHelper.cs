@@ -68,7 +68,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 }
 
                 DateFormatAttribute? formatAttr = PropertyInfo.GetCustomAttribute<DateFormatAttribute>();
-                string label = GetLocalizedLabel(PropertyInfo);
+                string label = ResolveLocalizedLabel(PropertyInfo);
 
                 output.Attributes.SetAttribute("legend", label);
                 output.Attributes.SetAttribute("format", formatAttr != null ? formatAttr.Format : "full");

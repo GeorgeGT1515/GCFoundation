@@ -49,47 +49,29 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         {
             ArgumentNullException.ThrowIfNull(output, nameof(output));
 
-            if (!TryResolveFormField(out FormFieldContext field, new FormFieldResolveOptions
+            FormFieldContext field = ResolveFormField(new FormFieldResolveOptions
             {
                 Label = Label,
                 Hint = Hint,
                 Value = Value
-            }))
-            {
-                output.SuppressOutput();
-                return;
-            }
+            });
 
             output.TagName = "gcds-select";
             output.TagMode = TagMode.StartTagAndEndTag;
 
-            output.Attributes.SetAttribute("name", field.Name);
-            output.Attributes.SetAttribute("select-id", field.Id);
-            output.Attributes.SetAttribute("class", "gcds-select");
-            output.Attributes.SetAttribute("label", field.Label);
-            output.Attributes.SetAttribute("lang", LanguageUtility.GetCurrentApplicationLanguage());
+            AddAttributeIfNotNull(output, "name", field.Name);
+            AddAttributeIfNotNull(output, "select-id", field.Id);
+            AddAttributeIfNotNull(output, "class", "gcds-select");
+            AddAttributeIfNotNull(output, "label", field.Label);
+            AddAttributeIfNotNull(output, "lang", LanguageUtility.GetCurrentApplicationLanguage());
+            AddAttributeIfNotNull(output, "hint", field.Hint);
+            AddAttributeIfNotNull(output, "default-value", DefaultValue);
 
-            if (!string.IsNullOrEmpty(field.Hint))
-            {
-                output.Attributes.SetAttribute("hint", field.Hint);
-            }
+            AddBooleanAttribute(output, "required", field.Required);
+            AddAttributeIfNotNull(output, "validate-on", "blur");
 
-            if (!string.IsNullOrWhiteSpace(DefaultValue))
-            {
-                output.Attributes.SetAttribute("default-value", DefaultValue);
-            }
-
-            if (field.Required)
-            {
-                ApplyGcdsRequiredAttribute(output, field.Required);
-                output.Attributes.SetAttribute("validate-on", "blur");
-
-                string? errorMessage = ResolveModelStateError(field.Name);
-                if (!string.IsNullOrEmpty(errorMessage))
-                {
-                    output.Attributes.SetAttribute("error-message", errorMessage);
-                }
-            }
+            string? errorMessage = ResolveModelStateError(field.Name);
+            AddAttributeIfNotNull(output, "error-message", errorMessage);
 
             string? selectedValue = field.Value ?? field.Model?.ToString();
             var sb = new StringBuilder();

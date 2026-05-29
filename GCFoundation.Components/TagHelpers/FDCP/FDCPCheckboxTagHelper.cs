@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
+using Newtonsoft.Json.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -56,8 +57,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             FormFieldContext field = ResolveFormField(new FormFieldResolveOptions
             {
                 Label = Legend,
-                Hint = Hint,
-                MissingBindingMessage = For != null ? "Missing properties" : "Either 'for' or 'name' must be specified."
+                Hint = Hint
             });
 
             bool currentValue = field.Model is bool modelValue
@@ -79,8 +79,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             AddAttributeIfNotNull(output, "legend", field.Label);
             AddAttributeIfNotNull(output, "name", field.Name);
             AddAttributeIfNotNull(output, "options", JsonSerializer.Serialize(new[] { option }, CamelCaseOptions));
-
-            ApplyGcdsRequiredAttribute(output, field.Required, useEmptyStringValue: true);
+            AddBooleanAttribute(output, "required", field.Required);
 
             output.Content.SetHtmlContent(string.Empty);
         }

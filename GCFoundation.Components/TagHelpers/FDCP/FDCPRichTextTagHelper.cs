@@ -63,16 +63,12 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         {
             ArgumentNullException.ThrowIfNull(output, nameof(output));
 
-            if (!TryResolveFormField(out FormFieldContext field, new FormFieldResolveOptions
+            FormFieldContext field = ResolveFormField(new FormFieldResolveOptions
             {
                 Label = Label,
                 Hint = Hint,
                 Value = Value
-            }))
-            {
-                output.SuppressOutput();
-                return;
-            }
+            });
 
             output.TagName = "div";
             output.TagMode = TagMode.StartTagAndEndTag;

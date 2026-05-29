@@ -77,5 +77,21 @@ namespace GCFoundation.Components.TagHelpers.GCDS
             }
         }
 
+        /// <summary>
+        /// Adds an HTML attribute (without an explicit value) to the <see cref="TagHelperOutput"/> - if the provided <paramref name="attributeValue"/> is true.
+        /// </summary>
+        /// <param name="output">The <see cref="TagHelperOutput"/> object representing the tag helper's output.</param>
+        /// <param name="attributeName">The name of the HTML attribute to add.</param>
+        /// <param name="attributeValue">The value of the HTML attribute. If false, the attribute is not added.</param>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="output"/> is null.</exception>
+        protected static void AddBooleanAttribute(TagHelperOutput output, string attributeName, bool attributeValue)
+        {
+            ArgumentNullException.ThrowIfNull(output, nameof(output));
+
+            if (!attributeValue)
+                return;
+
+            output.Attributes.SetAttribute(attributeName, string.Empty);
+        }
     }
 }
