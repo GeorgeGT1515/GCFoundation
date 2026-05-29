@@ -31,7 +31,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// <summary>
         /// Indicates whether the component is disabled.
         /// </summary>
-        public bool Disabled { get; set; }
+        public bool? Disabled { get; set; }
 
         /// <summary>
         /// The error message associated with the input field, if any.
@@ -70,7 +70,10 @@ namespace GCFoundation.Components.TagHelpers.GCDS
             }
 
             AddAttributeIfNotNull(output, "name", Name);
-            AddAttributeIfNotNull(output, "disabled", Disabled);
+
+            if (Disabled == true)
+                output.Attributes.SetAttribute(new TagHelperAttribute("disabled"));
+
             AddAttributeIfNotNull(output, "error-message", ErrorMessage);
 
             if (Required)
