@@ -40,10 +40,7 @@ else
 
         <fdcp-select for="@Model.SelectedCountry" items="@Model.CountryOptions" />
 
-        @* <fdcp-radios for="@Model.Gender" items="@Model.GenderOptions" /> *@
-        <gcds-text>** Test Radio - BEGIN **</gcds-text>
-        <fdcp-radios name="Gender" id="radio-gender" items="@Model.GenderOptions" required="true" />
-        <gcds-text>** Test Radio - END **</gcds-text>
+        <fdcp-radios for="@Model.Gender" items="@Model.GenderOptions" />
 
         <fdcp-checkboxes for="@Model.SelectedInterests" items="@Model.InterestOptions" />
 
