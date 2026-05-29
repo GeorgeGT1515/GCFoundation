@@ -344,6 +344,5 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             var displayAttr = property.GetCustomAttribute<DisplayAttribute>();
             return displayAttr?.GetDescription() ?? string.Empty;
         }
-
     }
 }
