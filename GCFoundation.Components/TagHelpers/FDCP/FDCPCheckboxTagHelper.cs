@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
-using System.ComponentModel.DataAnnotations;
-using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -9,17 +7,28 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// <summary>
     /// Tag helper for rendering a single checkbox using the gcds-checkboxes component.
     /// </summary>
-    [HtmlTargetElement("fdcp-checkbox")]
+    [HtmlTargetElement("fdcp-checkbox", Attributes = "for")]
+    [HtmlTargetElement("fdcp-checkbox", Attributes = "name")]
     public class FDCPCheckboxTagHelper : FDCPBaseFormComponentTagHelper
     {
         /// <summary>
-        /// Gets or sets whether the checkbox is required.
+        /// Legend or label text for the checkbox.
         /// </summary>
-        /// <remarks>
-        /// This attribute will overwrite the [Required] data annotation (if applicable).
-        /// </remarks>
-        [HtmlAttributeName("required")]
-        public new bool? IsRequired { get; set; }
+        [HtmlAttributeName("legend")]
+        public string? Legend { get; set; }
+
+        /// <summary>
+        /// Hint text for the checkbox.
+        /// </summary>
+        [HtmlAttributeName("hint")]
+        public string? Hint { get; set; }
+
+        /// <summary>
+        /// Whether the checkbox is checked when <c>for</c> is not specified,
+        /// or overrides the bound model value when <c>for</c> is specified.
+        /// </summary>
+        [HtmlAttributeName("checked")]
+        public bool Checked { get; set; }
 
         private sealed class CheckboxOption
         {
@@ -44,54 +53,35 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         {
             ArgumentNullException.ThrowIfNull(output, nameof(output));
 
-            if (For == null)
+            FormFieldContext field = ResolveFormField(new FormFieldResolveOptions
             {
-                throw new InvalidOperationException("For is NULL in FDCPCheckbox.");
-            }
+                Label = Legend,
+                Hint = Hint,
+                MissingBindingMessage = For != null ? "Missing properties" : "Either 'for' or 'name' must be specified."
+            });
 
-            PropertyInfo? propertyInfo = PropertyInfo;
-            if (propertyInfo == null)
-            {
-                throw new InvalidOperationException("Missing properties");
-            }
-
-            string fieldName = Name ?? For.Name;
-            string fieldId = Id ?? fieldName;
-            string label = GetLocalizedLabel(propertyInfo);
-            string hint = GetLocalizedHint(propertyInfo);
-            bool required = For.Metadata.ValidatorMetadata.OfType<RequiredAttribute>().Any()
-                            || propertyInfo.GetCustomAttribute<RequiredAttribute>() != null;
-
-            // Get the current value
-            var currentValue = For.Model as bool? ?? false;
+            bool currentValue = field.Model is bool modelValue
+                ? modelValue
+                : Checked;
 
             output.TagName = "gcds-checkboxes";
             output.TagMode = TagMode.StartTagAndEndTag;
 
-            // Create the single checkbox option
             var option = new CheckboxOption
             {
-                Id = fieldId,
-                Label = label,
+                Id = field.Id,
+                Label = field.Label,
                 Value = "true",
                 @Checked = currentValue,
-                Hint = hint
+                Hint = field.Hint
             };
 
-            // Set the required attributes
-            AddAttributeIfNotNull(output, "legend", label);
-            AddAttributeIfNotNull(output, "name", fieldName);
+            AddAttributeIfNotNull(output, "legend", field.Label);
+            AddAttributeIfNotNull(output, "name", field.Name);
             AddAttributeIfNotNull(output, "options", JsonSerializer.Serialize(new[] { option }, CamelCaseOptions));
 
-            // If a "required" attribute was defined on the tag helper, use that value.
-            // Otherwise, look at the default [Required] data annotation.
-            if (IsRequired.HasValue) required = IsRequired.Value;
-            if (required)
-            {
-                output.Attributes.SetAttribute("required", "");
-            }
+            ApplyGcdsRequiredAttribute(output, field.Required, useEmptyStringValue: true);
 
-            // Clear the content since we're using options attribute
             output.Content.SetHtmlContent(string.Empty);
         }
     }

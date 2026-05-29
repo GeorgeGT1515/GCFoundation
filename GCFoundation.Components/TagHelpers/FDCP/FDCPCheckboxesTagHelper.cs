@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.TagHelpers;
-using System.ComponentModel.DataAnnotations;
-using System.Reflection;
 using System.Text.Json;
 
 namespace GCFoundation.Components.TagHelpers.FDCP
@@ -11,6 +9,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// It binds to a model property and renders checkboxes based on the provided items.
     /// </summary>
     [HtmlTargetElement("fdcp-checkboxes", Attributes = "for, items")]
+    [HtmlTargetElement("fdcp-checkboxes", Attributes = "items, name")]
     public class FDCPCheckboxesTagHelper : FDCPBaseFormComponentTagHelper
     {
         /// <summary>
@@ -20,59 +19,81 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         [HtmlAttributeName("items")]
         public IEnumerable<SelectListItem> Items { get; set; } = new List<SelectListItem>();
 
+        /// <summary>
+        /// Legend text for the checkbox group.
+        /// </summary>
+        [HtmlAttributeName("legend")]
+        public string? Legend { get; set; }
+
+        /// <summary>
+        /// Hint text for the checkbox group.
+        /// </summary>
+        [HtmlAttributeName("hint")]
+        public string? Hint { get; set; }
+
+        /// <summary>
+        /// Comma-separated selected values when <c>for</c> is not specified,
+        /// or overrides the bound model value when <c>for</c> is specified.
+        /// </summary>
+        [HtmlAttributeName("value")]
+        public string? Value { get; set; }
+
         /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             ArgumentNullException.ThrowIfNull(output, nameof(output));
 
-            if (For == null)
+            FormFieldContext field = ResolveFormField(new FormFieldResolveOptions
             {
-                throw new InvalidOperationException("For is NULL in FDCPCheckboxes.");
-            }
+                Label = Legend,
+                Hint = Hint,
+                Value = Value,
+                MissingBindingMessage = For != null ? "Missing properties" : "Either 'for' or 'name' must be specified."
+            });
 
-            PropertyInfo? propertyInfo = PropertyInfo;
-            if (propertyInfo == null)
-            {
-                throw new InvalidOperationException("Missing properties");
-            }
-
-            string fieldName = Name ?? For.Name;
-            string fieldId = Id ?? fieldName;
-            string legend = GetLocalizedLabel(propertyInfo);
-            string hint = GetLocalizedHint(propertyInfo);
-            bool required = For.Metadata.ValidatorMetadata.OfType<RequiredAttribute>().Any()
-                            || propertyInfo.GetCustomAttribute<RequiredAttribute>() != null;
-
-            // Retrieve selected values (if any)
-            var selectedValues = For.Model as List<string> ?? new List<string>();
+            var selectedValues = GetSelectedValues(field);
 
             output.TagName = "gcds-checkboxes";
             output.TagMode = TagMode.StartTagAndEndTag;
 
-            // Convert SelectListItems to the required options format
             var options = Items.Select(item => new
             {
-                id = $"{fieldId}_{item.Value}",
+                id = $"{field.Id}_{item.Value}",
                 label = item.Text,
                 value = item.Value,
                 @checked = selectedValues.Contains(item.Value),
             });
 
-            AddAttributeIfNotNull(output, "name", fieldName);
-            AddAttributeIfNotNull(output, "legend", legend);
-            AddAttributeIfNotNull(output, "hint", hint);
+            AddAttributeIfNotNull(output, "name", field.Name);
+            AddAttributeIfNotNull(output, "legend", field.Label);
+            AddAttributeIfNotNull(output, "hint", field.Hint);
             AddAttributeIfNotNull(output, "options", JsonSerializer.Serialize(options));
 
-            // If a "required" attribute was defined on the tag helper, use that value.
-            // Otherwise, look at the default [Required] data annotation.
-            if (IsRequired.HasValue) required = IsRequired.Value;
-            if (required)
+            ApplyGcdsRequiredAttribute(output, field.Required, useEmptyStringValue: true);
+
+            output.Content.SetHtmlContent(string.Empty);
+        }
+
+        private static List<string> GetSelectedValues(FormFieldContext field)
+        {
+            if (field.Model is List<string> list)
             {
-                output.Attributes.SetAttribute("required", "");
+                return list;
             }
 
-            // Clear the content since we're using the options attribute
-            output.Content.SetHtmlContent(string.Empty);
+            if (field.Model is IEnumerable<string> values)
+            {
+                return values.ToList();
+            }
+
+            if (string.IsNullOrWhiteSpace(field.Value))
+            {
+                return new List<string>();
+            }
+
+            return field.Value
+                .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+                .ToList();
         }
     }
 }

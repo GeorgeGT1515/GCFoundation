@@ -16,6 +16,53 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     public abstract class FDCPBaseFormComponentTagHelper : BaseTagHelper
     {
         /// <summary>
+        /// Resolved field metadata shared by FDCP form component tag helpers.
+        /// </summary>
+        /// <param name="Name">The form field name.</param>
+        /// <param name="Id">The form field id.</param>
+        /// <param name="Label">The localized label or legend text.</param>
+        /// <param name="Hint">The localized hint text.</param>
+        /// <param name="Required">Whether the field is required.</param>
+        /// <param name="Value">The string representation of the current value, if any.</param>
+        /// <param name="Property">The bound model property, when resolved from <c>for</c>.</param>
+        /// <param name="Model">The bound model value, when resolved from <c>for</c>.</param>
+        protected sealed record FormFieldContext(
+            string Name,
+            string Id,
+            string Label,
+            string Hint,
+            bool Required,
+            string? Value,
+            PropertyInfo? Property,
+            object? Model);
+
+        /// <summary>
+        /// Optional overrides used when resolving form field metadata.
+        /// </summary>
+        protected sealed class FormFieldResolveOptions
+        {
+            /// <summary>
+            /// Overrides the label or legend derived from model metadata.
+            /// </summary>
+            public string? Label { get; init; }
+
+            /// <summary>
+            /// Overrides the hint derived from model metadata.
+            /// </summary>
+            public string? Hint { get; init; }
+
+            /// <summary>
+            /// Overrides the value derived from model binding.
+            /// </summary>
+            public string? Value { get; init; }
+
+            /// <summary>
+            /// The exception message used when field metadata cannot be resolved.
+            /// </summary>
+            public string? MissingBindingMessage { get; init; }
+        }
+
+        /// <summary>
         /// Options for serializing JSON property names in camel case.
         /// </summary>
         protected static readonly JsonSerializerOptions CamelCaseOptions = new()
@@ -78,14 +125,161 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         {
             get
             {
-                PropertyInfo? propertyInfo = null;
-
-                if (!string.IsNullOrEmpty(For.Metadata.PropertyName))
+                if (For == null || string.IsNullOrEmpty(For.Metadata.PropertyName))
                 {
-                    propertyInfo = For.Metadata.ContainerType?.GetProperty(For.Metadata.PropertyName);
+                    return null;
                 }
-                return propertyInfo;
+
+                return For.Metadata.ContainerType?.GetProperty(For.Metadata.PropertyName);
             }
+        }
+
+        /// <summary>
+        /// Resolves common form field metadata from model binding and optional manual overrides.
+        /// </summary>
+        /// <param name="options">Optional manual overrides for label, hint, and value.</param>
+        /// <returns>The resolved field metadata.</returns>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown when metadata cannot be resolved from <c>for</c> or manual <c>name</c>.
+        /// </exception>
+        protected FormFieldContext ResolveFormField(FormFieldResolveOptions? options = null)
+        {
+            if (TryResolveFormField(out FormFieldContext field, options))
+            {
+                return field;
+            }
+
+            string message = options?.MissingBindingMessage
+                ?? (For != null ? "Missing properties" : "Either 'for' or 'name' must be specified.");
+            throw new InvalidOperationException(message);
+        }
+
+        /// <summary>
+        /// Attempts to resolve common form field metadata from model binding and optional manual overrides.
+        /// </summary>
+        /// <param name="field">The resolved field metadata when successful.</param>
+        /// <param name="options">Optional manual overrides for label, hint, and value.</param>
+        /// <returns><c>true</c> when metadata was resolved; otherwise <c>false</c>.</returns>
+        protected bool TryResolveFormField(out FormFieldContext field, FormFieldResolveOptions? options = null)
+        {
+            options ??= new FormFieldResolveOptions();
+
+            if (For != null)
+            {
+                PropertyInfo? property = PropertyInfo;
+                string fieldName = Name ?? For.Name;
+                string fieldId = Id ?? fieldName;
+
+                if (property != null)
+                {
+                    field = new FormFieldContext(
+                        fieldName,
+                        fieldId,
+                        options.Label ?? GetLocalizedLabel(property),
+                        options.Hint ?? GetLocalizedHint(property),
+                        ResolveRequired(property),
+                        options.Value ?? For.Model?.ToString(),
+                        property,
+                        For.Model);
+                    return true;
+                }
+
+                field = new FormFieldContext(
+                    fieldName,
+                    fieldId,
+                    options.Label ?? For.Metadata.DisplayName ?? For.Name,
+                    options.Hint ?? string.Empty,
+                    ResolveRequired(null),
+                    options.Value ?? For.Model?.ToString(),
+                    null,
+                    For.Model);
+                return true;
+            }
+
+            if (string.IsNullOrWhiteSpace(Name))
+            {
+                field = default!;
+                return false;
+            }
+
+            field = new FormFieldContext(
+                Name,
+                Id ?? Name,
+                options.Label ?? string.Empty,
+                options.Hint ?? string.Empty,
+                IsRequired ?? false,
+                options.Value,
+                null,
+                null);
+            return true;
+        }
+
+        /// <summary>
+        /// Determines whether the bound field is required from metadata and tag helper overrides.
+        /// </summary>
+        protected bool ResolveRequired(PropertyInfo? property)
+        {
+            bool required = false;
+
+            if (For != null)
+            {
+                required = For.Metadata.ValidatorMetadata.OfType<RequiredAttribute>().Any()
+                           || property?.GetCustomAttribute<RequiredAttribute>() != null;
+            }
+
+            if (IsRequired.HasValue)
+            {
+                required = IsRequired.Value;
+            }
+
+            return required;
+        }
+
+        /// <summary>
+        /// Applies the GCDS <c>required</c> attribute when the field is required.
+        /// </summary>
+        protected static void ApplyGcdsRequiredAttribute(TagHelperOutput output, bool required, bool useEmptyStringValue = false)
+        {
+            ArgumentNullException.ThrowIfNull(output, nameof(output));
+
+            if (!required)
+            {
+                return;
+            }
+
+            if (useEmptyStringValue)
+            {
+                output.Attributes.SetAttribute("required", "");
+            }
+            else
+            {
+                output.Attributes.SetAttribute("required", required);
+            }
+        }
+
+        /// <summary>
+        /// Retrieves the first ModelState error message for a field, optionally only after form submission.
+        /// </summary>
+        protected string? ResolveModelStateError(string fieldName, bool onlyAfterSubmit = true)
+        {
+            if (onlyAfterSubmit)
+            {
+                bool formWasSubmitted = ViewContext?.HttpContext?.Request?.Method == "POST" ||
+                                        ViewContext?.ModelState?.ErrorCount > 0;
+
+                if (!formWasSubmitted)
+                {
+                    return null;
+                }
+            }
+
+            if (ViewContext?.ModelState?.ContainsKey(fieldName) == true &&
+                ViewContext.ModelState[fieldName]?.Errors?.Count > 0)
+            {
+                return ViewContext.ModelState[fieldName]!.Errors[0].ErrorMessage;
+            }
+
+            return null;
         }
 
         /// <inheritdoc/>
@@ -93,14 +287,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         {
             ArgumentNullException.ThrowIfNull(output, nameof(output));
 
-            if (For == null)
-            {
-                output.SuppressOutput();
-                return;
-            }
-
-            PropertyInfo? property = For.Metadata.ContainerType?.GetProperty(For.Metadata.PropertyName ?? string.Empty);
-            if (property == null)
+            if (!TryResolveFormField(out FormFieldContext field))
             {
                 output.SuppressOutput();
                 return;
@@ -108,53 +295,28 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             output.TagName = "gcds-input";
             output.TagMode = TagMode.StartTagAndEndTag;
-            string fieldName = Name ?? For.Name;
-            string fieldId = Id ?? fieldName;
 
-            string label = GetLocalizedLabel(property);
-            string hint = GetLocalizedHint(property);
-            bool required = For.Metadata.ValidatorMetadata.OfType<RequiredAttribute>().Any()
-                            || PropertyInfo?.GetCustomAttribute<RequiredAttribute>() != null;
-            string fieldValue = For.Model?.ToString() ?? string.Empty; // Retrieve the model value
+            output.Attributes.SetAttribute("value", field.Value ?? string.Empty);
+            output.Attributes.SetAttribute("name", field.Name);
+            output.Attributes.SetAttribute("label", field.Label);
+            output.Attributes.SetAttribute("input-id", field.Id);
 
-            // Required GCDS attributes
-            output.Attributes.SetAttribute("value", fieldValue);
-            output.Attributes.SetAttribute("name", fieldName);
-            output.Attributes.SetAttribute("label", label);
-            output.Attributes.SetAttribute("input-id", fieldId); // Required by GCDS
-            
-            // Optional attributes
-            if (!string.IsNullOrEmpty(hint))
+            if (!string.IsNullOrEmpty(field.Hint))
             {
-                output.Attributes.SetAttribute("hint", hint);
+                output.Attributes.SetAttribute("hint", field.Hint);
             }
 
             output.Attributes.SetAttribute("lang", LanguageUtility.GetCurrentApplicationLanguage());
 
-            // Validation attributes
-            // If a "required" attribute was defined on the tag helper, use that value.
-            // Otherwise, look at the default [Required] data annotation.
-            if (IsRequired.HasValue) required = IsRequired.Value;
-            if (required)
+            if (field.Required)
             {
-                output.Attributes.SetAttribute("required", required);
-                
-                // Add default validation behavior (blur event as per GCDS documentation)
+                ApplyGcdsRequiredAttribute(output, field.Required);
                 output.Attributes.SetAttribute("validate-on", "blur");
-                
-                // Only add error message if form was submitted (to prevent premature validation popups)
-                bool formWasSubmitted = ViewContext?.HttpContext?.Request?.Method == "POST" ||
-                                       ViewContext?.ModelState?.ErrorCount > 0;
-                
-                if (formWasSubmitted && 
-                    ViewContext?.ModelState?.ContainsKey(fieldName) == true && 
-                    ViewContext.ModelState[fieldName]?.Errors?.Count > 0)
+
+                string? errorMessage = ResolveModelStateError(field.Name);
+                if (!string.IsNullOrEmpty(errorMessage))
                 {
-                    string errorMessage = ViewContext.ModelState[fieldName]!.Errors[0].ErrorMessage;
-                    if (!string.IsNullOrEmpty(errorMessage))
-                    {
-                        output.Attributes.SetAttribute("error-message", errorMessage);
-                    }
+                    output.Attributes.SetAttribute("error-message", errorMessage);
                 }
             }
         }

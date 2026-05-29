@@ -94,7 +94,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         }
 
         [Fact]
-        public void Process_WithNullFor_ThrowsInvalidOperationException()
+        public void Process_WithoutForOrName_ThrowsInvalidOperationException()
         {
             // Arrange
             _tagHelper.Items = new List<SelectListItem>();
@@ -103,7 +103,40 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
 
             // Act & Assert
-            Assert.Throws<InvalidOperationException>(() => _tagHelper.Process(_context, _output));
+            var ex = Assert.Throws<InvalidOperationException>(() => _tagHelper.Process(_context, _output));
+            Assert.Contains("Either 'for' or 'name' must be specified", ex.Message);
+        }
+
+        [Fact]
+        public void Process_WithManualAttributes_SetsExpectedAttributes_AndOptions()
+        {
+            _tagHelper.Name = "Interests";
+            _tagHelper.Id = "interests-id";
+            _tagHelper.Legend = "Pick interests";
+            _tagHelper.Hint = "Select all that apply";
+            _tagHelper.Value = "music,sports";
+            _tagHelper.IsRequired = true;
+            _tagHelper.Items = new List<SelectListItem>
+            {
+                new() { Text = "Sports", Value = "sports" },
+                new() { Text = "Music", Value = "music" }
+            };
+
+            _tagHelper.Process(_context, _output);
+
+            Assert.Equal("gcds-checkboxes", _output.TagName);
+            Assert.Equal("Interests", _output.Attributes["name"].Value);
+            Assert.Equal("Pick interests", _output.Attributes["legend"].Value);
+            Assert.Equal("Select all that apply", _output.Attributes["hint"].Value);
+            Assert.True(_output.Attributes.ContainsName("required"));
+
+            var options = JsonSerializer.Deserialize<List<Dictionary<string, object>>>(
+                _output.Attributes["options"].Value!.ToString()!,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+            Assert.NotNull(options);
+            Assert.True(GetChecked(options![0]));
+            Assert.True(GetChecked(options[1]));
         }
 
         [Fact]
