@@ -34,7 +34,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             AddAttributeIfNotNull(output, "label", field.Label);
             AddAttributeIfNotNull(output, "input-id", field.Id);
             AddAttributeIfNotNull(output, "hint", field.Hint);
-            AddAttributeIfNotNull(output, "lang", LanguageUtility.GetCurrentApplicationLanguage());
+            AddAttributeIfNotNull(output, "lang", Lang);
 
             AddBooleanAttribute(output, "required", field.Required);
             AddAttributeIfNotNull(output, "validate-on", "blur");

@@ -50,7 +50,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             AddAttributeIfNotNull(output, "select-id", field.Id);
             AddAttributeIfNotNull(output, "class", "gcds-select");
             AddAttributeIfNotNull(output, "label", field.Label);
-            AddAttributeIfNotNull(output, "lang", LanguageUtility.GetCurrentApplicationLanguage());
+            AddAttributeIfNotNull(output, "lang", Lang);
             AddAttributeIfNotNull(output, "hint", field.Hint);
             AddAttributeIfNotNull(output, "default-value", DefaultValue);
 
