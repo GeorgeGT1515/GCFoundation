@@ -92,7 +92,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             AddAttributeIfNotNull(output, "name", field.Name);
             AddAttributeIfNotNull(output, "hint", field.Hint);
-            AddAttributeIfNotNull(output, "lang", LanguageUtility.GetCurrentApplicationLanguage());
+            AddAttributeIfNotNull(output, "lang", Lang);
 
             AddBooleanAttribute(output, "disabled", field.Disabled);
             AddBooleanAttribute(output, "required", field.Required);
