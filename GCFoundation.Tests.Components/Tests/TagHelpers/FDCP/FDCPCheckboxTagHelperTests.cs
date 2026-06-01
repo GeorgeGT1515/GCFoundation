@@ -79,7 +79,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         }
 
         [Fact]
-        public void Process_WithNullFor_ThrowsInvalidOperationException()
+        public void Process_WithoutForOrName_ThrowsInvalidOperationException()
         {
             // Arrange
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
@@ -87,7 +87,35 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
 
             // Act & Assert
-            Assert.Throws<InvalidOperationException>(() => _tagHelper.Process(_context, _output));
+            var ex = Assert.Throws<InvalidOperationException>(() => _tagHelper.Process(_context, _output));
+            Assert.Contains("Either 'for' or 'name' must be specified", ex.Message);
+        }
+
+        [Fact]
+        public void Process_WithManualAttributes_SetsExpectedAttributes()
+        {
+            _tagHelper.Name = "AgreeToTerms";
+            _tagHelper.Id = "agree-id";
+            _tagHelper.Legend = "I agree";
+            _tagHelper.Hint = "Required to continue";
+            _tagHelper.Checked = true;
+            _tagHelper.Required = true;
+
+            _tagHelper.Process(_context, _output);
+
+            Assert.Equal("gcds-checkboxes", _output.TagName);
+            Assert.Equal("AgreeToTerms", _output.Attributes["name"].Value);
+            Assert.Equal("I agree", _output.Attributes["legend"].Value);
+            Assert.True(_output.Attributes.ContainsName("required"));
+
+            var options = JsonSerializer.Deserialize<List<Dictionary<string, object>>>(
+                _output.Attributes["options"].Value!.ToString()!,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+            Assert.NotNull(options);
+            Assert.Single(options!);
+            Assert.True(GetChecked(options[0]));
+            Assert.Equal("Required to continue", options[0]["hint"].ToString());
         }
 
         [Fact]
@@ -95,7 +123,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         {
             // Arrange
             SetupModelExpression("NonRequiredProperty");
-            _tagHelper.IsRequired = true;
+            _tagHelper.Required = true;
 
             // Act
             _tagHelper.Process(_context, _output);
@@ -122,7 +150,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         {
             // Arrange
             SetupModelExpression("RequiredProperty");
-            _tagHelper.IsRequired = false;
+            _tagHelper.Required = false;
 
             // Act
             _tagHelper.Process(_context, _output);

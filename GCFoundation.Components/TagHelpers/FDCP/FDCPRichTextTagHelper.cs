@@ -3,9 +3,7 @@ using GCFoundation.Components.Enums;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Reflection;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 
@@ -16,8 +14,16 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// Adheres to GCDS guidelines and ensures accessibility (WCAG 2.1 AAA).
     /// </summary>
     [HtmlTargetElement("fdcp-rich-text", Attributes = "for")]
+    [HtmlTargetElement("fdcp-rich-text", Attributes = "name")]
     public class FDCPRichTextTagHelper : FDCPBaseFormComponentTagHelper
     {
+        /// <summary>
+        /// Label text for the editor. Used when <c>for</c> is not specified,
+        /// or overrides the model display name when <c>for</c> is specified.
+        /// </summary>
+        [HtmlAttributeName("label")]
+        public string? Label { get; set; }
+
         /// <summary>
         /// Gets or sets the toolbar configuration (Basic, Standard, Full).
         /// </summary>
@@ -45,45 +51,33 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         {
             ArgumentNullException.ThrowIfNull(output, nameof(output));
 
-            if (For == null)
+            FormFieldContext field = ResolveFormField(new FormFieldResolveOptions
             {
-                output.SuppressOutput();
-                return;
-            }
+                Label = Label,
+                Hint = Hint,
+                Value = Value
+            });
 
             output.TagName = "div";
             output.TagMode = TagMode.StartTagAndEndTag;
             AppendClass(output, "gcds-input-wrapper fdcp-rich-text-container gc-form-group");
 
-            string fieldName = Name ?? For.Name;
-            string fieldId = Id ?? fieldName;
-            string editorId = $"{fieldId}_editor";
-            string hintId = $"{fieldId}_hint";
-            string labelId = $"{fieldId}_label";
-            string errorId = $"{fieldId}_error";
+            string editorId = $"{field.Id}_editor";
+            string hintId = $"{field.Id}_hint";
+            string labelId = $"{field.Id}_label";
+            string errorId = $"{field.Id}_error";
             string lang = LanguageUtility.GetCurrentApplicationLanguage();
 
-            PropertyInfo? property = For.Metadata.ContainerType?.GetProperty(For.Metadata.PropertyName ?? string.Empty);
-            string labelText = property != null ? GetLocalizedLabel(property) : fieldName;
-            string hintText = property != null ? GetLocalizedHint(property) : string.Empty;
-
-            bool required = For.Metadata.ValidatorMetadata.OfType<RequiredAttribute>().Any()
-                            || PropertyInfo?.GetCustomAttribute<RequiredAttribute>() != null;
-            if (IsRequired.HasValue)
-            {
-                required = IsRequired.Value;
-            }
-
             // Check for validation errors
-            bool hasError = ViewContext?.ModelState?.ContainsKey(fieldName) == true &&
-                            ViewContext.ModelState[fieldName]?.Errors?.Count > 0;
-            string? errorMessage = hasError 
-                ? ViewContext!.ModelState[fieldName]!.Errors[0].ErrorMessage 
+            bool hasError = ViewContext?.ModelState?.ContainsKey(field.Name) == true &&
+                            ViewContext.ModelState[field.Name]?.Errors?.Count > 0;
+            string? errorMessage = hasError
+                ? ViewContext!.ModelState[field.Name]!.Errors[0].ErrorMessage
                 : null;
 
             // Build aria-describedby IDs list
             var describedByIds = new List<string>();
-            if (!string.IsNullOrEmpty(hintText))
+            if (!string.IsNullOrEmpty(field.Hint))
             {
                 describedByIds.Add(hintId);
             }
@@ -101,10 +95,10 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             label.Attributes.Add("lang", lang);
 
             var labelTextSpan = new TagBuilder("span");
-            labelTextSpan.InnerHtml.Append(labelText);
+            labelTextSpan.InnerHtml.Append(field.Label);
             label.InnerHtml.AppendHtml(labelTextSpan);
 
-            if (required)
+            if (field.Required)
             {
                 var requiredText = GCFoundation.Components.Resources.Localization.Required;
                 var requiredSpan = new TagBuilder("span");
@@ -117,12 +111,12 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             output.Content.AppendHtml(label);
             
             // 2. Render Hint (if any) - Placed after label following GCDS pattern
-            if (!string.IsNullOrEmpty(hintText))
+            if (!string.IsNullOrEmpty(field.Hint))
             {
                 var hintBuilder = new TagBuilder("gcds-hint");
                 hintBuilder.Attributes.Add("hint-id", hintId);
                 hintBuilder.Attributes.Add("id", hintId); // Required for aria-describedby
-                hintBuilder.InnerHtml.Append(hintText);
+                hintBuilder.InnerHtml.Append(field.Hint);
                 output.Content.AppendHtml(hintBuilder);
             }
 
@@ -141,7 +135,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             editorBuilder.Attributes.Add("id", editorId);
             editorBuilder.AddCssClass("fdcp-rich-text-editor");
             editorBuilder.Attributes.Add("data-fdcp-rich-text", "true");
-            editorBuilder.Attributes.Add("data-for", fieldId);
+            editorBuilder.Attributes.Add("data-for", field.Id);
             editorBuilder.Attributes.Add("data-toolbar", Toolbar.ToString().ToLowerInvariant());
             editorBuilder.Attributes.Add("data-error-id", errorId);
             editorBuilder.Attributes.Add("style", $"height: {Height};");
@@ -177,21 +171,21 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             // 6. Hidden input for form submission
             var inputBuilder = new TagBuilder("input");
             inputBuilder.Attributes.Add("type", "hidden");
-            inputBuilder.Attributes.Add("id", fieldId);
-            inputBuilder.Attributes.Add("name", fieldName);
+            inputBuilder.Attributes.Add("id", field.Id);
+            inputBuilder.Attributes.Add("name", field.Name);
             inputBuilder.Attributes.Add("lang", lang);
             inputBuilder.Attributes.Add("aria-hidden", "true");
             inputBuilder.Attributes.Add("data-error-id", errorId);
             
-            if (required)
+            if (field.Required)
             {
                 inputBuilder.Attributes.Add("required", "required");
                 // Store required error message for client-side validation
 #pragma warning disable CA1863 // Use CompositeFormat - not a performance-critical path
                 var requiredErrorMsg = string.Format(
                     System.Globalization.CultureInfo.CurrentCulture,
-                    GCFoundation.Components.Resources.Validation.Field_Required, 
-                    labelText);
+                    GCFoundation.Components.Resources.Validation.Field_Required,
+                    field.Label);
 #pragma warning restore CA1863
                 inputBuilder.Attributes.Add("data-required-error", requiredErrorMsg);
             }
@@ -202,16 +196,15 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 inputBuilder.Attributes.Add("data-error-message", errorMessage);
             }
 
-            var value = For.Model?.ToString();
-            if (!string.IsNullOrEmpty(value))
+            if (!string.IsNullOrEmpty(field.Value))
             {
-                inputBuilder.Attributes.Add("value", value);
+                inputBuilder.Attributes.Add("value", field.Value);
             }
             output.Content.AppendHtml(inputBuilder);
 
             // 7. Store label and describedBy info for JavaScript accessibility enhancement
             output.Attributes.SetAttribute("data-label-id", labelId);
-            output.Attributes.SetAttribute("data-hint-id", !string.IsNullOrEmpty(hintText) ? hintId : "");
+            output.Attributes.SetAttribute("data-hint-id", !string.IsNullOrEmpty(field.Hint) ? hintId : "");
             output.Attributes.SetAttribute("data-error-id", errorId);
             output.Attributes.SetAttribute("data-described-by", string.Join(' ', describedByIds));
         }

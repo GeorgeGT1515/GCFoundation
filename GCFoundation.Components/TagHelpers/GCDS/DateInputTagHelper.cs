@@ -22,8 +22,11 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
+            ArgumentNullException.ThrowIfNull(output, nameof(output));
+
             AddAttributeIfNotNull(output, "format", Format);
             AddAttributeIfNotNull(output, "legend", Legend);
+
             base.Process(context, output);
         }
     }

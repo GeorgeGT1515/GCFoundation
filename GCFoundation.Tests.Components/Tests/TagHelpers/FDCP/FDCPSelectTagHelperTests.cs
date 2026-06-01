@@ -74,6 +74,33 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Equal("Select an option / Sélectionner une option", _output.Attributes["default-value"].Value);
         }
 
+        [Fact]
+        public void Process_WithManualAttributes_RendersCorrectly()
+        {
+            var tagHelper = new FDCPSelectTagHelper
+            {
+                Name = "SelectedCountry",
+                Id = "country-id",
+                Label = "Country",
+                Hint = "Pick your country",
+                Value = "US",
+                Items = new List<SelectListItem>
+                {
+                    new SelectListItem { Value = "CA", Text = "Canada" },
+                    new SelectListItem { Value = "US", Text = "United States" }
+                }
+            };
+
+            tagHelper.Process(_context, _output);
+
+            Assert.Equal("gcds-select", _output.TagName);
+            Assert.Equal("SelectedCountry", _output.Attributes["name"].Value);
+            Assert.Equal("country-id", _output.Attributes["select-id"].Value);
+            Assert.Equal("Country", _output.Attributes["label"].Value);
+            Assert.Equal("Pick your country", _output.Attributes["hint"].Value);
+            Assert.Contains("selected", _output.Content.GetContent());
+        }
+
         private ModelExpression MockModelExpression(string name, string value)
         {
             var metadataProvider = new EmptyModelMetadataProvider();
