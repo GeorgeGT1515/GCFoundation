@@ -170,7 +170,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             tagHelper.Process(_context, _output);
 
             // Assert
-            Assert.Equal("checkbox", _output.TagName);
+            Assert.Equal("gcds-checkbox", _output.TagName);
             Assert.Equal("BoolProperty", _output.Attributes["checkbox-id"].Value);
         }
 
