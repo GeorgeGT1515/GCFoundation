@@ -25,18 +25,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public string? Label { get; set; }
 
         /// <summary>
-        /// Hint text for the editor.
-        /// </summary>
-        [HtmlAttributeName("hint")]
-        public string? Hint { get; set; }
-
-        /// <summary>
-        /// The current editor value.
-        /// </summary>
-        [HtmlAttributeName("value")]
-        public string? Value { get; set; }
-
-        /// <summary>
         /// Gets or sets the toolbar configuration (Basic, Standard, Full).
         /// </summary>
         public FDCPRichTextToolbar Toolbar { get; set; } = FDCPRichTextToolbar.Basic;

@@ -26,19 +26,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         [HtmlAttributeName("legend")]
         public string? Legend { get; set; }
 
-        /// <summary>
-        /// Hint text for the checkbox group.
-        /// </summary>
-        [HtmlAttributeName("hint")]
-        public string? Hint { get; set; }
-
-        /// <summary>
-        /// Comma-separated selected values when <c>for</c> is not specified,
-        /// or overrides the bound model value when <c>for</c> is specified.
-        /// </summary>
-        [HtmlAttributeName("value")]
-        public string? Value { get; set; }
-
         /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {

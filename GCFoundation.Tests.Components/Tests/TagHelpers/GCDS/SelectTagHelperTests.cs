@@ -1,5 +1,10 @@
 ﻿using GCFoundation.Components.TagHelpers.GCDS;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using System.ComponentModel.DataAnnotations;
 
 namespace GCFoundation.Tests.Components.Tests.TagHelpers.GCDS
 {
@@ -239,11 +244,62 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.GCDS
             Assert.Equal("my-select", output.Attributes["select-id"].Value?.ToString());
         }
 
+        [Fact]
+        public void Process_WithForAndModelStateError_EmitsModelStateErrorMessage()
+        {
+            var viewContext = new ViewContext();
+            viewContext.ModelState.AddModelError(nameof(TestModel.Country), "Country is required.");
+
+            var helper = new SelectTagHelper
+            {
+                For = CreateModelExpression(nameof(TestModel.Country), new TestModel()),
+                ViewContext = viewContext,
+                Label = "Country",
+                SelectId = "country"
+            };
+
+            var output = CreateOutput();
+            helper.Process(CreateContext(), output);
+
+            Assert.Equal("Country is required.", output.Attributes["error-message"].Value?.ToString());
+        }
+
+        [Fact]
+        public void Process_WithRequiredMetadataAndFalseRequiredOverride_DoesNotEmitRequired()
+        {
+            var helper = new SelectTagHelper
+            {
+                For = CreateModelExpression(nameof(TestModel.Country), new TestModel()),
+                ViewContext = new ViewContext(),
+                Label = "Country",
+                SelectId = "country",
+                Required = false
+            };
+
+            var output = CreateOutput();
+            helper.Process(CreateContext(), output);
+
+            Assert.False(output.Attributes.ContainsName("required"));
+        }
+
+        private static ModelExpression CreateModelExpression(string propertyName, TestModel model)
+        {
+            var metadataProvider = new EmptyModelMetadataProvider();
+            var modelExplorer = metadataProvider.GetModelExplorerForType(typeof(TestModel), model);
+            return new ModelExpression(propertyName, modelExplorer.GetExplorerForProperty(propertyName));
+        }
+
         private static TagHelperContext CreateContext() =>
             new(new TagHelperAttributeList(), new Dictionary<object, object>(), "test-id");
 
         private static TagHelperOutput CreateOutput() =>
             new("gcds-select", new TagHelperAttributeList(),
                 (_, _) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
+
+        private sealed class TestModel
+        {
+            [Required]
+            public string Country { get; set; } = string.Empty;
+        }
     }
 }

@@ -46,7 +46,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
                 new() { Text = "Option 1", Value = "1" },
                 new() { Text = "Option 2", Value = "2" }
             };
-            _tagHelper.IsRequired = true;
+            _tagHelper.Required = true;
 
             // Act
             _tagHelper.Process(_context, _output);
@@ -92,7 +92,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             {
                 new() { Text = "Option 1", Value = "1" }
             };
-            _tagHelper.IsRequired = false;
+            _tagHelper.Required = false;
 
             // Act
             _tagHelper.Process(_context, _output);
@@ -110,7 +110,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             {
                 new() { Text = "Option 1", Value = "1" }
             };
-            _tagHelper.IsRequired = true;
+            _tagHelper.Required = true;
 
             // Act
             _tagHelper.Process(_context, _output);
@@ -145,7 +145,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             {
                 new() { Text = "Option 1", Value = "1" }
             };
-            _tagHelper.IsRequired = false;
+            _tagHelper.Required = false;
 
             // Act
             _tagHelper.Process(_context, _output);
@@ -176,7 +176,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             _tagHelper.Legend = "Pick one";
             _tagHelper.Hint = "Select the best option";
             _tagHelper.Value = "2";
-            _tagHelper.IsRequired = true;
+            _tagHelper.Required = true;
             _tagHelper.Items = new List<SelectListItem>
             {
                 new() { Text = "Option 1", Value = "1" },

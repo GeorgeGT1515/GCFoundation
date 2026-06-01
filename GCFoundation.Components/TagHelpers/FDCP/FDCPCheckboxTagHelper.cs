@@ -19,12 +19,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public string? Legend { get; set; }
 
         /// <summary>
-        /// Hint text for the checkbox.
-        /// </summary>
-        [HtmlAttributeName("hint")]
-        public string? Hint { get; set; }
-
-        /// <summary>
         /// Whether the checkbox is checked when <c>for</c> is not specified,
         /// or overrides the bound model value when <c>for</c> is specified.
         /// </summary>

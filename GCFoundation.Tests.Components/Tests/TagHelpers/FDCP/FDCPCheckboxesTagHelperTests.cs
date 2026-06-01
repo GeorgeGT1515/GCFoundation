@@ -115,7 +115,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             _tagHelper.Legend = "Pick interests";
             _tagHelper.Hint = "Select all that apply";
             _tagHelper.Value = "music,sports";
-            _tagHelper.IsRequired = true;
+            _tagHelper.Required = true;
             _tagHelper.Items = new List<SelectListItem>
             {
                 new() { Text = "Sports", Value = "sports" },
@@ -144,7 +144,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         {
             // Arrange
             SetupModelExpression("NonRequiredProperty");
-            _tagHelper.IsRequired = true;
+            _tagHelper.Required = true;
             _tagHelper.Items = new List<SelectListItem>();
 
             // Act
@@ -174,7 +174,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             // Arrange
             SetupModelExpression("RequiredProperty");
             _tagHelper.Items = new List<SelectListItem>();
-            _tagHelper.IsRequired = false;
+            _tagHelper.Required = false;
 
             // Act
             _tagHelper.Process(_context, _output);

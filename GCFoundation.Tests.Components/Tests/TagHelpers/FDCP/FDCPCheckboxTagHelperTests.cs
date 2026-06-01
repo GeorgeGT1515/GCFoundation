@@ -99,7 +99,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             _tagHelper.Legend = "I agree";
             _tagHelper.Hint = "Required to continue";
             _tagHelper.Checked = true;
-            _tagHelper.IsRequired = true;
+            _tagHelper.Required = true;
 
             _tagHelper.Process(_context, _output);
 
@@ -115,6 +115,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.NotNull(options);
             Assert.Single(options!);
             Assert.True(GetChecked(options[0]));
+            Assert.Equal("Required to continue", options[0]["hint"].ToString());
         }
 
         [Fact]
@@ -122,7 +123,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         {
             // Arrange
             SetupModelExpression("NonRequiredProperty");
-            _tagHelper.IsRequired = true;
+            _tagHelper.Required = true;
 
             // Act
             _tagHelper.Process(_context, _output);
@@ -149,7 +150,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         {
             // Arrange
             SetupModelExpression("RequiredProperty");
-            _tagHelper.IsRequired = false;
+            _tagHelper.Required = false;
 
             // Act
             _tagHelper.Process(_context, _output);

@@ -26,19 +26,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         [HtmlAttributeName("legend")]
         public string? Legend { get; set; }
 
-        /// <summary>
-        /// Hint text for the radio group.
-        /// </summary>
-        [HtmlAttributeName("hint")]
-        public string? Hint { get; set; }
-
-        /// <summary>
-        /// The currently selected value. Used when <c>for</c> is not specified,
-        /// or overrides the bound model value when <c>for</c> is specified.
-        /// </summary>
-        [HtmlAttributeName("value")]
-        public string? Value { get; set; }
-
         /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {

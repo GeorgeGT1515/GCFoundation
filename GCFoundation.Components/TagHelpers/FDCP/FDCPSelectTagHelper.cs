@@ -23,20 +23,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         /// Label text for the select. Used when <c>for</c> is not specified,
         /// or overrides the model display name when <c>for</c> is specified.
         /// </summary>
-        [HtmlAttributeName("label")]
         public string? Label { get; set; }
-
-        /// <summary>
-        /// Hint text for the select.
-        /// </summary>
-        [HtmlAttributeName("hint")]
-        public string? Hint { get; set; }
-
-        /// <summary>
-        /// The currently selected value.
-        /// </summary>
-        [HtmlAttributeName("value")]
-        public string? Value { get; set; }
 
         /// <summary>
         /// The list of selectable options for the dropdown.
