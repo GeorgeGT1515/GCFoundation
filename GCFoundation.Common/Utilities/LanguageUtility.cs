@@ -20,7 +20,7 @@ namespace GCFoundation.Common.Utilities
         /// <returns>A two-letter ISO language code ("en" or "fr").</returns>
         public static string GetCurrentApplicationLanguage()
         {
-            return CultureInfo.CurrentCulture.Name.Split('-')[0];
+            return CultureInfo.CurrentCulture.Name.Split('-')[0] ?? "en";
         }
 
         /// <summary>
