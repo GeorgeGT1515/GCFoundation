@@ -43,7 +43,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             switch (inputType)
             {
                 case InputType.checkbox:
-                    output.TagName = "checkbox";
+                    output.TagName = "gcds-checkbox";
+                    output.TagMode = TagMode.StartTagAndEndTag;
 
                     AddAttributeIfNotNull(output, "label", field.Label);
                     AddAttributeIfNotNull(output, "checkbox-id", field.Id);
@@ -51,6 +52,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                     break;
                 case InputType.date:
                     output.TagName = "gcds-date-input";
+                    output.TagMode = TagMode.StartTagAndEndTag;
 
                     AddAttributeIfNotNull(output, "type", "date");
                     AddAttributeIfNotNull(output, "legend", field.Label);
@@ -64,6 +66,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                     break;
                 case InputType.textArea:
                     output.TagName = "gcds-textarea";
+                    output.TagMode = TagMode.StartTagAndEndTag;
 
                     AddAttributeIfNotNull(output, "label", field.Label);
                     AddAttributeIfNotNull(output, "textarea-id", field.Id);
@@ -78,6 +81,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 case InputType.url:
                 default:
                     output.TagName = "gcds-input";
+                    output.TagMode = TagMode.StartTagAndEndTag;
 
                     AddAttributeIfNotNull(output, "type", inputType);
                     AddAttributeIfNotNull(output, "label", field.Label);
