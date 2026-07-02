@@ -160,6 +160,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to GCFoundation Components.
+        /// </summary>
+        public static string Nav_Components_GCFoundation {
+            get {
+                return ResourceManager.GetString("Nav_Components_GCFoundation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Modal.
         /// </summary>
         public static string Nav_Components_Modal {
@@ -237,6 +246,15 @@ namespace GCFoundation.Web.Resources {
         public static string Nav_Errors_NotFound {
             get {
                 return ResourceManager.GetString("Nav_Errors_NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Get Started.
+        /// </summary>
+        public static string Nav_GetStarted {
+            get {
+                return ResourceManager.GetString("Nav_GetStarted", resourceCulture);
             }
         }
         
