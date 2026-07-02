@@ -34,6 +34,15 @@
                     @topNavigationLocalizationService.GetLocalizeValue(Model.AdjustText(node))
                 </gcds-nav-link>
 
+                @foreach (var descendant in await CollectFlattenedDescendants(node))
+                {
+                    <gcds-nav-link href="@Url.Content(Model.AdjustUrl(descendant))">
+                        @topNavigationLocalizationService.GetLocalizeValue(Model.AdjustText(descendant))
+                    </gcds-nav-link>
+                }
+            }
+        }
+
                 @foreach (var descendant in await CollectDescendants(node))
                 {
                     <gcds-nav-link href="@Url.Content(Model.AdjustUrl(descendant))">
@@ -43,6 +52,23 @@
             }
         }
     </gcds-top-nav>
+</div>
+
+@functions {
+    // Recurses under a linked node to surface any descendant already present in this
+    // (topnav-filtered) tree, flattening it into a sibling-level link rather than nesting it.
+    async Task<List<TreeNode<NavigationNode>>> CollectFlattenedDescendants(TreeNode<NavigationNode> node)
+    {
+        var result = new List<TreeNode<NavigationNode>>();
+        foreach (var child in node.Children)
+        {
+            if (!await Model.ShouldAllowView(child)) { continue; }
+            result.Add(child);
+            result.AddRange(await CollectFlattenedDescendants(child));
+        }
+        return result;
+    }
+}
 </div>
 
 @functions {
