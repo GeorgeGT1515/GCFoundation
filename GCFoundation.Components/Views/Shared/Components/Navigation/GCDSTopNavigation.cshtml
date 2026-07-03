@@ -42,15 +42,6 @@
                 }
             }
         }
-
-                @foreach (var descendant in await CollectDescendants(node))
-                {
-                    <gcds-nav-link href="@Url.Content(Model.AdjustUrl(descendant))">
-                        @topNavigationLocalizationService.GetLocalizeValue(Model.AdjustText(descendant))
-                    </gcds-nav-link>
-                }
-            }
-        }
     </gcds-top-nav>
 </div>
 
