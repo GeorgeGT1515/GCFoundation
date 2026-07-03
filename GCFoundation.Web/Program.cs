@@ -43,7 +43,7 @@ builder.Services.AddLocalization();
 // Configure breadcrumbs localization service
 builder.Services.AddSingleton<IBreadcrumbsLocalizationService, BreadcrumbsLocalizationService<GCFoundation.Web.Resources.Navigation>>();
 
-//Configure top nav localization servie
+//Configure top nav localization service
 builder.Services.AddSingleton<ITopNavigationLocalizationService, TopNavigationLocalizationService<GCFoundation.Web.Resources.Navigation>>();
 
 // Configure GCFoundation
