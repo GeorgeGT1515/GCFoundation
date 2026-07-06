@@ -37,10 +37,10 @@ namespace GCFoundation.Components.Services
         /// <returns><c>true</c> if the node should be shown; otherwise, <c>false</c>.</returns>
         public Task<bool> ShouldAllowView(TreeNode<NavigationNode> menuNode)
         {
+            ArgumentNullException.ThrowIfNull(menuNode);
             var key = menuNode.Value.Key;
 
-            var found = _rules.TryGetValue(key, out var rule);
-            if (!found)
+            if (!_rules.TryGetValue(key, out var rule))
                 return Task.FromResult(true);
 
             var httpContext = _httpContextAccessor.HttpContext;
