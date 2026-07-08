@@ -194,6 +194,7 @@
         var controllerFooterContextualHeading = ViewData["FooterContextualHeading"] as string;
         var controllerFooterContextualLinks = ViewData["FooterContextualLinks"] as IEnumerable<FooterLink>;
         var controllerFooterSubLinks = ViewData["FooterSubLinks"] as IEnumerable<FooterLink>;
+        var footerDisplay = ViewData["FooterDisplay"] as FooterDisplayType? ?? FooterDisplayType.full;
         var footerContextualHeading = settings.Value.ApplicationName;
         var footerContextualLinks = new List<FooterLink>();
         var footerSubLinks = new List<FooterLink>();
@@ -220,7 +221,7 @@
             footerContextualHeading = controllerFooterContextualHeading;
         }
     }
-    <gcds-footer display="full" contextual-heading="@footerContextualHeading" contextual-links="@footerContextualLinks" sub-links="@footerSubLinks"></gcds-footer>
+    <gcds-footer display="@footerDisplay" contextual-heading="@footerContextualHeading" contextual-links="@footerContextualLinks" sub-links="@footerSubLinks"></gcds-footer>
 
     @* Render all modal in that section to make sure to block all content on the page *@
     @await RenderSectionAsync("Modals", required: false)
