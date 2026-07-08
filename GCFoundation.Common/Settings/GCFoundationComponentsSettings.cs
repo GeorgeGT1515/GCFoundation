@@ -19,12 +19,12 @@ namespace GCFoundation.Common.Settings
         /// <summary>
         /// Gets or sets the version of the GC Design System CSS Shortcuts being used.
         /// </summary>
-        public string GCDSCssShortcutsVersion { get; set; } = "1.0.1";
+        public string GCDSCssShortcutsVersion { get; set; } = "1.2.0";
 
         /// <summary>
         /// Gets or sets the version of the GC Design System being used.
         /// </summary>
-        public string GCDSVersion { get; set; } = "1.0.0";
+        public string GCDSVersion { get; set; } = "1.3.1";
 
 
         /// <summary>
