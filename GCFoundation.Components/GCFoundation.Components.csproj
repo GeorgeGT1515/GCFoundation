@@ -146,7 +146,7 @@
 
   <ItemGroup>
     <Content Remove="package-lock.json" />
-    <Content Remove="package.json" />
+    <Content Remove="package.json" />    
     <Content Remove="Views\Shared\_ViewImports.cshtml" />
   </ItemGroup>
 
@@ -154,6 +154,9 @@
     <Content Update="Views\Shared\Components\Navigation\GCDSBreadcrumbs.cshtml">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
+	<Content Update="Views\Shared\Components\GCDSTopNavigation.cshtml">
+		<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	</Content>
   </ItemGroup>
 
   <ItemGroup>

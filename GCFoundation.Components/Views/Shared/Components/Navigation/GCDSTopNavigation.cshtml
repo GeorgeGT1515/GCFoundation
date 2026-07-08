@@ -1,0 +1,47 @@
+﻿@using GCFoundation.Common.Settings
+@using GCFoundation.Components.Extensions
+@using GCFoundation.Components.Services.Interfaces
+@using Microsoft.Extensions.Options
+@using cloudscribe.Web.Navigation
+@model NavigationViewModel
+@inject IOptions<GCFoundationComponentsSettings> settings
+@inject ITopNavigationLocalizationService topNavigationLocalizationService
+
+<div slot="menu">
+    <gcds-top-nav>
+        <gcds-nav-link href="@Url.Content(Model.AdjustUrl(Model.RootNode))" slot="home">
+            @settings.Value.ApplicationName
+        </gcds-nav-link>
+        @foreach (var node in Model.RootNode.Children)
+        {
+            if (!await Model.ShouldAllowView(node)) { continue; }
+
+            if (string.IsNullOrEmpty(node.Value.Controller) && await Model.HasVisibleChildren(node))
+            {
+                var label = topNavigationLocalizationService.GetLocalizeValue(Model.AdjustText(node));
+                <gcds-nav-group open-trigger="@label" menu-label="@label">
+                    @foreach (var child in node.Children)
+                    {
+                        if (!await Model.ShouldAllowView(child)) { continue; }
+                        <gcds-nav-link href="@Url.Content(Model.AdjustUrl(child))">
+                            @topNavigationLocalizationService.GetLocalizeValue(Model.AdjustText(child))
+                        </gcds-nav-link>
+                    }
+                </gcds-nav-group>
+            }
+            else
+            {
+                <gcds-nav-link href="@Url.Content(Model.AdjustUrl(node))">
+                    @topNavigationLocalizationService.GetLocalizeValue(Model.AdjustText(node))
+                </gcds-nav-link>
+
+                @foreach (var descendant in await node.CollectFlattenedDescendants(Model))
+                {
+                    <gcds-nav-link href="@Url.Content(Model.AdjustUrl(descendant))">
+                        @topNavigationLocalizationService.GetLocalizeValue(Model.AdjustText(descendant))
+                    </gcds-nav-link>
+                }
+            }
+        }
+    </gcds-top-nav>
+</div>

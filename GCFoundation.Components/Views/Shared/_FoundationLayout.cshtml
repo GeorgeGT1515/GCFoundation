@@ -136,6 +136,10 @@
                 @await Html.PartialAsync(menuPartialViewName)
             </div>
         }
+        else
+        {
+            @await Component.InvokeAsync("Navigation", new { viewName = "GCDSTopNavigation", filterName = NamedNavigationFilters.TopNav, startingNodeKey = "" })
+        }
 
         @* Load a search view if defined *@
         @if (!string.IsNullOrEmpty(searchPartialViewName))
