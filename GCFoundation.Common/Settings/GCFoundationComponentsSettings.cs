@@ -45,7 +45,7 @@ namespace GCFoundation.Common.Settings
         {
             get
             {
-                return new Uri($"https://cdn.design-system.alpha.canada.ca/@gcds-core/components@{GCDSVersion}/dist/gcds/gcds.css");
+                return new Uri($"https://cdn.design-system.canada.ca/@gcds-core/components@{GCDSVersion}/dist/gcds/gcds.css");
             }
         }
 
@@ -56,7 +56,7 @@ namespace GCFoundation.Common.Settings
         {
             get
             {
-                return new Uri($"https://cdn.design-system.alpha.canada.ca/@gcds-core/css-shortcuts@{GCDSCssShortcutsVersion}/dist/gcds-css-shortcuts.min.css");
+                return new Uri($"https://cdn.design-system.canada.ca/@gcds-core/css-shortcuts@{GCDSCssShortcutsVersion}/dist/gcds-css-shortcuts.min.css");
             }
         }
 
@@ -67,7 +67,7 @@ namespace GCFoundation.Common.Settings
         {
             get
             {
-                return new Uri($"https://cdn.design-system.alpha.canada.ca/@gcds-core/components@{GCDSVersion}/dist/gcds/gcds.esm.js");
+                return new Uri($"https://cdn.design-system.canada.ca/@gcds-core/components@{GCDSVersion}/dist/gcds/gcds.esm.js");
             }
         }
 

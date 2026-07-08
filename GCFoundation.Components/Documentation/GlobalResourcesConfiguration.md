@@ -125,7 +125,7 @@ Add link tags for performance optimization and resource hints:
     "GlobalLinkTags": [
       "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">",
       "<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>",
-      "<link rel=\"dns-prefetch\" href=\"https://cdn.design-system.alpha.canada.ca\">",
+      "<link rel=\"dns-prefetch\" href=\"https://cdn.design-system.canada.ca\">",
       "<link rel=\"preload\" href=\"/css/critical.css\" as=\"style\">",
       "<link rel=\"canonical\" href=\"https://example.com\">"
     ]
@@ -173,7 +173,7 @@ Here's a complete example of the `FoundationComponentsSettings` section:
     "GlobalLinkTags": [
       "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">",
       "<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>",
-      "<link rel=\"dns-prefetch\" href=\"https://cdn.design-system.alpha.canada.ca\">",
+      "<link rel=\"dns-prefetch\" href=\"https://cdn.design-system.canada.ca\">",
       "<link rel=\"canonical\" href=\"https://example.com\">"
     ]
   }
