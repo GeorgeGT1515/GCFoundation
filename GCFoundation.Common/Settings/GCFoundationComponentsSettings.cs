@@ -121,6 +121,11 @@ namespace GCFoundation.Common.Settings
         /// </summary>
         public string VirtualDirectoryName { get; set; } = string.Empty;
 
+        /// <summary>
+        /// Gets or sets whether to hide the default Canada.ca link in breadcrumbs.
+        /// </summary>
+        public bool HideCanadaLinkInBreadcrumbs { get; set; }
+
 
         /// <summary>
         /// Gets the list of additional CSS files to include globally.

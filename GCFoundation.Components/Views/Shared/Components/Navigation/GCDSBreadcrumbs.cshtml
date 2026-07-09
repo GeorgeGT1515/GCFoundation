@@ -11,7 +11,7 @@
 @if (Model.CurrentNode != null && (Model.ParentChain.Count >= 1 || (Model.TailCrumbs != null && Model.TailCrumbs.Count > 0)))
 {
     <div slot="breadcrumb">
-        <gcds-breadcrumbs>
+        <gcds-breadcrumbs hide-canada-link="@settings.Value.HideCanadaLinkInBreadcrumbs">
             @foreach (var node in Model.ParentChain)
             {
                 if (!await Model.ShouldAllowView(node)) { continue; }
