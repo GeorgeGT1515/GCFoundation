@@ -106,6 +106,11 @@ namespace GCFoundation.Common.Settings
         public string ApplicationVersion { get; set; } = string.Empty;
 
         /// <summary>
+        /// Gets or sets whether to hide the default Canada.ca link in breadcrumbs.
+        /// </summary>
+        public bool HideCanadaLinkInBreadcrumbs { get; set; }
+
+        /// <summary>
         /// Gets or sets the support link (or mailto) for English users.
         /// </summary>
         public string SupportLinkEn { get; set; } = default!;
@@ -120,11 +125,6 @@ namespace GCFoundation.Common.Settings
         /// Example: "/myapp" or "myapp". Leave empty for root.
         /// </summary>
         public string VirtualDirectoryName { get; set; } = string.Empty;
-
-        /// <summary>
-        /// Gets or sets whether to hide the default Canada.ca link in breadcrumbs.
-        /// </summary>
-        public bool HideCanadaLinkInBreadcrumbs { get; set; }
 
 
         /// <summary>
