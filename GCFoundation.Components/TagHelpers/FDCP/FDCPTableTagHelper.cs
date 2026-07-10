@@ -49,10 +49,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             {
                 BuildFromColsAndRows();
             }
-
-            Columns = JsonSerializer.Serialize(ColumnDefinitions, JsonOptionsUtility.CamelCaseIgnoreNull);
-            Data = JsonSerializer.Serialize(Rows!, JsonOptionsUtility.CamelCase);
-
+            
             output.TagName = "gcds-table";
             output.TagMode = TagMode.StartTagAndEndTag;
 
@@ -64,11 +61,15 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         #region BuildColumnsAndData
         private void BuildFromRows()
         {
-            ResolveDataAnnotations();
+            ResolveColumns();
+            BuildFromColsAndRows();
         }
 
         private void BuildFromColsAndRows()
         {
+            Columns = JsonSerializer.Serialize(ColumnDefinitions, JsonOptionsUtility.CamelCaseIgnoreNull);
+            Data = JsonSerializer.Serialize(Rows!, JsonOptionsUtility.CamelCase);
+
             //var properties = columnsType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
             //var slottedProperty = properties.FirstOrDefault(p => p.Name == "Slotted");
             //if (slottedProperty is not null)
@@ -172,7 +173,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             return displayAttr?.GetName() ?? property.Name;
         }
 
-        private void ResolveDataAnnotations()
+        private void ResolveColumns()
         {
             if (Rows != null && Rows.Any())
             {
@@ -188,6 +189,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                         {
                             ColumnDefinitions.Add(new ColumnDefinition()
                             {
+                                Field = prop.Name,
+                                Header = ResolveLocalizedHeader(prop),
                                 Slotted = attribute.Slotted ?? false,
                                 RowHeader = attribute.RowHeader,
                                 Sort = attribute.Sort,
@@ -195,6 +198,15 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                                 Alignment = attribute.Alignment
                             });
                         }
+                    }
+                    else
+                    {
+                        ColumnDefinitions.Add(new ColumnDefinition()
+                        {
+                            Field = prop.Name,
+                            Header = ResolveLocalizedHeader(prop),
+                            Slotted = attribute.Slotted ?? false,
+                        });
                     }
                 }
             }
