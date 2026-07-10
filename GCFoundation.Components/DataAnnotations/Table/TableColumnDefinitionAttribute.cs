@@ -8,39 +8,39 @@ namespace GCFoundation.Components.DataAnnotations.Table
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
     public sealed class TableColumnDefinitionAttribute : Attribute
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TableColumnDefinitionAttribute"/> class.
-        /// </summary>
-        public TableColumnDefinitionAttribute() { }
+        ///// <summary>
+        ///// Initializes a new instance of the <see cref="TableColumnDefinitionAttribute"/> class.
+        ///// </summary>
+        //public TableColumnDefinitionAttribute() { }
 
         /// <summary>
         /// Use <see cref="Alignment"/> to control how the content inside the column cells is positioned horizontally.
         /// </summary>
-        public CellAlignment? Alignment { get; set; }
+        public CellAlignment Alignment { get; set; } = CellAlignment.start;
 
         /// <summary>
         /// Set <see cref="IsHidden"/> to <c>true</c> if you want to hide the column.
         /// </summary>
-        public bool? IsHidden { get; set; }
+        public bool IsHidden { get; set; }
 
         /// <summary>
         /// Set <see cref="RowHeader"/> to <c>true</c> if you want to mark each cell in the column as a row header. Row headers label what each row is about.
         /// </summary>
-        public bool? RowHeader { get; set; }
+        public bool RowHeader { get; set; }
 
         /// <summary>
         /// Set <see cref="Slotted"/> to <c>true</c> to flag that the cell will render custom content. To see how each framework handles this, go to <see href="https://design-system.canada.ca/en/components/table/code/#framework-specific-slots-for-custom-content">Framework-specific slots for custom content</see>.
         /// </summary>
-        public bool? Slotted { get; set; }
+        public bool Slotted { get; set; }
 
         /// <summary>
         /// Set <see cref="Sort"/> to <c>true</c> to allow people to sort the table by that column.
         /// </summary>
-        public bool? Sort { get; set; }
+        public bool Sort { get; set; }
 
         /// <summary>
         /// Use <see cref="SortDirection"/> to set a default sort order for the column when the page loads.
         /// </summary>
-        public SortDirection? SortDirection { get; set; }
+        public SortDirection SortDirection { get; set; } = SortDirection.None;
     }
 }

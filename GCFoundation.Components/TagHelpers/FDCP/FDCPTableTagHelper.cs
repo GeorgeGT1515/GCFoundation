@@ -198,7 +198,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                     TableColumnDefinitionAttribute attribute = prop.GetCustomAttribute<TableColumnDefinitionAttribute>();
                     if (attribute != null)
                     {
-                        if (!attribute.IsHidden ?? true)
+                        if (!attribute.IsHidden)
                         {
                             ColumnDefinitions.Add(new ColumnDefinition()
                             {
@@ -207,7 +207,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                                 Slotted = attribute.Slotted,
                                 RowHeader = attribute.RowHeader,
                                 Sort = attribute.Sort,
-                                SortDirection = attribute.SortDirection,
+                                SortDirection = attribute.SortDirection == SortDirection.None ? null : attribute.SortDirection,
                                 Alignment = attribute.Alignment
                             });
                         }
@@ -218,7 +218,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                         {
                             Field = prop.Name,
                             Header = ResolveLocalizedHeader(prop),
-                            Slotted = attribute.Slotted ?? false,
                         });
                     }
                 }

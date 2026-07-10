@@ -6,6 +6,11 @@
     public enum SortDirection
     {
         /// <summary>
+        /// Indicates no default sort order.
+        /// </summary>
+        None,
+
+        /// <summary>
         /// Indicates ascending sort order.
         /// </summary>
         Ascending,
