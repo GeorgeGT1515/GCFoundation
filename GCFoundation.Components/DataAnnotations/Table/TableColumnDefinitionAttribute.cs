@@ -11,10 +11,7 @@ namespace GCFoundation.Components.DataAnnotations.Table
         /// <summary>
         /// Initializes a new instance of the <see cref="TableColumnDefinitionAttribute"/> class.
         /// </summary>
-        public TableColumnDefinitionAttribute(string field)
-        {
-            Field = field ?? throw new ArgumentNullException(nameof(field));
-        }
+        public TableColumnDefinitionAttribute() { }
 
         /// <summary>
         /// Use <see cref="Alignment"/> to control how the content inside the column cells is positioned horizontally.
@@ -22,9 +19,9 @@ namespace GCFoundation.Components.DataAnnotations.Table
         public CellAlignment? Alignment { get; set; }
 
         /// <summary>
-        /// Use <see cref="Field"/> to define the unique id that connects the column to the correct data. The value must match the key used for that data in your data object.
+        /// Set <see cref="IsHidden"/> to <c>true</c> if you want to hide the column.
         /// </summary>
-        public string Field { get; internal set; }
+        public bool? IsHidden { get; set; }
 
         /// <summary>
         /// Set <see cref="RowHeader"/> to <c>true</c> if you want to mark each cell in the column as a row header. Row headers label what each row is about.
