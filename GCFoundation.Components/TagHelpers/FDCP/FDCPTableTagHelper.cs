@@ -184,14 +184,14 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                     TableColumnDefinitionAttribute attribute = prop.GetCustomAttribute<TableColumnDefinitionAttribute>();
                     if (attribute != null)
                     {
-                        if (!attribute.IsHidden ?? true)
+                        if (!attribute.IsHidden)
                         {
                             ColumnDefinitions.Add(new ColumnDefinition()
                             {
-                                Slotted = attribute.Slotted ?? false,
+                                Slotted = attribute.Slotted,
                                 RowHeader = attribute.RowHeader,
                                 Sort = attribute.Sort,
-                                SortDirection = attribute.SortDirection,
+                                SortDirection = attribute.SortDirection == SortDirection.None ? null : attribute.SortDirection,
                                 Alignment = attribute.Alignment
                             });
                         }
