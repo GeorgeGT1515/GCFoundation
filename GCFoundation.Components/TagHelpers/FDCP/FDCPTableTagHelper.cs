@@ -186,7 +186,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         {
             if (Rows != null && Rows.Any())
             {
-                Type type = Rows.ElementAtOrDefault(0).GetType();
+                Type type = Rows.First().GetType();
                 var properties = type != null ? type.GetProperties() : null;
                 ColumnDefinitions = new List<ColumnDefinition>();
                 if (properties == null)
@@ -200,7 +200,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                         {
                             ColumnDefinitions.Add(new ColumnDefinition()
                             {
-                                Field = prop.Name,
+                                Field = JsonNamingPolicy.CamelCase.ConvertName(prop.Name),
                                 Header = ResolveLocalizedHeader(prop),
                                 Slotted = attribute.Slotted,
                                 RowHeader = attribute.RowHeader,
@@ -214,7 +214,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                     {
                         ColumnDefinitions.Add(new ColumnDefinition()
                         {
-                            Field = prop.Name,
+                            Field = JsonNamingPolicy.CamelCase.ConvertName(prop.Name),
                             Header = ResolveLocalizedHeader(prop),
                         });
                     }

@@ -9,10 +9,12 @@ namespace GCFoundation.Web.Models
     {
         [DataType(DataType.Text)]
         [Display(Name = "Table_Submission_Id_Header", ResourceType = typeof(Resources.Components))]
+        [TableColumnDefinition(IsHidden = true)]
         public string SubmissionId { get; set; }
 
         [DataType(DataType.Text)]
         [Display(Name = "Table_Submitter_Name_Header", ResourceType = typeof(Resources.Components))]
+        [TableColumnDefinition(RowHeader = true)]
         public string SubmitterName { get; set; }
 
         [DataType(DataType.Date)]
