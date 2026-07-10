@@ -36,12 +36,6 @@ const paths = {
         dest: 'wwwroot/js'
     },
     vendor: {
-        gridjs: {
-            js: 'node_modules/gridjs/dist/*.min.js',
-            css: 'node_modules/gridjs/dist/theme/*.min.css',
-            dest: 'wwwroot/lib/gridjs',
-            cssDest: 'wwwroot/lib/gridjs/theme'
-        },
         quill: {
             js: 'node_modules/quill/dist/quill.js',
             css: 'node_modules/quill/dist/quill.snow.css',
@@ -99,21 +93,6 @@ function scripts() {
         .pipe(dest(paths.js.dest));
 }
 
-// Copy Grid.js vendor assets
-function copyGridjsJs() {
-    return src(paths.vendor.gridjs.js)
-        .pipe(plumber(errorHandler))
-        .pipe(newer(paths.vendor.gridjs.dest))
-        .pipe(dest(paths.vendor.gridjs.dest));
-}
-
-function copyGridjsCss() {
-    return src(paths.vendor.gridjs.css)
-        .pipe(plumber(errorHandler))
-        .pipe(newer(paths.vendor.gridjs.cssDest))
-        .pipe(dest(paths.vendor.gridjs.cssDest));
-}
-
 // Copy Quill vendor assets
 function copyQuillJs() {
     return src(paths.vendor.quill.js)
@@ -132,7 +111,7 @@ function copyQuillCss() {
 // Build tasks
 export const build = series(
     clean,
-    parallel(styles, scripts, copyGridjsJs, copyGridjsCss, copyQuillJs, copyQuillCss)
+    parallel(styles, scripts, copyQuillJs, copyQuillCss)
 );
 
 // Watch task (run separately with 'gulp watch')

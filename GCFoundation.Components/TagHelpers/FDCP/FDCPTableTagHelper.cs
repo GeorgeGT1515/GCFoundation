@@ -21,13 +21,11 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     [HtmlTargetElement("fdcp-table", Attributes = "caption, column-definitions, rows")]
     public class FDCPTableTagHelper : TableTagHelper
     {
-        private string? _templatesHtml { get; set; }
-
         /// <summary>
         /// The column definitions for the table. If <c>null</c> or empty, columns are resolved
         /// automatically from the properties of the row model in <see cref="Rows"/>.
         /// </summary>
-        public ICollection<ColumnDefinition>? ColumnDefinitions;
+        public ICollection<ColumnDefinition>? ColumnDefinitions { get; set; }
 
         /// <summary>
         /// The row data to render in the table. Each element represents one row. If
@@ -102,10 +100,10 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         #region BuildHtmlContent
         private string BuildHtml()
         {
-            string captionDetailHtml = string.IsNullOrEmpty(CaptionDetail) ? string.Empty : $"<p>{CaptionDetail}</p>";
+            string captionDetailHtml = string.IsNullOrEmpty(CaptionDetail) ? string.Empty : $"<gcds-text>{CaptionDetail}</gcds-text>";
             string html = $"""
                 <div slot="caption">
-                    <h5>{Caption}</h5>
+                    <gcds-heading tag="h5">{Caption}</gcds-heading>
                     {captionDetailHtml}
                 </div>
                 """;
