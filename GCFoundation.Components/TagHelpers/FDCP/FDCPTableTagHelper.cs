@@ -23,7 +23,18 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     {
         private string? _templatesHtml { get; set; }
 
-        public ICollection<ColumnDefinition>? ColumnDefinitions = new List<ColumnDefinition>();
+        /// <summary>
+        /// The column definitions for the table. If <c>null</c> or empty, columns are resolved
+        /// automatically from the properties of the row model in <see cref="Rows"/>.
+        /// </summary>
+        public ICollection<ColumnDefinition>? ColumnDefinitions;
+
+        /// <summary>
+        /// The row data to render in the table. Each element represents one row. If
+        /// <see cref="ColumnDefinitions"/> is provided, its properties supply the cell values matched
+        /// by <see cref="ColumnDefinition.Field"/>; otherwise, its properties are also used to resolve
+        /// the columns themselves.
+        /// </summary>
         public IEnumerable<Object>? Rows { get; set; }
 
         /// <summary>
@@ -42,7 +53,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         {
             ArgumentNullException.ThrowIfNull(output, nameof(output));
 
-            if (Rows != null)
+            if (ColumnDefinitions == null)
                 BuildFromRows();
 
             if (ColumnDefinitions != null && Rows != null)
@@ -179,7 +190,9 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             {
                 Type type = Rows.ElementAtOrDefault(0).GetType();
                 var properties = type != null ? type.GetProperties() : null;
-
+                ColumnDefinitions = new List<ColumnDefinition>();
+                if (properties == null)
+                    return;
                 foreach (PropertyInfo prop in properties)
                 {
                     TableColumnDefinitionAttribute attribute = prop.GetCustomAttribute<TableColumnDefinitionAttribute>();
@@ -191,7 +204,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                             {
                                 Field = prop.Name,
                                 Header = ResolveLocalizedHeader(prop),
-                                Slotted = attribute.Slotted ?? false,
+                                Slotted = attribute.Slotted,
                                 RowHeader = attribute.RowHeader,
                                 Sort = attribute.Sort,
                                 SortDirection = attribute.SortDirection,
