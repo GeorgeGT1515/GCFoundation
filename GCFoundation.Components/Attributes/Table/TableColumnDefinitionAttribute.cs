@@ -1,6 +1,6 @@
 ﻿using GCFoundation.Components.Enums;
 
-namespace GCFoundation.Components.DataAnnotations.Table
+namespace GCFoundation.Components.Attributes.Table
 {
     /// <summary>
     /// Marks a property as a column definition for a table component. When applied to a property in a model class, it indicates that the property should be treated as a column in the table, and its values will be used to define the table column.
@@ -8,11 +8,6 @@ namespace GCFoundation.Components.DataAnnotations.Table
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
     public sealed class TableColumnDefinitionAttribute : Attribute
     {
-        ///// <summary>
-        ///// Initializes a new instance of the <see cref="TableColumnDefinitionAttribute"/> class.
-        ///// </summary>
-        //public TableColumnDefinitionAttribute() { }
-
         /// <summary>
         /// Use <see cref="Alignment"/> to control how the content inside the column cells is positioned horizontally.
         /// </summary>

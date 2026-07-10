@@ -162,6 +162,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="DataAnnotations\" />
     <Folder Include="wwwroot\images\Icons\" />
     <Folder Include="wwwroot\images\splash\" />
   </ItemGroup>

@@ -569,14 +569,14 @@ namespace GCFoundation.Web.Controllers
                 new TableRowTestViewModel() { SubmissionId = "EXP-2026-005", SubmitterName = "Ahmed Khalil", DateSubmitted = new DateTime(2026, 1, 15, 9, 20, 0), AssignedReviewer = "Sarah Chen" }
             };
 
-            vm.Cols = new List<TableColumnTestViewModel>()
-            {
-                new TableColumnTestViewModel() { Field = "submissionId", Header = "ID", Slotted = true, SlotType = SlotType.link, SlotHrefTemplate = "/view_submission/{submissionId}" },
-                new TableColumnTestViewModel() { Field = "submitterName", Header = "Name" },
-                new TableColumnTestViewModel() { Field = "dateSubmitted", Header = "Date Submitted" },
-                new TableColumnTestViewModel() { Field = "assignedReviewer", Header = "Reviewer" },
-                new TableColumnTestViewModel() { Field = "actions", Header = "Actions", Slotted = true, SlotType = SlotType.button, SlotButtonLabel = "Delete", SlotActionName = "delete" }
-            };
+            //vm.Cols = new List<TableColumnTestViewModel>()
+            //{
+            //    new TableColumnTestViewModel() { Field = "submissionId", Header = "ID", Slotted = true, SlotType = SlotType.link, SlotHrefTemplate = "/view_submission/{submissionId}" },
+            //    new TableColumnTestViewModel() { Field = "submitterName", Header = "Name" },
+            //    new TableColumnTestViewModel() { Field = "dateSubmitted", Header = "Date Submitted" },
+            //    new TableColumnTestViewModel() { Field = "assignedReviewer", Header = "Reviewer" },
+            //    new TableColumnTestViewModel() { Field = "actions", Header = "Actions", Slotted = true, SlotType = SlotType.button, SlotButtonLabel = "Delete", SlotActionName = "delete" }
+            //};
             return vm;
         }
         private FormDefinition GenerateSampleFormDefinition()

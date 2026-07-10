@@ -1,5 +1,5 @@
 ﻿using GCFoundation.Common.Utilities;
-using GCFoundation.Components.DataAnnotations.Table;
+using GCFoundation.Components.Attributes.Table;
 using GCFoundation.Components.Enums;
 using GCFoundation.Components.Models.TableBuilder;
 using GCFoundation.Components.TagHelpers.GCDS;
@@ -174,14 +174,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         #endregion
 
         #region Resolvers
-        private static string ResolveLocalizedHeader(PropertyInfo property)
-        {
-            ArgumentNullException.ThrowIfNull(property, nameof(property));
-
-            var displayAttr = property.GetCustomAttribute<DisplayAttribute>();
-            return displayAttr?.GetName() ?? property.Name;
-        }
-
         private void ResolveColumns()
         {
             if (Rows != null && Rows.Any())
@@ -215,7 +207,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                         ColumnDefinitions.Add(new ColumnDefinition()
                         {
                             Field = JsonNamingPolicy.CamelCase.ConvertName(prop.Name),
-                            Header = ResolveLocalizedHeader(prop),
+                            Header = ResolveLocalizedHeader(prop)
                         });
                     }
                 }
@@ -223,6 +215,14 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             return;
 
+        }
+
+        private static string ResolveLocalizedHeader(PropertyInfo property)
+        {
+            ArgumentNullException.ThrowIfNull(property, nameof(property));
+
+            var displayAttr = property.GetCustomAttribute<DisplayAttribute>();
+            return displayAttr?.GetName() ?? property.Name;
         }
         #endregion
     }

@@ -1,5 +1,5 @@
 ﻿using GCFoundation.Components.Attributes;
-using GCFoundation.Components.DataAnnotations.Table;
+using GCFoundation.Components.Attributes.Table;
 using GCFoundation.Components.Enums;
 using System.ComponentModel.DataAnnotations;
 
@@ -19,7 +19,8 @@ namespace GCFoundation.Web.Models
 
         [DataType(DataType.Date)]
         [Display(Name = "Table_Date_Submitted_Header", ResourceType = typeof(Resources.Components))]
-        [DateFormat("full")]
+        [DateFormat("yyyy-MM-dd HH:mm")]
+        [TableColumnDefinition(Sort = true)]
         public DateTime DateSubmitted { get; set; }
 
         [DataType(DataType.Text)]
