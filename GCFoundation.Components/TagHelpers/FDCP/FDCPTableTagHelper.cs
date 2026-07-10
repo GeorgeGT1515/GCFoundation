@@ -1,6 +1,7 @@
 ﻿using GCFoundation.Common.Utilities;
+using GCFoundation.Components.DataAnnotations.Table;
 using GCFoundation.Components.Enums;
-using GCFoundation.Components.Models.Table;
+using GCFoundation.Components.Models.TableBuilder;
 using GCFoundation.Components.TagHelpers.GCDS;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.ComponentModel.DataAnnotations;
@@ -16,18 +17,13 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// Use &lt;fdcp-table&gt; in your Razor views to generate a table, either by binding row models
     /// via <c>from</c>, or by supplying explicit <c>columns</c>/<c>data</c> JSON.
     /// </summary>
-    [HtmlTargetElement("fdcp-table", Attributes = "for, caption")]
+    [HtmlTargetElement("fdcp-table", Attributes = "caption, rows")]
     [HtmlTargetElement("fdcp-table", Attributes = "caption, column-definitions, rows")]
     public class FDCPTableTagHelper : TableTagHelper
     {
         private string? _templatesHtml { get; set; }
-        /// <summary>
-        /// The collection of row data models to render in the table. Column definitions are generated
-        /// automatically by reflecting over the properties of the model type.
-        /// </summary>
-        public IEnumerable<Object>? For { get; set; }
 
-        public ICollection<ColumnDefiniton>? ColumnDefinitions { get; }
+        public ICollection<ColumnDefinition>? ColumnDefinitions = new List<ColumnDefinition>();
         public IEnumerable<Object>? Rows { get; set; }
 
         /// <summary>
@@ -41,24 +37,21 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         /// </summary>
         public string? CaptionDetail { get; set; }
 
-        /// <summary>
-        /// Whether to mark each cell in the first column as a row header. Row headers label what each row is about.
-        /// </summary>
-        [HtmlAttributeName("rowHeader")]
-        public bool? RowHeader { get; set; }
-
         /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             ArgumentNullException.ThrowIfNull(output, nameof(output));
 
-            //if (For != null)
-            //    BuildFromFor();            
+            if (Rows != null)
+                BuildFromRows();
 
             if (ColumnDefinitions != null && Rows != null)
             {
                 BuildFromColsAndRows();
             }
+
+            Columns = JsonSerializer.Serialize(ColumnDefinitions, JsonOptionsUtility.CamelCaseIgnoreNull);
+            Data = JsonSerializer.Serialize(Rows!, JsonOptionsUtility.CamelCase);
 
             output.TagName = "gcds-table";
             output.TagMode = TagMode.StartTagAndEndTag;
@@ -69,40 +62,13 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         }
 
         #region BuildColumnsAndData
-        private void BuildFromFor()
+        private void BuildFromRows()
         {
-            //Type dataType;
-            //IEnumerable<object> data;
-
-            //ResolveModelExpression(For!, out dataType, out data);
-
-            //Data = JsonSerializer.Serialize(data, JsonOptionsUtility.CamelCase);
-
-            //List<TableColumnModel> columns = new List<TableColumnModel>();
-            //var properties = dataType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
-
-            //foreach (var property in properties)
-            //{
-            //    var column = new TableColumnModel() 
-            //    {
-            //      Field = JsonNamingPolicy.CamelCase.ConvertName(property.Name), 
-            //      Header = ResolveLocalizedHeader(property), 
-            //      RowHeader = false 
-            //    };
-            //    columns.Add(column);
-            //}
-
-            //if (RowHeader == true)
-            //    columns[0].RowHeader = true;
-
-            //Columns = JsonSerializer.Serialize(columns, JsonOptionsUtility.CamelCase);
+            ResolveDataAnnotations();
         }
 
         private void BuildFromColsAndRows()
-        {         
-            Columns = JsonSerializer.Serialize(ColumnDefinitions, JsonOptionsUtility.CamelCaseIgnoreNull);
-            Data = JsonSerializer.Serialize(Rows!, JsonOptionsUtility.CamelCase);
-
+        {
             //var properties = columnsType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
             //var slottedProperty = properties.FirstOrDefault(p => p.Name == "Slotted");
             //if (slottedProperty is not null)
@@ -205,7 +171,37 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             var displayAttr = property.GetCustomAttribute<DisplayAttribute>();
             return displayAttr?.GetName() ?? property.Name;
         }
+
+        private void ResolveDataAnnotations()
+        {
+            if (Rows != null && Rows.Any())
+            {
+                Type type = Rows.ElementAtOrDefault(0).GetType();
+                var properties = type != null ? type.GetProperties() : null;
+
+                foreach (PropertyInfo prop in properties)
+                {
+                    TableColumnDefinitionAttribute attribute = prop.GetCustomAttribute<TableColumnDefinitionAttribute>();
+                    if (attribute != null)
+                    {
+                        if (!attribute.IsHidden ?? true)
+                        {
+                            ColumnDefinitions.Add(new ColumnDefinition()
+                            {
+                                Slotted = attribute.Slotted ?? false,
+                                RowHeader = attribute.RowHeader,
+                                Sort = attribute.Sort,
+                                SortDirection = attribute.SortDirection,
+                                Alignment = attribute.Alignment
+                            });
+                        }
+                    }
+                }
+            }
+
+            return;
+
+        }
         #endregion
     }
 }
-

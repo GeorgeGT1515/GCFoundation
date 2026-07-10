@@ -465,11 +465,11 @@ namespace GCFoundation.Web.Controllers
 
             vm.Cols = new List<TableColumnTestViewModel>()
             {
-                new TableColumnTestViewModel() { Field = "submissionId", Header = "ID", Slotted = true, SlotType = SlotType.Link, SlotHrefTemplate = "/view_submission/{submissionId}" },
+                new TableColumnTestViewModel() { Field = "submissionId", Header = "ID", Slotted = true, SlotType = SlotType.link, SlotHrefTemplate = "/view_submission/{submissionId}" },
                 new TableColumnTestViewModel() { Field = "submitterName", Header = "Name" },
                 new TableColumnTestViewModel() { Field = "dateSubmitted", Header = "Date Submitted" },
                 new TableColumnTestViewModel() { Field = "assignedReviewer", Header = "Reviewer" },
-                new TableColumnTestViewModel() { Field = "actions", Header = "Actions", Slotted = true, SlotType = SlotType.Button, SlotButtonLabel = "Delete", SlotActionName = "delete" }
+                new TableColumnTestViewModel() { Field = "actions", Header = "Actions", Slotted = true, SlotType = SlotType.button, SlotButtonLabel = "Delete", SlotActionName = "delete" }
             };
             return vm;
         }

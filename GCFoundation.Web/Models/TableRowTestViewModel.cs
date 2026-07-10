@@ -1,4 +1,6 @@
 ﻿using GCFoundation.Components.Attributes;
+using GCFoundation.Components.DataAnnotations.Table;
+using GCFoundation.Components.Enums;
 using System.ComponentModel.DataAnnotations;
 
 namespace GCFoundation.Web.Models

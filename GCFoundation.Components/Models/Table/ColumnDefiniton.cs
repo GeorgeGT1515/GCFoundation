@@ -2,7 +2,7 @@
 
 namespace GCFoundation.Components.Models.TableBuilder
 {
-    public class ColumnDefiniton
+    public class ColumnDefinition
     {
         public string Field { get; set; } = string.Empty;
         public string Header { get; set; } = string.Empty;
