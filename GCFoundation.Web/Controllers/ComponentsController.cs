@@ -576,7 +576,6 @@ namespace GCFoundation.Web.Controllers
                 new ColumnDefinition() { Field = "submitterName", Header = "Name" },
                 new ColumnDefinition() { Field = "dateSubmitted", Header = "Date Submitted" },
                 new ColumnDefinition() { Field = "assignedReviewer", Header = "Reviewer" },
-                new ColumnDefinition() { Field = "actions", Header = "Actions", Slotted = true }
             };
             return vm;
         }

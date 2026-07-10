@@ -25,7 +25,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         /// The column definitions for the table. If <c>null</c> or empty, columns are resolved
         /// automatically from the properties of the row model in <see cref="Rows"/>.
         /// </summary>
-        public ICollection<ColumnDefinition>? ColumnDefinitions { get; private set; }
+        public ICollection<ColumnDefinition>? ColumnDefinitions { get; set; }
 
         /// <summary>
         /// The row data to render in the table. Each element represents one row. If
