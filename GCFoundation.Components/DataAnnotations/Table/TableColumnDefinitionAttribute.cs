@@ -41,6 +41,6 @@ namespace GCFoundation.Components.DataAnnotations.Table
         /// <summary>
         /// Use <see cref="SortDirection"/> to set a default sort order for the column when the page loads.
         /// </summary>
-        public SortDirection SortDirection { get; set; } = SortDirection.None;
+        public SortDirection SortDirection { get; set; } = SortDirection.none;
     }
 }

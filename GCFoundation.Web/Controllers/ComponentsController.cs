@@ -1,6 +1,7 @@
 using GCFoundation.Components.Controllers;
 using GCFoundation.Components.Enums;
 using GCFoundation.Components.Models.FormBuilder;
+using GCFoundation.Components.Models.TableBuilder;
 using GCFoundation.Components.TagHelpers.GCDS;
 using GCFoundation.Web.Models;
 using GCFoundation.Web.Models.Components;
@@ -569,13 +570,13 @@ namespace GCFoundation.Web.Controllers
                 new TableRowTestViewModel() { SubmissionId = "EXP-2026-005", SubmitterName = "Ahmed Khalil", DateSubmitted = new DateTime(2026, 1, 15, 9, 20, 0), AssignedReviewer = "Sarah Chen" }
             };
 
-            vm.Cols = new List<TableColumnTestViewModel>()
+            vm.Cols = new List<ColumnDefinition>()
             {
-                new TableColumnTestViewModel() { Field = "submissionId", Header = "ID", Slotted = true, SlotType = SlotType.link, SlotHrefTemplate = "/view_submission/{submissionId}" },
-                new TableColumnTestViewModel() { Field = "submitterName", Header = "Name" },
-                new TableColumnTestViewModel() { Field = "dateSubmitted", Header = "Date Submitted" },
-                new TableColumnTestViewModel() { Field = "assignedReviewer", Header = "Reviewer" },
-                new TableColumnTestViewModel() { Field = "actions", Header = "Actions", Slotted = true, SlotType = SlotType.button, SlotButtonLabel = "Delete", SlotActionName = "delete" }
+                new ColumnDefinition() { Field = "submissionId", Header = "ID", Slotted = true },
+                new ColumnDefinition() { Field = "submitterName", Header = "Name" },
+                new ColumnDefinition() { Field = "dateSubmitted", Header = "Date Submitted" },
+                new ColumnDefinition() { Field = "assignedReviewer", Header = "Reviewer" },
+                new ColumnDefinition() { Field = "actions", Header = "Actions", Slotted = true }
             };
             return vm;
         }

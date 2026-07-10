@@ -34,18 +34,13 @@ namespace GCFoundation.Components.Models.TableBuilder
         public bool Slotted { get; set; }
 
         /// <summary>
-        /// The type of custom content rendered in the slot when <see cref="Slotted"/> is <c>true</c>.
-        /// </summary>
-        public SlotType? SlotType { get; set; }
-
-        /// <summary>
         /// Set to <c>true</c> to allow people to sort the table by that column.
         /// </summary>
         public bool? Sort { get; set; }
 
         /// <summary>
-        /// Sets a default sort order for the column when the page loads. Set to <see cref="Enums.SortDirection.Ascending"/>
-        /// for ascending order or <see cref="Enums.SortDirection.Descending"/> for descending order.
+        /// Sets a default sort order for the column when the page loads. Set to <see cref="Enums.SortDirection.asc"/>
+        /// for ascending order or <see cref="Enums.SortDirection.desc"/> for descending order.
         /// </summary>
         public SortDirection? SortDirection { get; set; }
 

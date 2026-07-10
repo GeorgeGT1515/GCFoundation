@@ -25,7 +25,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         /// The column definitions for the table. If <c>null</c> or empty, columns are resolved
         /// automatically from the properties of the row model in <see cref="Rows"/>.
         /// </summary>
-        public ICollection<ColumnDefinition>? ColumnDefinitions { get; set; }
+        public ICollection<ColumnDefinition>? ColumnDefinitions { get; private set; }
 
         /// <summary>
         /// The row data to render in the table. Each element represents one row. If
@@ -125,7 +125,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                                 Slotted = attribute.Slotted,
                                 RowHeader = attribute.RowHeader,
                                 Sort = attribute.Sort,
-                                SortDirection = attribute.SortDirection == SortDirection.None ? null : attribute.SortDirection,
+                                SortDirection = attribute.SortDirection == SortDirection.none ? null : attribute.SortDirection,
                                 Alignment = attribute.Alignment
                             });
                         }

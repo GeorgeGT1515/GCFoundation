@@ -8,16 +8,16 @@
         /// <summary>
         /// Indicates no default sort order.
         /// </summary>
-        None,
+        none,
 
         /// <summary>
         /// Indicates ascending sort order.
         /// </summary>
-        Ascending,
+        asc,
 
         /// <summary>
         /// Indicates descending sort order.
         /// </summary>
-        Descending
+        desc
     }
 }
