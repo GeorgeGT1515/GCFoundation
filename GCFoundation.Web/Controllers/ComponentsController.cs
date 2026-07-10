@@ -83,9 +83,8 @@ namespace GCFoundation.Web.Controllers
         public IActionResult Table()
         {
             SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Table_Title}");
-
-            var vm = BuildTableComponentViewModel();
-            return View("Component", vm);
+            var vm = BuildTableComponentViewModel();           
+            return View(vm);
         }
 
         /// <summary>
@@ -278,6 +277,7 @@ namespace GCFoundation.Web.Controllers
             return View();
         }
 
+
         #region ViewModel Building
         private static ComponentViewModel BuildBadgeComponentViewModel()
         {
@@ -450,36 +450,27 @@ namespace GCFoundation.Web.Controllers
 
             return vm;
         }
-        private static ComponentViewModel BuildTableComponentViewModel()
+        private static TableTestViewModel BuildTableComponentViewModel()
         {
-            var vm = new ComponentViewModel();
+            var vm = new TableTestViewModel();
 
-            vm.Name = Resources.Components.Table_Name;
-            vm.Overview = Resources.Components.Table_Overview;
-            vm.Notes = new List<string>()
+            vm.Rows = new List<TableRowTestViewModel>()
             {
-                Resources.Components.Table_Notes_1,
-                Resources.Components.Table_Notes_2
+                new TableRowTestViewModel() { SubmissionId = "EXP-2026-001", SubmitterName = "John A. Smith", DateSubmitted = new DateTime (2026, 1, 15, 4, 30, 0), AssignedReviewer = "Sarah Chen" },
+                new TableRowTestViewModel() { SubmissionId = "EXP-2026-002", SubmitterName = "Maria Gonzalez", DateSubmitted = new DateTime(2026, 1, 15, 5, 15, 0), AssignedReviewer = "David Patel" },
+                new TableRowTestViewModel() { SubmissionId = "EXP-2026-003", SubmitterName = "Robert James", DateSubmitted = new DateTime(2026, 1, 15, 6, 22, 0), AssignedReviewer = "Lisa Wong" },
+                new TableRowTestViewModel() { SubmissionId = "EXP-2026-004", SubmitterName = "Emily R. Davis", DateSubmitted = new DateTime(2026, 1, 15, 8, 45, 0), AssignedReviewer = "Michael Tran" },
+                new TableRowTestViewModel() { SubmissionId = "EXP-2026-005", SubmitterName = "Ahmed Khalil", DateSubmitted = new DateTime(2026, 1, 15, 9, 20, 0), AssignedReviewer = "Sarah Chen" }
             };
-            vm.Properties = new List<ComponentPropertyViewModel>()
-            {
-                new() { Name = "caption", DataType = "string", Description = Resources.Components.Table_Properties_Caption },
-                new() { Name = "aria-describedby", DataType = "string", Description = Resources.Components.Table_Properties_Summary },
-                new() { Name = "scope", DataType = "string", Description = Resources.Components.Table_Properties_Scope },
-                new() { Name = "class", DataType = "string", Description = Resources.Components.Table_Properties_Class }
-            };
-            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
-            {
-                new()
-                {
-                    Id = Resources.Components.Table_Basic_Anchor,
-                    Title = Resources.Components.Table_Basic_Title,
-                    Description = Resources.Components.Table_Basic_Text,
-                    PartialViewName = "DataTable/_Basic"
-                }
-            };
-            vm.Tag = "<table class=\"fdcp-table\">";
 
+            vm.Cols = new List<TableColumnTestViewModel>()
+            {
+                new TableColumnTestViewModel() { Field = "submissionId", Header = "ID", Slotted = true, SlotType = SlotType.Link, SlotHrefTemplate = "/view_submission/{submissionId}" },
+                new TableColumnTestViewModel() { Field = "submitterName", Header = "Name" },
+                new TableColumnTestViewModel() { Field = "dateSubmitted", Header = "Date Submitted" },
+                new TableColumnTestViewModel() { Field = "assignedReviewer", Header = "Reviewer" },
+                new TableColumnTestViewModel() { Field = "actions", Header = "Actions", Slotted = true, SlotType = SlotType.Button, SlotButtonLabel = "Delete", SlotActionName = "delete" }
+            };
             return vm;
         }
         private List<ComponentIndexViewModel> BuildIndexComponentViewModel()

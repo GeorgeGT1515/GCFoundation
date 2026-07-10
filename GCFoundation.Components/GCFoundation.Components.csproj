@@ -145,6 +145,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\TableBuilder\TableColumnsModel.cs" />
+    <Compile Remove="Models\TableBuilder\TableDataModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="package-lock.json" />
     <Content Remove="package.json" />
     <Content Remove="Views\Shared\_ViewImports.cshtml" />

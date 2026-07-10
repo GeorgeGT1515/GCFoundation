@@ -1379,4 +1379,16 @@
   <data name="Stepper_Properties_StepperStep_StatusBadgeStyleInverted" xml:space="preserve">
     <value>Optional. Inverted variant of the style of the status badge.</value>
   </data>
+  <data name="Table_Submission_Id_Header" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Table_Submitter_Name_Header" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Table_Date_Submitted_Header" xml:space="preserve">
+    <value>Date Submitted</value>
+  </data>
+  <data name="Table_Assigned_Reviewer_Header" xml:space="preserve">
+    <value>Reviewer</value>
+  </data>
 </root>

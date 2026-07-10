@@ -2708,6 +2708,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reviewer.
+        /// </summary>
+        public static string Table_Assigned_Reviewer_Header {
+            get {
+                return ResourceManager.GetString("Table_Assigned_Reviewer_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to table-basic.
         /// </summary>
         public static string Table_Basic_Anchor {
@@ -2749,6 +2758,15 @@ namespace GCFoundation.Web.Resources {
         public static string Table_Basic_Title {
             get {
                 return ResourceManager.GetString("Table_Basic_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date Submitted.
+        /// </summary>
+        public static string Table_Date_Submitted_Header {
+            get {
+                return ResourceManager.GetString("Table_Date_Submitted_Header", resourceCulture);
             }
         }
         
@@ -2821,6 +2839,24 @@ namespace GCFoundation.Web.Resources {
         public static string Table_Properties_Summary {
             get {
                 return ResourceManager.GetString("Table_Properties_Summary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ID.
+        /// </summary>
+        public static string Table_Submission_Id_Header {
+            get {
+                return ResourceManager.GetString("Table_Submission_Id_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string Table_Submitter_Name_Header {
+            get {
+                return ResourceManager.GetString("Table_Submitter_Name_Header", resourceCulture);
             }
         }
         

@@ -3,8 +3,7 @@
 namespace GCFoundation.Components.TagHelpers.GCDS
 {
     /// <summary>
-    /// Renders a data table using the gcds-table element.
-    /// Use &lt;gcds-table&gt; in your Razor views to generate a table with optional filtering, sorting, and pagination.
+    /// TagHelper for rendering a GC Design System compliant table component.
     /// </summary>
     [HtmlTargetElement("gcds-table")]
     public class TableTagHelper : BaseTagHelper
@@ -24,7 +23,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// <summary>
         /// Whether a filter input is displayed above the table, allowing users to narrow rows by keyword.
         /// </summary>
-        public bool? Filter { get; set; }
+        public bool Filter { get; set; }
 
         /// <summary>
         /// The default keyword applied to the filter input when the table loads.
@@ -35,7 +34,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// <summary>
         /// Whether the table's rows are split across multiple pages.
         /// </summary>
-        public bool? Pagination { get; set; }
+        public bool Pagination { get; set; }
 
         /// <summary>
         /// The page displayed when the table first loads.
@@ -53,13 +52,13 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// The page size choices available in the pagination control.
         /// Including <c>0</c> adds an "All" option that displays every row at once.
         /// </summary>
-        public int[]? PaginationSizeOptions { get; set; }
+        public string? PaginationSizeOptions { get; set; }
 
         /// <summary>
         /// Whether users can sort the table by clicking column headers.
         /// Individual columns can override this via their <c>sort</c> property in <see cref="Columns"/>.
         /// </summary>
-        public bool? Sort { get; set; }
+        public bool Sort { get; set; }
 
         /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)
@@ -68,23 +67,20 @@ namespace GCFoundation.Components.TagHelpers.GCDS
 
             AddAttributeIfNotNull(output, "columns", Columns);
             AddAttributeIfNotNull(output, "data", Data);
-            if (Filter?? false) 
-            { 
+
             AddAttributeIfNotNull(output, "filter", Filter);
-            AddAttributeIfNotNull(output, "filter-value", FilterValue);
-            }           
-            if (Pagination?? false)
-            {                
-                PaginationCurrentPage ??= 1;
-                PaginationSize ??= 10;
-                PaginationSizeOptions ??= new int[] { 10, 25, 50, 0 };
-                AddAttributeIfNotNull(output, "pagination", Pagination);
+            if (Filter)
+                AddAttributeIfNotNull(output, "filter-value", FilterValue);
+            
+            AddAttributeIfNotNull(output, "pagination", Pagination);
+            if (Pagination)
+            {    
                 AddAttributeIfNotNull(output, "pagination-current-page", PaginationCurrentPage);
                 AddAttributeIfNotNull(output, "pagination-size", PaginationSize);
                 AddAttributeIfNotNull(output, "pagination-size-options", PaginationSizeOptions);
             }
-            if (Sort?? false)
-                AddAttributeIfNotNull(output, "sort", Sort);
+
+            AddAttributeIfNotNull(output, "sort", Sort);
 
             base.Process(context, output);
         }
