@@ -1,4 +1,4 @@
-﻿using GCFoundation.Components.Models.TableBuilder;
+﻿using GCFoundation.Components.Models.Table;
 
 namespace GCFoundation.Web.Models
 {

@@ -11,6 +11,6 @@ namespace GCFoundation.Components.Models.TableBuilder
         public SlotType? SlotType { get; set; }
         public bool? Sort { get; set; }
         public SortDirection? SortDirection { get; set; }
-        public Alignment? Alignment { get; set; }
+        public CellAlignment? Alignment { get; set; }
     }
 }
