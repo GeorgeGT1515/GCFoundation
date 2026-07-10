@@ -1,6 +1,6 @@
 ﻿using GCFoundation.Components.Enums;
 
-namespace GCFoundation.Components.Models.TableBuilder
+namespace GCFoundation.Components.Models.Table
 {
     public class TableColumnModel
     {

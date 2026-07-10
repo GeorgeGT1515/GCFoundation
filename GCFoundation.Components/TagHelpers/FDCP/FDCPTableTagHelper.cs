@@ -1,6 +1,6 @@
 ﻿using GCFoundation.Common.Utilities;
 using GCFoundation.Components.Enums;
-using GCFoundation.Components.Models.TableBuilder;
+using GCFoundation.Components.Models.Table;
 using GCFoundation.Components.TagHelpers.GCDS;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;

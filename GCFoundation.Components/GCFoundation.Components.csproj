@@ -145,8 +145,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Models\TableBuilder\TableColumnsModel.cs" />
-    <Compile Remove="Models\TableBuilder\TableDataModel.cs" />
+    <Compile Remove="Models\Table\TableColumnsModel.cs" />
+    <Compile Remove="Models\Table\TableDataModel.cs" />
   </ItemGroup>
 
   <ItemGroup>
