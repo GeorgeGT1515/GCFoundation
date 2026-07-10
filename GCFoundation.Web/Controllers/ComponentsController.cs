@@ -240,30 +240,6 @@ namespace GCFoundation.Web.Controllers
         }
 
         /// <summary>
-        /// Displays the Table (Grid.js) component demo page.
-        /// </summary>
-        /// <returns>
-        /// The Table (Grid.js) component view.
-        /// </returns>
-        [HttpGet("table-grid-js")]
-        public IActionResult TableGridJs()
-        {
-            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_TableGridJs_Title}");
-            var vm = BuildTableGridJsComponentViewModel();
-            return View("Component", vm);
-        }
-
-        /// <summary>
-        /// Provides a friendly alias for the FDCP Grid Table documentation.
-        /// </summary>
-        /// <returns>The FDCP Grid Table component view.</returns>
-        [HttpGet("fdcp-grid-table")]
-        public IActionResult FdcpGridTable()
-        {
-            return TableGridJs();
-        }
-
-        /// <summary>
         /// Displays the User Login Partial component demo page.
         /// </summary>
         /// <returns>
@@ -450,29 +426,6 @@ namespace GCFoundation.Web.Controllers
 
             return vm;
         }
-        private static TableTestViewModel BuildTableComponentViewModel()
-        {
-            var vm = new TableTestViewModel();
-
-            vm.Rows = new List<TableRowTestViewModel>()
-            {
-                new TableRowTestViewModel() { SubmissionId = "EXP-2026-001", SubmitterName = "John A. Smith", DateSubmitted = new DateTime (2026, 1, 15, 4, 30, 0), AssignedReviewer = "Sarah Chen" },
-                new TableRowTestViewModel() { SubmissionId = "EXP-2026-002", SubmitterName = "Maria Gonzalez", DateSubmitted = new DateTime(2026, 1, 15, 5, 15, 0), AssignedReviewer = "David Patel" },
-                new TableRowTestViewModel() { SubmissionId = "EXP-2026-003", SubmitterName = "Robert James", DateSubmitted = new DateTime(2026, 1, 15, 6, 22, 0), AssignedReviewer = "Lisa Wong" },
-                new TableRowTestViewModel() { SubmissionId = "EXP-2026-004", SubmitterName = "Emily R. Davis", DateSubmitted = new DateTime(2026, 1, 15, 8, 45, 0), AssignedReviewer = "Michael Tran" },
-                new TableRowTestViewModel() { SubmissionId = "EXP-2026-005", SubmitterName = "Ahmed Khalil", DateSubmitted = new DateTime(2026, 1, 15, 9, 20, 0), AssignedReviewer = "Sarah Chen" }
-            };
-
-            vm.Cols = new List<TableColumnTestViewModel>()
-            {
-                new TableColumnTestViewModel() { Field = "submissionId", Header = "ID", Slotted = true, SlotType = SlotType.link, SlotHrefTemplate = "/view_submission/{submissionId}" },
-                new TableColumnTestViewModel() { Field = "submitterName", Header = "Name" },
-                new TableColumnTestViewModel() { Field = "dateSubmitted", Header = "Date Submitted" },
-                new TableColumnTestViewModel() { Field = "assignedReviewer", Header = "Reviewer" },
-                new TableColumnTestViewModel() { Field = "actions", Header = "Actions", Slotted = true, SlotType = SlotType.button, SlotButtonLabel = "Delete", SlotActionName = "delete" }
-            };
-            return vm;
-        }
         private List<ComponentIndexViewModel> BuildIndexComponentViewModel()
         {
             var vm = new List<ComponentIndexViewModel>()
@@ -486,7 +439,6 @@ namespace GCFoundation.Web.Controllers
                 new () { Name = Resources.Components.Index_PageHeading_Title, ShortDescription = Resources.Components.Index_PageHeading_Description, Href = Url.Action("PageHeading", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-page-heading.svg") },
                 new () { Name = Resources.Components.Index_Stepper_Title, ShortDescription = Resources.Components.Index_Stepper_Description, Href = Url.Action("Stepper", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-stepper-fdcp.svg") },
                 new () { Name = Resources.Components.Index_Table_Title, ShortDescription = Resources.Components.Index_Table_Description, Href = Url.Action("Table", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-table.svg") },
-                new () { Name = Resources.Components.Index_TableGridJs_Title, ShortDescription = Resources.Components.Index_TableGridJs_Description, Href = Url.Action("TableGridJs", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-table.svg") },
                 new () { Name = Resources.Components.Index_UserLoginPartial_Title, ShortDescription = Resources.Components.Index_UserLoginPartial_Description, Href = Url.Action("UserLogin", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-user-login-partial.svg") }
             };
             return vm;
@@ -604,29 +556,26 @@ namespace GCFoundation.Web.Controllers
 
             return vm;
         }
-        private static ComponentViewModel BuildTableGridJsComponentViewModel()
+        private static TableTestViewModel BuildTableComponentViewModel()
         {
-            var vm = new ComponentViewModel();
-            vm.Name = Resources.Components.TableGridJs_Name;
-            vm.Tag = "<fdcp-table-gridjs>";
-            vm.Overview = Resources.Components.TableGridJs_Overview;
-            vm.Properties = new List<ComponentPropertyViewModel>
+            var vm = new TableTestViewModel();
+
+            vm.Rows = new List<TableRowTestViewModel>()
             {
-                new() { Name = "id", DataType = "string", Description = Resources.Components.TableGridJs_Properties_Id },
-                new() { Name = "ajax-url", DataType = "string", Description = Resources.Components.TableGridJs_Properties_AjaxUrl },
-                new() { Name = "columns", DataType = "IEnumerable<GridTableColumn>", Description = Resources.Components.TableGridJs_Properties_Columns },
-                new() { Name = "page-size", DataType = "int", DefaultValue = "10", Description = Resources.Components.TableGridJs_Properties_PageSize },
-                new() { Name = "search-enabled", DataType = "bool", DefaultValue = "true", Description = Resources.Components.TableGridJs_Properties_SearchEnabled },
-                new() { Name = "sort-enabled", DataType = "bool", DefaultValue = "true", Description = Resources.Components.TableGridJs_Properties_SortEnabled },
-                new() { Name = "caption", DataType = "string", Description = Resources.Components.TableGridJs_Properties_Caption },
-                new() { Name = "summary", DataType = "string", Description = Resources.Components.TableGridJs_Properties_Summary },
-                new() { Name = "aria-label", DataType = "string", Description = Resources.Components.TableGridJs_Properties_AriaLabel },
-                new() { Name = "lang", DataType = "string", Description = Resources.Components.TableGridJs_Properties_Lang },
-                new() { Name = "class", DataType = "string", Description = Resources.Components.TableGridJs_Properties_Class }
+                new TableRowTestViewModel() { SubmissionId = "EXP-2026-001", SubmitterName = "John A. Smith", DateSubmitted = new DateTime (2026, 1, 15, 4, 30, 0), AssignedReviewer = "Sarah Chen" },
+                new TableRowTestViewModel() { SubmissionId = "EXP-2026-002", SubmitterName = "Maria Gonzalez", DateSubmitted = new DateTime(2026, 1, 15, 5, 15, 0), AssignedReviewer = "David Patel" },
+                new TableRowTestViewModel() { SubmissionId = "EXP-2026-003", SubmitterName = "Robert James", DateSubmitted = new DateTime(2026, 1, 15, 6, 22, 0), AssignedReviewer = "Lisa Wong" },
+                new TableRowTestViewModel() { SubmissionId = "EXP-2026-004", SubmitterName = "Emily R. Davis", DateSubmitted = new DateTime(2026, 1, 15, 8, 45, 0), AssignedReviewer = "Michael Tran" },
+                new TableRowTestViewModel() { SubmissionId = "EXP-2026-005", SubmitterName = "Ahmed Khalil", DateSubmitted = new DateTime(2026, 1, 15, 9, 20, 0), AssignedReviewer = "Sarah Chen" }
             };
-            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>
+
+            vm.Cols = new List<TableColumnTestViewModel>()
             {
-                new() { Description = Resources.Components.TableGridJs_Basic_Text, Id = Resources.Components.TableGridJs_Basic_Anchor, PartialViewName = "TableGridJs/_Basic", Title = Resources.Components.TableGridJs_Basic_Title }
+                new TableColumnTestViewModel() { Field = "submissionId", Header = "ID", Slotted = true, SlotType = SlotType.link, SlotHrefTemplate = "/view_submission/{submissionId}" },
+                new TableColumnTestViewModel() { Field = "submitterName", Header = "Name" },
+                new TableColumnTestViewModel() { Field = "dateSubmitted", Header = "Date Submitted" },
+                new TableColumnTestViewModel() { Field = "assignedReviewer", Header = "Reviewer" },
+                new TableColumnTestViewModel() { Field = "actions", Header = "Actions", Slotted = true, SlotType = SlotType.button, SlotButtonLabel = "Delete", SlotActionName = "delete" }
             };
             return vm;
         }
