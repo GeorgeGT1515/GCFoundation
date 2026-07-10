@@ -19,7 +19,7 @@ namespace GCFoundation.Web.Models
 
         [DataType(DataType.Date)]
         [Display(Name = "Table_Date_Submitted_Header", ResourceType = typeof(Resources.Components))]
-        [DateFormat("full")]
+        [DateFormat("half")]
         public DateTime DateSubmitted { get; set; }
 
         [DataType(DataType.Text)]

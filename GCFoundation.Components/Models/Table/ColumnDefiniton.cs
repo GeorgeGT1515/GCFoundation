@@ -44,8 +44,8 @@ namespace GCFoundation.Components.Models.TableBuilder
         public bool? Sort { get; set; }
 
         /// <summary>
-        /// Sets a default sort order for the column when the page loads. Set to <see cref="Enums.SortDirection.Asc"/>
-        /// for ascending order or <see cref="Enums.SortDirection.Desc"/> for descending order.
+        /// Sets a default sort order for the column when the page loads. Set to <see cref="Enums.SortDirection.Ascending"/>
+        /// for ascending order or <see cref="Enums.SortDirection.Descending"/> for descending order.
         /// </summary>
         public SortDirection? SortDirection { get; set; }
 
