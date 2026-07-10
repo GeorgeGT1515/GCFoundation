@@ -13,6 +13,5 @@ namespace GCFoundation.Web.Models
         public string? SlotDisplayField { get; set; }
         public string? SlotActionName { get; set; } // e.g. "edit", "delete", "approve"
         public string? SlotButtonLabel { get; set; }
-        public 
     }
 }

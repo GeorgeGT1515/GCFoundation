@@ -6,7 +6,7 @@ namespace GCFoundation.Components.Enums
 {
     public enum SlotType
     {
-        Link,
-        Button
+        link,
+        button
     }
 }

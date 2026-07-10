@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace GCFoundation.Common.Utilities
 {
@@ -15,6 +16,12 @@ namespace GCFoundation.Common.Utilities
         public static readonly JsonSerializerOptions CamelCase = new JsonSerializerOptions
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+        }; 
+        
+        public static readonly JsonSerializerOptions CamelCaseIgnoreNull = new JsonSerializerOptions
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
         };
 
         /// <summary>

@@ -2,14 +2,12 @@
 using GCFoundation.Components.Enums;
 using GCFoundation.Components.Models.TableBuilder;
 using GCFoundation.Components.TagHelpers.GCDS;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.Eventing.Reader;
 using System.Reflection;
 using System.Text;
 using System.Text.Json;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+
 
 namespace GCFoundation.Components.TagHelpers.FDCP
 {
@@ -19,8 +17,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// via <c>from</c>, or by supplying explicit <c>columns</c>/<c>data</c> JSON.
     /// </summary>
     [HtmlTargetElement("fdcp-table", Attributes = "for, caption")]
-    [HtmlTargetElement("fdcp-table", Attributes = "caption, cols, rows")]
-    [HtmlTargetElement("fdcp-table", Attributes="caption, columns, data")]
+    [HtmlTargetElement("fdcp-table", Attributes = "caption, column-definitions, rows")]
     public class FDCPTableTagHelper : TableTagHelper
     {
         private string? _templatesHtml { get; set; }
@@ -28,10 +25,10 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         /// The collection of row data models to render in the table. Column definitions are generated
         /// automatically by reflecting over the properties of the model type.
         /// </summary>
-        public ModelExpression? For { get; set; }
+        public IEnumerable<Object>? For { get; set; }
 
-        public ModelExpression? Cols { get; set; }
-        public ModelExpression? Rows { get; set; }
+        public ICollection<ColumnDefiniton>? ColumnDefinitions { get; }
+        public IEnumerable<Object>? Rows { get; set; }
 
         /// <summary>
         /// The accessible name given to the table via the <c>caption</c> slot, so assistive technologies
@@ -55,10 +52,10 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         {
             ArgumentNullException.ThrowIfNull(output, nameof(output));
 
-            if (For != null)
-                BuildFromRows();            
+            //if (For != null)
+            //    BuildFromFor();            
 
-            if (Cols != null && Rows != null)
+            if (ColumnDefinitions != null && Rows != null)
             {
                 BuildFromColsAndRows();
             }
@@ -68,67 +65,59 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             base.Process(context, output);
             output.PreContent.SetHtmlContent(BuildHtml());
-            output.PostContent.SetHtmlContent(_templatesHtml);
+            //output.PostContent.SetHtmlContent(_templatesHtml);
         }
 
         #region BuildColumnsAndData
-        private void BuildFromRows()
+        private void BuildFromFor()
         {
-            Type dataType;
-            IEnumerable<object> data;
+            //Type dataType;
+            //IEnumerable<object> data;
 
-            ResolveModelExpression(For!, out dataType, out data);
+            //ResolveModelExpression(For!, out dataType, out data);
 
-            Data = JsonSerializer.Serialize(data, JsonOptionsUtility.CamelCase);
+            //Data = JsonSerializer.Serialize(data, JsonOptionsUtility.CamelCase);
 
-            List<TableColumnModel> columns = new List<TableColumnModel>();
-            var properties = dataType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            //List<TableColumnModel> columns = new List<TableColumnModel>();
+            //var properties = dataType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
 
-            foreach (var property in properties)
-            {
-                var column = new TableColumnModel() 
-                {
-                  Field = JsonNamingPolicy.CamelCase.ConvertName(property.Name), 
-                  Header = ResolveLocalizedHeader(property), 
-                  RowHeader = false 
-                };
-                columns.Add(column);
-            }
+            //foreach (var property in properties)
+            //{
+            //    var column = new TableColumnModel() 
+            //    {
+            //      Field = JsonNamingPolicy.CamelCase.ConvertName(property.Name), 
+            //      Header = ResolveLocalizedHeader(property), 
+            //      RowHeader = false 
+            //    };
+            //    columns.Add(column);
+            //}
 
-            if (RowHeader == true)
-                columns[0].RowHeader = true;
+            //if (RowHeader == true)
+            //    columns[0].RowHeader = true;
 
-            Columns = JsonSerializer.Serialize(columns, JsonOptionsUtility.CamelCase);
+            //Columns = JsonSerializer.Serialize(columns, JsonOptionsUtility.CamelCase);
         }
 
         private void BuildFromColsAndRows()
-        {
-            Type columnsType;
-            IEnumerable<object> columns;
+        {         
+            Columns = JsonSerializer.Serialize(ColumnDefinitions, JsonOptionsUtility.CamelCaseIgnoreNull);
+            Data = JsonSerializer.Serialize(Rows!, JsonOptionsUtility.CamelCase);
 
-            ResolveModelExpression(Cols!, out columnsType, out columns);
-            var properties = columnsType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            //var properties = columnsType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            //var slottedProperty = properties.FirstOrDefault(p => p.Name == "Slotted");
+            //if (slottedProperty is not null)
+            //{
+            //    var fieldProperty = properties.First(p => p.Name == "Field"); // looked up ONCE
 
-            if (!(properties.Any(p => p.Name == "Field") && properties.Any(p => p.Name == "Header")))
-                return;
+            //    var slottedColumns = columns
+            //        .Where(c => slottedProperty.GetValue(c) is bool b && b)
+            //        .ToList();
 
-            Columns = JsonSerializer.Serialize(columns, JsonOptionsUtility.CamelCase);
-            Data = JsonSerializer.Serialize(Rows.Model!, JsonOptionsUtility.CamelCase);
-
-            var slottedProperty = properties.FirstOrDefault(p => p.Name == "Slotted");
-            if (slottedProperty is not null)
-            {
-                var fieldProperty = properties.First(p => p.Name == "Field"); // looked up ONCE
-
-                var slottedColumns = columns
-                    .Where(c => slottedProperty.GetValue(c) is bool b && b)
-                    .ToList();
-
-                if (slottedColumns.Count > 0)
-                {
-                    _templatesHtml = BuildTemplates(slottedColumns, columnsType, fieldProperty);
-                }
-            }
+            //    if (slottedColumns.Count > 0)
+            //    {
+            //        _templatesHtml = BuildTemplates(slottedColumns, columnsType, fieldProperty);
+            //    }
+            //}
         }
         #endregion
 
@@ -148,8 +137,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         private static string BuildTemplates(List<object> slottedColumns, Type columnsType, PropertyInfo fieldProperty)
         {
             var slotTypeProperty = columnsType.GetProperty("SlotType");
-            var hrefTemplateProperty = columnsType.GetProperty("SlotHrefTemplate");
-            var displayFieldProperty = columnsType.GetProperty("SlotDisplayField");
             var buttonLabelProperty = columnsType.GetProperty("SlotButtonLabel");
             var actionNameProperty = columnsType.GetProperty("SlotActionName");
 
@@ -165,8 +152,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
                 string template = slotType switch
                 {
-                    SlotType.Link => BuildLinkTemplate(field, column, hrefTemplateProperty, displayFieldProperty),
-                    SlotType.Button => BuildButtonTemplate(field, buttonLabelProperty?.GetValue(column) as string, actionNameProperty?.GetValue(column) as string),
+                    SlotType.link => BuildButtonTemplate(field, buttonLabelProperty?.GetValue(column) as string, actionNameProperty?.GetValue(column) as string),
+                    SlotType.button => BuildButtonTemplate(field, buttonLabelProperty?.GetValue(column) as string, actionNameProperty?.GetValue(column) as string),
                     _ => string.Empty
                 };
 
@@ -217,22 +204,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             var displayAttr = property.GetCustomAttribute<DisplayAttribute>();
             return displayAttr?.GetName() ?? property.Name;
-        }
-
-        private static void ResolveModelExpression(ModelExpression modelExpression, out Type type, out IEnumerable<object> items)
-        {
-            ArgumentNullException.ThrowIfNull(modelExpression, nameof(modelExpression));
-
-            if (modelExpression.Metadata.IsCollectionType)
-            {
-                type = modelExpression.Metadata.ElementType!;
-                items = ((System.Collections.IEnumerable)modelExpression.Model!).Cast<object>();
-            }
-            else
-            {
-                type = modelExpression.Metadata.ModelType;
-                items = new[] { modelExpression.Model! };
-            }
         }
         #endregion
     }
