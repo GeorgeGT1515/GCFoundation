@@ -16,6 +16,7 @@ class FDCPSearchableSelect {
         this.multipleSelectedText = element.getAttribute('data-multiple-selected-text') || 'selected';
         this.oneResultText = element.getAttribute('data-one-result-text') || '1 result available';
         this.multipleResultsText = element.getAttribute('data-multiple-results-text') || '{0} results available';
+        this.pointerDownStartedInside = false;
 
         this.bindEvents();
         this.updateSelectionSummary();
@@ -33,6 +34,8 @@ class FDCPSearchableSelect {
                     this.open();
 
                     if (this.selectionMode === 'single') {
+                        this.element.classList.remove('fdcp-searchable-select--pointer-active');
+                        this.element.classList.add('fdcp-searchable-select--keyboard-active');
                         this.selectAdjacentSingleOption(event.key === 'ArrowDown' ? 1 : -1, this.getSelectedSingleOption(), { focusOption: false });
                     }
                 }
@@ -49,6 +52,7 @@ class FDCPSearchableSelect {
                     event.preventDefault();
                     if (this.selectionMode === 'single') {
                         this.element.classList.remove('fdcp-searchable-select--pointer-active');
+                        this.element.classList.add('fdcp-searchable-select--keyboard-active');
                         this.selectAdjacentSingleOption(1, this.getSelectedSingleOption(), { focusOption: false });
                     } else {
                         this.focusFirstVisibleOption();
@@ -56,6 +60,7 @@ class FDCPSearchableSelect {
                 } else if (event.key === 'ArrowUp' && this.selectionMode === 'single') {
                     event.preventDefault();
                     this.element.classList.remove('fdcp-searchable-select--pointer-active');
+                    this.element.classList.add('fdcp-searchable-select--keyboard-active');
                     this.selectAdjacentSingleOption(-1, this.getSelectedSingleOption(), { focusOption: false });
                 } else if (event.key === 'Enter' && this.selectionMode === 'single') {
                     event.preventDefault();
@@ -81,13 +86,12 @@ class FDCPSearchableSelect {
         this.options.forEach(option => {
             option.addEventListener('mouseenter', () => {
                 if (this.selectionMode === 'single') {
+                    this.element.classList.remove('fdcp-searchable-select--keyboard-active');
                     this.element.classList.add('fdcp-searchable-select--pointer-active');
-                }
-            });
 
-            option.addEventListener('mouseleave', () => {
-                if (this.selectionMode === 'single') {
-                    this.element.classList.remove('fdcp-searchable-select--pointer-active');
+                    if (!option.hidden && !this.isOptionDisabled(option)) {
+                        this.setActiveSingleOption(option);
+                    }
                 }
             });
 
@@ -113,14 +117,26 @@ class FDCPSearchableSelect {
             });
         });
 
+        document.addEventListener('pointerdown', event => {
+            this.pointerDownStartedInside = this.element.contains(event.target);
+        });
+
         document.addEventListener('click', event => {
             if (!this.element.contains(event.target)) {
                 this.close();
             }
+
+            window.setTimeout(() => {
+                this.pointerDownStartedInside = false;
+            }, 0);
         });
 
         this.element.addEventListener('focusout', () => {
             window.setTimeout(() => {
+                if (this.pointerDownStartedInside) {
+                    return;
+                }
+
                 if (!this.element.contains(document.activeElement)) {
                     this.close();
                 }
@@ -161,8 +177,13 @@ class FDCPSearchableSelect {
         this.setComboboxExpanded(false);
         this.element.classList.remove('fdcp-searchable-select--open-above');
         this.element.classList.remove('fdcp-searchable-select--pointer-active');
+        this.element.classList.remove('fdcp-searchable-select--keyboard-active');
         this.element.style.removeProperty('--fdcp-searchable-select-trigger-offset');
         this.clearSearch();
+
+        if (this.selectionMode === 'single') {
+            this.setActiveSingleOption(this.getSelectedSingleOption());
+        }
 
         if (returnFocus) {
             this.trigger.focus();
@@ -208,6 +229,17 @@ class FDCPSearchableSelect {
         }
 
         this.updateSingleOptionTabIndexes();
+
+        if (this.selectionMode === 'single') {
+            const selectedOption = this.getSelectedSingleOption();
+
+            if (selectedOption && !selectedOption.hidden && !this.isOptionDisabled(selectedOption)) {
+                this.element.classList.remove('fdcp-searchable-select--pointer-active');
+                this.element.classList.add('fdcp-searchable-select--keyboard-active');
+                this.setActiveSingleOption(selectedOption);
+            }
+        }
+
         this.updateSearchStatus(visibleCount);
         this.updatePanelPlacement();
     }
@@ -283,10 +315,12 @@ class FDCPSearchableSelect {
         if (event.key === 'ArrowDown') {
             event.preventDefault();
             this.element.classList.remove('fdcp-searchable-select--pointer-active');
+            this.element.classList.add('fdcp-searchable-select--keyboard-active');
             this.selectAdjacentSingleOption(1, option);
         } else if (event.key === 'ArrowUp') {
             event.preventDefault();
             this.element.classList.remove('fdcp-searchable-select--pointer-active');
+            this.element.classList.add('fdcp-searchable-select--keyboard-active');
             this.selectAdjacentSingleOption(-1, option);
         } else if (event.key === 'Enter' || event.key === ' ') {
             event.preventDefault();

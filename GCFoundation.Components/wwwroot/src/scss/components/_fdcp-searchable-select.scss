@@ -193,8 +193,14 @@
         overflow-y: auto;
 
         .fdcp-searchable-select--pointer-active & {
-            .fdcp-searchable-select__option-item.is-active:not(:hover),
-            .fdcp-searchable-select__option-item.is-selected:not(:hover) {
+            .fdcp-searchable-select__option-item.is-selected:not(.is-active):not(:hover) {
+                background: transparent;
+                color: var(--gcds-text-primary, #333);
+            }
+        }
+
+        .fdcp-searchable-select--keyboard-active & {
+            .fdcp-searchable-select__option-item:hover:not(.is-active):not(.is-selected) {
                 background: transparent;
                 color: var(--gcds-text-primary, #333);
             }
