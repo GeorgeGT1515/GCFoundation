@@ -5,6 +5,7 @@ using GCFoundation.Components.Models.TableBuilder;
 using GCFoundation.Components.TagHelpers.GCDS;
 using GCFoundation.Web.Models;
 using GCFoundation.Web.Models.Components;
+using GCFoundation.Web.Models.Table;
 using GCFoundation.Web.Resources;
 using Microsoft.AspNetCore.Mvc;
 
@@ -84,8 +85,8 @@ namespace GCFoundation.Web.Controllers
         public IActionResult Table()
         {
             SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Table_Title}");
-            var vm = BuildTableComponentViewModel();           
-            return View(vm);
+            var vm = BuildTableComponentViewModel();
+            return View("Component", vm);
         }
 
         /// <summary>
@@ -557,26 +558,49 @@ namespace GCFoundation.Web.Controllers
 
             return vm;
         }
-        private static TableTestViewModel BuildTableComponentViewModel()
+        private static ComponentViewModel BuildTableComponentViewModel()
         {
-            var vm = new TableTestViewModel();
+            var vm = new ComponentViewModel();
 
-            vm.Rows = new List<TableRowTestViewModel>()
+            vm.Name = Resources.Components.Table_Name;
+            vm.Tag = "<fdcp-table>";
+            vm.Overview = Resources.Components.Table_Overview;
+
+            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
             {
-                new TableRowTestViewModel() { SubmissionId = "EXP-2026-001", SubmitterName = "John A. Smith", DateSubmitted = new DateTime (2026, 1, 15, 4, 30, 0), AssignedReviewer = "Sarah Chen" },
-                new TableRowTestViewModel() { SubmissionId = "EXP-2026-002", SubmitterName = "Maria Gonzalez", DateSubmitted = new DateTime(2026, 1, 15, 5, 15, 0), AssignedReviewer = "David Patel" },
-                new TableRowTestViewModel() { SubmissionId = "EXP-2026-003", SubmitterName = "Robert James", DateSubmitted = new DateTime(2026, 1, 15, 6, 22, 0), AssignedReviewer = "Lisa Wong" },
-                new TableRowTestViewModel() { SubmissionId = "EXP-2026-004", SubmitterName = "Emily R. Davis", DateSubmitted = new DateTime(2026, 1, 15, 8, 45, 0), AssignedReviewer = "Michael Tran" },
-                new TableRowTestViewModel() { SubmissionId = "EXP-2026-005", SubmitterName = "Ahmed Khalil", DateSubmitted = new DateTime(2026, 1, 15, 9, 20, 0), AssignedReviewer = "Sarah Chen" }
+                new ComponentSampleCodeSectionViewModel()
+                {
+                    Title = Resources.Components.Table_BasicUsage_Title,
+                    Id = Resources.Components.Table_BasicUsage_Anchor,
+                    Description = Resources.Components.Table_BasicUsage_Text,
+                    PartialViewName = "Table/_BasicUsage"
+                },
+                new ComponentSampleCodeSectionViewModel()
+                {
+                    Title = Resources.Components.Table_WithSlots_Title,
+                    Id = Resources.Components.Table_WithSlots_Anchor,
+                    Description = Resources.Components.Table_WithSlots_Text,
+                    PartialViewName = "Table/_WithSlots"
+                },
+                new ComponentSampleCodeSectionViewModel()
+                {
+                    Title = Resources.Components.Properties,
+                    Id = Resources.Components.Properties_Anchor,
+                    PartialViewName = "Table/_Properties"
+                }
             };
 
-            vm.Cols = new List<ColumnDefinition>()
+            vm.SideNavigation = new SideNavigationViewModel()
             {
-                new ColumnDefinition() { Field = "submissionId", Header = "ID", Slotted = true },
-                new ColumnDefinition() { Field = "submitterName", Header = "Name" },
-                new ColumnDefinition() { Field = "dateSubmitted", Header = "Date Submitted" },
-                new ColumnDefinition() { Field = "assignedReviewer", Header = "Reviewer" },
+                Items = new List<NavItem>()
+                {
+                    new NavLink() { Href = Resources.Components.Overview_Anchor, Label = Resources.Components.Overview },
+                    new NavLink() { Href = Resources.Components.Table_BasicUsage_Anchor, Label = Resources.Components.Table_BasicUsage_Title },
+                    new NavLink() { Href = Resources.Components.Table_WithSlots_Anchor, Label = Resources.Components.Table_WithSlots_Title },
+                    new NavLink() { Href = Resources.Components.Properties_Anchor, Label = Resources.Components.Properties }
+                }
             };
+
             return vm;
         }
         private FormDefinition GenerateSampleFormDefinition()

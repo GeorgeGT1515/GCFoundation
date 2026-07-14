@@ -2771,6 +2771,33 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email address.
+        /// </summary>
+        public static string Table_Email_Header {
+            get {
+                return ResourceManager.GetString("Table_Email_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Actions.
+        /// </summary>
+        public static string Table_Actions_Header {
+            get {
+                return ResourceManager.GetString("Table_Actions_Header", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Submission Link.
+        /// </summary>
+        public static string Table_Link_Header {
+            get {
+                return ResourceManager.GetString("Table_Link_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Table.
         /// </summary>
         public static string Table_Name {
@@ -2798,7 +2825,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use FDCP table styles to present tabular data with WCAG-compliant captions, scoped headers, and responsive behaviour..
+        ///   Looks up a localized string similar to The &lt;fdcp-table&gt; component wraps the GC Design System &lt;gcds-table&gt;. Columns are inferred automatically from the row model's public properties....
         /// </summary>
         public static string Table_Overview {
             get {
@@ -2859,7 +2886,430 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Table_Submitter_Name_Header", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Basic usage.
+        /// </summary>
+        public static string Table_BasicUsage_Title {
+            get {
+                return ResourceManager.GetString("Table_BasicUsage_Title", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to basic-usage.
+        /// </summary>
+        public static string Table_BasicUsage_Anchor {
+            get {
+                return ResourceManager.GetString("Table_BasicUsage_Anchor", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to All public properties on the row model are displayed as columns by default — no annotation required....
+        /// </summary>
+        public static string Table_BasicUsage_Text {
+            get {
+                return ResourceManager.GetString("Table_BasicUsage_Text", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Using data annotations.
+        /// </summary>
+        public static string Table_WithAnnotations_Title {
+            get {
+                return ResourceManager.GetString("Table_WithAnnotations_Title", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to All public properties on the row model are rendered as columns by default....
+        /// </summary>
+        public static string Table_WithAnnotations_Text {
+            get {
+                return ResourceManager.GetString("Table_WithAnnotations_Text", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Using explicit column definitions.
+        /// </summary>
+        public static string Table_WithColumns_Title {
+            get {
+                return ResourceManager.GetString("Table_WithColumns_Title", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to As an alternative, pass a List&lt;ColumnDefinition&gt; to column-definitions....
+        /// </summary>
+        public static string Table_WithColumns_Text {
+            get {
+                return ResourceManager.GetString("Table_WithColumns_Text", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to With slots.
+        /// </summary>
+        public static string Table_WithSlots_Title {
+            get {
+                return ResourceManager.GetString("Table_WithSlots_Title", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to with-slots.
+        /// </summary>
+        public static string Table_WithSlots_Anchor {
+            get {
+                return ResourceManager.GetString("Table_WithSlots_Anchor", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Replace any cell's default text output with custom HTML using a named slot....
+        /// </summary>
+        public static string Table_WithSlots_Text {
+            get {
+                return ResourceManager.GetString("Table_WithSlots_Text", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to With email link.
+        /// </summary>
+        public static string Table_WithEmail_Title {
+            get {
+                return ResourceManager.GetString("Table_WithEmail_Title", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Use data-bind-template-href="mailto:{email}" to build a mailto: link....
+        /// </summary>
+        public static string Table_WithEmail_Text {
+            get {
+                return ResourceManager.GetString("Table_WithEmail_Text", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to With link.
+        /// </summary>
+        public static string Table_WithLink_Title {
+            get {
+                return ResourceManager.GetString("Table_WithLink_Title", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Mix static path segments with {fieldName} tokens in data-bind-template-href....
+        /// </summary>
+        public static string Table_WithLink_Text {
+            get {
+                return ResourceManager.GetString("Table_WithLink_Text", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to With button.
+        /// </summary>
+        public static string Table_WithButton_Title {
+            get {
+                return ResourceManager.GetString("Table_WithButton_Title", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Use data-bind-{attribute} to bind a row field to any attribute on the slotted element....
+        /// </summary>
+        public static string Table_WithButton_Text {
+            get {
+                return ResourceManager.GetString("Table_WithButton_Text", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to With button link.
+        /// </summary>
+        public static string Table_WithButtonLink_Title {
+            get {
+                return ResourceManager.GetString("Table_WithButtonLink_Title", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to A type="link" button inside the slot navigates like a link....
+        /// </summary>
+        public static string Table_WithButtonLink_Text {
+            get {
+                return ResourceManager.GetString("Table_WithButtonLink_Text", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Properties.
+        /// </summary>
+        public static string Table_Properties_Title {
+            get {
+                return ResourceManager.GetString("Table_Properties_Title", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Properties — &lt;code&gt;&lt;fdcp-table&gt;&lt;/code&gt;.
+        /// </summary>
+        public static string Table_Properties_FdcpTable_Title {
+            get {
+                return ResourceManager.GetString("Table_Properties_FdcpTable_Title", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Accessible name for the table, announced by assistive technologies. Required for WCAG compliance.
+        /// </summary>
+        public static string Table_Properties_FdcpTable_Caption {
+            get {
+                return ResourceManager.GetString("Table_Properties_FdcpTable_Caption", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Additional descriptive text displayed below the caption.
+        /// </summary>
+        public static string Table_Properties_FdcpTable_CaptionDetail {
+            get {
+                return ResourceManager.GetString("Table_Properties_FdcpTable_CaptionDetail", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Optional explicit column definitions. When omitted, all public properties on the row model are displayed as columns.
+        /// </summary>
+        public static string Table_Properties_FdcpTable_ColumnDefinitions {
+            get {
+                return ResourceManager.GetString("Table_Properties_FdcpTable_ColumnDefinitions", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Enables a keyword filter input above the table to narrow displayed rows.
+        /// </summary>
+        public static string Table_Properties_FdcpTable_Filter {
+            get {
+                return ResourceManager.GetString("Table_Properties_FdcpTable_Filter", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Pre-fills the filter input with a default keyword when the table loads.
+        /// </summary>
+        public static string Table_Properties_FdcpTable_FilterValue {
+            get {
+                return ResourceManager.GetString("Table_Properties_FdcpTable_FilterValue", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Splits table rows into pages.
+        /// </summary>
+        public static string Table_Properties_FdcpTable_Pagination {
+            get {
+                return ResourceManager.GetString("Table_Properties_FdcpTable_Pagination", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The page shown when the table first loads. Only applies when pagination is true.
+        /// </summary>
+        public static string Table_Properties_FdcpTable_PaginationCurrentPage {
+            get {
+                return ResourceManager.GetString("Table_Properties_FdcpTable_PaginationCurrentPage", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Number of rows displayed per page. Only applies when pagination is true.
+        /// </summary>
+        public static string Table_Properties_FdcpTable_PaginationSize {
+            get {
+                return ResourceManager.GetString("Table_Properties_FdcpTable_PaginationSize", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Page-size choices available in the pagination control.
+        /// </summary>
+        public static string Table_Properties_FdcpTable_PaginationSizeOptions {
+            get {
+                return ResourceManager.GetString("Table_Properties_FdcpTable_PaginationSizeOptions", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The server-side collection of row data to display.
+        /// </summary>
+        public static string Table_Properties_FdcpTable_Rows {
+            get {
+                return ResourceManager.GetString("Table_Properties_FdcpTable_Rows", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Enables sorting by clicking column headers.
+        /// </summary>
+        public static string Table_Properties_FdcpTable_Sort {
+            get {
+                return ResourceManager.GetString("Table_Properties_FdcpTable_Sort", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Properties — &lt;code&gt;ColumnDefinition&lt;/code&gt;.
+        /// </summary>
+        public static string Table_Properties_ColumnDef_Title {
+            get {
+                return ResourceManager.GetString("Table_Properties_ColumnDef_Title", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Controls horizontal alignment of cell content. Values: start (left), center, end (right).
+        /// </summary>
+        public static string Table_Properties_ColumnDef_Alignment {
+            get {
+                return ResourceManager.GetString("Table_Properties_ColumnDef_Alignment", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The camelCase name of the property on the row model that this column maps to.
+        /// </summary>
+        public static string Table_Properties_ColumnDef_Field {
+            get {
+                return ResourceManager.GetString("Table_Properties_ColumnDef_Field", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The column header label displayed in the table's &lt;thead&gt;.
+        /// </summary>
+        public static string Table_Properties_ColumnDef_Header {
+            get {
+                return ResourceManager.GetString("Table_Properties_ColumnDef_Header", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Marks each cell in this column as a row header.
+        /// </summary>
+        public static string Table_Properties_ColumnDef_RowHeader {
+            get {
+                return ResourceManager.GetString("Table_Properties_ColumnDef_RowHeader", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Enables custom cell content for this column via template slot.
+        /// </summary>
+        public static string Table_Properties_ColumnDef_Slotted {
+            get {
+                return ResourceManager.GetString("Table_Properties_ColumnDef_Slotted", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Enables sorting by this column when clicked.
+        /// </summary>
+        public static string Table_Properties_ColumnDef_Sort {
+            get {
+                return ResourceManager.GetString("Table_Properties_ColumnDef_Sort", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Sets the default sort order when the page loads. Values: asc, desc, none.
+        /// </summary>
+        public static string Table_Properties_ColumnDef_SortDirection {
+            get {
+                return ResourceManager.GetString("Table_Properties_ColumnDef_SortDirection", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Annotation — &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;.
+        /// </summary>
+        public static string Table_Properties_Annotation_Title {
+            get {
+                return ResourceManager.GetString("Table_Properties_Annotation_Title", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to All public properties on the row model are displayed as columns by default.
+        /// </summary>
+        public static string Table_Properties_Annotation_Text {
+            get {
+                return ResourceManager.GetString("Table_Properties_Annotation_Text", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Controls horizontal alignment of cell content. Values: start (left), center, end (right).
+        /// </summary>
+        public static string Table_Properties_Annotation_Alignment {
+            get {
+                return ResourceManager.GetString("Table_Properties_Annotation_Alignment", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Hides this column from the rendered table.
+        /// </summary>
+        public static string Table_Properties_Annotation_IsHidden {
+            get {
+                return ResourceManager.GetString("Table_Properties_Annotation_IsHidden", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Marks each cell in this column as a row header.
+        /// </summary>
+        public static string Table_Properties_Annotation_RowHeader {
+            get {
+                return ResourceManager.GetString("Table_Properties_Annotation_RowHeader", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Enables custom slotted cell content for this column.
+        /// </summary>
+        public static string Table_Properties_Annotation_Slotted {
+            get {
+                return ResourceManager.GetString("Table_Properties_Annotation_Slotted", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Enables sorting by this column when clicked.
+        /// </summary>
+        public static string Table_Properties_Annotation_Sort {
+            get {
+                return ResourceManager.GetString("Table_Properties_Annotation_Sort", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Sets the default sort order when the page loads. Values: asc, desc, none.
+        /// </summary>
+        public static string Table_Properties_Annotation_SortDirection {
+            get {
+                return ResourceManager.GetString("Table_Properties_Annotation_SortDirection", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to basic.
         /// </summary>

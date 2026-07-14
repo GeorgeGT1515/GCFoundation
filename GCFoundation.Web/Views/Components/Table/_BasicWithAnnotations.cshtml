@@ -1,0 +1,34 @@
+@using GCFoundation.Web.Models.Table
+
+@{
+    var rows = new List<TableRowBasicTestViewModel>
+    {
+        new() { SubmissionId = "001", SubmitterName = "Alice Tremblay",  DateSubmitted = new DateTime(2025, 3, 10,  9,  0, 0), AssignedReviewer = "Bob Martin"     },
+        new() { SubmissionId = "002", SubmitterName = "Jean Dupont",     DateSubmitted = new DateTime(2025, 3, 11, 14, 30, 0), AssignedReviewer = "Alice Tremblay" },
+        new() { SubmissionId = "003", SubmitterName = "Sarah Lee",       DateSubmitted = new DateTime(2025, 3, 12, 10, 15, 0), AssignedReviewer = "Bob Martin"     },
+    };
+}
+
+<fdcp-table caption="Table using data annotations" rows="@rows"></fdcp-table>
+<pre><code class="language-cshtml">@Html.Raw(Html.Encode(@"
+<fdcp-table caption=""Submission table using data annotations"" rows=""@Model.Rows""></fdcp-table>
+
+public class MyRowViewModel
+{
+    [Display(Name = ""SubmissionId_Header"", ResourceType = typeof(Resources.Components))]
+    [TableColumnDefinition(IsHidden = true)]
+    public string SubmissionId { get; set; }
+
+    [Display(Name = ""SubmitterName_Header"", ResourceType = typeof(Resources.Components))]
+    [TableColumnDefinition(RowHeader = true)]
+    public string SubmitterName { get; set; }
+
+    [Display(Name = ""DateSubmitted_Header"", ResourceType = typeof(Resources.Components))]
+    [DateFormat(""yyyy-MM-dd HH:mm"")]
+    [TableColumnDefinition(Sort = true)]
+    public DateTime DateSubmitted { get; set; }
+
+    [Display(Name = ""AssignedReviewer_Header"", ResourceType = typeof(Resources.Components))]
+    public string AssignedReviewer { get; set; }
+}
+"))</code></pre>

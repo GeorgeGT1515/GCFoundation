@@ -1,0 +1,29 @@
+@using GCFoundation.Web.Models.Table
+
+@{
+    var rows = new List<TableRowButtonTestViewModel>
+    {
+        new() { SubmissionId = "001", SubmitterName = "Alice Tremblay",  DateSubmitted = new DateTime(2025, 3, 10,  9,  0, 0), AssignedReviewer = "Bob Martin"     },
+        new() { SubmissionId = "002", SubmitterName = "Jean Dupont",     DateSubmitted = new DateTime(2025, 3, 11, 14, 30, 0), AssignedReviewer = "Alice Tremblay" },
+        new() { SubmissionId = "003", SubmitterName = "Sarah Lee",       DateSubmitted = new DateTime(2025, 3, 12, 10, 15, 0), AssignedReviewer = "Bob Martin"     },
+    };
+}
+
+<fdcp-table caption="Table with button" rows="@rows">
+    <template slot="cell:action">
+        <gcds-button button-role="danger" data-bind-button-id="{submissionId}" size="small">Delete</gcds-button>
+    </template>
+</fdcp-table>
+<pre><code class="language-cshtml">@Html.Raw(Html.Encode(@"
+<fdcp-table caption=""Table with button"" rows=""@Model.Rows"">
+    <template slot=""cell:action"">
+        <gcds-button button-role=""danger""
+                     data-bind-button-id=""{submissionId}""
+                     size=""small"">Delete</gcds-button>
+    </template>
+</fdcp-table>
+
+[Display(Name = ""Table_Actions_Header"", ResourceType = typeof(Resources.Components))]
+[TableColumnDefinition(Slotted = true)]
+public string Action { get; set; }
+"))</code></pre>
