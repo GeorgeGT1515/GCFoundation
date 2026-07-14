@@ -1,0 +1,34 @@
+@using GCFoundation.Components.Models.TableBuilder
+@using GCFoundation.Web.Models.Table
+
+@{
+    var cols = new List<ColumnDefinition>
+    {
+        new() { Field = "submissionId", Header = "ID", RowHeader = true },
+        new() { Field = "submitterName", Header = "Name" },
+        new() { Field = "dateSubmitted", Header = "Date Submitted" },
+        new() { Field = "assignedReviewer", Header = "Reviewer" },
+    };
+    var rows = new List<TableRowBasicTestViewModel>
+    {
+        new() { SubmissionId = "001", SubmitterName = "Alice Tremblay",  DateSubmitted = new DateTime(2025, 3, 10,  9,  0, 0), AssignedReviewer = "Bob Martin"     },
+        new() { SubmissionId = "002", SubmitterName = "Jean Dupont",     DateSubmitted = new DateTime(2025, 3, 11, 14, 30, 0), AssignedReviewer = "Alice Tremblay" },
+        new() { SubmissionId = "003", SubmitterName = "Sarah Lee",       DateSubmitted = new DateTime(2025, 3, 12, 10, 15, 0), AssignedReviewer = "Bob Martin"     },
+    };
+}
+
+<fdcp-table caption="Table using column definitions" column-definitions="@cols" rows="@rows"></fdcp-table>
+<pre><code class="language-cshtml">@Html.Raw(Html.Encode(@"<fdcp-table caption=""Table using column definitions""
+            column-definitions=""@Model.Cols""
+            rows=""@Model.Rows"">
+</fdcp-table>"))</code></pre>
+
+<pre><code class="language-csharp">@Html.Raw(Html.Encode(@"vm.Cols = new List<ColumnDefinition>()
+{
+    new() { Field = ""submissionId"", Header = ""ID"", RowHeader = true },
+    new() { Field = ""submitterName"", Header = ""Name"" },
+    new() { Field = ""dateSubmitted"", Header = ""Date Submitted"" },
+    new() { Field = ""assignedReviewer"", Header = ""Reviewer"" },
+};
+vm.Rows = new List<MyRowViewModel>() { ... };
+"))</code></pre>

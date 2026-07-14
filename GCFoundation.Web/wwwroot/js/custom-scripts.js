@@ -18,6 +18,19 @@ const GCFoundationWeb = {
                 });
             });
         });
+
+        this.initTableActions();
+    },
+    initTableActions: function () {
+        document.addEventListener("click", (e) => {
+            const deleteBtn = e.target.closest('gcds-button[data-action="delete"]');
+            if (!deleteBtn) return;
+
+            e.preventDefault();
+
+            const rowId = deleteBtn.row?.submissionId;
+            console.log("Delete clicked for row:", rowId, deleteBtn.row);
+        });
     }
 };
 

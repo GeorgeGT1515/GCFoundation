@@ -145,6 +145,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\Table\TableColumnsModel.cs" />
+    <Compile Remove="Models\Table\TableDataModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="package-lock.json" />
     <Content Remove="package.json" />    
     <Content Remove="Views\Shared\_ViewImports.cshtml" />
@@ -160,6 +165,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="DataAnnotations\" />
     <Folder Include="wwwroot\images\Icons\" />
     <Folder Include="wwwroot\images\splash\" />
   </ItemGroup>
