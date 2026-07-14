@@ -555,6 +555,12 @@
   <data name="Index_FilteredSearch_Description" xml:space="preserve">
     <value>A way to display search with filtered result</value>
   </data>
+  <data name="Index_SearchableDropdown_Title" xml:space="preserve">
+    <value>Searchable Dropdown</value>
+  </data>
+  <data name="Index_SearchableDropdown_Description" xml:space="preserve">
+    <value>A searchable single- or multi-select dropdown with optional selected-options content</value>
+  </data>
   <data name="Index_Badge_Title" xml:space="preserve">
     <value>Badge</value>
   </data>
@@ -1042,6 +1048,60 @@
   </data>
   <data name="FilteredSearch_Basic_Title" xml:space="preserve">
     <value>Basic Usage</value>
+  </data>
+  <data name="SearchableDropdown_Name" xml:space="preserve">
+    <value>Searchable Dropdown</value>
+  </data>
+  <data name="SearchableDropdown_Overview" xml:space="preserve">
+    <value>The &lt;code&gt;&amp;lt;fdcp-searchable-dropdown&amp;gt;&lt;/code&gt; component provides a searchable dropdown for one or many selections. It always includes search and can render optional caller-provided content in the &lt;code&gt;selected-options&lt;/code&gt; slot.</value>
+  </data>
+  <data name="SearchableDropdown_Properties_For" xml:space="preserve">
+    <value>Model expression used to bind the selected value or values.</value>
+  </data>
+  <data name="SearchableDropdown_Properties_Name" xml:space="preserve">
+    <value>Form field name used when the component is not bound with for.</value>
+  </data>
+  <data name="SearchableDropdown_Properties_Items" xml:space="preserve">
+    <value>Options rendered in the dropdown. Use SelectListItem.Group to display grouped headings.</value>
+  </data>
+  <data name="SearchableDropdown_Properties_Label" xml:space="preserve">
+    <value>Visible label for the dropdown.</value>
+  </data>
+  <data name="SearchableDropdown_Properties_DefaultValue" xml:space="preserve">
+    <value>Text shown in the trigger when no option is selected.</value>
+  </data>
+  <data name="SearchableDropdown_Properties_SearchPlaceholder" xml:space="preserve">
+    <value>Placeholder text for the search input.</value>
+  </data>
+  <data name="SearchableDropdown_Properties_SearchLabel" xml:space="preserve">
+    <value>Accessible label for the search input.</value>
+  </data>
+  <data name="SearchableDropdown_Properties_NoResultsText" xml:space="preserve">
+    <value>Text shown when no options match the search term.</value>
+  </data>
+  <data name="SearchableDropdown_Properties_SelectionMode" xml:space="preserve">
+    <value>Selection behavior. Use Single for radio-style selection or Multiple for checkbox-style selection.</value>
+  </data>
+  <data name="SearchableDropdown_Properties_Hint" xml:space="preserve">
+    <value>Optional hint text displayed under the label.</value>
+  </data>
+  <data name="SearchableDropdown_Properties_Required" xml:space="preserve">
+    <value>Marks the dropdown as required for validation and accessibility.</value>
+  </data>
+  <data name="SearchableDropdown_Basic_Anchor" xml:space="preserve">
+    <value>basic</value>
+  </data>
+  <data name="SearchableDropdown_Basic_Title" xml:space="preserve">
+    <value>Basic Usage</value>
+  </data>
+  <data name="SearchableDropdown_WithSelectedOptions_Anchor" xml:space="preserve">
+    <value>with-selected-options</value>
+  </data>
+  <data name="SearchableDropdown_WithSelectedOptions_Title" xml:space="preserve">
+    <value>With Selected Options Slot</value>
+  </data>
+  <data name="SearchableDropdown_WithSelectedOptions_Text" xml:space="preserve">
+    <value>Use the &lt;code&gt;selected-options&lt;/code&gt; slot to add a custom bottom section, such as selected counts, clear actions, or any other caller-specific markup.</value>
   </data>
   <data name="PageHeading_Basic_Anchor" xml:space="preserve">
     <value>basic</value>

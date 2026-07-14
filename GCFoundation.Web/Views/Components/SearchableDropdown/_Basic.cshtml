@@ -1,0 +1,43 @@
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+@{
+    var countryOptions = new List<SelectListItem>
+    {
+        new() { Value = "CA", Text = "Canada" },
+        new() { Value = "US", Text = "United States" },
+        new() { Value = "MX", Text = "Mexico" },
+        new() { Value = "FR", Text = "France" },
+         new() { Value = "SV", Text = "Saint Vincent and the Grenadines" }
+    };
+}
+
+<div class="searchable-dropdown-basic-example">
+    <fdcp-searchable-dropdown items="@countryOptions"
+                              name="country"
+                              label="Country"
+                              hint="Start typing to filter countries"
+                              default-value="Select country"
+                              search-placeholder="Search countries"></fdcp-searchable-dropdown>
+</div>
+
+<pre><code class="language-cshtml">@Html.Raw(@"@using Microsoft.AspNetCore.Mvc.Rendering
+
+@{
+    var countryOptions = new List&lt;SelectListItem&gt;
+    {
+        new() { Value = ""CA"", Text = ""Canada"" },
+        new() { Value = ""US"", Text = ""United States"" },
+        new() { Value = ""MX"", Text = ""Mexico"" },
+        new() { Value = ""FR"", Text = ""France"" },
+        new() { Value = ""SV"", Text = ""Saint Vincent and the Grenadines"" }
+    };
+}
+
+&lt;div class=""searchable-dropdown-basic-example""&gt;
+    &lt;fdcp-searchable-dropdown items=""@countryOptions""
+                              name=""country""
+                              label=""Country""
+                              hint=""Start typing to filter countries""
+                              default-value=""Select country""
+                              search-placeholder=""Search countries""&gt;&lt;/fdcp-searchable-dropdown&gt;
+&lt;/div&gt;")</code></pre>

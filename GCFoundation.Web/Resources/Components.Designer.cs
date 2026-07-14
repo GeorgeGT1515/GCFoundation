@@ -698,6 +698,168 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("FilteredSearch_Properties_Title", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to basic.
+        /// </summary>
+        public static string SearchableDropdown_Basic_Anchor {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Basic_Anchor", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Basic Usage.
+        /// </summary>
+        public static string SearchableDropdown_Basic_Title {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Basic_Title", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Searchable Dropdown.
+        /// </summary>
+        public static string SearchableDropdown_Name {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Name", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-searchable-dropdown&amp;gt;&lt;/code&gt; component provides a searchable dropdown for one or many selections..
+        /// </summary>
+        public static string SearchableDropdown_Overview {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Overview", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Text shown in the trigger when no option is selected..
+        /// </summary>
+        public static string SearchableDropdown_Properties_DefaultValue {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Properties_DefaultValue", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Model expression used to bind the selected value or values..
+        /// </summary>
+        public static string SearchableDropdown_Properties_For {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Properties_For", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Optional hint text displayed under the label..
+        /// </summary>
+        public static string SearchableDropdown_Properties_Hint {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Properties_Hint", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Options rendered in the dropdown..
+        /// </summary>
+        public static string SearchableDropdown_Properties_Items {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Properties_Items", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Visible label for the dropdown..
+        /// </summary>
+        public static string SearchableDropdown_Properties_Label {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Properties_Label", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Form field name used when the component is not bound with for..
+        /// </summary>
+        public static string SearchableDropdown_Properties_Name {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Properties_Name", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Text shown when no options match the search term..
+        /// </summary>
+        public static string SearchableDropdown_Properties_NoResultsText {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Properties_NoResultsText", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Marks the dropdown as required for validation and accessibility..
+        /// </summary>
+        public static string SearchableDropdown_Properties_Required {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Properties_Required", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Accessible label for the search input..
+        /// </summary>
+        public static string SearchableDropdown_Properties_SearchLabel {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Properties_SearchLabel", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Placeholder text for the search input..
+        /// </summary>
+        public static string SearchableDropdown_Properties_SearchPlaceholder {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Properties_SearchPlaceholder", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Selection behavior..
+        /// </summary>
+        public static string SearchableDropdown_Properties_SelectionMode {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Properties_SelectionMode", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to with-selected-options.
+        /// </summary>
+        public static string SearchableDropdown_WithSelectedOptions_Anchor {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_WithSelectedOptions_Anchor", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Use the &lt;code&gt;selected-options&lt;/code&gt; slot to add a custom bottom section..
+        /// </summary>
+        public static string SearchableDropdown_WithSelectedOptions_Text {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_WithSelectedOptions_Text", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to With Selected Options Slot.
+        /// </summary>
+        public static string SearchableDropdown_WithSelectedOptions_Title {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_WithSelectedOptions_Title", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Enter your age (must be 18 or older)..
@@ -1502,6 +1664,24 @@ namespace GCFoundation.Web.Resources {
         public static string Index_FilteredSearch_Title {
             get {
                 return ResourceManager.GetString("Index_FilteredSearch_Title", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to A searchable single- or multi-select dropdown with optional selected-options content.
+        /// </summary>
+        public static string Index_SearchableDropdown_Description {
+            get {
+                return ResourceManager.GetString("Index_SearchableDropdown_Description", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Searchable Dropdown.
+        /// </summary>
+        public static string Index_SearchableDropdown_Title {
+            get {
+                return ResourceManager.GetString("Index_SearchableDropdown_Title", resourceCulture);
             }
         }
         

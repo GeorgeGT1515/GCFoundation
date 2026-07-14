@@ -1,0 +1,59 @@
+@using GCFoundation.Components.TagHelpers.FDCP
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+@{
+    var economicsGroup = new SelectListGroup { Name = "Economics and Social Science Services (EC)" };
+    var policyGroup = new SelectListGroup { Name = "Program Administration (PM)" };
+    var classificationOptions = new List<SelectListItem>
+    {
+        new() { Value = "EC-02", Text = "EC-02", Group = economicsGroup },
+        new() { Value = "EC-03", Text = "EC-03", Group = economicsGroup },
+        new() { Value = "EC-04", Text = "EC-04", Group = economicsGroup },
+        new() { Value = "EC-05", Text = "EC-05", Group = economicsGroup },
+        new() { Value = "EC-06", Text = "EC-06", Group = economicsGroup },
+        new() { Value = "PM-03", Text = "PM-03", Group = policyGroup },
+        new() { Value = "PM-04", Text = "PM-04", Group = policyGroup }
+    };
+}
+
+<fdcp-searchable-dropdown items="@classificationOptions"
+                          name="classificationLevels"
+                          label="Classification group & level"
+                          default-value="Select option"
+                          search-placeholder="Search"
+                          selection-mode="@FDCPSearchableDropdownSelectionMode.Multiple">
+    <div slot="selected-options">
+        <span><strong data-fdcp-searchable-dropdown-selected-count>0</strong> option(s) selected</span>
+        <gcds-button type="button" button-role="secondary" data-fdcp-searchable-dropdown-clear>Clear</gcds-button>
+    </div>
+</fdcp-searchable-dropdown>
+
+<pre><code class="language-cshtml">@Html.Raw(@"@using GCFoundation.Components.TagHelpers.FDCP
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+@{
+    var economicsGroup = new SelectListGroup { Name = ""Economics and Social Science Services (EC)"" };
+    var policyGroup = new SelectListGroup { Name = ""Program Administration (PM)"" };
+    var classificationOptions = new List&lt;SelectListItem&gt;
+    {
+        new() { Value = ""EC-02"", Text = ""EC-02"", Group = economicsGroup },
+        new() { Value = ""EC-03"", Text = ""EC-03"", Group = economicsGroup },
+        new() { Value = ""EC-04"", Text = ""EC-04"", Group = economicsGroup },
+        new() { Value = ""EC-05"", Text = ""EC-05"", Group = economicsGroup },
+        new() { Value = ""EC-06"", Text = ""EC-06"", Group = economicsGroup },
+        new() { Value = ""PM-03"", Text = ""PM-03"", Group = policyGroup },
+        new() { Value = ""PM-04"", Text = ""PM-04"", Group = policyGroup }
+    };
+}
+
+&lt;fdcp-searchable-dropdown items=""@classificationOptions""
+                          name=""classificationLevels""
+                          label=""Classification group &amp; level""
+                          default-value=""Select option""
+                          search-placeholder=""Search""
+                          selection-mode=""@FDCPSearchableDropdownSelectionMode.Multiple""&gt;
+    &lt;div slot=""selected-options""&gt;
+        &lt;span&gt;&lt;strong data-fdcp-searchable-dropdown-selected-count&gt;0&lt;/strong&gt; option(s) selected&lt;/span&gt;
+        &lt;gcds-button type=""button"" button-role=""secondary"" data-fdcp-searchable-dropdown-clear&gt;Clear&lt;/gcds-button&gt;
+    &lt;/div&gt;
+&lt;/fdcp-searchable-dropdown&gt;")</code></pre>

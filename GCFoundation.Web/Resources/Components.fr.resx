@@ -559,6 +559,12 @@
   <data name="Index_FilteredSearch_Description" xml:space="preserve">
     <value>Un moyen d'afficher une recherche avec des résultats filtrés</value>
   </data>
+  <data name="Index_SearchableDropdown_Title" xml:space="preserve">
+    <value>Liste déroulante avec recherche</value>
+  </data>
+  <data name="Index_SearchableDropdown_Description" xml:space="preserve">
+    <value>Une liste déroulante avec recherche pour une ou plusieurs sélections et une zone optionnelle pour les options sélectionnées</value>
+  </data>
   <data name="Index_Badge_Title" xml:space="preserve">
     <value>Badge</value>
   </data>
@@ -1046,6 +1052,60 @@
   </data>
   <data name="FilteredSearch_Basic_Title" xml:space="preserve">
     <value>Utilisation de base</value>
+  </data>
+  <data name="SearchableDropdown_Name" xml:space="preserve">
+    <value>Liste déroulante avec recherche</value>
+  </data>
+  <data name="SearchableDropdown_Overview" xml:space="preserve">
+    <value>Le composant &lt;code&gt;&amp;lt;fdcp-searchable-dropdown&amp;gt;&lt;/code&gt; fournit une liste déroulante avec recherche pour une ou plusieurs sélections. La recherche est toujours incluse et le composant peut afficher du contenu fourni par l'appelant dans l'emplacement &lt;code&gt;selected-options&lt;/code&gt;.</value>
+  </data>
+  <data name="SearchableDropdown_Properties_For" xml:space="preserve">
+    <value>Expression de modèle utilisée pour lier la valeur ou les valeurs sélectionnées.</value>
+  </data>
+  <data name="SearchableDropdown_Properties_Name" xml:space="preserve">
+    <value>Nom du champ de formulaire utilisé lorsque le composant n'est pas lié avec for.</value>
+  </data>
+  <data name="SearchableDropdown_Properties_Items" xml:space="preserve">
+    <value>Options affichées dans la liste déroulante. Utilisez SelectListItem.Group pour afficher des en-têtes de groupe.</value>
+  </data>
+  <data name="SearchableDropdown_Properties_Label" xml:space="preserve">
+    <value>Étiquette visible de la liste déroulante.</value>
+  </data>
+  <data name="SearchableDropdown_Properties_DefaultValue" xml:space="preserve">
+    <value>Texte affiché dans le déclencheur lorsqu'aucune option n'est sélectionnée.</value>
+  </data>
+  <data name="SearchableDropdown_Properties_SearchPlaceholder" xml:space="preserve">
+    <value>Texte indicatif du champ de recherche.</value>
+  </data>
+  <data name="SearchableDropdown_Properties_SearchLabel" xml:space="preserve">
+    <value>Étiquette accessible du champ de recherche.</value>
+  </data>
+  <data name="SearchableDropdown_Properties_NoResultsText" xml:space="preserve">
+    <value>Texte affiché lorsqu'aucune option ne correspond au terme recherché.</value>
+  </data>
+  <data name="SearchableDropdown_Properties_SelectionMode" xml:space="preserve">
+    <value>Comportement de sélection. Utilisez Single pour une sélection de type bouton radio ou Multiple pour une sélection de type case à cocher.</value>
+  </data>
+  <data name="SearchableDropdown_Properties_Hint" xml:space="preserve">
+    <value>Texte d'aide facultatif affiché sous l'étiquette.</value>
+  </data>
+  <data name="SearchableDropdown_Properties_Required" xml:space="preserve">
+    <value>Marque la liste déroulante comme obligatoire pour la validation et l'accessibilité.</value>
+  </data>
+  <data name="SearchableDropdown_Basic_Anchor" xml:space="preserve">
+    <value>base</value>
+  </data>
+  <data name="SearchableDropdown_Basic_Title" xml:space="preserve">
+    <value>Utilisation de base</value>
+  </data>
+  <data name="SearchableDropdown_WithSelectedOptions_Anchor" xml:space="preserve">
+    <value>avec-options-selectionnees</value>
+  </data>
+  <data name="SearchableDropdown_WithSelectedOptions_Title" xml:space="preserve">
+    <value>Avec emplacement pour les options sélectionnées</value>
+  </data>
+  <data name="SearchableDropdown_WithSelectedOptions_Text" xml:space="preserve">
+    <value>Utilisez l'emplacement &lt;code&gt;selected-options&lt;/code&gt; pour ajouter une zone inférieure personnalisée, par exemple un compteur de sélections, une action d'effacement ou tout autre balisage propre à l'appelant.</value>
   </data>
   <data name="PageHeading_Basic_Anchor" xml:space="preserve">
     <value>base</value>
