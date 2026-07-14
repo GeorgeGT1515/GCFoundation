@@ -51,6 +51,11 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         /// </summary>
         public string NoResultsText { get; set; } = "No results found";
 
+        /// <summary>
+        /// Text shown after the selected count in multiple selection mode.
+        /// </summary>
+        public string MultipleSelectedText { get; set; } = "selected";
+
         /// <inheritdoc/>
         public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
@@ -90,7 +95,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             string selectedSummary = selectedLabels.Count == 0
                 ? DefaultValue
                 : SelectionMode == FDCPSearchableDropdownSelectionMode.Multiple
-                    ? $"{selectedLabels.Count} selected"
+                    ? $"{selectedLabels.Count} {MultipleSelectedText}"
                     : string.Join(", ", selectedLabels);
 
             output.TagName = "div";
@@ -100,6 +105,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             output.Attributes.SetAttribute("data-fdcp-searchable-dropdown", string.Empty);
             output.Attributes.SetAttribute("data-selection-mode", mode);
             output.Attributes.SetAttribute("data-default-value", DefaultValue);
+            output.Attributes.SetAttribute("data-multiple-selected-text", MultipleSelectedText);
 
             var sb = new StringBuilder();
             sb.AppendLine(CultureInfo.InvariantCulture, $"<label class=\"fdcp-searchable-dropdown__label gcds-label\" id=\"{EncodeAttribute(labelId)}\" for=\"{EncodeAttribute(triggerId)}\">{Encode(field.Label)}</label>");

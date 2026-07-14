@@ -108,6 +108,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
                 Name = "classificationLevels",
                 Label = "Classification group & level",
                 Value = "EC-02,EC-04",
+                MultipleSelectedText = "option(s) selected",
                 SelectionMode = FDCPSearchableDropdownSelectionMode.Multiple,
                 Items = new List<SelectListItem>
                 {
@@ -123,7 +124,8 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Contains("value=\"EC-02\"", content);
             Assert.Contains("value=\"EC-04\"", content);
             Assert.Equal(2, CountOccurrences(content, " checked"));
-            Assert.Contains("2 selected", content);
+            Assert.Contains("2 option(s) selected", content);
+            Assert.Equal("option(s) selected", output.Attributes["data-multiple-selected-text"].Value?.ToString());
         }
 
         [Fact]

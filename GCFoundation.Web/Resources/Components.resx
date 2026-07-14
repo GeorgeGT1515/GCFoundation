@@ -1101,7 +1101,64 @@
     <value>With Selected Options Slot</value>
   </data>
   <data name="SearchableDropdown_WithSelectedOptions_Text" xml:space="preserve">
-    <value>Use the &lt;code&gt;selected-options&lt;/code&gt; slot to add a custom bottom section, such as selected counts, clear actions, or any other caller-specific markup.</value>
+    <value>&lt;gcds-text&gt;Use the &lt;code&gt;selected-options&lt;/code&gt; slot to add a custom bottom section, such as selected counts, clear actions, or any other caller-specific markup.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="SearchableDropdown_Sample_Country_CA" xml:space="preserve">
+    <value>Canada</value>
+  </data>
+  <data name="SearchableDropdown_Sample_Country_US" xml:space="preserve">
+    <value>United States</value>
+  </data>
+  <data name="SearchableDropdown_Sample_Country_MX" xml:space="preserve">
+    <value>Mexico</value>
+  </data>
+  <data name="SearchableDropdown_Sample_Country_FR" xml:space="preserve">
+    <value>France</value>
+  </data>
+  <data name="SearchableDropdown_Sample_Country_SV" xml:space="preserve">
+    <value>Saint Vincent and the Grenadines</value>
+  </data>
+  <data name="SearchableDropdown_Sample_Country_Label" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="SearchableDropdown_Sample_Country_Hint" xml:space="preserve">
+    <value>Start typing to filter countries</value>
+  </data>
+  <data name="SearchableDropdown_Sample_Country_DefaultValue" xml:space="preserve">
+    <value>Select country</value>
+  </data>
+  <data name="SearchableDropdown_Sample_Country_SearchPlaceholder" xml:space="preserve">
+    <value>Search countries</value>
+  </data>
+  <data name="SearchableDropdown_Sample_Country_NoResultsText" xml:space="preserve">
+    <value>No results found</value>
+  </data>
+  <data name="SearchableDropdown_Sample_Classification_EC_Group" xml:space="preserve">
+    <value>Economics and Social Science Services (EC)</value>
+  </data>
+  <data name="SearchableDropdown_Sample_Classification_PM_Group" xml:space="preserve">
+    <value>Program Administration (PM)</value>
+  </data>
+  <data name="SearchableDropdown_Sample_Classification_Label" xml:space="preserve">
+    <value>Classification group &amp; level</value>
+  </data>
+  <data name="SearchableDropdown_Sample_Classification_DefaultValue" xml:space="preserve">
+    <value>Select option</value>
+  </data>
+  <data name="SearchableDropdown_Sample_Classification_SearchPlaceholder" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchableDropdown_Sample_Classification_NoResultsText" xml:space="preserve">
+    <value>No results found</value>
+  </data>
+  <data name="SearchableDropdown_Sample_Classification_SelectedCountText" xml:space="preserve">
+    <value>option(s) selected</value>
+  </data>
+  <data name="SearchableDropdown_Sample_Classification_TriggerSelectedText" xml:space="preserve">
+    <value>selected</value>
+  </data>
+  <data name="SearchableDropdown_Sample_Classification_ClearText" xml:space="preserve">
+    <value>Clear</value>
   </data>
   <data name="PageHeading_Basic_Anchor" xml:space="preserve">
     <value>basic</value>

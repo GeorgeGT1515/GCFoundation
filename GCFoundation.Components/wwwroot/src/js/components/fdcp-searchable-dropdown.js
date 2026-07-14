@@ -13,6 +13,7 @@ class FDCPSearchableDropdown {
         this.selectedText = element.querySelector('[data-fdcp-searchable-dropdown-selected-text]');
         this.selectionMode = element.getAttribute('data-selection-mode') || 'single';
         this.defaultValue = element.getAttribute('data-default-value') || '';
+        this.multipleSelectedText = element.getAttribute('data-multiple-selected-text') || 'selected';
 
         this.bindEvents();
         this.updateSelectionSummary();
@@ -114,6 +115,14 @@ class FDCPSearchableDropdown {
             if (!this.element.contains(event.target)) {
                 this.close();
             }
+        });
+
+        this.element.addEventListener('focusout', () => {
+            window.setTimeout(() => {
+                if (!this.element.contains(document.activeElement)) {
+                    this.close();
+                }
+            }, 0);
         });
     }
 
@@ -452,7 +461,7 @@ class FDCPSearchableDropdown {
         const summary = selectedOptions.length === 0
             ? this.defaultValue
             : this.selectionMode === 'multiple'
-                ? `${selectedOptions.length} selected`
+                ? `${selectedOptions.length} ${this.multipleSelectedText}`
                 : labels.join(', ');
 
         if (this.selectedText) {

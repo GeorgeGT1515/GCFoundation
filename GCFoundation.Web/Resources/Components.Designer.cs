@@ -860,6 +860,177 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("SearchableDropdown_WithSelectedOptions_Title", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Canada.
+        /// </summary>
+        public static string SearchableDropdown_Sample_Country_CA {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Sample_Country_CA", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to United States.
+        /// </summary>
+        public static string SearchableDropdown_Sample_Country_US {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Sample_Country_US", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Mexico.
+        /// </summary>
+        public static string SearchableDropdown_Sample_Country_MX {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Sample_Country_MX", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to France.
+        /// </summary>
+        public static string SearchableDropdown_Sample_Country_FR {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Sample_Country_FR", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Saint Vincent and the Grenadines.
+        /// </summary>
+        public static string SearchableDropdown_Sample_Country_SV {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Sample_Country_SV", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Country.
+        /// </summary>
+        public static string SearchableDropdown_Sample_Country_Label {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Sample_Country_Label", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Start typing to filter countries.
+        /// </summary>
+        public static string SearchableDropdown_Sample_Country_Hint {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Sample_Country_Hint", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Select country.
+        /// </summary>
+        public static string SearchableDropdown_Sample_Country_DefaultValue {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Sample_Country_DefaultValue", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Search countries.
+        /// </summary>
+        public static string SearchableDropdown_Sample_Country_SearchPlaceholder {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Sample_Country_SearchPlaceholder", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to No results found.
+        /// </summary>
+        public static string SearchableDropdown_Sample_Country_NoResultsText {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Sample_Country_NoResultsText", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Economics and Social Science Services (EC).
+        /// </summary>
+        public static string SearchableDropdown_Sample_Classification_EC_Group {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Sample_Classification_EC_Group", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Program Administration (PM).
+        /// </summary>
+        public static string SearchableDropdown_Sample_Classification_PM_Group {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Sample_Classification_PM_Group", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Classification group &amp; level.
+        /// </summary>
+        public static string SearchableDropdown_Sample_Classification_Label {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Sample_Classification_Label", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Select option.
+        /// </summary>
+        public static string SearchableDropdown_Sample_Classification_DefaultValue {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Sample_Classification_DefaultValue", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        public static string SearchableDropdown_Sample_Classification_SearchPlaceholder {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Sample_Classification_SearchPlaceholder", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to No results found.
+        /// </summary>
+        public static string SearchableDropdown_Sample_Classification_NoResultsText {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Sample_Classification_NoResultsText", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to option(s) selected.
+        /// </summary>
+        public static string SearchableDropdown_Sample_Classification_SelectedCountText {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Sample_Classification_SelectedCountText", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to selected.
+        /// </summary>
+        public static string SearchableDropdown_Sample_Classification_TriggerSelectedText {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Sample_Classification_TriggerSelectedText", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Clear.
+        /// </summary>
+        public static string SearchableDropdown_Sample_Classification_ClearText {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Sample_Classification_ClearText", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Enter your age (must be 18 or older)..
