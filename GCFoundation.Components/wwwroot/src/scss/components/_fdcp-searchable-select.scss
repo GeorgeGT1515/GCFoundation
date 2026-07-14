@@ -34,6 +34,10 @@
         font: var(--gcds-label-font-desktop, 600 1.25rem / 160% "Noto Sans", sans-serif);
         max-width: 100%;
         margin: var(--gcds-label-margin, 0 0 0.5rem) !important;
+
+        .label--required {
+            font-weight: var(--gcds-label-required-font-weight, 400);
+        }
     }
 
     &__trigger {

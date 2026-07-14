@@ -21,6 +21,7 @@ class FDCPSearchableSelect {
         this.requiredMessage = element.getAttribute('data-required-message') || 'This field is required.';
         this.requiredSummaryMessage = element.getAttribute('data-required-summary-message') || this.requiredMessage;
         this.pointerDownStartedInside = false;
+        this.hasValidationError = false;
         this.form = element.closest('form');
 
         this.bindEvents();
@@ -527,10 +528,6 @@ class FDCPSearchableSelect {
             element.textContent = selectedOptions.length.toString();
         });
 
-        this.element.querySelectorAll('[data-fdcp-searchable-select-selected-labels]').forEach(element => {
-            element.textContent = labels.join(', ');
-        });
-
         this.element.dispatchEvent(new CustomEvent('fdcp-searchable-select:change', {
             bubbles: true,
             detail: {
@@ -545,7 +542,7 @@ class FDCPSearchableSelect {
         }
 
         const isValid = this.getSelectedOptions().length > 0;
-        const shouldShowError = !isValid && (showError || this.element.classList.contains('fdcp-searchable-select--invalid'));
+        const shouldShowError = !isValid && (showError || this.hasValidationError);
 
         this.setValidationState(isValid, shouldShowError);
 
@@ -557,7 +554,7 @@ class FDCPSearchableSelect {
     }
 
     setValidationState(isValid, shouldShowError) {
-        this.element.classList.toggle('fdcp-searchable-select--invalid', shouldShowError);
+        this.hasValidationError = shouldShowError;
 
         if (shouldShowError) {
             this.trigger?.setAttribute('aria-invalid', 'true');
