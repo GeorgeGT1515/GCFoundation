@@ -1,16 +1,16 @@
-class FDCPSearchableDropdown {
+class FDCPSearchableSelect {
     constructor(element) {
         this.element = element;
-        this.trigger = element.querySelector('[data-fdcp-searchable-dropdown-trigger]');
-        this.panel = element.querySelector('[data-fdcp-searchable-dropdown-panel]');
-        this.search = element.querySelector('[data-fdcp-searchable-dropdown-search]');
-        this.inputs = Array.from(element.querySelectorAll('.fdcp-searchable-dropdown__input'));
-        this.options = Array.from(element.querySelectorAll('[data-fdcp-searchable-dropdown-option]'));
-        this.singleInput = element.querySelector('[data-fdcp-searchable-dropdown-single-input]');
-        this.groups = Array.from(element.querySelectorAll('[data-fdcp-searchable-dropdown-group]'));
-        this.noResults = element.querySelector('[data-fdcp-searchable-dropdown-no-results]');
-        this.status = element.querySelector('[data-fdcp-searchable-dropdown-status]');
-        this.selectedText = element.querySelector('[data-fdcp-searchable-dropdown-selected-text]');
+        this.trigger = element.querySelector('[data-fdcp-searchable-select-trigger]');
+        this.panel = element.querySelector('[data-fdcp-searchable-select-panel]');
+        this.search = element.querySelector('[data-fdcp-searchable-select-search]');
+        this.inputs = Array.from(element.querySelectorAll('.fdcp-searchable-select__input'));
+        this.options = Array.from(element.querySelectorAll('[data-fdcp-searchable-select-option]'));
+        this.singleInput = element.querySelector('[data-fdcp-searchable-select-single-input]');
+        this.groups = Array.from(element.querySelectorAll('[data-fdcp-searchable-select-group]'));
+        this.noResults = element.querySelector('[data-fdcp-searchable-select-no-results]');
+        this.status = element.querySelector('[data-fdcp-searchable-select-status]');
+        this.selectedText = element.querySelector('[data-fdcp-searchable-select-selected-text]');
         this.selectionMode = element.getAttribute('data-selection-mode') || 'single';
         this.defaultValue = element.getAttribute('data-default-value') || '';
         this.multipleSelectedText = element.getAttribute('data-multiple-selected-text') || 'selected';
@@ -48,14 +48,14 @@ class FDCPSearchableDropdown {
                 } else if (event.key === 'ArrowDown') {
                     event.preventDefault();
                     if (this.selectionMode === 'single') {
-                        this.element.classList.remove('fdcp-searchable-dropdown--pointer-active');
+                        this.element.classList.remove('fdcp-searchable-select--pointer-active');
                         this.selectAdjacentSingleOption(1, this.getSelectedSingleOption(), { focusOption: false });
                     } else {
                         this.focusFirstVisibleOption();
                     }
                 } else if (event.key === 'ArrowUp' && this.selectionMode === 'single') {
                     event.preventDefault();
-                    this.element.classList.remove('fdcp-searchable-dropdown--pointer-active');
+                    this.element.classList.remove('fdcp-searchable-select--pointer-active');
                     this.selectAdjacentSingleOption(-1, this.getSelectedSingleOption(), { focusOption: false });
                 } else if (event.key === 'Enter' && this.selectionMode === 'single') {
                     event.preventDefault();
@@ -81,13 +81,13 @@ class FDCPSearchableDropdown {
         this.options.forEach(option => {
             option.addEventListener('mouseenter', () => {
                 if (this.selectionMode === 'single') {
-                    this.element.classList.add('fdcp-searchable-dropdown--pointer-active');
+                    this.element.classList.add('fdcp-searchable-select--pointer-active');
                 }
             });
 
             option.addEventListener('mouseleave', () => {
                 if (this.selectionMode === 'single') {
-                    this.element.classList.remove('fdcp-searchable-dropdown--pointer-active');
+                    this.element.classList.remove('fdcp-searchable-select--pointer-active');
                 }
             });
 
@@ -106,7 +106,7 @@ class FDCPSearchableDropdown {
             });
         });
 
-        this.element.querySelectorAll('[data-fdcp-searchable-dropdown-clear]').forEach(button => {
+        this.element.querySelectorAll('[data-fdcp-searchable-select-clear]').forEach(button => {
             button.addEventListener('click', event => {
                 event.preventDefault();
                 this.clearSelection();
@@ -159,9 +159,9 @@ class FDCPSearchableDropdown {
         this.panel.hidden = true;
         this.trigger.setAttribute('aria-expanded', 'false');
         this.setComboboxExpanded(false);
-        this.element.classList.remove('fdcp-searchable-dropdown--open-above');
-        this.element.classList.remove('fdcp-searchable-dropdown--pointer-active');
-        this.element.style.removeProperty('--fdcp-searchable-dropdown-trigger-offset');
+        this.element.classList.remove('fdcp-searchable-select--open-above');
+        this.element.classList.remove('fdcp-searchable-select--pointer-active');
+        this.element.style.removeProperty('--fdcp-searchable-select-trigger-offset');
         this.clearSearch();
 
         if (returnFocus) {
@@ -197,7 +197,7 @@ class FDCPSearchableDropdown {
         });
 
         this.groups.forEach(group => {
-            const hasVisibleOption = Array.from(group.querySelectorAll('[data-fdcp-searchable-dropdown-option]'))
+            const hasVisibleOption = Array.from(group.querySelectorAll('[data-fdcp-searchable-select-option]'))
                 .some(option => !option.hidden);
 
             group.hidden = !hasVisibleOption;
@@ -217,8 +217,8 @@ class FDCPSearchableDropdown {
             return;
         }
 
-        this.element.classList.remove('fdcp-searchable-dropdown--open-above');
-        this.element.style.setProperty('--fdcp-searchable-dropdown-trigger-offset', `${this.trigger.offsetTop}px`);
+        this.element.classList.remove('fdcp-searchable-select--open-above');
+        this.element.style.setProperty('--fdcp-searchable-select-trigger-offset', `${this.trigger.offsetTop}px`);
 
         const triggerRect = this.trigger.getBoundingClientRect();
         const panelHeight = this.panel.getBoundingClientRect().height;
@@ -227,7 +227,7 @@ class FDCPSearchableDropdown {
         const spaceAbove = triggerRect.top;
         const shouldOpenAbove = panelHeight > spaceBelow && spaceAbove > spaceBelow;
 
-        this.element.classList.toggle('fdcp-searchable-dropdown--open-above', shouldOpenAbove);
+        this.element.classList.toggle('fdcp-searchable-select--open-above', shouldOpenAbove);
     }
 
     clearSelection() {
@@ -282,11 +282,11 @@ class FDCPSearchableDropdown {
     handleSingleOptionKeydown(event, option) {
         if (event.key === 'ArrowDown') {
             event.preventDefault();
-            this.element.classList.remove('fdcp-searchable-dropdown--pointer-active');
+            this.element.classList.remove('fdcp-searchable-select--pointer-active');
             this.selectAdjacentSingleOption(1, option);
         } else if (event.key === 'ArrowUp') {
             event.preventDefault();
-            this.element.classList.remove('fdcp-searchable-dropdown--pointer-active');
+            this.element.classList.remove('fdcp-searchable-select--pointer-active');
             this.selectAdjacentSingleOption(-1, option);
         } else if (event.key === 'Enter' || event.key === ' ') {
             event.preventDefault();
@@ -470,15 +470,15 @@ class FDCPSearchableDropdown {
             this.selectedText.textContent = summary;
         }
 
-        this.element.querySelectorAll('[data-fdcp-searchable-dropdown-selected-count]').forEach(element => {
+        this.element.querySelectorAll('[data-fdcp-searchable-select-selected-count]').forEach(element => {
             element.textContent = selectedOptions.length.toString();
         });
 
-        this.element.querySelectorAll('[data-fdcp-searchable-dropdown-selected-labels]').forEach(element => {
+        this.element.querySelectorAll('[data-fdcp-searchable-select-selected-labels]').forEach(element => {
             element.textContent = labels.join(', ');
         });
 
-        this.element.dispatchEvent(new CustomEvent('fdcp-searchable-dropdown:change', {
+        this.element.dispatchEvent(new CustomEvent('fdcp-searchable-select:change', {
             bubbles: true,
             detail: {
                 selectedOptions
@@ -502,11 +502,11 @@ class FDCPSearchableDropdown {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('[data-fdcp-searchable-dropdown]').forEach(element => {
-        if (!element.FDCPSearchableDropdownInstance) {
-            element.FDCPSearchableDropdownInstance = new FDCPSearchableDropdown(element);
+    document.querySelectorAll('[data-fdcp-searchable-select]').forEach(element => {
+        if (!element.FDCPSearchableSelectInstance) {
+            element.FDCPSearchableSelectInstance = new FDCPSearchableSelect(element);
         }
     });
 });
 
-window.FDCPSearchableDropdown = FDCPSearchableDropdown;
+window.FDCPSearchableSelect = FDCPSearchableSelect;

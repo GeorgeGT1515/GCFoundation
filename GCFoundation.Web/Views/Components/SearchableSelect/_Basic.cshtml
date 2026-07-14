@@ -1,0 +1,50 @@
+@using Microsoft.AspNetCore.Mvc.Rendering
+@using GCFoundation.Web.Resources
+
+@{
+    var countryOptions = new List<SelectListItem>
+    {
+        new() { Value = "CA", Text = Components.SearchableSelect_Sample_Country_CA },
+        new() { Value = "US", Text = Components.SearchableSelect_Sample_Country_US },
+        new() { Value = "MX", Text = Components.SearchableSelect_Sample_Country_MX },
+        new() { Value = "FR", Text = Components.SearchableSelect_Sample_Country_FR },
+        new() { Value = "SV", Text = Components.SearchableSelect_Sample_Country_SV }
+    };
+}
+
+<div class="searchable-select-basic-example">
+    <fdcp-searchable-select items="@countryOptions"
+                              name="country"
+                              label="@Components.SearchableSelect_Sample_Country_Label"
+                              hint="@Components.SearchableSelect_Sample_Country_Hint"
+                              default-value="@Components.SearchableSelect_Sample_Country_DefaultValue"
+                              search-placeholder="@Components.SearchableSelect_Sample_Country_SearchPlaceholder"
+                              no-results-text="@Components.SearchableSelect_Sample_Country_NoResultsText"
+                              one-result-text="@Components.SearchableSelect_Sample_OneResultText"
+                              multiple-results-text="@Components.SearchableSelect_Sample_MultipleResultsText"></fdcp-searchable-select>
+</div>
+
+<pre><code class="language-cshtml">@Html.Raw($@"@using Microsoft.AspNetCore.Mvc.Rendering
+
+@{{
+    var countryOptions = new List&lt;SelectListItem&gt;
+    {{
+        new() {{ Value = ""CA"", Text = ""{Html.Encode(Components.SearchableSelect_Sample_Country_CA)}"" }},
+        new() {{ Value = ""US"", Text = ""{Html.Encode(Components.SearchableSelect_Sample_Country_US)}"" }},
+        new() {{ Value = ""MX"", Text = ""{Html.Encode(Components.SearchableSelect_Sample_Country_MX)}"" }},
+        new() {{ Value = ""FR"", Text = ""{Html.Encode(Components.SearchableSelect_Sample_Country_FR)}"" }},
+        new() {{ Value = ""SV"", Text = ""{Html.Encode(Components.SearchableSelect_Sample_Country_SV)}"" }}
+    }};
+}}
+
+&lt;div class=""searchable-select-basic-example""&gt;
+    &lt;fdcp-searchable-select items=""@countryOptions""
+                              name=""country""
+                              label=""{Html.Encode(Components.SearchableSelect_Sample_Country_Label)}""
+                              hint=""{Html.Encode(Components.SearchableSelect_Sample_Country_Hint)}""
+                              default-value=""{Html.Encode(Components.SearchableSelect_Sample_Country_DefaultValue)}""
+                              search-placeholder=""{Html.Encode(Components.SearchableSelect_Sample_Country_SearchPlaceholder)}""
+                              no-results-text=""{Html.Encode(Components.SearchableSelect_Sample_Country_NoResultsText)}""
+                              one-result-text=""{Html.Encode(Components.SearchableSelect_Sample_OneResultText)}""
+                              multiple-results-text=""{Html.Encode(Components.SearchableSelect_Sample_MultipleResultsText)}""&gt;&lt;/fdcp-searchable-select&gt;
+&lt;/div&gt;")</code></pre>

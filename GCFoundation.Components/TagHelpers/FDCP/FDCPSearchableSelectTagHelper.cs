@@ -8,11 +8,11 @@ using System.Text.Encodings.Web;
 namespace GCFoundation.Components.TagHelpers.FDCP
 {
     /// <summary>
-    /// Renders a searchable dropdown that supports single and multiple selection.
+    /// Renders a searchable select that supports single and multiple selection.
     /// </summary>
-    [HtmlTargetElement("fdcp-searchable-dropdown", Attributes = "for, items")]
-    [HtmlTargetElement("fdcp-searchable-dropdown", Attributes = "items, name")]
-    public class FDCPSearchableDropdownTagHelper : FDCPBaseFormComponentTagHelper
+    [HtmlTargetElement("fdcp-searchable-select", Attributes = "for, items")]
+    [HtmlTargetElement("fdcp-searchable-select", Attributes = "items, name")]
+    public class FDCPSearchableSelectTagHelper : FDCPBaseFormComponentTagHelper
     {
         /// <summary>
         /// The text shown in the trigger when no option is selected.
@@ -20,7 +20,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public string DefaultValue { get; set; } = "Select option";
 
         /// <summary>
-        /// Label text for the dropdown. Used when <c>for</c> is not specified,
+        /// Label text for the select. Used when <c>for</c> is not specified,
         /// or overrides the model display name when <c>for</c> is specified.
         /// </summary>
         public string? Label { get; set; }
@@ -32,9 +32,9 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public IEnumerable<SelectListItem> Items { get; set; } = new List<SelectListItem>();
 
         /// <summary>
-        /// Determines whether the dropdown allows one or many selected options.
+        /// Determines whether the select allows one or many selected options.
         /// </summary>
-        public FDCPSearchableDropdownSelectionMode SelectionMode { get; set; } = FDCPSearchableDropdownSelectionMode.Single;
+        public FDCPSearchableSelectSelectionMode SelectionMode { get; set; } = FDCPSearchableSelectSelectionMode.Single;
 
         /// <summary>
         /// Placeholder text for the search input.
@@ -104,15 +104,15 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             string mode = SelectionMode.ToString().ToLowerInvariant();
             string selectedSummary = selectedLabels.Count == 0
                 ? DefaultValue
-                : SelectionMode == FDCPSearchableDropdownSelectionMode.Multiple
+                : SelectionMode == FDCPSearchableSelectSelectionMode.Multiple
                     ? $"{selectedLabels.Count} {MultipleSelectedText}"
                     : string.Join(", ", selectedLabels);
 
             output.TagName = "div";
             output.TagMode = TagMode.StartTagAndEndTag;
-            output.Attributes.SetAttribute("class", $"fdcp-searchable-dropdown fdcp-searchable-dropdown--{mode}");
+            output.Attributes.SetAttribute("class", $"fdcp-searchable-select fdcp-searchable-select--{mode}");
             output.Attributes.SetAttribute("id", componentId);
-            output.Attributes.SetAttribute("data-fdcp-searchable-dropdown", string.Empty);
+            output.Attributes.SetAttribute("data-fdcp-searchable-select", string.Empty);
             output.Attributes.SetAttribute("data-selection-mode", mode);
             output.Attributes.SetAttribute("data-default-value", DefaultValue);
             output.Attributes.SetAttribute("data-multiple-selected-text", MultipleSelectedText);
@@ -120,7 +120,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             output.Attributes.SetAttribute("data-multiple-results-text", MultipleResultsText);
 
             var sb = new StringBuilder();
-            sb.AppendLine(CultureInfo.InvariantCulture, $"<label class=\"fdcp-searchable-dropdown__label gcds-label\" id=\"{EncodeAttribute(labelId)}\" for=\"{EncodeAttribute(triggerId)}\">{Encode(field.Label)}</label>");
+            sb.AppendLine(CultureInfo.InvariantCulture, $"<label class=\"fdcp-searchable-select__label gcds-label\" id=\"{EncodeAttribute(labelId)}\" for=\"{EncodeAttribute(triggerId)}\">{Encode(field.Label)}</label>");
 
             if (!string.IsNullOrWhiteSpace(field.Hint))
             {
@@ -131,52 +131,52 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             string ariaDescribedBy = string.IsNullOrWhiteSpace(describedBy) ? string.Empty : $" aria-describedby=\"{EncodeAttribute(describedBy)}\"";
             string disabled = field.Disabled ? " disabled" : string.Empty;
             string required = field.Required ? " aria-required=\"true\"" : string.Empty;
-            string ariaHasPopup = SelectionMode == FDCPSearchableDropdownSelectionMode.Single ? @" aria-haspopup=""listbox""" : string.Empty;
-            string searchComboboxAttributes = SelectionMode == FDCPSearchableDropdownSelectionMode.Single
+            string ariaHasPopup = SelectionMode == FDCPSearchableSelectSelectionMode.Single ? @" aria-haspopup=""listbox""" : string.Empty;
+            string searchComboboxAttributes = SelectionMode == FDCPSearchableSelectSelectionMode.Single
                 ? $@" role=""combobox"" aria-autocomplete=""list"" aria-expanded=""false"" aria-controls=""{EncodeAttribute(optionsId)}"" aria-labelledby=""{EncodeAttribute(labelId)} {EncodeAttribute(searchLabelId)}"" aria-describedby=""{EncodeAttribute(statusId)}"""
                 : string.Empty;
 
             sb.AppendLine(CultureInfo.InvariantCulture, $@"<button type=""button""
-    class=""fdcp-searchable-dropdown__trigger""
+    class=""fdcp-searchable-select__trigger""
     id=""{EncodeAttribute(triggerId)}""
     aria-expanded=""false""
     aria-controls=""{EncodeAttribute(panelId)}""
-    data-fdcp-searchable-dropdown-trigger{ariaHasPopup}{ariaDescribedBy}{required}{disabled}>
-    <span class=""fdcp-searchable-dropdown__trigger-text"" data-fdcp-searchable-dropdown-selected-text>{Encode(selectedSummary)}</span>
-    <gcds-icon class=""fdcp-searchable-dropdown__trigger-icon"" name=""chevron-down"" size=""text"" aria-hidden=""true""></gcds-icon>
+    data-fdcp-searchable-select-trigger{ariaHasPopup}{ariaDescribedBy}{required}{disabled}>
+    <span class=""fdcp-searchable-select__trigger-text"" data-fdcp-searchable-select-selected-text>{Encode(selectedSummary)}</span>
+    <gcds-icon class=""fdcp-searchable-select__trigger-icon"" name=""chevron-down"" size=""text"" aria-hidden=""true""></gcds-icon>
 </button>");
             AppendSizer(sb, items);
 
-            if (SelectionMode == FDCPSearchableDropdownSelectionMode.Single)
+            if (SelectionMode == FDCPSearchableSelectSelectionMode.Single)
             {
                 string selectedValue = selectedValues.FirstOrDefault() ?? string.Empty;
                 sb.AppendLine(CultureInfo.InvariantCulture, $@"<input type=""hidden""
        name=""{EncodeAttribute(field.Name)}""
        value=""{EncodeAttribute(selectedValue)}""
-       data-fdcp-searchable-dropdown-single-input />");
+       data-fdcp-searchable-select-single-input />");
             }
 
-            sb.AppendLine(CultureInfo.InvariantCulture, $"<div class=\"fdcp-searchable-dropdown__panel\" id=\"{EncodeAttribute(panelId)}\" hidden data-fdcp-searchable-dropdown-panel>");
-            sb.AppendLine(CultureInfo.InvariantCulture, $@"<div class=""fdcp-searchable-dropdown__search-wrapper"">
+            sb.AppendLine(CultureInfo.InvariantCulture, $"<div class=\"fdcp-searchable-select__panel\" id=\"{EncodeAttribute(panelId)}\" hidden data-fdcp-searchable-select-panel>");
+            sb.AppendLine(CultureInfo.InvariantCulture, $@"<div class=""fdcp-searchable-select__search-wrapper"">
 <label class=""visually-hidden"" id=""{EncodeAttribute(searchLabelId)}"" for=""{EncodeAttribute(searchId)}"">{Encode(SearchLabel)}</label>
 <input type=""search""
-       class=""fdcp-searchable-dropdown__search""
+       class=""fdcp-searchable-select__search""
        id=""{EncodeAttribute(searchId)}""
        placeholder=""{EncodeAttribute(SearchPlaceholder)}""
        {searchComboboxAttributes}
-       data-fdcp-searchable-dropdown-search />
-<span class=""fdcp-searchable-dropdown__search-icon fa-solid fa-magnifying-glass"" aria-hidden=""true""></span>
+       data-fdcp-searchable-select-search />
+<span class=""fdcp-searchable-select__search-icon fa-solid fa-magnifying-glass"" aria-hidden=""true""></span>
 </div>");
-            string optionsRole = SelectionMode == FDCPSearchableDropdownSelectionMode.Single ? "listbox" : "group";
-            sb.AppendLine(CultureInfo.InvariantCulture, $"<div class=\"fdcp-searchable-dropdown__options\" id=\"{EncodeAttribute(optionsId)}\" role=\"{optionsRole}\" aria-labelledby=\"{EncodeAttribute(labelId)}\" data-fdcp-searchable-dropdown-options>");
+            string optionsRole = SelectionMode == FDCPSearchableSelectSelectionMode.Single ? "listbox" : "group";
+            sb.AppendLine(CultureInfo.InvariantCulture, $"<div class=\"fdcp-searchable-select__options\" id=\"{EncodeAttribute(optionsId)}\" role=\"{optionsRole}\" aria-labelledby=\"{EncodeAttribute(labelId)}\" data-fdcp-searchable-select-options>");
             AppendOptions(sb, items, selectedValues, field, componentId);
             sb.AppendLine("</div>");
-            sb.AppendLine(CultureInfo.InvariantCulture, $"<div class=\"fdcp-searchable-dropdown__no-results\" hidden data-fdcp-searchable-dropdown-no-results>{Encode(NoResultsText)}</div>");
-            sb.AppendLine(CultureInfo.InvariantCulture, $"<div class=\"visually-hidden\" id=\"{EncodeAttribute(statusId)}\" aria-live=\"polite\" aria-atomic=\"true\" data-fdcp-searchable-dropdown-status></div>");
+            sb.AppendLine(CultureInfo.InvariantCulture, $"<div class=\"fdcp-searchable-select__no-results\" hidden data-fdcp-searchable-select-no-results>{Encode(NoResultsText)}</div>");
+            sb.AppendLine(CultureInfo.InvariantCulture, $"<div class=\"visually-hidden\" id=\"{EncodeAttribute(statusId)}\" aria-live=\"polite\" aria-atomic=\"true\" data-fdcp-searchable-select-status></div>");
 
             if (!string.IsNullOrWhiteSpace(footerSlot))
             {
-                sb.AppendLine("<div class=\"fdcp-searchable-dropdown__footer\" aria-live=\"polite\" aria-atomic=\"true\" data-fdcp-searchable-dropdown-footer>");
+                sb.AppendLine("<div class=\"fdcp-searchable-select__footer\" aria-live=\"polite\" aria-atomic=\"true\" data-fdcp-searchable-select-footer>");
                 sb.AppendLine(footerSlot);
                 sb.AppendLine("</div>");
             }
@@ -186,7 +186,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             string? errorMessage = ResolveModelStateError(field.Name);
             if (!string.IsNullOrWhiteSpace(errorMessage))
             {
-                sb.AppendLine(CultureInfo.InvariantCulture, $"<div class=\"fdcp-searchable-dropdown__error\" id=\"{EncodeAttribute(errorId)}\">{Encode(errorMessage)}</div>");
+                sb.AppendLine(CultureInfo.InvariantCulture, $"<div class=\"fdcp-searchable-select__error\" id=\"{EncodeAttribute(errorId)}\">{Encode(errorMessage)}</div>");
             }
 
             output.Content.SetHtmlContent(sb.ToString());
@@ -194,7 +194,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
         private static void AppendSizer(StringBuilder sb, IEnumerable<SelectListItem> items)
         {
-            sb.AppendLine("<div class=\"fdcp-searchable-dropdown__sizer\" aria-hidden=\"true\">");
+            sb.AppendLine("<div class=\"fdcp-searchable-select__sizer\" aria-hidden=\"true\">");
 
             foreach (var item in items)
             {
@@ -214,8 +214,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 if (!string.IsNullOrWhiteSpace(group.Name))
                 {
                     string groupLabelId = SanitizeId($"{componentId}_group_{groupIndex}");
-                    sb.AppendLine(CultureInfo.InvariantCulture, $"<div class=\"fdcp-searchable-dropdown__group\" role=\"group\" aria-labelledby=\"{EncodeAttribute(groupLabelId)}\" data-fdcp-searchable-dropdown-group>");
-                    sb.AppendLine(CultureInfo.InvariantCulture, $"<div class=\"fdcp-searchable-dropdown__group-label\" id=\"{EncodeAttribute(groupLabelId)}\">{Encode(group.Name)}</div>");
+                    sb.AppendLine(CultureInfo.InvariantCulture, $"<div class=\"fdcp-searchable-select__group\" role=\"group\" aria-labelledby=\"{EncodeAttribute(groupLabelId)}\" data-fdcp-searchable-select-group>");
+                    sb.AppendLine(CultureInfo.InvariantCulture, $"<div class=\"fdcp-searchable-select__group-label\" id=\"{EncodeAttribute(groupLabelId)}\">{Encode(group.Name)}</div>");
                 }
 
                 foreach (var item in group.Items)
@@ -228,30 +228,30 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                     string disabled = field.Disabled || item.Disabled ? " disabled" : string.Empty;
                     string ariaDisabled = (field.Disabled || item.Disabled).ToString().ToLowerInvariant();
 
-                    if (SelectionMode == FDCPSearchableDropdownSelectionMode.Single)
+                    if (SelectionMode == FDCPSearchableSelectSelectionMode.Single)
                     {
                         sb.AppendLine(CultureInfo.InvariantCulture, $@"<div
-        class=""fdcp-searchable-dropdown__option fdcp-searchable-dropdown__option-item{isSelected}""
+        class=""fdcp-searchable-select__option fdcp-searchable-select__option-item{isSelected}""
         id=""{EncodeAttribute(optionId)}""
         role=""option""
         aria-selected=""{ariaSelected}""
         aria-disabled=""{ariaDisabled}""
         tabindex=""-1""
-        data-fdcp-searchable-dropdown-option
+        data-fdcp-searchable-select-option
         data-option-text=""{EncodeAttribute(item.Text)}""
         data-option-value=""{EncodeAttribute(item.Value)}""
         data-option-label=""{EncodeAttribute(item.Text)}"">{Encode(item.Text)}</div>");
                     }
                     else
                     {
-                        sb.AppendLine(CultureInfo.InvariantCulture, $@"<div class=""fdcp-searchable-dropdown__option"" data-fdcp-searchable-dropdown-option data-option-text=""{EncodeAttribute(item.Text)}"">
+                        sb.AppendLine(CultureInfo.InvariantCulture, $@"<div class=""fdcp-searchable-select__option"" data-fdcp-searchable-select-option data-option-text=""{EncodeAttribute(item.Text)}"">
     <input type=""checkbox""
-           class=""fdcp-searchable-dropdown__input""
+           class=""fdcp-searchable-select__input""
            name=""{EncodeAttribute(field.Name)}""
            id=""{EncodeAttribute(optionId)}""
            value=""{EncodeAttribute(item.Value)}""
            data-option-label=""{EncodeAttribute(item.Text)}""{isChecked}{disabled} />
-    <label class=""fdcp-searchable-dropdown__option-label"" for=""{EncodeAttribute(optionId)}"">{Encode(item.Text)}</label>
+    <label class=""fdcp-searchable-select__option-label"" for=""{EncodeAttribute(optionId)}"">{Encode(item.Text)}</label>
 </div>");
                     }
 
@@ -350,7 +350,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         {
             if (string.IsNullOrWhiteSpace(value))
             {
-                return "fdcp_searchable_dropdown";
+                return "fdcp_searchable_select";
             }
 
             var sb = new StringBuilder(value.Length);
@@ -381,9 +381,9 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     }
 
     /// <summary>
-    /// Selection behavior for the searchable dropdown.
+    /// Selection behavior for the searchable select.
     /// </summary>
-    public enum FDCPSearchableDropdownSelectionMode
+    public enum FDCPSearchableSelectSelectionMode
     {
         /// <summary>
         /// Allows one selected option.

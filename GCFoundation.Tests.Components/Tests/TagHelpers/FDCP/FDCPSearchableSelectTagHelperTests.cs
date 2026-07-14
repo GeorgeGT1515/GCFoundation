@@ -6,11 +6,11 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 {
-    public class FDCPSearchableDropdownTagHelperTests
+    public class FDCPSearchableSelectTagHelperTests
     {
         private readonly TagHelperContext _context;
 
-        public FDCPSearchableDropdownTagHelperTests()
+        public FDCPSearchableSelectTagHelperTests()
         {
             _context = new TagHelperContext(
                 new TagHelperAttributeList(),
@@ -22,7 +22,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         public async Task ProcessAsync_WithSingleMode_RendersButtonOptionsAndHiddenInput()
         {
             var output = CreateOutput();
-            var tagHelper = new FDCPSearchableDropdownTagHelper
+            var tagHelper = new FDCPSearchableSelectTagHelper
             {
                 Name = "country",
                 Label = "Country",
@@ -40,14 +40,14 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             string content = output.Content.GetContent();
 
             Assert.Equal("div", output.TagName);
-            Assert.Contains("fdcp-searchable-dropdown--single", output.Attributes["class"].Value?.ToString());
-            Assert.Contains("class=\"fdcp-searchable-dropdown__label gcds-label\"", content);
+            Assert.Contains("fdcp-searchable-select--single", output.Attributes["class"].Value?.ToString());
+            Assert.Contains("class=\"fdcp-searchable-select__label gcds-label\"", content);
             Assert.Contains("type=\"hidden\"", content);
-            Assert.Contains("data-fdcp-searchable-dropdown-single-input", content);
+            Assert.Contains("data-fdcp-searchable-select-single-input", content);
             Assert.DoesNotContain("id=\"country\"", content);
-            Assert.Contains("fdcp-searchable-dropdown__sizer", content);
+            Assert.Contains("fdcp-searchable-select__sizer", content);
             Assert.Contains("aria-hidden=\"true\"", content);
-            Assert.Contains("fdcp-searchable-dropdown__option-item", content);
+            Assert.Contains("fdcp-searchable-select__option-item", content);
             Assert.Contains("role=\"option\"", content);
             Assert.Contains("tabindex=\"-1\"", content);
             Assert.DoesNotContain("tabindex=\"0\"", content);
@@ -64,13 +64,13 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Contains("id=\"country_options\"", content);
             Assert.Contains("id=\"country_status\"", content);
             Assert.Contains("aria-live=\"polite\"", content);
-            Assert.Contains("data-fdcp-searchable-dropdown-status", content);
+            Assert.Contains("data-fdcp-searchable-select-status", content);
             Assert.Equal("1 localized result", output.Attributes["data-one-result-text"].Value?.ToString());
             Assert.Equal("{0} localized results", output.Attributes["data-multiple-results-text"].Value?.ToString());
             Assert.Contains("name=\"chevron-down\"", content);
             Assert.DoesNotContain("type=\"radio\"", content);
             Assert.DoesNotContain("type=\"checkbox\"", content);
-            Assert.Contains("data-fdcp-searchable-dropdown-search", content);
+            Assert.Contains("data-fdcp-searchable-select-search", content);
             Assert.Contains("Country", content);
         }
 
@@ -79,11 +79,11 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         {
             var output = CreateOutput();
             var economicsGroup = new SelectListGroup { Name = "Economics and Social Science Services (EC)" };
-            var tagHelper = new FDCPSearchableDropdownTagHelper
+            var tagHelper = new FDCPSearchableSelectTagHelper
             {
                 Name = "classificationLevels",
                 Label = "Classification group & level",
-                SelectionMode = FDCPSearchableDropdownSelectionMode.Multiple,
+                SelectionMode = FDCPSearchableSelectSelectionMode.Multiple,
                 Items = new List<SelectListItem>
                 {
                     new() { Value = "EC-02", Text = "EC-02", Group = economicsGroup },
@@ -94,7 +94,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             await tagHelper.ProcessAsync(_context, output);
             string content = output.Content.GetContent();
 
-            Assert.Contains("fdcp-searchable-dropdown--multiple", output.Attributes["class"].Value?.ToString());
+            Assert.Contains("fdcp-searchable-select--multiple", output.Attributes["class"].Value?.ToString());
             Assert.Contains("type=\"checkbox\"", content);
             Assert.Contains("Economics and Social Science Services (EC)", content);
             Assert.Contains("role=\"group\"", content);
@@ -107,13 +107,13 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         public async Task ProcessAsync_WithSelectedValues_RendersCheckedInputsAndSelectedSummary()
         {
             var output = CreateOutput();
-            var tagHelper = new FDCPSearchableDropdownTagHelper
+            var tagHelper = new FDCPSearchableSelectTagHelper
             {
                 Name = "classificationLevels",
                 Label = "Classification group & level",
                 Value = "EC-02,EC-04",
                 MultipleSelectedText = "option(s) selected",
-                SelectionMode = FDCPSearchableDropdownSelectionMode.Multiple,
+                SelectionMode = FDCPSearchableSelectSelectionMode.Multiple,
                 Items = new List<SelectListItem>
                 {
                     new() { Value = "EC-02", Text = "EC-02" },
@@ -136,10 +136,10 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         public async Task ProcessAsync_WithForBinding_UsesModelSelectedValues()
         {
             var output = CreateOutput();
-            var tagHelper = new FDCPSearchableDropdownTagHelper
+            var tagHelper = new FDCPSearchableSelectTagHelper
             {
                 For = MockModelExpression("SelectedLevels", new List<string> { "EC-03" }),
-                SelectionMode = FDCPSearchableDropdownSelectionMode.Multiple,
+                SelectionMode = FDCPSearchableSelectSelectionMode.Multiple,
                 Items = new List<SelectListItem>
                 {
                     new() { Value = "EC-02", Text = "EC-02" },
@@ -158,8 +158,8 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         [Fact]
         public async Task ProcessAsync_WithSelectedOptionsSlot_RendersFooter()
         {
-            var output = CreateOutput("<div slot=\"selected-options\"><span data-fdcp-searchable-dropdown-selected-count>0</span> selected</div>");
-            var tagHelper = new FDCPSearchableDropdownTagHelper
+            var output = CreateOutput("<div slot=\"selected-options\"><span data-fdcp-searchable-select-selected-count>0</span> selected</div>");
+            var tagHelper = new FDCPSearchableSelectTagHelper
             {
                 Name = "country",
                 Label = "Country",
@@ -172,16 +172,16 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             await tagHelper.ProcessAsync(_context, output);
             string content = output.Content.GetContent();
 
-            Assert.Contains("fdcp-searchable-dropdown__footer", content);
+            Assert.Contains("fdcp-searchable-select__footer", content);
             Assert.Contains("aria-live=\"polite\"", content);
-            Assert.Contains("data-fdcp-searchable-dropdown-selected-count", content);
+            Assert.Contains("data-fdcp-searchable-select-selected-count", content);
         }
 
         [Fact]
         public async Task ProcessAsync_WithoutSlot_DoesNotRenderFooter()
         {
             var output = CreateOutput();
-            var tagHelper = new FDCPSearchableDropdownTagHelper
+            var tagHelper = new FDCPSearchableSelectTagHelper
             {
                 Name = "country",
                 Label = "Country",
@@ -193,13 +193,13 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 
             await tagHelper.ProcessAsync(_context, output);
 
-            Assert.DoesNotContain("fdcp-searchable-dropdown__footer", output.Content.GetContent());
+            Assert.DoesNotContain("fdcp-searchable-select__footer", output.Content.GetContent());
         }
 
         private static TagHelperOutput CreateOutput(string childContent = "")
         {
             return new TagHelperOutput(
-                "fdcp-searchable-dropdown",
+                "fdcp-searchable-select",
                 new TagHelperAttributeList(),
                 (useCachedResult, encoder) =>
                 {
