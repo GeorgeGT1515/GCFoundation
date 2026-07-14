@@ -77,6 +77,7 @@
         &[aria-invalid="true"] {
             border-color: var(--gcds-danger-border, var(--gcds-danger-text, #a62a1e));
         }
+
     }
 
     &__trigger-text {
@@ -183,10 +184,6 @@
             outline-offset: var(--gcds-input-border-width, 0.125rem);
             outline-width: var(--gcds-input-outline-width, 0.1875rem);
         }
-
-        &[aria-invalid="true"] {
-            border-color: var(--gcds-danger-border, var(--gcds-danger-text, #a62a1e));
-        }
     }
 
     &__search-icon {
@@ -221,7 +218,7 @@
     }
 
     &--multiple &__options {
-        padding: 0 1rem;
+        padding: 0.5rem 1rem 0;
     }
 
     &__group {
@@ -347,9 +344,4 @@
         border-top: 1px solid var(--gcds-color-grayscale-100, #d6d9dd);
     }
 
-    &__error {
-        margin-top: 0.5rem;
-        color: var(--gcds-danger-text, #a62a1e);
-        font-weight: 700;
-    }
 }

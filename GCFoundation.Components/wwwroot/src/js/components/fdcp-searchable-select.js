@@ -558,17 +558,11 @@ class FDCPSearchableSelect {
     setValidationState(isValid, shouldShowError) {
         this.element.classList.toggle('fdcp-searchable-select--invalid', shouldShowError);
 
-        [this.trigger, this.search].forEach(control => {
-            if (!control) {
-                return;
-            }
-
-            if (shouldShowError) {
-                control.setAttribute('aria-invalid', 'true');
-            } else {
-                control.removeAttribute('aria-invalid');
-            }
-        });
+        if (shouldShowError) {
+            this.trigger?.setAttribute('aria-invalid', 'true');
+        } else {
+            this.trigger?.removeAttribute('aria-invalid');
+        }
 
         if (!this.error) {
             return;

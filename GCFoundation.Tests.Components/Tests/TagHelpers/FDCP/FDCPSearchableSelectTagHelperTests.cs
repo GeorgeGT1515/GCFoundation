@@ -1,3 +1,4 @@
+using GCFoundation.Components.Enums;
 using GCFoundation.Components.TagHelpers.FDCP;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -217,12 +218,16 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             string content = output.Content.GetContent();
 
             Assert.Equal("true", output.Attributes["data-required"].Value?.ToString());
-            Assert.Equal("This field Country is required.", output.Attributes["data-required-message"].Value?.ToString());
+            Assert.Equal("This field is required.", output.Attributes["data-required-message"].Value?.ToString());
             Assert.Contains("label--required", content);
             Assert.Contains("aria-required=\"true\"", content);
             Assert.Contains("aria-describedby=\"country_error\"", content);
+            Assert.Contains("<gcds-error-message id=\"country_error\" message-id=\"country_error\"", content);
             Assert.Contains("data-fdcp-searchable-select-error hidden", content);
-            Assert.Contains("This field Country is required.", content);
+            Assert.Contains("This field is required.", content);
+            Assert.True(
+                content.IndexOf("<gcds-error-message", StringComparison.Ordinal) <
+                content.IndexOf("<button", StringComparison.Ordinal));
         }
 
         [Fact]
@@ -249,6 +254,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Contains("aria-required=\"true\"", content);
             Assert.Contains("type=\"checkbox\"", content);
             Assert.DoesNotContain("required />", content);
+            Assert.Contains("<gcds-error-message id=\"classificationLevels_error\" message-id=\"classificationLevels_error\"", content);
             Assert.Contains("data-fdcp-searchable-select-error hidden", content);
         }
 

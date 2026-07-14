@@ -61,4 +61,7 @@
   <data name="Field_Required" xml:space="preserve">
     <value>Ce champ {0} est obligatoire.</value>
   </data>
+  <data name="Field_Required_Generic" xml:space="preserve">
+    <value>Ce champ est obligatoire.</value>
+  </data>
 </root>

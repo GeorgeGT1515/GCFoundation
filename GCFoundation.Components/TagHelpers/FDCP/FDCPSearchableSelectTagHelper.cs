@@ -1,3 +1,4 @@
+using GCFoundation.Components.Enums;
 using HtmlAgilityPack;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.TagHelpers;
@@ -103,12 +104,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             string footerSlot = await GetSlotContentAsync(output).ConfigureAwait(true);
             string mode = SelectionMode.ToString().ToLowerInvariant();
             string? errorMessage = ResolveModelStateError(field.Name);
-#pragma warning disable CA1863 // Not a performance-critical path.
-            string requiredErrorMessage = string.Format(
-                CultureInfo.CurrentCulture,
-                GCFoundation.Components.Resources.Validation.Field_Required,
-                field.Label);
-#pragma warning restore CA1863
+            string requiredErrorMessage = GCFoundation.Components.Resources.Validation.Field_Required_Generic;
             string selectedSummary = selectedLabels.Count == 0
                 ? DefaultValue
                 : SelectionMode == FDCPSearchableSelectSelectionMode.Multiple
@@ -142,6 +138,13 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 sb.AppendLine(CultureInfo.InvariantCulture, $"<gcds-hint hint-id=\"{EncodeAttribute(hintId)}\" id=\"{EncodeAttribute(hintId)}\">{Encode(field.Hint)}</gcds-hint>");
             }
 
+            if (field.Required || !string.IsNullOrWhiteSpace(errorMessage))
+            {
+                string resolvedErrorMessage = errorMessage ?? requiredErrorMessage;
+                string hidden = string.IsNullOrWhiteSpace(errorMessage) ? " hidden" : string.Empty;
+                sb.AppendLine(CultureInfo.InvariantCulture, $"<gcds-error-message id=\"{EncodeAttribute(errorId)}\" message-id=\"{EncodeAttribute(errorId)}\" data-fdcp-searchable-select-error{hidden}>{Encode(resolvedErrorMessage)}</gcds-error-message>");
+            }
+
             string describedBy = BuildDescribedBy(field.Hint, hintId, errorMessage ?? (field.Required ? requiredErrorMessage : null), errorId);
             string ariaDescribedBy = string.IsNullOrWhiteSpace(describedBy) ? string.Empty : $" aria-describedby=\"{EncodeAttribute(describedBy)}\"";
             string disabled = field.Disabled ? " disabled" : string.Empty;
@@ -149,7 +152,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             string invalid = string.IsNullOrWhiteSpace(errorMessage) ? string.Empty : @" aria-invalid=""true""";
             string ariaHasPopup = SelectionMode == FDCPSearchableSelectSelectionMode.Single ? @" aria-haspopup=""listbox""" : string.Empty;
             string searchComboboxAttributes = SelectionMode == FDCPSearchableSelectSelectionMode.Single
-                ? $@" role=""combobox"" aria-autocomplete=""list"" aria-expanded=""false"" aria-controls=""{EncodeAttribute(optionsId)}"" aria-labelledby=""{EncodeAttribute(labelId)} {EncodeAttribute(searchLabelId)}"" aria-describedby=""{EncodeAttribute(statusId)}""{required}{invalid}"
+                ? $@" role=""combobox"" aria-autocomplete=""list"" aria-expanded=""false"" aria-controls=""{EncodeAttribute(optionsId)}"" aria-labelledby=""{EncodeAttribute(labelId)} {EncodeAttribute(searchLabelId)}"" aria-describedby=""{EncodeAttribute(statusId)}""{required}"
                 : string.Empty;
 
             sb.AppendLine(CultureInfo.InvariantCulture, $@"<button type=""button""
@@ -198,14 +201,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             }
 
             sb.AppendLine("</div>");
-
-            if (field.Required || !string.IsNullOrWhiteSpace(errorMessage))
-            {
-                string resolvedErrorMessage = errorMessage ?? requiredErrorMessage;
-                string hidden = string.IsNullOrWhiteSpace(errorMessage) ? " hidden" : string.Empty;
-                sb.AppendLine(CultureInfo.InvariantCulture, $"<div class=\"fdcp-searchable-select__error\" id=\"{EncodeAttribute(errorId)}\" role=\"alert\" data-fdcp-searchable-select-error{hidden}>{Encode(resolvedErrorMessage)}</div>");
-            }
-
             output.Content.SetHtmlContent(sb.ToString());
         }
 
@@ -397,19 +392,4 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         }
     }
 
-    /// <summary>
-    /// Selection behavior for the searchable select.
-    /// </summary>
-    public enum FDCPSearchableSelectSelectionMode
-    {
-        /// <summary>
-        /// Allows one selected option.
-        /// </summary>
-        Single,
-
-        /// <summary>
-        /// Allows multiple selected options.
-        /// </summary>
-        Multiple
-    }
 }
