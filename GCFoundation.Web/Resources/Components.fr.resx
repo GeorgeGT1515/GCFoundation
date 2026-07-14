@@ -897,6 +897,12 @@
   <data name="Form_Country_Label" xml:space="preserve">
     <value>Pays</value>
   </data>
+  <data name="Form_SearchableCountry_Hint" xml:space="preserve">
+    <value>Recherchez et sélectionnez votre pays de résidence.</value>
+  </data>
+  <data name="Form_SearchableCountry_Label" xml:space="preserve">
+    <value>Pays avec recherche</value>
+  </data>
   <data name="Form_DateOfBirth_Hint" xml:space="preserve">
     <value>Entrez votre date de naissance</value>
   </data>
@@ -932,6 +938,12 @@
   </data>
   <data name="Form_Interests_Label" xml:space="preserve">
     <value>Quels sont vos intérêts?</value>
+  </data>
+  <data name="Form_SearchableInterests_Hint" xml:space="preserve">
+    <value>Recherchez et sélectionnez au moins un intérêt.</value>
+  </data>
+  <data name="Form_SearchableInterests_Label" xml:space="preserve">
+    <value>Intérêts avec recherche</value>
   </data>
   <data name="Form_Password_Hint" xml:space="preserve">
     <value>Choisissez un mot de passe fort avec au moins 8 caractères.</value>

@@ -893,6 +893,12 @@
   <data name="Form_Country_Label" xml:space="preserve">
     <value>Country</value>
   </data>
+  <data name="Form_SearchableCountry_Hint" xml:space="preserve">
+    <value>Search and select your country of residence.</value>
+  </data>
+  <data name="Form_SearchableCountry_Label" xml:space="preserve">
+    <value>Searchable country</value>
+  </data>
   <data name="Form_DateOfBirth_Hint" xml:space="preserve">
     <value>Enter your date of birth</value>
   </data>
@@ -928,6 +934,12 @@
   </data>
   <data name="Form_Interests_Label" xml:space="preserve">
     <value>What are your interests?</value>
+  </data>
+  <data name="Form_SearchableInterests_Hint" xml:space="preserve">
+    <value>Search and select at least one interest.</value>
+  </data>
+  <data name="Form_SearchableInterests_Label" xml:space="preserve">
+    <value>Searchable interests</value>
   </data>
   <data name="Form_Password_Hint" xml:space="preserve">
     <value>Choose a strong password with at least 8 characters.</value>

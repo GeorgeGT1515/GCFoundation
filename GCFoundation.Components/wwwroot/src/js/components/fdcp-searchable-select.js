@@ -11,12 +11,16 @@ class FDCPSearchableSelect {
         this.noResults = element.querySelector('[data-fdcp-searchable-select-no-results]');
         this.status = element.querySelector('[data-fdcp-searchable-select-status]');
         this.selectedText = element.querySelector('[data-fdcp-searchable-select-selected-text]');
+        this.error = element.querySelector('[data-fdcp-searchable-select-error]');
         this.selectionMode = element.getAttribute('data-selection-mode') || 'single';
         this.defaultValue = element.getAttribute('data-default-value') || '';
         this.multipleSelectedText = element.getAttribute('data-multiple-selected-text') || 'selected';
         this.oneResultText = element.getAttribute('data-one-result-text') || '1 result available';
         this.multipleResultsText = element.getAttribute('data-multiple-results-text') || '{0} results available';
+        this.isRequired = element.getAttribute('data-required') === 'true';
+        this.requiredMessage = element.getAttribute('data-required-message') || 'This field is required.';
         this.pointerDownStartedInside = false;
+        this.form = element.closest('form');
 
         this.bindEvents();
         this.updateSelectionSummary();
@@ -76,6 +80,7 @@ class FDCPSearchableSelect {
         this.inputs.forEach(input => {
             input.addEventListener('change', () => {
                 this.updateSelectionSummary();
+                this.validateRequired();
 
                 if (this.selectionMode === 'single') {
                     this.close();
@@ -117,6 +122,16 @@ class FDCPSearchableSelect {
             });
         });
 
+        if (this.form) {
+            this.form.addEventListener('submit', event => {
+                const shouldFocus = !event.defaultPrevented;
+
+                if (!this.validateRequired({ showError: true, focus: shouldFocus })) {
+                    event.preventDefault();
+                }
+            });
+        }
+
         document.addEventListener('pointerdown', event => {
             this.pointerDownStartedInside = this.element.contains(event.target);
         });
@@ -138,6 +153,7 @@ class FDCPSearchableSelect {
                 }
 
                 if (!this.element.contains(document.activeElement)) {
+                    this.validateRequired({ showError: true });
                     this.close();
                 }
             }, 0);
@@ -282,6 +298,7 @@ class FDCPSearchableSelect {
         }
 
         this.updateSelectionSummary();
+        this.validateRequired();
     }
 
     selectSingleOption(option, closeAfterSelect = true) {
@@ -305,6 +322,7 @@ class FDCPSearchableSelect {
 
         this.setActiveSingleOption(option);
         this.updateSelectionSummary();
+        this.validateRequired();
 
         if (closeAfterSelect) {
             this.close(true);
@@ -518,6 +536,50 @@ class FDCPSearchableSelect {
                 selectedOptions
             }
         }));
+    }
+
+    validateRequired({ showError = false, focus = false } = {}) {
+        if (!this.isRequired || this.trigger?.disabled) {
+            return true;
+        }
+
+        const isValid = this.getSelectedOptions().length > 0;
+        const shouldShowError = !isValid && (showError || this.element.classList.contains('fdcp-searchable-select--invalid'));
+
+        this.setValidationState(isValid, shouldShowError);
+
+        if (!isValid && focus) {
+            this.trigger?.focus();
+        }
+
+        return isValid;
+    }
+
+    setValidationState(isValid, shouldShowError) {
+        this.element.classList.toggle('fdcp-searchable-select--invalid', shouldShowError);
+
+        [this.trigger, this.search].forEach(control => {
+            if (!control) {
+                return;
+            }
+
+            if (shouldShowError) {
+                control.setAttribute('aria-invalid', 'true');
+            } else {
+                control.removeAttribute('aria-invalid');
+            }
+        });
+
+        if (!this.error) {
+            return;
+        }
+
+        if (shouldShowError) {
+            this.error.textContent = this.requiredMessage;
+            this.error.hidden = false;
+        } else if (isValid) {
+            this.error.hidden = true;
+        }
     }
 
     updateSearchStatus(visibleCount = this.getVisibleEnabledOptions().length) {

@@ -1130,6 +1130,24 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Form_Country_Label", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Search and select your country of residence..
+        /// </summary>
+        public static string Form_SearchableCountry_Hint {
+            get {
+                return ResourceManager.GetString("Form_SearchableCountry_Hint", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Searchable country.
+        /// </summary>
+        public static string Form_SearchableCountry_Label {
+            get {
+                return ResourceManager.GetString("Form_SearchableCountry_Label", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Enter your date of birth.
@@ -1236,6 +1254,24 @@ namespace GCFoundation.Web.Resources {
         public static string Form_Interests_Label {
             get {
                 return ResourceManager.GetString("Form_Interests_Label", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Search and select at least one interest..
+        /// </summary>
+        public static string Form_SearchableInterests_Hint {
+            get {
+                return ResourceManager.GetString("Form_SearchableInterests_Hint", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Searchable interests.
+        /// </summary>
+        public static string Form_SearchableInterests_Label {
+            get {
+                return ResourceManager.GetString("Form_SearchableInterests_Label", resourceCulture);
             }
         }
         

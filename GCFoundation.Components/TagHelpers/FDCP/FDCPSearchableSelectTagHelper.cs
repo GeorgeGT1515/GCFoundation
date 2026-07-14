@@ -102,6 +102,13 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             string errorId = $"{componentId}_error";
             string footerSlot = await GetSlotContentAsync(output).ConfigureAwait(true);
             string mode = SelectionMode.ToString().ToLowerInvariant();
+            string? errorMessage = ResolveModelStateError(field.Name);
+#pragma warning disable CA1863 // Not a performance-critical path.
+            string requiredErrorMessage = string.Format(
+                CultureInfo.CurrentCulture,
+                GCFoundation.Components.Resources.Validation.Field_Required,
+                field.Label);
+#pragma warning restore CA1863
             string selectedSummary = selectedLabels.Count == 0
                 ? DefaultValue
                 : SelectionMode == FDCPSearchableSelectSelectionMode.Multiple
@@ -110,7 +117,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             output.TagName = "div";
             output.TagMode = TagMode.StartTagAndEndTag;
-            output.Attributes.SetAttribute("class", $"fdcp-searchable-select fdcp-searchable-select--{mode}");
+            output.Attributes.SetAttribute("class", $"fdcp-searchable-select fdcp-searchable-select--{mode} gcds-select-wrapper");
             output.Attributes.SetAttribute("id", componentId);
             output.Attributes.SetAttribute("data-fdcp-searchable-select", string.Empty);
             output.Attributes.SetAttribute("data-selection-mode", mode);
@@ -118,22 +125,31 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             output.Attributes.SetAttribute("data-multiple-selected-text", MultipleSelectedText);
             output.Attributes.SetAttribute("data-one-result-text", OneResultText);
             output.Attributes.SetAttribute("data-multiple-results-text", MultipleResultsText);
+            output.Attributes.SetAttribute("data-required", field.Required.ToString().ToLowerInvariant());
+            output.Attributes.SetAttribute("data-required-message", requiredErrorMessage);
 
             var sb = new StringBuilder();
-            sb.AppendLine(CultureInfo.InvariantCulture, $"<label class=\"fdcp-searchable-select__label gcds-label\" id=\"{EncodeAttribute(labelId)}\" for=\"{EncodeAttribute(triggerId)}\">{Encode(field.Label)}</label>");
+            string labelContent = Encode(field.Label);
+            if (field.Required)
+            {
+                labelContent += $" <span class=\"label--required\" aria-hidden=\"true\">({Encode(GCFoundation.Components.Resources.Localization.Required)})</span>";
+            }
+
+            sb.AppendLine(CultureInfo.InvariantCulture, $"<label class=\"fdcp-searchable-select__label gcds-label\" id=\"{EncodeAttribute(labelId)}\" for=\"{EncodeAttribute(triggerId)}\">{labelContent}</label>");
 
             if (!string.IsNullOrWhiteSpace(field.Hint))
             {
                 sb.AppendLine(CultureInfo.InvariantCulture, $"<gcds-hint hint-id=\"{EncodeAttribute(hintId)}\" id=\"{EncodeAttribute(hintId)}\">{Encode(field.Hint)}</gcds-hint>");
             }
 
-            string describedBy = BuildDescribedBy(field.Hint, hintId, ResolveModelStateError(field.Name), errorId);
+            string describedBy = BuildDescribedBy(field.Hint, hintId, errorMessage ?? (field.Required ? requiredErrorMessage : null), errorId);
             string ariaDescribedBy = string.IsNullOrWhiteSpace(describedBy) ? string.Empty : $" aria-describedby=\"{EncodeAttribute(describedBy)}\"";
             string disabled = field.Disabled ? " disabled" : string.Empty;
             string required = field.Required ? " aria-required=\"true\"" : string.Empty;
+            string invalid = string.IsNullOrWhiteSpace(errorMessage) ? string.Empty : @" aria-invalid=""true""";
             string ariaHasPopup = SelectionMode == FDCPSearchableSelectSelectionMode.Single ? @" aria-haspopup=""listbox""" : string.Empty;
             string searchComboboxAttributes = SelectionMode == FDCPSearchableSelectSelectionMode.Single
-                ? $@" role=""combobox"" aria-autocomplete=""list"" aria-expanded=""false"" aria-controls=""{EncodeAttribute(optionsId)}"" aria-labelledby=""{EncodeAttribute(labelId)} {EncodeAttribute(searchLabelId)}"" aria-describedby=""{EncodeAttribute(statusId)}"""
+                ? $@" role=""combobox"" aria-autocomplete=""list"" aria-expanded=""false"" aria-controls=""{EncodeAttribute(optionsId)}"" aria-labelledby=""{EncodeAttribute(labelId)} {EncodeAttribute(searchLabelId)}"" aria-describedby=""{EncodeAttribute(statusId)}""{required}{invalid}"
                 : string.Empty;
 
             sb.AppendLine(CultureInfo.InvariantCulture, $@"<button type=""button""
@@ -141,7 +157,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     id=""{EncodeAttribute(triggerId)}""
     aria-expanded=""false""
     aria-controls=""{EncodeAttribute(panelId)}""
-    data-fdcp-searchable-select-trigger{ariaHasPopup}{ariaDescribedBy}{required}{disabled}>
+    data-fdcp-searchable-select-trigger{ariaHasPopup}{ariaDescribedBy}{required}{invalid}{disabled}>
     <span class=""fdcp-searchable-select__trigger-text"" data-fdcp-searchable-select-selected-text>{Encode(selectedSummary)}</span>
     <gcds-icon class=""fdcp-searchable-select__trigger-icon"" name=""chevron-down"" size=""text"" aria-hidden=""true""></gcds-icon>
 </button>");
@@ -183,10 +199,11 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             sb.AppendLine("</div>");
 
-            string? errorMessage = ResolveModelStateError(field.Name);
-            if (!string.IsNullOrWhiteSpace(errorMessage))
+            if (field.Required || !string.IsNullOrWhiteSpace(errorMessage))
             {
-                sb.AppendLine(CultureInfo.InvariantCulture, $"<div class=\"fdcp-searchable-select__error\" id=\"{EncodeAttribute(errorId)}\">{Encode(errorMessage)}</div>");
+                string resolvedErrorMessage = errorMessage ?? requiredErrorMessage;
+                string hidden = string.IsNullOrWhiteSpace(errorMessage) ? " hidden" : string.Empty;
+                sb.AppendLine(CultureInfo.InvariantCulture, $"<div class=\"fdcp-searchable-select__error\" id=\"{EncodeAttribute(errorId)}\" role=\"alert\" data-fdcp-searchable-select-error{hidden}>{Encode(resolvedErrorMessage)}</div>");
             }
 
             output.Content.SetHtmlContent(sb.ToString());

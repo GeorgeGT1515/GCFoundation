@@ -41,6 +41,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 
             Assert.Equal("div", output.TagName);
             Assert.Contains("fdcp-searchable-select--single", output.Attributes["class"].Value?.ToString());
+            Assert.Contains("gcds-select-wrapper", output.Attributes["class"].Value?.ToString());
             Assert.Contains("class=\"fdcp-searchable-select__label gcds-label\"", content);
             Assert.Contains("type=\"hidden\"", content);
             Assert.Contains("data-fdcp-searchable-select-single-input", content);
@@ -95,6 +96,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             string content = output.Content.GetContent();
 
             Assert.Contains("fdcp-searchable-select--multiple", output.Attributes["class"].Value?.ToString());
+            Assert.Contains("gcds-select-wrapper", output.Attributes["class"].Value?.ToString());
             Assert.Contains("type=\"checkbox\"", content);
             Assert.Contains("Economics and Social Science Services (EC)", content);
             Assert.Contains("role=\"group\"", content);
@@ -194,6 +196,60 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             await tagHelper.ProcessAsync(_context, output);
 
             Assert.DoesNotContain("fdcp-searchable-select__footer", output.Content.GetContent());
+        }
+
+        [Fact]
+        public async Task ProcessAsync_WithRequiredSingleMode_RendersRequiredValidationAttributes()
+        {
+            var output = CreateOutput();
+            var tagHelper = new FDCPSearchableSelectTagHelper
+            {
+                Name = "country",
+                Label = "Country",
+                Required = true,
+                Items = new List<SelectListItem>
+                {
+                    new() { Value = "CA", Text = "Canada" }
+                }
+            };
+
+            await tagHelper.ProcessAsync(_context, output);
+            string content = output.Content.GetContent();
+
+            Assert.Equal("true", output.Attributes["data-required"].Value?.ToString());
+            Assert.Equal("This field Country is required.", output.Attributes["data-required-message"].Value?.ToString());
+            Assert.Contains("label--required", content);
+            Assert.Contains("aria-required=\"true\"", content);
+            Assert.Contains("aria-describedby=\"country_error\"", content);
+            Assert.Contains("data-fdcp-searchable-select-error hidden", content);
+            Assert.Contains("This field Country is required.", content);
+        }
+
+        [Fact]
+        public async Task ProcessAsync_WithRequiredMultipleMode_DoesNotRequireEveryCheckbox()
+        {
+            var output = CreateOutput();
+            var tagHelper = new FDCPSearchableSelectTagHelper
+            {
+                Name = "classificationLevels",
+                Label = "Classification group & level",
+                Required = true,
+                SelectionMode = FDCPSearchableSelectSelectionMode.Multiple,
+                Items = new List<SelectListItem>
+                {
+                    new() { Value = "EC-02", Text = "EC-02" },
+                    new() { Value = "EC-03", Text = "EC-03" }
+                }
+            };
+
+            await tagHelper.ProcessAsync(_context, output);
+            string content = output.Content.GetContent();
+
+            Assert.Equal("true", output.Attributes["data-required"].Value?.ToString());
+            Assert.Contains("aria-required=\"true\"", content);
+            Assert.Contains("type=\"checkbox\"", content);
+            Assert.DoesNotContain("required />", content);
+            Assert.Contains("data-fdcp-searchable-select-error hidden", content);
         }
 
         private static TagHelperOutput CreateOutput(string childContent = "")

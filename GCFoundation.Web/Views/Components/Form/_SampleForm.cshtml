@@ -1,4 +1,5 @@
 ﻿@using GCFoundation.Components.Enums
+@using GCFoundation.Components.TagHelpers.FDCP
 @using GCFoundation.Web.Resources
 @model GCFoundation.Web.Models.FormTestViewModel
 
@@ -40,10 +41,14 @@ else
         <fdcp-input for="@Model.DateOfBirth" />
 
         <fdcp-select for="@Model.SelectedCountry" items="@Model.CountryOptions" />
+        <fdcp-searchable-select for="@Model.SearchableCountry" items="@Model.CountryOptions" />
 
         <fdcp-radios for="@Model.Gender" items="@Model.GenderOptions" />
 
         <fdcp-checkboxes for="@Model.SelectedInterests" items="@Model.InterestOptions" />
+        <fdcp-searchable-select for="@Model.SearchableInterests"
+                                items="@Model.InterestOptions"
+                                selection-mode="@FDCPSearchableSelectSelectionMode.Multiple" />
 
         <fdcp-checkbox for="@Model.AgreeToTerms" />
 
@@ -65,10 +70,14 @@ else
         <fdcp-input for=""@Model.DateOfBirth"" />
 
         <fdcp-select for=""@Model.SelectedCountry"" items=""@Model.CountryOptions"" />
+        <fdcp-searchable-select for=""@Model.SearchableCountry"" items=""@Model.CountryOptions"" />
 
         <fdcp-radios for=""@Model.Gender"" items=""@Model.GenderOptions"" />
 
         <fdcp-checkboxes for=""@Model.SelectedInterests"" items=""@Model.InterestOptions"" />
+        <fdcp-searchable-select for=""@Model.SearchableInterests""
+                                items=""@Model.InterestOptions""
+                                selection-mode=""@FDCPSearchableSelectSelectionMode.Multiple"" />
 
         <fdcp-checkbox for=""@Model.AgreeToTerms"" />
 
