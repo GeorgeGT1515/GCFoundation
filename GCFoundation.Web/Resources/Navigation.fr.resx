@@ -264,4 +264,10 @@
   <data name="Nav_Home_AccessibilityStatement" xml:space="preserve">
     <value>Déclaration d'accessibilité</value>
   </data>
+  <data name="Nav_GetStarted" xml:space="preserve">
+    <value>Démarrer</value>
+  </data>
+  <data name="Nav_Components_GCFoundation" xml:space="preserve">
+    <value>Composants de GCFoundation</value>
+  </data>
 </root>

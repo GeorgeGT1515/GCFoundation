@@ -264,4 +264,10 @@
   <data name="Nav_Home_AccessibilityStatement" xml:space="preserve">
     <value>Accessibility statement</value>
   </data>
+  <data name="Nav_GetStarted" xml:space="preserve">
+    <value>Get Started</value>
+  </data>
+  <data name="Nav_Components_GCFoundation" xml:space="preserve">
+    <value>GCFoundation Components</value>
+  </data>
 </root>
