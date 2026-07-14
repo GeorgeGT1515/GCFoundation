@@ -78,18 +78,6 @@ namespace GCFoundation.Web.Controllers
         }
 
         /// <summary>
-        /// Displays the standard table component demo page.
-        /// </summary>
-        /// <returns>The Table component view.</returns>
-        [HttpGet("table")]
-        public IActionResult Table()
-        {
-            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Table_Title}");
-            var vm = BuildTableComponentViewModel();
-            return View("Component", vm);
-        }
-
-        /// <summary>
         /// Demonstrates a comprehensive example of a dynamic form with various question types and dependencies.
         /// This example showcases all possible dependency actions and their interactions.
         /// </summary>
@@ -238,6 +226,18 @@ namespace GCFoundation.Web.Controllers
             SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Stepper_Title}");
 
             var vm = BuildStepperComponentViewModel();
+            return View("Component", vm);
+        }
+
+        /// <summary>
+        /// Displays the standard table component demo page.
+        /// </summary>
+        /// <returns>The Table component view.</returns>
+        [HttpGet("table")]
+        public IActionResult Table()
+        {
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Table_Title}");
+            var vm = BuildTableComponentViewModel();
             return View("Component", vm);
         }
 
@@ -595,8 +595,20 @@ namespace GCFoundation.Web.Controllers
                 Items = new List<NavItem>()
                 {
                     new NavLink() { Href = Resources.Components.Overview_Anchor, Label = Resources.Components.Overview },
-                    new NavLink() { Href = Resources.Components.Table_BasicUsage_Anchor, Label = Resources.Components.Table_BasicUsage_Title },
-                    new NavLink() { Href = Resources.Components.Table_WithSlots_Anchor, Label = Resources.Components.Table_WithSlots_Title },
+                    new NavGroup() { Label = Resources.Components.Table_BasicUsage_Title, Items = new List<NavItem>()
+                        {
+                            new NavLink() { Href = Resources.Components.Table_WithAnnotations_Anchor, Label = Resources.Components.Table_WithAnnotations_Title },
+                            new NavLink() { Href = Resources.Components.Table_WithColumns_Anchor, Label = Resources.Components.Table_WithColumns_Title }
+                        }
+                    },
+                    new NavGroup() { Label = Resources.Components.Table_WithSlots_Title, Items = new List<NavItem>()
+                        {
+                            new NavLink() { Href = Resources.Components.Table_WithEmail_Anchor, Label = Resources.Components.Table_WithEmail_Title },
+                            new NavLink() { Href = Resources.Components.Table_WithLink_Anchor, Label = Resources.Components.Table_WithLink_Title },
+                            new NavLink() { Href = Resources.Components.Table_WithButton_Anchor, Label = Resources.Components.Table_WithButton_Title },
+                            new NavLink() { Href = Resources.Components.Table_WithButtonLink_Anchor, Label = Resources.Components.Table_WithButtonLink_Title }
+                        }
+                    },
                     new NavLink() { Href = Resources.Components.Properties_Anchor, Label = Resources.Components.Properties }
                 }
             };

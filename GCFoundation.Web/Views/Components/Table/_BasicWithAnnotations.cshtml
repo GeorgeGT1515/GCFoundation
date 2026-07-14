@@ -10,10 +10,10 @@
 }
 
 <fdcp-table caption="Table using data annotations" rows="@rows"></fdcp-table>
-<pre><code class="language-cshtml">@Html.Raw(Html.Encode(@"
-<fdcp-table caption=""Submission table using data annotations"" rows=""@Model.Rows""></fdcp-table>
 
-public class MyRowViewModel
+<pre><code class="language-cshtml">@Html.Raw(Html.Encode(@"<fdcp-table caption=""Submission table using data annotations"" rows=""@Model.Rows""></fdcp-table>"))</code></pre>
+
+<pre><code class="language-csharp">@Html.Raw(Html.Encode(@"public class MyRowViewModel
 {
     [Display(Name = ""SubmissionId_Header"", ResourceType = typeof(Resources.Components))]
     [TableColumnDefinition(IsHidden = true)]

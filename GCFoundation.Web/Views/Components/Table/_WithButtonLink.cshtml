@@ -14,16 +14,16 @@
         <gcds-button type="link" data-bind-template-href="/table/{submitterName}" size="small">Edit</gcds-button>
     </template>
 </fdcp-table>
-<pre><code class="language-cshtml">@Html.Raw(Html.Encode(@"
-<fdcp-table caption=""My table"" rows=""@Model.Rows"">
+
+<pre><code class="language-cshtml">@Html.Raw(Html.Encode(@"<fdcp-table caption=""My table"" rows=""@Model.Rows"">
     <template slot=""cell:buttonLink"">
         <gcds-button type=""link""
-                     data-bind-template-href=""/submissions/{submitterName}""
+                     data-bind-template-href=""/table/{submitterName}""
                      size=""small"">Edit</gcds-button>
     </template>
-</fdcp-table>
+</fdcp-table>"))</code></pre>
 
-[Display(Name = ""Table_Actions_Header"", ResourceType = typeof(Resources.Components))]
+<pre><code class="language-csharp">@Html.Raw(Html.Encode(@"[Display(Name = ""Table_Actions_Header"", ResourceType = typeof(Resources.Components))]
 [TableColumnDefinition(Slotted = true)]
 public string ButtonLink { get; set; }
 "))</code></pre>

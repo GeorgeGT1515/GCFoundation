@@ -14,14 +14,14 @@
         <gcds-link data-bind="email" data-bind-template-href="mailto:{email}"></gcds-link>
     </template>
 </fdcp-table>
-<pre><code class="language-cshtml">@Html.Raw(Html.Encode(@"
-<fdcp-table caption=""My table"" rows=""@Model.Rows"">
+
+<pre><code class="language-cshtml">@Html.Raw(Html.Encode(@"<fdcp-table caption=""My table"" rows=""@Model.Rows"">
     <template slot=""cell:email"">
         <gcds-link data-bind=""email"" data-bind-template-href=""mailto:{email}""></gcds-link>
     </template>
-</fdcp-table>
+</fdcp-table>"))</code></pre>
 
-[Display(Name = ""Email_Header"", ResourceType = typeof(Resources.Components))]
+<pre><code class="language-csharp">@Html.Raw(Html.Encode(@"[Display(Name = ""Email_Header"", ResourceType = typeof(Resources.Components))]
 [TableColumnDefinition(Slotted = true)]
 public string Email { get; set; }
 "))</code></pre>

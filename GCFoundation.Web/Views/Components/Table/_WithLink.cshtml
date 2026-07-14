@@ -14,14 +14,14 @@
         <gcds-link data-bind="link" data-bind-template-href="/table/{submitterName}"></gcds-link>
     </template>
 </fdcp-table>
-<pre><code class="language-cshtml">@Html.Raw(Html.Encode(@"
-<fdcp-table caption=""My table"" rows=""@Model.Rows"">
-    <template slot=""cell:link"">
-        <gcds-link data-bind=""link"" data-bind-template-href=""/submissions/{submitterName}""></gcds-link>
-    </template>
-</fdcp-table>
 
-[Display(Name = ""Link_Header"", ResourceType = typeof(Resources.Components))]
+<pre><code class="language-cshtml">@Html.Raw(Html.Encode(@"<fdcp-table caption=""My table"" rows=""@Model.Rows"">
+    <template slot=""cell:link"">
+        <gcds-link data-bind=""link"" data-bind-template-href=""/table/{submitterName}""></gcds-link>
+    </template>
+</fdcp-table>"))</code></pre>
+
+<pre><code class="language-csharp">@Html.Raw(Html.Encode(@"[Display(Name = ""Link_Header"", ResourceType = typeof(Resources.Components))]
 [TableColumnDefinition(Slotted = true)]
 public string Link { get; set; }
 "))</code></pre>
