@@ -52,6 +52,16 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public string NoResultsText { get; set; } = "No results found";
 
         /// <summary>
+        /// Text announced when one option matches the search term.
+        /// </summary>
+        public string OneResultText { get; set; } = "1 result available";
+
+        /// <summary>
+        /// Text announced when multiple options match the search term. Use <c>{0}</c> for the result count.
+        /// </summary>
+        public string MultipleResultsText { get; set; } = "{0} results available";
+
+        /// <summary>
         /// Text shown after the selected count in multiple selection mode.
         /// </summary>
         public string MultipleSelectedText { get; set; } = "selected";
@@ -106,6 +116,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             output.Attributes.SetAttribute("data-selection-mode", mode);
             output.Attributes.SetAttribute("data-default-value", DefaultValue);
             output.Attributes.SetAttribute("data-multiple-selected-text", MultipleSelectedText);
+            output.Attributes.SetAttribute("data-one-result-text", OneResultText);
+            output.Attributes.SetAttribute("data-multiple-results-text", MultipleResultsText);
 
             var sb = new StringBuilder();
             sb.AppendLine(CultureInfo.InvariantCulture, $"<label class=\"fdcp-searchable-dropdown__label gcds-label\" id=\"{EncodeAttribute(labelId)}\" for=\"{EncodeAttribute(triggerId)}\">{Encode(field.Label)}</label>");

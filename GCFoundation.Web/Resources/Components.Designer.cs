@@ -952,6 +952,24 @@ namespace GCFoundation.Web.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to 1 result available.
+        /// </summary>
+        public static string SearchableDropdown_Sample_OneResultText {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Sample_OneResultText", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to {0} results available.
+        /// </summary>
+        public static string SearchableDropdown_Sample_MultipleResultsText {
+            get {
+                return ResourceManager.GetString("SearchableDropdown_Sample_MultipleResultsText", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Economics and Social Science Services (EC).
         /// </summary>
         public static string SearchableDropdown_Sample_Classification_EC_Group {

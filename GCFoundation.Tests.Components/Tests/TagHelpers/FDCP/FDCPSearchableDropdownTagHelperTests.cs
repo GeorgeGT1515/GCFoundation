@@ -27,6 +27,8 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
                 Name = "country",
                 Label = "Country",
                 Hint = "Start typing to filter countries",
+                OneResultText = "1 localized result",
+                MultipleResultsText = "{0} localized results",
                 Items = new List<SelectListItem>
                 {
                     new() { Value = "CA", Text = "Canada" },
@@ -63,6 +65,8 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Contains("id=\"country_status\"", content);
             Assert.Contains("aria-live=\"polite\"", content);
             Assert.Contains("data-fdcp-searchable-dropdown-status", content);
+            Assert.Equal("1 localized result", output.Attributes["data-one-result-text"].Value?.ToString());
+            Assert.Equal("{0} localized results", output.Attributes["data-multiple-results-text"].Value?.ToString());
             Assert.Contains("name=\"chevron-down\"", content);
             Assert.DoesNotContain("type=\"radio\"", content);
             Assert.DoesNotContain("type=\"checkbox\"", content);

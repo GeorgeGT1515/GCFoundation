@@ -14,6 +14,8 @@ class FDCPSearchableDropdown {
         this.selectionMode = element.getAttribute('data-selection-mode') || 'single';
         this.defaultValue = element.getAttribute('data-default-value') || '';
         this.multipleSelectedText = element.getAttribute('data-multiple-selected-text') || 'selected';
+        this.oneResultText = element.getAttribute('data-one-result-text') || '1 result available';
+        this.multipleResultsText = element.getAttribute('data-multiple-results-text') || '{0} results available';
 
         this.bindEvents();
         this.updateSelectionSummary();
@@ -492,9 +494,9 @@ class FDCPSearchableDropdown {
         if (visibleCount === 0) {
             this.status.textContent = this.noResults?.textContent || 'No results found';
         } else if (visibleCount === 1) {
-            this.status.textContent = '1 result available';
+            this.status.textContent = this.oneResultText;
         } else {
-            this.status.textContent = `${visibleCount} results available`;
+            this.status.textContent = this.multipleResultsText.replace('{0}', visibleCount.toString());
         }
     }
 }

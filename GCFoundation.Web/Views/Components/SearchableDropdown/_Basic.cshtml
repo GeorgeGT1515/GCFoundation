@@ -19,7 +19,9 @@
                               hint="@Components.SearchableDropdown_Sample_Country_Hint"
                               default-value="@Components.SearchableDropdown_Sample_Country_DefaultValue"
                               search-placeholder="@Components.SearchableDropdown_Sample_Country_SearchPlaceholder"
-                              no-results-text="@Components.SearchableDropdown_Sample_Country_NoResultsText"></fdcp-searchable-dropdown>
+                              no-results-text="@Components.SearchableDropdown_Sample_Country_NoResultsText"
+                              one-result-text="@Components.SearchableDropdown_Sample_OneResultText"
+                              multiple-results-text="@Components.SearchableDropdown_Sample_MultipleResultsText"></fdcp-searchable-dropdown>
 </div>
 
 <pre><code class="language-cshtml">@Html.Raw($@"@using Microsoft.AspNetCore.Mvc.Rendering
@@ -42,5 +44,7 @@
                               hint=""{Html.Encode(Components.SearchableDropdown_Sample_Country_Hint)}""
                               default-value=""{Html.Encode(Components.SearchableDropdown_Sample_Country_DefaultValue)}""
                               search-placeholder=""{Html.Encode(Components.SearchableDropdown_Sample_Country_SearchPlaceholder)}""
-                              no-results-text=""{Html.Encode(Components.SearchableDropdown_Sample_Country_NoResultsText)}""&gt;&lt;/fdcp-searchable-dropdown&gt;
+                              no-results-text=""{Html.Encode(Components.SearchableDropdown_Sample_Country_NoResultsText)}""
+                              one-result-text=""{Html.Encode(Components.SearchableDropdown_Sample_OneResultText)}""
+                              multiple-results-text=""{Html.Encode(Components.SearchableDropdown_Sample_MultipleResultsText)}""&gt;&lt;/fdcp-searchable-dropdown&gt;
 &lt;/div&gt;")</code></pre>

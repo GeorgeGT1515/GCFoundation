@@ -1137,6 +1137,12 @@
   <data name="SearchableDropdown_Sample_Country_NoResultsText" xml:space="preserve">
     <value>Aucun résultat trouvé</value>
   </data>
+  <data name="SearchableDropdown_Sample_OneResultText" xml:space="preserve">
+    <value>1 résultat disponible</value>
+  </data>
+  <data name="SearchableDropdown_Sample_MultipleResultsText" xml:space="preserve">
+    <value>{0} résultats disponibles</value>
+  </data>
   <data name="SearchableDropdown_Sample_Classification_EC_Group" xml:space="preserve">
     <value>Services économiques et services de sciences sociales (EC)</value>
   </data>
