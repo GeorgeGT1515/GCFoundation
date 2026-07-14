@@ -47,10 +47,10 @@
         align-items: center;
         justify-content: space-between;
         padding: 0.75rem 3rem 0.75rem 1rem;
-        border: var(--gcds-input-border-width, 0.125rem) solid var(--gcds-border-default, #7d828b);
-        border-radius: var(--gcds-border-radius-input, var(--gcds-input-border-radius, 0.125rem));
-        background: var(--gcds-bg-white, #fff);
-        color: var(--gcds-text-primary, #333);
+        border: var(--gcds-select-border-width, var(--gcds-input-border-width, 0.125rem)) solid currentColor;
+        border-radius: var(--gcds-select-border-radius, var(--gcds-input-border-radius, 0.125rem));
+        background-color: var(--gcds-select-default-background, var(--gcds-bg-white, #fff));
+        color: var(--gcds-select-default-text, var(--gcds-text-primary, #333));
         font-family: var(--gcds-font-families-body);
         font-size: var(--gcds-font-sizes-text, 1.25rem);
         line-height: 1.5;
@@ -165,9 +165,10 @@
         max-width: 100%;
         min-height: 3rem;
         padding: 0.5rem 2.75rem 0.5rem 1rem;
-        border: var(--gcds-input-border-width, 0.125rem) solid var(--gcds-border-default, #7d828b);
-        border-radius: var(--gcds-border-radius-input, var(--gcds-input-border-radius, 0.125rem));
-        color: var(--gcds-text-primary, #333);
+        border: var(--gcds-input-border-width, 0.125rem) solid currentColor;
+        border-radius: var(--gcds-input-border-radius, 0.125rem);
+        background-color: var(--gcds-input-default-background, var(--gcds-bg-white, #fff));
+        color: var(--gcds-input-default-text, var(--gcds-text-primary, #333));
         font-family: var(--gcds-font-families-body);
         font-size: var(--gcds-font-sizes-text, 1rem);
         outline-color: transparent;
