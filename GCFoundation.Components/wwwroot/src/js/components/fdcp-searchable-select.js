@@ -19,6 +19,7 @@ class FDCPSearchableSelect {
         this.multipleResultsText = element.getAttribute('data-multiple-results-text') || '{0} results available';
         this.isRequired = element.getAttribute('data-required') === 'true';
         this.requiredMessage = element.getAttribute('data-required-message') || 'This field is required.';
+        this.requiredSummaryMessage = element.getAttribute('data-required-summary-message') || this.requiredMessage;
         this.pointerDownStartedInside = false;
         this.form = element.closest('form');
 
@@ -560,8 +561,22 @@ class FDCPSearchableSelect {
 
         if (shouldShowError) {
             this.trigger?.setAttribute('aria-invalid', 'true');
+            this.trigger?.dispatchEvent(new CustomEvent('gcdsError', {
+                bubbles: true,
+                composed: true,
+                detail: {
+                    message: this.requiredSummaryMessage
+                }
+            }));
         } else {
             this.trigger?.removeAttribute('aria-invalid');
+
+            if (isValid) {
+                this.trigger?.dispatchEvent(new CustomEvent('gcdsValid', {
+                    bubbles: true,
+                    composed: true
+                }));
+            }
         }
 
         if (!this.error) {

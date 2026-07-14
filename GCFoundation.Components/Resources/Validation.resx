@@ -64,4 +64,7 @@
   <data name="Field_Required_Generic" xml:space="preserve">
     <value>This field is required.</value>
   </data>
+  <data name="Field_Required_Summary" xml:space="preserve">
+    <value>{0}: This field is required.</value>
+  </data>
 </root>

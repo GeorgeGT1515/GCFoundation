@@ -105,6 +105,12 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             string mode = SelectionMode.ToString().ToLowerInvariant();
             string? errorMessage = ResolveModelStateError(field.Name);
             string requiredErrorMessage = GCFoundation.Components.Resources.Validation.Field_Required_Generic;
+#pragma warning disable CA1863 // Not a performance-critical path.
+            string requiredSummaryMessage = string.Format(
+                CultureInfo.CurrentCulture,
+                GCFoundation.Components.Resources.Validation.Field_Required_Summary,
+                field.Label);
+#pragma warning restore CA1863
             string selectedSummary = selectedLabels.Count == 0
                 ? DefaultValue
                 : SelectionMode == FDCPSearchableSelectSelectionMode.Multiple
@@ -123,6 +129,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             output.Attributes.SetAttribute("data-multiple-results-text", MultipleResultsText);
             output.Attributes.SetAttribute("data-required", field.Required.ToString().ToLowerInvariant());
             output.Attributes.SetAttribute("data-required-message", requiredErrorMessage);
+            output.Attributes.SetAttribute("data-required-summary-message", requiredSummaryMessage);
 
             var sb = new StringBuilder();
             string labelContent = Encode(field.Label);

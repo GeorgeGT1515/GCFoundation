@@ -219,6 +219,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 
             Assert.Equal("true", output.Attributes["data-required"].Value?.ToString());
             Assert.Equal("This field is required.", output.Attributes["data-required-message"].Value?.ToString());
+            Assert.Equal("Country: This field is required.", output.Attributes["data-required-summary-message"].Value?.ToString());
             Assert.Contains("label--required", content);
             Assert.Contains("aria-required=\"true\"", content);
             Assert.Contains("aria-describedby=\"country_error\"", content);
