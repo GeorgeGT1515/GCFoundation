@@ -264,4 +264,7 @@
   <data name="Nav_Home_AccessibilityStatement" xml:space="preserve">
     <value>Déclaration d'accessibilité</value>
   </data>
+  <data name="Nav_Components_Tabs" xml:space="preserve">
+    <value>Onglets</value>
+  </data>
 </root>

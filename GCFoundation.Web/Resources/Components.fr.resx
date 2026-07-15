@@ -1258,7 +1258,7 @@
     <value>quand-utiliser</value>
   </data>
   <data name="Guidance_WhenToUse_Intro" xml:space="preserve">
-    <value>Utilisez un badge lorsque :</value>
+    <value>Utilisez ce composant lorsque :</value>
   </data>
   <data name="Guidance_WhenNotToUse" xml:space="preserve">
     <value>Quand ne pas l'utiliser</value>
@@ -1267,7 +1267,7 @@
     <value>quand-ne-pas-utiliser</value>
   </data>
   <data name="Guidance_WhenNotToUse_Intro" xml:space="preserve">
-    <value>Évitez les badges lorsque :</value>
+    <value>Évitez ce composant lorsque :</value>
   </data>
   <data name="Guidance_Accessibility" xml:space="preserve">
     <value>Exigences d'accessibilité</value>
@@ -1511,5 +1511,119 @@
   </data>
   <data name="StatelessAuth_Integration_Description2" xml:space="preserve">
     <value />
+  </data>
+  <data name="Index_Tabs_Title" xml:space="preserve">
+    <value>Onglets</value>
+  </data>
+  <data name="Index_Tabs_Description" xml:space="preserve">
+    <value>Organisez le contenu connexe d'une page dans des panneaux d'onglets accessibles.</value>
+  </data>
+  <data name="Tabs_Name" xml:space="preserve">
+    <value>Onglets</value>
+  </data>
+  <data name="Tabs_Overview" xml:space="preserve">
+    <value>Les onglets permettent de passer d'un panneau de contenu connexe à un autre sans quitter le contexte de la page courante.</value>
+  </data>
+  <data name="Tabs_Purpose" xml:space="preserve">
+    <value>Utilisez les onglets pour regrouper des sections de contenu équivalentes lorsqu'une seule section doit être visible à la fois.</value>
+  </data>
+  <data name="Tabs_WhenToUse_1" xml:space="preserve">
+    <value>Utilisez les onglets lorsque les sections sont étroitement liées et que les personnes gagnent à les comparer ou à passer de l'une à l'autre sur place.</value>
+  </data>
+  <data name="Tabs_WhenToUse_2" xml:space="preserve">
+    <value>Utilisez les onglets lorsque chaque panneau peut être compris seul et que le premier onglet fournit une vue par défaut logique.</value>
+  </data>
+  <data name="Tabs_WhenNotToUse_1" xml:space="preserve">
+    <value>N'utilisez pas les onglets pour la navigation principale du site ou la navigation d'une page à l'autre. Utilisez les composants de navigation GCDS pour ces modèles.</value>
+  </data>
+  <data name="Tabs_WhenNotToUse_2" xml:space="preserve">
+    <value>Ne cachez pas des tâches critiques, des erreurs ou des instructions obligatoires dans un onglet qui pourrait ne pas être sélectionné.</value>
+  </data>
+  <data name="Tabs_Accessibility_Do_1" xml:space="preserve">
+    <value>Fournissez une étiquette significative sur &lt;code&gt;fdcp-tabs&lt;/code&gt; afin que les technologies d'assistance puissent décrire la liste d'onglets.</value>
+  </data>
+  <data name="Tabs_Accessibility_Do_2" xml:space="preserve">
+    <value>Gardez les libellés d'onglets courts et uniques afin que les personnes comprennent rapidement les panneaux disponibles.</value>
+  </data>
+  <data name="Tabs_Accessibility_Do_3" xml:space="preserve">
+    <value>Assurez-vous que chaque panneau d'onglet contient assez de contexte lorsqu'il est lu seul, car les utilisateurs de lecteurs d'écran peuvent naviguer directement entre les panneaux.</value>
+  </data>
+  <data name="Tabs_UxBestPractices_1" xml:space="preserve">
+    <value>Limitez le nombre d'onglets afin que la liste demeure facile à parcourir et fonctionne bien sur les petits écrans.</value>
+  </data>
+  <data name="Tabs_UxBestPractices_2" xml:space="preserve">
+    <value>Ordonnez les onglets selon leur importance ou le flux de travail attendu, avec le panneau le plus utile en premier.</value>
+  </data>
+  <data name="Tabs_Notes_1" xml:space="preserve">
+    <value>Le composant suit le modèle d'onglets WAI-ARIA. Flèche gauche, Flèche droite, Début et Fin déplacent le focus; Entrée ou Espace active l'onglet ciblé.</value>
+  </data>
+  <data name="Tabs_Notes_2" xml:space="preserve">
+    <value>Les onglets servent à changer de panneau de contenu dans la page courante. Pour naviguer entre les pages, utilisez la navigation supérieure GCDS, la navigation latérale ou des liens.</value>
+  </data>
+  <data name="Tabs_Notes_3" xml:space="preserve">
+    <value>Lorsque load-url est défini, le contenu du panneau est récupéré la première fois que l'onglet est sélectionné, puis mis en cache pour les changements d'onglet suivants.</value>
+  </data>
+  <data name="Tabs_Properties_Id" xml:space="preserve">
+    <value>Facultatif. Identifiant unique du composant d'onglets. Sert à générer des identifiants déterministes pour les onglets et les panneaux.</value>
+  </data>
+  <data name="Tabs_Properties_Label" xml:space="preserve">
+    <value>Étiquette accessible de la liste d'onglets.</value>
+  </data>
+  <data name="Tabs_DefaultLabel" xml:space="preserve">
+    <value>Onglets</value>
+  </data>
+  <data name="Tabs_Properties_SelectedIndex" xml:space="preserve">
+    <value>Facultatif. Index de base zéro de l'onglet sélectionné au chargement de la page. Remplace l'état actif de l'enfant lorsqu'il est valide.</value>
+  </data>
+  <data name="Tabs_Properties_TabTitle" xml:space="preserve">
+    <value>Obligatoire. Texte affiché dans le bouton d'onglet.</value>
+  </data>
+  <data name="Tabs_Properties_TabId" xml:space="preserve">
+    <value>Facultatif. Identifiant de base utilisé pour générer les identifiants de l'onglet enfant et du panneau.</value>
+  </data>
+  <data name="Tabs_Properties_TabActive" xml:space="preserve">
+    <value>Facultatif. Sélectionne cet onglet au chargement de la page si selected-index n'est pas défini.</value>
+  </data>
+  <data name="Tabs_Properties_TabLoadUrl" xml:space="preserve">
+    <value>Facultatif. URL qui retourne un fragment HTML à charger dans le panneau lorsque l'onglet est sélectionné.</value>
+  </data>
+  <data name="Tabs_Basic_Title" xml:space="preserve">
+    <value>Onglets de base</value>
+  </data>
+  <data name="Tabs_Basic_Anchor" xml:space="preserve">
+    <value>onglets-base</value>
+  </data>
+  <data name="Tabs_Basic_Text" xml:space="preserve">
+    <value>Utilisez des éléments &lt;code&gt;fdcp-tab&lt;/code&gt; imbriqués dans &lt;code&gt;fdcp-tabs&lt;/code&gt; pour définir chaque libellé d'onglet et le contenu de son panneau.</value>
+  </data>
+  <data name="Tabs_Sample_Label" xml:space="preserve">
+    <value>Sections du profil</value>
+  </data>
+  <data name="Tabs_Sample_Overview_Title" xml:space="preserve">
+    <value>Aperçu</value>
+  </data>
+  <data name="Tabs_Sample_Overview_Content" xml:space="preserve">
+    <value>Utilisez l'onglet d'aperçu pour présenter le contenu sommaire le plus important.</value>
+  </data>
+  <data name="Tabs_Sample_Details_Title" xml:space="preserve">
+    <value>Détails</value>
+  </data>
+  <data name="Tabs_Sample_Details_Content" xml:space="preserve">
+    <value>Utilisez l'onglet des détails pour présenter les renseignements complémentaires qui appartiennent au même contexte.</value>
+  </data>
+  <data name="Tabs_Sample_History_Title" xml:space="preserve">
+    <value>Historique</value>
+  </data>
+  <data name="Tabs_Sample_History_Content" xml:space="preserve">
+    <value>Utilisez l'onglet d'historique pour présenter les changements connexes ou l'activité antérieure.</value>
+  </data>
+  <data name="Tabs_Sample_ServerData_Title" xml:space="preserve">
+    <value>Données du serveur</value>
+  </data>
+  <data name="Tabs_Sample_ServerData_Loading" xml:space="preserve">
+    <value>Chargement du contenu du serveur...</value>
+  </data>
+  <data name="Tabs_LazyContent" xml:space="preserve">
+    <value>Ce contenu a été chargé à partir du serveur lorsque l'onglet a été sélectionné.</value>
   </data>
 </root>

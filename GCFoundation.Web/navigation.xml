@@ -14,6 +14,7 @@
 				<NavNode key="components-table-gridjs" controller="Components" action="TableGridJs" area="" preservedRouteParameters="culture" text="Nav_Components_TableGridJs" />
 				<NavNode key="components-page-heading" controller="Components" action="PageHeading" area="" preservedRouteParameters="culture" text="Nav_Components_PageHeading" />
 				<NavNode key="components-stepper" controller="Components" action="Stepper" area="" preservedRouteParameters="culture" text="Nav_Components_Stepper" />
+				<NavNode key="components-tabs" controller="Components" action="Tabs" area="" preservedRouteParameters="culture" text="Nav_Components_Tabs" />
 				<NavNode key="components-user-login" controller="Components" action="UserLogin" area="" preservedRouteParameters="culture" text="Nav_Components_UserLogin" >
 					<Children>
 						<NavNode key="user-login-examples" controller="UserLoginExample" action="Index" area="" preservedRouteParameters="culture" text="Nav_UserLogin_Examples" />
