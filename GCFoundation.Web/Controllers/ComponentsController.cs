@@ -1,9 +1,11 @@
 using GCFoundation.Components.Controllers;
 using GCFoundation.Components.Enums;
 using GCFoundation.Components.Models.FormBuilder;
+using GCFoundation.Components.Models.TableBuilder;
 using GCFoundation.Components.TagHelpers.GCDS;
 using GCFoundation.Web.Models;
 using GCFoundation.Web.Models.Components;
+using GCFoundation.Web.Models.Table;
 using GCFoundation.Web.Resources;
 using Microsoft.AspNetCore.Mvc;
 
@@ -87,19 +89,6 @@ namespace GCFoundation.Web.Controllers
             SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_SearchableSelect_Title}");
 
             var vm = BuildSearchableSelectComponentViewModel();
-            return View("Component", vm);
-        }
-
-        /// <summary>
-        /// Displays the standard table component demo page.
-        /// </summary>
-        /// <returns>The Table component view.</returns>
-        [HttpGet("table")]
-        public IActionResult Table()
-        {
-            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Table_Title}");
-
-            var vm = BuildTableComponentViewModel();
             return View("Component", vm);
         }
 
@@ -256,27 +245,15 @@ namespace GCFoundation.Web.Controllers
         }
 
         /// <summary>
-        /// Displays the Table (Grid.js) component demo page.
+        /// Displays the standard table component demo page.
         /// </summary>
-        /// <returns>
-        /// The Table (Grid.js) component view.
-        /// </returns>
-        [HttpGet("table-grid-js")]
-        public IActionResult TableGridJs()
+        /// <returns>The Table component view.</returns>
+        [HttpGet("table")]
+        public IActionResult Table()
         {
-            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_TableGridJs_Title}");
-            var vm = BuildTableGridJsComponentViewModel();
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Table_Title}");
+            var vm = BuildTableComponentViewModel();
             return View("Component", vm);
-        }
-
-        /// <summary>
-        /// Provides a friendly alias for the FDCP Grid Table documentation.
-        /// </summary>
-        /// <returns>The FDCP Grid Table component view.</returns>
-        [HttpGet("fdcp-grid-table")]
-        public IActionResult FdcpGridTable()
-        {
-            return TableGridJs();
         }
 
         /// <summary>
@@ -292,6 +269,7 @@ namespace GCFoundation.Web.Controllers
             ViewData["LoginPartialViewName"] = "_ExampleUserLogin";
             return View();
         }
+
 
         #region ViewModel Building
         private static ComponentViewModel BuildBadgeComponentViewModel()
@@ -496,38 +474,6 @@ namespace GCFoundation.Web.Controllers
 
             return vm;
         }
-        private static ComponentViewModel BuildTableComponentViewModel()
-        {
-            var vm = new ComponentViewModel();
-
-            vm.Name = Resources.Components.Table_Name;
-            vm.Overview = Resources.Components.Table_Overview;
-            vm.Notes = new List<string>()
-            {
-                Resources.Components.Table_Notes_1,
-                Resources.Components.Table_Notes_2
-            };
-            vm.Properties = new List<ComponentPropertyViewModel>()
-            {
-                new() { Name = "caption", DataType = "string", Description = Resources.Components.Table_Properties_Caption },
-                new() { Name = "aria-describedby", DataType = "string", Description = Resources.Components.Table_Properties_Summary },
-                new() { Name = "scope", DataType = "string", Description = Resources.Components.Table_Properties_Scope },
-                new() { Name = "class", DataType = "string", Description = Resources.Components.Table_Properties_Class }
-            };
-            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
-            {
-                new()
-                {
-                    Id = Resources.Components.Table_Basic_Anchor,
-                    Title = Resources.Components.Table_Basic_Title,
-                    Description = Resources.Components.Table_Basic_Text,
-                    PartialViewName = "DataTable/_Basic"
-                }
-            };
-            vm.Tag = "<table class=\"fdcp-table\">";
-
-            return vm;
-        }
         private List<ComponentIndexViewModel> BuildIndexComponentViewModel()
         {
             var vm = new List<ComponentIndexViewModel>()
@@ -542,7 +488,6 @@ namespace GCFoundation.Web.Controllers
                 new () { Name = Resources.Components.Index_SearchableSelect_Title, ShortDescription = Resources.Components.Index_SearchableSelect_Description, Href = Url.Action("SearchableSelect", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-filtered-search.svg") },
                 new () { Name = Resources.Components.Index_Stepper_Title, ShortDescription = Resources.Components.Index_Stepper_Description, Href = Url.Action("Stepper", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-stepper-fdcp.svg") },
                 new () { Name = Resources.Components.Index_Table_Title, ShortDescription = Resources.Components.Index_Table_Description, Href = Url.Action("Table", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-table.svg") },
-                new () { Name = Resources.Components.Index_TableGridJs_Title, ShortDescription = Resources.Components.Index_TableGridJs_Description, Href = Url.Action("TableGridJs", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-table.svg") },
                 new () { Name = Resources.Components.Index_UserLoginPartial_Title, ShortDescription = Resources.Components.Index_UserLoginPartial_Description, Href = Url.Action("UserLogin", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-user-login-partial.svg") }
             };
             return vm;
@@ -660,30 +605,61 @@ namespace GCFoundation.Web.Controllers
 
             return vm;
         }
-        private static ComponentViewModel BuildTableGridJsComponentViewModel()
+        private static ComponentViewModel BuildTableComponentViewModel()
         {
             var vm = new ComponentViewModel();
-            vm.Name = Resources.Components.TableGridJs_Name;
-            vm.Tag = "<fdcp-table-gridjs>";
-            vm.Overview = Resources.Components.TableGridJs_Overview;
-            vm.Properties = new List<ComponentPropertyViewModel>
+
+            vm.Name = Resources.Components.Table_Name;
+            vm.Tag = "<fdcp-table>";
+            vm.Overview = Resources.Components.Table_Overview;
+
+            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
             {
-                new() { Name = "id", DataType = "string", Description = Resources.Components.TableGridJs_Properties_Id },
-                new() { Name = "ajax-url", DataType = "string", Description = Resources.Components.TableGridJs_Properties_AjaxUrl },
-                new() { Name = "columns", DataType = "IEnumerable<GridTableColumn>", Description = Resources.Components.TableGridJs_Properties_Columns },
-                new() { Name = "page-size", DataType = "int", DefaultValue = "10", Description = Resources.Components.TableGridJs_Properties_PageSize },
-                new() { Name = "search-enabled", DataType = "bool", DefaultValue = "true", Description = Resources.Components.TableGridJs_Properties_SearchEnabled },
-                new() { Name = "sort-enabled", DataType = "bool", DefaultValue = "true", Description = Resources.Components.TableGridJs_Properties_SortEnabled },
-                new() { Name = "caption", DataType = "string", Description = Resources.Components.TableGridJs_Properties_Caption },
-                new() { Name = "summary", DataType = "string", Description = Resources.Components.TableGridJs_Properties_Summary },
-                new() { Name = "aria-label", DataType = "string", Description = Resources.Components.TableGridJs_Properties_AriaLabel },
-                new() { Name = "lang", DataType = "string", Description = Resources.Components.TableGridJs_Properties_Lang },
-                new() { Name = "class", DataType = "string", Description = Resources.Components.TableGridJs_Properties_Class }
+                new ComponentSampleCodeSectionViewModel()
+                {
+                    Title = Resources.Components.Table_BasicUsage_Title,
+                    Id = Resources.Components.Table_BasicUsage_Anchor,
+                    Description = Resources.Components.Table_BasicUsage_Text,
+                    PartialViewName = "Table/_BasicUsage"
+                },
+                new ComponentSampleCodeSectionViewModel()
+                {
+                    Title = Resources.Components.Table_WithSlots_Title,
+                    Id = Resources.Components.Table_WithSlots_Anchor,
+                    Description = Resources.Components.Table_WithSlots_Text,
+                    PartialViewName = "Table/_WithSlots"
+                },
+                new ComponentSampleCodeSectionViewModel()
+                {
+                    Title = Resources.Components.Properties,
+                    Id = Resources.Components.Properties_Anchor,
+                    PartialViewName = "Table/_Properties"
+                }
             };
-            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>
+
+            vm.SideNavigation = new SideNavigationViewModel()
             {
-                new() { Description = Resources.Components.TableGridJs_Basic_Text, Id = Resources.Components.TableGridJs_Basic_Anchor, PartialViewName = "TableGridJs/_Basic", Title = Resources.Components.TableGridJs_Basic_Title }
+                Items = new List<NavItem>()
+                {
+                    new NavLink() { Href = Resources.Components.Overview_Anchor, Label = Resources.Components.Overview },
+                    new NavGroup() { Label = Resources.Components.Table_BasicUsage_Title, Items = new List<NavItem>()
+                        {
+                            new NavLink() { Href = Resources.Components.Table_WithAnnotations_Anchor, Label = Resources.Components.Table_WithAnnotations_Title },
+                            new NavLink() { Href = Resources.Components.Table_WithColumns_Anchor, Label = Resources.Components.Table_WithColumns_Title }
+                        }
+                    },
+                    new NavGroup() { Label = Resources.Components.Table_WithSlots_Title, Items = new List<NavItem>()
+                        {
+                            new NavLink() { Href = Resources.Components.Table_WithEmail_Anchor, Label = Resources.Components.Table_WithEmail_Title },
+                            new NavLink() { Href = Resources.Components.Table_WithLink_Anchor, Label = Resources.Components.Table_WithLink_Title },
+                            new NavLink() { Href = Resources.Components.Table_WithButton_Anchor, Label = Resources.Components.Table_WithButton_Title },
+                            new NavLink() { Href = Resources.Components.Table_WithButtonLink_Anchor, Label = Resources.Components.Table_WithButtonLink_Title }
+                        }
+                    },
+                    new NavLink() { Href = Resources.Components.Properties_Anchor, Label = Resources.Components.Properties }
+                }
             };
+
             return vm;
         }
         private FormDefinition GenerateSampleFormDefinition()
