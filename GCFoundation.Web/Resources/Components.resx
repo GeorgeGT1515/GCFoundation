@@ -1095,10 +1095,10 @@
     <value>with-selected-options</value>
   </data>
   <data name="SearchableSelect_WithSelectedOptions_Title" xml:space="preserve">
-    <value>With Selected Options Slot</value>
+    <value>Multiple Searchable Select with Selected Options Slot</value>
   </data>
   <data name="SearchableSelect_WithSelectedOptions_Text" xml:space="preserve">
-    <value>&lt;gcds-text&gt;Use the &lt;code&gt;selected-options&lt;/code&gt; slot to add a custom bottom section, such as selected counts, clear actions, or any other caller-specific markup.&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;This example uses a multiple searchable select. Set &lt;code&gt;selection-mode="&#64;FDCPSearchableSelectSelectionMode.Multiple"&lt;/code&gt; to enable multiple selection. Use the &lt;code&gt;selected-options&lt;/code&gt; slot to add a custom bottom section, such as selected counts, clear actions, or any other caller-specific markup.&lt;/gcds-text&gt;</value>
   </data>
   <data name="SearchableSelect_Sample_Country_CA" xml:space="preserve">
     <value>Canada</value>
@@ -1114,6 +1114,36 @@
   </data>
   <data name="SearchableSelect_Sample_Country_SV" xml:space="preserve">
     <value>Saint Vincent and the Grenadines</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_GB" xml:space="preserve">
+    <value>United Kingdom</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_DE" xml:space="preserve">
+    <value>Germany</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_IT" xml:space="preserve">
+    <value>Italy</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_ES" xml:space="preserve">
+    <value>Spain</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_JP" xml:space="preserve">
+    <value>Japan</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_AU" xml:space="preserve">
+    <value>Australia</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_BR" xml:space="preserve">
+    <value>Brazil</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_IN" xml:space="preserve">
+    <value>India</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_ZA" xml:space="preserve">
+    <value>South Africa</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_NZ" xml:space="preserve">
+    <value>New Zealand</value>
   </data>
   <data name="SearchableSelect_Sample_Country_Label" xml:space="preserve">
     <value>Country</value>

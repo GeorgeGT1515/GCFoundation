@@ -2368,6 +2368,96 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("SearchableSelect_Sample_Country_CA", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Australia.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_AU {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_AU", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Brazil.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_BR {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_BR", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Germany.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_DE {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_DE", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Spain.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_ES {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_ES", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to United Kingdom.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_GB {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_GB", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to India.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_IN {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_IN", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Italy.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_IT {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_IT", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Japan.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_JP {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_JP", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to New Zealand.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_NZ {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_NZ", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to South Africa.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_ZA {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_ZA", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Select country.
@@ -2478,7 +2568,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;gcds-text&gt;Use the &lt;code&gt;selected-options&lt;/code&gt; slot to add a custom bottom section, such as selected counts, clear actions, or any other caller-specific markup.&lt;/gcds-text&gt;.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;This example uses a multiple searchable select. Set &lt;code&gt;selection-mode=&quot;@FDCPSearchableSelectSelectionMode.Multiple&quot;&lt;/code&gt; to enable multiple selection. Use the &lt;code&gt;selected-options&lt;/code&gt; slot to add a custom bottom section, such as selected counts, clear actions, or any other caller-specific markup.&lt;/gcds-text&gt;.
         /// </summary>
         public static string SearchableSelect_WithSelectedOptions_Text {
             get {
@@ -2487,7 +2577,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to With Selected Options Slot.
+        ///   Looks up a localized string similar to Multiple Searchable Select with Selected Options Slot.
         /// </summary>
         public static string SearchableSelect_WithSelectedOptions_Title {
             get {
