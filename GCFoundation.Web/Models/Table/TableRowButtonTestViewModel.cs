@@ -11,7 +11,6 @@ namespace GCFoundation.Web.Models.Table
     public class TableRowButtonTestViewModel
     {
         [DataType(DataType.Text)]
-        [Display(Name = "Table_Submission_Id_Header", ResourceType = typeof(Resources.Components))]
         [TableColumnDefinition(IsHidden = true)]
         public string SubmissionId { get; set; } = string.Empty;
 

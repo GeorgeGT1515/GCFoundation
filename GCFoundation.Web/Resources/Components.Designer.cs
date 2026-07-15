@@ -2807,7 +2807,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-table&amp;gt;&lt;/code&gt; component wraps the GC Design System &lt;code&gt;&amp;lt;gcds-table&amp;gt;&lt;/code&gt;. Columns are inferred automatically from the row model&apos;s public properties, or can be customized per-property with &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;, or supplied explicitly via &lt;code&gt;column-definitions&lt;/code&gt;. Filtering and sorting are supported out of the box. Custom cell content (links, buttons, etc.) is rendered via &lt;code&gt;&amp;lt;template slot=&quot;cell:fieldName&quot;&amp;gt;&lt;/code&gt;, with &lt;code&gt;data-bind&lt;/code&gt; an [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-table&amp;gt;&lt;/code&gt; component wraps the GC Design System &lt;code&gt;&amp;lt;gcds-table&amp;gt;&lt;/code&gt;. Columns are inferred automatically from the row model&apos;s public properties, or can be customized per-property with &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;, or supplied explicitly via &lt;code&gt;column-definitions&lt;/code&gt;. Filtering and sorting are supported out of the box. Custom cell content (links, buttons, etc.) is rendered via &lt;code&gt;&amp;lt;template slot=&quot;cell:fieldName&quot;&amp;gt;&lt;/code&gt;. Use &lt;code&gt;data-bind&lt;/code&gt; to  [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Table_Overview {
             get {
@@ -3140,6 +3140,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Table using data annotations.
+        /// </summary>
+        public static string Table_WithAnnotations_Caption {
+            get {
+                return ResourceManager.GetString("Table_WithAnnotations_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All public properties on the row model are rendered as columns by default. Use the &lt;code&gt;[Display]&lt;/code&gt; attribute to set the column header text. Add &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; only when you need to change a property&apos;s default behaviour — for example, mark it as a row header (&lt;code&gt;RowHeader = true&lt;/code&gt;), enable sorting (&lt;code&gt;Sort = true&lt;/code&gt;), use custom slotted cell content (&lt;code&gt;Slotted = true&lt;/code&gt;), or hide it (&lt;code&gt;IsHidden = true&lt;/code&gt;). A property without &lt;code&gt;[TableColumnDefini [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Table_WithAnnotations_Text {
@@ -3163,6 +3172,24 @@ namespace GCFoundation.Web.Resources {
         public static string Table_WithButton_Anchor {
             get {
                 return ResourceManager.GetString("Table_WithButton_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Table with button.
+        /// </summary>
+        public static string Table_WithButton_Caption {
+            get {
+                return ResourceManager.GetString("Table_WithButton_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string Table_WithButton_Label {
+            get {
+                return ResourceManager.GetString("Table_WithButton_Label", resourceCulture);
             }
         }
         
@@ -3194,6 +3221,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Table with button link.
+        /// </summary>
+        public static string Table_WithButtonLink_Caption {
+            get {
+                return ResourceManager.GetString("Table_WithButtonLink_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string Table_WithButtonLink_Label {
+            get {
+                return ResourceManager.GetString("Table_WithButtonLink_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A &lt;code&gt;type=&quot;link&quot;&lt;/code&gt; button inside the slot navigates like a link. Use &lt;code&gt;data-bind-template-href&lt;/code&gt; to supply the destination URL from the current row&apos;s data..
         /// </summary>
         public static string Table_WithButtonLink_Text {
@@ -3217,6 +3262,15 @@ namespace GCFoundation.Web.Resources {
         public static string Table_WithColumns_Anchor {
             get {
                 return ResourceManager.GetString("Table_WithColumns_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Table using column definitions.
+        /// </summary>
+        public static string Table_WithColumns_Caption {
+            get {
+                return ResourceManager.GetString("Table_WithColumns_Caption", resourceCulture);
             }
         }
         
@@ -3248,6 +3302,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Table with email link.
+        /// </summary>
+        public static string Table_WithEmail_Caption {
+            get {
+                return ResourceManager.GetString("Table_WithEmail_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Use &lt;code&gt;data-bind-template-href=&quot;mailto:{email}&quot;&lt;/code&gt; to build a &lt;code&gt;mailto:&lt;/code&gt; link from the row&apos;s email address..
         /// </summary>
         public static string Table_WithEmail_Text {
@@ -3275,7 +3338,25 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mix static path segments with &lt;code&gt;{fieldName}&lt;/code&gt; tokens in &lt;code&gt;data-bind-template-href&lt;/code&gt; to build a destination URL from the current row&apos;s data..
+        ///   Looks up a localized string similar to Table with link.
+        /// </summary>
+        public static string Table_WithLink_Caption {
+            get {
+                return ResourceManager.GetString("Table_WithLink_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View submission of.
+        /// </summary>
+        public static string Table_WithLink_Label {
+            get {
+                return ResourceManager.GetString("Table_WithLink_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can use &lt;code&gt;data-bind-template&lt;/code&gt; and &lt;code&gt;data-bind-template-href&lt;/code&gt; with &lt;code&gt;{fieldName}&lt;/code&gt; tokens to build strings from row field values into the link&apos;s text and destination URL..
         /// </summary>
         public static string Table_WithLink_Text {
             get {

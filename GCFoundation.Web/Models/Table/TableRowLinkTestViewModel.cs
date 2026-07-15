@@ -14,7 +14,6 @@ namespace GCFoundation.Web.Models.Table
         /// The submission's unique identifier. Hidden from the rendered table columns.
         /// </summary>
         [DataType(DataType.Text)]
-        [Display(Name = "Table_Submission_Id_Header", ResourceType = typeof(Resources.Components))]
         [TableColumnDefinition(IsHidden = true)]
         public string SubmissionId { get; set; } = string.Empty;
 
@@ -48,6 +47,6 @@ namespace GCFoundation.Web.Models.Table
         [DataType(DataType.Text)]
         [Display(Name = "Table_Link_Header", ResourceType = typeof(Resources.Components))]
         [TableColumnDefinition(Slotted = true)]
-        public string Link { get; set; } = string.Empty;      
+        public string SubmissionLink { get; set; } = string.Empty;      
     }
 }

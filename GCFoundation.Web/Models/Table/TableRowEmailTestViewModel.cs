@@ -14,7 +14,6 @@ namespace GCFoundation.Web.Models.Table
         /// The submission's unique identifier. Hidden from the rendered table columns.
         /// </summary>
         [DataType(DataType.Text)]
-        [Display(Name = "Table_Submission_Id_Header", ResourceType = typeof(Resources.Components))]
         [TableColumnDefinition(IsHidden = true)]
         public string SubmissionId { get; set; } = string.Empty;
 

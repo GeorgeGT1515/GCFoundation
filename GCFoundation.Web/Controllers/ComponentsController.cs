@@ -84,6 +84,12 @@ namespace GCFoundation.Web.Controllers
         /// <returns>
         /// A view containing a form with various input types and complex dependencies.
         /// </returns>
+        [HttpGet("table/{submitterName}")]
+        public IActionResult TableDemoRoute(string submitterName)
+        {
+            return Content($"<!doctype html><html><head><meta charset='utf-8'></head><body><p>/components/table/{submitterName}</p></body></html>", "text/html");
+        }
+
         [HttpGet("form-builder")]
         public IActionResult FormBuilder()
         {

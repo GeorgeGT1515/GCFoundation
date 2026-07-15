@@ -1,4 +1,5 @@
 @using GCFoundation.Web.Models.Table
+@using GCFoundation.Web.Resources
 
 @{
     var rows = new List<TableRowEmailTestViewModel>
@@ -9,19 +10,19 @@
     };
 }
 
-<fdcp-table caption="Table with email link" rows="@rows">
+<fdcp-table caption="@Components.Table_WithEmail_Caption" rows="@rows">
     <template slot="cell:email">
         <gcds-link data-bind="email" data-bind-template-href="mailto:{email}"></gcds-link>
     </template>
 </fdcp-table>
 
-<pre><code class="language-cshtml">@Html.Raw(Html.Encode(@"<fdcp-table caption=""My table"" rows=""@Model.Rows"">
-    <template slot=""cell:email"">
-        <gcds-link data-bind=""email"" data-bind-template-href=""mailto:{email}""></gcds-link>
-    </template>
-</fdcp-table>"))</code></pre>
+<pre><code class="language-cshtml">@Html.Raw($@"&lt;fdcp-table caption=""{Html.Encode(Components.Table_WithEmail_Caption)}"" rows=""@Model.Rows""&gt;
+    &lt;template slot=""cell:email""&gt;
+        &lt;gcds-link data-bind=""email"" data-bind-template-href=""mailto:{{email}}""&gt;&lt;/gcds-link&gt;
+    &lt;/template&gt;
+&lt;/fdcp-table&gt;")</code></pre>
 
-<pre><code class="language-csharp">@Html.Raw(Html.Encode(@"[Display(Name = ""Email_Header"", ResourceType = typeof(Resources.Components))]
+<pre><code class="language-csharp">@Html.Raw(Html.Encode(@"[Display(Name = ""Table_Email_Header"", ResourceType = typeof(Resources.Components))]
 [TableColumnDefinition(Slotted = true)]
 public string Email { get; set; }
 "))</code></pre>

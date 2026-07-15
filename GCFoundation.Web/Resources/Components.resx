@@ -502,7 +502,7 @@
     <value>Table</value>
   </data>
   <data name="Table_Overview" xml:space="preserve">
-    <value>The &lt;code&gt;&amp;lt;fdcp-table&amp;gt;&lt;/code&gt; component wraps the GC Design System &lt;code&gt;&amp;lt;gcds-table&amp;gt;&lt;/code&gt;. Columns are inferred automatically from the row model's public properties, or can be customized per-property with &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;, or supplied explicitly via &lt;code&gt;column-definitions&lt;/code&gt;. Filtering and sorting are supported out of the box. Custom cell content (links, buttons, etc.) is rendered via &lt;code&gt;&amp;lt;template slot="cell:fieldName"&amp;gt;&lt;/code&gt;, with &lt;code&gt;data-bind&lt;/code&gt; and &lt;code&gt;data-bind-template-*&lt;/code&gt; attributes binding row values into the template's content and attributes.</value>
+    <value>The &lt;code&gt;&amp;lt;fdcp-table&amp;gt;&lt;/code&gt; component wraps the GC Design System &lt;code&gt;&amp;lt;gcds-table&amp;gt;&lt;/code&gt;. Columns are inferred automatically from the row model's public properties, or can be customized per-property with &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;, or supplied explicitly via &lt;code&gt;column-definitions&lt;/code&gt;. Filtering and sorting are supported out of the box. Custom cell content (links, buttons, etc.) is rendered via &lt;code&gt;&amp;lt;template slot="cell:fieldName"&amp;gt;&lt;/code&gt;. Use &lt;code&gt;data-bind&lt;/code&gt; to bind a single field's value as an element's text, &lt;code&gt;data-bind-template&lt;/code&gt; to compose text from multiple fields using &lt;code&gt;{fieldName}&lt;/code&gt; tokens, and &lt;code&gt;data-bind-template-*&lt;/code&gt; to interpolate field values into any attribute.</value>
   </data>
   <data name="Table_Notes_1" xml:space="preserve">
     <value>Always include a caption and scoped headers so screen reader users retain table context.</value>
@@ -1374,7 +1374,7 @@
     <value>With link</value>
   </data>
   <data name="Table_WithLink_Text" xml:space="preserve">
-    <value>Mix static path segments with &lt;code&gt;{fieldName}&lt;/code&gt; tokens in &lt;code&gt;data-bind-template-href&lt;/code&gt; to build a destination URL from the current row's data.</value>
+    <value>You can use &lt;code&gt;data-bind-template&lt;/code&gt; and &lt;code&gt;data-bind-template-href&lt;/code&gt; with &lt;code&gt;{fieldName}&lt;/code&gt; tokens to build strings from row field values into the link's text and destination URL.</value>
   </data>
   <data name="Table_WithButton_Title" xml:space="preserve">
     <value>With button</value>
@@ -1492,5 +1492,32 @@
   </data>
   <data name="Table_WithLink_Anchor" xml:space="preserve">
     <value>with-slots-link</value>
+  </data>
+  <data name="Table_WithAnnotations_Caption" xml:space="preserve">
+    <value>Table using data annotations</value>
+  </data>
+  <data name="Table_WithColumns_Caption" xml:space="preserve">
+    <value>Table using column definitions</value>
+  </data>
+  <data name="Table_WithEmail_Caption" xml:space="preserve">
+    <value>Table with email link</value>
+  </data>
+  <data name="Table_WithLink_Caption" xml:space="preserve">
+    <value>Table with link</value>
+  </data>
+  <data name="Table_WithButton_Caption" xml:space="preserve">
+    <value>Table with button</value>
+  </data>
+  <data name="Table_WithButtonLink_Caption" xml:space="preserve">
+    <value>Table with button link</value>
+  </data>
+  <data name="Table_WithLink_Label" xml:space="preserve">
+    <value>View submission of</value>
+  </data>
+  <data name="Table_WithButtonLink_Label" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Table_WithButton_Label" xml:space="preserve">
+    <value>Delete</value>
   </data>
 </root>
