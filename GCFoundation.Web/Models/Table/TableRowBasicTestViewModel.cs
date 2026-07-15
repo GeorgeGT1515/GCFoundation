@@ -5,8 +5,8 @@ using System.ComponentModel.DataAnnotations;
 namespace GCFoundation.Web.Models.Table
 {
     /// <summary>
-    /// Sample row model used to demo the table component's automatic column resolution from
-    /// <see cref="TableColumnDefinitionAttribute"/> annotations.
+    /// Sample row model for demonstrating <c>fdcp-table</c>'s automatic column inference
+    /// from public properties and <see cref="TableColumnDefinitionAttribute"/> annotations.
     /// </summary>
     public class TableRowBasicTestViewModel
     {
@@ -26,8 +26,7 @@ namespace GCFoundation.Web.Models.Table
         public string SubmitterName { get; set; } = string.Empty;
 
         /// <summary>
-        /// The date and time the submission was made. Sortable, and formatted as
-        /// <c>yyyy-MM-dd HH:mm</c>.
+        /// The date and time the submission was made. Sortable and formatted as <c>yyyy-MM-dd HH:mm</c>.
         /// </summary>
         [DataType(DataType.Date)]
         [Display(Name = "Table_Date_Submitted_Header", ResourceType = typeof(Resources.Components))]

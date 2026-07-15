@@ -5,8 +5,9 @@ using System.ComponentModel.DataAnnotations;
 namespace GCFoundation.Web.Models.Table
 {
     /// <summary>
-    /// Sample row model used to demo the table component's automatic column resolution from
-    /// <see cref="TableColumnDefinitionAttribute"/> annotations.
+    /// Sample row model for demonstrating how to compose link text and a destination URL
+    /// from row field values using <c>data-bind-template</c> and <c>data-bind-template-href</c>
+    /// inside a slotted cell template.
     /// </summary>
     public class TableRowLinkTestViewModel
     {
@@ -19,6 +20,8 @@ namespace GCFoundation.Web.Models.Table
 
         /// <summary>
         /// The name of the person who made the submission. Rendered as the row header.
+        /// Also used as a <c>{submitterName}</c> token in <c>data-bind-template-href</c>
+        /// to build the link's destination URL.
         /// </summary>
         [DataType(DataType.Text)]
         [Display(Name = "Table_Submitter_Name_Header", ResourceType = typeof(Resources.Components))]
@@ -26,8 +29,7 @@ namespace GCFoundation.Web.Models.Table
         public string SubmitterName { get; set; } = string.Empty;
 
         /// <summary>
-        /// The date and time the submission was made. Sortable, and formatted as
-        /// <c>yyyy-MM-dd HH:mm</c>.
+        /// The date and time the submission was made. Formatted as <c>yyyy-MM-dd HH:mm</c>.
         /// </summary>
         [DataType(DataType.Date)]
         [Display(Name = "Table_Date_Submitted_Header", ResourceType = typeof(Resources.Components))]
@@ -42,11 +44,12 @@ namespace GCFoundation.Web.Models.Table
         public string AssignedReviewer { get; set; } = string.Empty;
 
         /// <summary>
-        /// Testing slots.
+        /// The link label for this row. Rendered as a slotted <c>gcds-link</c> whose visible
+        /// text is composed via <c>data-bind-template</c> using <c>{fieldName}</c> tokens.
         /// </summary>
         [DataType(DataType.Text)]
         [Display(Name = "Table_Link_Header", ResourceType = typeof(Resources.Components))]
         [TableColumnDefinition(Slotted = true)]
-        public string SubmissionLink { get; set; } = string.Empty;      
+        public string SubmissionLink { get; set; } = string.Empty;
     }
 }

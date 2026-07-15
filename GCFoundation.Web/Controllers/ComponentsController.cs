@@ -84,12 +84,6 @@ namespace GCFoundation.Web.Controllers
         /// <returns>
         /// A view containing a form with various input types and complex dependencies.
         /// </returns>
-        [HttpGet("table/{submitterName}")]
-        public IActionResult TableDemoRoute(string submitterName)
-        {
-            return Content($"<!doctype html><html><head><meta charset='utf-8'></head><body><p>/components/table/{submitterName}</p></body></html>", "text/html");
-        }
-
         [HttpGet("form-builder")]
         public IActionResult FormBuilder()
         {
@@ -245,6 +239,17 @@ namespace GCFoundation.Web.Controllers
             SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Table_Title}");
             var vm = BuildTableComponentViewModel();
             return View("Component", vm);
+        }
+
+        /// <summary>
+        /// Returns a minimal demo page showing the destination URL for a table row link.
+        /// Used by the "With link" and "With button link" examples on the table documentation page.
+        /// </summary>
+        /// <returns>A bare HTML page displaying the resolved route URL.</returns>
+        [HttpGet("table/{submitterName}")]
+        public IActionResult TableDemoRoute(string submitterName)
+        {
+            return Content($"<!doctype html><html><head><meta charset='utf-8'></head><body><p>/components/table/{submitterName}</p></body></html>", "text/html");
         }
 
         /// <summary>
