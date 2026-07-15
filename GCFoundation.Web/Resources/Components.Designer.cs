@@ -1204,6 +1204,42 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search and select your country of residence..
+        /// </summary>
+        public static string Form_SearchableCountry_Hint {
+            get {
+                return ResourceManager.GetString("Form_SearchableCountry_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Searchable country.
+        /// </summary>
+        public static string Form_SearchableCountry_Label {
+            get {
+                return ResourceManager.GetString("Form_SearchableCountry_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search and select at least one interest..
+        /// </summary>
+        public static string Form_SearchableInterests_Hint {
+            get {
+                return ResourceManager.GetString("Form_SearchableInterests_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Searchable interests.
+        /// </summary>
+        public static string Form_SearchableInterests_Label {
+            get {
+                return ResourceManager.GetString("Form_SearchableInterests_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter your personal or company website URL..
         /// </summary>
         public static string Form_Website_Hint {
@@ -1583,6 +1619,24 @@ namespace GCFoundation.Web.Resources {
         public static string Index_PageHeading_Title {
             get {
                 return ResourceManager.GetString("Index_PageHeading_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A searchable single- or multi-select with optional selected-options content.
+        /// </summary>
+        public static string Index_SearchableSelect_Description {
+            get {
+                return ResourceManager.GetString("Index_SearchableSelect_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Searchable Select.
+        /// </summary>
+        public static string Index_SearchableSelect_Title {
+            get {
+                return ResourceManager.GetString("Index_SearchableSelect_Title", resourceCulture);
             }
         }
         
@@ -2087,6 +2141,357 @@ namespace GCFoundation.Web.Resources {
         public static string SampleCode {
             get {
                 return ResourceManager.GetString("SampleCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to basic.
+        /// </summary>
+        public static string SearchableSelect_Basic_Anchor {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Basic_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic Usage.
+        /// </summary>
+        public static string SearchableSelect_Basic_Title {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Basic_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Searchable Select.
+        /// </summary>
+        public static string SearchableSelect_Name {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-searchable-select&amp;gt;&lt;/code&gt; component provides a searchable select for one or many selections. It always includes search and can render optional caller-provided content in the &lt;code&gt;selected-options&lt;/code&gt; slot..
+        /// </summary>
+        public static string SearchableSelect_Overview {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text shown in the trigger when no option is selected..
+        /// </summary>
+        public static string SearchableSelect_Properties_DefaultValue {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Properties_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model expression used to bind the selected value or values..
+        /// </summary>
+        public static string SearchableSelect_Properties_For {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Properties_For", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional hint text displayed under the label..
+        /// </summary>
+        public static string SearchableSelect_Properties_Hint {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Properties_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Options rendered in the dropdown. Use SelectListItem.Group to display grouped headings..
+        /// </summary>
+        public static string SearchableSelect_Properties_Items {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Properties_Items", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visible label for the dropdown..
+        /// </summary>
+        public static string SearchableSelect_Properties_Label {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Properties_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Form field name used when the component is not bound with for..
+        /// </summary>
+        public static string SearchableSelect_Properties_Name {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Properties_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text shown when no options match the search term..
+        /// </summary>
+        public static string SearchableSelect_Properties_NoResultsText {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Properties_NoResultsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Marks the dropdown as required for validation and accessibility..
+        /// </summary>
+        public static string SearchableSelect_Properties_Required {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Properties_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accessible label for the search input..
+        /// </summary>
+        public static string SearchableSelect_Properties_SearchLabel {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Properties_SearchLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Placeholder text for the search input..
+        /// </summary>
+        public static string SearchableSelect_Properties_SearchPlaceholder {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Properties_SearchPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selection behavior. Use Single for radio-style selection or Multiple for checkbox-style selection..
+        /// </summary>
+        public static string SearchableSelect_Properties_SelectionMode {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Properties_SelectionMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear.
+        /// </summary>
+        public static string SearchableSelect_Sample_Classification_ClearText {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Classification_ClearText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select option.
+        /// </summary>
+        public static string SearchableSelect_Sample_Classification_DefaultValue {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Classification_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Economics and Social Science Services (EC).
+        /// </summary>
+        public static string SearchableSelect_Sample_Classification_EC_Group {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Classification_EC_Group", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Classification group &amp; level.
+        /// </summary>
+        public static string SearchableSelect_Sample_Classification_Label {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Classification_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No results found.
+        /// </summary>
+        public static string SearchableSelect_Sample_Classification_NoResultsText {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Classification_NoResultsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Program Administration (PM).
+        /// </summary>
+        public static string SearchableSelect_Sample_Classification_PM_Group {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Classification_PM_Group", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        public static string SearchableSelect_Sample_Classification_SearchPlaceholder {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Classification_SearchPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to option(s) selected.
+        /// </summary>
+        public static string SearchableSelect_Sample_Classification_SelectedCountText {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Classification_SelectedCountText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to selected.
+        /// </summary>
+        public static string SearchableSelect_Sample_Classification_TriggerSelectedText {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Classification_TriggerSelectedText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Canada.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_CA {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_CA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select country.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_DefaultValue {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to France.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_FR {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_FR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start typing to filter countries.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_Hint {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Country.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_Label {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mexico.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_MX {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_MX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No results found.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_NoResultsText {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_NoResultsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search countries.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_SearchPlaceholder {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_SearchPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Saint Vincent and the Grenadines.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_SV {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_SV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to United States.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_US {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_US", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} results available.
+        /// </summary>
+        public static string SearchableSelect_Sample_MultipleResultsText {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_MultipleResultsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1 result available.
+        /// </summary>
+        public static string SearchableSelect_Sample_OneResultText {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_OneResultText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to with-selected-options.
+        /// </summary>
+        public static string SearchableSelect_WithSelectedOptions_Anchor {
+            get {
+                return ResourceManager.GetString("SearchableSelect_WithSelectedOptions_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Use the &lt;code&gt;selected-options&lt;/code&gt; slot to add a custom bottom section, such as selected counts, clear actions, or any other caller-specific markup.&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string SearchableSelect_WithSelectedOptions_Text {
+            get {
+                return ResourceManager.GetString("SearchableSelect_WithSelectedOptions_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to With Selected Options Slot.
+        /// </summary>
+        public static string SearchableSelect_WithSelectedOptions_Title {
+            get {
+                return ResourceManager.GetString("SearchableSelect_WithSelectedOptions_Title", resourceCulture);
             }
         }
         
