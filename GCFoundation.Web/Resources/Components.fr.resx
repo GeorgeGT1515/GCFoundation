@@ -1177,7 +1177,7 @@
     <value>option(s) sélectionnée(s)</value>
   </data>
   <data name="SearchableSelect_Sample_Classification_TriggerSelectedText" xml:space="preserve">
-    <value>sélectionnée(s)</value>
+    <value>sélection(s)</value>
   </data>
   <data name="SearchableSelect_Sample_Classification_ClearText" xml:space="preserve">
     <value>Effacer</value>
@@ -1275,18 +1275,6 @@
   </data>
   <data name="Stepper_Properties_StepperStep_NotStartedIconHtml" xml:space="preserve">
     <value>Optionnel. HTML pour l'icône d'étape non démarrée</value>
-  </data>
-  <data name="Stepper_Properties_StepperStep_IsHidden" xml:space="preserve">
-    <value>Optionnel. Indique si l'étape doit être masquée à l'affichage.</value>
-  </data>
-  <data name="Stepper_Properties_StepperStep_StatusBadgeLabel" xml:space="preserve">
-    <value>Optionnel. Libellé du badge d’état.</value>
-  </data>
-  <data name="Stepper_Properties_StepperStep_StatusBadgeStyle" xml:space="preserve">
-    <value>Optionnel. Style du badge d’état.</value>
-  </data>
-  <data name="Stepper_Properties_StepperStep_StatusBadgeStyleInverted" xml:space="preserve">
-    <value>Optionnel. Variante inversée du style du badge d’état.</value>
   </data>
   <data name="Stepper_WithIcons_Title" xml:space="preserve">
     <value>Avec icônes</value>
@@ -1517,6 +1505,18 @@
 &lt;li&gt;Alors l’étape ignorée doit annoncer : « Étape X : Ignorée : (Facultatif) Cette étape n’est pas requise selon vos réponses précédentes. »&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_IsHidden" xml:space="preserve">
+    <value>Optionnel. Indique si l'étape doit être masquée à l'affichage.</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_StatusBadgeLabel" xml:space="preserve">
+    <value>Optionnel. Libellé du badge d’état.</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_StatusBadgeStyle" xml:space="preserve">
+    <value>Optionnel. Style du badge d’état.</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_StatusBadgeStyleInverted" xml:space="preserve">
+    <value>Optionnel. Variante inversée du style du badge d’état.</value>
   </data>
   <data name="StatelessAuth_CurrentStatus_Title" xml:space="preserve">
     <value>Statut d'authentification actuel</value>

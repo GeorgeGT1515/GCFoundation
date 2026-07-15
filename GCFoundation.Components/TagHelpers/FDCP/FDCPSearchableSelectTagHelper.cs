@@ -105,12 +105,10 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             string mode = SelectionMode.ToString().ToLowerInvariant();
             string? errorMessage = ResolveModelStateError(field.Name);
             string requiredErrorMessage = GCFoundation.Components.Resources.Validation.Field_Required_Generic;
-#pragma warning disable CA1863 // Not a performance-critical path.
             string requiredSummaryMessage = string.Format(
                 CultureInfo.CurrentCulture,
-                GCFoundation.Components.Resources.Validation.Field_Required_Summary,
+                GCFoundation.Components.Resources.Validation.Field_Required_Summary ?? string.Empty,
                 field.Label);
-#pragma warning restore CA1863
             string selectedSummary = selectedLabels.Count == 0
                 ? DefaultValue
                 : SelectionMode == FDCPSearchableSelectSelectionMode.Multiple
