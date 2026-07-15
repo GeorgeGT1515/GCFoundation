@@ -1,0 +1,27 @@
+@using GCFoundation.Web.Models.Table
+
+@{
+    var rows = new List<TableRowEmailTestViewModel>
+    {
+        new() { SubmissionId = "001", SubmitterName = "Alice Tremblay",  DateSubmitted = new DateTime(2025, 3, 10,  9,  0, 0), AssignedReviewer = "Bob Martin",     Email = "alice.tremblay@example.gc.ca" },
+        new() { SubmissionId = "002", SubmitterName = "Jean Dupont",     DateSubmitted = new DateTime(2025, 3, 11, 14, 30, 0), AssignedReviewer = "Alice Tremblay", Email = "jean.dupont@example.gc.ca"    },
+        new() { SubmissionId = "003", SubmitterName = "Sarah Lee",       DateSubmitted = new DateTime(2025, 3, 12, 10, 15, 0), AssignedReviewer = "Bob Martin",     Email = "sarah.lee@example.gc.ca"      },
+    };
+}
+
+<fdcp-table caption="Table with email link" rows="@rows">
+    <template slot="cell:email">
+        <gcds-link data-bind="email" data-bind-template-href="mailto:{email}"></gcds-link>
+    </template>
+</fdcp-table>
+
+<pre><code class="language-cshtml">@Html.Raw(Html.Encode(@"<fdcp-table caption=""My table"" rows=""@Model.Rows"">
+    <template slot=""cell:email"">
+        <gcds-link data-bind=""email"" data-bind-template-href=""mailto:{email}""></gcds-link>
+    </template>
+</fdcp-table>"))</code></pre>
+
+<pre><code class="language-csharp">@Html.Raw(Html.Encode(@"[Display(Name = ""Email_Header"", ResourceType = typeof(Resources.Components))]
+[TableColumnDefinition(Slotted = true)]
+public string Email { get; set; }
+"))</code></pre>

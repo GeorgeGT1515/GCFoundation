@@ -1,39 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <NavNode key="Home" controller="Home" action="Index" area="" preservedRouteParameters="culture" text="Nav_Home">
 	<Children>
-		<NavNode key="components" controller="Components" action="Index" area="" preservedRouteParameters="culture" text="Nav_Components" >
-			<Children>
-        
-				<NavNode key="components-gcds" controller="Components" action="Gcds" area="" preservedRouteParameters="culture" text="Nav_Components_GCDesign" />
-				<NavNode key="components-form" controller="Components" action="Form" area="" preservedRouteParameters="culture" text="Nav_Components_Form" />
-				<NavNode key="components-formBuilder" controller="Components" action="FormBuilder" area="" preservedRouteParameters="culture" text="Nav_Components_FormBuilder"/>
-				<NavNode key="components-badge" controller="Components" action="Badge" area="" preservedRouteParameters="culture" text="Nav_Components_Badge" />
-        <NavNode key="components-card" controller="Components" action="Card" area="" preservedRouteParameters="culture" text="Nav_Components_Card" />
-        <NavNode key="components-filtered-search" controller="Components" action="FilteredSearch" area="" preservedRouteParameters="culture" text="Nav_Components_FilteredSearch" />
-				<NavNode key="components-modal" controller="Components" action="Modal" area="" preservedRouteParameters="culture" text="Nav_Components_Modal" />
-				<NavNode key="components-table-gridjs" controller="Components" action="TableGridJs" area="" preservedRouteParameters="culture" text="Nav_Components_TableGridJs" />
-				<NavNode key="components-page-heading" controller="Components" action="PageHeading" area="" preservedRouteParameters="culture" text="Nav_Components_PageHeading" />
-				<NavNode key="components-stepper" controller="Components" action="Stepper" area="" preservedRouteParameters="culture" text="Nav_Components_Stepper" />
-				<NavNode key="components-tabs" controller="Components" action="Tabs" area="" preservedRouteParameters="culture" text="Nav_Components_Tabs" />
-				<NavNode key="components-user-login" controller="Components" action="UserLogin" area="" preservedRouteParameters="culture" text="Nav_Components_UserLogin" >
-					<Children>
-						<NavNode key="user-login-examples" controller="UserLoginExample" action="Index" area="" preservedRouteParameters="culture" text="Nav_UserLogin_Examples" />
-						<NavNode key="user-login-positions" controller="UserLoginExample" action="PositionExample" area="" preservedRouteParameters="culture" text="Nav_UserLogin_Positions" />
-					</Children>
-				</NavNode>
 
+		<NavNode key="get-started" text="Nav_GetStarted" componentVisibility="topnav">
+			<Children>
+				<NavNode key="installation" controller="Installation" action="Index" area="" preservedRouteParameters="culture" text="Nav_Installation" />
+				<NavNode key="date-modified" controller="Installation" action="DateModified" area="" preservedRouteParameters="culture" text="Nav_Installation_DateModified" />
+				<NavNode key="global-resources" controller="Installation" action="GlobalResources" area="" preservedRouteParameters="culture" text="Nav_Installation_GlobalResources" />
+				<NavNode key="metadata" controller="Installation" action="Metadata" area="" preservedRouteParameters="culture" text="Nav_Installation_Metadata" />
+				<NavNode key="translations" controller="Installation" action="Translations" area="" preservedRouteParameters="culture" text="Nav_Installation_Translations" />
 			</Children>
 		</NavNode>
-    <NavNode key="accessibility-statement" controller="Home" action="AccessibilityStatement" area="" preservedRouteParameters="culture" text="Nav_AccessibilityStatement" />
-    <NavNode key="installation" controller="Installation" action="Index" area="" preservedRouteParameters="culture" text="Nav_Installation" />
-    <NavNode key="date-modified" controller="Installation" action="DateModified" area="" preservedRouteParameters="culture" text="Nav_Installation_DateModified" />
-		<NavNode key="global-resources" controller="Installation" action="GlobalResources" area="" preservedRouteParameters="culture" text="Nav_Installation_GlobalResources" />
-		<NavNode key="metadata" controller="Installation" action="Metadata" area="" preservedRouteParameters="culture" text="Nav_Installation_Metadata" />
-		<NavNode key="translations" controller="Installation" action="Translations" area="" preservedRouteParameters="culture" text="Nav_Installation_Translations" />
+
+		<NavNode key="accessibility-statement" controller="Home" action="AccessibilityStatement" area="" preservedRouteParameters="culture" text="Nav_AccessibilityStatement" componentVisibility="breadcrumbs" />
+
 		<NavNode key="styles" controller="Styles" action="Index" area="" preservedRouteParameters="culture" text="Nav_Styles" />
-    <NavNode key="template" controller="Template" action="Index" area="" preservedRouteParameters="culture" text="Nav_Template">
-      <Children>
-				<NavNode key="template-basic" controller="Template" action="Basic" area="" preservedRouteParameters="culture" text="Nav_Template_Basic">
+
+		<NavNode key="template" controller="Template" action="Index" area="" preservedRouteParameters="culture" text="Nav_Template">
+			<Children>
+				<NavNode key="template-basic" controller="Template" action="Basic" area="" preservedRouteParameters="culture" text="Nav_Template_Basic" componentVisibility="breadcrumbs">
 					<Children>
 						<NavNode key="template-basic-code" controller="Template" action="BasicCode" area="" preservedRouteParameters="culture" text="Nav_Template_Basic_Code" />
 						<NavNode key="template-basic-demo" controller="Template" action="BasicDemo" area="" preservedRouteParameters="culture" text="Nav_Template_Basic_Demo" />
@@ -41,47 +26,77 @@
 						<NavNode key="template-basic-sidenav-demo" controller="Template" action="BasicSideNavDemo" area="" preservedRouteParameters="culture" text="Nav_Template_Basic_SideNav_Demo" />
 					</Children>
 				</NavNode>
-				<NavNode key="template-crud" controller="Template" action="Crud" area="" preservedRouteParameters="culture" text="Nav_Template_Crud" />
-        <NavNode key="template-dashboard" controller="Template" action="Dashboard" area="" preservedRouteParameters="culture" text="Nav_Template_Dashboard">
+				<NavNode key="template-crud" controller="Template" action="Crud" area="" preservedRouteParameters="culture" text="Nav_Template_Crud" componentVisibility="breadcrumbs" />
+				<NavNode key="template-dashboard" controller="Template" action="Dashboard" area="" preservedRouteParameters="culture" text="Nav_Template_Dashboard" componentVisibility="breadcrumbs">
 					<Children>
 						<NavNode key="template-dashboard-code" controller="Template" action="DashboardCode" area="" preservedRouteParameters="culture" text="Nav_Template_Dashboard_Code" />
 						<NavNode key="template-dashboard-demo" controller="Template" action="DashboardDemo" area="" preservedRouteParameters="culture" text="Nav_Template_Dashboard_Demo" />
 					</Children>
 				</NavNode>
-        <NavNode key="template-error" controller="Template" action="Error" area="" preservedRouteParameters="culture" text="Nav_Template_Error">
+				<NavNode key="template-error" controller="Template" action="Error" area="" preservedRouteParameters="culture" text="Nav_Template_Error" componentVisibility="breadcrumbs">
 					<Children>
 						<NavNode key="template-error-code" controller="Template" action="ErrorCode" area="" preservedRouteParameters="culture" text="Nav_Template_Error_Code" />
 						<NavNode key="template-error-demo" controller="Template" action="ErrorDemo" area="" preservedRouteParameters="culture" text="Nav_Template_Error_Demo" />
 					</Children>
 				</NavNode>
-        <NavNode key="template-language-chooser" controller="Template" action="LanguageChooser" area="" preservedRouteParameters="culture" text="Nav_Template_LanguageChooser">
+				<NavNode key="template-language-chooser" controller="Template" action="LanguageChooser" area="" preservedRouteParameters="culture" text="Nav_Template_LanguageChooser" componentVisibility="breadcrumbs">
 					<Children>
 						<NavNode key="template-language-chooser-code" controller="Template" action="LanguageChooserCode" area="" preservedRouteParameters="culture" text="Nav_Template_LanguageChooser_Code" />
 						<NavNode key="template-language-chooser-demo" controller="Template" action="LanguageChooserDemo" area="" preservedRouteParameters="culture" text="Nav_Template_LanguageChooser_Demo" />
 					</Children>
 				</NavNode>
-        <NavNode key="template-stepper" controller="Template" action="Stepper" area="" preservedRouteParameters="culture" text="Nav_Template_Stepper">
+				<NavNode key="template-stepper" controller="Template" action="Stepper" area="" preservedRouteParameters="culture" text="Nav_Template_Stepper" componentVisibility="breadcrumbs">
 					<Children>
 						<NavNode key="template-stepper-code" controller="Template" action="StepperCode" area="" preservedRouteParameters="culture" text="Nav_Template_Stepper_Code" />
 						<NavNode key="template-stepper-demo" controller="Template" action="StepperDemo" area="" preservedRouteParameters="culture" text="Nav_Template_Stepper_Demo" />
 					</Children>
 				</NavNode>
-      </Children>
-    </NavNode>
-		<NavNode key="language" controller="Language" action="Index" area="" preservedRouteParameters="culture" text="Nav_Language" />
+			</Children>
+		</NavNode>
 
-		<NavNode key="authentication" controller="Authentication" action="Login" area="" preservedRouteParameters="culture" text="Nav_Authentication" >
+		<NavNode key="components" area="" preservedRouteParameters="culture" text="Nav_Components" componentVisibility="topnav">
+			<Children>
+				<NavNode key="components-gcds" controller="Components" action="Gcds" area="" preservedRouteParameters="culture" text="Nav_Components_GCDesign" />
+				<NavNode key="components-foundation" controller="Components" action="Index" area="" preservedRouteParameters="culture" text="Nav_Components_GCFoundation">
+					<Children>
+						<NavNode key="components-form" controller="Components" action="Form" area="" preservedRouteParameters="culture" text="Nav_Components_Form" componentVisibility="breadcrumbs" />
+						<NavNode key="components-formBuilder" controller="Components" action="FormBuilder" area="" preservedRouteParameters="culture" text="Nav_Components_FormBuilder" componentVisibility="breadcrumbs" />
+						<NavNode key="components-badge" controller="Components" action="Badge" area="" preservedRouteParameters="culture" text="Nav_Components_Badge" componentVisibility="breadcrumbs" />
+						<NavNode key="components-card" controller="Components" action="Card" area="" preservedRouteParameters="culture" text="Nav_Components_Card" componentVisibility="breadcrumbs" />
+						<NavNode key="components-filtered-search" controller="Components" action="FilteredSearch" area="" preservedRouteParameters="culture" text="Nav_Components_FilteredSearch" componentVisibility="breadcrumbs" />
+						<NavNode key="components-modal" controller="Components" action="Modal" area="" preservedRouteParameters="culture" text="Nav_Components_Modal" componentVisibility="breadcrumbs" />
+						<NavNode key="components-page-heading" controller="Components" action="PageHeading" area="" preservedRouteParameters="culture" text="Nav_Components_PageHeading" componentVisibility="breadcrumbs" />
+            <NavNode key="components-searchable-select" controller="Components" action="SearchableSelect" area="" preservedRouteParameters="culture" text="Nav_Components_SearchableSelect" componentVisibility="breadcrumbs" />
+            <NavNode key="components-tabs" controller="Components" action="Tabs" area="" preservedRouteParameters="culture" text="Nav_Components_Tabs" componentVisibility="breadcrumbs"  />
+            <NavNode key="components-stepper" controller="Components" action="Stepper" area="" preservedRouteParameters="culture" text="Nav_Components_Stepper" componentVisibility="breadcrumbs" />
+            <NavNode key="components-table" controller="Components" action="Table" area="" preservedRouteParameters="culture" text="Nav_Components_Table" componentVisibility="breadcrumbs" />
+            <NavNode key="components-user-login" controller="Components" action="UserLogin" area="" preservedRouteParameters="culture" text="Nav_Components_UserLogin" componentVisibility="breadcrumbs">
+							<Children>
+								<NavNode key="user-login-examples" controller="UserLoginExample" action="Index" area="" preservedRouteParameters="culture" text="Nav_UserLogin_Examples" />
+								<NavNode key="user-login-positions" controller="UserLoginExample" action="PositionExample" area="" preservedRouteParameters="culture" text="Nav_UserLogin_Positions" />
+							</Children>
+						</NavNode>
+          </Children>
+        </NavNode>
+			</Children>
+		</NavNode>
+
+		<NavNode key="language" controller="Language" action="Index" area="" preservedRouteParameters="culture" text="Nav_Language" componentVisibility="breadcrumbs" />
+
+		<NavNode key="authentication" controller="Authentication" action="Login" area="" preservedRouteParameters="culture" text="Nav_Authentication" componentVisibility="breadcrumbs">
 			<Children>
 				<NavNode key="login" controller="Authentication" action="Login" area="" preservedRouteParameters="culture" text="Nav_Authentication_Login" />
 				<NavNode key="logout" controller="Authentication" action="Logout" area="" preservedRouteParameters="culture" text="Nav_Authentication_Logout" />
 				<NavNode key="stateless-auth-examples" controller="StatelessAuthExample" action="Index" area="" preservedRouteParameters="culture" text="Nav_Authentication_StatelessExamples" />
 			</Children>
 		</NavNode>
-		<NavNode key="errors" controller="Errors" action="GlobalError" area="" preservedRouteParameters="culture" text="Nav_Errors" >
+
+		<NavNode key="errors" controller="Errors" action="GlobalError" area="" preservedRouteParameters="culture" text="Nav_Errors" componentVisibility="breadcrumbs">
 			<Children>
 				<NavNode key="not-found" controller="Errors" action="NotFoundError" area="" preservedRouteParameters="culture" text="Nav_Errors_NotFound" />
 				<NavNode key="global-error" controller="Errors" action="GlobalError" area="" preservedRouteParameters="culture" text="Nav_Errors_Global" />
 			</Children>
 		</NavNode>
+
 	</Children>
 </NavNode>

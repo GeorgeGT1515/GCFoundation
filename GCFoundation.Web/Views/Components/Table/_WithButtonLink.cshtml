@@ -1,0 +1,29 @@
+@using GCFoundation.Web.Models.Table
+
+@{
+    var rows = new List<TableRowButtonLinkTestViewModel>
+    {
+        new() { SubmissionId = "001", SubmitterName = "Alice Tremblay",  DateSubmitted = new DateTime(2025, 3, 10,  9,  0, 0), AssignedReviewer = "Bob Martin",     ButtonLink = "Edit submission" },
+        new() { SubmissionId = "002", SubmitterName = "Jean Dupont",     DateSubmitted = new DateTime(2025, 3, 11, 14, 30, 0), AssignedReviewer = "Alice Tremblay", ButtonLink = "Edit submission" },
+        new() { SubmissionId = "003", SubmitterName = "Sarah Lee",       DateSubmitted = new DateTime(2025, 3, 12, 10, 15, 0), AssignedReviewer = "Bob Martin",     ButtonLink = "Edit submission" },
+    };
+}
+
+<fdcp-table caption="Table with button link" rows="@rows">
+    <template slot="cell:buttonLink">
+        <gcds-button type="link" data-bind-template-href="/table/{submitterName}" size="small">Edit</gcds-button>
+    </template>
+</fdcp-table>
+
+<pre><code class="language-cshtml">@Html.Raw(Html.Encode(@"<fdcp-table caption=""My table"" rows=""@Model.Rows"">
+    <template slot=""cell:buttonLink"">
+        <gcds-button type=""link""
+                     data-bind-template-href=""/table/{submitterName}""
+                     size=""small"">Edit</gcds-button>
+    </template>
+</fdcp-table>"))</code></pre>
+
+<pre><code class="language-csharp">@Html.Raw(Html.Encode(@"[Display(Name = ""Table_Actions_Header"", ResourceType = typeof(Resources.Components))]
+[TableColumnDefinition(Slotted = true)]
+public string ButtonLink { get; set; }
+"))</code></pre>

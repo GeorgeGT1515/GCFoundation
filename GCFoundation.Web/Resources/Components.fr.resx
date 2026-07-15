@@ -506,22 +506,7 @@
     <value>Tableau de données</value>
   </data>
   <data name="Table_Overview" xml:space="preserve">
-    <value>Utilisez les styles de tableau FDCP pour présenter des données tabulaires conformes aux WCAG avec légendes et en-têtes structurés.</value>
-  </data>
-  <data name="Table_Basic_Title" xml:space="preserve">
-    <value>Tableau réactif</value>
-  </data>
-  <data name="Table_Basic_Anchor" xml:space="preserve">
-    <value>tableau-base</value>
-  </data>
-  <data name="Table_Basic_Text" xml:space="preserve">
-    <value>Démontre la légende, le résumé, les en-têtes avec portée et les classes utilitaires fdcp-table.</value>
-  </data>
-  <data name="Table_Basic_Caption" xml:space="preserve">
-    <value>Statut des employés</value>
-  </data>
-  <data name="Table_Basic_Summary" xml:space="preserve">
-    <value>Comparaison de la participation des employés aux programmes et des indicateurs d'état.</value>
+    <value>Le composant &lt;code&gt;&amp;lt;fdcp-table&amp;gt;&lt;/code&gt; encapsule le composant &lt;code&gt;&amp;lt;gcds-table&amp;gt;&lt;/code&gt; du Système de design GC. Les colonnes sont déduites automatiquement des propriétés publiques du modèle de rangée, peuvent être personnalisées propriété par propriété avec &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;, ou fournies explicitement via &lt;code&gt;column-definitions&lt;/code&gt;. Le filtrage et le tri sont pris en charge de façon native. Le contenu personnalisé des cellules (liens, boutons, etc.) est rendu via &lt;code&gt;&amp;lt;template slot="cell:fieldName"&amp;gt;&lt;/code&gt;, avec les attributs &lt;code&gt;data-bind&lt;/code&gt; et &lt;code&gt;data-bind-template-*&lt;/code&gt; qui lient les valeurs des rangées au contenu et aux attributs du gabarit.</value>
   </data>
   <data name="Table_Notes_1" xml:space="preserve">
     <value>Incluez toujours une légende et des en-têtes avec l’attribut scope pour conserver le contexte des lecteurs d’écran.</value>
@@ -558,6 +543,12 @@
   </data>
   <data name="Index_FilteredSearch_Description" xml:space="preserve">
     <value>Un moyen d'afficher une recherche avec des résultats filtrés</value>
+  </data>
+  <data name="Index_SearchableSelect_Title" xml:space="preserve">
+    <value>Sélecteur avec recherche</value>
+  </data>
+  <data name="Index_SearchableSelect_Description" xml:space="preserve">
+    <value>Un sélecteur avec recherche pour une ou plusieurs sélections et une zone optionnelle pour les options sélectionnées</value>
   </data>
   <data name="Index_Badge_Title" xml:space="preserve">
     <value>Badge</value>
@@ -891,6 +882,12 @@
   <data name="Form_Country_Label" xml:space="preserve">
     <value>Pays</value>
   </data>
+  <data name="Form_SearchableCountry_Hint" xml:space="preserve">
+    <value>Recherchez et sélectionnez votre pays de résidence.</value>
+  </data>
+  <data name="Form_SearchableCountry_Label" xml:space="preserve">
+    <value>Pays avec recherche</value>
+  </data>
   <data name="Form_DateOfBirth_Hint" xml:space="preserve">
     <value>Entrez votre date de naissance</value>
   </data>
@@ -926,6 +923,12 @@
   </data>
   <data name="Form_Interests_Label" xml:space="preserve">
     <value>Quels sont vos intérêts?</value>
+  </data>
+  <data name="Form_SearchableInterests_Hint" xml:space="preserve">
+    <value>Recherchez et sélectionnez au moins un intérêt.</value>
+  </data>
+  <data name="Form_SearchableInterests_Label" xml:space="preserve">
+    <value>Intérêts avec recherche</value>
   </data>
   <data name="Form_Password_Hint" xml:space="preserve">
     <value>Choisissez un mot de passe fort avec au moins 8 caractères.</value>
@@ -1047,6 +1050,123 @@
   <data name="FilteredSearch_Basic_Title" xml:space="preserve">
     <value>Utilisation de base</value>
   </data>
+  <data name="SearchableSelect_Name" xml:space="preserve">
+    <value>Sélecteur avec recherche</value>
+  </data>
+  <data name="SearchableSelect_Overview" xml:space="preserve">
+    <value>Le composant &lt;code&gt;&amp;lt;fdcp-searchable-select&amp;gt;&lt;/code&gt; fournit un sélecteur avec recherche pour une ou plusieurs sélections. La recherche est toujours incluse et le composant peut afficher du contenu fourni par l'appelant dans l'emplacement &lt;code&gt;selected-options&lt;/code&gt;.</value>
+  </data>
+  <data name="SearchableSelect_Properties_For" xml:space="preserve">
+    <value>Expression de modèle utilisée pour lier la valeur ou les valeurs sélectionnées.</value>
+  </data>
+  <data name="SearchableSelect_Properties_Name" xml:space="preserve">
+    <value>Nom du champ de formulaire utilisé lorsque le composant n'est pas lié avec for.</value>
+  </data>
+  <data name="SearchableSelect_Properties_Items" xml:space="preserve">
+    <value>Options affichées dans la liste déroulante. Utilisez SelectListItem.Group pour afficher des en-têtes de groupe.</value>
+  </data>
+  <data name="SearchableSelect_Properties_Label" xml:space="preserve">
+    <value>Étiquette visible de la liste déroulante.</value>
+  </data>
+  <data name="SearchableSelect_Properties_DefaultValue" xml:space="preserve">
+    <value>Texte affiché dans le déclencheur lorsqu'aucune option n'est sélectionnée.</value>
+  </data>
+  <data name="SearchableSelect_Properties_SearchPlaceholder" xml:space="preserve">
+    <value>Texte indicatif du champ de recherche.</value>
+  </data>
+  <data name="SearchableSelect_Properties_SearchLabel" xml:space="preserve">
+    <value>Étiquette accessible du champ de recherche.</value>
+  </data>
+  <data name="SearchableSelect_Properties_NoResultsText" xml:space="preserve">
+    <value>Texte affiché lorsqu'aucune option ne correspond au terme recherché.</value>
+  </data>
+  <data name="SearchableSelect_Properties_SelectionMode" xml:space="preserve">
+    <value>Comportement de sélection. Utilisez Single pour une sélection de type bouton radio ou Multiple pour une sélection de type case à cocher.</value>
+  </data>
+  <data name="SearchableSelect_Properties_Hint" xml:space="preserve">
+    <value>Texte d'aide facultatif affiché sous l'étiquette.</value>
+  </data>
+  <data name="SearchableSelect_Properties_Required" xml:space="preserve">
+    <value>Marque la liste déroulante comme obligatoire pour la validation et l'accessibilité.</value>
+  </data>
+  <data name="SearchableSelect_Basic_Anchor" xml:space="preserve">
+    <value>base</value>
+  </data>
+  <data name="SearchableSelect_Basic_Title" xml:space="preserve">
+    <value>Utilisation de base</value>
+  </data>
+  <data name="SearchableSelect_WithSelectedOptions_Anchor" xml:space="preserve">
+    <value>avec-options-selectionnees</value>
+  </data>
+  <data name="SearchableSelect_WithSelectedOptions_Title" xml:space="preserve">
+    <value>Avec emplacement pour les options sélectionnées</value>
+  </data>
+  <data name="SearchableSelect_WithSelectedOptions_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Utilisez l'emplacement &lt;code&gt;selected-options&lt;/code&gt; pour ajouter une zone inférieure personnalisée, par exemple un compteur de sélections, une action d'effacement ou tout autre balisage propre à l'appelant.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_CA" xml:space="preserve">
+    <value>Canada</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_US" xml:space="preserve">
+    <value>États-Unis</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_MX" xml:space="preserve">
+    <value>Mexique</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_FR" xml:space="preserve">
+    <value>France</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_SV" xml:space="preserve">
+    <value>Saint-Vincent-et-les Grenadines</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_Label" xml:space="preserve">
+    <value>Pays</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_Hint" xml:space="preserve">
+    <value>Commencez à taper pour filtrer les pays</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_DefaultValue" xml:space="preserve">
+    <value>Sélectionnez un pays</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_SearchPlaceholder" xml:space="preserve">
+    <value>Rechercher des pays</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_NoResultsText" xml:space="preserve">
+    <value>Aucun résultat trouvé</value>
+  </data>
+  <data name="SearchableSelect_Sample_OneResultText" xml:space="preserve">
+    <value>1 résultat disponible</value>
+  </data>
+  <data name="SearchableSelect_Sample_MultipleResultsText" xml:space="preserve">
+    <value>{0} résultats disponibles</value>
+  </data>
+  <data name="SearchableSelect_Sample_Classification_EC_Group" xml:space="preserve">
+    <value>Services économiques et services de sciences sociales (EC)</value>
+  </data>
+  <data name="SearchableSelect_Sample_Classification_PM_Group" xml:space="preserve">
+    <value>Administration des programmes (PM)</value>
+  </data>
+  <data name="SearchableSelect_Sample_Classification_Label" xml:space="preserve">
+    <value>Groupe et niveau de classification</value>
+  </data>
+  <data name="SearchableSelect_Sample_Classification_DefaultValue" xml:space="preserve">
+    <value>Sélectionner une option</value>
+  </data>
+  <data name="SearchableSelect_Sample_Classification_SearchPlaceholder" xml:space="preserve">
+    <value>Rechercher</value>
+  </data>
+  <data name="SearchableSelect_Sample_Classification_NoResultsText" xml:space="preserve">
+    <value>Aucun résultat trouvé</value>
+  </data>
+  <data name="SearchableSelect_Sample_Classification_SelectedCountText" xml:space="preserve">
+    <value>option(s) sélectionnée(s)</value>
+  </data>
+  <data name="SearchableSelect_Sample_Classification_TriggerSelectedText" xml:space="preserve">
+    <value>sélection(s)</value>
+  </data>
+  <data name="SearchableSelect_Sample_Classification_ClearText" xml:space="preserve">
+    <value>Effacer</value>
+  </data>
   <data name="PageHeading_Basic_Anchor" xml:space="preserve">
     <value>base</value>
   </data>
@@ -1141,18 +1261,6 @@
   <data name="Stepper_Properties_StepperStep_NotStartedIconHtml" xml:space="preserve">
     <value>Optionnel. HTML pour l'icône d'étape non démarrée</value>
   </data>
-  <data name="Stepper_Properties_StepperStep_IsHidden" xml:space="preserve">
-    <value>Optionnel. Indique si l'étape doit être masquée à l'affichage.</value>
-  </data>
-  <data name="Stepper_Properties_StepperStep_StatusBadgeLabel" xml:space="preserve">
-    <value>Optionnel. Libellé du badge d’état.</value>
-  </data>
-  <data name="Stepper_Properties_StepperStep_StatusBadgeStyle" xml:space="preserve">
-    <value>Optionnel. Style du badge d’état.</value>
-  </data>
-  <data name="Stepper_Properties_StepperStep_StatusBadgeStyleInverted" xml:space="preserve">
-    <value>Optionnel. Variante inversée du style du badge d’état.</value>
-  </data>
   <data name="Stepper_WithIcons_Title" xml:space="preserve">
     <value>Avec icônes</value>
   </data>
@@ -1190,57 +1298,6 @@
   </data>
   <data name="FormBuilder_Properties_Form" xml:space="preserve">
     <value>Obtient ou définit la définition de formulaire utilisée pour générer l'interface utilisateur du formulaire.</value>
-  </data>
-  <data name="TableGridJs_Name" xml:space="preserve">
-    <value>Tableau (Grid.js)</value>
-  </data>
-  <data name="TableGridJs_Overview" xml:space="preserve">
-    <value>Ce tableau (Grid.js) enveloppe Grid.js pour fournir un tableau de données accessible conforme à WCAG 2.1 AAA avec tri, recherche et pagination côté serveur. Il améliore progressivement une table sémantique de repli et aligne le style avec le Système de design GC.</value>
-  </data>
-  <data name="TableGridJs_Description" xml:space="preserve">
-    <value>Tableau accessible côté serveur (Grid.js)</value>
-  </data>
-  <data name="TableGridJs_Basic_Title" xml:space="preserve">
-    <value>Utilisation de base</value>
-  </data>
-  <data name="TableGridJs_Basic_Anchor" xml:space="preserve">
-    <value>base</value>
-  </data>
-  <data name="TableGridJs_Basic_Text" xml:space="preserve">
-    <value>Un exemple de base du tableau (Grid.js) avec tri, recherche et pagination côté serveur&amp;nbsp;:</value>
-  </data>
-  <data name="TableGridJs_Properties_Id" xml:space="preserve">
-    <value>Identifiant unique du conteneur (généré automatiquement si omis).</value>
-  </data>
-  <data name="TableGridJs_Properties_AjaxUrl" xml:space="preserve">
-    <value>Point d'accès de données pour le tri, la recherche et la pagination côté serveur.</value>
-  </data>
-  <data name="TableGridJs_Properties_Columns" xml:space="preserve">
-    <value>En-têtes de colonnes et clés de champs.</value>
-  </data>
-  <data name="TableGridJs_Properties_PageSize" xml:space="preserve">
-    <value>Lignes par page.</value>
-  </data>
-  <data name="TableGridJs_Properties_SearchEnabled" xml:space="preserve">
-    <value>Activer la recherche côté serveur.</value>
-  </data>
-  <data name="TableGridJs_Properties_SortEnabled" xml:space="preserve">
-    <value>Activer le tri côté serveur.</value>
-  </data>
-  <data name="TableGridJs_Properties_Caption" xml:space="preserve">
-    <value>Légende visible (requise pour AAA).</value>
-  </data>
-  <data name="TableGridJs_Properties_Summary" xml:space="preserve">
-    <value>Contexte supplémentaire annoncé aux utilisateurs de lecteurs d'écran.</value>
-  </data>
-  <data name="TableGridJs_Properties_AriaLabel" xml:space="preserve">
-    <value>Libellé ARIA optionnel pour le tableau.</value>
-  </data>
-  <data name="TableGridJs_Properties_Lang" xml:space="preserve">
-    <value>Indication de langue (p. ex., en, fr).</value>
-  </data>
-  <data name="TableGridJs_Properties_Class" xml:space="preserve">
-    <value>Classes CSS supplémentaires appliquées au tableau amélioré.</value>
   </data>
   <data name="Index_Card_ImgAlt_Template" xml:space="preserve">
     <value>Image représentant le composant "{0}" de GCFoundation</value>
@@ -1382,6 +1439,180 @@
 &lt;li&gt;Alors l’étape ignorée doit annoncer : « Étape X : Ignorée : (Facultatif) Cette étape n’est pas requise selon vos réponses précédentes. »&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_IsHidden" xml:space="preserve">
+    <value>Optionnel. Indique si l'étape doit être masquée à l'affichage.</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_StatusBadgeLabel" xml:space="preserve">
+    <value>Optionnel. Libellé du badge d’état.</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_StatusBadgeStyle" xml:space="preserve">
+    <value>Optionnel. Style du badge d’état.</value>
+  </data>
+  <data name="Stepper_Properties_StepperStep_StatusBadgeStyleInverted" xml:space="preserve">
+    <value>Optionnel. Variante inversée du style du badge d’état.</value>
+  </data>
+  <data name="Table_Submission_Id_Header" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Table_Submitter_Name_Header" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="Table_Date_Submitted_Header" xml:space="preserve">
+    <value>Date de soumission</value>
+  </data>
+  <data name="Table_Assigned_Reviewer_Header" xml:space="preserve">
+    <value>Examinateur</value>
+  </data>
+  <data name="Table_Email_Header" xml:space="preserve">
+    <value>Adresse courriel</value>
+  </data>
+  <data name="Table_Actions_Header" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="Table_Link_Header" xml:space="preserve">
+    <value>Lien de la soumission</value>
+  </data>
+  <data name="Table_BasicUsage_Title" xml:space="preserve">
+    <value>Utilisation de base</value>
+  </data>
+  <data name="Table_BasicUsage_Anchor" xml:space="preserve">
+    <value>utilisation-de-base</value>
+  </data>
+  <data name="Table_BasicUsage_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Toutes les propriétés publiques du modèle de rangée sont affichées en tant que colonnes par défaut — aucune annotation requise. L'attribut facultatif &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; permet de configurer le comportement des colonnes individuellement : masquer une colonne, la marquer comme en-tête de rangée, activer le tri ou l'indiquer pour un contenu personnalisé. Les colonnes peuvent également être fournies explicitement via l'attribut &lt;code&gt;column-definitions&lt;/code&gt;.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Table_WithAnnotations_Title" xml:space="preserve">
+    <value>Avec les annotations de données</value>
+  </data>
+  <data name="Table_WithAnnotations_Text" xml:space="preserve">
+    <value>Toutes les propriétés publiques du modèle de rangée sont rendues comme colonnes par défaut. Utilisez l'attribut &lt;code&gt;[Display]&lt;/code&gt; pour définir le texte de l'en-tête de colonne. Ajoutez &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; uniquement lorsque vous souhaitez modifier le comportement par défaut d'une propriété — par exemple, la marquer comme en-tête de rangée (&lt;code&gt;RowHeader = true&lt;/code&gt;), activer le tri (&lt;code&gt;Sort = true&lt;/code&gt;), utiliser un contenu personnalisé (&lt;code&gt;Slotted = true&lt;/code&gt;) ou la masquer (&lt;code&gt;IsHidden = true&lt;/code&gt;). Une propriété sans &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; s'affichera tout de même dans le tableau.</value>
+  </data>
+  <data name="Table_WithColumns_Title" xml:space="preserve">
+    <value>Avec des définitions de colonnes explicites</value>
+  </data>
+  <data name="Table_WithColumns_Text" xml:space="preserve">
+    <value>Vous pouvez également passer une &lt;code&gt;List&amp;lt;ColumnDefinition&amp;gt;&lt;/code&gt; à &lt;code&gt;column-definitions&lt;/code&gt; pour définir les colonnes entièrement dans le contrôleur. Cette approche est utile lorsque vous devez contrôler l'ordre des colonnes indépendamment du modèle, réutiliser un modèle de rangée dans plusieurs tableaux avec différentes configurations, ou fournir des en-têtes sans ajouter d'attributs &lt;code&gt;[Display]&lt;/code&gt; au modèle.</value>
+  </data>
+  <data name="Table_WithSlots_Title" xml:space="preserve">
+    <value>Avec des emplacements</value>
+  </data>
+  <data name="Table_WithSlots_Anchor" xml:space="preserve">
+    <value>avec-emplacements</value>
+  </data>
+  <data name="Table_WithSlots_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Remplacez le contenu textuel par défaut d'une cellule par du HTML personnalisé à l'aide d'un emplacement nommé : &lt;code&gt;&amp;lt;template slot="cell:fieldName"&amp;gt;&lt;/code&gt;. Dans le gabarit, utilisez &lt;code&gt;data-bind&lt;/code&gt; pour définir le contenu textuel d'un élément à partir de la valeur de la rangée courante, et &lt;code&gt;data-bind-{attribute}&lt;/code&gt; ou &lt;code&gt;data-bind-template-href&lt;/code&gt; pour lier des valeurs de rangée à n'importe quel attribut. Marquez la propriété correspondante du modèle avec &lt;code&gt;[TableColumnDefinition(Slotted = true)]&lt;/code&gt; afin que le composant affiche l'emplacement plutôt que le texte brut.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Table_WithEmail_Title" xml:space="preserve">
+    <value>Avec un lien courriel</value>
+  </data>
+  <data name="Table_WithEmail_Text" xml:space="preserve">
+    <value>Utilisez &lt;code&gt;data-bind-template-href="mailto:{email}"&lt;/code&gt; pour créer un lien &lt;code&gt;mailto:&lt;/code&gt; à partir de l'adresse courriel de la rangée.</value>
+  </data>
+  <data name="Table_WithLink_Title" xml:space="preserve">
+    <value>Avec un lien</value>
+  </data>
+  <data name="Table_WithLink_Text" xml:space="preserve">
+    <value>Combinez des segments de chemin statiques avec des jetons &lt;code&gt;{fieldName}&lt;/code&gt; dans &lt;code&gt;data-bind-template-href&lt;/code&gt; pour construire une URL de destination à partir des données de la rangée courante.</value>
+  </data>
+  <data name="Table_WithButton_Title" xml:space="preserve">
+    <value>Avec un bouton</value>
+  </data>
+  <data name="Table_WithButton_Text" xml:space="preserve">
+    <value>Utilisez &lt;code&gt;data-bind-{attribute}&lt;/code&gt; pour lier un champ de rangée à n'importe quel attribut de l'élément dans l'emplacement. Ici, &lt;code&gt;data-bind-button-id="{submissionId}"&lt;/code&gt; définit le &lt;code&gt;button-id&lt;/code&gt; du bouton à l'identifiant de la rangée courante.</value>
+  </data>
+  <data name="Table_WithButtonLink_Title" xml:space="preserve">
+    <value>Avec un bouton-lien</value>
+  </data>
+  <data name="Table_WithButtonLink_Text" xml:space="preserve">
+    <value>Un bouton avec &lt;code&gt;type="link"&lt;/code&gt; dans l'emplacement se comporte comme un lien de navigation. Utilisez &lt;code&gt;data-bind-template-href&lt;/code&gt; pour fournir l'URL de destination à partir des données de la rangée courante.</value>
+  </data>
+  <data name="Table_Properties_Title" xml:space="preserve">
+    <value>Propriétés</value>
+  </data>
+  <data name="Table_Properties_FdcpTable_Title" xml:space="preserve">
+    <value>Propriétés — &lt;code&gt;&amp;lt;fdcp-table&amp;gt;&lt;/code&gt;</value>
+  </data>
+  <data name="Table_Properties_FdcpTable_Caption" xml:space="preserve">
+    <value>Nom accessible du tableau, annoncé par les technologies d'assistance. Requis pour la conformité WCAG.</value>
+  </data>
+  <data name="Table_Properties_FdcpTable_CaptionDetail" xml:space="preserve">
+    <value>Texte descriptif supplémentaire affiché sous la légende.</value>
+  </data>
+  <data name="Table_Properties_FdcpTable_ColumnDefinitions" xml:space="preserve">
+    <value>Définitions de colonnes explicites optionnelles. Lorsqu'omis, toutes les propriétés publiques du modèle de rangée sont affichées en colonnes, avec les en-têtes provenant des attributs &lt;code&gt;[Display]&lt;/code&gt; et le comportement configuré via &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;.</value>
+  </data>
+  <data name="Table_Properties_FdcpTable_Filter" xml:space="preserve">
+    <value>Active un champ de filtre par mot-clé au-dessus du tableau pour restreindre les rangées affichées.</value>
+  </data>
+  <data name="Table_Properties_FdcpTable_FilterValue" xml:space="preserve">
+    <value>Pré-remplit le champ de filtre avec un mot-clé par défaut lors du chargement du tableau. S'applique uniquement lorsque &lt;code&gt;filter&lt;/code&gt; est &lt;code&gt;true&lt;/code&gt;.</value>
+  </data>
+  <data name="Table_Properties_FdcpTable_Pagination" xml:space="preserve">
+    <value>Répartit les rangées du tableau en pages.</value>
+  </data>
+  <data name="Table_Properties_FdcpTable_PaginationCurrentPage" xml:space="preserve">
+    <value>La page affichée au premier chargement du tableau. S'applique uniquement lorsque &lt;code&gt;pagination&lt;/code&gt; est &lt;code&gt;true&lt;/code&gt;.</value>
+  </data>
+  <data name="Table_Properties_FdcpTable_PaginationSize" xml:space="preserve">
+    <value>Nombre de rangées affichées par page. S'applique uniquement lorsque &lt;code&gt;pagination&lt;/code&gt; est &lt;code&gt;true&lt;/code&gt;.</value>
+  </data>
+  <data name="Table_Properties_FdcpTable_PaginationSizeOptions" xml:space="preserve">
+    <value>Choix de taille de page disponibles dans le contrôle de pagination. Inclure &lt;code&gt;0&lt;/code&gt; pour ajouter une option « Tout ». S'applique uniquement lorsque &lt;code&gt;pagination&lt;/code&gt; est &lt;code&gt;true&lt;/code&gt;.</value>
+  </data>
+  <data name="Table_Properties_FdcpTable_Rows" xml:space="preserve">
+    <value>La collection côté serveur de données de rangées à afficher.</value>
+  </data>
+  <data name="Table_Properties_FdcpTable_Sort" xml:space="preserve">
+    <value>Active le tri en cliquant sur les en-têtes de colonne. Peut aussi être activé par colonne via &lt;code&gt;ColumnDefinition.Sort&lt;/code&gt; ou &lt;code&gt;[TableColumnDefinition(Sort = true)]&lt;/code&gt;.</value>
+  </data>
+  <data name="Table_Properties_ColumnDef_Title" xml:space="preserve">
+    <value>Propriétés — &lt;code&gt;ColumnDefinition&lt;/code&gt;</value>
+  </data>
+  <data name="Table_Properties_ColumnDef_Alignment" xml:space="preserve">
+    <value>Contrôle l'alignement horizontal du contenu des cellules. Valeurs : &lt;code&gt;start&lt;/code&gt; (gauche), &lt;code&gt;center&lt;/code&gt;, &lt;code&gt;end&lt;/code&gt; (droite).</value>
+  </data>
+  <data name="Table_Properties_ColumnDef_Field" xml:space="preserve">
+    <value>Le nom camelCase de la propriété du modèle de rangée à laquelle cette colonne est associée.</value>
+  </data>
+  <data name="Table_Properties_ColumnDef_Header" xml:space="preserve">
+    <value>L'étiquette d'en-tête de colonne affichée dans le &lt;code&gt;&amp;lt;thead&amp;gt;&lt;/code&gt; du tableau.</value>
+  </data>
+  <data name="Table_Properties_ColumnDef_RowHeader" xml:space="preserve">
+    <value>Marque chaque cellule de cette colonne comme en-tête de rangée.</value>
+  </data>
+  <data name="Table_Properties_ColumnDef_Slotted" xml:space="preserve">
+    <value>Active le contenu personnalisé pour cette colonne via &lt;code&gt;&amp;lt;template slot="cell:fieldName"&amp;gt;&lt;/code&gt;.</value>
+  </data>
+  <data name="Table_Properties_ColumnDef_Sort" xml:space="preserve">
+    <value>Active le tri de cette colonne au clic.</value>
+  </data>
+  <data name="Table_Properties_ColumnDef_SortDirection" xml:space="preserve">
+    <value>Définit l'ordre de tri par défaut lors du chargement de la page. Valeurs : &lt;code&gt;asc&lt;/code&gt;, &lt;code&gt;desc&lt;/code&gt;, &lt;code&gt;none&lt;/code&gt;. S'applique uniquement lorsque &lt;code&gt;Sort&lt;/code&gt; est &lt;code&gt;true&lt;/code&gt;.</value>
+  </data>
+  <data name="Table_Properties_Annotation_Title" xml:space="preserve">
+    <value>Annotation — &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;</value>
+  </data>
+  <data name="Table_Properties_Annotation_Text" xml:space="preserve">
+    <value>Toutes les propriétés publiques du modèle de rangée sont affichées en colonnes par défaut — l'annotation n'est pas requise pour qu'une colonne s'affiche. &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; est facultatif et sert uniquement à remplacer le comportement par défaut d'une colonne. L'en-tête de colonne est extrait de l'attribut &lt;code&gt;[Display(Name = ...)]&lt;/code&gt; sur la même propriété, ou utilise le nom de la propriété si aucun attribut &lt;code&gt;[Display]&lt;/code&gt; n'est présent.</value>
+  </data>
+  <data name="Table_Properties_Annotation_Alignment" xml:space="preserve">
+    <value>Contrôle l'alignement horizontal du contenu des cellules. Valeurs : &lt;code&gt;start&lt;/code&gt; (gauche), &lt;code&gt;center&lt;/code&gt;, &lt;code&gt;end&lt;/code&gt; (droite).</value>
+  </data>
+  <data name="Table_Properties_Annotation_IsHidden" xml:space="preserve">
+    <value>Masque cette colonne du tableau rendu. Sans ce paramètre à &lt;code&gt;true&lt;/code&gt;, la colonne est affichée, qu'un attribut &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; soit présent ou non.</value>
+  </data>
+  <data name="Table_Properties_Annotation_RowHeader" xml:space="preserve">
+    <value>Marque chaque cellule de cette colonne comme en-tête de rangée.</value>
+  </data>
+  <data name="Table_Properties_Annotation_Slotted" xml:space="preserve">
+    <value>Active le contenu personnalisé dans l'emplacement pour cette colonne.</value>
+  </data>
+  <data name="Table_Properties_Annotation_Sort" xml:space="preserve">
+    <value>Active le tri de cette colonne au clic.</value>
+  </data>
+  <data name="Table_Properties_Annotation_SortDirection" xml:space="preserve">
+    <value>Définit l'ordre de tri par défaut lors du chargement de la page. Valeurs : &lt;code&gt;asc&lt;/code&gt;, &lt;code&gt;desc&lt;/code&gt;, &lt;code&gt;none&lt;/code&gt;. S'applique uniquement lorsque &lt;code&gt;Sort&lt;/code&gt; est &lt;code&gt;true&lt;/code&gt;.</value>
   </data>
   <data name="StatelessAuth_CurrentStatus_Title" xml:space="preserve">
     <value>Statut d'authentification actuel</value>
@@ -1625,5 +1856,23 @@
   </data>
   <data name="Tabs_LazyContent" xml:space="preserve">
     <value>Ce contenu a été chargé à partir du serveur lorsque l'onglet a été sélectionné.</value>
+  </data>
+  <data name="Table_WithEmail_Anchor" xml:space="preserve">
+    <value>avec-emplacements-courriel</value>
+  </data>
+  <data name="Table_WithAnnotations_Anchor" xml:space="preserve">
+    <value>utilisation-de-base-annotations</value>
+  </data>
+  <data name="Table_WithButtonLink_Anchor" xml:space="preserve">
+    <value>avec-emplacements-bouton-lien</value>
+  </data>
+  <data name="Table_WithButton_Anchor" xml:space="preserve">
+    <value>avec-emplacements-bouton</value>
+  </data>
+  <data name="Table_WithColumns_Anchor" xml:space="preserve">
+    <value>utilisation-de-base-colonnes</value>
+  </data>
+  <data name="Table_WithLink_Anchor" xml:space="preserve">
+    <value>avec-emplacements-lien</value>
   </data>
 </root>

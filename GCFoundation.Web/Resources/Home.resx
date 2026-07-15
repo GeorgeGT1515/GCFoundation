@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Index_Title" xml:space="preserve">
-    <value>Welcome</value>
+    <value>Build GC web applications with confidence</value>
   </data>
   <data name="Index_Description" xml:space="preserve">
-    <value>GCFoundation is a library that provides helpers to build a GC web application compliant with the latest standards.</value>
+    <value>GCFoundation provides .NET 10 components, secure defaults and practical templates that help teams build web applications aligned with Government of Canada standards.</value>
   </data>
   <data name="Index_Features" xml:space="preserve">
     <value>&lt;gcds-heading tag="h2"&gt;Features:&lt;/gcds-heading&gt;
@@ -133,6 +133,84 @@
         &lt;li&gt;Offers a collection of components&lt;/li&gt;
     &lt;/ul&gt;
 &lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Index_Start_Title" xml:space="preserve">
+    <value>Start building</value>
+  </data>
+  <data name="Index_Start_Description" xml:space="preserve">
+    <value>Install GCFoundation, configure the core services and explore working examples for your next ASP.NET MVC application.</value>
+  </data>
+  <data name="Index_Start_PrimaryLink" xml:space="preserve">
+    <value>Get started</value>
+  </data>
+  <data name="Index_Start_SecondaryLink" xml:space="preserve">
+    <value>Explore components</value>
+  </data>
+  <data name="Index_Releases_Title" xml:space="preserve">
+    <value>Latest releases</value>
+  </data>
+  <data name="Index_Releases_Description" xml:space="preserve">
+    <value>Review the latest preview releases, their key changes and installation details.</value>
+  </data>
+  <data name="Index_Releases_Preview3_Date" xml:space="preserve">
+    <value>July 9, 2026</value>
+  </data>
+  <data name="Index_Releases_Preview3_Description" xml:space="preserve">
+    <value>Adds dynamic navigation, compact and full footer modes, and configurable Canada.ca breadcrumb links.</value>
+  </data>
+  <data name="Index_Releases_Preview2_Date" xml:space="preserve">
+    <value>June 1, 2026</value>
+  </data>
+  <data name="Index_Releases_Preview2_Description" xml:space="preserve">
+    <value>Adds the accessibility statement and dynamic radio fields, with component fixes and expanded tests.</value>
+  </data>
+  <data name="Index_Releases_Preview1_Date" xml:space="preserve">
+    <value>April 8, 2026</value>
+  </data>
+  <data name="Index_Releases_Preview1_Description" xml:space="preserve">
+    <value>Migrates GCFoundation components to the stable GC Design System v1.0.0 release.</value>
+  </data>
+  <data name="Index_Explore_Title" xml:space="preserve">
+    <value>Explore GCFoundation</value>
+  </data>
+  <data name="Index_Explore_Description" xml:space="preserve">
+    <value>Browse the guidance, examples and reusable building blocks included with GCFoundation.</value>
+  </data>
+  <data name="Index_Explore_Installation_Title" xml:space="preserve">
+    <value>Installation</value>
+  </data>
+  <data name="Index_Explore_Installation_Description" xml:space="preserve">
+    <value>Add the NuGet packages and configure components, security, localization and routing.</value>
+  </data>
+  <data name="Index_Explore_Templates_Title" xml:space="preserve">
+    <value>Page templates</value>
+  </data>
+  <data name="Index_Explore_Templates_Description" xml:space="preserve">
+    <value>Start from working layouts for common application pages and workflows.</value>
+  </data>
+  <data name="Index_Explore_Components_Title" xml:space="preserve">
+    <value>Components</value>
+  </data>
+  <data name="Index_Explore_Components_Description" xml:space="preserve">
+    <value>Explore form controls, navigation patterns and other reusable interface components.</value>
+  </data>
+  <data name="Index_Explore_Styles_Title" xml:space="preserve">
+    <value>Styles</value>
+  </data>
+  <data name="Index_Explore_Styles_Description" xml:space="preserve">
+    <value>Use the available layout, spacing, colour and responsive utility classes.</value>
+  </data>
+  <data name="Index_Feedback_Title" xml:space="preserve">
+    <value>Help improve GCFoundation</value>
+  </data>
+  <data name="Index_Feedback_Description" xml:space="preserve">
+    <value>Report an issue, request a feature or review our accessibility commitments and known limitations.</value>
+  </data>
+  <data name="Index_Feedback_PrimaryLink" xml:space="preserve">
+    <value>Contribute on GitHub</value>
+  </data>
+  <data name="Index_Feedback_SecondaryLink" xml:space="preserve">
+    <value>Accessibility statement</value>
   </data>
   <data name="AccessibilityStatement_Title" xml:space="preserve">
     <value>Accessibility statement</value>

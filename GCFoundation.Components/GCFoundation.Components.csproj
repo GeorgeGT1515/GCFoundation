@@ -67,11 +67,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Error.resx</DependentUpon>
     </Compile>
-    <Compile Update="Resources\GridTable.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>GridTable.resx</DependentUpon>
-    </Compile>
     <Compile Update="Resources\Localization.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -122,10 +117,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Validation.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\GridTable.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>GridTable.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
@@ -145,8 +136,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\Table\TableColumnsModel.cs" />
+    <Compile Remove="Models\Table\TableDataModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="package-lock.json" />
-    <Content Remove="package.json" />
+    <Content Remove="package.json" />    
     <Content Remove="Views\Shared\_ViewImports.cshtml" />
   </ItemGroup>
 
@@ -154,9 +150,13 @@
     <Content Update="Views\Shared\Components\Navigation\GCDSBreadcrumbs.cshtml">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
+	<Content Update="Views\Shared\Components\GCDSTopNavigation.cshtml">
+		<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	</Content>
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="DataAnnotations\" />
     <Folder Include="wwwroot\images\Icons\" />
     <Folder Include="wwwroot\images\splash\" />
   </ItemGroup>

@@ -44,7 +44,7 @@ namespace GCFoundation.Security.Middlewares
                                $"object-src 'none'; " +
                                $"style-src 'self' {styleSrc} 'nonce-{nonce}'; " +
                                $"font-src 'self' {fontSrc}; " +
-                               $"connect-src 'self' {connectSrc} http://localhost:* https://localhost:* ws://localhost:* wss://localhost:* https://cdn.design-system.alpha.canada.ca; " +
+                               $"connect-src 'self' {connectSrc} http://localhost:* https://localhost:* ws://localhost:* wss://localhost:* https://cdn.design-system.canada.ca https://cdn.design-system.alpha.canada.ca; " +
                                $"img-src 'self' {imgSrc} data:; " +
                                $"frame-src 'self' {frameSrc}; " +
                                $"frame-ancestors 'none'; " +
@@ -61,7 +61,7 @@ namespace GCFoundation.Security.Middlewares
             context.Response.Headers.Append("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
 
             // Set Cross-Origin Policies.
-            // COEP "credentialless" allows cross-origin resources (e.g. GCDS CSS from cdn.design-system.alpha.canada.ca)
+            // COEP "credentialless" allows cross-origin resources (e.g. GCDS CSS from cdn.design-system.canada.ca)
             // to load without requiring CORP/CORS from the CDN, while still isolating them (no credentials sent).
             // "require-corp" would block GCDS/CDN styles unless the CDN sends Cross-Origin-Resource-Policy.
             context.Response.Headers.Append("Cross-Origin-Opener-Policy", "same-origin");

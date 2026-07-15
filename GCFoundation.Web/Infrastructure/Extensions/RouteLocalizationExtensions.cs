@@ -83,16 +83,6 @@ namespace GCFoundation.Web.Infrastructure.Extensions
 
                 setup.UseCulture("fr")
                 .WhereController(nameof(ComponentsController))
-                .WhereAction(nameof(ComponentsController.TableGridJs))
-                .TranslateAction("tableau-grid-js");
-
-                setup.UseCulture("fr")
-                .WhereController(nameof(ComponentsController))
-                .WhereAction(nameof(ComponentsController.FdcpGridTable))
-                .TranslateAction("fdcp-grid-table");
-
-                setup.UseCulture("fr")
-                .WhereController(nameof(ComponentsController))
                 .WhereAction(nameof(ComponentsController.PageHeading))
                 .TranslateAction("titre-page");
 
