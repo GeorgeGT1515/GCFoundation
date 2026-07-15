@@ -683,7 +683,6 @@ namespace GCFoundation.Web.Controllers
             return vm;
         }
 
-        private static ComponentViewModel BuildTableGridJsComponentViewModel()
         private static ComponentViewModel BuildTableComponentViewModel()
         {
             var vm = new ComponentViewModel();
