@@ -47,23 +47,25 @@
         box-sizing: border-box;
         width: 100%;
         max-width: 100%;
-        min-height: 3.5rem;
+        min-height: var(--gcds-select-min-width-and-height);
         align-items: center;
         justify-content: space-between;
-        padding: 0.75rem 3rem 0.75rem 1rem;
+        padding: var(--gcds-select-padding);
         border: var(--gcds-select-border-width, var(--gcds-input-border-width, 0.125rem)) solid currentColor;
         border-radius: var(--gcds-select-border-radius, var(--gcds-input-border-radius, 0.125rem));
         background-color: var(--gcds-select-default-background, var(--gcds-bg-white, #fff));
         color: var(--gcds-select-default-text, var(--gcds-text-primary, #333));
-        font-family: var(--gcds-font-families-body);
-        font-size: var(--gcds-font-sizes-text, 1.25rem);
-        line-height: 1.5;
+        font: var(--gcds-select-font-desktop);
         outline-color: transparent;
         outline-style: solid;
         outline-width: 0;
         text-align: left;
         transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, outline-color 0.15s ease-in-out, outline-offset 0.15s ease-in-out, outline-width 0.15s ease-in-out;
         cursor: pointer;
+
+        @media only screen and (width < 48em) {
+            font: var(--gcds-select-font-mobile);
+        }
 
         &:focus {
             border-color: var(--gcds-input-focus-border, var(--gcds-focus-border));
@@ -92,7 +94,9 @@
 
     &__trigger-icon {
         position: absolute;
-        right: 1rem;
+        right: 0.75rem;
+        width: 1rem;
+        height: 0.625rem;
         color: var(--gcds-text-primary, #333);
         pointer-events: none;
         transition: transform 0.2s ease;

@@ -69,7 +69,9 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Contains("data-fdcp-searchable-select-status", content);
             Assert.Equal("1 localized result", output.Attributes["data-one-result-text"].Value?.ToString());
             Assert.Equal("{0} localized results", output.Attributes["data-multiple-results-text"].Value?.ToString());
-            Assert.Contains("name=\"chevron-down\"", content);
+            Assert.Contains("class=\"fdcp-searchable-select__trigger-icon\"", content);
+            Assert.Contains("viewBox=\"0 0 16 10\"", content);
+            Assert.Contains("M0.799988 0.900024L7.79999 7.90003L14.8 0.900024", content);
             Assert.DoesNotContain("type=\"radio\"", content);
             Assert.DoesNotContain("type=\"checkbox\"", content);
             Assert.Contains("data-fdcp-searchable-select-search", content);
