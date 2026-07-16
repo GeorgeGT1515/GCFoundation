@@ -503,7 +503,7 @@
     <value>Un moyen d'afficher des informations dans un tableau</value>
   </data>
   <data name="Table_Name" xml:space="preserve">
-    <value>Tableau de données</value>
+    <value>Tableau</value>
   </data>
   <data name="Table_Overview" xml:space="preserve">
     <value>Le composant &lt;code&gt;&amp;lt;fdcp-table&amp;gt;&lt;/code&gt; encapsule le composant &lt;code&gt;&amp;lt;gcds-table&amp;gt;&lt;/code&gt; du Système de design GC. Les colonnes sont déduites automatiquement des propriétés publiques du modèle de rangée, peuvent être personnalisées propriété par propriété avec &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;, ou fournies explicitement via &lt;code&gt;column-definitions&lt;/code&gt;. Le filtrage et le tri sont pris en charge de façon native. Le contenu personnalisé des cellules (liens, boutons, etc.) est rendu via &lt;code&gt;&amp;lt;template slot="cell:fieldName"&amp;gt;&lt;/code&gt;. Utilisez &lt;code&gt;data-bind&lt;/code&gt; pour lier la valeur d'un seul champ comme texte d'un élément, &lt;code&gt;data-bind-template&lt;/code&gt; pour composer du texte à partir de plusieurs champs à l'aide de jetons &lt;code&gt;{fieldName}&lt;/code&gt;, et &lt;code&gt;data-bind-template-*&lt;/code&gt; pour interpoler des valeurs de champs dans n'importe quel attribut.</value>
@@ -1317,135 +1317,6 @@
   <data name="Stepper_Properties_StepperStep_StatusBadgeStyleInverted" xml:space="preserve">
     <value>Optionnel. Variante inversée du style du badge d’état.</value>
   </data>
-  <data name="StatelessAuth_CurrentStatus_Title" xml:space="preserve">
-    <value>Statut d'authentification actuel</value>
-  </data>
-  <data name="StatelessAuth_NotAuthenticated_Message" xml:space="preserve">
-    <value />
-  </data>
-  <data name="StatelessAuth_NotAuthenticated_Description" xml:space="preserve">
-    <value>Remarquez comment le partiel de connexion utilisateur se mettra à jour automatiquement après la connexion.</value>
-  </data>
-  <data name="StatelessAuth_CookieDemo_Title" xml:space="preserve">
-    <value>Démonstration d'authentification par cookie</value>
-  </data>
-  <data name="StatelessAuth_CookieDemo_Description" xml:space="preserve">
-    <value>Testez l'authentification basée sur les cookies sans sessions serveur. Toutes les données utilisateur proviennent des revendications dans le cookie d'authentification.</value>
-  </data>
-  <data name="StatelessAuth_LoggedIn_Text" xml:space="preserve">
-    <value>Vous êtes connecté ! Cliquez sur déconnexion pour effacer le cookie d'authentification.</value>
-  </data>
-  <data name="StatelessAuth_LoggedOut_Text" xml:space="preserve">
-    <value>Ceci créera un cookie d'authentification avec des revendications utilisateur (aucun stockage de session).</value>
-  </data>
-  <data name="StatelessAuth_Login_Button" xml:space="preserve">
-    <value>🔐 Connexion avec authentification par cookie</value>
-  </data>
-  <data name="StatelessAuth_Logout_Button" xml:space="preserve">
-    <value>🚪 Déconnexion</value>
-  </data>
-  <data name="StatelessAuth_TechnicalInfo_Title" xml:space="preserve">
-    <value>Informations techniques</value>
-  </data>
-  <data name="StatelessAuth_HowItWorks" xml:space="preserve">
-    <value />
-  </data>
-  <data name="StatelessAuth_Benefit_Claims" xml:space="preserve">
-    <value>✅ Revendications stockées dans le cookie d'authentification</value>
-  </data>
-  <data name="StatelessAuth_Benefit_NoSessions" xml:space="preserve">
-    <value>✅ Aucun stockage de session côté serveur requis</value>
-  </data>
-  <data name="StatelessAuth_Benefit_Azure" xml:space="preserve">
-    <value>✅ Mise à l'échelle automatique dans le cloud Azure</value>
-  </data>
-  <data name="StatelessAuth_Benefit_LoadBalanced" xml:space="preserve">
-    <value>✅ Fonctionne sur des serveurs équilibrés en charge</value>
-  </data>
-  <data name="StatelessAuth_ViewClaims_Button" xml:space="preserve">
-    <value>📊 Voir les revendications actuelles</value>
-  </data>
-  <data name="StatelessAuth_CheckAuth_Button" xml:space="preserve">
-    <value>⚡ Vérifier le statut d'authentification</value>
-  </data>
-  <data name="StatelessAuth_DemoResults_Title" xml:space="preserve">
-    <value>Résultats de la démonstration</value>
-  </data>
-  <data name="StatelessAuth_Methods_Title" xml:space="preserve">
-    <value>Méthodes d'authentification sans état disponibles</value>
-  </data>
-  <data name="StatelessAuth_Methods_Description" xml:space="preserve">
-    <value>La fondation GC prend en charge plusieurs approches d'authentification sans état pour le déploiement cloud Azure :</value>
-  </data>
-  <data name="StatelessAuth_CookieAuth_Title" xml:space="preserve">
-    <value>🍪 Authentification par cookie</value>
-  </data>
-  <data name="StatelessAuth_CookieAuth_Description" xml:space="preserve">
-    <value>Utilise des cookies d'authentification avec des revendications (aucune session serveur). ✅ Recommandé pour la plupart des applications web.</value>
-  </data>
-  <data name="StatelessAuth_CookieAuth_Benefit1" xml:space="preserve">
-    <value>Aucun stockage côté serveur requis</value>
-  </data>
-  <data name="StatelessAuth_CookieAuth_Benefit2" xml:space="preserve">
-    <value>Mise à l'échelle automatique dans Azure</value>
-  </data>
-  <data name="StatelessAuth_CookieAuth_Benefit3" xml:space="preserve">
-    <value>Fonctionne sur des serveurs équilibrés en charge</value>
-  </data>
-  <data name="StatelessAuth_AzureAD_Title" xml:space="preserve">
-    <value>🏢 Intégration Azure AD</value>
-  </data>
-  <data name="StatelessAuth_AzureAD_Description" xml:space="preserve">
-    <value>Authentification d'entreprise avec la plateforme d'identité Microsoft. Parfait pour les applications gouvernementales.</value>
-  </data>
-  <data name="StatelessAuth_AzureAD_Benefit1" xml:space="preserve">
-    <value>Authentification unique (SSO)</value>
-  </data>
-  <data name="StatelessAuth_AzureAD_Benefit2" xml:space="preserve">
-    <value>Authentification multifacteur</value>
-  </data>
-  <data name="StatelessAuth_AzureAD_Benefit3" xml:space="preserve">
-    <value>Intégration Office 365</value>
-  </data>
-  <data name="StatelessAuth_JWT_Title" xml:space="preserve">
-    <value>🔑 Jetons JWT</value>
-  </data>
-  <data name="StatelessAuth_JWT_Description" xml:space="preserve">
-    <value>Authentification API sans état utilisant des jetons Web JSON. Idéal pour les microservices et APIs.</value>
-  </data>
-  <data name="StatelessAuth_JWT_Benefit1" xml:space="preserve">
-    <value>Complètement sans état</value>
-  </data>
-  <data name="StatelessAuth_JWT_Benefit2" xml:space="preserve">
-    <value>Compatibilité multiplateforme</value>
-  </data>
-  <data name="StatelessAuth_JWT_Benefit3" xml:space="preserve">
-    <value>Peut être vérifié indépendamment</value>
-  </data>
-  <data name="StatelessAuth_OAuth_Title" xml:space="preserve">
-    <value>🌐 Fournisseurs OAuth</value>
-  </data>
-  <data name="StatelessAuth_OAuth_Description" xml:space="preserve">
-    <value>Fournisseurs d'authentification externes (Google, GitHub, etc.). Bon pour les applications publiques.</value>
-  </data>
-  <data name="StatelessAuth_OAuth_Benefit1" xml:space="preserve">
-    <value>Aucune gestion d'identifiants</value>
-  </data>
-  <data name="StatelessAuth_OAuth_Benefit2" xml:space="preserve">
-    <value>Commodité utilisateur</value>
-  </data>
-  <data name="StatelessAuth_OAuth_Benefit3" xml:space="preserve">
-    <value>Options de connexion sociale</value>
-  </data>
-  <data name="StatelessAuth_Integration_Title" xml:space="preserve">
-    <value>💡 Intégration avec le partiel de connexion utilisateur</value>
-  </data>
-  <data name="StatelessAuth_Integration_Description1" xml:space="preserve">
-    <value />
-  </data>
-  <data name="StatelessAuth_Integration_Description2" xml:space="preserve">
-    <value />
-  </data>
   <data name="Table_Submission_Id_Header" xml:space="preserve">
     <value>ID</value>
   </data>
@@ -1652,5 +1523,143 @@
   </data>
   <data name="Table_WithButton_Label" xml:space="preserve">
     <value>Supprimer</value>
+  </data>
+  <data name="Table_WithButton_Note" xml:space="preserve">
+    <value>&lt;i&gt; Note: Dans cette démonstration, cliquer sur un bouton Supprimer consigne l'objet de la ligne et son submissionId dans la console du navigateur. &lt;/i&gt;</value>
+  </data>
+  <data name="Shared_CopyButton_Text" xml:space="preserve">
+    <value>Copier</value>
+  </data>
+  <data name="Shared_CopyButton_SuccessText" xml:space="preserve">
+    <value>Copié!</value>
+  </data>
+  <data name="StatelessAuth_CurrentStatus_Title" xml:space="preserve">
+    <value>Statut d'authentification actuel</value>
+  </data>
+  <data name="StatelessAuth_NotAuthenticated_Message" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StatelessAuth_NotAuthenticated_Description" xml:space="preserve">
+    <value>Remarquez comment le partiel de connexion utilisateur se mettra à jour automatiquement après la connexion.</value>
+  </data>
+  <data name="StatelessAuth_CookieDemo_Title" xml:space="preserve">
+    <value>Démonstration d'authentification par cookie</value>
+  </data>
+  <data name="StatelessAuth_CookieDemo_Description" xml:space="preserve">
+    <value>Testez l'authentification basée sur les cookies sans sessions serveur. Toutes les données utilisateur proviennent des revendications dans le cookie d'authentification.</value>
+  </data>
+  <data name="StatelessAuth_LoggedIn_Text" xml:space="preserve">
+    <value>Vous êtes connecté ! Cliquez sur déconnexion pour effacer le cookie d'authentification.</value>
+  </data>
+  <data name="StatelessAuth_LoggedOut_Text" xml:space="preserve">
+    <value>Ceci créera un cookie d'authentification avec des revendications utilisateur (aucun stockage de session).</value>
+  </data>
+  <data name="StatelessAuth_Login_Button" xml:space="preserve">
+    <value>🔐 Connexion avec authentification par cookie</value>
+  </data>
+  <data name="StatelessAuth_Logout_Button" xml:space="preserve">
+    <value>🚪 Déconnexion</value>
+  </data>
+  <data name="StatelessAuth_TechnicalInfo_Title" xml:space="preserve">
+    <value>Informations techniques</value>
+  </data>
+  <data name="StatelessAuth_HowItWorks" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StatelessAuth_Benefit_Claims" xml:space="preserve">
+    <value>✅ Revendications stockées dans le cookie d'authentification</value>
+  </data>
+  <data name="StatelessAuth_Benefit_NoSessions" xml:space="preserve">
+    <value>✅ Aucun stockage de session côté serveur requis</value>
+  </data>
+  <data name="StatelessAuth_Benefit_Azure" xml:space="preserve">
+    <value>✅ Mise à l'échelle automatique dans le cloud Azure</value>
+  </data>
+  <data name="StatelessAuth_Benefit_LoadBalanced" xml:space="preserve">
+    <value>✅ Fonctionne sur des serveurs équilibrés en charge</value>
+  </data>
+  <data name="StatelessAuth_ViewClaims_Button" xml:space="preserve">
+    <value>📊 Voir les revendications actuelles</value>
+  </data>
+  <data name="StatelessAuth_CheckAuth_Button" xml:space="preserve">
+    <value>⚡ Vérifier le statut d'authentification</value>
+  </data>
+  <data name="StatelessAuth_DemoResults_Title" xml:space="preserve">
+    <value>Résultats de la démonstration</value>
+  </data>
+  <data name="StatelessAuth_Methods_Title" xml:space="preserve">
+    <value>Méthodes d'authentification sans état disponibles</value>
+  </data>
+  <data name="StatelessAuth_Methods_Description" xml:space="preserve">
+    <value>La fondation GC prend en charge plusieurs approches d'authentification sans état pour le déploiement cloud Azure :</value>
+  </data>
+  <data name="StatelessAuth_CookieAuth_Title" xml:space="preserve">
+    <value>🍪 Authentification par cookie</value>
+  </data>
+  <data name="StatelessAuth_CookieAuth_Description" xml:space="preserve">
+    <value>Utilise des cookies d'authentification avec des revendications (aucune session serveur). ✅ Recommandé pour la plupart des applications web.</value>
+  </data>
+  <data name="StatelessAuth_CookieAuth_Benefit1" xml:space="preserve">
+    <value>Aucun stockage côté serveur requis</value>
+  </data>
+  <data name="StatelessAuth_CookieAuth_Benefit2" xml:space="preserve">
+    <value>Mise à l'échelle automatique dans Azure</value>
+  </data>
+  <data name="StatelessAuth_CookieAuth_Benefit3" xml:space="preserve">
+    <value>Fonctionne sur des serveurs équilibrés en charge</value>
+  </data>
+  <data name="StatelessAuth_AzureAD_Title" xml:space="preserve">
+    <value>🏢 Intégration Azure AD</value>
+  </data>
+  <data name="StatelessAuth_AzureAD_Description" xml:space="preserve">
+    <value>Authentification d'entreprise avec la plateforme d'identité Microsoft. Parfait pour les applications gouvernementales.</value>
+  </data>
+  <data name="StatelessAuth_AzureAD_Benefit1" xml:space="preserve">
+    <value>Authentification unique (SSO)</value>
+  </data>
+  <data name="StatelessAuth_AzureAD_Benefit2" xml:space="preserve">
+    <value>Authentification multifacteur</value>
+  </data>
+  <data name="StatelessAuth_AzureAD_Benefit3" xml:space="preserve">
+    <value>Intégration Office 365</value>
+  </data>
+  <data name="StatelessAuth_JWT_Title" xml:space="preserve">
+    <value>🔑 Jetons JWT</value>
+  </data>
+  <data name="StatelessAuth_JWT_Description" xml:space="preserve">
+    <value>Authentification API sans état utilisant des jetons Web JSON. Idéal pour les microservices et APIs.</value>
+  </data>
+  <data name="StatelessAuth_JWT_Benefit1" xml:space="preserve">
+    <value>Complètement sans état</value>
+  </data>
+  <data name="StatelessAuth_JWT_Benefit2" xml:space="preserve">
+    <value>Compatibilité multiplateforme</value>
+  </data>
+  <data name="StatelessAuth_JWT_Benefit3" xml:space="preserve">
+    <value>Peut être vérifié indépendamment</value>
+  </data>
+  <data name="StatelessAuth_OAuth_Title" xml:space="preserve">
+    <value>🌐 Fournisseurs OAuth</value>
+  </data>
+  <data name="StatelessAuth_OAuth_Description" xml:space="preserve">
+    <value>Fournisseurs d'authentification externes (Google, GitHub, etc.). Bon pour les applications publiques.</value>
+  </data>
+  <data name="StatelessAuth_OAuth_Benefit1" xml:space="preserve">
+    <value>Aucune gestion d'identifiants</value>
+  </data>
+  <data name="StatelessAuth_OAuth_Benefit2" xml:space="preserve">
+    <value>Commodité utilisateur</value>
+  </data>
+  <data name="StatelessAuth_OAuth_Benefit3" xml:space="preserve">
+    <value>Options de connexion sociale</value>
+  </data>
+  <data name="StatelessAuth_Integration_Title" xml:space="preserve">
+    <value>💡 Intégration avec le partiel de connexion utilisateur</value>
+  </data>
+  <data name="StatelessAuth_Integration_Description1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StatelessAuth_Integration_Description2" xml:space="preserve">
+    <value />
   </data>
 </root>

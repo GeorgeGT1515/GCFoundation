@@ -1520,4 +1520,13 @@
   <data name="Table_WithButton_Label" xml:space="preserve">
     <value>Delete</value>
   </data>
+  <data name="Table_WithButton_Note" xml:space="preserve">
+    <value>&lt;i&gt;Note: In this demo, clicking a Delete button logs the row object and its submissionId to the browser console.&lt;/i&gt;</value>
+  </data>
+  <data name="Shared_CopyButton_Text" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="Shared_CopyButton_SuccessText" xml:space="preserve">
+    <value>Copied!</value>
+  </data>
 </root>

@@ -2091,6 +2091,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Copied!.
+        /// </summary>
+        public static string Shared_CopyButton_SuccessText {
+            get {
+                return ResourceManager.GetString("Shared_CopyButton_SuccessText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy.
+        /// </summary>
+        public static string Shared_CopyButton_Text {
+            get {
+                return ResourceManager.GetString("Shared_CopyButton_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Check Auth Status.
         /// </summary>
         public static string StatelessAuth_Auth_Status_Button {
@@ -3190,6 +3208,15 @@ namespace GCFoundation.Web.Resources {
         public static string Table_WithButton_Label {
             get {
                 return ResourceManager.GetString("Table_WithButton_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;i&gt;Note: In this demo, clicking a Delete button logs the row object and its submissionId to the browser console.&lt;/i&gt;.
+        /// </summary>
+        public static string Table_WithButton_Note {
+            get {
+                return ResourceManager.GetString("Table_WithButton_Note", resourceCulture);
             }
         }
         

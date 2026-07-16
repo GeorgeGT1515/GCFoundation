@@ -12,19 +12,24 @@
 
 <fdcp-table caption="@Components.Table_WithButton_Caption" rows="@rows">
     <template slot="cell:action">
-        <gcds-button button-role="danger" data-bind-button-id="{submissionId}" size="small">@Components.Table_WithButton_Label</gcds-button>
+        <gcds-button button-role="danger" class="delete" data-bind-button-id="{submissionId}" size="small">@Components.Table_WithButton_Label</gcds-button>
     </template>
 </fdcp-table>
 
-<pre><code class="language-cshtml">@Html.Raw($@"&lt;fdcp-table caption=""{Html.Encode(Components.Table_WithButton_Caption)}"" rows=""@Model.Rows""&gt;
+<gcds-text class="mt-200">@Html.Raw(@Components.Table_WithButton_Note)</gcds-text>
+
+<div class="code-container">
+    <pre><code class="language-cshtml">@Html.Raw($@"&lt;fdcp-table caption=""{Html.Encode(Components.Table_WithButton_Caption)}"" rows=""@Model.Rows""&gt;
     &lt;template slot=""cell:action""&gt;
         &lt;gcds-button button-role=""danger""
                      data-bind-button-id=""{{submissionId}}""
                      size=""small""&gt;{Html.Encode(Components.Table_WithButton_Label)}&lt;/gcds-button&gt;
     &lt;/template&gt;
-&lt;/fdcp-table&gt;")</code></pre>
-
-<pre><code class="language-csharp">@Html.Raw(Html.Encode(@"[Display(Name = ""Table_Actions_Header"", ResourceType = typeof(Resources.Components))]
+&lt;/fdcp-table&gt;")</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Components.Shared_CopyButton_SuccessText">@Components.Shared_CopyButton_Text</gcds-button></pre>
+</div>
+<div class="code-container">
+    <pre><code class="language-csharp">@Html.Raw(Html.Encode(@"[Display(Name = ""Table_Actions_Header"", ResourceType = typeof(Resources.Components))]
 [TableColumnDefinition(Slotted = true)]
 public string Action { get; set; }
-"))</code></pre>
+"))</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Components.Shared_CopyButton_SuccessText">@Components.Shared_CopyButton_Text</gcds-button></pre>
+</div>
