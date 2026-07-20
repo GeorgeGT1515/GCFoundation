@@ -3219,6 +3219,24 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Table_WithButton_Note", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;i&gt;Note: In this demo, the link navigates to a page anchor. In a real application, use data-bind-template-href to build the destination URL dynamically from row values.&lt;/i&gt;.
+        /// </summary>
+        public static string Table_WithLink_Note {
+            get {
+                return ResourceManager.GetString("Table_WithLink_Note", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;i&gt;Note: In this demo, the button navigates to a page anchor. In a real application, use data-bind-template-href to build the destination URL dynamically from row values.&lt;/i&gt;.
+        /// </summary>
+        public static string Table_WithButtonLink_Note {
+            get {
+                return ResourceManager.GetString("Table_WithButtonLink_Note", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Use &lt;code&gt;data-bind-{attribute}&lt;/code&gt; to bind a row field to any attribute on the slotted element. Here, &lt;code&gt;data-bind-button-id=&quot;{submissionId}&quot;&lt;/code&gt; sets the button&apos;s &lt;code&gt;button-id&lt;/code&gt; to the current row&apos;s ID..

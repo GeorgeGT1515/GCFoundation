@@ -1523,6 +1523,12 @@
   <data name="Table_WithButton_Note" xml:space="preserve">
     <value>&lt;i&gt;Note: In this demo, clicking a Delete button logs the row object and its submissionId to the browser console.&lt;/i&gt;</value>
   </data>
+  <data name="Table_WithLink_Note" xml:space="preserve">
+    <value>&lt;i&gt;Note: In this demo, the link navigates to a page anchor. In a real application, &lt;code&gt;data-bind-template-href="/your/route/{submitterName}"&lt;/code&gt; can be used to build the destination URL dynamically from row values.&lt;/i&gt;</value>
+  </data>
+  <data name="Table_WithButtonLink_Note" xml:space="preserve">
+    <value>&lt;i&gt;Note: In this demo, the button navigates to a page anchor. In a real application, &lt;code&gt;data-bind-template-href="/your/route/{submitterName}"&lt;/code&gt; can be used to build the destination URL dynamically from row values.&lt;/i&gt;</value>
+  </data>
   <data name="Shared_CopyButton_Text" xml:space="preserve">
     <value>Copy</value>
   </data>

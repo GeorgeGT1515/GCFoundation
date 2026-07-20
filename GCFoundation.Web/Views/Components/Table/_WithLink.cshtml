@@ -16,10 +16,13 @@
     </template>
 </fdcp-table>
 
+<gcds-text class="mt-200">@Html.Raw(@Components.Table_WithLink_Note)</gcds-text>
+
 <div class="code-container">
     <pre><code class="language-cshtml">@Html.Raw($@"&lt;fdcp-table caption=""{Html.Encode(Components.Table_WithLink_Caption)}"" rows=""@Model.Rows""&gt;
     &lt;template slot=""cell:submissionLink""&gt;
-        &lt;gcds-link data-bind-template=""{Html.Encode(Components.Table_WithLink_Label)} {{submitterName}}"" data-bind-template-href=""/components/table/{{submitterName}}""&gt;&lt;/gcds-link&gt;
+        &lt;gcds-link data-bind-template=""{Html.Encode(Components.Table_WithLink_Label)} {{submitterName}}""
+                   data-bind-template-href=""/components/table/{{submitterName}}""&gt;&lt;/gcds-link&gt;
     &lt;/template&gt;
 &lt;/fdcp-table&gt;")</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Components.Shared_CopyButton_SuccessText">@Components.Shared_CopyButton_Text</gcds-button></pre>
 </div>

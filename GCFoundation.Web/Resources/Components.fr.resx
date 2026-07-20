@@ -1527,6 +1527,12 @@
   <data name="Table_WithButton_Note" xml:space="preserve">
     <value>&lt;i&gt; Note: Dans cette démonstration, cliquer sur un bouton Supprimer consigne l'objet de la ligne et son submissionId dans la console du navigateur. &lt;/i&gt;</value>
   </data>
+  <data name="Table_WithLink_Note" xml:space="preserve">
+    <value>&lt;i&gt;Note : Dans cette démonstration, le lien navigue vers une ancre de page. Dans une vraie application, &lt;code&gt;data-bind-template-href="/votre/route/{submitterName}"&lt;/code&gt; peut être utilisé pour construire l'URL de destination dynamiquement à partir des valeurs de la ligne.&lt;/i&gt;</value>
+  </data>
+  <data name="Table_WithButtonLink_Note" xml:space="preserve">
+    <value>&lt;i&gt;Note : Dans cette démonstration, le bouton navigue vers une ancre de page. Dans une vraie application, &lt;code&gt;data-bind-template-href="/votre/route/{submitterName}"&lt;/code&gt; peut être utilisé pour construire l'URL de destination dynamiquement à partir des valeurs de la ligne.&lt;/i&gt;</value>
+  </data>
   <data name="Shared_CopyButton_Text" xml:space="preserve">
     <value>Copier</value>
   </data>
