@@ -13,6 +13,7 @@
         <gcds-nav-link href="#security-setup">Security Setup</gcds-nav-link>
         <gcds-nav-link href="#language-setup">Language Setup</gcds-nav-link>
         <gcds-nav-link href="#breadcrumbs-setup">Breadcrumbs Setup</gcds-nav-link>
+        <gcds-nav-link href="#menu-setup">Menu Setup</gcds-nav-link>
         <gcds-nav-link href="#url-translation">URL Translation</gcds-nav-link>
         <gcds-nav-link href="#complete-example">Complete Program.cs Example</gcds-nav-link>
     </gcds-side-nav>
@@ -143,6 +144,44 @@ builder.Services.AddSingleton(typeof(IBreadcrumbsLocalizationService),
 
         <hr />
 
+        <gcds-heading tag="h2" id="menu-setup">Menu Setup <gcds-badge label="Optional" type="info"></gcds-badge></gcds-heading>
+        <p>If you want the top navigation to display localized labels, register the top navigation localization service in <code>Program.cs</code>:</p>
+<pre><code class="language-csharp">// Configure top navigation localization service
+builder.Services.AddSingleton&lt;ITopNavigationLocalizationService,
+    TopNavigationLocalizationService&lt;YourApp.Resources.Navigation&gt;&gt;();
+</code></pre>
+
+        <gcds-heading tag="h3" id="menu-component-visibility">Node Visibility</gcds-heading>
+        <p>Each node in <code>navigation.xml</code> can declare which navigation surfaces it appears on using the <code>componentVisibility</code> attribute. Omitting it entirely means the node is shown in all surfaces by default.</p>
+<pre><code class="language-xml">&lt;!-- Shown everywhere (topnav, breadcrumbs, sidenav) --&gt;
+&lt;NavNode key="home" controller="Home" action="Index"
+         text="Nav_Home" /&gt;
+
+&lt;!-- Top nav only --&gt;
+&lt;NavNode key="get-started" text="Nav_GetStarted"
+         componentVisibility="topnav" /&gt;
+</code></pre>
+
+        <gcds-heading tag="h3" id="menu-restrictions">Customizable Visibility Restrictions <gcds-badge label="Optional" type="info"></gcds-badge></gcds-heading>
+        <p>Navigation nodes can be conditionally shown or hidden based on cookies, session values, or claims. Define rules in <code>appsettings.json</code> using the nav node key as the rule key:</p>
+<pre><code class="language-json">"NavigationRules": {
+  "Rules": {
+    "node-key1":  { "type": "Cookie",  "name": "TestCookie",  "value": "true" },
+    "node-key2":  { "type": "Session", "name": "TestSession", "value": "true" },
+    "node-key3": { "type": "Claim",   "name": "role",        "value": "admin" }
+  }
+}
+</code></pre>
+        <p>Then register the rules and the permission resolver in <code>Program.cs</code>:</p>
+<pre><code class="language-csharp">// Bind navigation visibility rules from configuration
+builder.Services.Configure&lt;NavRulesOptions&gt;(builder.Configuration.GetSection("NavigationRules"));
+
+// Evaluate rules against the current request (cookie, session, or claim)
+builder.Services.AddScoped&lt;INavigationNodePermissionResolver, ConfigurableNavPermissionResolver&gt;();
+</code></pre>
+
+        <hr />
+
         <gcds-heading tag="h2" id="url-translation">URL Translation</gcds-heading>
         <p>Configure routing with a culture parameter and translated URLs:</p>
 <pre><code class="language-csharp">// Configure default route with culture parameter
@@ -204,6 +243,10 @@ builder.Services.AddScoped&lt;ISiteMapNodeService, NavigationTreeSiteMapNodeServ
 builder.Services.AddCloudscribeNavigation(builder.Configuration.GetSection("NavigationOptions"));
 builder.Services.AddSingleton(typeof(IBreadcrumbsLocalizationService),
     typeof(BreadcrumbsLocalizationService&lt;YourApp.Resources.Navigation&gt;));
+
+// Optional: localized top navigation labels
+builder.Services.AddSingleton&lt;ITopNavigationLocalizationService,
+    TopNavigationLocalizationService&lt;YourApp.Resources.Navigation&gt;&gt;();
 
 // Global resources and localization
 builder.Services.Configure&lt;GlobalResourceOptions&gt;(builder.Configuration.GetSection("GlobalResourceOptions"));
