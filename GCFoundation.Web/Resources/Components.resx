@@ -1523,6 +1523,9 @@
   <data name="Table_WithButton_Note" xml:space="preserve">
     <value>&lt;i&gt;Note: In this demo, clicking a Delete button logs the row object and its submissionId to the browser console.&lt;/i&gt;</value>
   </data>
+  <data name="Table_WithButton_SlottedCellContext_Text" xml:space="preserve">
+    <value>For each slotted cell, the table adds &lt;code&gt;.row&lt;/code&gt; and &lt;code&gt;.column&lt;/code&gt; properties to the rendered element. &lt;code&gt;.row&lt;/code&gt; contains the complete data object for the current row, while &lt;code&gt;.column&lt;/code&gt; contains the definition and metadata for the current column.</value>
+  </data>
   <data name="Table_WithLink_Note" xml:space="preserve">
     <value>&lt;i&gt;Note: In this demo, the link navigates to a page anchor. In a real application, &lt;code&gt;data-bind-template-href="/your/route/{submitterName}"&lt;/code&gt; can be used to build the destination URL dynamically from row values.&lt;/i&gt;</value>
   </data>

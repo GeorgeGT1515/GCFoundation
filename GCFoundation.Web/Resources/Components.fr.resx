@@ -1527,6 +1527,9 @@
   <data name="Table_WithButton_Note" xml:space="preserve">
     <value>&lt;i&gt; Note: Dans cette démonstration, cliquer sur un bouton Supprimer consigne l'objet de la ligne et son submissionId dans la console du navigateur. &lt;/i&gt;</value>
   </data>
+  <data name="Table_WithButton_SlottedCellContext_Text" xml:space="preserve">
+    <value>Pour chaque cellule utilisant un emplacement, le tableau ajoute les propriétés &lt;code&gt;.row&lt;/code&gt; et &lt;code&gt;.column&lt;/code&gt; à l'élément affiché. &lt;code&gt;.row&lt;/code&gt; contient l'objet de données complet de la ligne courante, tandis que &lt;code&gt;.column&lt;/code&gt; contient la définition et les métadonnées de la colonne courante.</value>
+  </data>
   <data name="Table_WithLink_Note" xml:space="preserve">
     <value>&lt;i&gt;Note : Dans cette démonstration, le lien navigue vers une ancre de page. Dans une vraie application, &lt;code&gt;data-bind-template-href="/votre/route/{submitterName}"&lt;/code&gt; peut être utilisé pour construire l'URL de destination dynamiquement à partir des valeurs de la ligne.&lt;/i&gt;</value>
   </data>

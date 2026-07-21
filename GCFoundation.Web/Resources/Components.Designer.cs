@@ -3221,6 +3221,15 @@ namespace GCFoundation.Web.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to For each slotted cell, the table adds .row and .column properties to the rendered element.
+        /// </summary>
+        public static string Table_WithButton_SlottedCellContext_Text {
+            get {
+                return ResourceManager.GetString("Table_WithButton_SlottedCellContext_Text", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to &lt;i&gt;Note: In this demo, the link navigates to a page anchor. In a real application, use data-bind-template-href to build the destination URL dynamically from row values.&lt;/i&gt;.
         /// </summary>
         public static string Table_WithLink_Note {
