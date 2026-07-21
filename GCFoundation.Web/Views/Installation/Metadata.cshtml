@@ -47,7 +47,7 @@ public override void OnActionExecuted(ActionExecutedContext context)
 {
 	ViewData["MetaTags"] = MetaTags;
 	base.OnActionExecuted(context);
-}</code></pre>
+}</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Shared_CopyButton_SuccessText">@Installation.Shared_CopyButton_Text</gcds-button></pre>
 
 		<hr />
 
@@ -67,7 +67,7 @@ public class ArticlesController : GCFoundationBaseController
 		AddMetaTag(new MetaTag { Property = "og:type", Content = "article" });
 		return View();
 	}
-}</code></pre>
+}</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Shared_CopyButton_SuccessText">@Installation.Shared_CopyButton_Text</gcds-button></pre>
 
 		<hr />
 
@@ -90,7 +90,7 @@ public class ArticlesController : GCFoundationBaseController
 	{
 		@@Html.Raw(tag.Render());
 	}
-}</code></pre>
+}</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Shared_CopyButton_SuccessText">@Installation.Shared_CopyButton_Text</gcds-button></pre>
 		</div>
 
 		<hr />
@@ -111,7 +111,7 @@ public class ArticlesController : GCFoundationBaseController
 			{ "property": "og:type", "content": "website" }
 		]
 	}
-}</code></pre>
+}</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Shared_CopyButton_SuccessText">@Installation.Shared_CopyButton_Text</gcds-button></pre>
 
 		<hr />
 
@@ -139,7 +139,7 @@ AddMetaTag(new MetaTag {
 
 // http-equiv and charset
 AddMetaTag(new MetaTag { HttpEquiv = "refresh", Content = "30" });
-AddMetaTag(new MetaTag { Charset = "UTF-8" });</code></pre>
+AddMetaTag(new MetaTag { Charset = "UTF-8" });</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Shared_CopyButton_SuccessText">@Installation.Shared_CopyButton_Text</gcds-button></pre>
 
 		<hr />
 

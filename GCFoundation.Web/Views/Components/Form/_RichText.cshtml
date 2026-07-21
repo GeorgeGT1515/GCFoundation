@@ -19,7 +19,7 @@
 <pre><code class="language-cshtml">@Html.Raw(Html.Encode(@"<fdcp-rich-text for=""@Model.Bio""
                 toolbar=""Standard""
                 height=""240px""
-                placeholder=""@Components.Form_Bio_Placeholder"" />"))</code></pre>
+                placeholder=""@Components.Form_Bio_Placeholder"" />"))</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Components.Shared_CopyButton_SuccessText">@Components.Shared_CopyButton_Text</gcds-button></pre>
 
 <gcds-heading tag="h3">@Components.Form_RichText_Model_Title</gcds-heading>
 @Html.Raw(Components.Form_RichText_Model_Description)
@@ -29,7 +29,7 @@
 [MaxLength(2000)]
 [DataType(DataType.MultilineText)]
 [Display(Name = ""Form_Bio_Label"", Description = ""Form_Bio_Hint"", ResourceType = typeof(Resources.Components))]
-public string Bio { get; set; } = string.Empty;"))</code></pre>
+public string Bio { get; set; } = string.Empty;"))</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Components.Shared_CopyButton_SuccessText">@Components.Shared_CopyButton_Text</gcds-button></pre>
 
 <gcds-heading tag="h3">@Components.Properties</gcds-heading>
 <div class="fdcp-table-responsive">
