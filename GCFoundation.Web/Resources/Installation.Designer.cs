@@ -735,192 +735,288 @@ namespace GCFoundation.Web.Resources {
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to MVC with localization support.
+        /// </summary>
         public static string Index_CodeComment_MvcLocalization {
             get {
                 return ResourceManager.GetString("Index_CodeComment_MvcLocalization", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Register GCFoundation services.
+        /// </summary>
         public static string Index_CodeComment_RegisterGCFoundationServices {
             get {
                 return ResourceManager.GetString("Index_CodeComment_RegisterGCFoundationServices", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Load GCFoundation components and GCDS dependencies.
+        /// </summary>
         public static string Index_CodeComment_LoadComponents {
             get {
                 return ResourceManager.GetString("Index_CodeComment_LoadComponents", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Add GCFoundation Content Security Policy (CSP).
+        /// </summary>
         public static string Index_CodeComment_AddContentSecurityPolicy {
             get {
                 return ResourceManager.GetString("Index_CodeComment_AddContentSecurityPolicy", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Configure secure cookies.
+        /// </summary>
         public static string Index_CodeComment_ConfigureSecureCookies {
             get {
                 return ResourceManager.GetString("Index_CodeComment_ConfigureSecureCookies", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Configure global resources (resx).
+        /// </summary>
         public static string Index_CodeComment_ConfigureGlobalResources {
             get {
                 return ResourceManager.GetString("Index_CodeComment_ConfigureGlobalResources", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Configure supported cultures (e.g., en-CA, fr-CA).
+        /// </summary>
         public static string Index_CodeComment_ConfigureSupportedCultures {
             get {
                 return ResourceManager.GetString("Index_CodeComment_ConfigureSupportedCultures", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Add route localization (translated URLs).
+        /// </summary>
         public static string Index_CodeComment_AddRouteLocalization {
             get {
                 return ResourceManager.GetString("Index_CodeComment_AddRouteLocalization", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Add GCFoundation language middleware.
+        /// </summary>
         public static string Index_CodeComment_AddLanguageMiddleware {
             get {
                 return ResourceManager.GetString("Index_CodeComment_AddLanguageMiddleware", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Enable ASP.NET Core request localization.
+        /// </summary>
         public static string Index_CodeComment_EnableRequestLocalization {
             get {
                 return ResourceManager.GetString("Index_CodeComment_EnableRequestLocalization", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Configure navigation services.
+        /// </summary>
         public static string Index_CodeComment_ConfigureNavigationServices {
             get {
                 return ResourceManager.GetString("Index_CodeComment_ConfigureNavigationServices", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Configure breadcrumbs localization service.
+        /// </summary>
         public static string Index_CodeComment_ConfigureBreadcrumbsLocalization {
             get {
                 return ResourceManager.GetString("Index_CodeComment_ConfigureBreadcrumbsLocalization", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Configure top navigation localization service.
+        /// </summary>
         public static string Index_CodeComment_ConfigureTopNavigationLocalization {
             get {
                 return ResourceManager.GetString("Index_CodeComment_ConfigureTopNavigationLocalization", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Shown everywhere (topnav, breadcrumbs, sidenav).
+        /// </summary>
         public static string Index_CodeComment_ShownEverywhere {
             get {
                 return ResourceManager.GetString("Index_CodeComment_ShownEverywhere", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Top nav only.
+        /// </summary>
         public static string Index_CodeComment_TopNavigationOnly {
             get {
                 return ResourceManager.GetString("Index_CodeComment_TopNavigationOnly", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Bind navigation visibility rules from configuration.
+        /// </summary>
         public static string Index_CodeComment_BindNavigationRules {
             get {
                 return ResourceManager.GetString("Index_CodeComment_BindNavigationRules", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Evaluate rules against the current request (cookie, session, or claim).
+        /// </summary>
         public static string Index_CodeComment_EvaluateNavigationRules {
             get {
                 return ResourceManager.GetString("Index_CodeComment_EvaluateNavigationRules", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Configure default route with culture parameter.
+        /// </summary>
         public static string Index_CodeComment_ConfigureDefaultRoute {
             get {
                 return ResourceManager.GetString("Index_CodeComment_ConfigureDefaultRoute", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to AddCustomRouteLocalization.
+        /// </summary>
         public static string Index_CodeComment_AddCustomRouteLocalization {
             get {
                 return ResourceManager.GetString("Index_CodeComment_AddCustomRouteLocalization", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Navigation and breadcrumbs.
+        /// </summary>
         public static string Index_CodeComment_NavigationAndBreadcrumbs {
             get {
                 return ResourceManager.GetString("Index_CodeComment_NavigationAndBreadcrumbs", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Optional: localized top navigation labels.
+        /// </summary>
         public static string Index_CodeComment_OptionalLocalizedTopNavigation {
             get {
                 return ResourceManager.GetString("Index_CodeComment_OptionalLocalizedTopNavigation", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Global resources and localization.
+        /// </summary>
         public static string Index_CodeComment_GlobalResourcesAndLocalization {
             get {
                 return ResourceManager.GetString("Index_CodeComment_GlobalResourcesAndLocalization", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to GCFoundation services.
+        /// </summary>
         public static string Index_CodeComment_GCFoundationServices {
             get {
                 return ResourceManager.GetString("Index_CodeComment_GCFoundationServices", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Culture and URL-based localization.
+        /// </summary>
         public static string Index_CodeComment_CultureAndUrlLocalization {
             get {
                 return ResourceManager.GetString("Index_CodeComment_CultureAndUrlLocalization", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Add route localization extensions (translated routes).
+        /// </summary>
         public static string Index_CodeComment_AddRouteLocalizationExtensions {
             get {
                 return ResourceManager.GetString("Index_CodeComment_AddRouteLocalizationExtensions", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Error handling (production).
+        /// </summary>
         public static string Index_CodeComment_ErrorHandlingProduction {
             get {
                 return ResourceManager.GetString("Index_CodeComment_ErrorHandlingProduction", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Security and static files.
+        /// </summary>
         public static string Index_CodeComment_SecurityAndStaticFiles {
             get {
                 return ResourceManager.GetString("Index_CodeComment_SecurityAndStaticFiles", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Request localization.
+        /// </summary>
         public static string Index_CodeComment_RequestLocalization {
             get {
                 return ResourceManager.GetString("Index_CodeComment_RequestLocalization", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to GCFoundation components and security.
+        /// </summary>
         public static string Index_CodeComment_GCFoundationComponentsAndSecurity {
             get {
                 return ResourceManager.GetString("Index_CodeComment_GCFoundationComponentsAndSecurity", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Authorization and routing.
+        /// </summary>
         public static string Index_CodeComment_AuthorizationAndRouting {
             get {
                 return ResourceManager.GetString("Index_CodeComment_AuthorizationAndRouting", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Copy.
+        /// </summary>
         public static string Index_CopyButton_Text {
             get {
                 return ResourceManager.GetString("Index_CopyButton_Text", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Copied!.
+        /// </summary>
         public static string Index_CopyButton_SuccessText {
             get {
                 return ResourceManager.GetString("Index_CopyButton_SuccessText", resourceCulture);
