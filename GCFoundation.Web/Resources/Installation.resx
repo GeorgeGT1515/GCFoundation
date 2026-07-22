@@ -211,7 +211,7 @@
     <value>Prerequisites</value>
   </data>
   <data name="Index_Prerequisites_Item_AspNetCore" xml:space="preserve">
-    <value>ASP.NET Core 8.0 or later</value>
+    <value>ASP.NET Core 10.0 or later</value>
   </data>
   <data name="Index_Prerequisites_Item_VisualStudio" xml:space="preserve">
     <value>Visual Studio 2022 or later</value>

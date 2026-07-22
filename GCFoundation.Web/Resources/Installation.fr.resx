@@ -211,7 +211,7 @@
     <value>Conditions préalables</value>
   </data>
   <data name="Index_Prerequisites_Item_AspNetCore" xml:space="preserve">
-    <value>ASP.NET Core 8.0 ou une version ultérieure</value>
+    <value>ASP.NET Core 10.0 ou une version ultérieure</value>
   </data>
   <data name="Index_Prerequisites_Item_VisualStudio" xml:space="preserve">
     <value>Visual Studio 2022 ou une version ultérieure</value>
