@@ -40,7 +40,7 @@
 /* Error styling */
 .error-text {
     color: var(--gcds-color-red-900, #822117);
-} 
+}
 
 /* Accessible scroll containers for tables */
 .table-responsive {
