@@ -1,10 +1,10 @@
 <svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="400" height="300" fill="#F1F2F3"/>
-  <text x="64" y="107" fill="#000000" font-family="Noto Sans, Arial, sans-serif" font-size="30" font-weight="700">Describe</text>
-  <text x="226" y="107" fill="#545961" font-family="Noto Sans, Arial, sans-serif" font-size="30" font-weight="700">Look it up</text>
-  <line x1="64" y1="128" x2="336" y2="128" stroke="#D6D9DD" stroke-width="5"/>
-  <line x1="64" y1="128" x2="184" y2="128" stroke="#33465C" stroke-width="5"/>
-  <rect x="64" y="162" width="188" height="8" fill="#33465C"/>
-  <rect x="64" y="188" width="272" height="8" fill="#7D828B"/>
-  <rect x="64" y="214" width="228" height="8" fill="#7D828B"/>
+  <rect x="84" y="83" width="80" height="20" rx="10" fill="#A8ADB4"/>
+  <rect x="204" y="83" width="112" height="20" rx="10" fill="#D6D9DD"/>
+  <line x1="64" y1="118" x2="336" y2="118" stroke="#D6D9DD" stroke-width="5"/>
+  <line x1="64" y1="118" x2="184" y2="118" stroke="#A8ADB4" stroke-width="5"/>
+  <rect x="64" y="152" width="188" height="8" fill="#A8ADB4"/>
+  <rect x="64" y="178" width="228" height="8" fill="#A8ADB4"/>
+  <rect x="64" y="204" width="228" height="8" fill="#A8ADB4"/>
 </svg>
