@@ -1441,7 +1441,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Avoid badges when:.
+        ///   Looks up a localized string similar to Avoid this component when:.
         /// </summary>
         public static string Guidance_WhenNotToUse_Intro {
             get {
@@ -1468,7 +1468,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use a badge when:.
+        ///   Looks up a localized string similar to Use this component when:.
         /// </summary>
         public static string Guidance_WhenToUse_Intro {
             get {
