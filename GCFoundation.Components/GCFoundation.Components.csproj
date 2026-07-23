@@ -145,6 +145,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Attributes\Table\LocalizableString.cs" />
     <Compile Remove="Models\Table\TableColumnsModel.cs" />
     <Compile Remove="Models\Table\TableDataModel.cs" />
   </ItemGroup>

@@ -1,4 +1,5 @@
 ﻿using GCFoundation.Components.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace GCFoundation.Components.Attributes.Table
 {
@@ -8,6 +9,11 @@ namespace GCFoundation.Components.Attributes.Table
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
     public sealed class TableColumnDefinitionAttribute : Attribute
     {
+        // Resource key for localization
+        public string? Name { get; set; }
+
+        public Type? ResourceType { get; set; }
+
         /// <summary>
         /// Use <see cref="Alignment"/> to control how the content inside the column cells is positioned horizontally.
         /// </summary>
