@@ -27,8 +27,14 @@
 &lt;/fdcp-table&gt;")</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Components.Shared_CopyButton_SuccessText">@Components.Shared_CopyButton_Text</gcds-button></pre>
 </div>
 <div class="code-container">
-    <pre><code class="language-csharp">@Html.Raw(Html.Encode(@"[Display(Name = ""Table_Link_Header"", ResourceType = typeof(Resources.Components))]
-[TableColumnDefinition(Slotted = true)]
-public string SubmissionLink { get; set; }
+    <pre><code class="language-csharp">@Html.Raw(Html.Encode(@"[TableColumnDefinition(Name = ""Table_Submitter_Name_Header"",
+                       ResourceType = typeof(Resources.Components),
+                       RowHeader = true)]
+public string SubmitterName { get; set; } = string.Empty;
+
+[TableColumnDefinition(Name = ""Table_Link_Header"",
+                       ResourceType = typeof(Resources.Components),
+                       Slotted = true)]
+public string SubmissionLink { get; set; } = string.Empty;
 "))</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Components.Shared_CopyButton_SuccessText">@Components.Shared_CopyButton_Text</gcds-button></pre>
 </div>

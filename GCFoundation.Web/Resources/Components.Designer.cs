@@ -2760,6 +2760,15 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Table_BasicUsage_Text", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string with a link to the GC Design System table docs for filtering and pagination examples.
+        /// </summary>
+        public static string Table_BasicUsage_GCDSNote {
+            get {
+                return ResourceManager.GetString("Table_BasicUsage_GCDSNote", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Basic usage.
@@ -2830,6 +2839,15 @@ namespace GCFoundation.Web.Resources {
         public static string Table_Overview {
             get {
                 return ResourceManager.GetString("Table_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string describing the Name and ResourceType parameters for setting the column header.
+        /// </summary>
+        public static string Table_Properties_Annotation_NameResourceType {
+            get {
+                return ResourceManager.GetString("Table_Properties_Annotation_NameResourceType", resourceCulture);
             }
         }
         
@@ -3174,6 +3192,15 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Table_WithAnnotations_Text", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string warning that unannotated properties are still serialized client-side.
+        /// </summary>
+        public static string Table_WithAnnotations_Warning {
+            get {
+                return ResourceManager.GetString("Table_WithAnnotations_Warning", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Using data annotations.
@@ -3430,6 +3457,105 @@ namespace GCFoundation.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to with-slots.
         /// </summary>
+        /// <summary>
+        ///   Looks up a localized string similar to data-binding.
+        /// </summary>
+        public static string Table_DataBinding_Anchor {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_Anchor", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Sets the named HTML attribute to the value of a row field.
+        /// </summary>
+        public static string Table_DataBinding_Attr_Desc {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_Attr_Desc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Sets the element's text content to the value of the named row field.
+        /// </summary>
+        public static string Table_DataBinding_Bind_Desc {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_Bind_Desc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string explaining that fieldName is the camelCase of the column property name.
+        /// </summary>
+        public static string Table_DataBinding_FieldName_Desc {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_FieldName_Desc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Attribute.
+        /// </summary>
+        public static string Table_DataBinding_Col_Attribute {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_Col_Attribute", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Effect.
+        /// </summary>
+        public static string Table_DataBinding_Col_Effect {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_Col_Effect", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Value.
+        /// </summary>
+        public static string Table_DataBinding_Col_Value {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_Col_Value", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Data binding.
+        /// </summary>
+        public static string Table_DataBinding_Template_Desc {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_Template_Desc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Data binding.
+        /// </summary>
+        public static string Table_DataBinding_TemplateAttr_Desc {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_TemplateAttr_Desc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Data binding.
+        /// </summary>
+        public static string Table_DataBinding_Text {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_Text", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Data binding.
+        /// </summary>
+        public static string Table_DataBinding_Title {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_Title", resourceCulture);
+            }
+        }
+
         public static string Table_WithSlots_Anchor {
             get {
                 return ResourceManager.GetString("Table_WithSlots_Anchor", resourceCulture);

@@ -614,6 +614,7 @@ namespace GCFoundation.Web.Controllers
                     },
                     new NavGroup() { Label = Resources.Components.Table_WithSlots_Title, Items = new List<NavItem>()
                         {
+                            new NavLink() { Href = Resources.Components.Table_DataBinding_Anchor, Label = Resources.Components.Table_DataBinding_Title },
                             new NavLink() { Href = Resources.Components.Table_WithEmail_Anchor, Label = Resources.Components.Table_WithEmail_Title },
                             new NavLink() { Href = Resources.Components.Table_WithLink_Anchor, Label = Resources.Components.Table_WithLink_Title },
                             new NavLink() { Href = Resources.Components.Table_WithButton_Anchor, Label = Resources.Components.Table_WithButton_Title },
