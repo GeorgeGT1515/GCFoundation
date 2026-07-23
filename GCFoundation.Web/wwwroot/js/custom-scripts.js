@@ -4,21 +4,6 @@ const GCFoundationWeb = {
 
     init: function () {
         this.initCopyCodeBlock();
-        // Example: Add copy functionality to code blocks
-        const codeBlocks = document.querySelectorAll('pre code');
-        codeBlocks.forEach(block => {
-            block.addEventListener('click', function () {
-                const text = this.textContent;
-                navigator.clipboard.writeText(text).then(() => {
-                    // Show a brief "copied" message
-                    const originalText = this.textContent;
-                    this.textContent = 'Copied!';
-                    setTimeout(() => {
-                        this.textContent = originalText;
-                    }, 1000);
-                });
-            });
-        });
         this.initTableActions();
     },
     initTableActions: function () {
