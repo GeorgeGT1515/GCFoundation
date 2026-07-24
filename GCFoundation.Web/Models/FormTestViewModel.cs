@@ -87,6 +87,13 @@ namespace GCFoundation.Web.Models
         ];
 
         /// <summary>
+        /// The country selected with the searchable select example.
+        /// </summary>
+        [Required]
+        [Display(Name = "Form_SearchableCountry_Label", Description = "Form_SearchableCountry_Hint", ResourceType = typeof(Resources.Components))]
+        public string? SearchableCountry { get; set; }
+
+        /// <summary>
         /// The gender selected by the user.
         /// </summary>
         [Required]
@@ -128,5 +135,12 @@ namespace GCFoundation.Web.Models
             new() { Value = "travel", Text = "Travel" },
             new() { Value = "reading", Text = "Reading" }
         ];
+
+        /// <summary>
+        /// The interests selected with the searchable select example.
+        /// </summary>
+        [Required]
+        [Display(Name = "Form_SearchableInterests_Label", Description = "Form_SearchableInterests_Hint", ResourceType = typeof(Resources.Components))]
+        public IEnumerable<string> SearchableInterests { get; set; } = new List<string>();
     }
 }

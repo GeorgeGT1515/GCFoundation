@@ -1,11 +1,8 @@
 using GCFoundation.Components.Controllers;
 using GCFoundation.Components.Enums;
 using GCFoundation.Components.Models.FormBuilder;
-using GCFoundation.Components.Models.TableBuilder;
-using GCFoundation.Components.TagHelpers.GCDS;
 using GCFoundation.Web.Models;
 using GCFoundation.Web.Models.Components;
-using GCFoundation.Web.Models.Table;
 using GCFoundation.Web.Resources;
 using Microsoft.AspNetCore.Mvc;
 
@@ -211,6 +208,21 @@ namespace GCFoundation.Web.Controllers
             SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_PageHeading_Title}");
 
             var vm = BuildPageHeadingComponentViewModel();
+            return View("Component", vm);
+        }
+
+        /// <summary>
+        /// Displays the Searchable Select component demo page.
+        /// </summary>
+        /// <returns>
+        /// The Searchable Select component view.
+        /// </returns>
+        [HttpGet("searchable-select")]
+        public IActionResult SearchableSelect()
+        {
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_SearchableSelect_Title}");
+
+            var vm = BuildSearchableSelectComponentViewModel();
             return View("Component", vm);
         }
 
@@ -450,6 +462,7 @@ namespace GCFoundation.Web.Controllers
                 new () { Name = Resources.Components.Index_Form_Title, ShortDescription = Resources.Components.Index_Form_Description, Href = Url.Action("Form", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-form.svg") },
                 new () { Name = Resources.Components.Index_Modal_Title, ShortDescription = Resources.Components.Index_Modal_Description, Href = Url.Action("Modal", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-modal.svg") },
                 new () { Name = Resources.Components.Index_PageHeading_Title, ShortDescription = Resources.Components.Index_PageHeading_Description, Href = Url.Action("PageHeading", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-page-heading.svg") },
+                new () { Name = Resources.Components.Index_SearchableSelect_Title, ShortDescription = Resources.Components.Index_SearchableSelect_Description, Href = Url.Action("SearchableSelect", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-select.svg") },
                 new () { Name = Resources.Components.Index_Stepper_Title, ShortDescription = Resources.Components.Index_Stepper_Description, Href = Url.Action("Stepper", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-stepper-fdcp.svg") },
                 new () { Name = Resources.Components.Index_Table_Title, ShortDescription = Resources.Components.Index_Table_Description, Href = Url.Action("Table", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-table.svg") },
                 new () { Name = Resources.Components.Index_UserLoginPartial_Title, ShortDescription = Resources.Components.Index_UserLoginPartial_Description, Href = Url.Action("UserLogin", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-user-login-partial.svg") }
@@ -518,6 +531,35 @@ namespace GCFoundation.Web.Controllers
                 new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.PageHeading_Basic_Anchor, PartialViewName = "PageHeading/_Basic", Title = Resources.Components.PageHeading_Basic_Title }
             };
             vm.Tag = "<fdcp-page-heading>";
+
+            return vm;
+        }
+        private static ComponentViewModel BuildSearchableSelectComponentViewModel()
+        {
+            var vm = new ComponentViewModel();
+
+            vm.Name = Resources.Components.SearchableSelect_Name;
+            vm.Overview = Resources.Components.SearchableSelect_Overview;
+            vm.Properties = new List<ComponentPropertyViewModel>()
+            {
+                new ComponentPropertyViewModel() { Name = "for", DataType = "ModelExpression", Description = Resources.Components.SearchableSelect_Properties_For },
+                new ComponentPropertyViewModel() { Name = "name", DataType = "string", Description = Resources.Components.SearchableSelect_Properties_Name },
+                new ComponentPropertyViewModel() { Name = "items", DataType = "IEnumerable<SelectListItem>", Description = Resources.Components.SearchableSelect_Properties_Items },
+                new ComponentPropertyViewModel() { Name = "label", DataType = "string", Description = Resources.Components.SearchableSelect_Properties_Label },
+                new ComponentPropertyViewModel() { Name = "default-value", DataType = "string", DefaultValue = "Select option", Description = Resources.Components.SearchableSelect_Properties_DefaultValue },
+                new ComponentPropertyViewModel() { Name = "search-placeholder", DataType = "string", DefaultValue = "Search", Description = Resources.Components.SearchableSelect_Properties_SearchPlaceholder },
+                new ComponentPropertyViewModel() { Name = "search-label", DataType = "string", DefaultValue = "Search options", Description = Resources.Components.SearchableSelect_Properties_SearchLabel },
+                new ComponentPropertyViewModel() { Name = "no-results-text", DataType = "string", DefaultValue = "No results found", Description = Resources.Components.SearchableSelect_Properties_NoResultsText },
+                new ComponentPropertyViewModel() { Name = "selection-mode", DataType = "FDCPSearchableSelectSelectionMode", DefaultValue = "Single", Description = Resources.Components.SearchableSelect_Properties_SelectionMode },
+                new ComponentPropertyViewModel() { Name = "hint", DataType = "string", Description = Resources.Components.SearchableSelect_Properties_Hint },
+                new ComponentPropertyViewModel() { Name = "required", DataType = "bool", Description = Resources.Components.SearchableSelect_Properties_Required }
+            };
+            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
+            {
+                new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.SearchableSelect_Basic_Anchor, PartialViewName = "SearchableSelect/_Basic", Title = Resources.Components.SearchableSelect_Basic_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.SearchableSelect_WithSelectedOptions_Text, Id = Resources.Components.SearchableSelect_WithSelectedOptions_Anchor, PartialViewName = "SearchableSelect/_WithSelectedOptions", Title = Resources.Components.SearchableSelect_WithSelectedOptions_Title }
+            };
+            vm.Tag = "<fdcp-searchable-select>";
 
             return vm;
         }

@@ -540,6 +540,12 @@
   <data name="Index_FilteredSearch_Description" xml:space="preserve">
     <value>A way to display search with filtered result</value>
   </data>
+  <data name="Index_SearchableSelect_Title" xml:space="preserve">
+    <value>Searchable Select</value>
+  </data>
+  <data name="Index_SearchableSelect_Description" xml:space="preserve">
+    <value>A searchable single- or multi-select with optional selected-options content</value>
+  </data>
   <data name="Index_Badge_Title" xml:space="preserve">
     <value>Badge</value>
   </data>
@@ -872,6 +878,12 @@
   <data name="Form_Country_Label" xml:space="preserve">
     <value>Country</value>
   </data>
+  <data name="Form_SearchableCountry_Hint" xml:space="preserve">
+    <value>Search and select your country of residence.</value>
+  </data>
+  <data name="Form_SearchableCountry_Label" xml:space="preserve">
+    <value>Searchable country</value>
+  </data>
   <data name="Form_DateOfBirth_Hint" xml:space="preserve">
     <value>Enter your date of birth</value>
   </data>
@@ -907,6 +919,12 @@
   </data>
   <data name="Form_Interests_Label" xml:space="preserve">
     <value>What are your interests?</value>
+  </data>
+  <data name="Form_SearchableInterests_Hint" xml:space="preserve">
+    <value>Search and select at least one interest.</value>
+  </data>
+  <data name="Form_SearchableInterests_Label" xml:space="preserve">
+    <value>Searchable interests</value>
   </data>
   <data name="Form_Password_Hint" xml:space="preserve">
     <value>Choose a strong password with at least 8 characters.</value>
@@ -1027,6 +1045,123 @@
   </data>
   <data name="FilteredSearch_Basic_Title" xml:space="preserve">
     <value>Basic Usage</value>
+  </data>
+  <data name="SearchableSelect_Name" xml:space="preserve">
+    <value>Searchable Select</value>
+  </data>
+  <data name="SearchableSelect_Overview" xml:space="preserve">
+    <value>The &lt;code&gt;&amp;lt;fdcp-searchable-select&amp;gt;&lt;/code&gt; component provides a searchable select for one or many selections. It always includes search and can render optional caller-provided content in the &lt;code&gt;selected-options&lt;/code&gt; slot.</value>
+  </data>
+  <data name="SearchableSelect_Properties_For" xml:space="preserve">
+    <value>Model expression used to bind the selected value or values.</value>
+  </data>
+  <data name="SearchableSelect_Properties_Name" xml:space="preserve">
+    <value>Form field name used when the component is not bound with for.</value>
+  </data>
+  <data name="SearchableSelect_Properties_Items" xml:space="preserve">
+    <value>Options rendered in the dropdown. Use SelectListItem.Group to display grouped headings.</value>
+  </data>
+  <data name="SearchableSelect_Properties_Label" xml:space="preserve">
+    <value>Visible label for the dropdown.</value>
+  </data>
+  <data name="SearchableSelect_Properties_DefaultValue" xml:space="preserve">
+    <value>Text shown in the trigger when no option is selected.</value>
+  </data>
+  <data name="SearchableSelect_Properties_SearchPlaceholder" xml:space="preserve">
+    <value>Placeholder text for the search input.</value>
+  </data>
+  <data name="SearchableSelect_Properties_SearchLabel" xml:space="preserve">
+    <value>Accessible label for the search input.</value>
+  </data>
+  <data name="SearchableSelect_Properties_NoResultsText" xml:space="preserve">
+    <value>Text shown when no options match the search term.</value>
+  </data>
+  <data name="SearchableSelect_Properties_SelectionMode" xml:space="preserve">
+    <value>Selection behavior. Use Single for radio-style selection or Multiple for checkbox-style selection.</value>
+  </data>
+  <data name="SearchableSelect_Properties_Hint" xml:space="preserve">
+    <value>Optional hint text displayed under the label.</value>
+  </data>
+  <data name="SearchableSelect_Properties_Required" xml:space="preserve">
+    <value>Marks the dropdown as required for validation and accessibility.</value>
+  </data>
+  <data name="SearchableSelect_Basic_Anchor" xml:space="preserve">
+    <value>basic</value>
+  </data>
+  <data name="SearchableSelect_Basic_Title" xml:space="preserve">
+    <value>Basic Usage</value>
+  </data>
+  <data name="SearchableSelect_WithSelectedOptions_Anchor" xml:space="preserve">
+    <value>with-selected-options</value>
+  </data>
+  <data name="SearchableSelect_WithSelectedOptions_Title" xml:space="preserve">
+    <value>With Selected Options Slot</value>
+  </data>
+  <data name="SearchableSelect_WithSelectedOptions_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Use the &lt;code&gt;selected-options&lt;/code&gt; slot to add a custom bottom section, such as selected counts, clear actions, or any other caller-specific markup.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_CA" xml:space="preserve">
+    <value>Canada</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_US" xml:space="preserve">
+    <value>United States</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_MX" xml:space="preserve">
+    <value>Mexico</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_FR" xml:space="preserve">
+    <value>France</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_SV" xml:space="preserve">
+    <value>Saint Vincent and the Grenadines</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_Label" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_Hint" xml:space="preserve">
+    <value>Start typing to filter countries</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_DefaultValue" xml:space="preserve">
+    <value>Select country</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_SearchPlaceholder" xml:space="preserve">
+    <value>Search countries</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_NoResultsText" xml:space="preserve">
+    <value>No results found</value>
+  </data>
+  <data name="SearchableSelect_Sample_OneResultText" xml:space="preserve">
+    <value>1 result available</value>
+  </data>
+  <data name="SearchableSelect_Sample_MultipleResultsText" xml:space="preserve">
+    <value>{0} results available</value>
+  </data>
+  <data name="SearchableSelect_Sample_Classification_EC_Group" xml:space="preserve">
+    <value>Economics and Social Science Services (EC)</value>
+  </data>
+  <data name="SearchableSelect_Sample_Classification_PM_Group" xml:space="preserve">
+    <value>Program Administration (PM)</value>
+  </data>
+  <data name="SearchableSelect_Sample_Classification_Label" xml:space="preserve">
+    <value>Classification group &amp; level</value>
+  </data>
+  <data name="SearchableSelect_Sample_Classification_DefaultValue" xml:space="preserve">
+    <value>Select option</value>
+  </data>
+  <data name="SearchableSelect_Sample_Classification_SearchPlaceholder" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchableSelect_Sample_Classification_NoResultsText" xml:space="preserve">
+    <value>No results found</value>
+  </data>
+  <data name="SearchableSelect_Sample_Classification_SelectedCountText" xml:space="preserve">
+    <value>option(s) selected</value>
+  </data>
+  <data name="SearchableSelect_Sample_Classification_TriggerSelectedText" xml:space="preserve">
+    <value>selected</value>
+  </data>
+  <data name="SearchableSelect_Sample_Classification_ClearText" xml:space="preserve">
+    <value>Clear</value>
   </data>
   <data name="PageHeading_Basic_Anchor" xml:space="preserve">
     <value>basic</value>
