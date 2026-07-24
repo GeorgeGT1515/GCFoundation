@@ -9,9 +9,19 @@ namespace GCFoundation.Components.Attributes.Table
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
     public sealed class TableColumnDefinitionAttribute : Attribute
     {
-        // Resource key for localization
+        /// <summary>
+        /// The resource key used to resolve this column's header text, or the literal header
+        /// text itself if <see cref="ResourceType"/> is not set. Behaves the same way as
+        /// <see cref="DisplayAttribute.Name"/> — when paired with <see cref="ResourceType"/>,
+        /// the value is looked up as a resource key; otherwise it is used as-is.
+        /// </summary>
         public string? Name { get; set; }
 
+        /// <summary>
+        /// The type whose associated resource file contains the key specified by <see cref="Name"/>.
+        /// If <c>null</c>, <see cref="Name"/> is treated as a literal string instead of a resource key.
+        /// Behaves the same way as <see cref="DisplayAttribute.ResourceType"/>.
+        /// </summary>
         public Type? ResourceType { get; set; }
 
         /// <summary>
