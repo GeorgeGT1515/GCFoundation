@@ -1,0 +1,69 @@
+@using GCFoundation.Components.Enums
+@using GCFoundation.Components.TagHelpers.FDCP
+@using Microsoft.AspNetCore.Mvc.Rendering
+@using GCFoundation.Web.Resources
+
+@{
+    var economicsGroup = new SelectListGroup { Name = Components.SearchableSelect_Sample_Classification_EC_Group };
+    var policyGroup = new SelectListGroup { Name = Components.SearchableSelect_Sample_Classification_PM_Group };
+    var classificationOptions = new List<SelectListItem>
+    {
+        new() { Value = "EC-02", Text = "EC-02", Group = economicsGroup },
+        new() { Value = "EC-03", Text = "EC-03", Group = economicsGroup },
+        new() { Value = "EC-04", Text = "EC-04", Group = economicsGroup },
+        new() { Value = "EC-05", Text = "EC-05", Group = economicsGroup },
+        new() { Value = "EC-06", Text = "EC-06", Group = economicsGroup },
+        new() { Value = "PM-03", Text = "PM-03", Group = policyGroup },
+        new() { Value = "PM-04", Text = "PM-04", Group = policyGroup }
+    };
+}
+
+<fdcp-searchable-select items="@classificationOptions"
+                          name="classificationLevels"
+                          label="@Components.SearchableSelect_Sample_Classification_Label"
+                          default-value="@Components.SearchableSelect_Sample_Classification_DefaultValue"
+                          search-placeholder="@Components.SearchableSelect_Sample_Classification_SearchPlaceholder"
+                          no-results-text="@Components.SearchableSelect_Sample_Classification_NoResultsText"
+                          one-result-text="@Components.SearchableSelect_Sample_OneResultText"
+                          multiple-results-text="@Components.SearchableSelect_Sample_MultipleResultsText"
+                          multiple-selected-text="@Components.SearchableSelect_Sample_Classification_TriggerSelectedText"
+                          selection-mode="@FDCPSearchableSelectSelectionMode.Multiple">
+    <div slot="selected-options">
+        <span><strong data-fdcp-searchable-select-selected-count>0</strong> @Components.SearchableSelect_Sample_Classification_SelectedCountText</span>
+        <gcds-button type="button" button-role="secondary" data-fdcp-searchable-select-clear>@Components.SearchableSelect_Sample_Classification_ClearText</gcds-button>
+    </div>
+</fdcp-searchable-select>
+
+<pre><code class="language-cshtml">@Html.Raw($@"@using GCFoundation.Components.TagHelpers.FDCP
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+@{{
+    var economicsGroup = new SelectListGroup {{ Name = ""{Html.Encode(Components.SearchableSelect_Sample_Classification_EC_Group)}"" }};
+    var policyGroup = new SelectListGroup {{ Name = ""{Html.Encode(Components.SearchableSelect_Sample_Classification_PM_Group)}"" }};
+    var classificationOptions = new List&lt;SelectListItem&gt;
+    {{
+        new() {{ Value = ""EC-02"", Text = ""EC-02"", Group = economicsGroup }},
+        new() {{ Value = ""EC-03"", Text = ""EC-03"", Group = economicsGroup }},
+        new() {{ Value = ""EC-04"", Text = ""EC-04"", Group = economicsGroup }},
+        new() {{ Value = ""EC-05"", Text = ""EC-05"", Group = economicsGroup }},
+        new() {{ Value = ""EC-06"", Text = ""EC-06"", Group = economicsGroup }},
+        new() {{ Value = ""PM-03"", Text = ""PM-03"", Group = policyGroup }},
+        new() {{ Value = ""PM-04"", Text = ""PM-04"", Group = policyGroup }}
+    }};
+}}
+
+&lt;fdcp-searchable-select items=""@classificationOptions""
+                          name=""classificationLevels""
+                          label=""{Html.Encode(Components.SearchableSelect_Sample_Classification_Label)}""
+                          default-value=""{Html.Encode(Components.SearchableSelect_Sample_Classification_DefaultValue)}""
+                          search-placeholder=""{Html.Encode(Components.SearchableSelect_Sample_Classification_SearchPlaceholder)}""
+                          no-results-text=""{Html.Encode(Components.SearchableSelect_Sample_Classification_NoResultsText)}""
+                          one-result-text=""{Html.Encode(Components.SearchableSelect_Sample_OneResultText)}""
+                          multiple-results-text=""{Html.Encode(Components.SearchableSelect_Sample_MultipleResultsText)}""
+                          multiple-selected-text=""{Html.Encode(Components.SearchableSelect_Sample_Classification_TriggerSelectedText)}""
+                          selection-mode=""@FDCPSearchableSelectSelectionMode.Multiple""&gt;
+    &lt;div slot=""selected-options""&gt;
+        &lt;span&gt;&lt;strong data-fdcp-searchable-select-selected-count&gt;0&lt;/strong&gt; {Html.Encode(Components.SearchableSelect_Sample_Classification_SelectedCountText)}&lt;/span&gt;
+        &lt;gcds-button type=""button"" button-role=""secondary"" data-fdcp-searchable-select-clear&gt;{Html.Encode(Components.SearchableSelect_Sample_Classification_ClearText)}&lt;/gcds-button&gt;
+    &lt;/div&gt;
+&lt;/fdcp-searchable-select&gt;")</code></pre>
