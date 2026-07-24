@@ -1,4 +1,4 @@
-﻿@using GCFoundation.Web.Resources
+@using GCFoundation.Web.Resources
 
 <gcds-heading tag="h1">@Template.Error_Code_Name</gcds-heading>
 @Html.Raw(string.Format(Template.Error_Code_Intro, string.Concat(Url.Action("Error"), $"#{Template.HowToImplement_Anchor}")))
@@ -21,5 +21,5 @@
 	&lt;li&gt;Mauris ex neque, pellentesque eget elementum a: &lt;gcds-link href="mailto:no-reply@tbs-sct.canada.ca"&gt;no-reply@tbs-sct.canada.ca&lt;/gcds-link&gt;.&lt;/li&gt;
 	&lt;/ul&gt;
 	&lt;gcds-text&gt;Curabitur lobortis, ex tempor posuere dictum, dolor augue sodales sem, vehicula dapibus &lt;gcds-link href="@Url.Action("Index", "Home")"&gt;dui dolor at magna&lt;/gcds-link&gt;.&lt;/gcds-text&gt;
-&lt;/gcds-notice&gt;</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Template.Shared_CopyButton_SuccessText">@Template.Shared_CopyButton_Text</gcds-button></pre>
+&lt;/gcds-notice&gt;</code></pre>
 </div>

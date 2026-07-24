@@ -3,7 +3,8 @@ const GCFoundationWeb = {
     Version: "0.1.1",
 
     init: function () {
-        this.initCopyCodeBlock();
+        this.initCreateCopyButton();
+        this.initCopy();
         this.initTableActions();
     },
     initTableActions: function () {
@@ -16,7 +17,7 @@ const GCFoundationWeb = {
             console.log("Delete clicked for row:", deleteBtn.row, "submisisonId:", deleteBtn.row?.submissionId);
         });
     },
-    initCopyCodeBlock: function () {
+    initCopy: function () {
         document.addEventListener("click", (e) => {
             const copyButton = e.target.closest('.code-copy-button');
             if (!copyButton) return;
@@ -35,7 +36,29 @@ const GCFoundationWeb = {
                 }, 1000);
             });
         });
+    },
+    initCreateCopyButton: function () {
+        const lang = document.documentElement.lang?.startsWith('fr') ? 'fr' : 'en';
+        const strings = COPY_BUTTON_STRINGS[lang];
+
+        document.querySelectorAll('.code-container').forEach(container => {
+            const pre = container.querySelector('pre');
+            if (pre.querySelector('.code-copy-button')) return;
+
+            const button = document.createElement('gcds-button');
+            button.setAttribute('button-role', 'secondary');
+            button.classList.add('code-copy-button', 'mt-150');
+            button.setAttribute('data-success-text', strings.copied);
+            button.textContent = strings.copy;
+
+            pre.appendChild(button);
+        })        
     }
+};
+
+const COPY_BUTTON_STRINGS = {
+    en: { copy: 'Copy', copied: 'Copied!' },
+    fr: { copy: 'Copier', copied: 'Copié!' }
 };
 
 // Initialize custom functionality when DOM is ready
