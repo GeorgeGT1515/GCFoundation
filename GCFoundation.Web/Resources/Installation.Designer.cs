@@ -610,24 +610,6 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Copied!.
-        /// </summary>
-        public static string Shared_CopyButton_SuccessText {
-            get {
-                return ResourceManager.GetString("Shared_CopyButton_SuccessText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Copy.
-        /// </summary>
-        public static string Shared_CopyButton_Text {
-            get {
-                return ResourceManager.GetString("Shared_CopyButton_Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to As part of the GCFoundation, you also get a set of standard translations that you can use in your GCFoundation applications..
         /// </summary>
         public static string Translations_Description {

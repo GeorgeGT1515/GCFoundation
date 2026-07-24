@@ -1713,12 +1713,6 @@
   <data name="Table_WithButtonLink_Note" xml:space="preserve">
     <value>&lt;i&gt;Note : Dans cette démonstration, le bouton navigue vers une ancre de page. Dans une vraie application, &lt;code&gt;data-bind-template-href="/votre/route/{fieldName}"&lt;/code&gt; peut construire l'URL de destination dynamiquement à partir d'une valeur de la rangée.&lt;/i&gt;</value>
   </data>
-  <data name="Shared_CopyButton_Text" xml:space="preserve">
-    <value>Copier</value>
-  </data>
-  <data name="Shared_CopyButton_SuccessText" xml:space="preserve">
-    <value>Copié!</value>
-  </data>
   <data name="StatelessAuth_CurrentStatus_Title" xml:space="preserve">
     <value>Statut d'authentification actuel</value>
   </data>

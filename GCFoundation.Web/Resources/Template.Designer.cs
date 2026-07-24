@@ -961,24 +961,6 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Copied!.
-        /// </summary>
-        public static string Shared_CopyButton_SuccessText {
-            get {
-                return ResourceManager.GetString("Shared_CopyButton_SuccessText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Copy.
-        /// </summary>
-        public static string Shared_CopyButton_Text {
-            get {
-                return ResourceManager.GetString("Shared_CopyButton_Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to &lt;gcds-text&gt;Copy this code to recreate the demo of the stepper page template.&lt;/gcds-text&gt;.
         /// </summary>
         public static string Stepper_Code_Intro {

@@ -312,10 +312,4 @@
   <data name="Translations_HowToUse_Heading" xml:space="preserve">
     <value>Comment les utiliser ?</value>
   </data>
-  <data name="Shared_CopyButton_Text" xml:space="preserve">
-    <value>Copier</value>
-  </data>
-  <data name="Shared_CopyButton_SuccessText" xml:space="preserve">
-    <value>Copié!</value>
-  </data>
 </root>

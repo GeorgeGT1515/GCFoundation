@@ -1709,10 +1709,4 @@
   <data name="Table_WithButtonLink_Note" xml:space="preserve">
     <value>&lt;i&gt;Note: In this demo, the button navigates to a page anchor. In a real application, &lt;code&gt;data-bind-template-href="/your/route/{fieldName}"&lt;/code&gt; can build the destination URL dynamically from a row value.&lt;/i&gt;</value>
   </data>
-  <data name="Shared_CopyButton_Text" xml:space="preserve">
-    <value>Copy</value>
-  </data>
-  <data name="Shared_CopyButton_SuccessText" xml:space="preserve">
-    <value>Copied!</value>
-  </data>
 </root>
