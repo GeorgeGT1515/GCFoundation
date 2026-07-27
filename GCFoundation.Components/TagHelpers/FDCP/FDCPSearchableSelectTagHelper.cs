@@ -167,9 +167,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 aria-controls=""{EncodeAttribute(panelId)}""
                 data-fdcp-searchable-select-trigger{ariaHasPopup}{ariaDescribedBy}{required}{invalid}{disabled}>
                 <span class=""fdcp-searchable-select__trigger-text"" data-fdcp-searchable-select-selected-text>{Encode(selectedSummary)}</span>
-                <svg class=""fdcp-searchable-select__trigger-icon"" width=""16"" height=""10"" viewBox=""0 0 16 10"" fill=""none"" aria-hidden=""true"" focusable=""false"" xmlns=""http://www.w3.org/2000/svg"">
-                    <path d=""M0.799988 0.900024L7.79999 7.90003L14.8 0.900024"" stroke=""currentColor"" stroke-width=""2"" />
-                </svg>
+                <span class=""fdcp-searchable-select__trigger-icon"" aria-hidden=""true""></span>
             </button>");
             AppendSizer(sb, items);
 
