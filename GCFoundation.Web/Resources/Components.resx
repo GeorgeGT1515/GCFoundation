@@ -1311,7 +1311,7 @@
     <value>when-to-use</value>
   </data>
   <data name="Guidance_WhenToUse_Intro" xml:space="preserve">
-    <value>Use a badge when:</value>
+    <value>Use this component when:</value>
   </data>
   <data name="Guidance_WhenNotToUse" xml:space="preserve">
     <value>When Not to Use</value>
@@ -1320,7 +1320,7 @@
     <value>when-not-to-use</value>
   </data>
   <data name="Guidance_WhenNotToUse_Intro" xml:space="preserve">
-    <value>Avoid badges when:</value>
+    <value>Avoid this component when:</value>
   </data>
   <data name="Guidance_Accessibility" xml:space="preserve">
     <value>Accessibility Requirements</value>
@@ -1714,5 +1714,119 @@
   </data>
   <data name="Shared_CopyButton_SuccessText" xml:space="preserve">
     <value>Copied!</value>
+  </data>
+  <data name="Index_Tabs_Title" xml:space="preserve">
+    <value>Tabs</value>
+  </data>
+  <data name="Index_Tabs_Description" xml:space="preserve">
+    <value>Organize related in-page content into accessible tab panels.</value>
+  </data>
+  <data name="Tabs_Name" xml:space="preserve">
+    <value>Tabs</value>
+  </data>
+  <data name="Tabs_Overview" xml:space="preserve">
+    <value>Tabs let people switch between related panels of content without leaving the current page context.</value>
+  </data>
+  <data name="Tabs_Purpose" xml:space="preserve">
+    <value>Use tabs to group peer sections of content where only one section needs to be visible at a time.</value>
+  </data>
+  <data name="Tabs_WhenToUse_1" xml:space="preserve">
+    <value>Use tabs when the sections are closely related and people benefit from comparing or switching between them in place.</value>
+  </data>
+  <data name="Tabs_WhenToUse_2" xml:space="preserve">
+    <value>Use tabs when each panel can stand on its own and the first tab provides a sensible default view.</value>
+  </data>
+  <data name="Tabs_WhenNotToUse_1" xml:space="preserve">
+    <value>Do not use tabs for primary site navigation or page-to-page navigation. Use GCDS navigation components for those patterns.</value>
+  </data>
+  <data name="Tabs_WhenNotToUse_2" xml:space="preserve">
+    <value>Do not hide critical tasks, errors, or required instructions in a tab that might not be selected.</value>
+  </data>
+  <data name="Tabs_Accessibility_Do_1" xml:space="preserve">
+    <value>Provide a meaningful label on &lt;code&gt;fdcp-tabs&lt;/code&gt; so assistive technologies can describe the tab list.</value>
+  </data>
+  <data name="Tabs_Accessibility_Do_2" xml:space="preserve">
+    <value>Keep tab labels short and unique so people can understand the available panels quickly.</value>
+  </data>
+  <data name="Tabs_Accessibility_Do_3" xml:space="preserve">
+    <value>Make sure each tab panel has enough context when read on its own, because screen reader users may navigate directly between panels.</value>
+  </data>
+  <data name="Tabs_UxBestPractices_1" xml:space="preserve">
+    <value>Limit the number of tabs so the tab list remains scannable and works well on small screens.</value>
+  </data>
+  <data name="Tabs_UxBestPractices_2" xml:space="preserve">
+    <value>Order tabs by importance or the expected user workflow, with the most useful panel first.</value>
+  </data>
+  <data name="Tabs_Notes_1" xml:space="preserve">
+    <value>The component follows the WAI-ARIA tabs pattern. Left Arrow, Right Arrow, Home, and End move focus; Enter or Space activates the focused tab.</value>
+  </data>
+  <data name="Tabs_Notes_2" xml:space="preserve">
+    <value>Tabs are for switching content panels in the current page. For page navigation, use GCDS top navigation, side navigation, or links.</value>
+  </data>
+  <data name="Tabs_Notes_3" xml:space="preserve">
+    <value>When load-url is set, the panel content is fetched the first time the tab is selected and then cached for later tab changes.</value>
+  </data>
+  <data name="Tabs_Properties_Id" xml:space="preserve">
+    <value>Optional. Unique ID for the tabs component. Used to generate deterministic tab and panel IDs.</value>
+  </data>
+  <data name="Tabs_Properties_Label" xml:space="preserve">
+    <value>Accessible label for the tab list.</value>
+  </data>
+  <data name="Tabs_DefaultLabel" xml:space="preserve">
+    <value>Tabs</value>
+  </data>
+  <data name="Tabs_Properties_SelectedIndex" xml:space="preserve">
+    <value>Optional. Zero-based index of the tab selected when the page loads. Overrides child active state when valid.</value>
+  </data>
+  <data name="Tabs_Properties_TabTitle" xml:space="preserve">
+    <value>Required. Text shown in the tab button.</value>
+  </data>
+  <data name="Tabs_Properties_TabId" xml:space="preserve">
+    <value>Optional. Base ID used to generate the child tab and panel IDs.</value>
+  </data>
+  <data name="Tabs_Properties_TabActive" xml:space="preserve">
+    <value>Optional. Selects this tab when the page loads if selected-index is not set.</value>
+  </data>
+  <data name="Tabs_Properties_TabLoadUrl" xml:space="preserve">
+    <value>Optional. URL that returns an HTML fragment to lazy-load into the panel when the tab is selected.</value>
+  </data>
+  <data name="Tabs_Basic_Title" xml:space="preserve">
+    <value>Basic tabs</value>
+  </data>
+  <data name="Tabs_Basic_Anchor" xml:space="preserve">
+    <value>basic-tabs</value>
+  </data>
+  <data name="Tabs_Basic_Text" xml:space="preserve">
+    <value>Use nested &lt;code&gt;fdcp-tab&lt;/code&gt; elements inside &lt;code&gt;fdcp-tabs&lt;/code&gt; to define each tab label and panel content.</value>
+  </data>
+  <data name="Tabs_Sample_Label" xml:space="preserve">
+    <value>Profile sections</value>
+  </data>
+  <data name="Tabs_Sample_Overview_Title" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+  <data name="Tabs_Sample_Overview_Content" xml:space="preserve">
+    <value>Use the overview tab for the most important summary content.</value>
+  </data>
+  <data name="Tabs_Sample_Details_Title" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Tabs_Sample_Details_Content" xml:space="preserve">
+    <value>Use the details tab for supporting information that belongs in the same context.</value>
+  </data>
+  <data name="Tabs_Sample_History_Title" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="Tabs_Sample_History_Content" xml:space="preserve">
+    <value>Use the history tab for related changes or previous activity.</value>
+  </data>
+  <data name="Tabs_Sample_ServerData_Title" xml:space="preserve">
+    <value>Server data</value>
+  </data>
+  <data name="Tabs_Sample_ServerData_Loading" xml:space="preserve">
+    <value>Loading server content...</value>
+  </data>
+  <data name="Tabs_LazyContent" xml:space="preserve">
+    <value>This content was loaded from the server when the tab was selected.</value>
   </data>
 </root>
