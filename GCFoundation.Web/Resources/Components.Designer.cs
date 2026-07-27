@@ -403,6 +403,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New.
+        /// </summary>
+        public static string Card_Badge_New {
+            get {
+                return ResourceManager.GetString("Card_Badge_New", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to basic.
         /// </summary>
         public static string Card_Basic_Anchor {
@@ -1691,6 +1700,24 @@ namespace GCFoundation.Web.Resources {
         public static string Index_TableGridJs_Title {
             get {
                 return ResourceManager.GetString("Index_TableGridJs_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Organize related in-page content into accessible tab panels..
+        /// </summary>
+        public static string Index_Tabs_Description {
+            get {
+                return ResourceManager.GetString("Index_Tabs_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tabs.
+        /// </summary>
+        public static string Index_Tabs_Title {
+            get {
+                return ResourceManager.GetString("Index_Tabs_Title", resourceCulture);
             }
         }
         
@@ -3982,6 +4009,330 @@ namespace GCFoundation.Web.Resources {
         public static string Table_WithSlots_Title {
             get {
                 return ResourceManager.GetString("Table_WithSlots_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provide a meaningful label on &lt;code&gt;fdcp-tabs&lt;/code&gt; so assistive technologies can describe the tab list..
+        /// </summary>
+        public static string Tabs_Accessibility_Do_1 {
+            get {
+                return ResourceManager.GetString("Tabs_Accessibility_Do_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keep tab labels short and unique so people can understand the available panels quickly..
+        /// </summary>
+        public static string Tabs_Accessibility_Do_2 {
+            get {
+                return ResourceManager.GetString("Tabs_Accessibility_Do_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Make sure each tab panel has enough context when read on its own, because screen reader users may navigate directly between panels..
+        /// </summary>
+        public static string Tabs_Accessibility_Do_3 {
+            get {
+                return ResourceManager.GetString("Tabs_Accessibility_Do_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to basic-tabs.
+        /// </summary>
+        public static string Tabs_Basic_Anchor {
+            get {
+                return ResourceManager.GetString("Tabs_Basic_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use nested &lt;code&gt;fdcp-tab&lt;/code&gt; elements inside &lt;code&gt;fdcp-tabs&lt;/code&gt; to define each tab label and panel content..
+        /// </summary>
+        public static string Tabs_Basic_Text {
+            get {
+                return ResourceManager.GetString("Tabs_Basic_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic tabs.
+        /// </summary>
+        public static string Tabs_Basic_Title {
+            get {
+                return ResourceManager.GetString("Tabs_Basic_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tabs.
+        /// </summary>
+        public static string Tabs_DefaultLabel {
+            get {
+                return ResourceManager.GetString("Tabs_DefaultLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This content was loaded from the server when the tab was selected..
+        /// </summary>
+        public static string Tabs_LazyContent {
+            get {
+                return ResourceManager.GetString("Tabs_LazyContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tabs.
+        /// </summary>
+        public static string Tabs_Name {
+            get {
+                return ResourceManager.GetString("Tabs_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The component follows the WAI-ARIA tabs pattern. Left Arrow, Right Arrow, Home, and End move focus; Enter or Space activates the focused tab..
+        /// </summary>
+        public static string Tabs_Notes_1 {
+            get {
+                return ResourceManager.GetString("Tabs_Notes_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tabs are for switching content panels in the current page. For page navigation, use GCDS top navigation, side navigation, or links..
+        /// </summary>
+        public static string Tabs_Notes_2 {
+            get {
+                return ResourceManager.GetString("Tabs_Notes_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When load-url is set, the panel content is fetched the first time the tab is selected and then cached for later tab changes..
+        /// </summary>
+        public static string Tabs_Notes_3 {
+            get {
+                return ResourceManager.GetString("Tabs_Notes_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tabs let people switch between related panels of content without leaving the current page context..
+        /// </summary>
+        public static string Tabs_Overview {
+            get {
+                return ResourceManager.GetString("Tabs_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. Unique ID for the tabs component. Used to generate deterministic tab and panel IDs..
+        /// </summary>
+        public static string Tabs_Properties_Id {
+            get {
+                return ResourceManager.GetString("Tabs_Properties_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accessible label for the tab list..
+        /// </summary>
+        public static string Tabs_Properties_Label {
+            get {
+                return ResourceManager.GetString("Tabs_Properties_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. Zero-based index of the tab selected when the page loads. Overrides child active state when valid..
+        /// </summary>
+        public static string Tabs_Properties_SelectedIndex {
+            get {
+                return ResourceManager.GetString("Tabs_Properties_SelectedIndex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. Selects this tab when the page loads if selected-index is not set..
+        /// </summary>
+        public static string Tabs_Properties_TabActive {
+            get {
+                return ResourceManager.GetString("Tabs_Properties_TabActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. Base ID used to generate the child tab and panel IDs..
+        /// </summary>
+        public static string Tabs_Properties_TabId {
+            get {
+                return ResourceManager.GetString("Tabs_Properties_TabId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. URL that returns an HTML fragment to lazy-load into the panel when the tab is selected..
+        /// </summary>
+        public static string Tabs_Properties_TabLoadUrl {
+            get {
+                return ResourceManager.GetString("Tabs_Properties_TabLoadUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Required. Text shown in the tab button..
+        /// </summary>
+        public static string Tabs_Properties_TabTitle {
+            get {
+                return ResourceManager.GetString("Tabs_Properties_TabTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use tabs to group peer sections of content where only one section needs to be visible at a time..
+        /// </summary>
+        public static string Tabs_Purpose {
+            get {
+                return ResourceManager.GetString("Tabs_Purpose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the details tab for supporting information that belongs in the same context..
+        /// </summary>
+        public static string Tabs_Sample_Details_Content {
+            get {
+                return ResourceManager.GetString("Tabs_Sample_Details_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Details.
+        /// </summary>
+        public static string Tabs_Sample_Details_Title {
+            get {
+                return ResourceManager.GetString("Tabs_Sample_Details_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the history tab for related changes or previous activity..
+        /// </summary>
+        public static string Tabs_Sample_History_Content {
+            get {
+                return ResourceManager.GetString("Tabs_Sample_History_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to History.
+        /// </summary>
+        public static string Tabs_Sample_History_Title {
+            get {
+                return ResourceManager.GetString("Tabs_Sample_History_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profile sections.
+        /// </summary>
+        public static string Tabs_Sample_Label {
+            get {
+                return ResourceManager.GetString("Tabs_Sample_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the overview tab for the most important summary content..
+        /// </summary>
+        public static string Tabs_Sample_Overview_Content {
+            get {
+                return ResourceManager.GetString("Tabs_Sample_Overview_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overview.
+        /// </summary>
+        public static string Tabs_Sample_Overview_Title {
+            get {
+                return ResourceManager.GetString("Tabs_Sample_Overview_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loading server content....
+        /// </summary>
+        public static string Tabs_Sample_ServerData_Loading {
+            get {
+                return ResourceManager.GetString("Tabs_Sample_ServerData_Loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server data.
+        /// </summary>
+        public static string Tabs_Sample_ServerData_Title {
+            get {
+                return ResourceManager.GetString("Tabs_Sample_ServerData_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Limit the number of tabs so the tab list remains scannable and works well on small screens..
+        /// </summary>
+        public static string Tabs_UxBestPractices_1 {
+            get {
+                return ResourceManager.GetString("Tabs_UxBestPractices_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order tabs by importance or the expected user workflow, with the most useful panel first..
+        /// </summary>
+        public static string Tabs_UxBestPractices_2 {
+            get {
+                return ResourceManager.GetString("Tabs_UxBestPractices_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do not use tabs for primary site navigation or page-to-page navigation. Use GCDS navigation components for those patterns..
+        /// </summary>
+        public static string Tabs_WhenNotToUse_1 {
+            get {
+                return ResourceManager.GetString("Tabs_WhenNotToUse_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do not hide critical tasks, errors, or required instructions in a tab that might not be selected..
+        /// </summary>
+        public static string Tabs_WhenNotToUse_2 {
+            get {
+                return ResourceManager.GetString("Tabs_WhenNotToUse_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use tabs when the sections are closely related and people benefit from comparing or switching between them in place..
+        /// </summary>
+        public static string Tabs_WhenToUse_1 {
+            get {
+                return ResourceManager.GetString("Tabs_WhenToUse_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use tabs when each panel can stand on its own and the first tab provides a sensible default view..
+        /// </summary>
+        public static string Tabs_WhenToUse_2 {
+            get {
+                return ResourceManager.GetString("Tabs_WhenToUse_2", resourceCulture);
             }
         }
         

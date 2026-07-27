@@ -1829,4 +1829,7 @@
   <data name="Tabs_LazyContent" xml:space="preserve">
     <value>This content was loaded from the server when the tab was selected.</value>
   </data>
+  <data name="Card_Badge_New" xml:space="preserve">
+    <value>New</value>
+  </data>
 </root>

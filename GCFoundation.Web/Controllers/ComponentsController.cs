@@ -262,7 +262,7 @@ namespace GCFoundation.Web.Controllers
         [HttpGet("tabs")]
         public IActionResult Tabs()
         {
-            SetPageTitle($"{Menu.Menu_Components} : {ComponentResource("Index_Tabs_Title")}");
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Tabs_Title}");
 
             var vm = BuildTabsComponentViewModel();
             return View("Component", vm);
@@ -275,7 +275,7 @@ namespace GCFoundation.Web.Controllers
         [HttpGet("tabs/lazy-content")]
         public IActionResult TabsLazyContent()
         {
-            var content = System.Net.WebUtility.HtmlEncode(ComponentResource("Tabs_LazyContent"));
+            var content = System.Net.WebUtility.HtmlEncode(Resources.Components.Tabs_LazyContent);
             return Content($"<gcds-text>{content}</gcds-text>", "text/html");
         }
 
@@ -477,10 +477,10 @@ namespace GCFoundation.Web.Controllers
                 new () { Name = Resources.Components.Index_Form_Title, ShortDescription = Resources.Components.Index_Form_Description, Href = Url.Action("Form", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-form.svg") },
                 new () { Name = Resources.Components.Index_Modal_Title, ShortDescription = Resources.Components.Index_Modal_Description, Href = Url.Action("Modal", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-modal.svg") },
                 new () { Name = Resources.Components.Index_PageHeading_Title, ShortDescription = Resources.Components.Index_PageHeading_Description, Href = Url.Action("PageHeading", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-page-heading.svg") },
-                new () { Name = Resources.Components.Index_SearchableSelect_Title, ShortDescription = Resources.Components.Index_SearchableSelect_Description, Href = Url.Action("SearchableSelect", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-select.svg") },
+                new () { Name = Resources.Components.Index_SearchableSelect_Title, ShortDescription = Resources.Components.Index_SearchableSelect_Description, Href = Url.Action("SearchableSelect", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-select.svg"), IsNew = true },
                 new () { Name = Resources.Components.Index_Stepper_Title, ShortDescription = Resources.Components.Index_Stepper_Description, Href = Url.Action("Stepper", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-stepper-fdcp.svg") },
-                new () { Name = ComponentResource("Index_Tabs_Title"), ShortDescription = ComponentResource("Index_Tabs_Description"), Href = Url.Action("Tabs", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-tabs.svg") },
-                new () { Name = Resources.Components.Index_Table_Title, ShortDescription = Resources.Components.Index_Table_Description, Href = Url.Action("Table", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-table.svg") },
+                new () { Name = Resources.Components.Index_Tabs_Title, ShortDescription = Resources.Components.Index_Tabs_Description, Href = Url.Action("Tabs", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-tabs.svg"), IsNew = true },
+                new () { Name = Resources.Components.Index_Table_Title, ShortDescription = Resources.Components.Index_Table_Description, Href = Url.Action("Table", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-table.svg"), IsNew = true },
                 new () { Name = Resources.Components.Index_UserLoginPartial_Title, ShortDescription = Resources.Components.Index_UserLoginPartial_Description, Href = Url.Action("UserLogin", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-user-login-partial.svg") }
             };
             return vm;
@@ -689,60 +689,55 @@ namespace GCFoundation.Web.Controllers
         {
             var vm = new ComponentViewModel
             {
-                Name = ComponentResource("Tabs_Name"),
-                Overview = ComponentResource("Tabs_Overview"),
-                Purpose = ComponentResource("Tabs_Purpose"),
+                Name = Resources.Components.Tabs_Name,
+                Overview = Resources.Components.Tabs_Overview,
+                Purpose = Resources.Components.Tabs_Purpose,
                 Tag = "<fdcp-tabs>"
             };
 
             vm.WhenToUse = new List<string>
             {
-                ComponentResource("Tabs_WhenToUse_1"),
-                ComponentResource("Tabs_WhenToUse_2")
+                Resources.Components.Tabs_WhenToUse_1,
+                Resources.Components.Tabs_WhenToUse_2
             };
             vm.WhenNotToUse = new List<string>
             {
-                ComponentResource("Tabs_WhenNotToUse_1"),
-                ComponentResource("Tabs_WhenNotToUse_2")
+                Resources.Components.Tabs_WhenNotToUse_1,
+                Resources.Components.Tabs_WhenNotToUse_2
             };
             vm.AccessibilityDo = new List<string>
             {
-                ComponentResource("Tabs_Accessibility_Do_1"),
-                ComponentResource("Tabs_Accessibility_Do_2"),
-                ComponentResource("Tabs_Accessibility_Do_3")
+                Resources.Components.Tabs_Accessibility_Do_1,
+                Resources.Components.Tabs_Accessibility_Do_2,
+                Resources.Components.Tabs_Accessibility_Do_3
             };
             vm.UxBestPractices = new List<string>
             {
-                ComponentResource("Tabs_UxBestPractices_1"),
-                ComponentResource("Tabs_UxBestPractices_2")
+                Resources.Components.Tabs_UxBestPractices_1,
+                Resources.Components.Tabs_UxBestPractices_2
             };
             vm.Notes = new List<string>
             {
-                ComponentResource("Tabs_Notes_1"),
-                ComponentResource("Tabs_Notes_2"),
-                ComponentResource("Tabs_Notes_3")
+                Resources.Components.Tabs_Notes_1,
+                Resources.Components.Tabs_Notes_2,
+                Resources.Components.Tabs_Notes_3
             };
             vm.Properties = new List<ComponentPropertyViewModel>
             {
-                new() { Name = "id", DataType = "string", Description = ComponentResource("Tabs_Properties_Id") },
-                new() { Name = "label", DataType = "string", DefaultValue = ComponentResource("Tabs_DefaultLabel"), Description = ComponentResource("Tabs_Properties_Label") },
-                new() { Name = "selected-index", DataType = "int?", Description = ComponentResource("Tabs_Properties_SelectedIndex") },
-                new() { Name = "fdcp-tab title", DataType = "string", Description = ComponentResource("Tabs_Properties_TabTitle") },
-                new() { Name = "fdcp-tab id", DataType = "string", Description = ComponentResource("Tabs_Properties_TabId") },
-                new() { Name = "fdcp-tab active", DataType = "bool", DefaultValue = "false", Description = ComponentResource("Tabs_Properties_TabActive") },
-                new() { Name = "fdcp-tab load-url", DataType = "Uri", Description = ComponentResource("Tabs_Properties_TabLoadUrl") }
+                new() { Name = "id", DataType = "string", Description = Resources.Components.Tabs_Properties_Id },
+                new() { Name = "label", DataType = "string", DefaultValue = Resources.Components.Tabs_DefaultLabel, Description = Resources.Components.Tabs_Properties_Label },
+                new() { Name = "selected-index", DataType = "int?", Description = Resources.Components.Tabs_Properties_SelectedIndex },
+                new() { Name = "fdcp-tab title", DataType = "string", Description = Resources.Components.Tabs_Properties_TabTitle },
+                new() { Name = "fdcp-tab id", DataType = "string", Description = Resources.Components.Tabs_Properties_TabId },
+                new() { Name = "fdcp-tab active", DataType = "bool", DefaultValue = "false", Description = Resources.Components.Tabs_Properties_TabActive },
+                new() { Name = "fdcp-tab load-url", DataType = "Uri", Description = Resources.Components.Tabs_Properties_TabLoadUrl }
             };
             vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>
             {
-                new() { Description = ComponentResource("Tabs_Basic_Text"), Id = ComponentResource("Tabs_Basic_Anchor"), PartialViewName = "Tabs/_Basic", Title = ComponentResource("Tabs_Basic_Title") }
+                new() { Description = Resources.Components.Tabs_Basic_Text, Id = Resources.Components.Tabs_Basic_Anchor, PartialViewName = "Tabs/_Basic", Title = Resources.Components.Tabs_Basic_Title }
             };
 
             return vm;
-        }
-
-        private static string ComponentResource(string name)
-        {
-            return Resources.Components.ResourceManager.GetString(name, Resources.Components.Culture) ?? name;
         }
 
         private FormDefinition GenerateSampleFormDefinition()
