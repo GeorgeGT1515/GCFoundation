@@ -26,7 +26,7 @@
         public string? ImgSrc { get; set; }
 
         /// <summary>
-        /// Idenftifies if the component is new. If true, a "New" badge will be displayed on the component card.
+        /// Identifies if the component is new. If true, a "New" badge will be displayed on the component card.
         /// </summary>
         public bool? IsNew { get; set; }
 
