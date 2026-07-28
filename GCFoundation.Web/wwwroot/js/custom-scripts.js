@@ -41,8 +41,7 @@ const GCFoundationWeb = {
         const lang = document.documentElement.lang?.startsWith('fr') ? 'fr' : 'en';
         const strings = COPY_BUTTON_STRINGS[lang];
 
-        document.querySelectorAll('.code-container').forEach(container => {
-            const pre = container.querySelector('pre');
+        document.querySelectorAll('pre:has(code)').forEach(pre => {
             if (pre.querySelector('.code-copy-button')) return;
 
             const button = document.createElement('gcds-button');
@@ -52,7 +51,7 @@ const GCFoundationWeb = {
             button.textContent = strings.copy;
 
             pre.appendChild(button);
-        })        
+        });
     }
 };
 
