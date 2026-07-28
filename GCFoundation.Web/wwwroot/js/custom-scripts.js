@@ -62,9 +62,9 @@ const COPY_BUTTON_STRINGS = {
 };
 
 // Initialize custom functionality when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     console.log('Custom scripts loaded for GCFoundationWeb');
-    
+
     // Add any custom initialization here
     GCFoundationWeb.init();
 });
