@@ -1102,7 +1102,7 @@
     <value>Liste déroulante à recherche multiple avec emplacement pour les options sélectionnées</value>
   </data>
   <data name="SearchableSelect_WithSelectedOptions_Text" xml:space="preserve">
-    <value>&lt;gcds-text&gt;Cet exemple utilise une liste déroulante à recherche avec sélection multiple. Définissez &lt;code&gt;selection-mode="&#64;FDCPSearchableSelectSelectionMode.Multiple"&lt;/code&gt; pour activer la sélection multiple. Utilisez l'emplacement &lt;code&gt;selected-options&lt;/code&gt; pour ajouter une zone inférieure personnalisée, par exemple un compteur de sélections, une action d'effacement ou tout autre balisage propre à l'appelant.&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;Cet exemple utilise une liste déroulante à recherche avec sélection multiple. Définissez &lt;code&gt;selection-mode="@FDCPSearchableSelectSelectionMode.Multiple"&lt;/code&gt; pour activer la sélection multiple. Utilisez l'emplacement &lt;code&gt;selected-options&lt;/code&gt; pour ajouter une zone inférieure personnalisée, par exemple un compteur de sélections, une action d'effacement ou tout autre balisage propre à l'appelant.&lt;/gcds-text&gt;</value>
   </data>
   <data name="SearchableSelect_Sample_Country_CA" xml:space="preserve">
     <value>Canada</value>
@@ -1743,12 +1743,6 @@
   <data name="Table_WithButtonLink_Note" xml:space="preserve">
     <value>&lt;i&gt;Note : Dans cette démonstration, le bouton navigue vers une ancre de page. Dans une vraie application, &lt;code&gt;data-bind-template-href="/votre/route/{fieldName}"&lt;/code&gt; peut construire l'URL de destination dynamiquement à partir d'une valeur de la rangée.&lt;/i&gt;</value>
   </data>
-  <data name="Shared_CopyButton_Text" xml:space="preserve">
-    <value>Copier</value>
-  </data>
-  <data name="Shared_CopyButton_SuccessText" xml:space="preserve">
-    <value>Copié!</value>
-  </data>
   <data name="Index_Tabs_Title" xml:space="preserve">
     <value>Onglets</value>
   </data>
@@ -1862,6 +1856,9 @@
   </data>
   <data name="Tabs_LazyContent" xml:space="preserve">
     <value>Ce contenu a été chargé à partir du serveur lorsque l'onglet a été sélectionné.</value>
+  </data>
+  <data name="Card_Badge_New" xml:space="preserve">
+    <value>Nouveau</value>
   </data>
   <data name="StatelessAuth_CurrentStatus_Title" xml:space="preserve">
     <value>Statut d'authentification actuel</value>
@@ -1991,8 +1988,5 @@
   </data>
   <data name="StatelessAuth_Integration_Description2" xml:space="preserve">
     <value />
-  </data>
-  <data name="Card_Badge_New" xml:space="preserve">
-    <value>Nouveau</value>
   </data>
 </root>

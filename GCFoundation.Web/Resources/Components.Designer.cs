@@ -2388,15 +2388,6 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Canada.
-        /// </summary>
-        public static string SearchableSelect_Sample_Country_CA {
-            get {
-                return ResourceManager.GetString("SearchableSelect_Sample_Country_CA", resourceCulture);
-            }
-        }
-
-        /// <summary>
         ///   Looks up a localized string similar to Australia.
         /// </summary>
         public static string SearchableSelect_Sample_Country_AU {
@@ -2404,7 +2395,7 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("SearchableSelect_Sample_Country_AU", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Brazil.
         /// </summary>
@@ -2413,76 +2404,22 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("SearchableSelect_Sample_Country_BR", resourceCulture);
             }
         }
-
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Canada.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_CA {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_CA", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Germany.
         /// </summary>
         public static string SearchableSelect_Sample_Country_DE {
             get {
                 return ResourceManager.GetString("SearchableSelect_Sample_Country_DE", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Spain.
-        /// </summary>
-        public static string SearchableSelect_Sample_Country_ES {
-            get {
-                return ResourceManager.GetString("SearchableSelect_Sample_Country_ES", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to United Kingdom.
-        /// </summary>
-        public static string SearchableSelect_Sample_Country_GB {
-            get {
-                return ResourceManager.GetString("SearchableSelect_Sample_Country_GB", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to India.
-        /// </summary>
-        public static string SearchableSelect_Sample_Country_IN {
-            get {
-                return ResourceManager.GetString("SearchableSelect_Sample_Country_IN", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Italy.
-        /// </summary>
-        public static string SearchableSelect_Sample_Country_IT {
-            get {
-                return ResourceManager.GetString("SearchableSelect_Sample_Country_IT", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Japan.
-        /// </summary>
-        public static string SearchableSelect_Sample_Country_JP {
-            get {
-                return ResourceManager.GetString("SearchableSelect_Sample_Country_JP", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to New Zealand.
-        /// </summary>
-        public static string SearchableSelect_Sample_Country_NZ {
-            get {
-                return ResourceManager.GetString("SearchableSelect_Sample_Country_NZ", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to South Africa.
-        /// </summary>
-        public static string SearchableSelect_Sample_Country_ZA {
-            get {
-                return ResourceManager.GetString("SearchableSelect_Sample_Country_ZA", resourceCulture);
             }
         }
         
@@ -2496,6 +2433,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Spain.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_ES {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_ES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to France.
         /// </summary>
         public static string SearchableSelect_Sample_Country_FR {
@@ -2505,11 +2451,47 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to United Kingdom.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_GB {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_GB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Start typing to filter countries.
         /// </summary>
         public static string SearchableSelect_Sample_Country_Hint {
             get {
                 return ResourceManager.GetString("SearchableSelect_Sample_Country_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to India.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_IN {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_IN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Italy.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_IT {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_IT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Japan.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_JP {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_JP", resourceCulture);
             }
         }
         
@@ -2541,6 +2523,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New Zealand.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_NZ {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_NZ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search countries.
         /// </summary>
         public static string SearchableSelect_Sample_Country_SearchPlaceholder {
@@ -2564,6 +2555,15 @@ namespace GCFoundation.Web.Resources {
         public static string SearchableSelect_Sample_Country_US {
             get {
                 return ResourceManager.GetString("SearchableSelect_Sample_Country_US", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to South Africa.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_ZA {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_ZA", resourceCulture);
             }
         }
         
