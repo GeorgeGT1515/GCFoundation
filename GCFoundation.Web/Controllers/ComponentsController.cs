@@ -366,6 +366,24 @@ namespace GCFoundation.Web.Controllers
                 new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.Card_CompositionExamples_Anchor, PartialViewName = "Card/_CompositionExamples", Title = Resources.Components.Card_CompositionExamples_Title }
             };
             vm.Tag = "<fdcp-card>";
+            vm.SideNavigation = new SideNavigationViewModel()
+            {
+                Items = new List<NavItem>()
+                {
+                    new NavLink() { Href = Resources.Components.Overview_Anchor, Label = Resources.Components.Overview },
+                    new NavLink() { Href = Resources.Components.Card_Basic_Anchor, Label = Resources.Components.Card_Basic_Title },
+                    new NavLink() { Href = Resources.Components.Card_Horizontal_Anchor, Label = Resources.Components.Card_Horizontal_Title },
+                    new NavLink() { Href = Resources.Components.Card_WithImages_Anchor, Label = Resources.Components.Card_WithImages_Title },
+                    new NavLink() { Href = Resources.Components.Card_WithSlots_Anchor, Label = Resources.Components.Card_WithSlots_Title },
+                    new NavGroup() { Label = Resources.Components.Card_CompositionExamples_Title, Items = new List<NavItem>()
+                        {
+                            new NavLink() { Href = Resources.Components.Card_ListItem_Anchor, Label = Resources.Components.Card_ListItem_Title }
+                        }
+                    },
+                    new NavLink() { Href = Resources.Components.Properties_Anchor, Label = Resources.Components.Properties },
+                    new NavLink() { Href = Resources.Components.Notes_Anchor, Label = Resources.Components.Notes }
+                }
+            };
 
             return vm;
         }
