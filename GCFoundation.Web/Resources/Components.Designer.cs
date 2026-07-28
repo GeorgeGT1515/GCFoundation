@@ -500,6 +500,42 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Card_Notes_4", resourceCulture);
             }
         }
+
+        public static string Card_CompositionExamples_Title {
+            get {
+                return ResourceManager.GetString("Card_CompositionExamples_Title", resourceCulture);
+            }
+        }
+
+        public static string Card_CompositionExamples_Anchor {
+            get {
+                return ResourceManager.GetString("Card_CompositionExamples_Anchor", resourceCulture);
+            }
+        }
+
+        public static string Card_ListItem_Title {
+            get {
+                return ResourceManager.GetString("Card_ListItem_Title", resourceCulture);
+            }
+        }
+
+        public static string Card_ListItem_Anchor {
+            get {
+                return ResourceManager.GetString("Card_ListItem_Anchor", resourceCulture);
+            }
+        }
+
+        public static string Card_ListItem_Text {
+            get {
+                return ResourceManager.GetString("Card_ListItem_Text", resourceCulture);
+            }
+        }
+
+        public static string Card_ListItemList_Text {
+            get {
+                return ResourceManager.GetString("Card_ListItemList_Text", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-card&amp;gt;&lt;/code&gt; component provides a flexible and extensible content container inspired by Bootstrap cards, designed with Government of Canada Design System (GCDS) styling. It includes options for headers, footers, images, and various contextual background colors..
