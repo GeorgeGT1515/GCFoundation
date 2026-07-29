@@ -793,10 +793,11 @@
     <value>Contenu de l'élément de liste</value>
   </data>
   <data name="Card_ListItem_Text" xml:space="preserve">
-    <value>L'&lt;strong&gt;élément de liste&lt;/strong&gt; est un patron de composition qui combine &lt;code&gt;&amp;lt;fdcp-card&amp;gt;&lt;/code&gt; et &lt;code&gt;&amp;lt;gcds-grid&amp;gt;&lt;/code&gt; pour créer une rangée structurée et sélectionnable. Les colonnes et le contenu sont entièrement flexibles — utilisez ce patron comme point de départ et adaptez-le à vos besoins.</value>
+    <value>L'&lt;strong&gt;élément de liste&lt;/strong&gt; est un patron de composition qui combine &lt;code&gt;&amp;lt;fdcp-card&amp;gt;&lt;/code&gt; et &lt;code&gt;&amp;lt;gcds-grid&amp;gt;&lt;/code&gt; pour créer une rangée structurée et sélectionnable. Les colonnes et le contenu sont entièrement flexibles — utilisez ce patron comme point de départ et adaptez-le à vos besoins.
+&lt;gcds-text&gt;&lt;em&gt;Consultez &lt;gcds-link href="https://design-system.canada.ca/en/css-shortcuts/" target="_blank" external&gt;les raccourcis CSS de GCDS&lt;/gcds-link&gt; pour les classes utilitaires disponibles.&lt;/em&gt;&lt;/gcds-text&gt;</value>
   </data>
   <data name="Card_ListItemList_Text" xml:space="preserve">
-    <value>Empilez plusieurs cartes d'élément de liste et ajoutez un espacement vertical entre elles à l'aide des utilitaires de marge. &lt;code&gt;mb-100&lt;/code&gt; est recommandé pour un espacement cohérent.</value>
+    <value>Empilez plusieurs cartes d'élément de liste et ajoutez un espacement vertical entre elles à l'aide des utilitaires de marge. &lt;code&gt;mb-100&lt;/code&gt; est utilisé dans cet exemple.</value>
   </data>
   <data name="Form_Name" xml:space="preserve">
     <value>Formulaire</value>

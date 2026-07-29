@@ -789,10 +789,11 @@
     <value>List Item content</value>
   </data>
   <data name="Card_ListItem_Text" xml:space="preserve">
-    <value>The &lt;strong&gt;List Item&lt;/strong&gt; is a composition pattern that combines &lt;code&gt;&amp;lt;fdcp-card&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;gcds-grid&amp;gt;&lt;/code&gt; to create a structured, selectable row. The columns and content are fully flexible — use this pattern as a starting point and adapt it to your specific needs.</value>
+    <value>The &lt;strong&gt;List Item&lt;/strong&gt; is a composition pattern that combines &lt;code&gt;&amp;lt;fdcp-card&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;gcds-grid&amp;gt;&lt;/code&gt; to create a structured, selectable row. The columns and content are fully flexible — use this pattern as a starting point and adapt it to your specific needs.
+&lt;gcds-text&gt;&lt;em&gt;See &lt;gcds-link href="https://design-system.canada.ca/en/css-shortcuts/" target="_blank" external&gt;GCDS CSS Shortcuts&lt;/gcds-link&gt; for available utility classes.&lt;/em&gt;&lt;/gcds-text&gt;</value>
   </data>
   <data name="Card_ListItemList_Text" xml:space="preserve">
-    <value>Stack multiple List Item cards and add vertical spacing between them using margin utilities. &lt;code&gt;mb-100&lt;/code&gt; is recommended for consistent spacing.</value>
+    <value>Stack multiple List Item cards and add vertical spacing between them using margin utilities. &lt;code&gt;mb-100&lt;/code&gt; is used in this example.</value>
   </data>
   <data name="Form_Name" xml:space="preserve">
     <value>Form</value>
