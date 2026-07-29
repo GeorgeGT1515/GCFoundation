@@ -501,18 +501,27 @@ namespace GCFoundation.Web.Resources {
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to List Item content.
+        /// </summary>
         public static string Card_ListItem_CodeComment {
             get {
                 return ResourceManager.GetString("Card_ListItem_CodeComment", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to the List Item composition pattern description, including a link to GCDS CSS Shortcuts.
+        /// </summary>
         public static string Card_ListItem_Text {
             get {
                 return ResourceManager.GetString("Card_ListItem_Text", resourceCulture);
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to the Example Use description for stacking List Item cards with vertical spacing.
+        /// </summary>
         public static string Card_ListItemList_Text {
             get {
                 return ResourceManager.GetString("Card_ListItemList_Text", resourceCulture);
