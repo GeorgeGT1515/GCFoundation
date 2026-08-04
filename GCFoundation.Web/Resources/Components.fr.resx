@@ -774,6 +774,30 @@
   <data name="Card_Notes_4" xml:space="preserve">
     <value>Toutes les cartes utilisent les variables de couleur SGDC pour un style cohérent du gouvernement du Canada.</value>
   </data>
+  <data name="Card_CompositionExamples_Title" xml:space="preserve">
+    <value>Exemples de composition</value>
+  </data>
+  <data name="Card_CompositionExamples_Anchor" xml:space="preserve">
+    <value>composition-examples</value>
+  </data>
+  <data name="Card_ListItem_Title" xml:space="preserve">
+    <value>Élément de liste</value>
+  </data>
+  <data name="Card_ListItem_Anchor" xml:space="preserve">
+    <value>list-item</value>
+  </data>
+  <data name="Card_ListItem_ExampleUse_Title" xml:space="preserve">
+    <value>Exemple d'utilisation</value>
+  </data>
+  <data name="Card_ListItem_CodeComment" xml:space="preserve">
+    <value>Contenu de l'élément de liste</value>
+  </data>
+  <data name="Card_ListItem_Text" xml:space="preserve">
+    <value>L'&lt;strong&gt;élément de liste&lt;/strong&gt; est un patron de composition qui combine &lt;code&gt;&amp;lt;fdcp-card&amp;gt;&lt;/code&gt; et &lt;code&gt;&amp;lt;gcds-grid&amp;gt;&lt;/code&gt; pour créer une rangée structurée et sélectionnable. Les colonnes et le contenu sont entièrement flexibles — utilisez ce patron comme point de départ et adaptez-le à vos besoins. Consultez &lt;gcds-link href="https://design-system.canada.ca/en/css-shortcuts/" target="_blank" external&gt;les raccourcis CSS de GCDS&lt;/gcds-link&gt; pour les classes utilitaires disponibles.</value>
+  </data>
+  <data name="Card_ListItemList_Text" xml:space="preserve">
+    <value>Empilez plusieurs cartes d'élément de liste et ajoutez un espacement vertical entre elles à l'aide des utilitaires de marge. &lt;code&gt;mb-100&lt;/code&gt; est utilisé dans cet exemple.</value>
+  </data>
   <data name="Form_Name" xml:space="preserve">
     <value>Formulaire</value>
   </data>
@@ -1832,12 +1856,6 @@
   </data>
   <data name="Table_WithButtonLink_Note" xml:space="preserve">
     <value>&lt;i&gt;Note : Dans cette démonstration, le bouton navigue vers une ancre de page. Dans une vraie application, &lt;code&gt;data-bind-template-href="/votre/route/{fieldName}"&lt;/code&gt; peut construire l'URL de destination dynamiquement à partir d'une valeur de la rangée.&lt;/i&gt;</value>
-  </data>
-  <data name="Shared_CopyButton_Text" xml:space="preserve">
-    <value>Copier</value>
-  </data>
-  <data name="Shared_CopyButton_SuccessText" xml:space="preserve">
-    <value>Copié!</value>
   </data>
   <data name="Index_Tabs_Title" xml:space="preserve">
     <value>Onglets</value>
