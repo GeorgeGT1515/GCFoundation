@@ -60,9 +60,9 @@ public class FDCPModalTagHelperTests
     }
 
     [Theory]
-    [InlineData(ModalSize.Small, "fdcp-modal__dialog--sm")]
-    [InlineData(ModalSize.Large, "fdcp-modal__dialog--lg")]
-    [InlineData(ModalSize.Default, "")]
+    [InlineData(ModalSize.sm, "fdcp-modal__dialog--sm")]
+    [InlineData(ModalSize.lg, "fdcp-modal__dialog--lg")]
+    [InlineData(ModalSize.md, "")]
     public async Task ProcessAsync_AppliesCorrectSizeClass(ModalSize size, string expectedClass)
     {
         // Arrange
