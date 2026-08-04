@@ -67,6 +67,7 @@
 
         const focusTarget =
             this.modal.querySelector('.fdcp-modal-close') ||
+            this.modal.querySelector('.modal__body') ||
             this.modal.querySelector('.modal__footer gcds-button, .modal__footer button') ||
             this.modal;
 

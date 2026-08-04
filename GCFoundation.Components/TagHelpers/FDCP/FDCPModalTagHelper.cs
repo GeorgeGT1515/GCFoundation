@@ -94,7 +94,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             sb.AppendLine(CultureInfo.InvariantCulture, $"<div class=\"{string.Join(" ", dialogClasses)}\" role=\"document\">");
             sb.AppendLine(CultureInfo.InvariantCulture, $"  <div class=\"{string.Join(" ", modalClasses)}\">");
             sb.Append(BuildHeader(variant));
-            sb.AppendLine(CultureInfo.InvariantCulture, $"    <div id=\"{ModalId}Description\" class=\"{bodyClasses}\">");
+            sb.AppendLine(CultureInfo.InvariantCulture, $"    <div id=\"{ModalId}Description\" class=\"{bodyClasses}\" tabindex=\"0\">");
             sb.AppendLine(!string.IsNullOrWhiteSpace(bodySlot) ? bodySlot : cleanedContent.Trim());
             sb.AppendLine("    </div>");
             if (!string.IsNullOrWhiteSpace(footerSlot))
