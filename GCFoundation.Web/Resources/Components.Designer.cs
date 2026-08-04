@@ -439,6 +439,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to composition-examples.
+        /// </summary>
+        public static string Card_CompositionExamples_Anchor {
+            get {
+                return ResourceManager.GetString("Card_CompositionExamples_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Composition Examples.
+        /// </summary>
+        public static string Card_CompositionExamples_Title {
+            get {
+                return ResourceManager.GetString("Card_CompositionExamples_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to horizontal.
         /// </summary>
         public static string Card_Horizontal_Anchor {
@@ -462,6 +480,60 @@ namespace GCFoundation.Web.Resources {
         public static string Card_Horizontal_Title {
             get {
                 return ResourceManager.GetString("Card_Horizontal_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to list-item.
+        /// </summary>
+        public static string Card_ListItem_Anchor {
+            get {
+                return ResourceManager.GetString("Card_ListItem_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;strong&gt;List Item&lt;/strong&gt; is a composition pattern that combines &lt;code&gt;&amp;lt;fdcp-card&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;gcds-grid&amp;gt;&lt;/code&gt; to create a structured, selectable row. The columns and content are fully flexible — use this pattern as a starting point and adapt it to your specific needs..
+        /// </summary>
+        public static string Card_ListItem_ExampleUse_Title {
+            get {
+                return ResourceManager.GetString("Card_ListItem_ExampleUse_Title", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to List Item content.
+        /// </summary>
+        public static string Card_ListItem_CodeComment {
+            get {
+                return ResourceManager.GetString("Card_ListItem_CodeComment", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to the List Item composition pattern description, including a link to GCDS CSS Shortcuts.
+        /// </summary>
+        public static string Card_ListItem_Text {
+            get {
+                return ResourceManager.GetString("Card_ListItem_Text", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to the Example Use description for stacking List Item cards with vertical spacing.
+        /// </summary>
+        public static string Card_ListItemList_Text {
+            get {
+                return ResourceManager.GetString("Card_ListItemList_Text", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to List Item.
+        /// </summary>
+        public static string Card_ListItem_Title {
+            get {
+                return ResourceManager.GetString("Card_ListItem_Title", resourceCulture);
             }
         }
         
@@ -3212,7 +3284,7 @@ namespace GCFoundation.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to &lt;gcds-text&gt;This implementation adds a small status badge next to a step label (for example, “Done” or “Not required”).&lt;/gcds-text&gt;
         ///&lt;gcds-text&gt;Set &lt;code&gt;StatusBadgeLabel&lt;/code&gt; and choose a &lt;code&gt;StatusBadgeStyle&lt;/code&gt; to match your UI semantics. You can also invert the badge style when you need more emphasis or contrast.&lt;/gcds-text&gt;
-        ///&lt;gcds-text&gt;This pattern can also be used when one or more steps are identified as &quot;not required&quot; because a user’s earlier choices make those steps not applicable. To support  [rest of string was truncated]&quot;;.
+        ///&lt;gcds-text&gt;This pattern can also be used when one or more steps are identified as &quot;not required&quot; because a user’s earlier choices make those steps not applicable. To support cl [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Stepper_WithStatus_Text {
             get {
