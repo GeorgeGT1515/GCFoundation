@@ -20,11 +20,10 @@
 
 <gcds-heading tag="h1">@Template.Stepper_Demo_Name</gcds-heading>
 @* Keep the stepper bound to the posted model so validation errors do not reset the user's progress context.
-   links-tabbable="false" scopes the stepper's keyboard focus to the active step only: after Next/Previous,
-   focus lands on the active step (programmatically) and pressing Tab moves directly to the first form input. *@
+   links-tabbable defaults to true so each step (1–5) can receive keyboard focus with a visible ring;
+   the active step is also tabindex=0. After Next/Previous, JS moves focus to the active step for SR announcement. *@
 <fdcp-stepper current-step="@Model.CurrentStep"
               heading-id="@StepperHeadingId"
-              links-tabbable="false"
               steps="@stepperSteps"></fdcp-stepper>
 
 @if (!ViewData.ModelState.IsValid)
@@ -83,47 +82,70 @@
         document.addEventListener('DOMContentLoaded', function () {
             // Legacy flag kept for back-compat with previously cached pages that still set it.
             const legacyHeadingFlagKey = 'fdcp-stepper-focus-heading';
-            // New flag: when a Next/Previous nav submit occurred, move focus to the active step after reload.
+            // Set when Next/Previous (or language toggle / step link) should re-focus the active step.
             const focusActiveStepFlagKey = 'fdcp-stepper-focus-active-step';
             const heading = document.getElementById('@StepperHeadingId');
-            const form = document.querySelector('form[action$="/template/stepper/demo"]');
+            // Resolve the form via CurrentStep — French routes use /modele/indicateur-detapes/demo,
+            // so an English-only action$="/template/stepper/demo" selector never bound submit handlers.
+            const form = document.querySelector('input[name="CurrentStep"]')?.closest('form')
+                || document.querySelector('form');
             const stepLinks = document.querySelectorAll('[data-stepper-focus-trigger="true"]');
             const liveRegion = document.querySelector('[data-stepper-live-region="true"]');
             const activeStep = document.querySelector('[data-stepper-active-step="true"]');
+            const hasErrorSummary = !!document.querySelector('gcds-error-summary');
 
-            // NVDA / JAWS reliably announce step transitions through three independent channels:
-            //   1. The <title> — leads with "Step X of 5: <Label>" so it is the first thing the screen
-            //      reader voices after each Next/Previous reload (no JS timing required).
-            //   2. The polite aria-live region — updated on a settled timer below as a redundant cue.
-            //   3. Programmatic focus on the active step (which carries aria-label="Step X of 5: …").
-            // Steps 2 and 3 are delayed so they don't race with the screen reader's initial page-load
-            // reading, which would cause the announcement to be skipped entirely.
+            // NVDA / JAWS announce step transitions through:
+            //   1. The <title> ("Step X of 5: Label")
+            //   2. The polite aria-live region
+            //   3. Programmatic focus on the active step (visible focus ring + aria-label)
+            // Focus is delayed ~600 ms so it does not race the screen reader's initial page-load reading.
 
+            let shouldFocusActiveStep = false;
+            let shouldFocusHeading = false;
             try {
                 if (window.sessionStorage.getItem(focusActiveStepFlagKey) === 'true') {
                     window.sessionStorage.removeItem(focusActiveStepFlagKey);
-                    scheduleStepAnnouncement(activeStep ?? heading);
+                    shouldFocusActiveStep = true;
                 } else if (window.sessionStorage.getItem(legacyHeadingFlagKey) === 'true') {
                     window.sessionStorage.removeItem(legacyHeadingFlagKey);
-                    scheduleStepAnnouncement(heading);
+                    shouldFocusHeading = true;
                 }
             } catch (_) {
             }
 
-            // Clicking a stepper link is a direct jump; keep heading focus there for context.
+            // Always focus the current step on this demo (EN and FR) unless an error summary
+            // needs focus first. Relies on step links being tabbable so users can also Tab to 1–5.
+            if (!hasErrorSummary) {
+                if (shouldFocusHeading && heading) {
+                    scheduleStepAnnouncement(heading);
+                } else if (activeStep) {
+                    scheduleStepAnnouncement(activeStep);
+                }
+            } else if (shouldFocusActiveStep || shouldFocusHeading) {
+                refreshLiveRegion();
+            }
+
+            // Step-link jumps and language toggles should land focus on the (new) active step.
             stepLinks.forEach(function (link) {
                 link.addEventListener('click', function () {
-                    setFlag(legacyHeadingFlagKey);
+                    setFlag(focusActiveStepFlagKey);
                 });
             });
 
-            // On Next/Previous submit, queue focus on the new active step after the page re-renders.
-            form?.addEventListener('submit', function (event) {
-                const submitter = event.submitter;
-                if (submitter && submitter.getAttribute('name') === 'nav') {
+            // gcds-button often leaves event.submitter null — treat any form submit as navigation.
+            form?.addEventListener('submit', function () {
+                setFlag(focusActiveStepFlagKey);
+            });
+
+            document.addEventListener('click', function (event) {
+                const path = typeof event.composedPath === 'function' ? event.composedPath() : [];
+                const langToggle = path.some(function (node) {
+                    return node && node.tagName && node.tagName.toLowerCase() === 'gcds-lang-toggle';
+                });
+                if (langToggle) {
                     setFlag(focusActiveStepFlagKey);
                 }
-            });
+            }, true);
 
             function setFlag(key) {
                 try {
@@ -132,22 +154,15 @@
                 }
             }
 
-            // Wait for the screen reader to finish reading the new <title>, then move focus to the
-            // active step and re-arm the polite live region with the step phrase. The 600 ms delay is
-            // long enough to clear NVDA / JAWS / VoiceOver's initial page-load reading, short enough
-            // that sighted keyboard users barely notice the focus shift.
             function scheduleStepAnnouncement(focusTarget) {
                 window.setTimeout(function () {
                     if (focusTarget && typeof focusTarget.focus === 'function') {
-                        focusTarget.focus();
+                        focusTarget.focus({ preventScroll: true });
                     }
                     refreshLiveRegion();
                 }, 600);
             }
 
-            // Force-clear then re-write the live region's text so the screen reader observes a discrete
-            // text mutation. Using a tiny secondary timeout (vs. requestAnimationFrame) is more reliable
-            // across NVDA/JAWS/Orca, which poll the accessibility tree on Windows UIA / IAccessible2.
             function refreshLiveRegion() {
                 if (!liveRegion) {
                     return;

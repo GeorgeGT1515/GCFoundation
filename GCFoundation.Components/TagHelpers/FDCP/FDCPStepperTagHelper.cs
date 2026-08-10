@@ -130,11 +130,13 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 }
                 else
                 {
-                    // Make the active step programmatically focusable so callers (e.g. Next/Previous controls) can move focus to it.
+                    // Make the active step keyboard-focusable (tabindex=0) so Tab can land on every step
+                    // (completed/upcoming links + current step) with a visible focus ring, and so
+                    // Next/Previous scripts can move focus here for screen-reader announcement.
                     // role="region" with aria-label gives a valid name for assistive tech (generic <div> cannot use aria-label).
                     // Avoid role="group": NVDA tends to suppress announcing the accessible name of a focused group.
                     var activeAttributes = status == StepperStepStatus.active
-                        ? $" tabindex='-1' data-stepper-active-step='true' role='region' aria-label='{stepSummary}'"
+                        ? $" tabindex='0' data-stepper-active-step='true' role='region' aria-label='{stepSummary}'"
                         : string.Empty;
                     html.AppendLine(CultureInfo.InvariantCulture, $"<div class='fdcp-step__content'{activeAttributes}>");
                 }

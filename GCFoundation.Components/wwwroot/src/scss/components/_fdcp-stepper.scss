@@ -48,18 +48,20 @@ $progress-line-innactive-color: $fdcp-incomplte-color;
         }
 
         .fdcp-step__link:hover .fdcp-step-label,
+        .fdcp-step__link:focus .fdcp-step-label,
         .fdcp-step__link:focus-visible .fdcp-step-label {
             text-decoration: underline;
         }
 
+        .fdcp-step__link:focus,
         .fdcp-step__link:focus-visible {
             outline: 3px solid var(--gcds-color-blue-700, #1a2a3a);
             outline-offset: 0.25rem;
             border-radius: var(--gcds-border-radius-sm, 0.25rem);
         }
 
-        // The active step's content wrapper receives programmatic focus after Next/Previous navigation.
-        // Match the link focus ring so keyboard users can clearly see which step they landed on.
+        // Active step wrapper is keyboard-focusable (tabindex=0) and also receives programmatic
+        // focus after Next/Previous so the ring is visible in EN and FR without relying on :focus-visible alone.
         .fdcp-step__content:focus,
         .fdcp-step__content:focus-visible {
             outline: 3px solid var(--gcds-color-blue-700, #1a2a3a);
