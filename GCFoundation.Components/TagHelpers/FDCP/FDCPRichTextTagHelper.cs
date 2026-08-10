@@ -186,13 +186,16 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             if (required)
             {
                 inputBuilder.Attributes.Add("required", "required");
-                // Store required error message for client-side validation
-#pragma warning disable CA1863 // Use CompositeFormat - not a performance-critical path
-                var requiredErrorMsg = string.Format(
-                    System.Globalization.CultureInfo.CurrentCulture,
-                    GCFoundation.Components.Resources.Validation.Field_Required, 
-                    labelText);
-#pragma warning restore CA1863
+                // Prefer the [Required] ErrorMessage (unique, localized) so client-side and
+                // gcds-error-summary show the same text as server-side ModelState.
+                var requiredAttr = For.Metadata.ValidatorMetadata.OfType<RequiredAttribute>().FirstOrDefault()
+                    ?? PropertyInfo?.GetCustomAttribute<RequiredAttribute>();
+                var requiredErrorMsg = requiredAttr != null
+                    ? requiredAttr.FormatErrorMessage(labelText)
+                    : string.Format(
+                        System.Globalization.CultureInfo.CurrentCulture,
+                        GCFoundation.Components.Resources.Validation.Field_Required,
+                        labelText);
                 inputBuilder.Attributes.Add("data-required-error", requiredErrorMsg);
             }
 

@@ -76,3 +76,20 @@ table[tabindex]:focus {
 .text-muted {
     color: var(--gcds-color-grayscale-800, #43474e) !important;
 }
+
+/* Stepper demo — review step summary */
+.fdcp-stepper-review {
+    display: grid;
+    grid-template-columns: minmax(8rem, 12rem) 1fr;
+    gap: var(--gcds-spacing-100, 0.5rem) var(--gcds-spacing-200, 1rem);
+    margin: var(--gcds-spacing-300, 1.5rem) 0;
+}
+
+.fdcp-stepper-review dt {
+    font-weight: 700;
+    margin: 0;
+}
+
+.fdcp-stepper-review dd {
+    margin: 0;
+}

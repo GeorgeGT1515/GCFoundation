@@ -337,22 +337,110 @@ namespace GCFoundation.Web.Controllers
 
             if (string.Equals(nav, "next", StringComparison.OrdinalIgnoreCase))
             {
-                // Demo behavior: only advance when the current post is valid.
+                // Only validate fields that belong to the step being left.
+                FilterModelStateToStep(current);
+
+                // Demo behavior: only advance when the current step is valid.
                 // If invalid, keep the step so the user can correct fields and re-submit.
                 if (ModelState.IsValid)
-                    current = Math.Min(totalSteps, current + 1);
+                {
+                    // Final Submit (Agree to Terms): PRG to a dedicated success page.
+                    if (current >= totalSteps)
+                    {
+                        return RedirectToAction(nameof(StepperDemoSuccess));
+                    }
+
+                    current = current + 1;
+                }
             }
             else if (string.Equals(nav, "prev", StringComparison.OrdinalIgnoreCase))
             {
+                // Going back never requires validation of the current step.
+                ModelState.Clear();
                 current = Math.Max(1, current - 1);
+            }
+            else
+            {
+                // Direct posts without nav (or unknown nav) still scope errors to the current step.
+                FilterModelStateToStep(current);
             }
 
             // Persist the resolved step back onto the model so the view and hidden field stay in sync.
             model.CurrentStep = current;
 
+            // Feed ModelState into BaseViewModel.Errors so fdcp-error-summary can render
+            // the same unique messages as the field-level annotations (not GCDS defaults).
+            SyncModelErrorsFromModelState(model);
+
             SetStepperPageTitle(model);
 
             return View("stepper/demo", model);
+        }
+
+        /// <summary>
+        /// Displays the success confirmation after a valid Submit on the final stepper step.
+        /// </summary>
+        /// <returns>The stepper demo success view.</returns>
+        [HttpGet("stepper/demo/success")]
+        public IActionResult StepperDemoSuccess()
+        {
+            SetPageTitle($"{Resources.Template.Stepper_Demo_Success_Title} — {Resources.Template.Stepper_Demo_Name}");
+            return View("stepper/success");
+        }
+
+        /// <summary>
+        /// Copies ModelState errors onto the view model so <c>fdcp-error-summary</c> can emit
+        /// <c>error-links</c> with the localized annotation messages.
+        /// </summary>
+        private void SyncModelErrorsFromModelState(TemplateStepperFormViewModel model)
+        {
+            model.ClearErrors();
+
+            foreach (var entry in ModelState)
+            {
+                if (entry.Value is null || entry.Value.Errors.Count == 0)
+                {
+                    continue;
+                }
+
+                foreach (var error in entry.Value.Errors)
+                {
+                    if (!string.IsNullOrWhiteSpace(error.ErrorMessage))
+                    {
+                        model.AddError(entry.Key, error.ErrorMessage);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Removes ModelState errors for properties that do not belong to <paramref name="step"/>,
+        /// so multi-step Required attributes on later/earlier pages do not block navigation.
+        /// </summary>
+        private void FilterModelStateToStep(int step)
+        {
+            if (!TemplateStepperFormViewModel.FieldsByStep.TryGetValue(step, out var stepFields))
+            {
+                return;
+            }
+
+            foreach (var key in ModelState.Keys.ToList())
+            {
+                if (string.IsNullOrEmpty(key))
+                {
+                    continue;
+                }
+
+                var belongsToStep = stepFields.Any(field =>
+                    key.Equals(field, StringComparison.OrdinalIgnoreCase)
+                    || key.StartsWith(field + "[", StringComparison.OrdinalIgnoreCase)
+                    || key.StartsWith(field + ".", StringComparison.OrdinalIgnoreCase));
+
+                if (!belongsToStep)
+                {
+                    ModelState.Remove(key);
+                }
+            }
         }
 
         /// <summary>
