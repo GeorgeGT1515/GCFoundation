@@ -30,6 +30,19 @@ namespace GCFoundation.Web.Controllers
         }
 
         /// <summary>
+        /// Displays the Accordion component demo page.
+        /// </summary>
+        /// <returns>The Accordion component view.</returns>
+        [HttpGet("accordion")]
+        public IActionResult Accordion()
+        {
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Accordion_Title}");
+
+            var vm = BuildAccordionComponentViewModel();
+            return View("Component", vm);
+        }
+
+        /// <summary>
         /// Displays the Badge component demo page.
         /// </summary>
         /// <returns>
@@ -489,6 +502,7 @@ namespace GCFoundation.Web.Controllers
         {
             var vm = new List<ComponentIndexViewModel>()
             {
+                new () { Name = Resources.Components.Index_Accordion_Title, ShortDescription = Resources.Components.Index_Accordion_Description, Href = Url.Action("Accordion", "Components") ?? string.Empty, IsNew = true },
                 new () { Name = Resources.Components.Index_Badge_Title, Description = Resources.Components.Index_Badge_Description, Href = Url.Action("Badge", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-badge.svg") },
                 new () { Name = Resources.Components.Index_Card_Title, Description = Resources.Components.Index_Card_Description, Href = Url.Action("Card", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-card.svg") },
                 new () { Name = Resources.Components.Index_FilteredSearch_Title, ShortDescription = Resources.Components.Index_FilteredSearch_Description, Href = Url.Action("FilteredSearch", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-filtered-search.svg") },
@@ -502,6 +516,34 @@ namespace GCFoundation.Web.Controllers
                 new () { Name = Resources.Components.Index_Table_Title, ShortDescription = Resources.Components.Index_Table_Description, Href = Url.Action("Table", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-table.svg"), IsNew = true },
                 new () { Name = Resources.Components.Index_UserLoginPartial_Title, ShortDescription = Resources.Components.Index_UserLoginPartial_Description, Href = Url.Action("UserLogin", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-user-login-partial.svg") }
             };
+            return vm;
+        }
+        private static ComponentViewModel BuildAccordionComponentViewModel()
+        {
+            var vm = new ComponentViewModel
+            {
+                Name = Resources.Components.Accordion_Name,
+                Tag = "<fdcp-accordion>",
+                Overview = Resources.Components.Accordion_Overview,
+                SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
+                {
+                    new()
+                    {
+                        Title = Resources.Components.Accordion_BasicUsage_Title,
+                        Id = Resources.Components.Accordion_BasicUsage_Anchor,
+                        PartialViewName = "Accordion/_BasicUsage"
+                    }
+                },
+                SideNavigation = new SideNavigationViewModel
+                {
+                    Items = new List<NavItem>()
+                    {
+                        new NavLink() { Href = Resources.Components.Overview_Anchor, Label = Resources.Components.Overview },
+                        new NavLink() { Href = Resources.Components.Accordion_BasicUsage_Anchor, Label = Resources.Components.Accordion_BasicUsage_Title }
+                    }
+                }
+            };
+
             return vm;
         }
         private static ComponentViewModel BuildModalComponentViewModel()

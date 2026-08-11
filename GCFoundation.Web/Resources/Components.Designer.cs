@@ -59,6 +59,96 @@ namespace GCFoundation.Web.Resources {
                 resourceCulture = value;
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Find out what happens after you submit your request..
+        /// </summary>
+        public static string Accordion_BasicUsage_AfterApply_Text {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_AfterApply_Text", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to After you apply.
+        /// </summary>
+        public static string Accordion_BasicUsage_AfterApply_Title {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_AfterApply_Title", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Learn about the services available and who is eligible to use them..
+        /// </summary>
+        public static string Accordion_BasicUsage_AboutService_Text {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_AboutService_Text", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to About the service.
+        /// </summary>
+        public static string Accordion_BasicUsage_AboutService_Title {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_AboutService_Title", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to basic-usage.
+        /// </summary>
+        public static string Accordion_BasicUsage_Anchor {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_Anchor", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Gather the information you need before you begin your request..
+        /// </summary>
+        public static string Accordion_BasicUsage_BeforeStart_Text {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_BeforeStart_Text", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Before you start.
+        /// </summary>
+        public static string Accordion_BasicUsage_BeforeStart_Title {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_BeforeStart_Title", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Basic usage.
+        /// </summary>
+        public static string Accordion_BasicUsage_Title {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_Title", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Accordion.
+        /// </summary>
+        public static string Accordion_Name {
+            get {
+                return ResourceManager.GetString("Accordion_Name", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-accordion&amp;gt;&lt;/code&gt; component organizes related content into expandable sections and provides a control to open or close all sections..
+        /// </summary>
+        public static string Accordion_Overview {
+            get {
+                return ResourceManager.GetString("Accordion_Overview", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Use text or iconography in addition to colour to convey meaning..
@@ -1554,6 +1644,24 @@ namespace GCFoundation.Web.Resources {
         public static string Guidance_WhenToUse_Intro {
             get {
                 return ResourceManager.GetString("Guidance_WhenToUse_Intro", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Organize related content into expandable sections..
+        /// </summary>
+        public static string Index_Accordion_Description {
+            get {
+                return ResourceManager.GetString("Index_Accordion_Description", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Accordion.
+        /// </summary>
+        public static string Index_Accordion_Title {
+            get {
+                return ResourceManager.GetString("Index_Accordion_Title", resourceCulture);
             }
         }
         

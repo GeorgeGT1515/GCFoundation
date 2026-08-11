@@ -2250,4 +2250,40 @@
   <data name="Modal_Session_LogoutButton" xml:space="preserve">
     <value>Fermer la session</value>
   </data>
+  <data name="Index_Accordion_Title" xml:space="preserve">
+    <value>Accordéon</value>
+  </data>
+  <data name="Index_Accordion_Description" xml:space="preserve">
+    <value>Organisez le contenu connexe en sections extensibles.</value>
+  </data>
+  <data name="Accordion_Name" xml:space="preserve">
+    <value>Accordéon</value>
+  </data>
+  <data name="Accordion_Overview" xml:space="preserve">
+    <value>Le composant &lt;code&gt;&amp;lt;fdcp-accordion&amp;gt;&lt;/code&gt; organise le contenu connexe en sections extensibles et comprend une commande permettant d’ouvrir ou de fermer toutes les sections.</value>
+  </data>
+  <data name="Accordion_BasicUsage_Title" xml:space="preserve">
+    <value>Utilisation de base</value>
+  </data>
+  <data name="Accordion_BasicUsage_Anchor" xml:space="preserve">
+    <value>utilisation-de-base</value>
+  </data>
+  <data name="Accordion_BasicUsage_AboutService_Title" xml:space="preserve">
+    <value>À propos du service</value>
+  </data>
+  <data name="Accordion_BasicUsage_AboutService_Text" xml:space="preserve">
+    <value>Renseignez-vous sur les services offerts et sur les personnes qui peuvent les utiliser.</value>
+  </data>
+  <data name="Accordion_BasicUsage_BeforeStart_Title" xml:space="preserve">
+    <value>Avant de commencer</value>
+  </data>
+  <data name="Accordion_BasicUsage_BeforeStart_Text" xml:space="preserve">
+    <value>Rassemblez les renseignements nécessaires avant de commencer votre demande.</value>
+  </data>
+  <data name="Accordion_BasicUsage_AfterApply_Title" xml:space="preserve">
+    <value>Après avoir présenté une demande</value>
+  </data>
+  <data name="Accordion_BasicUsage_AfterApply_Text" xml:space="preserve">
+    <value>Découvrez ce qui se passe après avoir présenté votre demande.</value>
+  </data>
 </root>
