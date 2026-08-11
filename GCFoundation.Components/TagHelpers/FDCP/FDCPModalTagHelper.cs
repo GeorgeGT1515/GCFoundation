@@ -2,6 +2,7 @@
 using GCFoundation.Components.Resources;
 using HtmlAgilityPack;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using Microsoft.Extensions.Localization;
 using System.Globalization;
 using System.Text;
 
@@ -12,8 +13,14 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// Use &lt;fdcp-modal&gt; in your Razor views to generate a modal dialog.
     /// </summary>
     [HtmlTargetElement("fdcp-modal")]
-    public class FDCPModalTagHelper : TagHelper
+    public class FDCPModalTagHelper(IStringLocalizer<Modal> localizer) : TagHelper
     {
+        private readonly IStringLocalizer<Modal> _localizer = localizer;
+        /// <summary>
+        /// Determines if a close ("×") button is shown in the modal header.
+        /// </summary>
+        public bool HideCloseButton { get; set; }
+
         /// <summary>
         /// The ID of the modal element. Must be unique on the page.
         /// </summary>
@@ -25,16 +32,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public bool Scrollable { get; set; }
 
         /// <summary>
-        /// Sets whether the modal will have a static backdrop (prevents closing by clicking outside the modal).
-        /// </summary>
-        public bool StaticBackdrop { get; set; }
-
-        /// <summary>
-        /// Determines if a close ("×") button is shown in the modal header.
-        /// </summary>
-        public bool HideCloseButton { get; set; }
-
-        /// <summary>
         /// Sets the size of the modal. sm, md, or lg.
         /// </summary>
         public ModalSize Size { get; set; } = ModalSize.regular;
@@ -43,6 +40,11 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         /// Sets the visual/semantic state of the modal. Default, Info, or Warning.
         /// </summary>
         public ModalState State { get; set; } = ModalState.regular;
+
+        /// <summary>
+        /// Sets whether the modal will have a static backdrop (prevents closing by clicking outside the modal).
+        /// </summary>
+        public bool StaticBackdrop { get; set; }
 
         /// <summary>
         /// The title displayed in the modal header.
@@ -72,8 +74,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             var dialogClasses = new List<string> { "modal-overlay__dialog" };
             if (Scrollable) dialogClasses.Add("modal-overlay__dialog--scrollable");
-            if (Size == ModalSize.small) dialogClasses.Add("modal-overlay__dialog--sm");
-            else if (Size == ModalSize.large) dialogClasses.Add("modal-overlay__dialog--lg");
+            if (Size == ModalSize.small) dialogClasses.Add("container-sm");
+            else if (Size == ModalSize.large) dialogClasses.Add("container-xl");
 
             var variant = State.ToString().ToLowerInvariant();
             var modalClasses = new List<string> { "modal" };
@@ -112,38 +114,43 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
         private string BuildHeader(string variant)
         {
-            string CloseButton(string textClass) =>
+            var closeText = _localizer["Modal_Close"];
+            string CloseButton() =>
                 !HideCloseButton
-                    ? $"<gcds-button button-role=\"secondary\" size=\"small\" class=\"fdcp-modal-close modal__close--{variant}\"><gcds-icon size=\"h5\" name=\"close\" label=\"{Modal.Modal_Close}\" class=\"{textClass}\"></gcds-icon></gcds-button>"
+                    ? $"<gcds-button button-role=\"secondary\" size=\"small\" class=\"fdcp-modal-close modal__close--{variant}\">{closeText}</gcds-button>"
                     : string.Empty;
 
-            return variant switch
+            switch (variant)
             {
-                "warning" => $@"
-                    <div class=""modal__header bg-warning"">
-                        <div class=""modal__title-group"">
-                            <gcds-icon name=""warning-triangle""></gcds-icon>
-                            <p class=""font-h5 mb-0"" id=""{ModalId}Label"">{Title}</p>
+                case "warning": 
+                    return $@"
+                        <div class=""modal__header bg-warning"">
+                            <div class=""modal__title-group"">
+                                <gcds-icon name=""warning-triangle""></gcds-icon>
+                                <p class=""font-h5 mb-0"" id=""{ModalId}Label"">{Title}</p>
+                            </div>
+                            {CloseButton()}
                         </div>
-                        {CloseButton("text-primary")}
-                    </div>
-                ",
-                "info" => $@"
-                    <div class=""modal__header bg-info"">
-                        <div class=""modal__title-group text-light"">
-                            <gcds-icon name=""info-circle"" class=""text-current""></gcds-icon>
-                            <p class=""font-h5 text-current mb-0"" id=""{ModalId}Label"">{Title}</p>
+                    ";
+
+                case "info":
+                    return  $@"
+                        <div class=""modal__header bg-info"">
+                            <div class=""modal__title-group text-light"">
+                                <gcds-icon name=""info-circle"" class=""text-current""></gcds-icon>
+                                <p class=""font-h5 text-current mb-0"" id=""{ModalId}Label"">{Title}</p>
+                            </div>
+                            {CloseButton()}
                         </div>
-                        {CloseButton("text-light")}
-                    </div>
-                ",
-                _ => $@"
-                    <div class=""modal__header bg-primary"">
-                        <p class=""font-h5 text-light mb-0"" id=""{ModalId}Label"">{Title}</p>
-                        {CloseButton("text-light")}
-                    </div>
-                "
-            };
+                    "; 
+                default:
+                    return $@"
+                        <div class=""modal__header bg-primary"">
+                            <p class=""font-h5 text-light mb-0"" id=""{ModalId}Label"">{Title}</p>
+                            {CloseButton()}
+                        </div>
+                    ";
+                }
         }
 
 

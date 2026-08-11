@@ -1,15 +1,25 @@
+using GCFoundation.Components.Resources;
 using GCFoundation.Components.TagHelpers.FDCP;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using Microsoft.Extensions.Localization;
+using Moq;
 
 namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP;
 
 public class FDCPSessionModalTagHelperTests
 {
+    private static IStringLocalizer<Modal> CreateLocalizerMock()
+    {
+        var mock = new Mock<IStringLocalizer<Modal>>();
+        mock.Setup(l => l["Modal_Close"])
+            .Returns(new LocalizedString("Modal_Close", "Close"));
+        return mock.Object;
+    }
     [Fact]
     public async Task ProcessAsync_RendersSessionModalWithRequiredAttributes()
     {
         // Arrange
-        var tagHelper = new FDCPSessionModalTagHelper
+        var tagHelper = new FDCPSessionModalTagHelper(CreateLocalizerMock())
         {
             ModalId = "session-modal",
             SessionTimeout = 3600,
@@ -43,7 +53,7 @@ public class FDCPSessionModalTagHelperTests
     public async Task ProcessAsync_WithNullOutput_ThrowsArgumentNullException()
     {
         // Arrange
-        var tagHelper = new FDCPSessionModalTagHelper();
+        var tagHelper = new FDCPSessionModalTagHelper(CreateLocalizerMock());
         var context = new TagHelperContext(
             new TagHelperAttributeList(),
             new Dictionary<object, object>(),
@@ -62,7 +72,7 @@ public class FDCPSessionModalTagHelperTests
     public async Task ProcessAsync_WithDifferentTimeouts_RendersCorrectly(int sessionTimeout, int reminderTime)
     {
         // Arrange
-        var tagHelper = new FDCPSessionModalTagHelper
+        var tagHelper = new FDCPSessionModalTagHelper(CreateLocalizerMock())
         {
             SessionTimeout = sessionTimeout,
             ReminderTime = reminderTime,
