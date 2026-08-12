@@ -18,7 +18,7 @@
     max-width: var(--gcds-table-modal-max-width);
     max-height: var(--gcds-table-modal-max-height-desktop);
     min-height: var(--gcds-table-modal-min-height);
-    border-radius: var(--gcds-border-radius-md);
+    border-radius: var(--gcds-table-modal-border-radius-desktop);
     box-shadow: var(--gcds-table-modal-box-shadow);
     background-color: var(--gcds-table-modal-background);
     overflow-y: auto;
@@ -62,9 +62,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-block: var(--gcds-spacing-100);
-    padding-inline-start: var(--gcds-spacing-200);
-    padding-inline-end: var(--gcds-spacing-100);
+    padding: var(--gcds-spacing-200);
 }
 
 /* ===== Icon + title grouping ===== */
@@ -91,11 +89,21 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     gap: var(--gcds-spacing-150);
-    padding-block: var(--gcds-spacing-100);
-    padding-inline: var(--gcds-spacing-200);
+    padding: var(--gcds-spacing-200);
 
     @media only screen and (width < 48em) {
+        flex-direction: column-reverse;
+        align-content: center;
+        align-items: center;
         justify-content: center;
+
+        gcds-button {
+            width: 100%;
+
+            &::part(button) {
+                width: 100%;
+            }
+        }
     }
 }
 
