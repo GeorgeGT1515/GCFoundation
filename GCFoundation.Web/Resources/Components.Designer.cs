@@ -493,15 +493,6 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The &lt;strong&gt;List Item&lt;/strong&gt; is a composition pattern that combines &lt;code&gt;&amp;lt;fdcp-card&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;gcds-grid&amp;gt;&lt;/code&gt; to create a structured, selectable row. The columns and content are fully flexible — use this pattern as a starting point and adapt it to your specific needs..
-        /// </summary>
-        public static string Card_ListItem_ExampleUse_Title {
-            get {
-                return ResourceManager.GetString("Card_ListItem_ExampleUse_Title", resourceCulture);
-            }
-        }
-
-        /// <summary>
         ///   Looks up a localized string similar to List Item content.
         /// </summary>
         public static string Card_ListItem_CodeComment {
@@ -509,31 +500,40 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Card_ListItem_CodeComment", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to the List Item composition pattern description, including a link to GCDS CSS Shortcuts.
+        ///   Looks up a localized string similar to Example Use.
+        /// </summary>
+        public static string Card_ListItem_ExampleUse_Title {
+            get {
+                return ResourceManager.GetString("Card_ListItem_ExampleUse_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;strong&gt;List Item&lt;/strong&gt; is a composition pattern that combines &lt;code&gt;&amp;lt;fdcp-card&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;gcds-grid&amp;gt;&lt;/code&gt; to create a structured, selectable row. The columns and content are fully flexible — use this pattern as a starting point and adapt it to your specific needs. See &lt;gcds-link href=&quot;https://design-system.canada.ca/en/css-shortcuts/&quot; target=&quot;_blank&quot; external&gt;GCDS CSS Shortcuts&lt;/gcds-link&gt; for available utility classes..
         /// </summary>
         public static string Card_ListItem_Text {
             get {
                 return ResourceManager.GetString("Card_ListItem_Text", resourceCulture);
             }
         }
-
-        /// <summary>
-        ///   Looks up a localized string similar to the Example Use description for stacking List Item cards with vertical spacing.
-        /// </summary>
-        public static string Card_ListItemList_Text {
-            get {
-                return ResourceManager.GetString("Card_ListItemList_Text", resourceCulture);
-            }
-        }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to List Item.
         /// </summary>
         public static string Card_ListItem_Title {
             get {
                 return ResourceManager.GetString("Card_ListItem_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stack multiple List Item cards and add vertical spacing between them using margin utilities. &lt;code&gt;mb-100&lt;/code&gt; is used in this example..
+        /// </summary>
+        public static string Card_ListItemList_Text {
+            get {
+                return ResourceManager.GetString("Card_ListItemList_Text", resourceCulture);
             }
         }
         
@@ -1432,7 +1432,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Accessibility Requirements.
+        ///   Looks up a localized string similar to Accessibility requirements.
         /// </summary>
         public static string Guidance_Accessibility {
             get {
@@ -1504,7 +1504,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When Not to Use.
+        ///   Looks up a localized string similar to When not to use.
         /// </summary>
         public static string Guidance_WhenNotToUse {
             get {
@@ -1531,7 +1531,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When to Use.
+        ///   Looks up a localized string similar to When to use.
         /// </summary>
         public static string Guidance_WhenToUse {
             get {
@@ -1812,6 +1812,101 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;strong&gt;2.4.3 Focus Order:&lt;/strong&gt; Focus moves into the modal and returns to the button or trigger that opened it. Background content cannot be interacted with and is out of focus..
+        /// </summary>
+        public static string Modal_Accessibility_Do_1 {
+            get {
+                return ResourceManager.GetString("Modal_Accessibility_Do_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;strong&gt;2.4.7 Focus Visible:&lt;/strong&gt; Every interactive element must show a visible focus outline..
+        /// </summary>
+        public static string Modal_Accessibility_Do_2 {
+            get {
+                return ResourceManager.GetString("Modal_Accessibility_Do_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;strong&gt;2.1.1 Keyboard:&lt;/strong&gt; Fully functional with a keyboard, including closing the modal with the Escape key..
+        /// </summary>
+        public static string Modal_Accessibility_Do_3 {
+            get {
+                return ResourceManager.GetString("Modal_Accessibility_Do_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;strong&gt;2.1.2 No Keyboard Trap:&lt;/strong&gt; If focus is trapped, the user must be able to exit the trap..
+        /// </summary>
+        public static string Modal_Accessibility_Do_4 {
+            get {
+                return ResourceManager.GetString("Modal_Accessibility_Do_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;strong&gt;1.3.1 Info and Relationships:&lt;/strong&gt; Uses ARIA roles, labels, and descriptions, i.e.:
+        ///&lt;ul class=&quot;list-circle&quot;&gt;
+        ///&lt;li&gt;the modal uses &lt;code&gt;role=&quot;dialog&quot;&lt;/code&gt;;&lt;/li&gt;
+        ///&lt;li&gt;the title is linked using &lt;code&gt;aria-labelledby&lt;/code&gt;;&lt;/li&gt;
+        ///&lt;li&gt;and, the description is linked using &lt;code&gt;aria-describedby&lt;/code&gt;.&lt;/li&gt;
+        ///&lt;/ul&gt;.
+        /// </summary>
+        public static string Modal_Accessibility_Do_5 {
+            get {
+                return ResourceManager.GetString("Modal_Accessibility_Do_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;strong&gt;1.4.3 Contrast Minimum:&lt;/strong&gt; Text and essential UI elements must meet minimum contrast ratios (3:1). The white modal box sits on a darkened backdrop, ensuring strong contrast..
+        /// </summary>
+        public static string Modal_Accessibility_Do_6 {
+            get {
+                return ResourceManager.GetString("Modal_Accessibility_Do_6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to additional-properties.
+        /// </summary>
+        public static string Modal_AdditionalProperties_Anchor {
+            get {
+                return ResourceManager.GetString("Modal_AdditionalProperties_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Example Modal.
+        /// </summary>
+        public static string Modal_AdditionalProperties_ModalTitle {
+            get {
+                return ResourceManager.GetString("Modal_AdditionalProperties_ModalTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Beyond the core structure, &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; supports several optional properties to control its behaviour. The example below illustrates &lt;code&gt;scrollable&lt;/code&gt;, &lt;code&gt;hide-close-button&lt;/code&gt;, and &lt;code&gt;static-backdrop&lt;/code&gt; — none of which affect content, only how the modal behaves..
+        /// </summary>
+        public static string Modal_AdditionalProperties_Text {
+            get {
+                return ResourceManager.GetString("Modal_AdditionalProperties_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Additional Properties.
+        /// </summary>
+        public static string Modal_AdditionalProperties_Title {
+            get {
+                return ResourceManager.GetString("Modal_AdditionalProperties_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to basic.
         /// </summary>
         public static string Modal_Basic_Anchor {
@@ -1821,7 +1916,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;gcds-text&gt;Click the buttons below to see the modals in action:&lt;/gcds-text&gt;.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Modals provide a focused, interruptive space for short, high-priority tasks or confirmations that must be completed before users continue their workflow.&lt;/gcds-text&gt;.
         /// </summary>
         public static string Modal_Basic_Text {
             get {
@@ -1830,11 +1925,236 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Basic Usage.
+        ///   Looks up a localized string similar to Basic usage.
         /// </summary>
         public static string Modal_Basic_Title {
             get {
                 return ResourceManager.GetString("Modal_Basic_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to basic-structure.
+        /// </summary>
+        public static string Modal_BasicStructure_Anchor {
+            get {
+                return ResourceManager.GetString("Modal_BasicStructure_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is a basic modal..
+        /// </summary>
+        public static string Modal_BasicStructure_Body {
+            get {
+                return ResourceManager.GetString("Modal_BasicStructure_Body", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic Modal.
+        /// </summary>
+        public static string Modal_BasicStructure_ModalTitle {
+            get {
+                return ResourceManager.GetString("Modal_BasicStructure_ModalTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open modal.
+        /// </summary>
+        public static string Modal_BasicStructure_OpenButton {
+            get {
+                return ResourceManager.GetString("Modal_BasicStructure_OpenButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Renders a standalone modal component. Use &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; in your Razor views to generate a modal dialog..
+        /// </summary>
+        public static string Modal_BasicStructure_Text {
+            get {
+                return ResourceManager.GetString("Modal_BasicStructure_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic Modal.
+        /// </summary>
+        public static string Modal_BasicStructure_Title {
+            get {
+                return ResourceManager.GetString("Modal_BasicStructure_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to button-behaviour.
+        /// </summary>
+        public static string Modal_ButtonBehaviour_Anchor {
+            get {
+                return ResourceManager.GetString("Modal_ButtonBehaviour_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string Modal_ButtonBehaviour_Cancel {
+            get {
+                return ResourceManager.GetString("Modal_ButtonBehaviour_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to My Modal.
+        /// </summary>
+        public static string Modal_ButtonBehaviour_ModalTitle {
+            get {
+                return ResourceManager.GetString("Modal_ButtonBehaviour_ModalTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open.
+        /// </summary>
+        public static string Modal_ButtonBehaviour_OpenButton {
+            get {
+                return ResourceManager.GetString("Modal_ButtonBehaviour_OpenButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For custom interactions, use JavaScript to listen for any event your application requires, find the rendered modal by its &lt;code&gt;modal-id&lt;/code&gt;, and toggle its &lt;code&gt;show&lt;/code&gt; class. The component detects this class change and automatically applies its focus and accessibility behaviour..
+        /// </summary>
+        public static string Modal_ButtonBehaviour_ProgrammaticText {
+            get {
+                return ResourceManager.GetString("Modal_ButtonBehaviour_ProgrammaticText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Buttons interact with a modal through a combination of the &lt;code&gt;modal-id&lt;/code&gt; attribute and CSS utility classes.&lt;/gcds-text&gt;&lt;ul class=&quot;list-square&quot;&gt;&lt;li&gt;&lt;strong&gt;&lt;code&gt;modal-id&lt;/code&gt;&lt;/strong&gt; — Set on the trigger button to match the &lt;code&gt;modal-id&lt;/code&gt; of the target &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt;. This links the button to the correct modal.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;&lt;code&gt;fdcp-modal-open&lt;/code&gt;&lt;/strong&gt; — Add this class to any button outside the modal to open it when clicked.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;&lt;code&gt;fdc [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Modal_ButtonBehaviour_Text {
+            get {
+                return ResourceManager.GetString("Modal_ButtonBehaviour_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Button Behaviour.
+        /// </summary>
+        public static string Modal_ButtonBehaviour_Title {
+            get {
+                return ResourceManager.GetString("Modal_ButtonBehaviour_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to basic-default.
+        /// </summary>
+        public static string Modal_Default_Anchor {
+            get {
+                return ResourceManager.GetString("Modal_Default_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is a regular modal, shown with no special state applied..
+        /// </summary>
+        public static string Modal_Default_Body {
+            get {
+                return ResourceManager.GetString("Modal_Default_Body", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Regular Modal.
+        /// </summary>
+        public static string Modal_Default_ModalTitle {
+            get {
+                return ResourceManager.GetString("Modal_Default_ModalTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open regular modal.
+        /// </summary>
+        public static string Modal_Default_OpenButton {
+            get {
+                return ResourceManager.GetString("Modal_Default_OpenButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Used for standard tasks that require user attention or confirmation. It provides a neutral presentation for everyday interactions. This is the default variant and will be applied automatically if no &lt;code&gt;state&lt;/code&gt; property is specified..
+        /// </summary>
+        public static string Modal_Default_Text {
+            get {
+                return ResourceManager.GetString("Modal_Default_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Regular.
+        /// </summary>
+        public static string Modal_Default_Title {
+            get {
+                return ResourceManager.GetString("Modal_Default_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to basic-info.
+        /// </summary>
+        public static string Modal_Info_Anchor {
+            get {
+                return ResourceManager.GetString("Modal_Info_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is an info modal, used to highlight helpful or supplementary information for the user..
+        /// </summary>
+        public static string Modal_Info_Body {
+            get {
+                return ResourceManager.GetString("Modal_Info_Body", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info Modal.
+        /// </summary>
+        public static string Modal_Info_ModalTitle {
+            get {
+                return ResourceManager.GetString("Modal_Info_ModalTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open info modal.
+        /// </summary>
+        public static string Modal_Info_OpenButton {
+            get {
+                return ResourceManager.GetString("Modal_Info_OpenButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delivers important information or context that users should understand before proceeding. It highlights details that support decision-making without implying risk..
+        /// </summary>
+        public static string Modal_Info_Text {
+            get {
+                return ResourceManager.GetString("Modal_Info_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info.
+        /// </summary>
+        public static string Modal_Info_Title {
+            get {
+                return ResourceManager.GetString("Modal_Info_Title", resourceCulture);
             }
         }
         
@@ -1866,7 +2186,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use &lt;code&gt;is-static-backdrop=&quot;true&quot;&lt;/code&gt; for modals that require user action.
+        ///   Looks up a localized string similar to Use &lt;code&gt;static-backdrop&lt;/code&gt; for modals that require user action.
         /// </summary>
         public static string Modal_Notes_3 {
             get {
@@ -1875,7 +2195,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Modal content should be wrapped in &lt;code&gt;&amp;lt;fdcp-modal-body&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;fdcp-modal-footer&amp;gt;&lt;/code&gt; tags.
+        ///   Looks up a localized string similar to Modal content should be wrapped in &lt;code&gt;&amp;lt;div slot=&quot;body&quot;&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;div slot=&quot;footer&quot;&amp;gt;&lt;/code&gt; elements.
         /// </summary>
         public static string Modal_Notes_4 {
             get {
@@ -1893,6 +2213,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; component handles its WCAG 2.2 accessibility requirements natively..
+        /// </summary>
+        public static string Modal_Notes_6 {
+            get {
+                return ResourceManager.GetString("Modal_Notes_6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;fdcp-session-modal&amp;gt;&lt;/code&gt; components provide a flexible dialog system for displaying content in a popup overlay. It supports regular modals for general use and specialized session modals for handling user session management..
         /// </summary>
         public static string Modal_Overview {
@@ -1902,29 +2231,11 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Centers the modal vertically.
+        ///   Looks up a localized string similar to Hides the close button in the modal header.
         /// </summary>
-        public static string Modal_Properties_Centered {
+        public static string Modal_Properties_HideCloseButton {
             get {
-                return ResourceManager.GetString("Modal_Properties_Centered", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unique identifier for the modal.
-        /// </summary>
-        public static string Modal_Properties_Id {
-            get {
-                return ResourceManager.GetString("Modal_Properties_Id", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Prevents closing by clicking outside.
-        /// </summary>
-        public static string Modal_Properties_IsStaticBackdrop {
-            get {
-                return ResourceManager.GetString("Modal_Properties_IsStaticBackdrop", resourceCulture);
+                return ResourceManager.GetString("Modal_Properties_HideCloseButton", resourceCulture);
             }
         }
         
@@ -1934,6 +2245,15 @@ namespace GCFoundation.Web.Resources {
         public static string Modal_Properties_LogoutUrl {
             get {
                 return ResourceManager.GetString("Modal_Properties_LogoutUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unique identifier used to target the modal.
+        /// </summary>
+        public static string Modal_Properties_ModalId {
+            get {
+                return ResourceManager.GetString("Modal_Properties_ModalId", resourceCulture);
             }
         }
         
@@ -1974,20 +2294,29 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shows close button in header.
-        /// </summary>
-        public static string Modal_Properties_ShowCloseButton {
-            get {
-                return ResourceManager.GetString("Modal_Properties_ShowCloseButton", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Modal size (Default, Small, or Large).
+        ///   Looks up a localized string similar to Modal size (regular, small, or large).
         /// </summary>
         public static string Modal_Properties_Size {
             get {
                 return ResourceManager.GetString("Modal_Properties_Size", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visual and semantic state of the modal (regular, info, or warning).
+        /// </summary>
+        public static string Modal_Properties_State {
+            get {
+                return ResourceManager.GetString("Modal_Properties_State", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prevents the modal from closing when the backdrop is clicked or the Escape key is pressed.
+        /// </summary>
+        public static string Modal_Properties_StaticBackdrop {
+            get {
+                return ResourceManager.GetString("Modal_Properties_StaticBackdrop", resourceCulture);
             }
         }
         
@@ -2001,11 +2330,65 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Back.
+        /// </summary>
+        public static string Modal_Sample_Back {
+            get {
+                return ResourceManager.GetString("Modal_Sample_Back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm.
+        /// </summary>
+        public static string Modal_Sample_Confirm {
+            get {
+                return ResourceManager.GetString("Modal_Sample_Confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to session.
         /// </summary>
         public static string Modal_Session_Anchor {
             get {
                 return ResourceManager.GetString("Modal_Session_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your session is about to expire!.
+        /// </summary>
+        public static string Modal_Session_Body {
+            get {
+                return ResourceManager.GetString("Modal_Session_Body", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Extend session.
+        /// </summary>
+        public static string Modal_Session_ExtendButton {
+            get {
+                return ResourceManager.GetString("Modal_Session_ExtendButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log out.
+        /// </summary>
+        public static string Modal_Session_LogoutButton {
+            get {
+                return ResourceManager.GetString("Modal_Session_LogoutButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Session Timeout.
+        /// </summary>
+        public static string Modal_Session_ModalTitle {
+            get {
+                return ResourceManager.GetString("Modal_Session_ModalTitle", resourceCulture);
             }
         }
         
@@ -2024,6 +2407,339 @@ namespace GCFoundation.Web.Resources {
         public static string Modal_Session_Title {
             get {
                 return ResourceManager.GetString("Modal_Session_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to modal-sizes.
+        /// </summary>
+        public static string Modal_Size_Anchor {
+            get {
+                return ResourceManager.GetString("Modal_Size_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modal size examples.
+        /// </summary>
+        public static string Modal_Size_Label {
+            get {
+                return ResourceManager.GetString("Modal_Size_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is a large modal..
+        /// </summary>
+        public static string Modal_Size_Large_Body {
+            get {
+                return ResourceManager.GetString("Modal_Size_Large_Body", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Large Modal.
+        /// </summary>
+        public static string Modal_Size_Large_ModalTitle {
+            get {
+                return ResourceManager.GetString("Modal_Size_Large_ModalTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open large modal.
+        /// </summary>
+        public static string Modal_Size_Large_OpenButton {
+            get {
+                return ResourceManager.GetString("Modal_Size_Large_OpenButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the large size when the content requires more space, such as forms, data tables, or complex layouts..
+        /// </summary>
+        public static string Modal_Size_Large_Text {
+            get {
+                return ResourceManager.GetString("Modal_Size_Large_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Large.
+        /// </summary>
+        public static string Modal_Size_Large_Title {
+            get {
+                return ResourceManager.GetString("Modal_Size_Large_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is a regular-size modal..
+        /// </summary>
+        public static string Modal_Size_Regular_Body {
+            get {
+                return ResourceManager.GetString("Modal_Size_Regular_Body", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Regular Modal.
+        /// </summary>
+        public static string Modal_Size_Regular_ModalTitle {
+            get {
+                return ResourceManager.GetString("Modal_Size_Regular_ModalTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open regular modal.
+        /// </summary>
+        public static string Modal_Size_Regular_OpenButton {
+            get {
+                return ResourceManager.GetString("Modal_Size_Regular_OpenButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The regular size suits most everyday interactions and is applied automatically when no &lt;code&gt;size&lt;/code&gt; property is specified..
+        /// </summary>
+        public static string Modal_Size_Regular_Text {
+            get {
+                return ResourceManager.GetString("Modal_Size_Regular_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Regular.
+        /// </summary>
+        public static string Modal_Size_Regular_Title {
+            get {
+                return ResourceManager.GetString("Modal_Size_Regular_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is a small modal..
+        /// </summary>
+        public static string Modal_Size_Small_Body {
+            get {
+                return ResourceManager.GetString("Modal_Size_Small_Body", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Small Modal.
+        /// </summary>
+        public static string Modal_Size_Small_ModalTitle {
+            get {
+                return ResourceManager.GetString("Modal_Size_Small_ModalTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open small modal.
+        /// </summary>
+        public static string Modal_Size_Small_OpenButton {
+            get {
+                return ResourceManager.GetString("Modal_Size_Small_OpenButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the small size for brief confirmations or simple messages that require minimal content..
+        /// </summary>
+        public static string Modal_Size_Small_Text {
+            get {
+                return ResourceManager.GetString("Modal_Size_Small_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Small.
+        /// </summary>
+        public static string Modal_Size_Small_Title {
+            get {
+                return ResourceManager.GetString("Modal_Size_Small_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;The modal supports three sizes — &lt;code&gt;regular&lt;/code&gt;, &lt;code&gt;small&lt;/code&gt;, and &lt;code&gt;large&lt;/code&gt; — controlled via the &lt;code&gt;size&lt;/code&gt; property. Use the appropriate size based on the amount of content and the level of focus required.&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Modal_Size_Text {
+            get {
+                return ResourceManager.GetString("Modal_Size_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sizes.
+        /// </summary>
+        public static string Modal_Size_Title {
+            get {
+                return ResourceManager.GetString("Modal_Size_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to modal-variants.
+        /// </summary>
+        public static string Modal_Variants_Anchor {
+            get {
+                return ResourceManager.GetString("Modal_Variants_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modal state examples.
+        /// </summary>
+        public static string Modal_Variants_Label {
+            get {
+                return ResourceManager.GetString("Modal_Variants_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The modal component supports three state variants — &lt;code&gt;regular&lt;/code&gt;, &lt;code&gt;info&lt;/code&gt;, and &lt;code&gt;warning&lt;/code&gt; — each designed for a different level of urgency or intent..
+        /// </summary>
+        public static string Modal_Variants_Text {
+            get {
+                return ResourceManager.GetString("Modal_Variants_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Variants.
+        /// </summary>
+        public static string Modal_Variants_Title {
+            get {
+                return ResourceManager.GetString("Modal_Variants_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to basic-warning.
+        /// </summary>
+        public static string Modal_Warning_Anchor {
+            get {
+                return ResourceManager.GetString("Modal_Warning_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is a warning modal, used to alert the user to something that needs their attention before proceeding..
+        /// </summary>
+        public static string Modal_Warning_Body {
+            get {
+                return ResourceManager.GetString("Modal_Warning_Body", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning Modal.
+        /// </summary>
+        public static string Modal_Warning_ModalTitle {
+            get {
+                return ResourceManager.GetString("Modal_Warning_ModalTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open warning modal.
+        /// </summary>
+        public static string Modal_Warning_OpenButton {
+            get {
+                return ResourceManager.GetString("Modal_Warning_OpenButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alerts users to high-impact or irreversible actions..
+        /// </summary>
+        public static string Modal_Warning_Text {
+            get {
+                return ResourceManager.GetString("Modal_Warning_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning.
+        /// </summary>
+        public static string Modal_Warning_Title {
+            get {
+                return ResourceManager.GetString("Modal_Warning_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The content is long, complex, multi-step, or requires detailed reading..
+        /// </summary>
+        public static string Modal_WhenNotToUse_1 {
+            get {
+                return ResourceManager.GetString("Modal_WhenNotToUse_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Users must compare information or reference other parts of the interface..
+        /// </summary>
+        public static string Modal_WhenNotToUse_2 {
+            get {
+                return ResourceManager.GetString("Modal_WhenNotToUse_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scrolling or extensive interaction would be required within the modal..
+        /// </summary>
+        public static string Modal_WhenNotToUse_3 {
+            get {
+                return ResourceManager.GetString("Modal_WhenNotToUse_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The interruption is unnecessary and could be handled inline or on a dedicated page..
+        /// </summary>
+        public static string Modal_WhenNotToUse_4 {
+            get {
+                return ResourceManager.GetString("Modal_WhenNotToUse_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The user must make a brief, time-sensitive decision or acknowledgement..
+        /// </summary>
+        public static string Modal_WhenToUse_1 {
+            get {
+                return ResourceManager.GetString("Modal_WhenToUse_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The task requires 1–2 clear actions and benefits from focused attention..
+        /// </summary>
+        public static string Modal_WhenToUse_2 {
+            get {
+                return ResourceManager.GetString("Modal_WhenToUse_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inline content would disrupt the page structure or cause confusion..
+        /// </summary>
+        public static string Modal_WhenToUse_3 {
+            get {
+                return ResourceManager.GetString("Modal_WhenToUse_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The decision is contextual to the current page and does not require navigation..
+        /// </summary>
+        public static string Modal_WhenToUse_4 {
+            get {
+                return ResourceManager.GetString("Modal_WhenToUse_4", resourceCulture);
             }
         }
         
@@ -3284,7 +4000,7 @@ namespace GCFoundation.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to &lt;gcds-text&gt;This implementation adds a small status badge next to a step label (for example, “Done” or “Not required”).&lt;/gcds-text&gt;
         ///&lt;gcds-text&gt;Set &lt;code&gt;StatusBadgeLabel&lt;/code&gt; and choose a &lt;code&gt;StatusBadgeStyle&lt;/code&gt; to match your UI semantics. You can also invert the badge style when you need more emphasis or contrast.&lt;/gcds-text&gt;
-        ///&lt;gcds-text&gt;This pattern can also be used when one or more steps are identified as &quot;not required&quot; because a user’s earlier choices make those steps not applicable. To support cl [rest of string was truncated]&quot;;.
+        ///&lt;gcds-text&gt;This pattern can also be used when one or more steps are identified as &quot;not required&quot; because a user’s earlier choices make those steps not applicable. To support  [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Stepper_WithStatus_Text {
             get {
