@@ -531,7 +531,14 @@ namespace GCFoundation.Web.Controllers
                     {
                         Title = Resources.Components.Accordion_BasicUsage_Title,
                         Id = Resources.Components.Accordion_BasicUsage_Anchor,
+                        Description = Resources.Components.Accordion_BasicUsage_Text,
                         PartialViewName = "Accordion/_BasicUsage"
+                    },
+                    new()
+                    {
+                        Title = Resources.Components.Properties,
+                        Id = Resources.Components.Properties_Anchor,
+                        PartialViewName = "Accordion/_Properties"
                     }
                 },
                 SideNavigation = new SideNavigationViewModel
@@ -539,7 +546,8 @@ namespace GCFoundation.Web.Controllers
                     Items = new List<NavItem>()
                     {
                         new NavLink() { Href = Resources.Components.Overview_Anchor, Label = Resources.Components.Overview },
-                        new NavLink() { Href = Resources.Components.Accordion_BasicUsage_Anchor, Label = Resources.Components.Accordion_BasicUsage_Title }
+                        new NavLink() { Href = Resources.Components.Accordion_BasicUsage_Anchor, Label = Resources.Components.Accordion_BasicUsage_Title },
+                        new NavLink() { Href = Resources.Components.Properties_Anchor, Label = Resources.Components.Properties }
                     }
                 }
             };

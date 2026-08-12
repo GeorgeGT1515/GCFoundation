@@ -2132,6 +2132,9 @@
   <data name="Accordion_BasicUsage_Title" xml:space="preserve">
     <value>Basic usage</value>
   </data>
+  <data name="Accordion_BasicUsage_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;The &lt;code&gt;&amp;lt;fdcp-accordion&amp;gt;&lt;/code&gt; component groups multiple &lt;code&gt;&amp;lt;gcds-details&amp;gt;&lt;/code&gt; components into a dynamic accordion with coordinated open and close behaviour, including a control to open or close all sections at once.&lt;/gcds-text&gt;</value>
+  </data>
   <data name="Accordion_BasicUsage_Anchor" xml:space="preserve">
     <value>basic-usage</value>
   </data>
@@ -2152,5 +2155,11 @@
   </data>
   <data name="Accordion_BasicUsage_AfterApply_Text" xml:space="preserve">
     <value>Find out what happens after you submit your request.</value>
+  </data>
+  <data name="Accordion_Properties_FdcpAccordion_Title" xml:space="preserve">
+    <value>Properties — &lt;code&gt;&amp;lt;fdcp-accordion&amp;gt;&lt;/code&gt;</value>
+  </data>
+  <data name="Accordion_Properties_FdcpAccordion_AccordionId" xml:space="preserve">
+    <value>Unique identifier for the accordion container. The value is rendered as the container's &lt;code&gt;id&lt;/code&gt; and is used to associate the component's client-side behaviour.</value>
   </data>
 </root>

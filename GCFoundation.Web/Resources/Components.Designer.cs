@@ -124,6 +124,15 @@ namespace GCFoundation.Web.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;The &lt;code&gt;&amp;lt;fdcp-accordion&amp;gt;&lt;/code&gt; component groups multiple &lt;code&gt;&amp;lt;gcds-details&amp;gt;&lt;/code&gt; components into a dynamic accordion with coordinated open and close behaviour, including a control to open or close all sections at once.&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Accordion_BasicUsage_Text {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_Text", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Basic usage.
         /// </summary>
         public static string Accordion_BasicUsage_Title {
@@ -147,6 +156,24 @@ namespace GCFoundation.Web.Resources {
         public static string Accordion_Overview {
             get {
                 return ResourceManager.GetString("Accordion_Overview", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Unique identifier for the accordion container. The value is rendered as the container&apos;s &lt;code&gt;id&lt;/code&gt; and is used to associate the component&apos;s client-side behaviour..
+        /// </summary>
+        public static string Accordion_Properties_FdcpAccordion_AccordionId {
+            get {
+                return ResourceManager.GetString("Accordion_Properties_FdcpAccordion_AccordionId", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Properties — &lt;code&gt;&amp;lt;fdcp-accordion&amp;gt;&lt;/code&gt;.
+        /// </summary>
+        public static string Accordion_Properties_FdcpAccordion_Title {
+            get {
+                return ResourceManager.GetString("Accordion_Properties_FdcpAccordion_Title", resourceCulture);
             }
         }
         
