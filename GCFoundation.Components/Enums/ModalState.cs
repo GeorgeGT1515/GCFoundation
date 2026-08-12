@@ -6,17 +6,17 @@
     public enum ModalState
     {
         /// <summary>
-        /// Used for standard tasks that require user attention or confirmation.
-        /// Provides a neutral presentation for everyday interactions.
-        /// </summary>
-        regular,
-
-        /// <summary>
         /// Delivers important information or context that users should understand
         /// before proceeding. Highlights details that support decision-making
         /// without implying risk.
         /// </summary>
         info,
+
+        /// <summary>
+        /// Used for standard tasks that require user attention or confirmation.
+        /// Provides a neutral presentation for everyday interactions.
+        /// </summary>
+        regular,
 
         /// <summary>
         /// Alerts users to a high-impact or irreversible action.

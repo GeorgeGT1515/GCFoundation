@@ -1056,7 +1056,12 @@
     <value>&lt;strong&gt;2.1.2 No Keyboard Trap:&lt;/strong&gt; If focus is trapped, the user must be able to exit the trap.</value>
   </data>
   <data name="Modal_Accessibility_Do_5" xml:space="preserve">
-    <value>&lt;strong&gt;1.3.1 Info and Relationships:&lt;/strong&gt; Uses ARIA roles, labels, and descriptions — the modal uses &lt;code&gt;role="dialog"&lt;/code&gt;, the title is linked using &lt;code&gt;aria-labelledby&lt;/code&gt;, and the description is linked using &lt;code&gt;aria-describedby&lt;/code&gt;.</value>
+    <value>&lt;strong&gt;1.3.1 Info and Relationships:&lt;/strong&gt; Uses ARIA roles, labels, and descriptions, i.e.:
+&lt;ul class="list-circle"&gt;
+&lt;li&gt;the modal uses &lt;code&gt;role="dialog"&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;the title is linked using &lt;code&gt;aria-labelledby&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;and, the description is linked using &lt;code&gt;aria-describedby&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;</value>
   </data>
   <data name="Modal_Accessibility_Do_6" xml:space="preserve">
     <value>&lt;strong&gt;1.4.3 Contrast Minimum:&lt;/strong&gt; Text and essential UI elements must meet minimum contrast ratios (3:1). The white modal box sits on a darkened backdrop, ensuring strong contrast.</value>
@@ -1449,7 +1454,7 @@
     <value>purpose</value>
   </data>
   <data name="Guidance_WhenToUse" xml:space="preserve">
-    <value>When to Use</value>
+    <value>When to use</value>
   </data>
   <data name="Guidance_WhenToUse_Anchor" xml:space="preserve">
     <value>when-to-use</value>

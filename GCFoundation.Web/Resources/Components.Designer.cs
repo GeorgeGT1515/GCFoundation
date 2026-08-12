@@ -59,25 +59,7 @@ namespace GCFoundation.Web.Resources {
                 resourceCulture = value;
             }
         }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Find out what happens after you submit your request..
-        /// </summary>
-        public static string Accordion_BasicUsage_AfterApply_Text {
-            get {
-                return ResourceManager.GetString("Accordion_BasicUsage_AfterApply_Text", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to After you apply.
-        /// </summary>
-        public static string Accordion_BasicUsage_AfterApply_Title {
-            get {
-                return ResourceManager.GetString("Accordion_BasicUsage_AfterApply_Title", resourceCulture);
-            }
-        }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Learn about the services available and who is eligible to use them..
         /// </summary>
@@ -86,7 +68,7 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Accordion_BasicUsage_AboutService_Text", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to About the service.
         /// </summary>
@@ -95,7 +77,25 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Accordion_BasicUsage_AboutService_Title", resourceCulture);
             }
         }
-
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Find out what happens after you submit your request..
+        /// </summary>
+        public static string Accordion_BasicUsage_AfterApply_Text {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_AfterApply_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to After you apply.
+        /// </summary>
+        public static string Accordion_BasicUsage_AfterApply_Title {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_AfterApply_Title", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to basic-usage.
         /// </summary>
@@ -104,7 +104,7 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Accordion_BasicUsage_Anchor", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Gather the information you need before you begin your request..
         /// </summary>
@@ -113,7 +113,7 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Accordion_BasicUsage_BeforeStart_Text", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Before you start.
         /// </summary>
@@ -122,7 +122,7 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Accordion_BasicUsage_BeforeStart_Title", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to &lt;gcds-text&gt;The &lt;code&gt;&amp;lt;fdcp-accordion&amp;gt;&lt;/code&gt; component groups multiple &lt;code&gt;&amp;lt;gcds-details&amp;gt;&lt;/code&gt; components into a dynamic accordion. It includes a button that lets users open all or close all sections. The &lt;code&gt;accordion-id&lt;/code&gt; attribute is mandatory.&lt;/gcds-text&gt;.
         /// </summary>
@@ -131,7 +131,7 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Accordion_BasicUsage_Text", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Basic usage.
         /// </summary>
@@ -140,7 +140,7 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Accordion_BasicUsage_Title", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Accordion.
         /// </summary>
@@ -149,7 +149,7 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Accordion_Name", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-accordion&amp;gt;&lt;/code&gt; component organizes related content into expandable sections and provides a control to open or close all sections..
         /// </summary>
@@ -158,7 +158,7 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Accordion_Overview", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Unique identifier for the accordion container. The value is rendered as the container&apos;s &lt;code&gt;id&lt;/code&gt; and is used to associate the component&apos;s client-side behaviour..
         /// </summary>
@@ -167,7 +167,7 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Accordion_Properties_FdcpAccordion_AccordionId", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Properties — &lt;code&gt;&amp;lt;fdcp-accordion&amp;gt;&lt;/code&gt;.
         /// </summary>
@@ -610,15 +610,6 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The &lt;strong&gt;List Item&lt;/strong&gt; is a composition pattern that combines &lt;code&gt;&amp;lt;fdcp-card&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;gcds-grid&amp;gt;&lt;/code&gt; to create a structured, selectable row. The columns and content are fully flexible — use this pattern as a starting point and adapt it to your specific needs..
-        /// </summary>
-        public static string Card_ListItem_ExampleUse_Title {
-            get {
-                return ResourceManager.GetString("Card_ListItem_ExampleUse_Title", resourceCulture);
-            }
-        }
-
-        /// <summary>
         ///   Looks up a localized string similar to List Item content.
         /// </summary>
         public static string Card_ListItem_CodeComment {
@@ -626,31 +617,40 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Card_ListItem_CodeComment", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to the List Item composition pattern description, including a link to GCDS CSS Shortcuts.
+        ///   Looks up a localized string similar to Example Use.
+        /// </summary>
+        public static string Card_ListItem_ExampleUse_Title {
+            get {
+                return ResourceManager.GetString("Card_ListItem_ExampleUse_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;strong&gt;List Item&lt;/strong&gt; is a composition pattern that combines &lt;code&gt;&amp;lt;fdcp-card&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;gcds-grid&amp;gt;&lt;/code&gt; to create a structured, selectable row. The columns and content are fully flexible — use this pattern as a starting point and adapt it to your specific needs. See &lt;gcds-link href=&quot;https://design-system.canada.ca/en/css-shortcuts/&quot; target=&quot;_blank&quot; external&gt;GCDS CSS Shortcuts&lt;/gcds-link&gt; for available utility classes..
         /// </summary>
         public static string Card_ListItem_Text {
             get {
                 return ResourceManager.GetString("Card_ListItem_Text", resourceCulture);
             }
         }
-
-        /// <summary>
-        ///   Looks up a localized string similar to the Example Use description for stacking List Item cards with vertical spacing.
-        /// </summary>
-        public static string Card_ListItemList_Text {
-            get {
-                return ResourceManager.GetString("Card_ListItemList_Text", resourceCulture);
-            }
-        }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to List Item.
         /// </summary>
         public static string Card_ListItem_Title {
             get {
                 return ResourceManager.GetString("Card_ListItem_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stack multiple List Item cards and add vertical spacing between them using margin utilities. &lt;code&gt;mb-100&lt;/code&gt; is used in this example..
+        /// </summary>
+        public static string Card_ListItemList_Text {
+            get {
+                return ResourceManager.GetString("Card_ListItemList_Text", resourceCulture);
             }
         }
         
@@ -1648,7 +1648,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When to Use.
+        ///   Looks up a localized string similar to When to use.
         /// </summary>
         public static string Guidance_WhenToUse {
             get {
@@ -1673,7 +1673,7 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Guidance_WhenToUse_Intro", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Organize related content into expandable sections..
         /// </summary>
@@ -1682,7 +1682,7 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Index_Accordion_Description", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Accordion.
         /// </summary>
@@ -1983,7 +1983,12 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;strong&gt;1.3.1 Info and Relationships:&lt;/strong&gt; Uses ARIA roles, labels, and descriptions — the modal uses &lt;code&gt;role=&quot;dialog&quot;&lt;/code&gt;, the title is linked using &lt;code&gt;aria-labelledby&lt;/code&gt;, and the description is linked using &lt;code&gt;aria-describedby&lt;/code&gt;..
+        ///   Looks up a localized string similar to &lt;strong&gt;1.3.1 Info and Relationships:&lt;/strong&gt; Uses ARIA roles, labels, and descriptions, i.e.:
+        ///&lt;ul class=&quot;list-circle&quot;&gt;
+        ///&lt;li&gt;the modal uses &lt;code&gt;role=&quot;dialog&quot;&lt;/code&gt;;&lt;/li&gt;
+        ///&lt;li&gt;the title is linked using &lt;code&gt;aria-labelledby&lt;/code&gt;;&lt;/li&gt;
+        ///&lt;li&gt;and, the description is linked using &lt;code&gt;aria-describedby&lt;/code&gt;.&lt;/li&gt;
+        ///&lt;/ul&gt;.
         /// </summary>
         public static string Modal_Accessibility_Do_5 {
             get {
@@ -1997,15 +2002,6 @@ namespace GCFoundation.Web.Resources {
         public static string Modal_Accessibility_Do_6 {
             get {
                 return ResourceManager.GetString("Modal_Accessibility_Do_6", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; component handles its WCAG 2.2 accessibility requirements natively..
-        /// </summary>
-        public static string Modal_Notes_6 {
-            get {
-                return ResourceManager.GetString("Modal_Notes_6", resourceCulture);
             }
         }
         
@@ -2348,6 +2344,15 @@ namespace GCFoundation.Web.Resources {
         public static string Modal_Notes_5 {
             get {
                 return ResourceManager.GetString("Modal_Notes_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; component handles its WCAG 2.2 accessibility requirements natively..
+        /// </summary>
+        public static string Modal_Notes_6 {
+            get {
+                return ResourceManager.GetString("Modal_Notes_6", resourceCulture);
             }
         }
         
@@ -4130,7 +4135,7 @@ namespace GCFoundation.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to &lt;gcds-text&gt;This implementation adds a small status badge next to a step label (for example, “Done” or “Not required”).&lt;/gcds-text&gt;
         ///&lt;gcds-text&gt;Set &lt;code&gt;StatusBadgeLabel&lt;/code&gt; and choose a &lt;code&gt;StatusBadgeStyle&lt;/code&gt; to match your UI semantics. You can also invert the badge style when you need more emphasis or contrast.&lt;/gcds-text&gt;
-        ///&lt;gcds-text&gt;This pattern can also be used when one or more steps are identified as &quot;not required&quot; because a user’s earlier choices make those steps not applicable. To support cl [rest of string was truncated]&quot;;.
+        ///&lt;gcds-text&gt;This pattern can also be used when one or more steps are identified as &quot;not required&quot; because a user’s earlier choices make those steps not applicable. To support  [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Stepper_WithStatus_Text {
             get {
