@@ -16,73 +16,41 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     public class FDCPModalTagHelper(IStringLocalizer<Modal> localizer) : TagHelper
     {
         private readonly IStringLocalizer<Modal> _localizer = localizer;
-        /// <summary>
-        /// Determines if a close ("×") button is shown in the modal header.
-        /// </summary>
+
         public bool HideCloseButton { get; set; }
-
-        /// <summary>
-        /// The ID of the modal element. Must be unique on the page.
-        /// </summary>
         public string ModalId { get; set; } = default!;
-
-        /// <summary>
-        ///  Sets whether the modal is scrollable. Defaults to true.
-        /// </summary>
         public bool Scrollable { get; set; }
-
-        /// <summary>
-        /// Sets the size of the modal. sm, md, or lg.
-        /// </summary>
         public ModalSize Size { get; set; } = ModalSize.regular;
-
-        /// <summary>
-        /// Sets the visual/semantic state of the modal. Default, Info, or Warning.
-        /// </summary>
         public ModalState State { get; set; } = ModalState.regular;
-
-        /// <summary>
-        /// Sets whether the modal will have a static backdrop (prevents closing by clicking outside the modal).
-        /// </summary>
         public bool StaticBackdrop { get; set; }
-
-        /// <summary>
-        /// The title displayed in the modal header.
-        /// </summary>
         public string Title { get; set; } = string.Empty;
-
 
         /// <inheritdoc/>
         public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
             ArgumentNullException.ThrowIfNull(output, nameof(output));
 
-            output.TagName = "div";
+            output.TagName = "dialog";
             output.TagMode = TagMode.StartTagAndEndTag;
-            output.Attributes.SetAttribute("class", "modal-overlay");
             output.Attributes.SetAttribute("modal-id", ModalId);
-            output.Attributes.SetAttribute("tabindex", "-1");
             output.Attributes.SetAttribute("aria-labelledby", $"{ModalId}Label");
             output.Attributes.SetAttribute("aria-describedby", $"{ModalId}Description");
-            output.Attributes.SetAttribute("aria-hidden", "true");
-            output.Attributes.SetAttribute("role", "dialog");
 
             if (StaticBackdrop)
             {
                 output.Attributes.SetAttribute("data-static", "true");
             }
 
-            var dialogClasses = new List<string> { "modal-overlay__dialog" };
-            if (Scrollable) dialogClasses.Add("modal-overlay__dialog--scrollable");
-            if (Size == ModalSize.small) dialogClasses.Add("container-sm");
-            else if (Size == ModalSize.large) dialogClasses.Add("container-xl");
-
             var variant = State.ToString().ToLowerInvariant();
-            var modalClasses = new List<string> { "modal" };
-            if (State != ModalState.regular)
-            {
-                modalClasses.Add($"modal--{variant}");
-            }
+
+            // dialog + modal + scrollable/size/variant modifiers now live on one element
+            var classes = new List<string> { "modal" };
+            if (Scrollable) classes.Add("modal--scrollable");
+            if (Size == ModalSize.small) classes.Add("container-sm");
+            else if (Size == ModalSize.large) classes.Add("container-xl");
+            if (State != ModalState.regular) classes.Add($"modal--{variant}");
+
+            output.Attributes.SetAttribute("class", string.Join(" ", classes));
 
             var childContentRaw = (await output.GetChildContentAsync().ConfigureAwait(true)).GetContent();
             var bodySlot = ExtractSlotContent(childContentRaw, "body");
@@ -92,22 +60,17 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             var bodyClasses = "modal__body" + (Scrollable ? " modal__body--scrollable" : "");
 
             var sb = new StringBuilder();
-            sb.AppendLine("<div class=\"modal-overlay__backdrop\"></div>");
-            sb.AppendLine(CultureInfo.InvariantCulture, $"<div class=\"{string.Join(" ", dialogClasses)}\" role=\"document\">");
-            sb.AppendLine(CultureInfo.InvariantCulture, $"  <div class=\"{string.Join(" ", modalClasses)}\">");
             sb.Append(BuildHeader(variant));
-            sb.AppendLine(CultureInfo.InvariantCulture, $"    <div id=\"{ModalId}Description\" class=\"{bodyClasses}\" tabindex=\"0\">");
+            sb.AppendLine(CultureInfo.InvariantCulture, $"<div id=\"{ModalId}Description\" class=\"{bodyClasses}\" tabindex=\"0\">");
             sb.AppendLine(!string.IsNullOrWhiteSpace(bodySlot) ? bodySlot : cleanedContent.Trim());
-            sb.AppendLine("    </div>");
+            sb.AppendLine("</div>");
             if (!string.IsNullOrWhiteSpace(footerSlot))
             {
-                sb.AppendLine("    <hr />");
-                sb.AppendLine("    <div class=\"modal__footer\">");
+                sb.AppendLine("<hr />");
+                sb.AppendLine("<div class=\"modal__footer\">");
                 sb.AppendLine(footerSlot);
-                sb.AppendLine("    </div>");
+                sb.AppendLine("</div>");
             }
-            sb.AppendLine("  </div>");
-            sb.AppendLine("</div>");
 
             output.Content.SetHtmlContent(sb.ToString());
         }
@@ -122,7 +85,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             switch (variant)
             {
-                case "warning": 
+                case "warning":
                     return $@"
                         <div class=""modal__header bg-warning"">
                             <div class=""modal__title-group"">
@@ -134,7 +97,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                     ";
 
                 case "info":
-                    return  $@"
+                    return $@"
                         <div class=""modal__header bg-info"">
                             <div class=""modal__title-group text-light"">
                                 <gcds-icon name=""info-circle"" class=""text-current""></gcds-icon>
@@ -142,7 +105,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                             </div>
                             {CloseButton()}
                         </div>
-                    "; 
+                    ";
                 default:
                     return $@"
                         <div class=""modal__header bg-primary"">
@@ -150,13 +113,9 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                             {CloseButton()}
                         </div>
                     ";
-                }
+            }
         }
 
-
-        /// <summary>
-        /// Extracts the inner HTML content of an element with the specified slot name.
-        /// </summary>
         private static string ExtractSlotContent(string html, string slotName)
         {
             var doc = new HtmlDocument();
@@ -169,9 +128,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             return slotNode?.InnerHtml.Trim() ?? string.Empty;
         }
 
-        /// <summary>
-        /// Removes all slot-marked elements from the HTML string.
-        /// </summary>
         private static string RemoveSlotElements(string html)
         {
             var doc = new HtmlDocument();

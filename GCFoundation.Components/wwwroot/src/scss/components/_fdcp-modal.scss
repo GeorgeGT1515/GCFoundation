@@ -9,71 +9,52 @@
     background-color: vars.$gcds-color-blue-750;
 }
 
-/* ===== Modal overlay / positioning shell ===== */
-.modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1050;
-    overflow: hidden;
+/* ===== Modal ===== */
+.modal {
+    border: 0;
+    padding: 0;
+    margin: auto;
+    width: var(--gcds-table-modal-width);
+    max-width: var(--gcds-table-modal-max-width);
+    max-height: var(--gcds-table-modal-max-height-desktop);
+    min-height: var(--gcds-table-modal-min-height);
+    border-radius: var(--gcds-border-radius-md);
+    box-shadow: var(--gcds-table-modal-box-shadow);
+    background-color: var(--gcds-table-modal-background);
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: none; // matches the browser default for a closed dialog
+    flex-direction: column;
     outline: 0;
-
-    &.show {
-        display: block;
-    }
-}
-
-.modal-overlay__backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--gcds-table-modal-backdrop-background);
-    z-index: -1;
-}
-
-.modal-overlay__dialog {
-    position: relative;
-    width: var(--gcds-table-modal-max-width); // default/md fixed target
-    max-width: 90%; // never exceeds 90% of the overlay's width
-    pointer-events: none;
+    opacity: 0;
     transform: translate(0, -50px);
-    transition: transform 0.3s ease-out;
-    margin: 1.75rem auto;
-    display: flex;
-    align-items: center;
-    min-height: calc(100% - 3.5rem);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 
+    &[open] {
+        display: flex; // only actually lay out as flex once open
+        opacity: 1;
+        transform: translate(0, 0);
+    }
 
-    &--scrollable {
-        max-height: calc((100vh - 3.5rem) * 0.8);
-        display: flex;
+    &::backdrop {
+        background-color: var(--gcds-table-modal-backdrop-background);
+    }
 
-        .modal {
-            max-height: inherit;
+    @media only screen and (width < 48em) {
+        &[open] {
+            position: fixed;
+            inset: unset;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            max-width: 100%;
+            height: var(--gcds-table-modal-height-mobile);
+            max-height: var(--gcds-table-modal-height-mobile);
+            margin: 0;
+            border-radius: var(--gcds-table-modal-border-radius-mobile);
+            transform: translate(0, 0);
         }
     }
-}
-
-.show .modal-overlay__dialog {
-    transform: translate(0, 0);
-}
-
-/* ===== Modal shell (shared) ===== */
-.modal {
-    border-radius: var(--gcds-border-radius-md);
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    pointer-events: auto;
-    background-color: var(--gcds-color-grayscale-0, #{vars.$gcds-color-grayscale-0});
-    outline: 0;
 }
 
 /* ===== Header (shared layout only) ===== */
@@ -96,12 +77,12 @@
 /* ===== Body ===== */
 .modal__body {
     padding: var(--gcds-spacing-200);
+    flex: 1 1 auto; // always take up the remaining vertical space
+    min-height: 0; // required for overflow/scrolling to work correctly in a flex child
+}
 
-    &--scrollable {
-        overflow-y: auto;
-        flex: 1 1 auto;
-        min-height: 0;
-    }
+.modal--scrollable .modal__body--scrollable {
+    overflow-y: auto; // only the scrollable variant clips/scrolls; growth behavior is shared
 }
 
 /* ===== Footer ===== */
@@ -112,6 +93,10 @@
     gap: var(--gcds-spacing-150);
     padding-block: var(--gcds-spacing-100);
     padding-inline: var(--gcds-spacing-200);
+
+    @media only screen and (width < 48em) {
+        justify-content: center;
+    }
 }
 
 .fdcp-modal-close {
@@ -121,11 +106,9 @@
 
     &.modal__close--warning {
         --gcds-button-secondary-default-text: var(--gcds-text-primary);
-        ;
     }
 
     &.modal__close--info {
         --gcds-button-secondary-default-text: var(--gcds-text-light);
-        ;
     }
 }
