@@ -2133,7 +2133,7 @@
     <value>Basic usage</value>
   </data>
   <data name="Accordion_BasicUsage_Text" xml:space="preserve">
-    <value>&lt;gcds-text&gt;The &lt;code&gt;&amp;lt;fdcp-accordion&amp;gt;&lt;/code&gt; component groups multiple &lt;code&gt;&amp;lt;gcds-details&amp;gt;&lt;/code&gt; components into a dynamic accordion with coordinated open and close behaviour, including a control to open or close all sections at once.&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;The &lt;code&gt;&amp;lt;fdcp-accordion&amp;gt;&lt;/code&gt; component groups multiple &lt;code&gt;&amp;lt;gcds-details&amp;gt;&lt;/code&gt; components into a dynamic accordion. It includes a button that lets users open all or close all sections. The &lt;code&gt;accordion-id&lt;/code&gt; attribute is mandatory.&lt;/gcds-text&gt;</value>
   </data>
   <data name="Accordion_BasicUsage_Anchor" xml:space="preserve">
     <value>basic-usage</value>

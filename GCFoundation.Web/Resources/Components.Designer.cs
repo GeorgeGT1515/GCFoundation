@@ -124,7 +124,7 @@ namespace GCFoundation.Web.Resources {
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to &lt;gcds-text&gt;The &lt;code&gt;&amp;lt;fdcp-accordion&amp;gt;&lt;/code&gt; component groups multiple &lt;code&gt;&amp;lt;gcds-details&amp;gt;&lt;/code&gt; components into a dynamic accordion with coordinated open and close behaviour, including a control to open or close all sections at once.&lt;/gcds-text&gt;.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;The &lt;code&gt;&amp;lt;fdcp-accordion&amp;gt;&lt;/code&gt; component groups multiple &lt;code&gt;&amp;lt;gcds-details&amp;gt;&lt;/code&gt; components into a dynamic accordion. It includes a button that lets users open all or close all sections. The &lt;code&gt;accordion-id&lt;/code&gt; attribute is mandatory.&lt;/gcds-text&gt;.
         /// </summary>
         public static string Accordion_BasicUsage_Text {
             get {

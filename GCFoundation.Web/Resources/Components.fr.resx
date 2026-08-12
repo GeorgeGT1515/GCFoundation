@@ -2266,7 +2266,7 @@
     <value>Utilisation de base</value>
   </data>
   <data name="Accordion_BasicUsage_Text" xml:space="preserve">
-    <value>&lt;gcds-text&gt;Le composant &lt;code&gt;&amp;lt;fdcp-accordion&amp;gt;&lt;/code&gt; regroupe plusieurs composants &lt;code&gt;&amp;lt;gcds-details&amp;gt;&lt;/code&gt; dans un accordéon dynamique qui coordonne leur ouverture et leur fermeture et permet d’ouvrir ou de fermer toutes les sections à la fois.&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;Le composant &lt;code&gt;&amp;lt;fdcp-accordion&amp;gt;&lt;/code&gt; regroupe plusieurs composants &lt;code&gt;&amp;lt;gcds-details&amp;gt;&lt;/code&gt; dans un accordéon dynamique. Il comprend un bouton qui permet aux utilisateurs d’ouvrir ou de fermer toutes les sections. L’attribut &lt;code&gt;accordion-id&lt;/code&gt; est obligatoire.&lt;/gcds-text&gt;</value>
   </data>
   <data name="Accordion_BasicUsage_Anchor" xml:space="preserve">
     <value>utilisation-de-base</value>
