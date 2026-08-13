@@ -1463,7 +1463,7 @@
     <value>Use this component when:</value>
   </data>
   <data name="Guidance_WhenNotToUse" xml:space="preserve">
-    <value>When Not to Use</value>
+    <value>When not to use</value>
   </data>
   <data name="Guidance_WhenNotToUse_Anchor" xml:space="preserve">
     <value>when-not-to-use</value>
@@ -1472,7 +1472,7 @@
     <value>Avoid this component when:</value>
   </data>
   <data name="Guidance_Accessibility" xml:space="preserve">
-    <value>Accessibility Requirements</value>
+    <value>Accessibility requirements</value>
   </data>
   <data name="Guidance_Accessibility_Anchor" xml:space="preserve">
     <value>accessibility</value>

@@ -1549,7 +1549,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Accessibility Requirements.
+        ///   Looks up a localized string similar to Accessibility requirements.
         /// </summary>
         public static string Guidance_Accessibility {
             get {
@@ -1621,7 +1621,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When Not to Use.
+        ///   Looks up a localized string similar to When not to use.
         /// </summary>
         public static string Guidance_WhenNotToUse {
             get {
