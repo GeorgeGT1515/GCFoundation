@@ -76,9 +76,9 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             string marginClass;
             if (position == "top")
-                marginClass = "mb-400";
+                marginClass = "mb-200";
             else
-                marginClass = "mt-400";
+                marginClass = "mt-200";
                 
             
             return $@"<div class=""fdcp-accordion-toggle-buttons {marginClass} justify-content-start"">
