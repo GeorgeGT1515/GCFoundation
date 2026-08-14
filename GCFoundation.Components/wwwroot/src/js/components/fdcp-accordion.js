@@ -3,17 +3,10 @@
         this.element = element;
         this.accordionId = element.id;
         this.detailsInGroup = Array.from(element.querySelectorAll('gcds-details'));
-        this.toggleBtn = element.querySelector('.fdcp-accordion-toggle');
-
-        const lang = document.documentElement.lang?.startsWith('fr') ? 'fr' : 'en';
-        this.strings = ACCORDION_TOGGLE_STRINGS[lang];
+        this.expandBtn = element.querySelector('[button-id="fdcp-accordion-expand-all-button"]');
+        this.collapseBtn = element.querySelector('[button-id="fdcp-accordion-collapse-all-button"]');
 
         this.bindEvents();
-
-        // Always start on "Open all" regardless of initial panel state
-        if (this.toggleBtn) {
-            this.toggleBtn.textContent = this.strings.openAll;
-        }
     }
 
     bindEvents() {
@@ -27,66 +20,40 @@
                 return;
             }
 
-            // gcds-details toggles its own 'open' attribute internally on click;
-            // wait a frame so we read its state after that toggle has happened.
+            const isNotAlwaysOpen = this.element.classList.contains('fdcp-accordion-not-always-open');
+
             requestAnimationFrame(() => {
-                if (clicked.hasAttribute('open')) {
+                if (isNotAlwaysOpen && clicked.hasAttribute('open')) {
                     this.detailsInGroup.forEach(other => {
                         if (other !== clicked && other.hasAttribute('open')) {
                             other.removeAttribute('open');
                         }
                     });
                 }
-
-                // Individual clicks can only ever move toward "all closed" —
-                // opening one always closes the rest, so "all open" is only
-                // reachable via the toggle button itself. Only check for the
-                // all-closed case here; no need to flip to "Close all".
-                const allClosed = this.detailsInGroup.every(details => !details.hasAttribute('open'));
-                if (allClosed && this.toggleBtn) {
-                    this.toggleBtn.textContent = this.strings.openAll;
-                }
             });
         });
 
-        if (this.toggleBtn) {
-            this.toggleBtn.addEventListener('click', () => {
-                const isOpenAllMode = this.toggleBtn.textContent === this.strings.openAll;
-
-                if (isOpenAllMode) {
-                    this.openAll();
-                } else {
-                    this.closeAll();
-                }
-            });
+        if (this.expandBtn) {
+            this.expandBtn.addEventListener('click', () => this.openAll());
         }
-    }
 
+        if (this.collapseBtn) {
+            this.collapseBtn.addEventListener('click', () => this.closeAll());
+        }
+    };
+    
     openAll() {
         this.element.dataset.bulkAction = 'true';
         this.detailsInGroup.forEach(details => details.setAttribute('open', ''));
         delete this.element.dataset.bulkAction;
-
-        if (this.toggleBtn) {
-            this.toggleBtn.textContent = this.strings.closeAll;
-        }
     }
 
     closeAll() {
         this.element.dataset.bulkAction = 'true';
         this.detailsInGroup.forEach(details => details.removeAttribute('open'));
         delete this.element.dataset.bulkAction;
-
-        if (this.toggleBtn) {
-            this.toggleBtn.textContent = this.strings.openAll;
-        }
     }
 }
-
-const ACCORDION_TOGGLE_STRINGS = {
-    en: { openAll: 'Open all', closeAll: 'Close all' },
-    fr: { openAll: 'Tout ouvrir', closeAll: 'Tout fermer' }
-};
 
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.fdcp-accordion').forEach(element => {

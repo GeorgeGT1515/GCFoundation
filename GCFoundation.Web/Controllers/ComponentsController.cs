@@ -532,7 +532,7 @@ namespace GCFoundation.Web.Controllers
                         Title = Resources.Components.Accordion_BasicUsage_Title,
                         Id = Resources.Components.Accordion_BasicUsage_Anchor,
                         Description = Resources.Components.Accordion_BasicUsage_Text,
-                        PartialViewName = "Accordion/_BasicUsage"
+                        PartialViewName = "Accordion/_Basic"
                     },
                     new()
                     {
@@ -546,7 +546,16 @@ namespace GCFoundation.Web.Controllers
                     Items = new List<NavItem>()
                     {
                         new NavLink() { Href = Resources.Components.Overview_Anchor, Label = Resources.Components.Overview },
-                        new NavLink() { Href = Resources.Components.Accordion_BasicUsage_Anchor, Label = Resources.Components.Accordion_BasicUsage_Title },
+                        new NavGroup()
+                        {
+                            Label = Resources.Components.Accordion_BasicUsage_Title,
+                            Items = new List<NavItem>()
+                            {
+                                new NavLink() { Href = Resources.Components.Accordion_BasicAccordion_Anchor, Label = Resources.Components.Accordion_BasicAccordion_Title },
+                                new NavLink() { Href = Resources.Components.Accordion_AlwaysOpen_Anchor, Label = Resources.Components.Accordion_AlwaysOpen_Title },
+                                new NavLink() { Href = Resources.Components.Accordion_ButtonsPosition_Anchor, Label = Resources.Components.Accordion_ButtonsPosition_Title }
+                            }
+                        },
                         new NavLink() { Href = Resources.Components.Properties_Anchor, Label = Resources.Components.Properties }
                     }
                 }

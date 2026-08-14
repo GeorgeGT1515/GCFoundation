@@ -2289,10 +2289,67 @@
   <data name="Accordion_BasicUsage_AfterApply_Text" xml:space="preserve">
     <value>Découvrez ce qui se passe après avoir présenté votre demande.</value>
   </data>
+  <data name="Accordion_BasicAccordion_Title" xml:space="preserve">
+    <value>Accordéon de base</value>
+  </data>
+  <data name="Accordion_BasicAccordion_Anchor" xml:space="preserve">
+    <value>accordeon-de-base</value>
+  </data>
+  <data name="Accordion_BasicAccordion_Text" xml:space="preserve">
+    <value>Utilisez un accordéon de base pour regrouper des renseignements connexes dans des sections extensibles.</value>
+  </data>
+  <data name="Accordion_AlwaysOpen_Title" xml:space="preserve">
+    <value>Toujours ouvert</value>
+  </data>
+  <data name="Accordion_AlwaysOpen_Anchor" xml:space="preserve">
+    <value>toujours-ouvert</value>
+  </data>
+  <data name="Accordion_AlwaysOpen_Text" xml:space="preserve">
+    <value>Utilisez la propriété &lt;code&gt;always-open&lt;/code&gt; pour permettre à plusieurs sections de l’accordéon de demeurer ouvertes en même temps.</value>
+  </data>
+  <data name="Accordion_AlwaysOpen_Eligibility_Title" xml:space="preserve">
+    <value>Admissibilité</value>
+  </data>
+  <data name="Accordion_AlwaysOpen_Eligibility_Text" xml:space="preserve">
+    <value>Passez en revue les critères d’admissibilité avant de présenter une demande.</value>
+  </data>
+  <data name="Accordion_AlwaysOpen_RequiredDocuments_Title" xml:space="preserve">
+    <value>Documents requis</value>
+  </data>
+  <data name="Accordion_AlwaysOpen_RequiredDocuments_Text" xml:space="preserve">
+    <value>Préparez les documents requis à l’appui de votre demande.</value>
+  </data>
+  <data name="Accordion_ButtonsPosition_Title" xml:space="preserve">
+    <value>Position des boutons</value>
+  </data>
+  <data name="Accordion_ButtonsPosition_Anchor" xml:space="preserve">
+    <value>position-des-boutons</value>
+  </data>
+  <data name="Accordion_ButtonsPosition_Text" xml:space="preserve">
+    <value>Réglez la propriété &lt;code&gt;buttons-position&lt;/code&gt; à &lt;code&gt;top&lt;/code&gt;, &lt;code&gt;bottom&lt;/code&gt; ou &lt;code&gt;both&lt;/code&gt;. Dans cet exemple, les boutons permettant de tout développer ou de tout réduire sont affichés au-dessus et au-dessous de l’accordéon.</value>
+  </data>
+  <data name="Accordion_ButtonsPosition_SubmitApplication_Title" xml:space="preserve">
+    <value>Présenter une demande</value>
+  </data>
+  <data name="Accordion_ButtonsPosition_SubmitApplication_Text" xml:space="preserve">
+    <value>Remplissez et présentez le formulaire de demande.</value>
+  </data>
+  <data name="Accordion_ButtonsPosition_TrackApplication_Title" xml:space="preserve">
+    <value>Faire le suivi de votre demande</value>
+  </data>
+  <data name="Accordion_ButtonsPosition_TrackApplication_Text" xml:space="preserve">
+    <value>Vérifiez l’état de la demande que vous avez présentée.</value>
+  </data>
   <data name="Accordion_Properties_FdcpAccordion_Title" xml:space="preserve">
     <value>Propriétés — &lt;code&gt;&amp;lt;fdcp-accordion&amp;gt;&lt;/code&gt;</value>
   </data>
   <data name="Accordion_Properties_FdcpAccordion_AccordionId" xml:space="preserve">
     <value>Identifiant unique du conteneur de l’accordéon. La valeur est rendue dans l’attribut &lt;code&gt;id&lt;/code&gt; du conteneur et sert à associer le comportement côté client du composant.</value>
+  </data>
+  <data name="Accordion_Properties_FdcpAccordion_ButtonsPosition" xml:space="preserve">
+    <value>Détermine l’emplacement des boutons permettant de tout développer ou de tout réduire. Les valeurs acceptées sont &lt;code&gt;top&lt;/code&gt;, &lt;code&gt;bottom&lt;/code&gt; et &lt;code&gt;both&lt;/code&gt;.</value>
+  </data>
+  <data name="Accordion_Properties_FdcpAccordion_AlwaysOpen" xml:space="preserve">
+    <value>Lorsque la valeur est &lt;code&gt;true&lt;/code&gt;, permet à plusieurs sections de l’accordéon de demeurer ouvertes en même temps.</value>
   </data>
 </root>

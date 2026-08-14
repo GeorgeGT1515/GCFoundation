@@ -2161,10 +2161,67 @@
   <data name="Accordion_BasicUsage_AfterApply_Text" xml:space="preserve">
     <value>Find out what happens after you submit your request.</value>
   </data>
+  <data name="Accordion_BasicAccordion_Title" xml:space="preserve">
+    <value>Basic accordion</value>
+  </data>
+  <data name="Accordion_BasicAccordion_Anchor" xml:space="preserve">
+    <value>basic-accordion</value>
+  </data>
+  <data name="Accordion_BasicAccordion_Text" xml:space="preserve">
+    <value>Use a basic accordion to group related information into expandable sections.</value>
+  </data>
+  <data name="Accordion_AlwaysOpen_Title" xml:space="preserve">
+    <value>Always open</value>
+  </data>
+  <data name="Accordion_AlwaysOpen_Anchor" xml:space="preserve">
+    <value>always-open</value>
+  </data>
+  <data name="Accordion_AlwaysOpen_Text" xml:space="preserve">
+    <value>Use the &lt;code&gt;always-open&lt;/code&gt; property to allow multiple accordion sections to remain open at the same time.</value>
+  </data>
+  <data name="Accordion_AlwaysOpen_Eligibility_Title" xml:space="preserve">
+    <value>Eligibility</value>
+  </data>
+  <data name="Accordion_AlwaysOpen_Eligibility_Text" xml:space="preserve">
+    <value>Review the eligibility requirements before applying.</value>
+  </data>
+  <data name="Accordion_AlwaysOpen_RequiredDocuments_Title" xml:space="preserve">
+    <value>Required documents</value>
+  </data>
+  <data name="Accordion_AlwaysOpen_RequiredDocuments_Text" xml:space="preserve">
+    <value>Prepare the documents required to support your application.</value>
+  </data>
+  <data name="Accordion_ButtonsPosition_Title" xml:space="preserve">
+    <value>Buttons position</value>
+  </data>
+  <data name="Accordion_ButtonsPosition_Anchor" xml:space="preserve">
+    <value>buttons-position</value>
+  </data>
+  <data name="Accordion_ButtonsPosition_Text" xml:space="preserve">
+    <value>Set &lt;code&gt;buttons-position&lt;/code&gt; to &lt;code&gt;top&lt;/code&gt;, &lt;code&gt;bottom&lt;/code&gt;, or &lt;code&gt;both&lt;/code&gt;. This example displays the expand-all and collapse-all buttons above and below the accordion.</value>
+  </data>
+  <data name="Accordion_ButtonsPosition_SubmitApplication_Title" xml:space="preserve">
+    <value>Submit an application</value>
+  </data>
+  <data name="Accordion_ButtonsPosition_SubmitApplication_Text" xml:space="preserve">
+    <value>Complete and submit the application form.</value>
+  </data>
+  <data name="Accordion_ButtonsPosition_TrackApplication_Title" xml:space="preserve">
+    <value>Track your application</value>
+  </data>
+  <data name="Accordion_ButtonsPosition_TrackApplication_Text" xml:space="preserve">
+    <value>Check the status of your submitted application.</value>
+  </data>
   <data name="Accordion_Properties_FdcpAccordion_Title" xml:space="preserve">
     <value>Properties — &lt;code&gt;&amp;lt;fdcp-accordion&amp;gt;&lt;/code&gt;</value>
   </data>
   <data name="Accordion_Properties_FdcpAccordion_AccordionId" xml:space="preserve">
     <value>Unique identifier for the accordion container. The value is rendered as the container's &lt;code&gt;id&lt;/code&gt; and is used to associate the component's client-side behaviour.</value>
+  </data>
+  <data name="Accordion_Properties_FdcpAccordion_ButtonsPosition" xml:space="preserve">
+    <value>Controls where the expand-all and collapse-all buttons are displayed. Accepted values are &lt;code&gt;top&lt;/code&gt;, &lt;code&gt;bottom&lt;/code&gt;, and &lt;code&gt;both&lt;/code&gt;.</value>
+  </data>
+  <data name="Accordion_Properties_FdcpAccordion_AlwaysOpen" xml:space="preserve">
+    <value>When &lt;code&gt;true&lt;/code&gt;, allows multiple accordion sections to remain open at the same time.</value>
   </data>
 </root>
