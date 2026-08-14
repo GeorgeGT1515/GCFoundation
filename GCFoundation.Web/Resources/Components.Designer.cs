@@ -61,6 +61,294 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to always-open.
+        /// </summary>
+        public static string Accordion_AlwaysOpen_Anchor {
+            get {
+                return ResourceManager.GetString("Accordion_AlwaysOpen_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Review the eligibility requirements before applying..
+        /// </summary>
+        public static string Accordion_AlwaysOpen_Eligibility_Text {
+            get {
+                return ResourceManager.GetString("Accordion_AlwaysOpen_Eligibility_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Eligibility.
+        /// </summary>
+        public static string Accordion_AlwaysOpen_Eligibility_Title {
+            get {
+                return ResourceManager.GetString("Accordion_AlwaysOpen_Eligibility_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prepare the documents required to support your application..
+        /// </summary>
+        public static string Accordion_AlwaysOpen_RequiredDocuments_Text {
+            get {
+                return ResourceManager.GetString("Accordion_AlwaysOpen_RequiredDocuments_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Required documents.
+        /// </summary>
+        public static string Accordion_AlwaysOpen_RequiredDocuments_Title {
+            get {
+                return ResourceManager.GetString("Accordion_AlwaysOpen_RequiredDocuments_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the &lt;code&gt;always-open&lt;/code&gt; property to allow multiple accordion sections to remain open at the same time..
+        /// </summary>
+        public static string Accordion_AlwaysOpen_Text {
+            get {
+                return ResourceManager.GetString("Accordion_AlwaysOpen_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Always open.
+        /// </summary>
+        public static string Accordion_AlwaysOpen_Title {
+            get {
+                return ResourceManager.GetString("Accordion_AlwaysOpen_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to basic-accordion.
+        /// </summary>
+        public static string Accordion_BasicAccordion_Anchor {
+            get {
+                return ResourceManager.GetString("Accordion_BasicAccordion_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use a basic accordion to group related information into expandable sections..
+        /// </summary>
+        public static string Accordion_BasicAccordion_Text {
+            get {
+                return ResourceManager.GetString("Accordion_BasicAccordion_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic accordion.
+        /// </summary>
+        public static string Accordion_BasicAccordion_Title {
+            get {
+                return ResourceManager.GetString("Accordion_BasicAccordion_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Learn about the services available and who is eligible to use them..
+        /// </summary>
+        public static string Accordion_BasicUsage_AboutService_Text {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_AboutService_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About the service.
+        /// </summary>
+        public static string Accordion_BasicUsage_AboutService_Title {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_AboutService_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Find out what happens after you submit your request..
+        /// </summary>
+        public static string Accordion_BasicUsage_AfterApply_Text {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_AfterApply_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to After you apply.
+        /// </summary>
+        public static string Accordion_BasicUsage_AfterApply_Title {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_AfterApply_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to basic-usage.
+        /// </summary>
+        public static string Accordion_BasicUsage_Anchor {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gather the information you need before you begin your request..
+        /// </summary>
+        public static string Accordion_BasicUsage_BeforeStart_Text {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_BeforeStart_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Before you start.
+        /// </summary>
+        public static string Accordion_BasicUsage_BeforeStart_Title {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_BeforeStart_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;The &lt;code&gt;&amp;lt;fdcp-accordion&amp;gt;&lt;/code&gt; component groups multiple &lt;code&gt;&amp;lt;gcds-details&amp;gt;&lt;/code&gt; components into a dynamic accordion. It includes a button that lets users open all or close all sections. The &lt;code&gt;accordion-id&lt;/code&gt; attribute is mandatory.&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Accordion_BasicUsage_Text {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic usage.
+        /// </summary>
+        public static string Accordion_BasicUsage_Title {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to buttons-position.
+        /// </summary>
+        public static string Accordion_ButtonsPosition_Anchor {
+            get {
+                return ResourceManager.GetString("Accordion_ButtonsPosition_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Complete and submit the application form..
+        /// </summary>
+        public static string Accordion_ButtonsPosition_SubmitApplication_Text {
+            get {
+                return ResourceManager.GetString("Accordion_ButtonsPosition_SubmitApplication_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit an application.
+        /// </summary>
+        public static string Accordion_ButtonsPosition_SubmitApplication_Title {
+            get {
+                return ResourceManager.GetString("Accordion_ButtonsPosition_SubmitApplication_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set &lt;code&gt;buttons-position&lt;/code&gt; to &lt;code&gt;top&lt;/code&gt;, &lt;code&gt;bottom&lt;/code&gt;, or &lt;code&gt;both&lt;/code&gt;. This example displays the expand-all and collapse-all buttons above and below the accordion..
+        /// </summary>
+        public static string Accordion_ButtonsPosition_Text {
+            get {
+                return ResourceManager.GetString("Accordion_ButtonsPosition_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Buttons position.
+        /// </summary>
+        public static string Accordion_ButtonsPosition_Title {
+            get {
+                return ResourceManager.GetString("Accordion_ButtonsPosition_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check the status of your submitted application..
+        /// </summary>
+        public static string Accordion_ButtonsPosition_TrackApplication_Text {
+            get {
+                return ResourceManager.GetString("Accordion_ButtonsPosition_TrackApplication_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Track your application.
+        /// </summary>
+        public static string Accordion_ButtonsPosition_TrackApplication_Title {
+            get {
+                return ResourceManager.GetString("Accordion_ButtonsPosition_TrackApplication_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accordion.
+        /// </summary>
+        public static string Accordion_Name {
+            get {
+                return ResourceManager.GetString("Accordion_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-accordion&amp;gt;&lt;/code&gt; component organizes related content into expandable sections and provides a control to open or close all sections..
+        /// </summary>
+        public static string Accordion_Overview {
+            get {
+                return ResourceManager.GetString("Accordion_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unique identifier for the accordion container. The value is rendered as the container&apos;s &lt;code&gt;id&lt;/code&gt; and is used to associate the component&apos;s client-side behaviour..
+        /// </summary>
+        public static string Accordion_Properties_FdcpAccordion_AccordionId {
+            get {
+                return ResourceManager.GetString("Accordion_Properties_FdcpAccordion_AccordionId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When &lt;code&gt;true&lt;/code&gt;, allows multiple accordion sections to remain open at the same time..
+        /// </summary>
+        public static string Accordion_Properties_FdcpAccordion_AlwaysOpen {
+            get {
+                return ResourceManager.GetString("Accordion_Properties_FdcpAccordion_AlwaysOpen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Controls where the expand-all and collapse-all buttons are displayed. Accepted values are &lt;code&gt;top&lt;/code&gt;, &lt;code&gt;bottom&lt;/code&gt;, and &lt;code&gt;both&lt;/code&gt;..
+        /// </summary>
+        public static string Accordion_Properties_FdcpAccordion_ButtonsPosition {
+            get {
+                return ResourceManager.GetString("Accordion_Properties_FdcpAccordion_ButtonsPosition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Properties — &lt;code&gt;&amp;lt;fdcp-accordion&amp;gt;&lt;/code&gt;.
+        /// </summary>
+        public static string Accordion_Properties_FdcpAccordion_Title {
+            get {
+                return ResourceManager.GetString("Accordion_Properties_FdcpAccordion_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Use text or iconography in addition to colour to convey meaning..
         /// </summary>
         public static string Badge_Accessibility_Do_1 {
@@ -1554,6 +1842,24 @@ namespace GCFoundation.Web.Resources {
         public static string Guidance_WhenToUse_Intro {
             get {
                 return ResourceManager.GetString("Guidance_WhenToUse_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Organize related content into expandable sections..
+        /// </summary>
+        public static string Index_Accordion_Description {
+            get {
+                return ResourceManager.GetString("Index_Accordion_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accordion.
+        /// </summary>
+        public static string Index_Accordion_Title {
+            get {
+                return ResourceManager.GetString("Index_Accordion_Title", resourceCulture);
             }
         }
         
