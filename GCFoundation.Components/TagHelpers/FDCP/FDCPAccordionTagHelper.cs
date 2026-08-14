@@ -83,16 +83,14 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             
             return $@"<div class=""fdcp-accordion-toggle-buttons {marginClass} justify-content-start"">
                 <gcds-button
-                    button-id=""fdcp-accordion-expand-all-button""
+                    button-id=""fdcp-accordion-{position}-expand-all-button""
                     button-role=""secondary""
-                    class=""fdcp-accordion-expand-all""
                     data-accordion-id=""{AccordionId}"">
                     {expandText}
                 </gcds-button>
                 <gcds-button
-                    button-id=""fdcp-accordion-collapse-all-button""
+                    button-id=""fdcp-accordion-{position}-collapse-all-button""
                     button-role=""secondary""
-                    class=""fdcp-accordion-collapse-all""
                     data-accordion-id=""{AccordionId}"">
                     {collapseText}
                 </gcds-button>

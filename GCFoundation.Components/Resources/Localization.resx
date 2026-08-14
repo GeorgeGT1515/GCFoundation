@@ -262,9 +262,9 @@
     <value>Next</value>
   </data>
   <data name="Expand_All" xml:space="preserve">
-    <value>Expand All</value>
+    <value>Expand all</value>
   </data>
   <data name="Collapse_All" xml:space="preserve">
-    <value>Collapse All</value>
+    <value>Collapse all</value>
   </data>
 </root>

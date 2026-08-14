@@ -106,7 +106,7 @@ namespace GCFoundation.Components.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Collapse All.
+        ///   Looks up a localized string similar to Collapse all.
         /// </summary>
         public static string Collapse_All {
             get {
@@ -187,7 +187,7 @@ namespace GCFoundation.Components.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Expand All.
+        ///   Looks up a localized string similar to Expand all.
         /// </summary>
         public static string Expand_All {
             get {

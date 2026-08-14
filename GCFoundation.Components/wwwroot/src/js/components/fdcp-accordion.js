@@ -3,8 +3,10 @@
         this.element = element;
         this.accordionId = element.id;
         this.detailsInGroup = Array.from(element.querySelectorAll('gcds-details'));
-        this.expandBtn = element.querySelector('[button-id="fdcp-accordion-expand-all-button"]');
-        this.collapseBtn = element.querySelector('[button-id="fdcp-accordion-collapse-all-button"]');
+        this.topExpandBtn = element.querySelector('[button-id="fdcp-accordion-top-expand-all-button"]');
+        this.topCollapseBtn = element.querySelector('[button-id="fdcp-accordion-top-collapse-all-button"]');
+        this.bottomExpandBtn = element.querySelector('[button-id="fdcp-accordion-bottom-expand-all-button"]');
+        this.bottomCollapseBtn = element.querySelector('[button-id="fdcp-accordion-bottom-collapse-all-button"]');
 
         this.bindEvents();
     }
@@ -33,12 +35,20 @@
             });
         });
 
-        if (this.expandBtn) {
-            this.expandBtn.addEventListener('click', () => this.openAll());
+        if (this.topExpandBtn) {
+            this.topExpandBtn.addEventListener('click', () => this.openAll());
         }
 
-        if (this.collapseBtn) {
-            this.collapseBtn.addEventListener('click', () => this.closeAll());
+        if (this.bottomExpandBtn) {
+            this.bottomExpandBtn.addEventListener('click', () => this.openAll());
+        }
+
+        if (this.topCollapseBtn) {
+            this.topCollapseBtn.addEventListener('click', () => this.closeAll());
+        }
+
+        if (this.bottomCollapseBtn) {
+            this.bottomCollapseBtn.addEventListener('click', () => this.closeAll());
         }
     };
     
