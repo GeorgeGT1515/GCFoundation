@@ -536,4 +536,13 @@
   <data name="Index_Crud_Title" xml:space="preserve">
     <value>Pages CRUD</value>
   </data>
+  <data name="Crud_Table_EmployeeId" xml:space="preserve">
+    <value>Matricule</value>
+  </data>
+  <data name="Crud_Table_EmployeeName" xml:space="preserve">
+    <value>Nom complet</value>
+  </data>
+  <data name="Crud_Table_EmployeeLevel" xml:space="preserve">
+    <value>Niveau de classification</value>
+  </data>
 </root>

@@ -338,6 +338,33 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Employee Id.
+        /// </summary>
+        public static string Crud_Table_EmployeeId {
+            get {
+                return ResourceManager.GetString("Crud_Table_EmployeeId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Classification Level.
+        /// </summary>
+        public static string Crud_Table_EmployeeLevel {
+            get {
+                return ResourceManager.GetString("Crud_Table_EmployeeLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Full Name.
+        /// </summary>
+        public static string Crud_Table_EmployeeName {
+            get {
+                return ResourceManager.GetString("Crud_Table_EmployeeName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;gcds-text&gt;For use on ASP.Net GC applications.&lt;/gcds-text&gt;
         ///&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;.
         /// </summary>
@@ -494,7 +521,7 @@ namespace GCFoundation.Web.Resources {
         ///&lt;li&gt;Set &lt;code&gt;Layout = &quot;_BilingualErrorTemplate&quot;&lt;/code&gt; in your error view.&lt;/li&gt;
         ///&lt;li&gt;Add a page title and a &lt;code&gt;&amp;lt;gcds-notice notice-role=&quot;danger&quot;&amp;gt;&lt;/code&gt; component with helpful next steps (feedback and a safe link).&lt;/li&gt;
         ///&lt;li&gt;Enable it application-wide by wiring error handling per the &lt;a href=&quot;{0}&quot;&gt;GCFoundation installation page&lt;/a&gt;: &lt;code&gt;UseExceptionHandler(&quot;{{your-url}}&quot;)&lt;/code&gt;.&lt;/li&gt;
-        ///&lt;/ul&gt;.
+        ///&lt;/u [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Error_HowToImplement {
             get {

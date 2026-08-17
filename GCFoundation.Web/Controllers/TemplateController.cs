@@ -1,6 +1,8 @@
 using GCFoundation.Components.Controllers;
 using GCFoundation.Components.Models;
+using GCFoundation.Web.Models.Components;
 using GCFoundation.Web.Models.Template;
+using GCFoundation.Web.Models.Template.Crud;
 using GCFoundation.Web.Resources;
 using Microsoft.AspNetCore.Mvc;
 
@@ -330,5 +332,106 @@ namespace GCFoundation.Web.Controllers
             return View("stepper/demo", model);
         }
         #endregion Stepper Page Template (Code, Demo) Controller Actions
+
+        #region Crud Page Template (Code, Demo) Controller Actions
+        [HttpGet("crud/demo")]
+        public IActionResult CrudDemo()
+        {
+            SetPageTitle("Crud demo");
+            var vm = new DemoViewModel()
+            {
+                EmployeeModels = MockEmployeeList()
+            };
+
+            return View("crud/demo", vm);
+        }
+
+        public IActionResult CrudDemo(string id)
+        {
+            SetPageTitle("Crud demo");
+            var vm = new DemoViewModel()
+            {
+                EmployeeModels = MockEmployeeList()
+            };
+            vm.DeleteEmployee(id);
+            return View("crud/demo", vm);
+        }
+
+        public IActionResult CrudDemo(EmployeeViewModel evm)
+        {
+            SetPageTitle("Crud demo");
+            var employees = MockEmployeeList();
+
+            if (evm != null)
+            {
+                var index = employees.ToList().FindIndex(e => e.Id == evm.Id);
+                if (index >= 0)
+                    employees[index] = evm;   // replace existing
+                else
+                    employees.Add(evm);       // add new
+            }
+
+            var vm = new DemoViewModel
+            {
+                EmployeeModels = employees
+            };
+
+            return View("crud/demo", vm);
+        }
+
+        [HttpPost("crud/delete")]
+        public IActionResult CrudDelete(string id)
+        {
+            return CrudDemo(id);
+        }
+
+        [HttpGet("crud/edit/{id}")]
+        public IActionResult CrudEdit(string id)
+        {
+            SetPageTitle("Crud edit");
+
+            var employee = MockEmployeeList().FirstOrDefault(e => e.Id == id);
+            if (employee == null)
+                return CrudDemo();
+
+            return View(employee);
+        }
+
+        [HttpPost("crud/edit")]
+        public IActionResult CrudEditSave(EmployeeViewModel evm)
+        {
+            return CrudDemo(evm);
+        }
+
+        [HttpGet("crud/view/{id}")]
+        public IActionResult CrudView(string id)
+        {
+            SetPageTitle("crud view");
+            var employee = MockEmployeeList().FirstOrDefault(e => e.Id == id);
+            return View(employee);
+
+        }
+
+
+        #region Helpers
+        private static IList<EmployeeViewModel> MockEmployeeList()
+        {
+            return new List<EmployeeViewModel>
+            {
+                new EmployeeViewModel { Id = "10045821", Name = "Sarah Thompson", Level = "IT-01", Department = "IT Operations", ManagerName = "David Chen", Salary = 68500, StartDate = new DateTime(2021, 3, 15), DateOfBirth = new DateTime(1994, 6, 22), Address = "123 Elgin St, Ottawa, ON" },
+                new EmployeeViewModel { Id = "10045822", Name = "Michael Roy", Level = "IT-02", Department = "Application Development", ManagerName = "David Chen", Salary = 78200, StartDate = new DateTime(2020, 7, 6), DateOfBirth = new DateTime(1991, 2, 14), Address = "45 Bank St, Ottawa, ON" },
+                new EmployeeViewModel { Id = "10045823", Name = "Émilie Gagnon", Level = "IT-03", Department = "Cybersecurity", ManagerName = "David Chen", Salary = 92300, StartDate = new DateTime(2019, 1, 20), DateOfBirth = new DateTime(1988, 11, 3), Address = "78 Rideau St, Ottawa, ON" },
+                new EmployeeViewModel { Id = "10045824", Name = "James Wilson", Level = "IT-04", Department = "Enterprise Architecture", ManagerName = "Karen Wu", Salary = 105600, StartDate = new DateTime(2017, 9, 11), DateOfBirth = new DateTime(1985, 4, 30), Address = "12 Sparks St, Ottawa, ON" },
+                new EmployeeViewModel { Id = "10045825", Name = "Priya Sharma", Level = "IT-05", Department = "IT Strategy", ManagerName = "Karen Wu", Salary = 118400, StartDate = new DateTime(2015, 5, 4), DateOfBirth = new DateTime(1982, 8, 19), Address = "200 Wellington St, Ottawa, ON" },
+                new EmployeeViewModel { Id = "10045826", Name = "Marc Tremblay", Level = "AS-01", Department = "Administrative Services", ManagerName = "Linda Osei", Salary = 55300, StartDate = new DateTime(2022, 2, 8), DateOfBirth = new DateTime(1996, 12, 5), Address = "34 Somerset St, Ottawa, ON" },
+                new EmployeeViewModel { Id = "10045827", Name = "Jennifer Lee", Level = "AS-02", Department = "Administrative Services", ManagerName = "Linda Osei", Salary = 61800, StartDate = new DateTime(2021, 11, 1), DateOfBirth = new DateTime(1993, 3, 27), Address = "56 Preston St, Ottawa, ON" },
+                new EmployeeViewModel { Id = "10045828", Name = "Ahmed Hassan", Level = "AS-03", Department = "Program Support", ManagerName = "Linda Osei", Salary = 67900, StartDate = new DateTime(2018, 6, 18), DateOfBirth = new DateTime(1990, 9, 9), Address = "89 Bronson Ave, Ottawa, ON" },
+                new EmployeeViewModel { Id = "10045829", Name = "Chantal Bouchard", Level = "CS-01", Department = "Application Development", ManagerName = "David Chen", Salary = 74100, StartDate = new DateTime(2020, 10, 12), DateOfBirth = new DateTime(1992, 7, 16), Address = "23 Gladstone Ave, Ottawa, ON" },
+                new EmployeeViewModel { Id = "10045830", Name = "Robert Kim", Level = "CS-02", Department = "Application Development", ManagerName = "David Chen", Salary = 83700, StartDate = new DateTime(2019, 4, 25), DateOfBirth = new DateTime(1989, 1, 11), Address = "67 Booth St, Ottawa, ON" }             
+            };
+        }
+        #endregion
+
+        #endregion
     }
 }

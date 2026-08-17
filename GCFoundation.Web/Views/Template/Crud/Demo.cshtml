@@ -1,0 +1,21 @@
+﻿@model GCFoundation.Web.Models.Template.Crud.DemoViewModel;
+
+<gcds-button button-role="primary" type="link">Add</gcds-button>
+
+<fdcp-table filter sort pagination-size="10" caption="My employees" rows="@Model.EmployeeModels" class="mt-200">
+    <template slot="cell:actions">
+        <gcds-button data-bind-template-button-id="view-button-{id}" title="View profile" button-role="primary" type="link" data-bind-template-href="/template/crud/view/{id}">View</gcds-button>
+        <gcds-button data-bind-template-button-id="edit-button-{id}" title="View Profile" button-role="secondary" data-bind-template-href="/template/crud/view/{id}">Edit</gcds-button>
+        <gcds-button data-bind-template-button-id="delete-button-{id}" data-bind-data-employee-name-display="{name}" modal-id="delete-employee-modal" title="Delete employee" button-role="danger" class="fdcp-modal-open">Delete</gcds-button>
+    </template>
+</fdcp-table>
+
+<fdcp-modal modal-id="delete-employee-modal" state="warning">
+    <div slot="body">
+        <gcds-text>Are you sure you want to delete employee: </gcds-text>
+    </div>
+    <div slot="footer">
+        <gcds-button button-id="delete-employee" type="submit" button-role="danger"></gcds-button>
+        <gcds-button button-id="delete-employee-cancel" button-role="secondary" class="fdcp-modal-close"></gcds-button>
+    </div>
+</fdcp-modal>
