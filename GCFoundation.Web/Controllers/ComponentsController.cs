@@ -193,7 +193,7 @@ namespace GCFoundation.Web.Controllers
             SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Modal_Title}");
 
             var vm = BuildModalComponentViewModel();
-            return View("Modal", vm);
+            return View("Component", vm);
         }
 
         /// <summary>
@@ -388,9 +388,28 @@ namespace GCFoundation.Web.Controllers
                 new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Card_Basic_Text, Id = Resources.Components.Card_Basic_Anchor, PartialViewName = "Card/_Basic", Title = Resources.Components.Card_Basic_Title },
                 new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Card_Horizontal_Text, Id = Resources.Components.Card_Horizontal_Anchor, PartialViewName = "Card/_Horizontal", Title = Resources.Components.Card_Horizontal_Title },
                 new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Card_WithImages_Text, Id = Resources.Components.Card_WithImages_Anchor, PartialViewName = "Card/_WithImages", Title = Resources.Components.Card_WithImages_Title },
-                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Card_WithSlots_Text, Id = Resources.Components.Card_WithSlots_Anchor, PartialViewName = "Card/_WithSlots", Title = Resources.Components.Card_WithSlots_Title }
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Card_WithSlots_Text, Id = Resources.Components.Card_WithSlots_Anchor, PartialViewName = "Card/_WithSlots", Title = Resources.Components.Card_WithSlots_Title },
+                new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.Card_CompositionExamples_Anchor, PartialViewName = "Card/_CompositionExamples", Title = Resources.Components.Card_CompositionExamples_Title }
             };
             vm.Tag = "<fdcp-card>";
+            vm.SideNavigation = new SideNavigationViewModel()
+            {
+                Items = new List<NavItem>()
+                {
+                    new NavLink() { Href = Resources.Components.Overview_Anchor, Label = Resources.Components.Overview },
+                    new NavLink() { Href = Resources.Components.Card_Basic_Anchor, Label = Resources.Components.Card_Basic_Title },
+                    new NavLink() { Href = Resources.Components.Card_Horizontal_Anchor, Label = Resources.Components.Card_Horizontal_Title },
+                    new NavLink() { Href = Resources.Components.Card_WithImages_Anchor, Label = Resources.Components.Card_WithImages_Title },
+                    new NavLink() { Href = Resources.Components.Card_WithSlots_Anchor, Label = Resources.Components.Card_WithSlots_Title },
+                    new NavGroup() { Label = Resources.Components.Card_CompositionExamples_Title, Items = new List<NavItem>()
+                        {
+                            new NavLink() { Href = Resources.Components.Card_ListItem_Anchor, Label = Resources.Components.Card_ListItem_Title }
+                        }
+                    },
+                    new NavLink() { Href = Resources.Components.Properties_Anchor, Label = Resources.Components.Properties },
+                    new NavLink() { Href = Resources.Components.Notes_Anchor, Label = Resources.Components.Notes }
+                }
+            };
 
             return vm;
         }
@@ -490,8 +509,32 @@ namespace GCFoundation.Web.Controllers
             var vm = new ComponentViewModel();
 
             vm.Name = Resources.Components.Modal_Name;
+            vm.WhenToUse = new List<string>()
+            {
+                Resources.Components.Modal_WhenToUse_1,
+                Resources.Components.Modal_WhenToUse_2,
+                Resources.Components.Modal_WhenToUse_3,
+                Resources.Components.Modal_WhenToUse_4
+            };
+            vm.WhenNotToUse = new List<string>()
+            {
+                Resources.Components.Modal_WhenNotToUse_1,
+                Resources.Components.Modal_WhenNotToUse_2,
+                Resources.Components.Modal_WhenNotToUse_3,
+                Resources.Components.Modal_WhenNotToUse_4
+            };
+            vm.AccessibilityDo = new List<string>()
+            {
+                Resources.Components.Modal_Accessibility_Do_5,
+                Resources.Components.Modal_Accessibility_Do_6,
+                Resources.Components.Modal_Accessibility_Do_3,
+                Resources.Components.Modal_Accessibility_Do_4,
+                Resources.Components.Modal_Accessibility_Do_1,
+                Resources.Components.Modal_Accessibility_Do_2
+            };
             vm.Notes = new List<string>()
             {
+                Resources.Components.Modal_Notes_6,
                 Resources.Components.Modal_Notes_1,
                 Resources.Components.Modal_Notes_2,
                 Resources.Components.Modal_Notes_3,
@@ -501,13 +544,13 @@ namespace GCFoundation.Web.Controllers
             vm.Overview = Resources.Components.Modal_Overview;
             vm.Properties = new List<ComponentPropertyViewModel>()
             {
-                new ComponentPropertyViewModel() { Name = "id", DataType = "string", DefaultValue = "modal", Description = Resources.Components.Modal_Properties_Id },
-                new ComponentPropertyViewModel() { Name = "title", DataType = "string", DefaultValue = "Modal Title", Description = Resources.Components.Modal_Properties_Title },
-                new ComponentPropertyViewModel() { Name = "centered", DataType = "bool", DefaultValue = "true", Description = Resources.Components.Modal_Properties_Centered },
-                new ComponentPropertyViewModel() { Name = "scrollable", DataType = "bool", Description = Resources.Components.Modal_Properties_Scrollable },
-                new ComponentPropertyViewModel() { Name = "size", DataType = "ModalSize", DefaultValue = "ModalSize.Default", Description = Resources.Components.Modal_Properties_Size },
-                new ComponentPropertyViewModel() { Name = "show-close-button", DataType = "bool", DefaultValue = "true", Description = Resources.Components.Modal_Properties_ShowCloseButton },
-                new ComponentPropertyViewModel() { Name = "is-static-backdrop", DataType = "bool", Description = Resources.Components.Modal_Properties_IsStaticBackdrop },
+                new ComponentPropertyViewModel() { Name = "modal-id", DataType = "string", Description = Resources.Components.Modal_Properties_ModalId },
+                new ComponentPropertyViewModel() { Name = "title", DataType = "string", Description = Resources.Components.Modal_Properties_Title },
+                new ComponentPropertyViewModel() { Name = "scrollable", DataType = "bool", DefaultValue = "false", Description = Resources.Components.Modal_Properties_Scrollable },
+                new ComponentPropertyViewModel() { Name = "static-backdrop", DataType = "bool", DefaultValue = "false", Description = Resources.Components.Modal_Properties_StaticBackdrop },
+                new ComponentPropertyViewModel() { Name = "hide-close-button", DataType = "bool", DefaultValue = "false", Description = Resources.Components.Modal_Properties_HideCloseButton },
+                new ComponentPropertyViewModel() { Name = "size", DataType = "ModalSize", DefaultValue = "ModalSize.regular", Description = Resources.Components.Modal_Properties_Size },
+                new ComponentPropertyViewModel() { Name = "state", DataType = "ModalState", DefaultValue = "ModalState.regular", Description = Resources.Components.Modal_Properties_State },
                 new ComponentPropertyViewModel() { Name = "session-timeout", DataType = "int", Description = Resources.Components.Modal_Properties_SessionTimeout },
                 new ComponentPropertyViewModel() { Name = "reminder-time", DataType = "int", Description = Resources.Components.Modal_Properties_ReminderTime },
                 new ComponentPropertyViewModel() { Name = "refresh-url", DataType = "Uri", Description = Resources.Components.Modal_Properties_RefreshUrl },
@@ -517,6 +560,31 @@ namespace GCFoundation.Web.Controllers
             {
                 new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Modal_Basic_Text, Id = Resources.Components.Modal_Basic_Anchor, PartialViewName = "Modal/_Basic", Title = Resources.Components.Modal_Basic_Title },
                 new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Modal_Session_Text, Id = Resources.Components.Modal_Session_Anchor, PartialViewName = "Modal/_Session", Title = Resources.Components.Modal_Session_Title }
+            };
+            vm.SideNavigation = new SideNavigationViewModel()
+            {
+                Items = new List<NavItem>()
+                {
+                    new NavLink() { Href = Resources.Components.Overview_Anchor, Label = Resources.Components.Overview },
+                    new NavLink() { Href = Resources.Components.Guidance_WhenToUse_Anchor, Label = Resources.Components.Guidance_WhenToUse },
+                    new NavLink() { Href = Resources.Components.Guidance_WhenNotToUse_Anchor, Label = Resources.Components.Guidance_WhenNotToUse },
+                    new NavLink() { Href = Resources.Components.Guidance_Accessibility_Anchor, Label = Resources.Components.Guidance_Accessibility },
+                    new NavGroup()
+                    {
+                        Label = Resources.Components.Modal_Basic_Title,
+                        Items = new List<NavItem>()
+                        {
+                            new NavLink() { Href = Resources.Components.Modal_BasicStructure_Anchor, Label = Resources.Components.Modal_BasicStructure_Title },
+                            new NavLink() { Href = Resources.Components.Modal_ButtonBehaviour_Anchor, Label = Resources.Components.Modal_ButtonBehaviour_Title },
+                            new NavLink() { Href = Resources.Components.Modal_Variants_Anchor, Label = Resources.Components.Modal_Variants_Title },
+                            new NavLink() { Href = Resources.Components.Modal_Size_Anchor, Label = Resources.Components.Modal_Size_Title },
+                            new NavLink() { Href = Resources.Components.Modal_AdditionalProperties_Anchor, Label = Resources.Components.Modal_AdditionalProperties_Title }
+                        }
+                    },
+                    new NavLink() { Href = Resources.Components.Modal_Session_Anchor, Label = Resources.Components.Modal_Session_Title },
+                    new NavLink() { Href = Resources.Components.Properties_Anchor, Label = Resources.Components.Properties },
+                    new NavLink() { Href = Resources.Components.Notes_Anchor, Label = Resources.Components.Notes }
+                }
             };
             vm.Tag = "<fdcp-modal>";
 

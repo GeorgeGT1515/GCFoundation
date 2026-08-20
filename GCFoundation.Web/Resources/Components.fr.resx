@@ -774,6 +774,30 @@
   <data name="Card_Notes_4" xml:space="preserve">
     <value>Toutes les cartes utilisent les variables de couleur SGDC pour un style cohérent du gouvernement du Canada.</value>
   </data>
+  <data name="Card_CompositionExamples_Title" xml:space="preserve">
+    <value>Exemples de composition</value>
+  </data>
+  <data name="Card_CompositionExamples_Anchor" xml:space="preserve">
+    <value>composition-examples</value>
+  </data>
+  <data name="Card_ListItem_Title" xml:space="preserve">
+    <value>Élément de liste</value>
+  </data>
+  <data name="Card_ListItem_Anchor" xml:space="preserve">
+    <value>list-item</value>
+  </data>
+  <data name="Card_ListItem_ExampleUse_Title" xml:space="preserve">
+    <value>Exemple d'utilisation</value>
+  </data>
+  <data name="Card_ListItem_CodeComment" xml:space="preserve">
+    <value>Contenu de l'élément de liste</value>
+  </data>
+  <data name="Card_ListItem_Text" xml:space="preserve">
+    <value>L'&lt;strong&gt;élément de liste&lt;/strong&gt; est un patron de composition qui combine &lt;code&gt;&amp;lt;fdcp-card&amp;gt;&lt;/code&gt; et &lt;code&gt;&amp;lt;gcds-grid&amp;gt;&lt;/code&gt; pour créer une rangée structurée et sélectionnable. Les colonnes et le contenu sont entièrement flexibles — utilisez ce patron comme point de départ et adaptez-le à vos besoins. Consultez &lt;gcds-link href="https://design-system.canada.ca/en/css-shortcuts/" target="_blank" external&gt;les raccourcis CSS de GCDS&lt;/gcds-link&gt; pour les classes utilitaires disponibles.</value>
+  </data>
+  <data name="Card_ListItemList_Text" xml:space="preserve">
+    <value>Empilez plusieurs cartes d'élément de liste et ajoutez un espacement vertical entre elles à l'aide des utilitaires de marge. &lt;code&gt;mb-100&lt;/code&gt; est utilisé dans cet exemple.</value>
+  </data>
   <data name="Form_Name" xml:space="preserve">
     <value>Formulaire</value>
   </data>
@@ -967,25 +991,132 @@
     <value>Utilisation de base</value>
   </data>
   <data name="Modal_Basic_Text" xml:space="preserve">
-    <value>&lt;gcds-text&gt;Cliquez sur les boutons ci-dessous pour voir les fenêtres modales en action&amp;nbsp;:&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;Les fenêtres modales offrent un espace ciblé et interruptif pour des tâches courtes et prioritaires ou des confirmations qui doivent être complétées avant que les utilisateurs puissent poursuivre leur flux de travail.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Modal_BasicStructure_Anchor" xml:space="preserve">
+    <value>structure-de-base</value>
+  </data>
+  <data name="Modal_BasicStructure_Title" xml:space="preserve">
+    <value>Fenêtre modale de base</value>
+  </data>
+  <data name="Modal_ButtonBehaviour_Anchor" xml:space="preserve">
+    <value>comportement-boutons</value>
+  </data>
+  <data name="Modal_ButtonBehaviour_Title" xml:space="preserve">
+    <value>Comportement des boutons</value>
+  </data>
+  <data name="Modal_Variants_Anchor" xml:space="preserve">
+    <value>variantes-modales</value>
+  </data>
+  <data name="Modal_Variants_Title" xml:space="preserve">
+    <value>Variantes</value>
+  </data>
+  <data name="Modal_AdditionalProperties_Anchor" xml:space="preserve">
+    <value>proprietes-supplementaires</value>
+  </data>
+  <data name="Modal_AdditionalProperties_Title" xml:space="preserve">
+    <value>Propriétés supplémentaires</value>
+  </data>
+  <data name="Modal_Default_Anchor" xml:space="preserve">
+    <value>base-defaut</value>
+  </data>
+  <data name="Modal_Default_Title" xml:space="preserve">
+    <value>Régulière</value>
+  </data>
+  <data name="Modal_Info_Anchor" xml:space="preserve">
+    <value>base-info</value>
+  </data>
+  <data name="Modal_Info_Title" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Modal_Warning_Anchor" xml:space="preserve">
+    <value>base-avertissement</value>
+  </data>
+  <data name="Modal_Warning_Title" xml:space="preserve">
+    <value>Avertissement</value>
+  </data>
+  <data name="Modal_WhenToUse_1" xml:space="preserve">
+    <value>L'utilisateur doit prendre une décision brève et urgente ou donner une confirmation.</value>
+  </data>
+  <data name="Modal_WhenToUse_2" xml:space="preserve">
+    <value>La tâche nécessite 1 à 2 actions claires et bénéficie d'une attention concentrée.</value>
+  </data>
+  <data name="Modal_WhenToUse_3" xml:space="preserve">
+    <value>Le contenu intégré perturberait la structure de la page ou causerait de la confusion.</value>
+  </data>
+  <data name="Modal_WhenToUse_4" xml:space="preserve">
+    <value>La décision est contextuelle à la page en cours et ne nécessite pas de navigation.</value>
+  </data>
+  <data name="Modal_Accessibility_Do_1" xml:space="preserve">
+    <value>&lt;strong&gt;2.4.3 Ordre de focus :&lt;/strong&gt; Le focus se déplace dans la fenêtre modale et revient au bouton ou à l'élément déclencheur qui l'a ouverte. Le contenu en arrière-plan ne peut pas être interagi et est hors focus.</value>
+  </data>
+  <data name="Modal_Accessibility_Do_2" xml:space="preserve">
+    <value>&lt;strong&gt;2.4.7 Focus visible :&lt;/strong&gt; Chaque élément interactif doit afficher un contour de focus visible.</value>
+  </data>
+  <data name="Modal_Accessibility_Do_3" xml:space="preserve">
+    <value>&lt;strong&gt;2.1.1 Clavier :&lt;/strong&gt; Entièrement fonctionnel au clavier, y compris la fermeture de la fenêtre modale avec la touche Échap.</value>
+  </data>
+  <data name="Modal_Accessibility_Do_4" xml:space="preserve">
+    <value>&lt;strong&gt;2.1.2 Pas de piège au clavier :&lt;/strong&gt; Si le focus est piégé, l'utilisateur doit pouvoir en sortir.</value>
+  </data>
+  <data name="Modal_Accessibility_Do_5" xml:space="preserve">
+    <value>&lt;strong&gt;1.3.1 Information et relations :&lt;/strong&gt; Utilise des rôles, étiquettes et descriptions ARIA, c'est-à-dire&amp;nbsp;:
+&lt;ul class="list-circle"&gt;
+&lt;li&gt;la fenêtre modale utilise &lt;code&gt;role="dialog"&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;le titre est lié via &lt;code&gt;aria-labelledby&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;et, la description est liée via &lt;code&gt;aria-describedby&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;</value>
+  </data>
+  <data name="Modal_Accessibility_Do_6" xml:space="preserve">
+    <value>&lt;strong&gt;1.4.3 Contraste minimum :&lt;/strong&gt; Le texte et les éléments d'interface essentiels doivent respecter des ratios de contraste minimaux (3:1). La boîte modale blanche repose sur un fond assombri, assurant un contraste fort.</value>
+  </data>
+  <data name="Modal_WhenNotToUse_1" xml:space="preserve">
+    <value>Le contenu est long, complexe, en plusieurs étapes ou nécessite une lecture approfondie.</value>
+  </data>
+  <data name="Modal_WhenNotToUse_2" xml:space="preserve">
+    <value>Les utilisateurs doivent comparer des informations ou référencer d'autres parties de l'interface.</value>
+  </data>
+  <data name="Modal_WhenNotToUse_3" xml:space="preserve">
+    <value>Un défilement ou une interaction étendue serait nécessaire dans la fenêtre modale.</value>
+  </data>
+  <data name="Modal_WhenNotToUse_4" xml:space="preserve">
+    <value>L'interruption est inutile et pourrait être gérée de manière intégrée ou sur une page dédiée.</value>
   </data>
   <data name="Modal_Name" xml:space="preserve">
     <value>Fenêtre modale</value>
   </data>
   <data name="Modal_Notes_4" xml:space="preserve">
-    <value>Le contenu d'une fenêtre modale devrait toujours être entouré d'un &lt;code&gt;&amp;lt;fdcp-modal-body&amp;gt;&lt;/code&gt; et/ou d'un &lt;code&gt;&amp;lt;fdcp-modal-footer&amp;gt;&lt;/code&gt;</value>
+    <value>Le contenu d'une fenêtre modale doit être placé dans des éléments &lt;code&gt;&amp;lt;div slot="body"&amp;gt;&lt;/code&gt; et &lt;code&gt;&amp;lt;div slot="footer"&amp;gt;&lt;/code&gt;</value>
   </data>
   <data name="Modal_Notes_1" xml:space="preserve">
     <value>Les fenêtres modales requièrent un identifiant unique lorsque plusieurs sont utilisées sur une même page</value>
   </data>
   <data name="Modal_Notes_3" xml:space="preserve">
-    <value>Veuillez utiliser &lt;code&gt;is-static-backdrop="true"&lt;/code&gt; pour les fenêtres modales qui requèrant une action de l'utilisateur</value>
+    <value>Utilisez &lt;code&gt;static-backdrop&lt;/code&gt; pour les fenêtres modales qui exigent une action de l'utilisateur</value>
   </data>
   <data name="Modal_Notes_2" xml:space="preserve">
     <value>Les fenêtres modales de sessions gèreront automatiquement les avertissements d'expiration et l'extension des sessions d'utilisateurs</value>
   </data>
   <data name="Modal_Overview" xml:space="preserve">
     <value>Les composants &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; et &lt;code&gt;&amp;lt;fdcp-session-modal&amp;gt;&lt;/code&gt; donnent aux développeurs un outil flexible permettant d'afficher du contenu dans un fenêtre contextuelle modale. Cet outil supporte les fenêtres modales à utilisation normale ainsi qu'une version spécialisée pour la gestion de sessions d'utilisateurs.</value>
+  </data>
+  <data name="Modal_Size_Anchor" xml:space="preserve">
+    <value>tailles-modales</value>
+  </data>
+  <data name="Modal_Size_Title" xml:space="preserve">
+    <value>Tailles</value>
+  </data>
+  <data name="Modal_Size_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;La fenêtre modale propose trois tailles — &lt;code&gt;regular&lt;/code&gt;, &lt;code&gt;small&lt;/code&gt; et &lt;code&gt;large&lt;/code&gt; — contrôlées par la propriété &lt;code&gt;size&lt;/code&gt;. Choisissez la taille appropriée selon la quantité de contenu et le niveau de concentration requis.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Modal_Size_Small_Title" xml:space="preserve">
+    <value>Petite</value>
+  </data>
+  <data name="Modal_Size_Regular_Title" xml:space="preserve">
+    <value>Régulière</value>
+  </data>
+  <data name="Modal_Size_Large_Title" xml:space="preserve">
+    <value>Grande</value>
   </data>
   <data name="Modal_Session_Title" xml:space="preserve">
     <value>Fenêtre modale de session</value>
@@ -999,26 +1130,14 @@
   <data name="Modal_Notes_5" xml:space="preserve">
     <value>Les propriétés &lt;code&gt;session-timeout&lt;/code&gt;, &lt;code&gt;reminder-time&lt;/code&gt;, &lt;code&gt;refresh-url&lt;/code&gt; et &lt;code&gt;logout-url&lt;/code&gt; ne sont valides que pour les fenêtres modales de session</value>
   </data>
-  <data name="Modal_Properties_Id" xml:space="preserve">
-    <value>Identifiant unique pour la fenêtre modale</value>
-  </data>
   <data name="Modal_Properties_Title" xml:space="preserve">
     <value>Texte qui s'affichera dans l'en-tête de la fenêtre modale</value>
-  </data>
-  <data name="Modal_Properties_Centered" xml:space="preserve">
-    <value>Centre la fenêtre modale verticalement</value>
   </data>
   <data name="Modal_Properties_Scrollable" xml:space="preserve">
     <value>Détermine si le contenu de la fenêtre modale devrait être défilable ou pas</value>
   </data>
   <data name="Modal_Properties_Size" xml:space="preserve">
-    <value>Taille de la fenêtre modale (par défaut, petite ou grande)</value>
-  </data>
-  <data name="Modal_Properties_ShowCloseButton" xml:space="preserve">
-    <value>Détermine si la fenêtre modale devrait afficher ou non un bouton de fermeture dans son en-tête</value>
-  </data>
-  <data name="Modal_Properties_IsStaticBackdrop" xml:space="preserve">
-    <value>Empêche l'utilisateur de fermer la fenêtre en cliquant à l'extérieur de la fenêtre modale</value>
+    <value>Taille de la fenêtre modale (regular, small ou large)</value>
   </data>
   <data name="Modal_Properties_SessionTimeout" xml:space="preserve">
     <value>Temps d'expiration de la session (en secondes)</value>
@@ -1099,10 +1218,10 @@
     <value>avec-options-selectionnees</value>
   </data>
   <data name="SearchableSelect_WithSelectedOptions_Title" xml:space="preserve">
-    <value>Avec emplacement pour les options sélectionnées</value>
+    <value>Liste déroulante à recherche multiple avec emplacement pour les options sélectionnées</value>
   </data>
   <data name="SearchableSelect_WithSelectedOptions_Text" xml:space="preserve">
-    <value>&lt;gcds-text&gt;Utilisez l'emplacement &lt;code&gt;selected-options&lt;/code&gt; pour ajouter une zone inférieure personnalisée, par exemple un compteur de sélections, une action d'effacement ou tout autre balisage propre à l'appelant.&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;Cet exemple utilise une liste déroulante à recherche avec sélection multiple. Définissez &lt;code&gt;selection-mode="@FDCPSearchableSelectSelectionMode.Multiple"&lt;/code&gt; pour activer la sélection multiple. Utilisez l'emplacement &lt;code&gt;selected-options&lt;/code&gt; pour ajouter une zone inférieure personnalisée, par exemple un compteur de sélections, une action d'effacement ou tout autre balisage propre à l'appelant.&lt;/gcds-text&gt;</value>
   </data>
   <data name="SearchableSelect_Sample_Country_CA" xml:space="preserve">
     <value>Canada</value>
@@ -1118,6 +1237,36 @@
   </data>
   <data name="SearchableSelect_Sample_Country_SV" xml:space="preserve">
     <value>Saint-Vincent-et-les Grenadines</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_GB" xml:space="preserve">
+    <value>Royaume-Uni</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_DE" xml:space="preserve">
+    <value>Allemagne</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_IT" xml:space="preserve">
+    <value>Italie</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_ES" xml:space="preserve">
+    <value>Espagne</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_JP" xml:space="preserve">
+    <value>Japon</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_AU" xml:space="preserve">
+    <value>Australie</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_BR" xml:space="preserve">
+    <value>Brésil</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_IN" xml:space="preserve">
+    <value>Inde</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_ZA" xml:space="preserve">
+    <value>Afrique du Sud</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_NZ" xml:space="preserve">
+    <value>Nouvelle-Zélande</value>
   </data>
   <data name="SearchableSelect_Sample_Country_Label" xml:space="preserve">
     <value>Pays</value>
@@ -1713,12 +1862,6 @@
   <data name="Table_WithButtonLink_Note" xml:space="preserve">
     <value>&lt;i&gt;Note : Dans cette démonstration, le bouton navigue vers une ancre de page. Dans une vraie application, &lt;code&gt;data-bind-template-href="/votre/route/{fieldName}"&lt;/code&gt; peut construire l'URL de destination dynamiquement à partir d'une valeur de la rangée.&lt;/i&gt;</value>
   </data>
-  <data name="Shared_CopyButton_Text" xml:space="preserve">
-    <value>Copier</value>
-  </data>
-  <data name="Shared_CopyButton_SuccessText" xml:space="preserve">
-    <value>Copié!</value>
-  </data>
   <data name="Index_Tabs_Title" xml:space="preserve">
     <value>Onglets</value>
   </data>
@@ -1832,6 +1975,156 @@
   </data>
   <data name="Tabs_LazyContent" xml:space="preserve">
     <value>Ce contenu a été chargé à partir du serveur lorsque l'onglet a été sélectionné.</value>
+  </data>
+  <data name="Card_Badge_New" xml:space="preserve">
+    <value>Nouveau</value>
+  </data>
+  <data name="Modal_Notes_6" xml:space="preserve">
+    <value>Le composant &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; gère nativement ses exigences d'accessibilité WCAG 2.2.</value>
+  </data>
+  <data name="Modal_Properties_ModalId" xml:space="preserve">
+    <value>Identifiant unique utilisé pour cibler la fenêtre modale</value>
+  </data>
+  <data name="Modal_Properties_State" xml:space="preserve">
+    <value>État visuel et sémantique de la fenêtre modale (regular, info ou warning)</value>
+  </data>
+  <data name="Modal_Properties_HideCloseButton" xml:space="preserve">
+    <value>Masque le bouton de fermeture dans l'en-tête de la fenêtre modale</value>
+  </data>
+  <data name="Modal_Properties_StaticBackdrop" xml:space="preserve">
+    <value>Empêche la fermeture de la fenêtre modale lorsque l'arrière-plan est sélectionné ou que la touche Échap est enfoncée</value>
+  </data>
+  <data name="Modal_Sample_Confirm" xml:space="preserve">
+    <value>Confirmer</value>
+  </data>
+  <data name="Modal_Sample_Back" xml:space="preserve">
+    <value>Retour</value>
+  </data>
+  <data name="Modal_BasicStructure_Text" xml:space="preserve">
+    <value>Affiche un composant de fenêtre modale autonome. Utilisez &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; dans vos vues Razor pour générer une boîte de dialogue modale.</value>
+  </data>
+  <data name="Modal_BasicStructure_OpenButton" xml:space="preserve">
+    <value>Ouvrir la fenêtre modale</value>
+  </data>
+  <data name="Modal_BasicStructure_ModalTitle" xml:space="preserve">
+    <value>Fenêtre modale de base</value>
+  </data>
+  <data name="Modal_BasicStructure_Body" xml:space="preserve">
+    <value>Voici une fenêtre modale de base.</value>
+  </data>
+  <data name="Modal_ButtonBehaviour_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Les boutons interagissent avec une fenêtre modale à l'aide de l'attribut &lt;code&gt;modal-id&lt;/code&gt; et de classes utilitaires CSS.&lt;/gcds-text&gt;&lt;ul class="list-square"&gt;&lt;li&gt;&lt;strong&gt;&lt;code&gt;modal-id&lt;/code&gt;&lt;/strong&gt; — Ajoutez cet attribut au bouton déclencheur avec la même valeur que le &lt;code&gt;modal-id&lt;/code&gt; de la fenêtre &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; ciblée.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;&lt;code&gt;fdcp-modal-open&lt;/code&gt;&lt;/strong&gt; — Ajoutez cette classe à un bouton situé à l'extérieur de la fenêtre modale pour l'ouvrir lorsqu'il est sélectionné.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;&lt;code&gt;fdcp-modal-close&lt;/code&gt;&lt;/strong&gt; — Ajoutez cette classe à un bouton situé dans la fenêtre modale, généralement dans son pied de page, pour la fermer.&lt;/li&gt;&lt;/ul&gt;</value>
+  </data>
+  <data name="Modal_ButtonBehaviour_OpenButton" xml:space="preserve">
+    <value>Ouvrir</value>
+  </data>
+  <data name="Modal_ButtonBehaviour_ModalTitle" xml:space="preserve">
+    <value>Ma fenêtre modale</value>
+  </data>
+  <data name="Modal_ButtonBehaviour_Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="Modal_ButtonBehaviour_ProgrammaticText" xml:space="preserve">
+    <value>Pour créer une interaction personnalisée, utilisez JavaScript afin d'écouter l'événement requis par votre application, trouvez la fenêtre modale rendue grâce à son &lt;code&gt;modal-id&lt;/code&gt;, puis activez ou désactivez sa classe &lt;code&gt;show&lt;/code&gt;. Le composant détecte ce changement et applique automatiquement la gestion du focus et ses comportements d'accessibilité.</value>
+  </data>
+  <data name="Modal_Variants_Text" xml:space="preserve">
+    <value>Le composant de fenêtre modale propose trois variantes d'état — &lt;code&gt;regular&lt;/code&gt;, &lt;code&gt;info&lt;/code&gt; et &lt;code&gt;warning&lt;/code&gt; — adaptées à différents degrés d'urgence ou d'intention.</value>
+  </data>
+  <data name="Modal_Variants_Label" xml:space="preserve">
+    <value>Exemples d'états de fenêtre modale</value>
+  </data>
+  <data name="Modal_Default_Text" xml:space="preserve">
+    <value>Utilisée pour les tâches courantes qui exigent l'attention ou la confirmation de l'utilisateur, cette variante offre une présentation neutre pour les interactions quotidiennes. Elle est appliquée automatiquement lorsque la propriété &lt;code&gt;state&lt;/code&gt; n'est pas précisée.</value>
+  </data>
+  <data name="Modal_Default_OpenButton" xml:space="preserve">
+    <value>Ouvrir la fenêtre modale standard</value>
+  </data>
+  <data name="Modal_Default_ModalTitle" xml:space="preserve">
+    <value>Fenêtre modale standard</value>
+  </data>
+  <data name="Modal_Default_Body" xml:space="preserve">
+    <value>Voici une fenêtre modale standard sans état particulier.</value>
+  </data>
+  <data name="Modal_Info_Text" xml:space="preserve">
+    <value>Présente des renseignements ou un contexte important que les utilisateurs doivent comprendre avant de poursuivre, sans laisser entendre qu'il existe un risque.</value>
+  </data>
+  <data name="Modal_Info_OpenButton" xml:space="preserve">
+    <value>Ouvrir la fenêtre modale d'information</value>
+  </data>
+  <data name="Modal_Info_ModalTitle" xml:space="preserve">
+    <value>Fenêtre modale d'information</value>
+  </data>
+  <data name="Modal_Info_Body" xml:space="preserve">
+    <value>Voici une fenêtre modale d'information qui met en évidence des renseignements utiles ou complémentaires.</value>
+  </data>
+  <data name="Modal_Warning_Text" xml:space="preserve">
+    <value>Avertit les utilisateurs d'une action importante ou irréversible.</value>
+  </data>
+  <data name="Modal_Warning_OpenButton" xml:space="preserve">
+    <value>Ouvrir la fenêtre modale d'avertissement</value>
+  </data>
+  <data name="Modal_Warning_ModalTitle" xml:space="preserve">
+    <value>Fenêtre modale d'avertissement</value>
+  </data>
+  <data name="Modal_Warning_Body" xml:space="preserve">
+    <value>Voici une fenêtre modale d'avertissement qui attire l'attention de l'utilisateur avant qu'il poursuive.</value>
+  </data>
+  <data name="Modal_Size_Label" xml:space="preserve">
+    <value>Exemples de tailles de fenêtre modale</value>
+  </data>
+  <data name="Modal_Size_Regular_Text" xml:space="preserve">
+    <value>La taille standard convient à la plupart des interactions courantes et est appliquée automatiquement lorsque la propriété &lt;code&gt;size&lt;/code&gt; n'est pas précisée.</value>
+  </data>
+  <data name="Modal_Size_Regular_OpenButton" xml:space="preserve">
+    <value>Ouvrir la fenêtre modale standard</value>
+  </data>
+  <data name="Modal_Size_Regular_ModalTitle" xml:space="preserve">
+    <value>Fenêtre modale standard</value>
+  </data>
+  <data name="Modal_Size_Regular_Body" xml:space="preserve">
+    <value>Voici une fenêtre modale de taille standard.</value>
+  </data>
+  <data name="Modal_Size_Small_Text" xml:space="preserve">
+    <value>Utilisez la petite taille pour de brèves confirmations ou des messages simples contenant peu de contenu.</value>
+  </data>
+  <data name="Modal_Size_Small_OpenButton" xml:space="preserve">
+    <value>Ouvrir la petite fenêtre modale</value>
+  </data>
+  <data name="Modal_Size_Small_ModalTitle" xml:space="preserve">
+    <value>Petite fenêtre modale</value>
+  </data>
+  <data name="Modal_Size_Small_Body" xml:space="preserve">
+    <value>Voici une petite fenêtre modale.</value>
+  </data>
+  <data name="Modal_Size_Large_Text" xml:space="preserve">
+    <value>Utilisez la grande taille lorsque le contenu nécessite plus d'espace, notamment pour les formulaires, les tableaux de données ou les mises en page complexes.</value>
+  </data>
+  <data name="Modal_Size_Large_OpenButton" xml:space="preserve">
+    <value>Ouvrir la grande fenêtre modale</value>
+  </data>
+  <data name="Modal_Size_Large_ModalTitle" xml:space="preserve">
+    <value>Grande fenêtre modale</value>
+  </data>
+  <data name="Modal_Size_Large_Body" xml:space="preserve">
+    <value>Voici une grande fenêtre modale.</value>
+  </data>
+  <data name="Modal_AdditionalProperties_Text" xml:space="preserve">
+    <value>En plus de sa structure principale, &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; offre plusieurs propriétés facultatives permettant de contrôler son comportement. L'exemple suivant présente &lt;code&gt;scrollable&lt;/code&gt;, &lt;code&gt;hide-close-button&lt;/code&gt; et &lt;code&gt;static-backdrop&lt;/code&gt;, qui modifient le comportement sans modifier le contenu.</value>
+  </data>
+  <data name="Modal_AdditionalProperties_ModalTitle" xml:space="preserve">
+    <value>Exemple de fenêtre modale</value>
+  </data>
+  <data name="Modal_Session_ModalTitle" xml:space="preserve">
+    <value>Expiration de la session</value>
+  </data>
+  <data name="Modal_Session_Body" xml:space="preserve">
+    <value>Votre session est sur le point d'expirer!</value>
+  </data>
+  <data name="Modal_Session_ExtendButton" xml:space="preserve">
+    <value>Prolonger la session</value>
+  </data>
+  <data name="Modal_Session_LogoutButton" xml:space="preserve">
+    <value>Fermer la session</value>
   </data>
   <data name="StatelessAuth_CurrentStatus_Title" xml:space="preserve">
     <value>Statut d'authentification actuel</value>
@@ -1961,8 +2254,5 @@
   </data>
   <data name="StatelessAuth_Integration_Description2" xml:space="preserve">
     <value />
-  </data>
-  <data name="Card_Badge_New" xml:space="preserve">
-    <value>Nouveau</value>
   </data>
 </root>
