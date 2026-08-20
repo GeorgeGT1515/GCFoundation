@@ -1,6 +1,8 @@
-﻿namespace GCFoundation.Web.Models.Template.Crud
+﻿using GCFoundation.Components.Models;
+
+namespace GCFoundation.Web.Models.Template.Crud
 {
-    public class DemoViewModel
+    public class DemoViewModel : BaseViewModel
     {
         public IList<EmployeeViewModel> EmployeeModels { get; set; }
 

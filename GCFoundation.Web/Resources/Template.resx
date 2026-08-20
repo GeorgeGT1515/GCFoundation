@@ -537,13 +537,31 @@
   <data name="Index_Crud_Title" xml:space="preserve">
     <value>CRUD Pages</value>
   </data>
-  <data name="Crud_Table_EmployeeId" xml:space="preserve">
-    <value>Employee Id</value>
+  <data name="Crud_Demo_Address_Label" xml:space="preserve">
+    <value>Address</value>
   </data>
-  <data name="Crud_Table_EmployeeName" xml:space="preserve">
-    <value>Full Name</value>
+  <data name="Crud_Demo_DateOfBirth_Label" xml:space="preserve">
+    <value>Date of birth</value>
   </data>
-  <data name="Crud_Table_EmployeeLevel" xml:space="preserve">
-    <value>Classification Level</value>
+  <data name="Crud_Demo_Department_Label" xml:space="preserve">
+    <value>Department</value>
+  </data>
+  <data name="Crud_Demo_EmployeeId_Label" xml:space="preserve">
+    <value>Employee ID</value>
+  </data>
+  <data name="Crud_Demo_EmployeeLevel_Label" xml:space="preserve">
+    <value>Classification level</value>
+  </data>
+  <data name="Crud_Demo_EmployeeName_Label" xml:space="preserve">
+    <value>Full name</value>
+  </data>
+  <data name="Crud_Demo_ManagerName_Label" xml:space="preserve">
+    <value>Manager name</value>
+  </data>
+  <data name="Crud_Demo_Salary_Label" xml:space="preserve">
+    <value>Salary</value>
+  </data>
+  <data name="Crud_Demo_StartDate_Label" xml:space="preserve">
+    <value>Start date</value>
   </data>
 </root>

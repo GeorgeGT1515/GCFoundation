@@ -302,6 +302,87 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Address.
+        /// </summary>
+        public static string Crud_Demo_Address_Label {
+            get {
+                return ResourceManager.GetString("Crud_Demo_Address_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date of birth.
+        /// </summary>
+        public static string Crud_Demo_DateOfBirth_Label {
+            get {
+                return ResourceManager.GetString("Crud_Demo_DateOfBirth_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Department.
+        /// </summary>
+        public static string Crud_Demo_Department_Label {
+            get {
+                return ResourceManager.GetString("Crud_Demo_Department_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee ID.
+        /// </summary>
+        public static string Crud_Demo_EmployeeId_Label {
+            get {
+                return ResourceManager.GetString("Crud_Demo_EmployeeId_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Classification level.
+        /// </summary>
+        public static string Crud_Demo_EmployeeLevel_Label {
+            get {
+                return ResourceManager.GetString("Crud_Demo_EmployeeLevel_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Full name.
+        /// </summary>
+        public static string Crud_Demo_EmployeeName_Label {
+            get {
+                return ResourceManager.GetString("Crud_Demo_EmployeeName_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manager name.
+        /// </summary>
+        public static string Crud_Demo_ManagerName_Label {
+            get {
+                return ResourceManager.GetString("Crud_Demo_ManagerName_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Salary.
+        /// </summary>
+        public static string Crud_Demo_Salary_Label {
+            get {
+                return ResourceManager.GetString("Crud_Demo_Salary_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start date.
+        /// </summary>
+        public static string Crud_Demo_StartDate_Label {
+            get {
+                return ResourceManager.GetString("Crud_Demo_StartDate_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;gcds-text&gt;(...)&lt;/gcds-text&gt;.
         /// </summary>
         public static string Crud_HowToImplement {
@@ -334,33 +415,6 @@ namespace GCFoundation.Web.Resources {
         public static string Crud_Notes {
             get {
                 return ResourceManager.GetString("Crud_Notes", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Employee Id.
-        /// </summary>
-        public static string Crud_Table_EmployeeId {
-            get {
-                return ResourceManager.GetString("Crud_Table_EmployeeId", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Classification Level.
-        /// </summary>
-        public static string Crud_Table_EmployeeLevel {
-            get {
-                return ResourceManager.GetString("Crud_Table_EmployeeLevel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Full Name.
-        /// </summary>
-        public static string Crud_Table_EmployeeName {
-            get {
-                return ResourceManager.GetString("Crud_Table_EmployeeName", resourceCulture);
             }
         }
         

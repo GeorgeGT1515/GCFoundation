@@ -1,0 +1,40 @@
+﻿@model GCFoundation.Web.Models.Template.Crud.EmployeeViewModel
+@{
+    var managerList = new List<SelectListItem>() {
+        new() { Text = "David Chen", Value = "David Chen"},
+        new() { Text = "Linda Osei", Value = "Linda Osei"},
+        new() { Text = "Karen Wu", Value = "Karen Wu"}
+    };
+
+    var departmentList = new List<SelectListItem>()
+    {
+        new() { Text = "IT Operations", Value = "IT Operations"},
+        new() { Text = "Application Development", Value = "Application Development"},
+        new() { Text = "Cybersecurity", Value = "Cybersecurity"},
+        new() { Text = "Enterprise Architecture", Value = "Enterprise Architecture"},
+        new() { Text = "IT Strategy", Value = "IT Strategy"},
+        new() { Text = "Administrative Services", Value = "Administrative Services"},
+        new() { Text = "Program Support", Value = "Program Support"}
+    };
+}
+
+<gcds-heading tag="h1">Employee profile</gcds-heading>
+
+<fdcp-form method="post" for="@Model" action="@Url.Action("CrudSave", "Template")">
+    @Html.AntiForgeryToken()
+    <fdcp-input for="@Model.Name"></fdcp-input>
+    <fdcp-input for="@Model.Id"></fdcp-input>
+    <fdcp-input for="@Model.Level"></fdcp-input>
+    <fdcp-searchable-select for="@Model.Department" items="@departmentList"></fdcp-searchable-select>
+    <fdcp-searchable-select for="@Model.ManagerName" items="@managerList"></fdcp-searchable-select>
+    <fdcp-input for="@Model.Salary"></fdcp-input>
+    <fdcp-input for="@Model.Address"></fdcp-input>
+    <section class="mt-400">
+        <gcds-button type="submit">Save</gcds-button>
+        <gcds-button type="reset" button-role="danger">Reset</gcds-button>
+    </section>
+</fdcp-form>
+
+<section class="mt-400">
+    <gcds-button type="link" button-role="secondary" href="@Url.Action("CrudDemo", "Template")"><gcds-icon name="chevron-left" margin-right="50"></gcds-icon>Back</gcds-button>
+</section>
