@@ -302,6 +302,87 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Back to employee list.
+        /// </summary>
+        public static string Crud_BackToEmployeeList_Button {
+            get {
+                return ResourceManager.GetString("Crud_BackToEmployeeList_Button", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Demo page.
+        /// </summary>
+        public static string Crud_Code_Demo_Title {
+            get {
+                return ResourceManager.GetString("Crud_Code_Demo_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is an example of what an edit page can look like for a CRUD page..
+        /// </summary>
+        public static string Crud_Code_Edit_Text {
+            get {
+                return ResourceManager.GetString("Crud_Code_Edit_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Demo edit page.
+        /// </summary>
+        public static string Crud_Code_Edit_Title {
+            get {
+                return ResourceManager.GetString("Crud_Code_Edit_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is an example of what a view model can look like for a CRUD page to support both form and table display..
+        /// </summary>
+        public static string Crud_Code_EmployeeViewModel_Text {
+            get {
+                return ResourceManager.GetString("Crud_Code_EmployeeViewModel_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Demo employee view model.
+        /// </summary>
+        public static string Crud_Code_EmployeeViewModel_Title {
+            get {
+                return ResourceManager.GetString("Crud_Code_EmployeeViewModel_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Use the following code to recreate the CRUD page template demo, including the employee view model, employee table and edit form.&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Crud_Code_Intro {
+            get {
+                return ResourceManager.GetString("Crud_Code_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code for the CRUD page template.
+        /// </summary>
+        public static string Crud_Code_Name {
+            get {
+                return ResourceManager.GetString("Crud_Code_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add employee.
+        /// </summary>
+        public static string Crud_Demo_AddEmployee_Button {
+            get {
+                return ResourceManager.GetString("Crud_Demo_AddEmployee_Button", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Address.
         /// </summary>
         public static string Crud_Demo_Address_Label {
@@ -320,11 +401,56 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete employee.
+        /// </summary>
+        public static string Crud_Demo_DeleteEmployee_Title {
+            get {
+                return ResourceManager.GetString("Crud_Demo_DeleteEmployee_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Delete to continue, or Cancel to return to the employee list..
+        /// </summary>
+        public static string Crud_Demo_DeleteModal_Instruction {
+            get {
+                return ResourceManager.GetString("Crud_Demo_DeleteModal_Instruction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are about to delete employee.
+        /// </summary>
+        public static string Crud_Demo_DeleteModal_Text {
+            get {
+                return ResourceManager.GetString("Crud_Demo_DeleteModal_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete employee?.
+        /// </summary>
+        public static string Crud_Demo_DeleteModal_Title {
+            get {
+                return ResourceManager.GetString("Crud_Demo_DeleteModal_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Department.
         /// </summary>
         public static string Crud_Demo_Department_Label {
             get {
                 return ResourceManager.GetString("Crud_Demo_Department_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit employee information.
+        /// </summary>
+        public static string Crud_Demo_EditProfile_Title {
+            get {
+                return ResourceManager.GetString("Crud_Demo_EditProfile_Title", resourceCulture);
             }
         }
         
@@ -365,6 +491,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Demo of the CRUD page template.
+        /// </summary>
+        public static string Crud_Demo_PageTitle {
+            get {
+                return ResourceManager.GetString("Crud_Demo_PageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Salary.
         /// </summary>
         public static string Crud_Demo_Salary_Label {
@@ -379,6 +514,177 @@ namespace GCFoundation.Web.Resources {
         public static string Crud_Demo_StartDate_Label {
             get {
                 return ResourceManager.GetString("Crud_Demo_StartDate_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee list.
+        /// </summary>
+        public static string Crud_Demo_TableCaption {
+            get {
+                return ResourceManager.GetString("Crud_Demo_TableCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This table is provided for demonstration purposes only. Changes are not saved..
+        /// </summary>
+        public static string Crud_Demo_TableCaptionDetail {
+            get {
+                return ResourceManager.GetString("Crud_Demo_TableCaptionDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View employee profile.
+        /// </summary>
+        public static string Crud_Demo_ViewProfile_Title {
+            get {
+                return ResourceManager.GetString("Crud_Demo_ViewProfile_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm.
+        /// </summary>
+        public static string Crud_Edit_Confirm_Button {
+            get {
+                return ResourceManager.GetString("Crud_Edit_Confirm_Button", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Administrative Services.
+        /// </summary>
+        public static string Crud_Edit_Department_AdministrativeServices {
+            get {
+                return ResourceManager.GetString("Crud_Edit_Department_AdministrativeServices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Application Development.
+        /// </summary>
+        public static string Crud_Edit_Department_ApplicationDevelopment {
+            get {
+                return ResourceManager.GetString("Crud_Edit_Department_ApplicationDevelopment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cybersecurity.
+        /// </summary>
+        public static string Crud_Edit_Department_Cybersecurity {
+            get {
+                return ResourceManager.GetString("Crud_Edit_Department_Cybersecurity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enterprise Architecture.
+        /// </summary>
+        public static string Crud_Edit_Department_EnterpriseArchitecture {
+            get {
+                return ResourceManager.GetString("Crud_Edit_Department_EnterpriseArchitecture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IT Operations.
+        /// </summary>
+        public static string Crud_Edit_Department_ItOperations {
+            get {
+                return ResourceManager.GetString("Crud_Edit_Department_ItOperations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IT Strategy.
+        /// </summary>
+        public static string Crud_Edit_Department_ItStrategy {
+            get {
+                return ResourceManager.GetString("Crud_Edit_Department_ItStrategy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Program Support.
+        /// </summary>
+        public static string Crud_Edit_Department_ProgramSupport {
+            get {
+                return ResourceManager.GetString("Crud_Edit_Department_ProgramSupport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to David Chen.
+        /// </summary>
+        public static string Crud_Edit_Manager_DavidChen {
+            get {
+                return ResourceManager.GetString("Crud_Edit_Manager_DavidChen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Karen Wu.
+        /// </summary>
+        public static string Crud_Edit_Manager_KarenWu {
+            get {
+                return ResourceManager.GetString("Crud_Edit_Manager_KarenWu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Linda Osei.
+        /// </summary>
+        public static string Crud_Edit_Manager_LindaOsei {
+            get {
+                return ResourceManager.GetString("Crud_Edit_Manager_LindaOsei", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee information.
+        /// </summary>
+        public static string Crud_Edit_PageTitle {
+            get {
+                return ResourceManager.GetString("Crud_Edit_PageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resetting the form will discard all changes made since the page was loaded. Select Confirm to continue, or Cancel to return to the form..
+        /// </summary>
+        public static string Crud_Edit_ResetModal_Text {
+            get {
+                return ResourceManager.GetString("Crud_Edit_ResetModal_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset employee information?.
+        /// </summary>
+        public static string Crud_Edit_ResetModal_Title {
+            get {
+                return ResourceManager.GetString("Crud_Edit_ResetModal_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Review the employee information before saving. Select Confirm to save your changes, or Cancel to return to the form..
+        /// </summary>
+        public static string Crud_Edit_SaveModal_Text {
+            get {
+                return ResourceManager.GetString("Crud_Edit_SaveModal_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save employee information?.
+        /// </summary>
+        public static string Crud_Edit_SaveModal_Title {
+            get {
+                return ResourceManager.GetString("Crud_Edit_SaveModal_Title", resourceCulture);
             }
         }
         
@@ -415,6 +721,24 @@ namespace GCFoundation.Web.Resources {
         public static string Crud_Notes {
             get {
                 return ResourceManager.GetString("Crud_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee profile.
+        /// </summary>
+        public static string Crud_Profile_PageTitle {
+            get {
+                return ResourceManager.GetString("Crud_Profile_PageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This page is currently under development. Content and functionality may change..
+        /// </summary>
+        public static string Crud_UnderDevelopment_Text {
+            get {
+                return ResourceManager.GetString("Crud_UnderDevelopment_Text", resourceCulture);
             }
         }
         

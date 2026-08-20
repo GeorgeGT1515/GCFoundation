@@ -1,24 +1,26 @@
 ﻿@model GCFoundation.Web.Models.Template.Crud.EmployeeViewModel
+@using GCFoundation.Components.Resources
+@using GCFoundation.Web.Resources
 @{
     var managerList = new List<SelectListItem>() {
-        new() { Text = "David Chen", Value = "David Chen"},
-        new() { Text = "Linda Osei", Value = "Linda Osei"},
-        new() { Text = "Karen Wu", Value = "Karen Wu"}
+        new() { Text = Template.Crud_Edit_Manager_DavidChen, Value = "David Chen"},
+        new() { Text = Template.Crud_Edit_Manager_LindaOsei, Value = "Linda Osei"},
+        new() { Text = Template.Crud_Edit_Manager_KarenWu, Value = "Karen Wu"}
     };
 
     var departmentList = new List<SelectListItem>()
     {
-        new() { Text = "IT Operations", Value = "IT Operations"},
-        new() { Text = "Application Development", Value = "Application Development"},
-        new() { Text = "Cybersecurity", Value = "Cybersecurity"},
-        new() { Text = "Enterprise Architecture", Value = "Enterprise Architecture"},
-        new() { Text = "IT Strategy", Value = "IT Strategy"},
-        new() { Text = "Administrative Services", Value = "Administrative Services"},
-        new() { Text = "Program Support", Value = "Program Support"}
+        new() { Text = Template.Crud_Edit_Department_ItOperations, Value = "IT Operations"},
+        new() { Text = Template.Crud_Edit_Department_ApplicationDevelopment, Value = "Application Development"},
+        new() { Text = Template.Crud_Edit_Department_Cybersecurity, Value = "Cybersecurity"},
+        new() { Text = Template.Crud_Edit_Department_EnterpriseArchitecture, Value = "Enterprise Architecture"},
+        new() { Text = Template.Crud_Edit_Department_ItStrategy, Value = "IT Strategy"},
+        new() { Text = Template.Crud_Edit_Department_AdministrativeServices, Value = "Administrative Services"},
+        new() { Text = Template.Crud_Edit_Department_ProgramSupport, Value = "Program Support"}
     };
 }
 
-<gcds-heading tag="h1">Employee profile</gcds-heading>
+<gcds-heading tag="h1">@Template.Crud_Edit_PageTitle</gcds-heading>
 
 <fdcp-form method="post" for="@Model" action="@Url.Action("CrudSave", "Template")">
     @Html.AntiForgeryToken()
@@ -30,11 +32,32 @@
     <fdcp-input for="@Model.Salary"></fdcp-input>
     <fdcp-input for="@Model.Address"></fdcp-input>
     <section class="mt-400">
-        <gcds-button type="submit">Save</gcds-button>
-        <gcds-button type="reset" button-role="danger">Reset</gcds-button>
+        <gcds-button class="fdcp-modal-open" modal-id="save-profile-modal">@Localization.Save</gcds-button>
+        <gcds-button class="fdcp-modal-open" button-role="danger" modal-id="reset-profile-modal">@Localization.Reset</gcds-button>
     </section>
+
+    <fdcp-modal title="@Template.Crud_Edit_SaveModal_Title" modal-id="save-profile-modal">
+        <div slot="body">
+            <gcds-text>@Template.Crud_Edit_SaveModal_Text</gcds-text>
+        </div>
+        <div slot="footer">
+            <gcds-button button-id="save-profile" type="submit">@Template.Crud_Edit_Confirm_Button</gcds-button>
+            <gcds-button button-id="save-profile-cancel" button-role="secondary" class="fdcp-modal-close">@Localization.Cancel</gcds-button>
+        </div>
+    </fdcp-modal>
+
+    <fdcp-modal title="@Template.Crud_Edit_ResetModal_Title" modal-id="reset-profile-modal" state="warning">
+        <div slot="body">
+            <gcds-text>@Template.Crud_Edit_ResetModal_Text</gcds-text>
+        </div>
+        <div slot="footer">
+            <gcds-button button-id="reset-profile" type="reset" button-role="danger" class="fdcp-modal-close">@Template.Crud_Edit_Confirm_Button</gcds-button>
+            <gcds-button button-id="reset-profile-cancel" button-role="secondary" class="fdcp-modal-close">@Localization.Cancel</gcds-button>
+        </div>
+    </fdcp-modal>
 </fdcp-form>
 
+
 <section class="mt-400">
-    <gcds-button type="link" button-role="secondary" href="@Url.Action("CrudDemo", "Template")"><gcds-icon name="chevron-left" margin-right="50"></gcds-icon>Back</gcds-button>
+    <gcds-button type="link" button-role="secondary" href="@Url.Action("CrudDemo", "Template")"><gcds-icon name="chevron-left" margin-right="50"></gcds-icon>@Template.Crud_BackToEmployeeList_Button</gcds-button>
 </section>

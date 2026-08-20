@@ -334,10 +334,22 @@ namespace GCFoundation.Web.Controllers
         #endregion Stepper Page Template (Code, Demo) Controller Actions
 
         #region Crud Page Template (Code, Demo) Controller Actions
+        /// <summary>
+        /// Displays the sample code for the CRUD page template.
+        /// </summary>
+        /// <returns>The CRUD code view.</returns>
+        [HttpGet("crud/code")]
+        public IActionResult CrudCode()
+        {
+            SetPageTitle($"{Menu.Menu_Template} : {Resources.Template.Index_Crud_Title}");
+
+            return View("crud/code");
+        }
+
         [HttpGet("crud/demo")]
         public IActionResult CrudDemo()
         {
-            SetPageTitle("Crud demo");
+            SetPageTitle(Resources.Template.Crud_Demo_PageTitle);
             var vm = new DemoViewModel()
             {
                 EmployeeModels = MockEmployeeList()
@@ -348,7 +360,7 @@ namespace GCFoundation.Web.Controllers
 
         public IActionResult CrudDemo(string id)
         {
-            SetPageTitle("Crud demo");
+            SetPageTitle(Resources.Template.Crud_Demo_PageTitle);
             var vm = new DemoViewModel()
             {
                 EmployeeModels = MockEmployeeList()
@@ -359,7 +371,7 @@ namespace GCFoundation.Web.Controllers
 
         public IActionResult CrudDemo(EmployeeViewModel evm)
         {
-            SetPageTitle("Crud demo");
+            SetPageTitle(Resources.Template.Crud_Demo_PageTitle);
             var employees = MockEmployeeList();
 
             if (evm != null)
@@ -380,6 +392,7 @@ namespace GCFoundation.Web.Controllers
         }
 
         [HttpPost("crud/delete")]
+        [ValidateAntiForgeryToken]
         public IActionResult CrudDelete(string id)
         {
             return CrudDemo(id);
@@ -388,7 +401,7 @@ namespace GCFoundation.Web.Controllers
         [HttpGet("crud/edit/{id?}")]
         public IActionResult CrudEdit(string? id)
         {
-            SetPageTitle("Crud edit");
+            SetPageTitle(Resources.Template.Crud_Edit_PageTitle);
 
             var employee = MockEmployeeList().FirstOrDefault(e => e.Id == id);
             if (employee == null)
@@ -398,6 +411,7 @@ namespace GCFoundation.Web.Controllers
         }
 
         [HttpPost("crud/edit")]
+        [ValidateAntiForgeryToken]
         public IActionResult CrudSave(EmployeeViewModel evm)
         {
             return CrudDemo(evm);
@@ -406,8 +420,10 @@ namespace GCFoundation.Web.Controllers
         [HttpGet("crud/profile/{id}")]
         public IActionResult CrudProfile(string id)
         {
-            SetPageTitle("crud edit profile");
+            SetPageTitle(Resources.Template.Crud_Profile_PageTitle);
             var employee = MockEmployeeList().FirstOrDefault(e => e.Id == id);
+            if (employee == null)
+                return CrudDemo();
             return View("crud/profile", employee);
 
         }

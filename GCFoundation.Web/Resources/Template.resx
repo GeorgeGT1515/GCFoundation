@@ -369,7 +369,7 @@
 &lt;gcds-text&gt;Enable it application-wide by wiring error handling by using the &lt;code&gt;app.UseExceptionHandler("{0}")&lt;/code&gt; and &lt;code&gt;app.UseStatusCodePagesWithReExecute("{1}")&lt;/code&gt; statements in your application's &lt;code&gt;Program.cs&lt;/code&gt;.&lt;/gcds-text&gt;</value>
   </data>
   <data name="Index_Template_UnderDevelopment" xml:space="preserve">
-    <value>Under Development</value>
+    <value>Under development</value>
   </data>
   <data name="Stepper_Name" xml:space="preserve">
     <value>Stepper Page Template</value>
@@ -516,20 +516,22 @@
     <value>&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;</value>
   </data>
   <data name="Crud_WhenToUse" xml:space="preserve">
-    <value>&lt;gcds-text&gt;For use on ASP.Net GC applications.&lt;/gcds-text&gt;
-&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;Use these templates when an authorized user needs to create, view, update or delete structured records in a Government of Canada web application.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;Adapt the templates to the program’s business rules, privacy requirements and user needs before implementation.&lt;/gcds-text&gt;</value>
   </data>
   <data name="Crud_HowToImplement" xml:space="preserve">
-    <value>&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;Connect the pages to your application’s data service, replace the sample employee data and configure validation, authorization and audit logging before deployment.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;Review the implementation against your organization’s security, privacy and records-management requirements.&lt;/gcds-text&gt;</value>
   </data>
   <data name="Crud_Intro" xml:space="preserve">
-    <value>&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;</value>
+    <value>The CRUD page templates demonstrate common create, read, update and delete tasks for employee records. Use them as a starting point and adapt the fields and workflows to your application’s requirements.</value>
   </data>
   <data name="Crud_Name" xml:space="preserve">
     <value>&lt;abbr title="Create, Read, Update and Delete"&gt;CRUD&lt;/abbr&gt; Page Templates</value>
   </data>
   <data name="Crud_Notes" xml:space="preserve">
-    <value>&lt;gcds-text&gt;(...)&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;The demonstration uses in-memory sample data. Changes are not persisted and are reset when the page is reloaded.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;Do not use the sample implementation as a production data store.&lt;/gcds-text&gt;</value>
   </data>
   <data name="Index_Crud_Description" xml:space="preserve">
     <value>A collection of page templates for the implementation of standard &lt;abbr title="Create, Read, Update and Delete"&gt;CRUD&lt;/abbr&gt; operations</value>
@@ -563,5 +565,113 @@
   </data>
   <data name="Crud_Demo_StartDate_Label" xml:space="preserve">
     <value>Start date</value>
+  </data>
+  <data name="Crud_BackToEmployeeList_Button" xml:space="preserve">
+    <value>Back to employee list</value>
+  </data>
+  <data name="Crud_Demo_AddEmployee_Button" xml:space="preserve">
+    <value>Add employee</value>
+  </data>
+  <data name="Crud_Demo_DeleteEmployee_Title" xml:space="preserve">
+    <value>Delete employee</value>
+  </data>
+  <data name="Crud_Demo_DeleteModal_Instruction" xml:space="preserve">
+    <value>Select Delete to continue, or Cancel to return to the employee list.</value>
+  </data>
+  <data name="Crud_Demo_DeleteModal_Text" xml:space="preserve">
+    <value>You are about to delete employee</value>
+  </data>
+  <data name="Crud_Demo_DeleteModal_Title" xml:space="preserve">
+    <value>Delete employee?</value>
+  </data>
+  <data name="Crud_Demo_EditProfile_Title" xml:space="preserve">
+    <value>Edit employee information</value>
+  </data>
+  <data name="Crud_Demo_PageTitle" xml:space="preserve">
+    <value>Demo of the CRUD page template</value>
+  </data>
+  <data name="Crud_Demo_TableCaption" xml:space="preserve">
+    <value>Employee list</value>
+  </data>
+  <data name="Crud_Demo_TableCaptionDetail" xml:space="preserve">
+    <value>This table is provided for demonstration purposes only. Changes are not saved.</value>
+  </data>
+  <data name="Crud_Demo_ViewProfile_Title" xml:space="preserve">
+    <value>View employee profile</value>
+  </data>
+  <data name="Crud_Edit_Department_AdministrativeServices" xml:space="preserve">
+    <value>Administrative Services</value>
+  </data>
+  <data name="Crud_Edit_Department_ApplicationDevelopment" xml:space="preserve">
+    <value>Application Development</value>
+  </data>
+  <data name="Crud_Edit_Department_Cybersecurity" xml:space="preserve">
+    <value>Cybersecurity</value>
+  </data>
+  <data name="Crud_Edit_Department_EnterpriseArchitecture" xml:space="preserve">
+    <value>Enterprise Architecture</value>
+  </data>
+  <data name="Crud_Edit_Department_ItOperations" xml:space="preserve">
+    <value>IT Operations</value>
+  </data>
+  <data name="Crud_Edit_Department_ItStrategy" xml:space="preserve">
+    <value>IT Strategy</value>
+  </data>
+  <data name="Crud_Edit_Department_ProgramSupport" xml:space="preserve">
+    <value>Program Support</value>
+  </data>
+  <data name="Crud_Edit_PageTitle" xml:space="preserve">
+    <value>Employee information</value>
+  </data>
+  <data name="Crud_Edit_Manager_DavidChen" xml:space="preserve">
+    <value>David Chen</value>
+  </data>
+  <data name="Crud_Edit_Manager_KarenWu" xml:space="preserve">
+    <value>Karen Wu</value>
+  </data>
+  <data name="Crud_Edit_Manager_LindaOsei" xml:space="preserve">
+    <value>Linda Osei</value>
+  </data>
+  <data name="Crud_Edit_Confirm_Button" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="Crud_Edit_ResetModal_Text" xml:space="preserve">
+    <value>Resetting the form will discard all changes made since the page was loaded. Select Confirm to continue, or Cancel to return to the form.</value>
+  </data>
+  <data name="Crud_Edit_ResetModal_Title" xml:space="preserve">
+    <value>Reset employee information?</value>
+  </data>
+  <data name="Crud_Edit_SaveModal_Text" xml:space="preserve">
+    <value>Review the employee information before saving. Select Confirm to save your changes, or Cancel to return to the form.</value>
+  </data>
+  <data name="Crud_Edit_SaveModal_Title" xml:space="preserve">
+    <value>Save employee information?</value>
+  </data>
+  <data name="Crud_Profile_PageTitle" xml:space="preserve">
+    <value>Employee profile</value>
+  </data>
+  <data name="Crud_UnderDevelopment_Text" xml:space="preserve">
+    <value>This page is currently under development. Content and functionality may change.</value>
+  </data>
+  <data name="Crud_Code_Demo_Title" xml:space="preserve">
+    <value>Demo page</value>
+  </data>
+  <data name="Crud_Code_Edit_Title" xml:space="preserve">
+    <value>Demo edit page</value>
+  </data>
+  <data name="Crud_Code_Edit_Text" xml:space="preserve">
+    <value>This is an example of what an edit page can look like for a CRUD page.</value>
+  </data>
+  <data name="Crud_Code_EmployeeViewModel_Title" xml:space="preserve">
+    <value>Demo employee view model</value>
+  </data>
+  <data name="Crud_Code_EmployeeViewModel_Text" xml:space="preserve">
+    <value>This is an example of what a view model can look like for a CRUD page to support both form and table display.</value>
+  </data>
+  <data name="Crud_Code_Intro" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Use the following code to recreate the CRUD page template demo, including the employee view model, employee table and edit form.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Crud_Code_Name" xml:space="preserve">
+    <value>Code for the CRUD page template</value>
   </data>
 </root>

@@ -1,14 +1,16 @@
 ﻿@using System.Reflection
 @using System.ComponentModel.DataAnnotations;
 @using GCFoundation.Web.Models.Template.Crud;
+@using GCFoundation.Web.Resources
 @model EmployeeViewModel;
 @{
     var properties = Model.GetType()
-    .GetProperties()
-    .Where(p => p.GetCustomAttribute<DisplayAttribute>() != null);
+            .GetProperties()
+            .Where(p => p.GetCustomAttribute<DisplayAttribute>() != null)
+            .OrderBy(p => p.GetCustomAttribute<DisplayAttribute>()!.Order);
 }
 
-<gcds-heading tag="h1">Employee Profile</gcds-heading>
+<gcds-heading tag="h1">@Template.Crud_Profile_PageTitle</gcds-heading>
 <gcds-heading tag="h2">@Model.Name</gcds-heading>
 @foreach(var prop in properties)
 {
@@ -21,6 +23,6 @@
 }
 
 <section class="mt-400">
-    <gcds-button button-role="secondary" type="link" href="@Url.Action("CrudDemo", "Template")"><gcds-icon name="chevron-left" margin-right="50"></gcds-icon>Back</gcds-button>
+    <gcds-button button-role="secondary" type="link" href="@Url.Action("CrudDemo", "Template")"><gcds-icon name="chevron-left" margin-right="50"></gcds-icon>@Template.Crud_BackToEmployeeList_Button</gcds-button>
 </section>
 
