@@ -104,34 +104,39 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         #region Resolvers
         private void ResolveColumns()
         {
-            if (Rows != null && Rows.Any())
+            if (Rows == null || !Rows.Any())          
+                return;
+            
+            Type type = Rows.First().GetType();
+            var properties = type != null? 
+                type.GetProperties()?
+                .Where(prop => prop.GetCustomAttribute<TableColumnDefinitionAttribute>() != null)
+                .OrderBy(prop => prop.GetCustomAttribute<TableColumnDefinitionAttribute>()!.Order)
+                .ToList() : null;
+
+            if (properties == null)
+                return;
+
+            ColumnDefinitions = new List<ColumnDefinition>();
+
+            foreach (PropertyInfo prop in properties)
             {
-                Type type = Rows.First().GetType();
-                var properties = type != null ? type.GetProperties() : null;
-                ColumnDefinitions = new List<ColumnDefinition>();
-                if (properties == null)
-                    return;
-                foreach (PropertyInfo prop in properties)
+                TableColumnDefinitionAttribute attribute = prop.GetCustomAttribute<TableColumnDefinitionAttribute>()!;
+
+                if (!attribute.IsHidden)
                 {
-                    TableColumnDefinitionAttribute? attribute = prop.GetCustomAttribute<TableColumnDefinitionAttribute>();
-                    if (attribute != null)
+                    ColumnDefinitions.Add(new ColumnDefinition()
                     {
-                        if (!attribute.IsHidden)
-                        {
-                            ColumnDefinitions.Add(new ColumnDefinition()
-                            {
-                                Field = JsonNamingPolicy.CamelCase.ConvertName(prop.Name),
-                                Header = ResolveLocalizedHeader(attribute, prop),
-                                Slotted = attribute.Slotted,
-                                RowHeader = attribute.RowHeader,
-                                Sort = attribute.Sort,
-                                SortDirection = attribute.SortDirection == SortDirection.none ? null : attribute.SortDirection,
-                                Alignment = attribute.Alignment
-                            });
-                        }
-                    }
-                }
-            }
+                        Field = JsonNamingPolicy.CamelCase.ConvertName(prop.Name),
+                        Header = ResolveLocalizedHeader(attribute, prop),
+                        Slotted = attribute.Slotted,
+                        RowHeader = attribute.RowHeader,
+                        Sort = attribute.Sort,
+                        SortDirection = attribute.SortDirection == SortDirection.none ? null : attribute.SortDirection,
+                        Alignment = attribute.Alignment
+                    });
+                }                    
+            }            
             return;
         }
 
