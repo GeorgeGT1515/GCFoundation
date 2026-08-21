@@ -28,8 +28,8 @@
 				</NavNode>
 				<NavNode key="template-crud" controller="Template" action="Crud" area="" preservedRouteParameters="culture" text="Nav_Template_Crud" componentVisibility="breadcrumbs">
 					<Children>
-						<NavNode key="template-crud-code" controller="Template" action="CrudCode" area="" preservedRouteParameters="culture" text="Nav_Template_Crud_Code" componentVisibility="breadcrumbs" />
-						<NavNode key="template-crud-demo" controller="Template" action="CrudDemo" area="" preservedRouteParameters="culture" text="Nav_Template_Crud_Demo" componentVisibility="breadcrumbs" />
+						<NavNode key="template-crud-code" controller="Template" action="CrudCode" area="" preservedRouteParameters="culture" text="Nav_Template_Crud_Code" />
+						<NavNode key="template-crud-demo" controller="Template" action="CrudDemo" area="" preservedRouteParameters="culture" text="Nav_Template_Crud_Demo" />
 					</Children>
 				</NavNode>
 				<NavNode key="template-dashboard" controller="Template" action="Dashboard" area="" preservedRouteParameters="culture" text="Nav_Template_Dashboard" componentVisibility="breadcrumbs">
