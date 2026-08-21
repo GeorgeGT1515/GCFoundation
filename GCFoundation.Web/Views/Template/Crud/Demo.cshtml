@@ -3,6 +3,19 @@
 @using GCFoundation.Web.Resources
 
 <gcds-heading tag="h1">@Template.Crud_Demo_PageTitle</gcds-heading>
+<gcds-text>
+    This is a demo crud page.
+</gcds-text>
+
+<gcds-heading tag="h2">Demo employee management page</gcds-heading>
+<gcds-text>Welcome to the this demo employee management page. You can simulate adding, viewing, editing and deleting employees. Note that changes are not saved and that changes will be lost on page load. </gcds-text>
+<gcds-notice title="Want to add an employee?"><gcds-text>Click button below to be redirected to the create employee page.</gcds-text></gcds-notice>
+<section class="mt-200">
+    <gcds-button type="link" href="@Url.Action("CrudEdit", "Template")">Add employee</gcds-button>
+</section>
+
+
+
 <gcds-container size="lg">
     <fdcp-table filter sort pagination-size="10" caption="@Template.Crud_Demo_TableCaption" caption-detail="@Template.Crud_Demo_TableCaptionDetail" rows="@Model.EmployeeModels">
         <template slot="cell:actions">
@@ -27,8 +40,4 @@
         </fdcp-form>
     </div>
 </fdcp-modal>
-
-<section class="mt-400">
-    <gcds-button button-role="primary" type="link" href="@Url.Action("CrudEdit", "Template")">@Template.Crud_Demo_AddEmployee_Button</gcds-button>
-</section>
 
