@@ -639,7 +639,7 @@
     <value>Program Support</value>
   </data>
   <data name="Crud_Edit_PageTitle" xml:space="preserve">
-    <value>Employee information</value>
+    <value>Edit employee information</value>
   </data>
   <data name="Crud_Edit_Manager_DavidChen" xml:space="preserve">
     <value>David Chen</value>
@@ -650,23 +650,8 @@
   <data name="Crud_Edit_Manager_LindaOsei" xml:space="preserve">
     <value>Linda Osei</value>
   </data>
-  <data name="Crud_Edit_Confirm_Button" xml:space="preserve">
-    <value>Confirm</value>
-  </data>
-  <data name="Crud_Edit_ResetModal_Text" xml:space="preserve">
-    <value>Resetting the form will discard all changes made since the page was loaded. Select Confirm to continue, or Cancel to return to the form.</value>
-  </data>
-  <data name="Crud_Edit_ResetModal_Title" xml:space="preserve">
-    <value>Reset employee information?</value>
-  </data>
-  <data name="Crud_Edit_SaveModal_Text" xml:space="preserve">
-    <value>Review the employee information before saving. Select Confirm to save your changes, or Cancel to return to the form.</value>
-  </data>
-  <data name="Crud_Edit_SaveModal_Title" xml:space="preserve">
-    <value>Save employee information?</value>
-  </data>
   <data name="Crud_Profile_PageTitle" xml:space="preserve">
-    <value>Employee profile</value>
+    <value>View employee information</value>
   </data>
   <data name="Crud_UnderDevelopment_Text" xml:space="preserve">
     <value>This page is currently under development. Content and functionality may change.</value>
@@ -681,7 +666,7 @@
     <value>This is an example of what an edit page can look like for a CRUD page.</value>
   </data>
   <data name="Crud_Code_Profile_Title" xml:space="preserve">
-    <value>Demo profile page</value>
+    <value>Demo view page</value>
   </data>
   <data name="Crud_Code_Profile_Text" xml:space="preserve">
     <value>This is an example of what a view page can look like for a CRUD page.</value>

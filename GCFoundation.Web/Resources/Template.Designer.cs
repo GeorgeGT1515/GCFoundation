@@ -392,7 +392,7 @@ namespace GCFoundation.Web.Resources {
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Demo profile page.
+        ///   Looks up a localized string similar to Demo view page.
         /// </summary>
         public static string Crud_Code_Profile_Title {
             get {
@@ -617,15 +617,6 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Confirm.
-        /// </summary>
-        public static string Crud_Edit_Confirm_Button {
-            get {
-                return ResourceManager.GetString("Crud_Edit_Confirm_Button", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Administrative Services.
         /// </summary>
         public static string Crud_Edit_Department_AdministrativeServices {
@@ -716,47 +707,11 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Employee information.
+        ///   Looks up a localized string similar to Edit employee information.
         /// </summary>
         public static string Crud_Edit_PageTitle {
             get {
                 return ResourceManager.GetString("Crud_Edit_PageTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Resetting the form will discard all changes made since the page was loaded. Select Confirm to continue, or Cancel to return to the form..
-        /// </summary>
-        public static string Crud_Edit_ResetModal_Text {
-            get {
-                return ResourceManager.GetString("Crud_Edit_ResetModal_Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Reset employee information?.
-        /// </summary>
-        public static string Crud_Edit_ResetModal_Title {
-            get {
-                return ResourceManager.GetString("Crud_Edit_ResetModal_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Review the employee information before saving. Select Confirm to save your changes, or Cancel to return to the form..
-        /// </summary>
-        public static string Crud_Edit_SaveModal_Text {
-            get {
-                return ResourceManager.GetString("Crud_Edit_SaveModal_Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Save employee information?.
-        /// </summary>
-        public static string Crud_Edit_SaveModal_Title {
-            get {
-                return ResourceManager.GetString("Crud_Edit_SaveModal_Title", resourceCulture);
             }
         }
         
@@ -797,7 +752,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Employee profile.
+        ///   Looks up a localized string similar to View employee information.
         /// </summary>
         public static string Crud_Profile_PageTitle {
             get {

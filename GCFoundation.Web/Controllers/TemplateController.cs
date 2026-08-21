@@ -393,9 +393,9 @@ namespace GCFoundation.Web.Controllers
             {
                 var index = employees.ToList().FindIndex(e => e.Id == evm.Id);
                 if (index >= 0)
-                    employees[index] = evm;   // replace existing
+                    employees[index] = evm;  
                 else
-                    employees.Add(evm);       // add new
+                    employees.Add(evm);       
             }
 
             var vm = new DemoViewModel
@@ -452,14 +452,14 @@ namespace GCFoundation.Web.Controllers
         /// </summary>
         /// <param name="id">The identifier of the employee to display.</param>
         /// <returns>The employee profile view, or the CRUD demonstration when no employee is found.</returns>
-        [HttpGet("crud/profile/{id}")]
-        public IActionResult CrudProfile(string id)
+        [HttpGet("crud/view/{id}")]
+        public IActionResult CrudView(string id)
         {
             SetPageTitle(Resources.Template.Crud_Profile_PageTitle);
             var employee = MockEmployeeList().FirstOrDefault(e => e.Id == id);
             if (employee == null)
                 return CrudDemo();
-            return View("crud/profile", employee);
+            return View("crud/view", employee);
 
         }
 

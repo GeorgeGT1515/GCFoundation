@@ -638,7 +638,7 @@
     <value>Soutien aux programmes</value>
   </data>
   <data name="Crud_Edit_PageTitle" xml:space="preserve">
-    <value>Renseignements sur l’employé</value>
+    <value>Modifier les renseignements sur l’employé</value>
   </data>
   <data name="Crud_Edit_Manager_DavidChen" xml:space="preserve">
     <value>David Chen</value>
@@ -649,23 +649,8 @@
   <data name="Crud_Edit_Manager_LindaOsei" xml:space="preserve">
     <value>Linda Osei</value>
   </data>
-  <data name="Crud_Edit_Confirm_Button" xml:space="preserve">
-    <value>Confirmer</value>
-  </data>
-  <data name="Crud_Edit_ResetModal_Text" xml:space="preserve">
-    <value>La réinitialisation du formulaire annulera toutes les modifications apportées depuis le chargement de la page. Sélectionnez Confirmer pour continuer ou Annuler pour retourner au formulaire.</value>
-  </data>
-  <data name="Crud_Edit_ResetModal_Title" xml:space="preserve">
-    <value>Réinitialiser les renseignements sur l’employé?</value>
-  </data>
-  <data name="Crud_Edit_SaveModal_Text" xml:space="preserve">
-    <value>Vérifiez les renseignements sur l’employé avant de les enregistrer. Sélectionnez Confirmer pour enregistrer vos modifications ou Annuler pour retourner au formulaire.</value>
-  </data>
-  <data name="Crud_Edit_SaveModal_Title" xml:space="preserve">
-    <value>Enregistrer les renseignements sur l’employé?</value>
-  </data>
   <data name="Crud_Profile_PageTitle" xml:space="preserve">
-    <value>Profil de l’employé</value>
+    <value>Consulter les renseignements sur l’employé</value>
   </data>
   <data name="Crud_UnderDevelopment_Text" xml:space="preserve">
     <value>Cette page est en cours d’élaboration. Son contenu et ses fonctionnalités peuvent changer.</value>
@@ -680,7 +665,7 @@
     <value>Cet exemple montre à quoi peut ressembler une page de modification pour une page CRUD.</value>
   </data>
   <data name="Crud_Code_Profile_Title" xml:space="preserve">
-    <value>Page de profil de démonstration</value>
+    <value>Page de consultation de démonstration</value>
   </data>
   <data name="Crud_Code_Profile_Text" xml:space="preserve">
     <value>Cet exemple montre à quoi peut ressembler une page de consultation pour une page CRUD.</value>
