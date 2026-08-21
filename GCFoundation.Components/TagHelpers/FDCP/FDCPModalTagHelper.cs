@@ -17,12 +17,41 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     {
         private readonly IStringLocalizer<Modal> _localizer = localizer;
 
+        /// <summary>
+        /// Indicates whether the modal's close button should be hidden.
+        /// </summary>
         public bool HideCloseButton { get; set; }
+
+        /// <summary>
+        /// The unique identifier for the modal, used to target it for opening/closing.
+        /// </summary>
         public string ModalId { get; set; } = default!;
+
+        /// <summary>
+        /// Indicates whether the modal body should scroll independently when its content
+        /// exceeds the available height.
+        /// </summary>
         public bool Scrollable { get; set; }
+
+        /// <summary>
+        /// The size of the modal.
+        /// </summary>
         public ModalSize Size { get; set; } = ModalSize.regular;
+
+        /// <summary>
+        /// The visual state of the modal.
+        /// </summary>
         public ModalState State { get; set; } = ModalState.regular;
+
+        /// <summary>
+        /// Indicates whether clicking outside the modal (on the backdrop) is prevented
+        /// from closing it.
+        /// </summary>
         public bool StaticBackdrop { get; set; }
+
+        /// <summary>
+        /// The title displayed in the modal's header.
+        /// </summary>
         public string Title { get; set; } = string.Empty;
 
         /// <inheritdoc/>
