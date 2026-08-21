@@ -18,43 +18,39 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         private readonly IStringLocalizer<Modal> _localizer = localizer;
 
         /// <summary>
-        /// Indicates whether the modal's default close button is hidden. If <c>true</c>, no close
-        /// button is rendered and dismissal must be handled through other means (e.g. a custom
-        /// button or programmatic close).
+        /// Indicates whether the modal's close button should be hidden.
         /// </summary>
         public bool HideCloseButton { get; set; }
 
         /// <summary>
-        /// The unique identifier assigned to the modal element, used to target it for
-        /// opening, closing, or referencing from triggers elsewhere on the page.
+        /// The unique identifier for the modal, used to target it for opening/closing.
         /// </summary>
         public string ModalId { get; set; } = default!;
 
         /// <summary>
-        /// Indicates whether the modal's body content is scrollable when it exceeds
-        /// the available viewport height, rather than resizing the modal itself.
+        /// Indicates whether the modal body should scroll independently when its content
+        /// exceeds the available height.
         /// </summary>
         public bool Scrollable { get; set; }
 
         /// <summary>
-        /// The size of the modal, controlling its width. Defaults to <see cref="ModalSize.regular"/>.
+        /// The size of the modal.
         /// </summary>
         public ModalSize Size { get; set; } = ModalSize.regular;
 
         /// <summary>
-        /// The visual state of the modal (e.g. indicating status or severity). Defaults to
-        /// <see cref="ModalState.regular"/>.
+        /// The visual state of the modal.
         /// </summary>
         public ModalState State { get; set; } = ModalState.regular;
 
         /// <summary>
-        /// Indicates whether the modal uses a static backdrop, preventing it from being
-        /// dismissed by clicking outside its bounds.
+        /// Indicates whether clicking outside the modal (on the backdrop) is prevented
+        /// from closing it.
         /// </summary>
         public bool StaticBackdrop { get; set; }
 
         /// <summary>
-        /// The title text displayed in the modal's header.
+        /// The title displayed in the modal's header.
         /// </summary>
         public string Title { get; set; } = string.Empty;
 

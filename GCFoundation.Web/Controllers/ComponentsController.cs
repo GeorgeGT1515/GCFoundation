@@ -30,6 +30,19 @@ namespace GCFoundation.Web.Controllers
         }
 
         /// <summary>
+        /// Displays the Accordion component demo page.
+        /// </summary>
+        /// <returns>The Accordion component view.</returns>
+        [HttpGet("accordion")]
+        public IActionResult Accordion()
+        {
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Accordion_Title}");
+
+            var vm = BuildAccordionComponentViewModel();
+            return View("Component", vm);
+        }
+
+        /// <summary>
         /// Displays the Badge component demo page.
         /// </summary>
         /// <returns>
@@ -295,6 +308,51 @@ namespace GCFoundation.Web.Controllers
 
 
         #region ViewModel Building
+        private static ComponentViewModel BuildAccordionComponentViewModel()
+        {
+            var vm = new ComponentViewModel
+            {
+                Name = Resources.Components.Accordion_Name,
+                Tag = "<fdcp-accordion>",
+                Overview = Resources.Components.Accordion_Overview,
+                SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
+                {
+                    new()
+                    {
+                        Title = Resources.Components.Accordion_BasicUsage_Title,
+                        Id = Resources.Components.Accordion_BasicUsage_Anchor,
+                        Description = Resources.Components.Accordion_BasicUsage_Text,
+                        PartialViewName = "Accordion/_Basic"
+                    },
+                    new()
+                    {
+                        Title = Resources.Components.Properties,
+                        Id = Resources.Components.Properties_Anchor,
+                        PartialViewName = "Accordion/_Properties"
+                    }
+                },
+                SideNavigation = new SideNavigationViewModel
+                {
+                    Items = new List<NavItem>()
+                    {
+                        new NavLink() { Href = Resources.Components.Overview_Anchor, Label = Resources.Components.Overview },
+                        new NavGroup()
+                        {
+                            Label = Resources.Components.Accordion_BasicUsage_Title,
+                            Items = new List<NavItem>()
+                            {
+                                new NavLink() { Href = Resources.Components.Accordion_BasicAccordion_Anchor, Label = Resources.Components.Accordion_BasicAccordion_Title },
+                                new NavLink() { Href = Resources.Components.Accordion_AlwaysOpen_Anchor, Label = Resources.Components.Accordion_AlwaysOpen_Title },
+                                new NavLink() { Href = Resources.Components.Accordion_ButtonsPosition_Anchor, Label = Resources.Components.Accordion_ButtonsPosition_Title }
+                            }
+                        },
+                        new NavLink() { Href = Resources.Components.Properties_Anchor, Label = Resources.Components.Properties }
+                    }
+                }
+            };
+
+            return vm;
+        }
         private static ComponentViewModel BuildBadgeComponentViewModel()
         {
             var vm = new ComponentViewModel();
@@ -489,6 +547,7 @@ namespace GCFoundation.Web.Controllers
         {
             var vm = new List<ComponentIndexViewModel>()
             {
+                new () { Name = Resources.Components.Index_Accordion_Title, ShortDescription = Resources.Components.Index_Accordion_Description, Href = Url.Action("Accordion", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-accordion.svg"), IsNew = true },
                 new () { Name = Resources.Components.Index_Badge_Title, Description = Resources.Components.Index_Badge_Description, Href = Url.Action("Badge", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-badge.svg") },
                 new () { Name = Resources.Components.Index_Card_Title, Description = Resources.Components.Index_Card_Description, Href = Url.Action("Card", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-card.svg") },
                 new () { Name = Resources.Components.Index_FilteredSearch_Title, ShortDescription = Resources.Components.Index_FilteredSearch_Description, Href = Url.Action("FilteredSearch", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-filtered-search.svg") },
