@@ -11,6 +11,7 @@ namespace GCFoundation.Web.Controllers
     /// <summary>
     /// Controller responsible for serving the template demonstration or sample view.
     /// </summary>
+    /// <param name="logger">The logger used to record controller activity.</param>
     [Route("template")]
     public class TemplateController(ILogger<TemplateController> logger) : GCFoundationBaseController(logger)
     {
@@ -346,6 +347,10 @@ namespace GCFoundation.Web.Controllers
             return View("crud/code");
         }
 
+        /// <summary>
+        /// Displays the CRUD demonstration with the sample employee records.
+        /// </summary>
+        /// <returns>The CRUD demonstration view.</returns>
         [HttpGet("crud/demo")]
         public IActionResult CrudDemo()
         {
@@ -358,6 +363,11 @@ namespace GCFoundation.Web.Controllers
             return View("crud/demo", vm);
         }
 
+        /// <summary>
+        /// Displays the CRUD demonstration after removing an employee from the sample records.
+        /// </summary>
+        /// <param name="id">The identifier of the employee to remove.</param>
+        /// <returns>The updated CRUD demonstration view.</returns>
         public IActionResult CrudDemo(string id)
         {
             SetPageTitle(Resources.Template.Crud_Demo_PageTitle);
@@ -369,6 +379,11 @@ namespace GCFoundation.Web.Controllers
             return View("crud/demo", vm);
         }
 
+        /// <summary>
+        /// Displays the CRUD demonstration after adding or updating an employee.
+        /// </summary>
+        /// <param name="evm">The employee record to add or update.</param>
+        /// <returns>The updated CRUD demonstration view.</returns>
         public IActionResult CrudDemo(EmployeeViewModel evm)
         {
             SetPageTitle(Resources.Template.Crud_Demo_PageTitle);
@@ -391,6 +406,11 @@ namespace GCFoundation.Web.Controllers
             return View("crud/demo", vm);
         }
 
+        /// <summary>
+        /// Removes an employee from the CRUD demonstration data.
+        /// </summary>
+        /// <param name="id">The identifier of the employee to remove.</param>
+        /// <returns>The updated CRUD demonstration view.</returns>
         [HttpPost("crud/delete")]
         [ValidateAntiForgeryToken]
         public IActionResult CrudDelete(string id)
@@ -398,6 +418,11 @@ namespace GCFoundation.Web.Controllers
             return CrudDemo(id);
         }
 
+        /// <summary>
+        /// Displays the form used to add or edit an employee.
+        /// </summary>
+        /// <param name="id">The optional identifier of the employee to edit.</param>
+        /// <returns>The employee edit view.</returns>
         [HttpGet("crud/edit/{id?}")]
         public IActionResult CrudEdit(string? id)
         {
@@ -410,6 +435,11 @@ namespace GCFoundation.Web.Controllers
             return View("crud/edit", employee);
         }
 
+        /// <summary>
+        /// Saves an employee submitted through the CRUD edit form.
+        /// </summary>
+        /// <param name="evm">The submitted employee record.</param>
+        /// <returns>The updated CRUD demonstration view.</returns>
         [HttpPost("crud/edit")]
         [ValidateAntiForgeryToken]
         public IActionResult CrudSave(EmployeeViewModel evm)
@@ -417,6 +447,11 @@ namespace GCFoundation.Web.Controllers
             return CrudDemo(evm);
         }
 
+        /// <summary>
+        /// Displays the profile for an employee in the demonstration data.
+        /// </summary>
+        /// <param name="id">The identifier of the employee to display.</param>
+        /// <returns>The employee profile view, or the CRUD demonstration when no employee is found.</returns>
         [HttpGet("crud/profile/{id}")]
         public IActionResult CrudProfile(string id)
         {
@@ -430,6 +465,10 @@ namespace GCFoundation.Web.Controllers
 
 
         #region Helpers
+        /// <summary>
+        /// Creates the sample employee records used by the CRUD demonstration.
+        /// </summary>
+        /// <returns>The sample employee records.</returns>
         private static IList<EmployeeViewModel> MockEmployeeList()
         {
             return new List<EmployeeViewModel>

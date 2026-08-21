@@ -1,105 +1,100 @@
+@using GCFoundation.Components.Resources
 @using GCFoundation.Web.Resources
 
 <gcds-heading tag="h1">@Template.Crud_Code_Name</gcds-heading>
 @Html.Raw(Template.Crud_Code_Intro)
 
 <gcds-heading tag="h2">@Template.Crud_Code_Demo_Title</gcds-heading>
-<pre><code class="language-cshtml">@Html.Raw(Html.Encode(@"@model GCFoundation.Web.Models.Template.Crud.DemoViewModel
+<pre><code class="language-cshtml">@Html.Raw($@"@model GCFoundation.Web.Models.Template.Crud.DemoViewModel
 @using GCFoundation.Components.Resources
 @using GCFoundation.Web.Resources
 
-<gcds-heading tag=""h1"">@Template.Crud_Demo_PageTitle</gcds-heading>
-<gcds-container size=""lg"">
-    <fdcp-table filter sort pagination-size=""10""
-                caption=""@Template.Crud_Demo_TableCaption""
-                caption-detail=""@Template.Crud_Demo_TableCaptionDetail""
-                rows=""@Model.EmployeeModels"">
-        <template slot=""cell:actions"">
-            <div class=""fdcp-bind-group"">
-                <gcds-button data-bind-template-button-id=""view-button-{id}"" title=""@Template.Crud_Demo_ViewProfile_Title"" button-role=""primary"" type=""link"" data-bind-template-href=""profile/{id}"" size=""small"">@Localization.View</gcds-button>
-                <gcds-button data-bind-template-button-id=""edit-button-{id}"" title=""@Template.Crud_Demo_EditProfile_Title"" button-role=""secondary"" type=""link"" data-bind-template-href=""edit/{id}"" size=""small"">@Localization.Edit</gcds-button>
-                <gcds-button data-bind-template-button-id=""delete-button-{id}"" data-bind-data-employee-id=""id"" data-bind-data-employee-name=""name"" modal-id=""delete-employee-modal"" title=""@Template.Crud_Demo_DeleteEmployee_Title"" button-role=""danger"" class=""fdcp-modal-open"" size=""small"">@Localization.Delete</gcds-button>
-            </div>
-        </template>
-    </fdcp-table>
-</gcds-container>
+&lt;gcds-heading tag=""h1""&gt;{Html.Encode(Template.Crud_Demo_PageTitle)}&lt;/gcds-heading&gt;
+&lt;gcds-container size=""lg""&gt;
+    &lt;fdcp-table filter sort pagination-size=""10""
+                caption=""{Html.Encode(Template.Crud_Demo_TableCaption)}""
+                caption-detail=""{Html.Encode(Template.Crud_Demo_TableCaptionDetail)}""
+                rows=""@Model.EmployeeModels""&gt;
+        &lt;template slot=""cell:actions""&gt;
+            &lt;div class=""fdcp-bind-group""&gt;
+                &lt;gcds-button data-bind-template-button-id=""view-button-{{id}}"" title=""{Html.Encode(Template.Crud_Demo_ViewProfile_Title)}"" button-role=""primary"" type=""link"" data-bind-template-href=""profile/{{id}}"" size=""small""&gt;{Html.Encode(Localization.View)}&lt;/gcds-button&gt;
+                &lt;gcds-button data-bind-template-button-id=""edit-button-{{id}}"" title=""{Html.Encode(Template.Crud_Demo_EditProfile_Title)}"" button-role=""secondary"" type=""link"" data-bind-template-href=""edit/{{id}}"" size=""small""&gt;{Html.Encode(Localization.Edit)}&lt;/gcds-button&gt;
+                &lt;gcds-button data-bind-template-button-id=""delete-button-{{id}}"" data-bind-data-employee-id=""id"" data-bind-data-employee-name=""name"" modal-id=""delete-employee-modal"" title=""{Html.Encode(Template.Crud_Demo_DeleteEmployee_Title)}"" button-role=""danger"" class=""fdcp-modal-open"" size=""small""&gt;{Html.Encode(Localization.Delete)}&lt;/gcds-button&gt;
+            &lt;/div&gt;
+        &lt;/template&gt;
+    &lt;/fdcp-table&gt;
+&lt;/gcds-container&gt;
 
-<fdcp-modal title=""@Template.Crud_Demo_DeleteModal_Title""
-            modal-id=""delete-employee-modal""
-            state=""warning"">
-    <div slot=""body"">
-        <gcds-text>
-            @Template.Crud_Demo_DeleteModal_Text
-            <strong data-employee-name-display></strong>.
-            @Template.Crud_Demo_DeleteModal_Instruction
-        </gcds-text>
-    </div>
-    <div slot=""footer"">
-        <fdcp-form for=""@Model"" method=""post"" action=""@Url.Action(""CrudDelete"", ""Template"")"">
+&lt;fdcp-modal title=""{Html.Encode(Template.Crud_Demo_DeleteModal_Title)}"" modal-id=""delete-employee-modal"" state=""warning""&gt;
+    &lt;div slot=""body""&gt;
+        &lt;gcds-text&gt;{Html.Encode(Template.Crud_Demo_DeleteModal_Text)} &lt;strong data-employee-name-display&gt;&lt;/strong&gt;. {Html.Encode(Template.Crud_Demo_DeleteModal_Instruction)}&lt;/gcds-text&gt;
+    &lt;/div&gt;
+    &lt;div slot=""footer""&gt;
+        &lt;fdcp-form for=""@Model"" method=""post"" action=""@Url.Action(""CrudDelete"", ""Template"")""&gt;
             @Html.AntiForgeryToken()
-            <gcds-button button-id=""delete-employee"" type=""submit"" name=""id"" value="""" button-role=""danger"">@Localization.Delete</gcds-button>
-            <gcds-button button-id=""delete-employee-cancel"" button-role=""secondary"" class=""fdcp-modal-close"">@Localization.Cancel</gcds-button>
-        </fdcp-form>
-    </div>
-</fdcp-modal>
+            &lt;gcds-button button-id=""delete-employee"" type=""submit"" name=""id"" value="""" button-role=""danger""&gt;{Html.Encode(Localization.Delete)}&lt;/gcds-button&gt;
+            &lt;gcds-button button-id=""delete-employee-cancel"" button-role=""secondary"" class=""fdcp-modal-close""&gt;{Html.Encode(Localization.Cancel)}&lt;/gcds-button&gt;
+        &lt;/fdcp-form&gt;
+    &lt;/div&gt;
+&lt;/fdcp-modal&gt;
 
-<section class=""mt-400"">
-    <gcds-button button-role=""primary"" type=""link"" href=""@Url.Action(""CrudEdit"", ""Template"")"">@Template.Crud_Demo_AddEmployee_Button</gcds-button>
-</section>"))</code></pre>
+&lt;section class=""mt-400""&gt;
+    &lt;gcds-button button-role=""primary"" type=""link"" href=""@Url.Action(""CrudEdit"", ""Template"")""&gt;{Html.Encode(Template.Crud_Demo_AddEmployee_Button)}&lt;/gcds-button&gt;
+&lt;/section&gt;")</code></pre>
 
 <gcds-heading tag="h2">@Template.Crud_Code_Edit_Title</gcds-heading>
 <gcds-text>@Template.Crud_Code_Edit_Text</gcds-text>
-<pre><code class="language-cshtml">@Html.Raw(Html.Encode(@"@model GCFoundation.Web.Models.Template.Crud.EmployeeViewModel
+<pre><code class="language-cshtml">@Html.Raw($@"@model GCFoundation.Web.Models.Template.Crud.EmployeeViewModel
 @using GCFoundation.Components.Resources
 @using GCFoundation.Web.Resources
-@{
+@{{
     var managerList = new List<SelectListItem>();
     var departmentList = new List<SelectListItem>();
-}
+}}
 
-<gcds-heading tag=""h1"">@Template.Crud_Edit_PageTitle</gcds-heading>
+&lt;gcds-heading tag=""h1""&gt;{Html.Encode(Template.Crud_Edit_PageTitle)}&lt;/gcds-heading&gt;
 
-<fdcp-form method=""post"" for=""@Model"" action=""@Url.Action(""CrudSave"", ""Template"")"">
+&lt;fdcp-form method=""post"" for=""@Model"" action=""@Url.Action(""CrudSave"", ""Template"")""&gt;
     @Html.AntiForgeryToken()
-    <fdcp-input for=""@Model.Name""></fdcp-input>
-    <fdcp-input for=""@Model.Id""></fdcp-input>
-    <fdcp-input for=""@Model.Level""></fdcp-input>
-    <fdcp-searchable-select for=""@Model.Department"" items=""@departmentList""></fdcp-searchable-select>
-    <fdcp-searchable-select for=""@Model.ManagerName"" items=""@managerList""></fdcp-searchable-select>
-    <fdcp-input for=""@Model.Salary""></fdcp-input>
-    <fdcp-input for=""@Model.Address""></fdcp-input>
+    &lt;fdcp-input for=""@Model.Name""&gt;&lt;/fdcp-input&gt;
+    &lt;fdcp-input for=""@Model.Id""&gt;&lt;/fdcp-input&gt;
+    &lt;fdcp-input for=""@Model.Level""&gt;&lt;/fdcp-input&gt;
+    &lt;fdcp-searchable-select for=""@Model.Department"" items=""@departmentList""&gt;&lt;/fdcp-searchable-select&gt;
+    &lt;fdcp-searchable-select for=""@Model.ManagerName"" items=""@managerList""&gt;&lt;/fdcp-searchable-select&gt;
+    &lt;fdcp-input for=""@Model.Salary""&gt;&lt;/fdcp-input&gt;
+    &lt;fdcp-input for=""@Model.Address""&gt;&lt;/fdcp-input&gt;
 
-    <section class=""mt-400"">
-        <gcds-button class=""fdcp-modal-open"" modal-id=""save-profile-modal"">@Localization.Save</gcds-button>
-        <gcds-button class=""fdcp-modal-open"" button-role=""danger"" modal-id=""reset-profile-modal"">@Localization.Reset</gcds-button>
-    </section>
+    &lt;section class=""mt-400""&gt;
+        &lt;gcds-button class=""fdcp-modal-open"" modal-id=""save-profile-modal""&gt;{Html.Encode(Localization.Save)}&lt;/gcds-button&gt;
+        &lt;gcds-button class=""fdcp-modal-open"" button-role=""danger"" modal-id=""reset-profile-modal""&gt;{Html.Encode(Localization.Reset)}&lt;/gcds-button&gt;
+    &lt;/section&gt;
 
-    <fdcp-modal title=""@Template.Crud_Edit_SaveModal_Title"" modal-id=""save-profile-modal"">
-        <div slot=""body"">
-            <gcds-text>@Template.Crud_Edit_SaveModal_Text</gcds-text>
-        </div>
-        <div slot=""footer"">
-            <gcds-button button-id=""save-profile"" type=""submit"">@Template.Crud_Edit_Confirm_Button</gcds-button>
-            <gcds-button button-id=""save-profile-cancel"" button-role=""secondary"" class=""fdcp-modal-close"">@Localization.Cancel</gcds-button>
-        </div>
-    </fdcp-modal>
+    &lt;fdcp-modal title=""{Html.Encode(Template.Crud_Edit_SaveModal_Title)}"" modal-id=""save-profile-modal""&gt;
+        &lt;div slot=""body""&gt;
+            &lt;gcds-text&gt;{Html.Encode(Template.Crud_Edit_SaveModal_Text)}&lt;/gcds-text&gt;
+        &lt;/div&gt;
+        &lt;div slot=""footer""&gt;
+            &lt;gcds-button button-id=""save-profile"" type=""submit""&gt;{Html.Encode(Template.Crud_Edit_Confirm_Button)}&lt;/gcds-button&gt;
+            &lt;gcds-button button-id=""save-profile-cancel"" button-role=""secondary"" class=""fdcp-modal-close""&gt;{Html.Encode(Localization.Cancel)}&lt;/gcds-button&gt;
+        &lt;/div&gt;
+    &lt;/fdcp-modal&gt;
 
-    <fdcp-modal title=""@Template.Crud_Edit_ResetModal_Title""
+    &lt;fdcp-modal title=""{Html.Encode(Template.Crud_Edit_ResetModal_Title)}""
                 modal-id=""reset-profile-modal""
-                state=""warning"">
-        <div slot=""body"">
-            <gcds-text>@Template.Crud_Edit_ResetModal_Text</gcds-text>
-        </div>
-        <div slot=""footer"">
-            <gcds-button button-id=""reset-profile"" type=""reset"" button-role=""danger"" class=""fdcp-modal-close"">@Template.Crud_Edit_Confirm_Button</gcds-button>
-            <gcds-button button-id=""reset-profile-cancel"" button-role=""secondary"" class=""fdcp-modal-close"">@Localization.Cancel</gcds-button>
-        </div>
-    </fdcp-modal>
-</fdcp-form>
+                state=""warning""&gt;
+        &lt;div slot=""body""&gt;
+            &lt;gcds-text&gt;{Html.Encode(Template.Crud_Edit_ResetModal_Text)}&lt;/gcds-text&gt;
+        &lt;/div&gt;
+        &lt;div slot=""footer""&gt;
+            &lt;gcds-button button-id=""reset-profile"" type=""reset"" button-role=""danger"" class=""fdcp-modal-close""&gt;{Html.Encode(Template.Crud_Edit_Confirm_Button)}&lt;/gcds-button&gt;
+            &lt;gcds-button button-id=""reset-profile-cancel"" button-role=""secondary"" class=""fdcp-modal-close""&gt;{Html.Encode(Localization.Cancel)}&lt;/gcds-button&gt;
+        &lt;/div&gt;
+    &lt;/fdcp-modal&gt;
+&lt;/fdcp-form&gt;
 
-<section class=""mt-400"">
-    <gcds-button type=""link"" button-role=""secondary"" href=""@Url.Action(""CrudDemo"", ""Template"")""><gcds-icon name=""chevron-left"" margin-right=""50""></gcds-icon>@Template.Crud_BackToEmployeeList_Button</gcds-button>
-</section>"))</code></pre>
+&lt;section class=""mt-400""&gt;
+    &lt;gcds-button type=""link"" button-role=""secondary"" href=""@Url.Action(""CrudDemo"", ""Template"")""&gt;&lt;gcds-icon name=""chevron-left"" margin-right=""50""&gt;&lt;/gcds-icon&gt;{Html.Encode(Template.Crud_BackToEmployeeList_Button)}&lt;/gcds-button&gt;
+&lt;/section&gt;")</code></pre>
 
 <gcds-heading tag="h2">@Template.Crud_Code_EmployeeViewModel_Title</gcds-heading>
 <gcds-text>@Template.Crud_Code_EmployeeViewModel_Text</gcds-text>
