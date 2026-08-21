@@ -302,6 +302,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Back.
+        /// </summary>
+        public static string Crud_Back_Button {
+            get {
+                return ResourceManager.GetString("Crud_Back_Button", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Back to employee list.
         /// </summary>
         public static string Crud_BackToEmployeeList_Button {
@@ -356,7 +365,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;gcds-text&gt;Use the following code to recreate the CRUD page template demo, including the employee view model, employee table and edit form.&lt;/gcds-text&gt;.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Use the following code to recreate the CRUD page template demo, including the employee view model, employee table, edit form and profile view.&lt;/gcds-text&gt;.
         /// </summary>
         public static string Crud_Code_Intro {
             get {
@@ -370,6 +379,24 @@ namespace GCFoundation.Web.Resources {
         public static string Crud_Code_Name {
             get {
                 return ResourceManager.GetString("Crud_Code_Name", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to This is an example of what a view page can look like for a CRUD page..
+        /// </summary>
+        public static string Crud_Code_Profile_Text {
+            get {
+                return ResourceManager.GetString("Crud_Code_Profile_Text", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Demo profile page.
+        /// </summary>
+        public static string Crud_Code_Profile_Title {
+            get {
+                return ResourceManager.GetString("Crud_Code_Profile_Title", resourceCulture);
             }
         }
         
@@ -388,6 +415,51 @@ namespace GCFoundation.Web.Resources {
         public static string Crud_Demo_Address_Label {
             get {
                 return ResourceManager.GetString("Crud_Demo_Address_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This demonstration illustrates the create, read, update and delete (CRUD) operations available in the CRUD page template..
+        /// </summary>
+        public static string Crud_Demo_Intro {
+            get {
+                return ResourceManager.GetString("Crud_Demo_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select the button below to access the employee record creation form..
+        /// </summary>
+        public static string Crud_Demo_Notice_Text {
+            get {
+                return ResourceManager.GetString("Crud_Demo_Notice_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add a new employee record.
+        /// </summary>
+        public static string Crud_Demo_Notice_Title {
+            get {
+                return ResourceManager.GetString("Crud_Demo_Notice_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use this section to simulate adding, viewing, updating and deleting employee records. Changes are not saved between sessions..
+        /// </summary>
+        public static string Crud_Demo_TableSectionDescription {
+            get {
+                return ResourceManager.GetString("Crud_Demo_TableSectionDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee records.
+        /// </summary>
+        public static string Crud_Demo_TableSectionTitle {
+            get {
+                return ResourceManager.GetString("Crud_Demo_TableSectionTitle", resourceCulture);
             }
         }
         
@@ -527,7 +599,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This table is provided for demonstration purposes only. Changes are not saved..
+        ///   Looks up a localized string similar to This table is provided for demonstration purposes only. Data shown is fictitious..
         /// </summary>
         public static string Crud_Demo_TableCaptionDetail {
             get {

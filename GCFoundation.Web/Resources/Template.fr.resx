@@ -565,11 +565,29 @@
   <data name="Crud_Demo_StartDate_Label" xml:space="preserve">
     <value>Date de début</value>
   </data>
+  <data name="Crud_Back_Button" xml:space="preserve">
+    <value>Retour</value>
+  </data>
   <data name="Crud_BackToEmployeeList_Button" xml:space="preserve">
     <value>Retour à la liste des employés</value>
   </data>
   <data name="Crud_Demo_AddEmployee_Button" xml:space="preserve">
     <value>Ajouter un employé</value>
+  </data>
+  <data name="Crud_Demo_Intro" xml:space="preserve">
+    <value>Cette démonstration illustre les opérations de création, lecture, mise à jour et suppression (CRUD) disponibles dans le modèle de page CRUD. Les dossiers d'employés présentés sont fictifs et servent d'exemple de l'utilisation du modèle.</value>
+  </data>
+  <data name="Crud_Demo_Notice_Text" xml:space="preserve">
+    <value>Sélectionnez le bouton ci-dessous pour accéder au formulaire de création d'un dossier d'employé.</value>
+  </data>
+  <data name="Crud_Demo_Notice_Title" xml:space="preserve">
+    <value>Ajouter un nouveau dossier d'employé</value>
+  </data>
+  <data name="Crud_Demo_TableSectionDescription" xml:space="preserve">
+    <value>Utilisez cette section pour simuler l'ajout, la consultation, la mise à jour et la suppression de dossiers d'employés. Les modifications ne sont pas enregistrées entre les sessions.</value>
+  </data>
+  <data name="Crud_Demo_TableSectionTitle" xml:space="preserve">
+    <value>Dossiers d'employés</value>
   </data>
   <data name="Crud_Demo_DeleteEmployee_Title" xml:space="preserve">
     <value>Supprimer l’employé</value>
@@ -593,7 +611,7 @@
     <value>Liste des employés</value>
   </data>
   <data name="Crud_Demo_TableCaptionDetail" xml:space="preserve">
-    <value>Ce tableau est fourni à des fins de démonstration seulement. Les modifications ne sont pas enregistrées.</value>
+    <value>Ce tableau est fourni à des fins de démonstration seulement. Les données affichées sont fictives.</value>
   </data>
   <data name="Crud_Demo_ViewProfile_Title" xml:space="preserve">
     <value>Consulter le profil de l’employé</value>
@@ -661,6 +679,12 @@
   <data name="Crud_Code_Edit_Text" xml:space="preserve">
     <value>Cet exemple montre à quoi peut ressembler une page de modification pour une page CRUD.</value>
   </data>
+  <data name="Crud_Code_Profile_Title" xml:space="preserve">
+    <value>Page de profil de démonstration</value>
+  </data>
+  <data name="Crud_Code_Profile_Text" xml:space="preserve">
+    <value>Cet exemple montre à quoi peut ressembler une page de consultation pour une page CRUD.</value>
+  </data>
   <data name="Crud_Code_EmployeeViewModel_Title" xml:space="preserve">
     <value>Modèle de vue d’employé de démonstration</value>
   </data>
@@ -668,7 +692,7 @@
     <value>Cet exemple montre à quoi peut ressembler un modèle de vue pour une page CRUD afin de prendre en charge l’affichage des formulaires et des tableaux.</value>
   </data>
   <data name="Crud_Code_Intro" xml:space="preserve">
-    <value>&lt;gcds-text&gt;Utilisez le code suivant pour recréer la démonstration du modèle de page CRUD, y compris le modèle de vue des employés, le tableau des employés et le formulaire de modification.&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;Utilisez le code suivant pour recréer la démonstration du modèle de page CRUD, y compris le modèle de vue des employés, le tableau des employés, le formulaire de modification et la page de profil.&lt;/gcds-text&gt;</value>
   </data>
   <data name="Crud_Code_Name" xml:space="preserve">
     <value>Code du modèle de page CRUD</value>

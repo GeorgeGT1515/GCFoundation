@@ -14,15 +14,14 @@
 <gcds-heading tag="h2">@Model.Name</gcds-heading>
 @foreach(var prop in properties)
 {
-    var display = prop.GetCustomAttribute<DisplayAttribute>()!.GetName();
-    var value = prop.GetValue(Model);
     if (prop.Name != "Name")
     {
-        <gcds-text><strong>@display: </strong>@value</gcds-text>
+        var displayName = prop.GetCustomAttribute<DisplayAttribute>()!.GetName();
+        <gcds-text><strong>@displayName: </strong>@Html.Display(prop.Name)</gcds-text>
     }
 }
 
 <section class="mt-400">
-    <gcds-button button-role="secondary" type="link" href="@Url.Action("CrudDemo", "Template")"><gcds-icon name="chevron-left" margin-right="50"></gcds-icon>@Template.Crud_BackToEmployeeList_Button</gcds-button>
+    <gcds-button button-role="secondary" type="link" href="@Url.Action("CrudDemo", "Template")"><gcds-icon name="chevron-left" margin-right="50"></gcds-icon>@Template.Crud_Back_Button</gcds-button>
 </section>
 
