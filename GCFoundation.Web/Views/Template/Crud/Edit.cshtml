@@ -32,29 +32,8 @@
     <fdcp-input for="@Model.Salary"></fdcp-input>
     <fdcp-input for="@Model.Address"></fdcp-input>
     <section class="mt-400">
-        <gcds-button class="fdcp-modal-open" modal-id="save-profile-modal">@Localization.Save</gcds-button>
-        <gcds-button class="fdcp-modal-open" button-role="danger" modal-id="reset-profile-modal">@Localization.Reset</gcds-button>
+        <gcds-button type="submit" href="@Url.Action("CrudSave", "template")">@Localization.Save</gcds-button>
     </section>
-
-    <fdcp-modal title="@Template.Crud_Edit_SaveModal_Title" modal-id="save-profile-modal">
-        <div slot="body">
-            <gcds-text>@Template.Crud_Edit_SaveModal_Text</gcds-text>
-        </div>
-        <div slot="footer">
-            <gcds-button button-id="save-profile" type="submit">@Template.Crud_Edit_Confirm_Button</gcds-button>
-            <gcds-button button-id="save-profile-cancel" button-role="secondary" class="fdcp-modal-close">@Localization.Cancel</gcds-button>
-        </div>
-    </fdcp-modal>
-
-    <fdcp-modal title="@Template.Crud_Edit_ResetModal_Title" modal-id="reset-profile-modal" state="warning">
-        <div slot="body">
-            <gcds-text>@Template.Crud_Edit_ResetModal_Text</gcds-text>
-        </div>
-        <div slot="footer">
-            <gcds-button button-id="reset-profile" type="reset" button-role="danger" class="fdcp-modal-close">@Template.Crud_Edit_Confirm_Button</gcds-button>
-            <gcds-button button-id="reset-profile-cancel" button-role="secondary" class="fdcp-modal-close">@Localization.Cancel</gcds-button>
-        </div>
-    </fdcp-modal>
 </fdcp-form>
 
 
