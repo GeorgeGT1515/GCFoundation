@@ -1881,7 +1881,10 @@
     <value>Liste des soumissions récentes</value>
   </data>
   <data name="Table_WithCaptionSlot_ButtonLabel" xml:space="preserve">
-    <value>Exporter</value>
+    <value>Ajouter une soumission</value>
+  </data>
+  <data name="Table_WithCaptionSlot_Note" xml:space="preserve">
+    <value>&lt;i&gt;Note : Dans cette démonstration, cliquer sur le bouton Ajouter une soumission consigne un message dans la console du navigateur.&lt;/i&gt;</value>
   </data>
   <data name="Index_Tabs_Title" xml:space="preserve">
     <value>Onglets</value>
