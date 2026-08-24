@@ -69,7 +69,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             output.TagName = "gcds-table";
             output.TagMode = TagMode.StartTagAndEndTag;
 
-            var childContent = await output.GetChildContentAsync();
+            var childContent = await output.GetChildContentAsync().ConfigureAwait(false);
             string childHtml = childContent.GetContent();
 
             base.Process(context, output);
@@ -196,8 +196,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             var doc = new HtmlDocument();
             doc.LoadHtml(childHtml);
 
-            var captionDiv = doc.DocumentNode.ChildNodes
-                .FirstOrDefault(n => n.Name == "div" && n.GetAttributeValue("slot", null) == "caption");
+            HtmlNode? captionDiv = doc.DocumentNode.ChildNodes
+                .FirstOrDefault(n => n.Name == "div" && n.GetAttributeValue("slot", string.Empty) == "caption");
 
             if (captionDiv == null)
                 return false;

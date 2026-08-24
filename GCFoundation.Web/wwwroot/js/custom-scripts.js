@@ -11,11 +11,17 @@ const GCFoundationWeb = {
     initTableActions: function () {
         document.addEventListener("click", (e) => {
             const deleteBtn = e.target.closest('.delete');
-            if (!deleteBtn) return;
+            if (deleteBtn) {
+                e.preventDefault();
+                console.log("Delete clicked for row:", deleteBtn.row, "submisisonId:", deleteBtn.row?.submissionId);
+                return;
+            }
 
-            e.preventDefault();
-
-            console.log("Delete clicked for row:", deleteBtn.row, "submisisonId:", deleteBtn.row?.submissionId);
+            const addBtn = e.target.closest('.add-submission');
+            if (addBtn) {
+                e.preventDefault();
+                console.log("Add submission clicked");
+            }
         });
     },
     initDeleteModal: function () {

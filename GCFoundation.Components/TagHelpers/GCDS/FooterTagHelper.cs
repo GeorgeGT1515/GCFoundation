@@ -19,6 +19,10 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     {
         private readonly IUrlHelperFactory UrlHelperFactory = urlHelperFactory;
 
+        /// <summary>
+        /// The current <see cref="Microsoft.AspNetCore.Mvc.Rendering.ViewContext"/> for the executing view,
+        /// injected by the Razor runtime and used to construct the <see cref="IUrlHelper"/> for link resolution.
+        /// </summary>
         [ViewContext]
         [HtmlAttributeNotBound]
         public ViewContext ViewContext { get; set; }
