@@ -1,5 +1,6 @@
-class FDCPSearchableSelect {
+class FDCPSearchableSelect extends FDCPFormAssociated {
     constructor(element) {
+        super();
         this.element = element;
         this.trigger = element.querySelector('[data-fdcp-searchable-select-trigger]');
         this.panel = element.querySelector('[data-fdcp-searchable-select-panel]');
@@ -23,6 +24,9 @@ class FDCPSearchableSelect {
         this.pointerDownStartedInside = false;
         this.hasValidationError = false;
         this.form = element.closest('form');
+
+        this._captureInitialValue(this.singleInput);
+        this.inputs.forEach(input => this._captureInitialValue(input));
 
         this.bindEvents();
         this.updateSelectionSummary();
@@ -132,6 +136,8 @@ class FDCPSearchableSelect {
                     event.preventDefault();
                 }
             });
+
+            this._bindResetListener();
         }
 
         document.addEventListener('pointerdown', event => {
@@ -510,6 +516,40 @@ class FDCPSearchableSelect {
                 value: input.value,
                 label: input.getAttribute('data-option-label') || input.value
             }));
+    }
+
+    formResetCallback() {
+        this.close();
+
+        if (this.selectionMode === 'single') {
+            const initialValue = this._initialValues.get(this.singleInput) ?? '';
+
+            if (this.singleInput) {
+                this.singleInput.value = initialValue;
+            }
+
+            const initialOption = this.options.find(
+                option => option.getAttribute('data-option-value') === initialValue
+            ) || null;
+
+            this.options.forEach(option => {
+                const isSelected = option === initialOption;
+
+                option.classList.toggle('is-selected', isSelected);
+                option.setAttribute('aria-selected', isSelected.toString());
+                option.setAttribute('tabindex', '-1');
+            });
+
+            this.setActiveSingleOption(initialOption);
+            this.updateSingleOptionTabIndexes();
+        } else {
+            this.inputs.forEach(input => {
+                input.checked = this._initialValues.get(input) ?? false;
+            });
+        }
+
+        this.updateSelectionSummary();
+        this.setValidationState(true, false);
     }
 
     updateSelectionSummary() {
