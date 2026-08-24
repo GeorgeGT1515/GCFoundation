@@ -82,7 +82,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             else
             {
                 output.Content.SetHtmlContent(childHtml);
-                output.PreContent.SetHtmlContent(BuildHtml());
+                output.PreContent.SetHtmlContent(BuildCaptionHtml(captionInnerHtml));
             }
         }
 
@@ -92,6 +92,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             ResolveColumns();
             BuildFromColsAndRows();
         }
+
 
         private void BuildFromColsAndRows()
         {
@@ -111,11 +112,11 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             return html;
         }
 
-        private string BuildHtml()
+        private string BuildCaptionHtml(string innerHtml)
         {
             return $"""
             <div slot="caption">
-                {BuildCaptionInnerHtml()}
+                {innerHtml}
             </div>
             """;
         }
