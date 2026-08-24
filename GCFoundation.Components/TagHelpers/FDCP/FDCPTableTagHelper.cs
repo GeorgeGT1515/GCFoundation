@@ -113,7 +113,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             return html;
         }
 
-        private string BuildCaptionHtml(string innerHtml)
+        private static string BuildCaptionHtml(string innerHtml)
         {
             return $"""
             <div slot="caption">
