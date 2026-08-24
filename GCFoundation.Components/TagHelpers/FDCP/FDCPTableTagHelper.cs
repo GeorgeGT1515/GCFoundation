@@ -34,6 +34,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         /// The column definitions for the table. If <c>null</c> or empty, columns are resolved
         /// automatically from the properties of the row model in <see cref="Rows"/>.
         /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA2227:Collection properties should be read only", Justification = "<Pending>")]
         public ICollection<ColumnDefinition>? ColumnDefinitions { get; set; }
 
         /// <summary>
@@ -120,7 +121,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             </div>
             """;
         }
-
         #endregion
 
         #region Resolvers
@@ -183,7 +183,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             return name;
         }
-
         #endregion
 
         #region Helpers
