@@ -1,6 +1,5 @@
-class FDCPSearchableSelect extends FDCPFormAssociated {
+class FDCPSearchableSelect {
     constructor(element) {
-        super();
         this.element = element;
         this.trigger = element.querySelector('[data-fdcp-searchable-select-trigger]');
         this.panel = element.querySelector('[data-fdcp-searchable-select-panel]');
@@ -24,6 +23,7 @@ class FDCPSearchableSelect extends FDCPFormAssociated {
         this.pointerDownStartedInside = false;
         this.hasValidationError = false;
         this.form = element.closest('form');
+        this._initialValues = new Map();
 
         this._captureInitialValue(this.singleInput);
         this.inputs.forEach(input => this._captureInitialValue(input));
@@ -137,7 +137,7 @@ class FDCPSearchableSelect extends FDCPFormAssociated {
                 }
             });
 
-            this._bindResetListener();
+            this.form.addEventListener('reset', () => this.formResetCallback());
         }
 
         document.addEventListener('pointerdown', event => {
@@ -516,6 +516,16 @@ class FDCPSearchableSelect extends FDCPFormAssociated {
                 value: input.value,
                 label: input.getAttribute('data-option-label') || input.value
             }));
+    }
+
+    _captureInitialValue(input) {
+        if (!input) return;
+
+        if (input.type === 'checkbox' || input.type === 'radio') {
+            this._initialValues.set(input, input.defaultChecked);
+        } else {
+            this._initialValues.set(input, input.defaultValue);
+        }
     }
 
     formResetCallback() {
