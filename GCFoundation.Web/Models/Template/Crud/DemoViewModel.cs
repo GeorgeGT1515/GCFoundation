@@ -10,7 +10,7 @@ namespace GCFoundation.Web.Models.Template.Crud
         /// <summary>
         /// Gets or sets the employee records displayed in the demonstration table.
         /// </summary>
-        public IList<EmployeeViewModel> EmployeeModels { get; set; }
+        public required IList<EmployeeViewModel> EmployeeModels { get; set; }
 
         /// <summary>
         /// Removes the employee with the specified identifier from the demonstration data.
@@ -18,7 +18,12 @@ namespace GCFoundation.Web.Models.Template.Crud
         /// <param name="id">The identifier of the employee to remove.</param>
         public void DeleteEmployee(string id)
         {
-            EmployeeModels.Remove(EmployeeModels.FirstOrDefault(e => e.Id == id));
+            if (EmployeeModels == null)
+                return;
+
+            var employee = EmployeeModels.FirstOrDefault(e => e.Id == id);
+            if (employee != null)
+                EmployeeModels.Remove(employee);
         }
     }
 }

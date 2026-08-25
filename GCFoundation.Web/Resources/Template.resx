@@ -683,4 +683,7 @@
   <data name="Crud_Code_Name" xml:space="preserve">
     <value>Code for the CRUD page template</value>
   </data>
+  <data name="Crud_Demo_Image_AltText" xml:space="preserve">
+    <value>A CRUD page template includes the Government of Canada header and footer, an information notice with an Add employee button, and an employee list table with filter and sort controls, columns for employee ID, full name and classification level, and View, Edit and Delete action buttons for each row.</value>
+  </data>
 </root>

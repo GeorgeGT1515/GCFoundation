@@ -368,7 +368,7 @@
 &lt;gcds-text&gt;Activez-les à l’échelle de l’application en configurant la gestion des erreurs dans votre &lt;code&gt;Program.cs&lt;/code&gt; à l’aide des instructions &lt;code&gt;app.UseExceptionHandler("{0}")&lt;/code&gt; et &lt;code&gt;app.UseStatusCodePagesWithReExecute("{1}")&lt;/code&gt;.&lt;/gcds-text&gt;</value>
   </data>
   <data name="Index_Template_UnderDevelopment" xml:space="preserve">
-    <value>En cours d’élaboration</value>
+    <value>En développement</value>
   </data>
   <data name="Stepper_Name" xml:space="preserve">
     <value>Modèle de page avec indicateur d'étapes</value>
@@ -681,5 +681,8 @@
   </data>
   <data name="Crud_Code_Name" xml:space="preserve">
     <value>Code du modèle de page CRUD</value>
+  </data>
+  <data name="Crud_Demo_Image_AltText" xml:space="preserve">
+    <value>Un modèle de page CRUD comprend l'en-tête et le pied de page du gouvernement du Canada, un avis d'information avec un bouton Ajouter un employé, et un tableau de liste des employés avec des commandes de filtrage et de tri, des colonnes pour le matricule, le nom complet et le niveau de classification, ainsi que des boutons Visualiser, Modifier et Supprimer pour chaque ligne.</value>
   </data>
 </root>
