@@ -409,6 +409,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to July 27, 2026.
+        /// </summary>
+        public static string Index_Releases_Preview5_Date {
+            get {
+                return ResourceManager.GetString("Index_Releases_Preview5_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Adds FDCP tabs, updates the installation page and table documentation, and fixes active option visibility..
+        /// </summary>
+        public static string Index_Releases_Preview5_Description {
+            get {
+                return ResourceManager.GetString("Index_Releases_Preview5_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Latest releases.
         /// </summary>
         public static string Index_Releases_Title {
