@@ -427,6 +427,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to August 25, 2026.
+        /// </summary>
+        public static string Index_Releases_Preview6_Date {
+            get {
+                return ResourceManager.GetString("Index_Releases_Preview6_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Adds accordion and copy-button components, remakes the FDCP modal, and introduces a CRUD page template..
+        /// </summary>
+        public static string Index_Releases_Preview6_Description {
+            get {
+                return ResourceManager.GetString("Index_Releases_Preview6_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Latest releases.
         /// </summary>
         public static string Index_Releases_Title {
