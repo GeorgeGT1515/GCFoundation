@@ -61,7 +61,6 @@
 
 		<NavNode key="components" area="" preservedRouteParameters="culture" text="Nav_Components" componentVisibility="topnav">
 			<Children>
-				<NavNode key="components-gcds" controller="Components" action="Gcds" area="" preservedRouteParameters="culture" text="Nav_Components_GCDesign" />
 				<NavNode key="components-foundation" controller="Components" action="Index" area="" preservedRouteParameters="culture" text="Nav_Components_GCFoundation">
 					<Children>
 						<NavNode key="components-accordion" controller="Components" action="Accordion" area="" preservedRouteParameters="culture" text="Nav_Components_Accordion" componentVisibility="breadcrumbs" />
@@ -84,6 +83,7 @@
 						</NavNode>
           </Children>
         </NavNode>
+        <NavNode key="components-gcds" controller="Components" action="Gcds" area="" preservedRouteParameters="culture" text="Nav_Components_GCDesign" />
 			</Children>
 		</NavNode>
 

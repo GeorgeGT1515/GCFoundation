@@ -25,7 +25,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// </summary>
         [ViewContext]
         [HtmlAttributeNotBound]
-        public ViewContext ViewContext { get; set; }
+        public ViewContext ViewContext { get; set; } = default!;
 
         /// <summary>
         /// The optional heading text to display in the footer's contextual section.
@@ -51,7 +51,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
 
         /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)
-        {
+        {        
             var urlHelper = UrlHelperFactory.GetUrlHelper(ViewContext);
 
             AddAttributeIfNotNull(output, "contextual-heading", ContextualHeading);

@@ -34,6 +34,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         /// The column definitions for the table. If <c>null</c> or empty, columns are resolved
         /// automatically from the properties of the row model in <see cref="Rows"/>.
         /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA2227:Collection properties should be read only", Justification = "<Pending>")]
         public ICollection<ColumnDefinition>? ColumnDefinitions { get; set; }
 
         /// <summary>
@@ -82,7 +83,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             else
             {
                 output.Content.SetHtmlContent(childHtml);
-                output.PreContent.SetHtmlContent(BuildHtml());
+                output.PreContent.SetHtmlContent(BuildCaptionHtml(captionInnerHtml));
             }
         }
 
@@ -92,6 +93,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             ResolveColumns();
             BuildFromColsAndRows();
         }
+
 
         private void BuildFromColsAndRows()
         {
@@ -111,15 +113,14 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             return html;
         }
 
-        private string BuildHtml()
+        private static string BuildCaptionHtml(string innerHtml)
         {
             return $"""
             <div slot="caption">
-                {BuildCaptionInnerHtml()}
+                {innerHtml}
             </div>
             """;
         }
-
         #endregion
 
         #region Resolvers
@@ -182,7 +183,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             return name;
         }
-
         #endregion
 
         #region Helpers
