@@ -59,7 +59,6 @@ namespace GCFoundation.Components.TagHelpers.GCDS
             AddAttributeIfNotNull(output, "type", Type);
             AddAttributeIfNotNull(output, "value", Value);
 
-
             base.Process(context, output);
         }
     }

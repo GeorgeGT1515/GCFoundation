@@ -1,0 +1,95 @@
+name: Create DS Subtasks
+
+on:
+  issues:
+    types:
+      - labeled
+
+permissions:
+  issues: write
+
+jobs:
+  create-subtasks:
+    if: ${{ github.event.label.name == 'approved' && contains(github.event.issue.labels.*.name, 'enhancement') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create structured sub-issues
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const repo = context.repo;
+
+            const subtasks = [
+              {
+                title: `[DS] Design - ${issue.title}`,
+                labels: ["design-system", "task", "design"],
+                body: [
+                  `Parent: #${issue.number}`,
+                  ``,
+                  `## Design`,
+                  `- [ ] Figma page created`,
+                  `- [ ] Component(s), states, and variants designed`,
+                  `- [ ] Responsive behaviour defined`,
+                  `- [ ] Content guidance defined`,
+                  `- [ ] Accessibility approach defined`,
+                  `- [ ] Design reviewed against GCDS / GCFoundation`
+                ].join('\n')
+              },
+              {
+                title: `[DS] Build & Code - ${issue.title}`,
+                labels: ["design-system", "task", "build"],
+                body: [
+                  `Parent: #${issue.number}`,
+                  ``,
+                  `## Build & Code`,
+                  `- [ ] Front-end implementation completed`,
+                  `- [ ] Back-end implementation completed`,
+                  `- [ ] Tokens / theming aligned`,
+                  `- [ ] Reusability and API/interface reviewed`,
+                  `- [ ] Code review completed`,
+                  `- [ ] Security scanning passes`
+                ].join('\n')
+              },
+              {
+                title: `[DS] Validate & Test - ${issue.title}`,
+                labels: ["design-system", "task", "validation"],
+                body: [
+                  `Parent: #${issue.number}`,
+                  ``,
+                  `## Validate & Test`,
+                  `- [ ] Manual accessibility testing completed`,
+                  `- [ ] Automated accessibility checks completed`,
+                  `- [ ] Keyboard testing completed`,
+                  `- [ ] Screen reader testing completed`,
+                  `- [ ] Usability validation completed`,
+                  `- [ ] UAT completed`,
+                  `- [ ] Cross-browser/device testing completed`
+                ].join('\n')
+              },
+              {
+                title: `[DS] Release & Governance - ${issue.title}`,
+                labels: ["design-system", "task", "release"],
+                body: [
+                  `Parent: #${issue.number}`,
+                  ``,
+                  `## Release & Governance`,
+                  `- [ ] Added to Figma library`,
+                  `- [ ] Design guidance published`,
+                  `- [ ] Dev documentation published`,
+                  `- [ ] Versioning / change notes updated`,
+                  `- [ ] Final approval completed`,
+                  `- [ ] Comms completed`
+                ].join('\n')
+              }
+            ];
+
+            for (const task of subtasks) {
+              await github.rest.issues.create({
+                owner: repo.owner,
+                repo: repo.repo,
+                title: task.title,
+                body: task.body,
+                labels: task.labels
+              });
+            }

@@ -19,12 +19,12 @@ namespace GCFoundation.Common.Settings
         /// <summary>
         /// Gets or sets the version of the GC Design System CSS Shortcuts being used.
         /// </summary>
-        public string GCDSCssShortcutsVersion { get; set; } = "1.0.1";
+        public string GCDSCssShortcutsVersion { get; set; } = "1.2.0";
 
         /// <summary>
         /// Gets or sets the version of the GC Design System being used.
         /// </summary>
-        public string GCDSVersion { get; set; } = "1.0.0";
+        public string GCDSVersion { get; set; } = "1.3.1";
 
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace GCFoundation.Common.Settings
         {
             get
             {
-                return new Uri($"https://cdn.design-system.alpha.canada.ca/@gcds-core/components@{GCDSVersion}/dist/gcds/gcds.css");
+                return new Uri($"https://cdn.design-system.canada.ca/@gcds-core/components@{GCDSVersion}/dist/gcds/gcds.css");
             }
         }
 
@@ -56,7 +56,7 @@ namespace GCFoundation.Common.Settings
         {
             get
             {
-                return new Uri($"https://cdn.design-system.alpha.canada.ca/@gcds-core/css-shortcuts@{GCDSCssShortcutsVersion}/dist/gcds-css-shortcuts.min.css");
+                return new Uri($"https://cdn.design-system.canada.ca/@gcds-core/css-shortcuts@{GCDSCssShortcutsVersion}/dist/gcds-css-shortcuts.min.css");
             }
         }
 
@@ -67,7 +67,7 @@ namespace GCFoundation.Common.Settings
         {
             get
             {
-                return new Uri($"https://cdn.design-system.alpha.canada.ca/@gcds-core/components@{GCDSVersion}/dist/gcds/gcds.esm.js");
+                return new Uri($"https://cdn.design-system.canada.ca/@gcds-core/components@{GCDSVersion}/dist/gcds/gcds.esm.js");
             }
         }
 
@@ -104,6 +104,11 @@ namespace GCFoundation.Common.Settings
         /// Gets or sets the version number of the application.
         /// </summary>
         public string ApplicationVersion { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Gets or sets whether to hide the default Canada.ca link in breadcrumbs.
+        /// </summary>
+        public bool HideCanadaLinkInBreadcrumbs { get; set; }
 
         /// <summary>
         /// Gets or sets the support link (or mailto) for English users.
@@ -146,6 +151,18 @@ namespace GCFoundation.Common.Settings
         /// </summary>
         public Collection<string> GlobalLinkTags { get; } = new Collection<string>();
 
+        /// <summary>
+        /// Gets optional global contextual footer links (shown in the footer's contextual section).
+        /// Bind from appsettings as a JSON array of <see cref="FooterLink"/> objects (label/link and optional locale-specific fields).
+        /// </summary>
+        public Collection<FooterLink> GlobalFooterContextualLinks { get; } = new Collection<FooterLink>();
+
+        /// <summary>
+        /// Gets optional global footer sub-links.
+        /// Bind from appsettings as a JSON array of <see cref="FooterLink"/> objects (label/link and optional locale-specific fields).
+        /// </summary>
+        public Collection<FooterLink> GlobalFooterSubLinks { get; } = new Collection<FooterLink>();
+
 
         /// <summary>
         /// Determines whether to include the Adobe Analytics' script.
@@ -176,31 +193,5 @@ namespace GCFoundation.Common.Settings
         /// Set to false to disable automatic inclusion of Font Awesome CSS from CDN.
         /// </summary>
         public bool IncludeFontAwesome { get; set; } = true;
-
-
-        // Grid.js configuration
-        /// <summary>
-        /// Gets or sets whether to include Grid.js resources.
-        /// </summary>
-        public bool IncludeGridJs { get; set; } = true;
-
-        /// <summary>
-        /// Gets or sets whether to load Grid.js from CDN instead of local assets.
-        /// </summary>
-        public bool UseGridJsCdn { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Grid.js CDN URL for the production bundle (minified).
-        /// Example: https://unpkg.com/gridjs/dist/gridjs.production.min.js
-        /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1056:URI-like properties should not be strings", Justification = "Configuration property bound from appsettings.json")]
-        public string GridJsCdnJsUrl { get; set; } = "https://unpkg.com/gridjs/dist/gridjs.production.min.js";
-
-        /// <summary>
-        /// Gets or sets the Grid.js CDN CSS URL for the default theme (minified).
-        /// Example: https://unpkg.com/gridjs/dist/theme/mermaid.min.css
-        /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1056:URI-like properties should not be strings", Justification = "Configuration property bound from appsettings.json")]
-        public string GridJsCdnCssUrl { get; set; } = "https://unpkg.com/gridjs/dist/theme/mermaid.min.css";
     }
 }

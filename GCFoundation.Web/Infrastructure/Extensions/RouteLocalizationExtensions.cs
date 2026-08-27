@@ -29,6 +29,11 @@ namespace GCFoundation.Web.Infrastructure.Extensions
                 .WhereAction(nameof(HomeController.Index))
                 .TranslateAction("");
 
+                setup.UseCulture("fr")
+                .WhereController(nameof(HomeController))
+                .WhereAction(nameof(HomeController.AccessibilityStatement))
+                .TranslateAction("declaration-daccessibilite");
+
                 // Components Controller
                 setup.UseCulture("fr")
                 .WhereController(nameof(ComponentsController))
@@ -78,16 +83,6 @@ namespace GCFoundation.Web.Infrastructure.Extensions
 
                 setup.UseCulture("fr")
                 .WhereController(nameof(ComponentsController))
-                .WhereAction(nameof(ComponentsController.TableGridJs))
-                .TranslateAction("tableau-grid-js");
-
-                setup.UseCulture("fr")
-                .WhereController(nameof(ComponentsController))
-                .WhereAction(nameof(ComponentsController.FdcpGridTable))
-                .TranslateAction("fdcp-grid-table");
-
-                setup.UseCulture("fr")
-                .WhereController(nameof(ComponentsController))
                 .WhereAction(nameof(ComponentsController.PageHeading))
                 .TranslateAction("titre-page");
 
@@ -95,6 +90,11 @@ namespace GCFoundation.Web.Infrastructure.Extensions
                 .WhereController(nameof(ComponentsController))
                 .WhereAction(nameof(ComponentsController.Stepper))
                 .TranslateAction("etapes");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(ComponentsController))
+                .WhereAction(nameof(ComponentsController.Tabs))
+                .TranslateAction("onglets");
 
                 // Template Controller
                 setup.UseCulture("fr")

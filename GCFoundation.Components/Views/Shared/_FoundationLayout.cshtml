@@ -71,18 +71,6 @@
     
     @* Default GCFoundation CSS files (always included) *@
     <link rel="stylesheet" href="@StaticResourceHelper.GetLibResourcePath("prism/css/prism.css")" asp-append-version="true" />
-    @* Grid.js CSS (if enabled) *@
-    @if (settings.Value.IncludeGridJs)
-    {
-        if (settings.Value.UseGridJsCdn)
-        {
-            <link rel="stylesheet" href="@settings.Value.GridJsCdnCssUrl" />
-        }
-        else
-        {
-            <link rel="stylesheet" href="@StaticResourceHelper.GetLibResourcePath("gridjs/theme/mermaid.min.css")" asp-append-version="true" />
-        }
-    }
     <link rel="stylesheet" href="@StaticResourceHelper.GetLibResourcePath("quill/quill.snow.css")" asp-append-version="true" />
     <link rel="stylesheet" href="@StaticResourceHelper.GetCssResourcePath("foundation.min.css")" asp-append-version="true" />
     
@@ -136,6 +124,10 @@
                 @await Html.PartialAsync(menuPartialViewName)
             </div>
         }
+        else
+        {
+            @await Component.InvokeAsync("Navigation", new { viewName = "GCDSTopNavigation", filterName = NamedNavigationFilters.TopNav, startingNodeKey = "" })
+        }
 
         @* Load a search view if defined *@
         @if (!string.IsNullOrEmpty(searchPartialViewName))
@@ -183,12 +175,41 @@
     </gcds-container>
 
     @* GC Footer *@
+    @* Footer links (merge Global and custom footer links defined in the GCFoundationBaseController) *@
     @{
-        var footerContextualHeading = ViewData["FooterContextualHeading"] as string;
-        var footerContextualLinks = ViewData["FooterContextualLinks"] as IEnumerable<FooterLink>;
-        var footerSubLinks = ViewData["FooterSubLinks"] as IEnumerable<FooterLink>;
+        var globalFooterContextualLinks = settings.Value.GlobalFooterContextualLinks;
+        var globalFooterSubLinks = settings.Value.GlobalFooterSubLinks;
+        var controllerFooterContextualHeading = ViewData["FooterContextualHeading"] as string;
+        var controllerFooterContextualLinks = ViewData["FooterContextualLinks"] as IEnumerable<FooterLink>;
+        var controllerFooterSubLinks = ViewData["FooterSubLinks"] as IEnumerable<FooterLink>;
+        var footerDisplay = ViewData["FooterDisplay"] as FooterDisplayType? ?? FooterDisplayType.full;
+        var footerContextualHeading = settings.Value.ApplicationName;
+        var footerContextualLinks = new List<FooterLink>();
+        var footerSubLinks = new List<FooterLink>();
+        if (controllerFooterContextualLinks != null && controllerFooterContextualLinks.Any())
+        {
+            footerContextualLinks.AddRange(controllerFooterContextualLinks);
+        }
+        if (globalFooterContextualLinks != null && globalFooterContextualLinks.Any())
+        {
+            // Add any global footer contextual link that does not (already) exist in the list of custom footer contextual links.
+            footerContextualLinks.AddRange(globalFooterContextualLinks.Where(gfcl => !footerContextualLinks.Any(fl => (!string.IsNullOrEmpty(gfcl.GetLocalizedLabel()) && fl.GetLocalizedLabel() == gfcl.GetLocalizedLabel()) || (!string.IsNullOrEmpty(gfcl.GetLocalizedLink()) && fl.GetLocalizedLink() == gfcl.GetLocalizedLink()))).ToList());
+        }
+        if (controllerFooterSubLinks != null && controllerFooterSubLinks.Any())
+        {
+            footerSubLinks.AddRange(controllerFooterSubLinks);
+        }
+        if (globalFooterSubLinks != null && globalFooterSubLinks.Any())
+        {
+            // Add any global footer sub link that does not (already) exist in the list of custom footer sub links.
+            footerSubLinks.AddRange(globalFooterSubLinks.Where(gfsl => !footerSubLinks.Any(fl => (!string.IsNullOrEmpty(gfsl.GetLocalizedLabel()) && fl.GetLocalizedLabel() == gfsl.GetLocalizedLabel()) || (!string.IsNullOrEmpty(gfsl.GetLocalizedLink()) && fl.GetLocalizedLink() == gfsl.GetLocalizedLink()))).ToList());
+        }
+        if (!string.IsNullOrEmpty(controllerFooterContextualHeading))
+        {
+            footerContextualHeading = controllerFooterContextualHeading;
+        }
     }
-    <gcds-footer display="full" contextual-heading="@footerContextualHeading" contextual-links="@footerContextualLinks" sub-links="@footerSubLinks"></gcds-footer>
+    <gcds-footer display="@footerDisplay" contextual-heading="@footerContextualHeading" contextual-links="@footerContextualLinks" sub-links="@footerSubLinks"></gcds-footer>
 
     @* Render all modal in that section to make sure to block all content on the page *@
     @await RenderSectionAsync("Modals", required: false)
@@ -207,18 +228,6 @@
 
     @* Default foundation JavaScript files (always included) *@
     <script src="@StaticResourceHelper.GetLibResourcePath("prism/js/prism.js")" asp-append-version="true"></script>
-    @* Grid.js JS (if enabled) - load BEFORE foundation so our wrappers can detect it *@
-    @if (settings.Value.IncludeGridJs)
-    {
-        if (settings.Value.UseGridJsCdn)
-        {
-            <script src="@settings.Value.GridJsCdnJsUrl"></script>
-        }
-        else
-        {
-            <script src="@StaticResourceHelper.GetLibResourcePath("gridjs/gridjs.production.min.js")" asp-append-version="true"></script>
-        }
-    }
     <script src="@StaticResourceHelper.GetLibResourcePath("quill/quill.js")" asp-append-version="true"></script>
     <script src="@StaticResourceHelper.GetJsResourcePath("foundation.min.js")" asp-append-version="true"></script>
 

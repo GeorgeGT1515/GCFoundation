@@ -68,5 +68,23 @@ namespace GCFoundation.Components.Resources {
                 return ResourceManager.GetString("Field_Required", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to This field is required..
+        /// </summary>
+        internal static string Field_Required_Generic {
+            get {
+                return ResourceManager.GetString("Field_Required_Generic", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to {0}: This field is required..
+        /// </summary>
+        internal static string Field_Required_Summary {
+            get {
+                return ResourceManager.GetString("Field_Required_Summary", resourceCulture);
+            }
+        }
     }
 }

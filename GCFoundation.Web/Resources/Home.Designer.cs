@@ -61,11 +61,216 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to GCFoundation is a library that provides helpers to build a GC web application compliant with the latest standards..
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;This design system is currently in alpha. We are actively working to improve the accessibility of all custom components and patterns. We are aware that some components do not yet fully meet accessibility requirements, including those outlined in &lt;gcds-link href=&quot;https://accessible.canada.ca/creating-accessibility-standards/canasc-en-301-5492024-accessibility-requirements-ict-products-and-services&quot; target=&quot;_blank&quot;&gt;CAN/ASC – EN 301 549&lt;/gcds-link&gt;.&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;We are committed to identi [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string AccessibilityStatement_BetaNotice {
+            get {
+                return ResourceManager.GetString("AccessibilityStatement_BetaNotice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Beta notice.
+        /// </summary>
+        public static string AccessibilityStatement_BetaNotice_Heading {
+            get {
+                return ResourceManager.GetString("AccessibilityStatement_BetaNotice_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;To support continuous improvement, we:&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;
+        ///&lt;ul class=&quot;list-disc&quot;&gt;
+        ///&lt;li&gt;Use automated accessibility testing tools during development.&lt;/li&gt;
+        ///&lt;li&gt;Are looking into conducting more robust manual testing: including with assistive technologies and with users who have accessibility needs - to validate real-world usability.&lt;/li&gt;
+        ///&lt;li&gt;Monitor changes in accessibility standards and update components and guidance accordingly.&lt;/li&gt;
+        ///&lt;/ul&gt;
+        ///&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string AccessibilityStatement_HowWeTest {
+            get {
+                return ResourceManager.GetString("AccessibilityStatement_HowWeTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How we test and maintain accessibility.
+        /// </summary>
+        public static string AccessibilityStatement_HowWeTest_Heading {
+            get {
+                return ResourceManager.GetString("AccessibilityStatement_HowWeTest_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;As this design system is in alpha, some components may not yet meet contrast, keyboard, semantic, or focus-management requirements.&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;We are documenting these issues, prioritizing fixes, and will not promote a component for GC-wide use until it meets our accessibility standards.&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;If you encounter accessibility barriers or have suggestions for improvement, please feel free to open a GitHub ticket.&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;Your feedback helps us build mor [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string AccessibilityStatement_KnownIssues {
+            get {
+                return ResourceManager.GetString("AccessibilityStatement_KnownIssues", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Known issues.
+        /// </summary>
+        public static string AccessibilityStatement_KnownIssues_Heading {
+            get {
+                return ResourceManager.GetString("AccessibilityStatement_KnownIssues_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;We are committed to building digital experiences that are accessible to as many people as possible, including users with disabilities. We follow the technical standard &lt;gcds-link href=&quot;https://accessible.canada.ca/creating-accessibility-standards/canasc-en-301-5492024-accessibility-requirements-ict-products-and-services&quot; target=&quot;_blank&quot;&gt;CAN/ASC – EN 301 549&lt;/gcds-link&gt; for Information and Communication Technology (ICT) to guide how we design, code, document, and test components. This ensures our  [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string AccessibilityStatement_OurCommitment {
+            get {
+                return ResourceManager.GetString("AccessibilityStatement_OurCommitment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Our commitment.
+        /// </summary>
+        public static string AccessibilityStatement_OurCommitment_Heading {
+            get {
+                return ResourceManager.GetString("AccessibilityStatement_OurCommitment_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accessibility statement.
+        /// </summary>
+        public static string AccessibilityStatement_Title {
+            get {
+                return ResourceManager.GetString("AccessibilityStatement_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;When using our design system or any components built from it, you should expect:&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;
+        ///&lt;ul class=&quot;list-disc&quot;&gt;
+        ///&lt;li&gt;Keyboard accessibility &amp; focus management: All interactive elements must be reachable and usable with a keyboard, with clear focus indicators.&lt;/li&gt;
+        ///&lt;li&gt;Support for assistive technologies: Semantic HTML, accurate labels, ARIA where appropriate, and meaningful structure so screen readers and other tools can interpret content reliably.&lt;/li&gt;
+        ///&lt;li&gt;Strong visual access [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string AccessibilityStatement_WhatThisMeans {
+            get {
+                return ResourceManager.GetString("AccessibilityStatement_WhatThisMeans", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What this means in practice.
+        /// </summary>
+        public static string AccessibilityStatement_WhatThisMeans_Heading {
+            get {
+                return ResourceManager.GetString("AccessibilityStatement_WhatThisMeans_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GCFoundation provides .NET 10 components, secure defaults and practical templates that help teams build web applications aligned with Government of Canada standards..
         /// </summary>
         public static string Index_Description {
             get {
                 return ResourceManager.GetString("Index_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Explore form controls, navigation patterns and other reusable interface components..
+        /// </summary>
+        public static string Index_Explore_Components_Description {
+            get {
+                return ResourceManager.GetString("Index_Explore_Components_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Components.
+        /// </summary>
+        public static string Index_Explore_Components_Title {
+            get {
+                return ResourceManager.GetString("Index_Explore_Components_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Browse the guidance, examples and reusable building blocks included with GCFoundation..
+        /// </summary>
+        public static string Index_Explore_Description {
+            get {
+                return ResourceManager.GetString("Index_Explore_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add the NuGet packages and configure components, security, localization and routing..
+        /// </summary>
+        public static string Index_Explore_Installation_Description {
+            get {
+                return ResourceManager.GetString("Index_Explore_Installation_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Installation.
+        /// </summary>
+        public static string Index_Explore_Installation_Title {
+            get {
+                return ResourceManager.GetString("Index_Explore_Installation_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the available layout, spacing, colour and responsive utility classes..
+        /// </summary>
+        public static string Index_Explore_Styles_Description {
+            get {
+                return ResourceManager.GetString("Index_Explore_Styles_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Styles.
+        /// </summary>
+        public static string Index_Explore_Styles_Title {
+            get {
+                return ResourceManager.GetString("Index_Explore_Styles_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start from working layouts for common application pages and workflows..
+        /// </summary>
+        public static string Index_Explore_Templates_Description {
+            get {
+                return ResourceManager.GetString("Index_Explore_Templates_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page templates.
+        /// </summary>
+        public static string Index_Explore_Templates_Title {
+            get {
+                return ResourceManager.GetString("Index_Explore_Templates_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Explore GCFoundation.
+        /// </summary>
+        public static string Index_Explore_Title {
+            get {
+                return ResourceManager.GetString("Index_Explore_Title", resourceCulture);
             }
         }
         
@@ -87,7 +292,205 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Welcome.
+        ///   Looks up a localized string similar to Report an issue, request a feature or review our accessibility commitments and known limitations..
+        /// </summary>
+        public static string Index_Feedback_Description {
+            get {
+                return ResourceManager.GetString("Index_Feedback_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contribute on GitHub.
+        /// </summary>
+        public static string Index_Feedback_PrimaryLink {
+            get {
+                return ResourceManager.GetString("Index_Feedback_PrimaryLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accessibility statement.
+        /// </summary>
+        public static string Index_Feedback_SecondaryLink {
+            get {
+                return ResourceManager.GetString("Index_Feedback_SecondaryLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Help improve GCFoundation.
+        /// </summary>
+        public static string Index_Feedback_Title {
+            get {
+                return ResourceManager.GetString("Index_Feedback_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Review the latest preview releases, their key changes and installation details..
+        /// </summary>
+        public static string Index_Releases_Description {
+            get {
+                return ResourceManager.GetString("Index_Releases_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to April 8, 2026.
+        /// </summary>
+        public static string Index_Releases_Preview1_Date {
+            get {
+                return ResourceManager.GetString("Index_Releases_Preview1_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Migrates GCFoundation components to the stable GC Design System v1.0.0 release..
+        /// </summary>
+        public static string Index_Releases_Preview1_Description {
+            get {
+                return ResourceManager.GetString("Index_Releases_Preview1_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to June 1, 2026.
+        /// </summary>
+        public static string Index_Releases_Preview2_Date {
+            get {
+                return ResourceManager.GetString("Index_Releases_Preview2_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Adds the accessibility statement and dynamic radio fields, with component fixes and expanded tests..
+        /// </summary>
+        public static string Index_Releases_Preview2_Description {
+            get {
+                return ResourceManager.GetString("Index_Releases_Preview2_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to July 9, 2026.
+        /// </summary>
+        public static string Index_Releases_Preview3_Date {
+            get {
+                return ResourceManager.GetString("Index_Releases_Preview3_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Adds dynamic navigation, compact and full footer modes, and configurable Canada.ca breadcrumb links..
+        /// </summary>
+        public static string Index_Releases_Preview3_Description {
+            get {
+                return ResourceManager.GetString("Index_Releases_Preview3_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to July 15, 2026.
+        /// </summary>
+        public static string Index_Releases_Preview4_Date {
+            get {
+                return ResourceManager.GetString("Index_Releases_Preview4_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Refreshes the prototype home page and adds a table component and searchable dropdown..
+        /// </summary>
+        public static string Index_Releases_Preview4_Description {
+            get {
+                return ResourceManager.GetString("Index_Releases_Preview4_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to July 27, 2026.
+        /// </summary>
+        public static string Index_Releases_Preview5_Date {
+            get {
+                return ResourceManager.GetString("Index_Releases_Preview5_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Adds FDCP tabs, updates the installation page and table documentation, and fixes active option visibility..
+        /// </summary>
+        public static string Index_Releases_Preview5_Description {
+            get {
+                return ResourceManager.GetString("Index_Releases_Preview5_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to August 25, 2026.
+        /// </summary>
+        public static string Index_Releases_Preview6_Date {
+            get {
+                return ResourceManager.GetString("Index_Releases_Preview6_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Adds accordion and copy-button components, remakes the FDCP modal, and introduces a CRUD page template..
+        /// </summary>
+        public static string Index_Releases_Preview6_Description {
+            get {
+                return ResourceManager.GetString("Index_Releases_Preview6_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Latest releases.
+        /// </summary>
+        public static string Index_Releases_Title {
+            get {
+                return ResourceManager.GetString("Index_Releases_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Install GCFoundation, configure the core services and explore working examples for your next ASP.NET MVC application..
+        /// </summary>
+        public static string Index_Start_Description {
+            get {
+                return ResourceManager.GetString("Index_Start_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Get started.
+        /// </summary>
+        public static string Index_Start_PrimaryLink {
+            get {
+                return ResourceManager.GetString("Index_Start_PrimaryLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Explore components.
+        /// </summary>
+        public static string Index_Start_SecondaryLink {
+            get {
+                return ResourceManager.GetString("Index_Start_SecondaryLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start building.
+        /// </summary>
+        public static string Index_Start_Title {
+            get {
+                return ResourceManager.GetString("Index_Start_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Build GC web applications with confidence.
         /// </summary>
         public static string Index_Title {
             get {

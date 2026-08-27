@@ -1,0 +1,202 @@
+# GCFoundation.Web - Build and Deploy pipeline (from GitHub)
+# Created: 2026-04-20
+# Modified: 2026-04-23
+#
+# Runs once per change reaching master (merge push), not on every PR sync.
+# Azure Pipelines cannot trigger on GitHub "PR approved" alone; pair this with
+# GitHub branch protection on master (required reviews before merge).
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    include:
+      - GCFoundation.Web/
+      - Pipeline/
+
+# Do not run pipeline on PRs. This pipeline is meant to run on merges to master, not on every PR sync.
+pr: none
+
+# NOTE: It seems that TBS Self Hosted Agent Pools don't have access to pull from GitHub repos, even public ones.
+pool:
+  name: TBS Self Hosted
+
+resources:
+  repositories:
+   - repository: gcfoundationweb
+     type: github
+     name: 'tbs-imtd/GCFoundation'
+     endpoint: github.com_gcfoundation_tbs-sjturcot
+     persistCredentials: true
+     ref: refs/heads/master
+   - repository: templates
+     type: git
+     name: 'TBS DevOps Master/DevOps Templates'
+     ref: refs/heads/develop
+
+variables:
+- template: variables.yaml
+- name: enableTruffleHogScan
+  value: false
+- name: allowFlaggedSecrets
+  value: true
+- name: solution
+  value: '**/*.sln'
+- name: buildPlatform
+  value: 'Any CPU'
+- name: buildConfiguration
+  value: 'Release'
+
+stages:
+- stage: build_gcfoundationweb_app
+  displayName: 'Build and Scan'
+  jobs:
+  - job: Job_1
+    displayName: Agent job 1
+    steps:
+    - checkout: gcfoundationweb
+      clean: true
+      fetchDepth: 1
+      persistCredentials: true
+    - task: UseDotNet@2
+      displayName: Install .NET SDK
+      inputs:
+        packageType: sdk
+        version: ${{ variables.dotnetSdkVersion }}
+    - task: DotNetCoreCLI@2
+      displayName: Restore
+      inputs:
+        command: restore
+        projects: ${{ variables.projects }}
+        feedsToUse: select
+        vstsFeed: TBS_Custom_Feed
+        noCache: true
+        verbosityRestore: Detailed
+        verbosityPack: Detailed
+    - task: PowerShell@2
+      displayName: Scan Packages for Vulnerabilities - PowerShell
+      continueOnError: True
+      env:
+       BUILD_SOURCESDIRECTORY: $(Build.SourcesDirectory)
+      inputs:
+       targetType: 'inline'
+       script: |
+        ($output = dotnet list $env:BUILD_SOURCESDIRECTORY/GCFoundation.Web/GCFoundation.Web.csproj package --vulnerable)
+
+        $errors = $output | Select-String '>'
+
+        if ($errors.Count -gt 0) {
+            foreach ($err in $errors) {
+                Write-Host "##vso[task.logissue type=error]Found vulnerable package $err"
+            }
+
+            exit 1
+        }
+        exit 0
+       failOnStderr: true
+    - ${{ if eq(variables.enableTruffleHogScan, true) }}:
+          - task: PowerShell@2
+            displayName: 'Download TruffleHog'
+            inputs:
+              targettype: 'inline'
+              script: |
+                $fileUrl = "https://github.com/trufflesecurity/trufflehog/releases/download/v3.81.9/trufflehog_3.81.9_windows_amd64.tar.gz"
+                $targetPath = "$(Pipeline.Workspace)\trufflehog.tar.gz"
+                Invoke-WebRequest -Uri $fileUrl -OutFile $targetPath
+                Write-Host "File downloaded to $targetPath"
+                
+                $tempFilePath = "$(Pipeline.Workspace)\_trufflehog.tar.gz_"
+                if (Test-Path $tempFilePath) {
+                  Remove-Item -Path $tempFilePath -Recurse -Force
+                  Write-Host "Cleaned up old temp files"
+                }
+
+          - task: ExtractFiles@1
+            displayName: 'Extract TruffleHog'
+            inputs:
+              archiveFilePatterns: '$(PIPELINE.WORKSPACE)\trufflehog.tar.gz' # string. Required. Archive file patterns. Default: **/*.zip.
+              destinationFolder: $(PIPELINE.WORKSPACE)
+              cleanDestinationFolder: false
+              overwriteExistingFiles: true
+
+          - task: PowerShell@2
+            displayName: 'Run TruffleHog'
+            continueOnError: ${{ variables.allowFlaggedSecrets }}
+            inputs:
+              targettype: 'inline'
+              script: |
+                &"$(Pipeline.Workspace)\trufflehog.exe" filesystem $(System.DefaultWorkingDirectory) --no-update --no-verification --fail 
+    - task: DotNetCoreCLI@2
+      displayName: Build projects
+      inputs:
+        projects: ${{ variables.projects }}
+        arguments: '--configuration ${{ variables.buildConfiguration }} --no-restore'
+        verbosityRestore: Detailed
+        verbosityPack: Detailed
+    - task: DotNetCoreCLI@2
+      displayName: Publish Web App
+      inputs:
+        command: publish
+        publishWebProjects: True
+        projects: $(BuildParameters.RestoreBuildProjects)
+        arguments: --configuration $(BuildConfiguration) --output $(Build.BinariesDirectory)/publish_output
+        zipAfterPublish: false
+        modifyOutputPath: false
+        verbosityRestore: Detailed
+        verbosityPack: Detailed
+    - task: ArchiveFiles@2
+      displayName: Archive $(Build.BinariesDirectory)/publish_output/
+      inputs:
+        rootFolderOrFile: $(Build.BinariesDirectory)/publish_output
+        includeRootFolder: false
+        archiveFile: $(Build.ArtifactStagingDirectory)/GCFoundation.Web.zip
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Artifact
+      condition: succeededOrFailed()
+      inputs:
+        PathtoPublish: $(build.artifactstagingdirectory)
+        TargetPath: '\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)'
+
+- stage: deploy_dev
+  dependsOn: build_gcfoundationweb_app
+  jobs:
+  - deployment: deploy_app_dev
+    variables:
+      - template: './transforms/dev/appsettings.yaml'
+      - template: './transforms/dev/deployment.yaml'
+    environment: ${{ variables.deploymentEnvironment }}
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - template: Deploy/DotNetCore/deploy-steps.yaml@templates
+            parameters:
+              azureSubscription: ${{ variables.azureSubscription }}
+              pathToPackage: ${{ variables.pathToPackage }}
+              resourceGroupName: ${{ variables.resourceGroupName }}
+              slotName: ${{ variables.slotName }}
+              virtualDirectoryName: ${{ variables.virtualDirectoryName }}
+              webAppName: ${{ variables.webAppName }}
+
+- stage: deploy_uat
+  #dependsOn: deploy_qa
+  dependsOn: deploy_dev
+  jobs:
+  - deployment: deploy_app_uat
+    variables:
+      - template: './transforms/uat/appsettings.yaml'
+      - template: './transforms/uat/deployment.yaml'
+    environment: ${{ variables.deploymentEnvironment }}
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - template: Deploy/DotNetCore/deploy-steps.yaml@templates
+            parameters:
+              azureSubscription: ${{ variables.azureSubscription }}
+              pathToPackage: ${{ variables.pathToPackage }}
+              resourceGroupName: ${{ variables.resourceGroupName }}
+              slotName: ${{ variables.slotName }}
+              useSlot: ${{ variables.useSlot }}
+              virtualDirectoryName: ${{ variables.virtualDirectoryName }}
+              webAppName: ${{ variables.webAppName }}
