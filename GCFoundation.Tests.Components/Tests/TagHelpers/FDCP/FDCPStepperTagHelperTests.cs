@@ -65,6 +65,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 
             // Assert
             var content = _output.Content.GetContent();
+            Assert.Contains("<gcds-heading tag='h2'>Info</gcds-heading>", content);
             Assert.Contains("class='fdcp-step completed'", content);
             Assert.Contains("class='fdcp-step active'", content);
             Assert.Contains("class='fdcp-step incomplete'", content);
@@ -288,8 +289,13 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
                 Steps = steps
             };
 
+            var context = new TagHelperContext(
+                new TagHelperAttributeList { { "heading-title", "Custom title" } },
+                new Dictionary<object, object>(),
+                "test-id");
+
             // Act
-            tagHelper.Process(_context, _output);
+            tagHelper.Process(context, _output);
 
             // Assert
             var content = _output.Content.GetContent();

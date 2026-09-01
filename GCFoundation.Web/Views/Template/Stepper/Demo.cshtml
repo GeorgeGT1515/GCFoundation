@@ -16,6 +16,8 @@
     };
     var scriptNonce = Context.Items["CspNonce"]?.ToString();
     var isLastStep = Model.CurrentStep >= Model.TotalSteps;
+    var currentStepHeading = stepperSteps.FirstOrDefault(s => s.StepNumber == Model.CurrentStep)?.Label
+        ?? Template.Stepper_Demo_Step1_Label;
 }
 
 <gcds-heading tag="h1">@Template.Stepper_Demo_Name</gcds-heading>
@@ -24,6 +26,7 @@
    the active step is also tabindex=0. After Next/Previous, JS moves focus to the active step for SR announcement. *@
 <fdcp-stepper current-step="@Model.CurrentStep"
               heading-id="@StepperHeadingId"
+              heading-title="@currentStepHeading"
               steps="@stepperSteps"></fdcp-stepper>
 
 @if (!ViewData.ModelState.IsValid)

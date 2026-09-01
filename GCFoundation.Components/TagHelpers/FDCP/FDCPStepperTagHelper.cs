@@ -35,8 +35,10 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
         /// <summary>
         /// The main heading text to display in the stepper's heading.
+        /// When not set, the active step's <see cref="StepperStep.Label"/> is used when steps are provided;
+        /// otherwise <see cref="Stepper.Title_Default"/> is shown.
         /// </summary>
-        public string HeadingTitle { get; set; } = Stepper.Title_Default;
+        public string? HeadingTitle { get; set; }
 
         /// <summary>
         /// Optional id applied to the rendered heading so callers can move focus to it after navigation.
@@ -78,17 +80,20 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             var totalSteps = visibleSteps.Count;
             var normalizedCurrentStep = totalSteps == 0 ? 1 : Math.Clamp(CurrentStep, 1, totalSteps);
-            var headingTitle = HtmlEncoder.Default.Encode(HeadingTitle ?? string.Empty);
+            var currentStep = totalSteps > 0
+                ? visibleSteps.FirstOrDefault(s => s.StepNumber == normalizedCurrentStep) ?? visibleSteps[normalizedCurrentStep - 1]
+                : null;
+            var headingTitleText = ResolveHeadingTitle(context, currentStep);
+            var headingTitle = HtmlEncoder.Default.Encode(headingTitleText);
             var headingIdAttribute = !string.IsNullOrWhiteSpace(HeadingId)
                 ? $" id='{HtmlEncoder.Default.Encode(HeadingId)}' tabindex='-1'"
                 : string.Empty;
             html.AppendLine(CultureInfo.InvariantCulture, $"<gcds-heading{headingIdAttribute} tag='{HeadingTag}'>{headingTitle}</gcds-heading>");
 
-            if (totalSteps > 0)
+            if (totalSteps > 0 && currentStep != null)
             {
-                var current = visibleSteps.FirstOrDefault(s => s.StepNumber == normalizedCurrentStep) ?? visibleSteps[normalizedCurrentStep - 1];
                 var currentAnnouncement = HtmlEncoder.Default.Encode(
-                    string.Format(CultureInfo.InvariantCulture, Stepper.SR_CurrentStepAnnouncement, normalizedCurrentStep, totalSteps, current.Label ?? string.Empty));
+                    string.Format(CultureInfo.InvariantCulture, Stepper.SR_CurrentStepAnnouncement, normalizedCurrentStep, totalSteps, currentStep.Label ?? string.Empty));
                 html.AppendLine(CultureInfo.InvariantCulture,
                     $"<div class='visibility-sr-only' aria-live='polite' aria-atomic='true' data-stepper-live-region='true' data-stepper-announcement='{currentAnnouncement}'>{currentAnnouncement}</div>");
             }
@@ -160,6 +165,22 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             html.AppendLine("</ol>");
             html.AppendLine("</nav>");
             output.Content.SetHtmlContent(html.ToString());
+        }
+
+        /// <summary>
+        /// Resolves the visible stepper heading. When <c>heading-title</c> is not supplied on the element,
+        /// the active step label is used (Intro, Info, etc.). Explicit <c>heading-title</c> always wins.
+        /// </summary>
+        private string ResolveHeadingTitle(TagHelperContext context, StepperStep? currentStep)
+        {
+            if (context.AllAttributes.ContainsName("heading-title"))
+            {
+                return string.IsNullOrWhiteSpace(HeadingTitle) ? Stepper.Title_Default : HeadingTitle!;
+            }
+
+            return !string.IsNullOrWhiteSpace(currentStep?.Label)
+                ? currentStep.Label
+                : Stepper.Title_Default;
         }
 
         /// <summary>

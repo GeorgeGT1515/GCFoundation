@@ -9,7 +9,9 @@
 @@using GCFoundation.Web.Resources
 @@model GCFoundation.Web.Models.Template.TemplateStepperFormViewModel
 
-&lt;fdcp-stepper current-step="@@Model.CurrentStep" steps="@@stepperSteps"&gt;&lt;/fdcp-stepper&gt;
+&lt;fdcp-stepper current-step="@@Model.CurrentStep"
+              heading-title="@@currentStepHeading"
+              steps="@@stepperSteps"&gt;&lt;/fdcp-stepper&gt;
 
 &lt;fdcp-form method="post" action="@Url.Action("StepperDemo", "Template")" for="@@Model"&gt;
     @@Html.AntiForgeryToken()
