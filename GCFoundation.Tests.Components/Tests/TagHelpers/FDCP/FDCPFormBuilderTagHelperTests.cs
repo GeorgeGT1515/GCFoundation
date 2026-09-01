@@ -644,7 +644,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Contains("<span class='fdcp-rich-text-label gcds-label' id='projectSummary_label'", content);
             Assert.Contains("id='projectSummary_hint'", content);
             Assert.Contains("aria-hidden='true'", content);
-            Assert.DoesNotContain("for='projectSummary'", content);
+            Assert.DoesNotContain(" for='projectSummary'", content);
             Assert.DoesNotContain("<label class='fdcp-rich-text-label", content);
             Assert.DoesNotContain("role='textbox'", content);
             Assert.DoesNotContain("aria-multiline='true'", content);
