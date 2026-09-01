@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Index_Title" xml:space="preserve">
-    <value>Welcome</value>
+    <value>Build GC web applications with confidence</value>
   </data>
   <data name="Index_Description" xml:space="preserve">
-    <value>GCFoundation is a library that provides helpers to build a GC web application compliant with the latest standards.</value>
+    <value>GCFoundation provides .NET 10 components, secure defaults and practical templates that help teams build web applications aligned with Government of Canada standards.</value>
   </data>
   <data name="Index_Features" xml:space="preserve">
     <value>&lt;gcds-heading tag="h2"&gt;Features:&lt;/gcds-heading&gt;
@@ -133,5 +133,154 @@
         &lt;li&gt;Offers a collection of components&lt;/li&gt;
     &lt;/ul&gt;
 &lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Index_Start_Title" xml:space="preserve">
+    <value>Start building</value>
+  </data>
+  <data name="Index_Start_Description" xml:space="preserve">
+    <value>Install GCFoundation, configure the core services and explore working examples for your next ASP.NET MVC application.</value>
+  </data>
+  <data name="Index_Start_PrimaryLink" xml:space="preserve">
+    <value>Get started</value>
+  </data>
+  <data name="Index_Start_SecondaryLink" xml:space="preserve">
+    <value>Explore components</value>
+  </data>
+  <data name="Index_Releases_Title" xml:space="preserve">
+    <value>Latest releases</value>
+  </data>
+  <data name="Index_Releases_Description" xml:space="preserve">
+    <value>Review the latest preview releases, their key changes and installation details.</value>
+  </data>
+  <data name="Index_Releases_Preview6_Date" xml:space="preserve">
+    <value>August 25, 2026</value>
+  </data>
+  <data name="Index_Releases_Preview6_Description" xml:space="preserve">
+    <value>Adds accordion and copy-button components, remakes the FDCP modal, and introduces a CRUD page template.</value>
+  </data>
+  <data name="Index_Releases_Preview5_Date" xml:space="preserve">
+    <value>July 27, 2026</value>
+  </data>
+  <data name="Index_Releases_Preview5_Description" xml:space="preserve">
+    <value>Adds FDCP tabs, updates the installation page and table documentation, and fixes active option visibility.</value>
+  </data>
+  <data name="Index_Releases_Preview4_Date" xml:space="preserve">
+    <value>July 15, 2026</value>
+  </data>
+  <data name="Index_Releases_Preview4_Description" xml:space="preserve">
+    <value>Refreshes the prototype home page and adds a table component and searchable dropdown.</value>
+  </data>
+  <data name="Index_Releases_Preview3_Date" xml:space="preserve">
+    <value>July 9, 2026</value>
+  </data>
+  <data name="Index_Releases_Preview3_Description" xml:space="preserve">
+    <value>Adds dynamic navigation, compact and full footer modes, and configurable Canada.ca breadcrumb links.</value>
+  </data>
+  <data name="Index_Releases_Preview2_Date" xml:space="preserve">
+    <value>June 1, 2026</value>
+  </data>
+  <data name="Index_Releases_Preview2_Description" xml:space="preserve">
+    <value>Adds the accessibility statement and dynamic radio fields, with component fixes and expanded tests.</value>
+  </data>
+  <data name="Index_Releases_Preview1_Date" xml:space="preserve">
+    <value>April 8, 2026</value>
+  </data>
+  <data name="Index_Releases_Preview1_Description" xml:space="preserve">
+    <value>Migrates GCFoundation components to the stable GC Design System v1.0.0 release.</value>
+  </data>
+  <data name="Index_Explore_Title" xml:space="preserve">
+    <value>Explore GCFoundation</value>
+  </data>
+  <data name="Index_Explore_Description" xml:space="preserve">
+    <value>Browse the guidance, examples and reusable building blocks included with GCFoundation.</value>
+  </data>
+  <data name="Index_Explore_Installation_Title" xml:space="preserve">
+    <value>Installation</value>
+  </data>
+  <data name="Index_Explore_Installation_Description" xml:space="preserve">
+    <value>Add the NuGet packages and configure components, security, localization and routing.</value>
+  </data>
+  <data name="Index_Explore_Templates_Title" xml:space="preserve">
+    <value>Page templates</value>
+  </data>
+  <data name="Index_Explore_Templates_Description" xml:space="preserve">
+    <value>Start from working layouts for common application pages and workflows.</value>
+  </data>
+  <data name="Index_Explore_Components_Title" xml:space="preserve">
+    <value>Components</value>
+  </data>
+  <data name="Index_Explore_Components_Description" xml:space="preserve">
+    <value>Explore form controls, navigation patterns and other reusable interface components.</value>
+  </data>
+  <data name="Index_Explore_Styles_Title" xml:space="preserve">
+    <value>Styles</value>
+  </data>
+  <data name="Index_Explore_Styles_Description" xml:space="preserve">
+    <value>Use the available layout, spacing, colour and responsive utility classes.</value>
+  </data>
+  <data name="Index_Feedback_Title" xml:space="preserve">
+    <value>Help improve GCFoundation</value>
+  </data>
+  <data name="Index_Feedback_Description" xml:space="preserve">
+    <value>Report an issue, request a feature or review our accessibility commitments and known limitations.</value>
+  </data>
+  <data name="Index_Feedback_PrimaryLink" xml:space="preserve">
+    <value>Contribute on GitHub</value>
+  </data>
+  <data name="Index_Feedback_SecondaryLink" xml:space="preserve">
+    <value>Accessibility statement</value>
+  </data>
+  <data name="AccessibilityStatement_Title" xml:space="preserve">
+    <value>Accessibility statement</value>
+  </data>
+  <data name="AccessibilityStatement_BetaNotice_Heading" xml:space="preserve">
+    <value>Beta notice</value>
+  </data>
+  <data name="AccessibilityStatement_BetaNotice" xml:space="preserve">
+    <value>&lt;gcds-text&gt;This design system is currently in alpha. We are actively working to improve the accessibility of all custom components and patterns. We are aware that some components do not yet fully meet accessibility requirements, including those outlined in &lt;gcds-link href="https://accessible.canada.ca/creating-accessibility-standards/canasc-en-301-5492024-accessibility-requirements-ict-products-and-services" target="_blank"&gt;CAN/ASC – EN 301 549&lt;/gcds-link&gt;.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;We are committed to identifying and resolving these issues before recommending components for wider use across the Government of Canada. As we continue to iterate, we will update this page to reflect our progress and known limitations.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="AccessibilityStatement_OurCommitment_Heading" xml:space="preserve">
+    <value>Our commitment</value>
+  </data>
+  <data name="AccessibilityStatement_OurCommitment" xml:space="preserve">
+    <value>&lt;gcds-text&gt;We are committed to building digital experiences that are accessible to as many people as possible, including users with disabilities. We follow the technical standard &lt;gcds-link href="https://accessible.canada.ca/creating-accessibility-standards/canasc-en-301-5492024-accessibility-requirements-ict-products-and-services" target="_blank"&gt;CAN/ASC – EN 301 549&lt;/gcds-link&gt; for Information and Communication Technology (ICT) to guide how we design, code, document, and test components. This ensures our solutions follow the principles of being perceivable, operable, understandable, and robust.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="AccessibilityStatement_WhatThisMeans_Heading" xml:space="preserve">
+    <value>What this means in practice</value>
+  </data>
+  <data name="AccessibilityStatement_WhatThisMeans" xml:space="preserve">
+    <value>&lt;gcds-text&gt;When using our design system or any components built from it, you should expect:&lt;/gcds-text&gt;
+&lt;gcds-text&gt;
+&lt;ul class="list-disc"&gt;
+&lt;li&gt;Keyboard accessibility &amp; focus management: All interactive elements must be reachable and usable with a keyboard, with clear focus indicators.&lt;/li&gt;
+&lt;li&gt;Support for assistive technologies: Semantic HTML, accurate labels, ARIA where appropriate, and meaningful structure so screen readers and other tools can interpret content reliably.&lt;/li&gt;
+&lt;li&gt;Strong visual accessibility: Adequate colour contrast, scalable interfaces, and visual cues that do not rely solely on colour.&lt;/li&gt;
+&lt;li&gt;Clear and usable content: Meaningful headings, accessible form fields and error messaging, and well-structured content.&lt;/li&gt;
+&lt;li&gt;Responsive and adaptive design: Components behave consistently and accessibly across devices and screen sizes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="AccessibilityStatement_HowWeTest_Heading" xml:space="preserve">
+    <value>How we test and maintain accessibility</value>
+  </data>
+  <data name="AccessibilityStatement_HowWeTest" xml:space="preserve">
+    <value>&lt;gcds-text&gt;To support continuous improvement, we:&lt;/gcds-text&gt;
+&lt;gcds-text&gt;
+&lt;ul class="list-disc"&gt;
+&lt;li&gt;Use automated accessibility testing tools during development.&lt;/li&gt;
+&lt;li&gt;Are looking into conducting more robust manual testing: including with assistive technologies and with users who have accessibility needs - to validate real-world usability.&lt;/li&gt;
+&lt;li&gt;Monitor changes in accessibility standards and update components and guidance accordingly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="AccessibilityStatement_KnownIssues_Heading" xml:space="preserve">
+    <value>Known issues</value>
+  </data>
+  <data name="AccessibilityStatement_KnownIssues" xml:space="preserve">
+    <value>&lt;gcds-text&gt;As this design system is in alpha, some components may not yet meet contrast, keyboard, semantic, or focus-management requirements.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;We are documenting these issues, prioritizing fixes, and will not promote a component for GC-wide use until it meets our accessibility standards.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;If you encounter accessibility barriers or have suggestions for improvement, please feel free to open a GitHub ticket.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;Your feedback helps us build more inclusive, accessible tools for everyone.&lt;/gcds-text&gt;</value>
   </data>
 </root>

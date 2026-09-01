@@ -46,21 +46,6 @@ namespace GCFoundation.Components.Configuration
                 .Append(_componentSettings.GCDSCssCDN.Host.ToString());
             jsCDNs = jsCDNs.Append(_componentSettings.GCDSJavaScriptCDN.Host.ToString());
 
-            // Grid.js CDN
-            if (_componentSettings.UseGridJsCdn && _componentSettings.IncludeGridJs)
-            {
-                // Extract host from configured URLs
-                if (Uri.TryCreate(_componentSettings.GridJsCdnJsUrl, UriKind.Absolute, out var gridJsJs))
-                {
-                    jsCDNs = jsCDNs.Append(gridJsJs.GetLeftPart(UriPartial.Authority));
-                    connectCDNs = connectCDNs.Append(gridJsJs.GetLeftPart(UriPartial.Authority));
-                }
-                if (Uri.TryCreate(_componentSettings.GridJsCdnCssUrl, UriKind.Absolute, out var gridJsCss))
-                {
-                    cssCDNs = cssCDNs.Append(gridJsCss.GetLeftPart(UriPartial.Authority));
-                }
-            }
-
             options.ConnectSrc = connectCDNs;
             options.FontSrc = fontCDNs;
             options.ScriptSrc = jsCDNs;

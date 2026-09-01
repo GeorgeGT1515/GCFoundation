@@ -1,0 +1,32 @@
+@using GCFoundation.Web.Models.Table
+@using GCFoundation.Web.Resources
+
+@{
+    var rows = new List<TableRowEmailTestViewModel>
+    {
+        new() { SubmissionId = "001", SubmitterName = "Alice Tremblay",  DateSubmitted = new DateTime(2025, 3, 10,  9,  0, 0), AssignedReviewer = "Bob Martin",     Email = "alice.tremblay@example.gc.ca" },
+        new() { SubmissionId = "002", SubmitterName = "Jean Dupont",     DateSubmitted = new DateTime(2025, 3, 11, 14, 30, 0), AssignedReviewer = "Alice Tremblay", Email = "jean.dupont@example.gc.ca"    },
+        new() { SubmissionId = "003", SubmitterName = "Sarah Lee",       DateSubmitted = new DateTime(2025, 3, 12, 10, 15, 0), AssignedReviewer = "Bob Martin",     Email = "sarah.lee@example.gc.ca"      },
+    };
+}
+
+<fdcp-table caption="@Components.Table_WithEmail_Caption" rows="@rows">
+    <template slot="cell:email">
+        <gcds-link data-bind="email" data-bind-template-href="mailto:{email}"></gcds-link>
+    </template>
+</fdcp-table>
+
+<div class="code-container">
+    <pre><code class="language-cshtml">@Html.Raw($@"&lt;fdcp-table caption=""{Html.Encode(Components.Table_WithEmail_Caption)}"" rows=""@Model.Rows""&gt;
+    &lt;template slot=""cell:email""&gt;
+        &lt;gcds-link data-bind=""email"" data-bind-template-href=""mailto:{{email}}""&gt;&lt;/gcds-link&gt;
+    &lt;/template&gt;
+&lt;/fdcp-table&gt;")</code></pre>
+</div>
+<div class="code-container">
+    <pre><code class="language-csharp">@Html.Raw(Html.Encode(@"[TableColumnDefinition(Name = ""Table_Email_Header"",
+                       ResourceType = typeof(Resources.Components),
+                       Slotted = true)]
+public string Email { get; set; }
+"))</code></pre>
+</div>

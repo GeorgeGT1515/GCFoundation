@@ -46,7 +46,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
                 new() { Text = "Option 1", Value = "1" },
                 new() { Text = "Option 2", Value = "2" }
             };
-            _tagHelper.IsRequired = true;
+            _tagHelper.Required = true;
 
             // Act
             _tagHelper.Process(_context, _output);
@@ -92,7 +92,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             {
                 new() { Text = "Option 1", Value = "1" }
             };
-            _tagHelper.IsRequired = false;
+            _tagHelper.Required = false;
 
             // Act
             _tagHelper.Process(_context, _output);
@@ -110,7 +110,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             {
                 new() { Text = "Option 1", Value = "1" }
             };
-            _tagHelper.IsRequired = true;
+            _tagHelper.Required = true;
 
             // Act
             _tagHelper.Process(_context, _output);
@@ -145,7 +145,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             {
                 new() { Text = "Option 1", Value = "1" }
             };
-            _tagHelper.IsRequired = false;
+            _tagHelper.Required = false;
 
             // Act
             _tagHelper.Process(_context, _output);
@@ -155,7 +155,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         }
 
         [Fact]
-        public void Process_NullFor_ThrowsInvalidOperationException()
+        public void Process_WithoutForOrName_ThrowsInvalidOperationException()
         {
             // Arrange
             _tagHelper.Items = new List<SelectListItem>();
@@ -165,7 +165,41 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 
             // Act & Assert
             var ex = Assert.Throws<InvalidOperationException>(() => _tagHelper.Process(_context, _output));
-            Assert.Contains("For is NULL", ex.Message);
+            Assert.Contains("Either 'for' or 'name' must be specified", ex.Message);
+        }
+
+        [Fact]
+        public void Process_WithManualAttributes_SetsExpectedAttributes_AndOptions()
+        {
+            _tagHelper.Name = "Gender";
+            _tagHelper.Id = "genderid";
+            _tagHelper.Legend = "Pick one";
+            _tagHelper.Hint = "Select the best option";
+            _tagHelper.Value = "2";
+            _tagHelper.Required = true;
+            _tagHelper.Items = new List<SelectListItem>
+            {
+                new() { Text = "Option 1", Value = "1" },
+                new() { Text = "Option 2", Value = "2" }
+            };
+
+            _tagHelper.Process(_context, _output);
+
+            Assert.Equal("gcds-radios", _output.TagName);
+            Assert.Equal("Gender", _output.Attributes["name"].Value);
+            Assert.Equal("Pick one", _output.Attributes["legend"].Value);
+            Assert.Equal("Select the best option", _output.Attributes["hint"].Value);
+            Assert.True(_output.Attributes.ContainsName("required"));
+
+            var options = JsonSerializer.Deserialize<List<Dictionary<string, object>>>(
+                _output.Attributes["options"].Value!.ToString()!,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+            Assert.NotNull(options);
+            Assert.Equal("genderid_1", options[0]["id"].ToString());
+            Assert.False(GetChecked(options[0]));
+            Assert.Equal("genderid_2", options[1]["id"].ToString());
+            Assert.True(GetChecked(options[1]));
         }
 
         /// <summary>

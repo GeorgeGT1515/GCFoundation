@@ -1,0 +1,163 @@
+name: New Design System Component, Pattern or Page
+description: Propose a new design system component, pattern, or page for review.
+title: "[DS Proposal]: <component-name>"
+projects: ["tbs-imtd/GCFoundation"]
+type: "Feature"
+labels:
+  - design-system
+  - intake
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for submitting a design system proposal.
+
+        Use this form for a **shared component, pattern, or page** that may belong in GCFoundation.
+
+        **Title format:** `[DS Proposal]: <name>`
+        Examples:
+        - `[DS Proposal]: stepper`
+        - `[DS Proposal]: page-header`
+        - `[DS Proposal]: filter-pattern`
+
+  - type: dropdown
+    id: item_type
+    attributes:
+      label: Item type
+      description: What are you proposing?
+      options:
+        - Component
+        - Pattern
+        - Page
+    validations:
+      required: true
+
+  - type: input
+    id: item_name
+    attributes:
+      label: Name
+      description: Use a short, reusable name.
+      placeholder: e.g. page-header
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Purpose and need
+      description: What is this, what need does it solve, and why should it exist in the design system?
+      placeholder: |
+        Describe the proposed item, the problem or repeated need it addresses, and why this should be solved as a shared design system asset rather than a one-off local solution.
+    validations:
+      required: true
+
+  - type: textarea
+    id: gcds_alignment
+    attributes:
+      label: GCDS / existing pattern review
+      description: Is this already addressed in GCDS?
+      placeholder: |
+        State whether this is:
+        - already addressed
+        - partially addressed
+        - not addressed
+        - unclear
+
+        Include links if possible and explain what gap remains.
+    validations:
+      required: true
+
+  - type: textarea
+    id: use_cases
+    attributes:
+      label: Key use cases
+      description: What are the main scenarios where this would be used?
+      placeholder: |
+        - Use case 1
+        - Use case 2
+        - Use case 3
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and research
+      description: What evidence supports this proposal?
+      placeholder: |
+        Include research, accessibility findings, analytics, stakeholder input, repeated implementation needs, or examples from existing systems.
+    validations:
+      required: true
+
+  - type: textarea
+    id: users
+    attributes:
+      label: Users and accessibility considerations
+      description: Who is this for, and what accessibility needs or risks should shape the design?
+      placeholder: |
+        Describe the user groups and key accessibility considerations such as keyboard use, focus, screen reader behaviour, content structure, responsiveness, plain language, or motion.
+
+  - type: textarea
+    id: concept
+    attributes:
+      label: Early concept or references
+      description: Add links, screenshots, wireframes, or examples if available.
+      placeholder: |
+        Paste links to Figma, screenshots, sketches, or existing implementations.
+
+  - type: dropdown
+    id: reuse_potential
+    attributes:
+      label: Reuse potential
+      description: How broadly could this be reused?
+      options:
+        - High - expected across many systems
+        - Medium - likely reusable in several systems
+        - Low - specific to a narrow use case
+    validations:
+      required: true
+
+  - type: dropdown
+    id: readiness
+    attributes:
+      label: Readiness
+      description: What stage is the proposal at?
+      options:
+        - Idea only
+        - Problem defined
+        - Research underway
+        - Research completed
+        - Ready for design exploration
+        - Ready to start
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies_next_steps
+    attributes:
+      label: Dependencies and next steps
+      description: What related work, constraints, or next actions should be considered?
+      placeholder: |
+        Include dependencies, related tickets or standards, and what should happen next if this moves forward.
+
+  - type: textarea
+    id: intake_criteria
+    attributes:
+      label: Intake acceptance criteria
+      description: What would make this proposal defined enough to move forward?
+      placeholder: |
+        - [ ] Purpose and need are clear
+        - [ ] Existing patterns have been reviewed
+        - [ ] Evidence supports the proposal
+        - [ ] Accessibility considerations are identified
+        - [ ] The item appears appropriate for shared reuse
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      options:
+        - label: I have used the required issue title format
+          required: true
+        - label: I understand this form is for shared design system proposals, not one-off product fixes
+          required: true

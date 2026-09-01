@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.ComponentModel.DataAnnotations;
+using FDCPInputType = GCFoundation.Components.Enums.InputType;
 
 namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 {
@@ -40,6 +41,12 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             [DataType(DataType.Password)]
             public string PasswordProperty { get; set; } = string.Empty;
 
+            [DataType(DataType.PhoneNumber)]
+            public string PhoneProperty { get; set; } = string.Empty;
+
+            [DataType(DataType.ImageUrl)]
+            public string ImageUrlProperty { get; set; } = string.Empty;
+
             [DataType(DataType.Date)]
             public DateTime DateProperty { get; set; }
 
@@ -53,6 +60,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 
             public int NumberProperty { get; set; }
 
+            [DataType(DataType.Date)]
             [DateFormat("short")]
             public DateTime DateWithFormatProperty { get; set; }
 
@@ -186,14 +194,14 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         public void Process_WithDateFormat_RendersCorrectly()
         {
             // Arrange
-            var tagHelper = SetupTagHelper("DateProperty");
+            var tagHelper = SetupTagHelper("DateWithFormatProperty");
 
             // Act
             tagHelper.Process(_context, _output);
 
             // Assert
             Assert.Equal("gcds-date-input", _output.TagName);
-            Assert.Equal("full", _output.Attributes["format"].Value);
+            Assert.Equal("short", _output.Attributes["format"].Value);
         }
 
         [Fact]
@@ -291,6 +299,114 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             // Assert
             Assert.Equal("2024-01-01", _output.Attributes["value"].Value);
             Assert.Equal("date", _output.Attributes["type"].Value);
+        }
+
+        [Fact]
+        public void Process_WithPhoneDataType_RendersTelInput()
+        {
+            // Arrange
+            var tagHelper = SetupTagHelper("PhoneProperty");
+
+            // Act
+            tagHelper.Process(_context, _output);
+
+            // Assert
+            Assert.Equal("gcds-input", _output.TagName);
+            Assert.Equal("tel", _output.Attributes["type"].Value);
+            Assert.Equal("PhoneProperty", _output.Attributes["input-id"].Value);
+        }
+
+        [Fact]
+        public void Process_WithImageUrlDataType_RendersUrlInput()
+        {
+            // Arrange
+            var tagHelper = SetupTagHelper("ImageUrlProperty");
+
+            // Act
+            tagHelper.Process(_context, _output);
+
+            // Assert
+            Assert.Equal("gcds-input", _output.TagName);
+            Assert.Equal("url", _output.Attributes["type"].Value);
+            Assert.Equal("ImageUrlProperty", _output.Attributes["input-id"].Value);
+        }
+
+        [Fact]
+        public void Process_WithExplicitType_OverridesModelMetadata()
+        {
+            // Arrange
+            var tagHelper = SetupTagHelper("EmailProperty");
+            tagHelper.Type = FDCPInputType.search;
+
+            // Act
+            tagHelper.Process(_context, _output);
+
+            // Assert
+            Assert.Equal("gcds-input", _output.TagName);
+            Assert.Equal("search", _output.Attributes["type"].Value);
+            Assert.Equal("EmailProperty", _output.Attributes["input-id"].Value);
+        }
+
+        [Fact]
+        public void Process_WithExplicitTextAreaType_RendersTextArea()
+        {
+            // Arrange
+            var tagHelper = SetupTagHelper("TextProperty");
+            tagHelper.Type = FDCPInputType.textArea;
+
+            // Act
+            tagHelper.Process(_context, _output);
+
+            // Assert
+            Assert.Equal("gcds-textarea", _output.TagName);
+            Assert.Equal("TextProperty", _output.Attributes["textarea-id"].Value);
+            Assert.Equal("TextProperty", _output.Attributes["name"].Value);
+        }
+
+        [Fact]
+        public void Process_WithManualAttributes_RendersWithoutFor()
+        {
+            // Arrange
+            var tagHelper = new FDCPInputTagHelper
+            {
+                Name = "SearchTerm",
+                Id = "search-term",
+                Label = "Search term",
+                Hint = "Enter keywords",
+                Value = "benefits",
+                Type = FDCPInputType.search,
+                Required = true,
+                Disabled = true,
+                ViewContext = new ViewContext()
+            };
+
+            // Act
+            tagHelper.Process(_context, _output);
+
+            // Assert
+            Assert.Equal("gcds-input", _output.TagName);
+            Assert.Equal("search", _output.Attributes["type"].Value);
+            Assert.Equal("Search term", _output.Attributes["label"].Value);
+            Assert.Equal("search-term", _output.Attributes["input-id"].Value);
+            Assert.Equal("SearchTerm", _output.Attributes["name"].Value);
+            Assert.Equal("Enter keywords", _output.Attributes["hint"].Value);
+            Assert.Equal("benefits", _output.Attributes["value"].Value);
+            Assert.True(_output.Attributes.ContainsName("required"));
+            Assert.True(_output.Attributes.ContainsName("disabled"));
+        }
+
+        [Fact]
+        public void Process_WithRequiredDataAnnotation_OverridesWithFalseRequiredAttribute()
+        {
+            // Arrange
+            var tagHelper = SetupTagHelper("RequiredTextProperty");
+            tagHelper.Required = false;
+
+            // Act
+            tagHelper.Process(_context, _output);
+
+            // Assert
+            Assert.False(_output.Attributes.ContainsName("required"));
         }
     }
 }

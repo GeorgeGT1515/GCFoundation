@@ -61,6 +61,294 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to always-open.
+        /// </summary>
+        public static string Accordion_AlwaysOpen_Anchor {
+            get {
+                return ResourceManager.GetString("Accordion_AlwaysOpen_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Review the eligibility requirements before applying..
+        /// </summary>
+        public static string Accordion_AlwaysOpen_Eligibility_Text {
+            get {
+                return ResourceManager.GetString("Accordion_AlwaysOpen_Eligibility_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Eligibility.
+        /// </summary>
+        public static string Accordion_AlwaysOpen_Eligibility_Title {
+            get {
+                return ResourceManager.GetString("Accordion_AlwaysOpen_Eligibility_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prepare the documents required to support your application..
+        /// </summary>
+        public static string Accordion_AlwaysOpen_RequiredDocuments_Text {
+            get {
+                return ResourceManager.GetString("Accordion_AlwaysOpen_RequiredDocuments_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Required documents.
+        /// </summary>
+        public static string Accordion_AlwaysOpen_RequiredDocuments_Title {
+            get {
+                return ResourceManager.GetString("Accordion_AlwaysOpen_RequiredDocuments_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the &lt;code&gt;always-open&lt;/code&gt; property to allow multiple accordion sections to remain open at the same time..
+        /// </summary>
+        public static string Accordion_AlwaysOpen_Text {
+            get {
+                return ResourceManager.GetString("Accordion_AlwaysOpen_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Always open.
+        /// </summary>
+        public static string Accordion_AlwaysOpen_Title {
+            get {
+                return ResourceManager.GetString("Accordion_AlwaysOpen_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to basic-accordion.
+        /// </summary>
+        public static string Accordion_BasicAccordion_Anchor {
+            get {
+                return ResourceManager.GetString("Accordion_BasicAccordion_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use a basic accordion to group related information into expandable sections..
+        /// </summary>
+        public static string Accordion_BasicAccordion_Text {
+            get {
+                return ResourceManager.GetString("Accordion_BasicAccordion_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic accordion.
+        /// </summary>
+        public static string Accordion_BasicAccordion_Title {
+            get {
+                return ResourceManager.GetString("Accordion_BasicAccordion_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Learn about the services available and who is eligible to use them..
+        /// </summary>
+        public static string Accordion_BasicUsage_AboutService_Text {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_AboutService_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About the service.
+        /// </summary>
+        public static string Accordion_BasicUsage_AboutService_Title {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_AboutService_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Find out what happens after you submit your request..
+        /// </summary>
+        public static string Accordion_BasicUsage_AfterApply_Text {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_AfterApply_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to After you apply.
+        /// </summary>
+        public static string Accordion_BasicUsage_AfterApply_Title {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_AfterApply_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to basic-usage.
+        /// </summary>
+        public static string Accordion_BasicUsage_Anchor {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gather the information you need before you begin your request..
+        /// </summary>
+        public static string Accordion_BasicUsage_BeforeStart_Text {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_BeforeStart_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Before you start.
+        /// </summary>
+        public static string Accordion_BasicUsage_BeforeStart_Title {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_BeforeStart_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;The &lt;code&gt;&amp;lt;fdcp-accordion&amp;gt;&lt;/code&gt; component groups multiple &lt;code&gt;&amp;lt;gcds-details&amp;gt;&lt;/code&gt; components into a dynamic accordion. It includes a button that lets users open all or close all sections. The &lt;code&gt;accordion-id&lt;/code&gt; attribute is mandatory.&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Accordion_BasicUsage_Text {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic usage.
+        /// </summary>
+        public static string Accordion_BasicUsage_Title {
+            get {
+                return ResourceManager.GetString("Accordion_BasicUsage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to buttons-position.
+        /// </summary>
+        public static string Accordion_ButtonsPosition_Anchor {
+            get {
+                return ResourceManager.GetString("Accordion_ButtonsPosition_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Complete and submit the application form..
+        /// </summary>
+        public static string Accordion_ButtonsPosition_SubmitApplication_Text {
+            get {
+                return ResourceManager.GetString("Accordion_ButtonsPosition_SubmitApplication_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit an application.
+        /// </summary>
+        public static string Accordion_ButtonsPosition_SubmitApplication_Title {
+            get {
+                return ResourceManager.GetString("Accordion_ButtonsPosition_SubmitApplication_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set &lt;code&gt;buttons-position&lt;/code&gt; to &lt;code&gt;top&lt;/code&gt;, &lt;code&gt;bottom&lt;/code&gt;, or &lt;code&gt;both&lt;/code&gt;. This example displays the expand-all and collapse-all buttons above and below the accordion..
+        /// </summary>
+        public static string Accordion_ButtonsPosition_Text {
+            get {
+                return ResourceManager.GetString("Accordion_ButtonsPosition_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Buttons position.
+        /// </summary>
+        public static string Accordion_ButtonsPosition_Title {
+            get {
+                return ResourceManager.GetString("Accordion_ButtonsPosition_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check the status of your submitted application..
+        /// </summary>
+        public static string Accordion_ButtonsPosition_TrackApplication_Text {
+            get {
+                return ResourceManager.GetString("Accordion_ButtonsPosition_TrackApplication_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Track your application.
+        /// </summary>
+        public static string Accordion_ButtonsPosition_TrackApplication_Title {
+            get {
+                return ResourceManager.GetString("Accordion_ButtonsPosition_TrackApplication_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accordion.
+        /// </summary>
+        public static string Accordion_Name {
+            get {
+                return ResourceManager.GetString("Accordion_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-accordion&amp;gt;&lt;/code&gt; component organizes related content into expandable sections and provides a control to open or close all sections..
+        /// </summary>
+        public static string Accordion_Overview {
+            get {
+                return ResourceManager.GetString("Accordion_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unique identifier for the accordion container. The value is rendered as the container&apos;s &lt;code&gt;id&lt;/code&gt; and is used to associate the component&apos;s client-side behaviour..
+        /// </summary>
+        public static string Accordion_Properties_FdcpAccordion_AccordionId {
+            get {
+                return ResourceManager.GetString("Accordion_Properties_FdcpAccordion_AccordionId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When &lt;code&gt;true&lt;/code&gt;, allows multiple accordion sections to remain open at the same time..
+        /// </summary>
+        public static string Accordion_Properties_FdcpAccordion_AlwaysOpen {
+            get {
+                return ResourceManager.GetString("Accordion_Properties_FdcpAccordion_AlwaysOpen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Controls where the expand-all and collapse-all buttons are displayed. Accepted values are &lt;code&gt;top&lt;/code&gt;, &lt;code&gt;bottom&lt;/code&gt;, and &lt;code&gt;both&lt;/code&gt;..
+        /// </summary>
+        public static string Accordion_Properties_FdcpAccordion_ButtonsPosition {
+            get {
+                return ResourceManager.GetString("Accordion_Properties_FdcpAccordion_ButtonsPosition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Properties — &lt;code&gt;&amp;lt;fdcp-accordion&amp;gt;&lt;/code&gt;.
+        /// </summary>
+        public static string Accordion_Properties_FdcpAccordion_Title {
+            get {
+                return ResourceManager.GetString("Accordion_Properties_FdcpAccordion_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Use text or iconography in addition to colour to convey meaning..
         /// </summary>
         public static string Badge_Accessibility_Do_1 {
@@ -403,6 +691,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New.
+        /// </summary>
+        public static string Card_Badge_New {
+            get {
+                return ResourceManager.GetString("Card_Badge_New", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to basic.
         /// </summary>
         public static string Card_Basic_Anchor {
@@ -430,6 +727,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to composition-examples.
+        /// </summary>
+        public static string Card_CompositionExamples_Anchor {
+            get {
+                return ResourceManager.GetString("Card_CompositionExamples_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Composition Examples.
+        /// </summary>
+        public static string Card_CompositionExamples_Title {
+            get {
+                return ResourceManager.GetString("Card_CompositionExamples_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to horizontal.
         /// </summary>
         public static string Card_Horizontal_Anchor {
@@ -453,6 +768,60 @@ namespace GCFoundation.Web.Resources {
         public static string Card_Horizontal_Title {
             get {
                 return ResourceManager.GetString("Card_Horizontal_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to list-item.
+        /// </summary>
+        public static string Card_ListItem_Anchor {
+            get {
+                return ResourceManager.GetString("Card_ListItem_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to List Item content.
+        /// </summary>
+        public static string Card_ListItem_CodeComment {
+            get {
+                return ResourceManager.GetString("Card_ListItem_CodeComment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Example Use.
+        /// </summary>
+        public static string Card_ListItem_ExampleUse_Title {
+            get {
+                return ResourceManager.GetString("Card_ListItem_ExampleUse_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;strong&gt;List Item&lt;/strong&gt; is a composition pattern that combines &lt;code&gt;&amp;lt;fdcp-card&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;gcds-grid&amp;gt;&lt;/code&gt; to create a structured, selectable row. The columns and content are fully flexible — use this pattern as a starting point and adapt it to your specific needs. See &lt;gcds-link href=&quot;https://design-system.canada.ca/en/css-shortcuts/&quot; target=&quot;_blank&quot; external&gt;GCDS CSS Shortcuts&lt;/gcds-link&gt; for available utility classes..
+        /// </summary>
+        public static string Card_ListItem_Text {
+            get {
+                return ResourceManager.GetString("Card_ListItem_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to List Item.
+        /// </summary>
+        public static string Card_ListItem_Title {
+            get {
+                return ResourceManager.GetString("Card_ListItem_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stack multiple List Item cards and add vertical spacing between them using margin utilities. &lt;code&gt;mb-100&lt;/code&gt; is used in this example..
+        /// </summary>
+        public static string Card_ListItemList_Text {
+            get {
+                return ResourceManager.GetString("Card_ListItemList_Text", resourceCulture);
             }
         }
         
@@ -1204,6 +1573,42 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search and select your country of residence..
+        /// </summary>
+        public static string Form_SearchableCountry_Hint {
+            get {
+                return ResourceManager.GetString("Form_SearchableCountry_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Searchable country.
+        /// </summary>
+        public static string Form_SearchableCountry_Label {
+            get {
+                return ResourceManager.GetString("Form_SearchableCountry_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search and select at least one interest..
+        /// </summary>
+        public static string Form_SearchableInterests_Hint {
+            get {
+                return ResourceManager.GetString("Form_SearchableInterests_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Searchable interests.
+        /// </summary>
+        public static string Form_SearchableInterests_Label {
+            get {
+                return ResourceManager.GetString("Form_SearchableInterests_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter your personal or company website URL..
         /// </summary>
         public static string Form_Website_Hint {
@@ -1315,7 +1720,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Accessibility Requirements.
+        ///   Looks up a localized string similar to Accessibility requirements.
         /// </summary>
         public static string Guidance_Accessibility {
             get {
@@ -1387,7 +1792,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When Not to Use.
+        ///   Looks up a localized string similar to When not to use.
         /// </summary>
         public static string Guidance_WhenNotToUse {
             get {
@@ -1405,7 +1810,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Avoid badges when:.
+        ///   Looks up a localized string similar to Avoid this component when:.
         /// </summary>
         public static string Guidance_WhenNotToUse_Intro {
             get {
@@ -1414,7 +1819,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When to Use.
+        ///   Looks up a localized string similar to When to use.
         /// </summary>
         public static string Guidance_WhenToUse {
             get {
@@ -1432,11 +1837,29 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use a badge when:.
+        ///   Looks up a localized string similar to Use this component when:.
         /// </summary>
         public static string Guidance_WhenToUse_Intro {
             get {
                 return ResourceManager.GetString("Guidance_WhenToUse_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Organize related content into expandable sections..
+        /// </summary>
+        public static string Index_Accordion_Description {
+            get {
+                return ResourceManager.GetString("Index_Accordion_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accordion.
+        /// </summary>
+        public static string Index_Accordion_Title {
+            get {
+                return ResourceManager.GetString("Index_Accordion_Title", resourceCulture);
             }
         }
         
@@ -1587,6 +2010,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A searchable single- or multi-select with optional selected-options content.
+        /// </summary>
+        public static string Index_SearchableSelect_Description {
+            get {
+                return ResourceManager.GetString("Index_SearchableSelect_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Searchable Select.
+        /// </summary>
+        public static string Index_SearchableSelect_Title {
+            get {
+                return ResourceManager.GetString("Index_SearchableSelect_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create a stepper for a flow or a form.
         /// </summary>
         public static string Index_Stepper_Description {
@@ -1641,6 +2082,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Organize related in-page content into accessible tab panels..
+        /// </summary>
+        public static string Index_Tabs_Description {
+            get {
+                return ResourceManager.GetString("Index_Tabs_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tabs.
+        /// </summary>
+        public static string Index_Tabs_Title {
+            get {
+                return ResourceManager.GetString("Index_Tabs_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Configurable user login information display with bilingual support.
         /// </summary>
         public static string Index_UserLoginPartial_Description {
@@ -1659,6 +2118,101 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;strong&gt;2.4.3 Focus Order:&lt;/strong&gt; Focus moves into the modal and returns to the button or trigger that opened it. Background content cannot be interacted with and is out of focus..
+        /// </summary>
+        public static string Modal_Accessibility_Do_1 {
+            get {
+                return ResourceManager.GetString("Modal_Accessibility_Do_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;strong&gt;2.4.7 Focus Visible:&lt;/strong&gt; Every interactive element must show a visible focus outline..
+        /// </summary>
+        public static string Modal_Accessibility_Do_2 {
+            get {
+                return ResourceManager.GetString("Modal_Accessibility_Do_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;strong&gt;2.1.1 Keyboard:&lt;/strong&gt; Fully functional with a keyboard, including closing the modal with the Escape key..
+        /// </summary>
+        public static string Modal_Accessibility_Do_3 {
+            get {
+                return ResourceManager.GetString("Modal_Accessibility_Do_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;strong&gt;2.1.2 No Keyboard Trap:&lt;/strong&gt; If focus is trapped, the user must be able to exit the trap..
+        /// </summary>
+        public static string Modal_Accessibility_Do_4 {
+            get {
+                return ResourceManager.GetString("Modal_Accessibility_Do_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;strong&gt;1.3.1 Info and Relationships:&lt;/strong&gt; Uses ARIA roles, labels, and descriptions, i.e.:
+        ///&lt;ul class=&quot;list-circle&quot;&gt;
+        ///&lt;li&gt;the modal uses &lt;code&gt;role=&quot;dialog&quot;&lt;/code&gt;;&lt;/li&gt;
+        ///&lt;li&gt;the title is linked using &lt;code&gt;aria-labelledby&lt;/code&gt;;&lt;/li&gt;
+        ///&lt;li&gt;and, the description is linked using &lt;code&gt;aria-describedby&lt;/code&gt;.&lt;/li&gt;
+        ///&lt;/ul&gt;.
+        /// </summary>
+        public static string Modal_Accessibility_Do_5 {
+            get {
+                return ResourceManager.GetString("Modal_Accessibility_Do_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;strong&gt;1.4.3 Contrast Minimum:&lt;/strong&gt; Text and essential UI elements must meet minimum contrast ratios (3:1). The white modal box sits on a darkened backdrop, ensuring strong contrast..
+        /// </summary>
+        public static string Modal_Accessibility_Do_6 {
+            get {
+                return ResourceManager.GetString("Modal_Accessibility_Do_6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to additional-properties.
+        /// </summary>
+        public static string Modal_AdditionalProperties_Anchor {
+            get {
+                return ResourceManager.GetString("Modal_AdditionalProperties_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Example Modal.
+        /// </summary>
+        public static string Modal_AdditionalProperties_ModalTitle {
+            get {
+                return ResourceManager.GetString("Modal_AdditionalProperties_ModalTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Beyond the core structure, &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; supports several optional properties to control its behaviour. The example below illustrates &lt;code&gt;scrollable&lt;/code&gt;, &lt;code&gt;hide-close-button&lt;/code&gt;, and &lt;code&gt;static-backdrop&lt;/code&gt; — none of which affect content, only how the modal behaves..
+        /// </summary>
+        public static string Modal_AdditionalProperties_Text {
+            get {
+                return ResourceManager.GetString("Modal_AdditionalProperties_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Additional Properties.
+        /// </summary>
+        public static string Modal_AdditionalProperties_Title {
+            get {
+                return ResourceManager.GetString("Modal_AdditionalProperties_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to basic.
         /// </summary>
         public static string Modal_Basic_Anchor {
@@ -1668,7 +2222,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;gcds-text&gt;Click the buttons below to see the modals in action:&lt;/gcds-text&gt;.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Modals provide a focused, interruptive space for short, high-priority tasks or confirmations that must be completed before users continue their workflow.&lt;/gcds-text&gt;.
         /// </summary>
         public static string Modal_Basic_Text {
             get {
@@ -1677,11 +2231,236 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Basic Usage.
+        ///   Looks up a localized string similar to Basic usage.
         /// </summary>
         public static string Modal_Basic_Title {
             get {
                 return ResourceManager.GetString("Modal_Basic_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to basic-structure.
+        /// </summary>
+        public static string Modal_BasicStructure_Anchor {
+            get {
+                return ResourceManager.GetString("Modal_BasicStructure_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is a basic modal..
+        /// </summary>
+        public static string Modal_BasicStructure_Body {
+            get {
+                return ResourceManager.GetString("Modal_BasicStructure_Body", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic Modal.
+        /// </summary>
+        public static string Modal_BasicStructure_ModalTitle {
+            get {
+                return ResourceManager.GetString("Modal_BasicStructure_ModalTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open modal.
+        /// </summary>
+        public static string Modal_BasicStructure_OpenButton {
+            get {
+                return ResourceManager.GetString("Modal_BasicStructure_OpenButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Renders a standalone modal component. Use &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; in your Razor views to generate a modal dialog..
+        /// </summary>
+        public static string Modal_BasicStructure_Text {
+            get {
+                return ResourceManager.GetString("Modal_BasicStructure_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic Modal.
+        /// </summary>
+        public static string Modal_BasicStructure_Title {
+            get {
+                return ResourceManager.GetString("Modal_BasicStructure_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to button-behaviour.
+        /// </summary>
+        public static string Modal_ButtonBehaviour_Anchor {
+            get {
+                return ResourceManager.GetString("Modal_ButtonBehaviour_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string Modal_ButtonBehaviour_Cancel {
+            get {
+                return ResourceManager.GetString("Modal_ButtonBehaviour_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to My Modal.
+        /// </summary>
+        public static string Modal_ButtonBehaviour_ModalTitle {
+            get {
+                return ResourceManager.GetString("Modal_ButtonBehaviour_ModalTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open.
+        /// </summary>
+        public static string Modal_ButtonBehaviour_OpenButton {
+            get {
+                return ResourceManager.GetString("Modal_ButtonBehaviour_OpenButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For custom interactions, use JavaScript to listen for any event your application requires, find the rendered modal by its &lt;code&gt;modal-id&lt;/code&gt;, and toggle its &lt;code&gt;show&lt;/code&gt; class. The component detects this class change and automatically applies its focus and accessibility behaviour..
+        /// </summary>
+        public static string Modal_ButtonBehaviour_ProgrammaticText {
+            get {
+                return ResourceManager.GetString("Modal_ButtonBehaviour_ProgrammaticText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Buttons interact with a modal through a combination of the &lt;code&gt;modal-id&lt;/code&gt; attribute and CSS utility classes.&lt;/gcds-text&gt;&lt;ul class=&quot;list-square&quot;&gt;&lt;li&gt;&lt;strong&gt;&lt;code&gt;modal-id&lt;/code&gt;&lt;/strong&gt; — Set on the trigger button to match the &lt;code&gt;modal-id&lt;/code&gt; of the target &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt;. This links the button to the correct modal.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;&lt;code&gt;fdcp-modal-open&lt;/code&gt;&lt;/strong&gt; — Add this class to any button outside the modal to open it when clicked.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;&lt;code&gt;fdc [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Modal_ButtonBehaviour_Text {
+            get {
+                return ResourceManager.GetString("Modal_ButtonBehaviour_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Button Behaviour.
+        /// </summary>
+        public static string Modal_ButtonBehaviour_Title {
+            get {
+                return ResourceManager.GetString("Modal_ButtonBehaviour_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to basic-default.
+        /// </summary>
+        public static string Modal_Default_Anchor {
+            get {
+                return ResourceManager.GetString("Modal_Default_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is a regular modal, shown with no special state applied..
+        /// </summary>
+        public static string Modal_Default_Body {
+            get {
+                return ResourceManager.GetString("Modal_Default_Body", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Regular Modal.
+        /// </summary>
+        public static string Modal_Default_ModalTitle {
+            get {
+                return ResourceManager.GetString("Modal_Default_ModalTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open regular modal.
+        /// </summary>
+        public static string Modal_Default_OpenButton {
+            get {
+                return ResourceManager.GetString("Modal_Default_OpenButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Used for standard tasks that require user attention or confirmation. It provides a neutral presentation for everyday interactions. This is the default variant and will be applied automatically if no &lt;code&gt;state&lt;/code&gt; property is specified..
+        /// </summary>
+        public static string Modal_Default_Text {
+            get {
+                return ResourceManager.GetString("Modal_Default_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Regular.
+        /// </summary>
+        public static string Modal_Default_Title {
+            get {
+                return ResourceManager.GetString("Modal_Default_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to basic-info.
+        /// </summary>
+        public static string Modal_Info_Anchor {
+            get {
+                return ResourceManager.GetString("Modal_Info_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is an info modal, used to highlight helpful or supplementary information for the user..
+        /// </summary>
+        public static string Modal_Info_Body {
+            get {
+                return ResourceManager.GetString("Modal_Info_Body", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info Modal.
+        /// </summary>
+        public static string Modal_Info_ModalTitle {
+            get {
+                return ResourceManager.GetString("Modal_Info_ModalTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open info modal.
+        /// </summary>
+        public static string Modal_Info_OpenButton {
+            get {
+                return ResourceManager.GetString("Modal_Info_OpenButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delivers important information or context that users should understand before proceeding. It highlights details that support decision-making without implying risk..
+        /// </summary>
+        public static string Modal_Info_Text {
+            get {
+                return ResourceManager.GetString("Modal_Info_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info.
+        /// </summary>
+        public static string Modal_Info_Title {
+            get {
+                return ResourceManager.GetString("Modal_Info_Title", resourceCulture);
             }
         }
         
@@ -1713,7 +2492,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use &lt;code&gt;is-static-backdrop=&quot;true&quot;&lt;/code&gt; for modals that require user action.
+        ///   Looks up a localized string similar to Use &lt;code&gt;static-backdrop&lt;/code&gt; for modals that require user action.
         /// </summary>
         public static string Modal_Notes_3 {
             get {
@@ -1722,7 +2501,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Modal content should be wrapped in &lt;code&gt;&amp;lt;fdcp-modal-body&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;fdcp-modal-footer&amp;gt;&lt;/code&gt; tags.
+        ///   Looks up a localized string similar to Modal content should be wrapped in &lt;code&gt;&amp;lt;div slot=&quot;body&quot;&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;div slot=&quot;footer&quot;&amp;gt;&lt;/code&gt; elements.
         /// </summary>
         public static string Modal_Notes_4 {
             get {
@@ -1740,6 +2519,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; component handles its WCAG 2.2 accessibility requirements natively..
+        /// </summary>
+        public static string Modal_Notes_6 {
+            get {
+                return ResourceManager.GetString("Modal_Notes_6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;fdcp-session-modal&amp;gt;&lt;/code&gt; components provide a flexible dialog system for displaying content in a popup overlay. It supports regular modals for general use and specialized session modals for handling user session management..
         /// </summary>
         public static string Modal_Overview {
@@ -1749,29 +2537,11 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Centers the modal vertically.
+        ///   Looks up a localized string similar to Hides the close button in the modal header.
         /// </summary>
-        public static string Modal_Properties_Centered {
+        public static string Modal_Properties_HideCloseButton {
             get {
-                return ResourceManager.GetString("Modal_Properties_Centered", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unique identifier for the modal.
-        /// </summary>
-        public static string Modal_Properties_Id {
-            get {
-                return ResourceManager.GetString("Modal_Properties_Id", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Prevents closing by clicking outside.
-        /// </summary>
-        public static string Modal_Properties_IsStaticBackdrop {
-            get {
-                return ResourceManager.GetString("Modal_Properties_IsStaticBackdrop", resourceCulture);
+                return ResourceManager.GetString("Modal_Properties_HideCloseButton", resourceCulture);
             }
         }
         
@@ -1781,6 +2551,15 @@ namespace GCFoundation.Web.Resources {
         public static string Modal_Properties_LogoutUrl {
             get {
                 return ResourceManager.GetString("Modal_Properties_LogoutUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unique identifier used to target the modal.
+        /// </summary>
+        public static string Modal_Properties_ModalId {
+            get {
+                return ResourceManager.GetString("Modal_Properties_ModalId", resourceCulture);
             }
         }
         
@@ -1821,20 +2600,29 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shows close button in header.
-        /// </summary>
-        public static string Modal_Properties_ShowCloseButton {
-            get {
-                return ResourceManager.GetString("Modal_Properties_ShowCloseButton", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Modal size (Default, Small, or Large).
+        ///   Looks up a localized string similar to Modal size (regular, small, or large).
         /// </summary>
         public static string Modal_Properties_Size {
             get {
                 return ResourceManager.GetString("Modal_Properties_Size", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visual and semantic state of the modal (regular, info, or warning).
+        /// </summary>
+        public static string Modal_Properties_State {
+            get {
+                return ResourceManager.GetString("Modal_Properties_State", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prevents the modal from closing when the backdrop is clicked or the Escape key is pressed.
+        /// </summary>
+        public static string Modal_Properties_StaticBackdrop {
+            get {
+                return ResourceManager.GetString("Modal_Properties_StaticBackdrop", resourceCulture);
             }
         }
         
@@ -1848,11 +2636,65 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Back.
+        /// </summary>
+        public static string Modal_Sample_Back {
+            get {
+                return ResourceManager.GetString("Modal_Sample_Back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm.
+        /// </summary>
+        public static string Modal_Sample_Confirm {
+            get {
+                return ResourceManager.GetString("Modal_Sample_Confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to session.
         /// </summary>
         public static string Modal_Session_Anchor {
             get {
                 return ResourceManager.GetString("Modal_Session_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your session is about to expire!.
+        /// </summary>
+        public static string Modal_Session_Body {
+            get {
+                return ResourceManager.GetString("Modal_Session_Body", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Extend session.
+        /// </summary>
+        public static string Modal_Session_ExtendButton {
+            get {
+                return ResourceManager.GetString("Modal_Session_ExtendButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log out.
+        /// </summary>
+        public static string Modal_Session_LogoutButton {
+            get {
+                return ResourceManager.GetString("Modal_Session_LogoutButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Session Timeout.
+        /// </summary>
+        public static string Modal_Session_ModalTitle {
+            get {
+                return ResourceManager.GetString("Modal_Session_ModalTitle", resourceCulture);
             }
         }
         
@@ -1871,6 +2713,339 @@ namespace GCFoundation.Web.Resources {
         public static string Modal_Session_Title {
             get {
                 return ResourceManager.GetString("Modal_Session_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to modal-sizes.
+        /// </summary>
+        public static string Modal_Size_Anchor {
+            get {
+                return ResourceManager.GetString("Modal_Size_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modal size examples.
+        /// </summary>
+        public static string Modal_Size_Label {
+            get {
+                return ResourceManager.GetString("Modal_Size_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is a large modal..
+        /// </summary>
+        public static string Modal_Size_Large_Body {
+            get {
+                return ResourceManager.GetString("Modal_Size_Large_Body", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Large Modal.
+        /// </summary>
+        public static string Modal_Size_Large_ModalTitle {
+            get {
+                return ResourceManager.GetString("Modal_Size_Large_ModalTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open large modal.
+        /// </summary>
+        public static string Modal_Size_Large_OpenButton {
+            get {
+                return ResourceManager.GetString("Modal_Size_Large_OpenButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the large size when the content requires more space, such as forms, data tables, or complex layouts..
+        /// </summary>
+        public static string Modal_Size_Large_Text {
+            get {
+                return ResourceManager.GetString("Modal_Size_Large_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Large.
+        /// </summary>
+        public static string Modal_Size_Large_Title {
+            get {
+                return ResourceManager.GetString("Modal_Size_Large_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is a regular-size modal..
+        /// </summary>
+        public static string Modal_Size_Regular_Body {
+            get {
+                return ResourceManager.GetString("Modal_Size_Regular_Body", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Regular Modal.
+        /// </summary>
+        public static string Modal_Size_Regular_ModalTitle {
+            get {
+                return ResourceManager.GetString("Modal_Size_Regular_ModalTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open regular modal.
+        /// </summary>
+        public static string Modal_Size_Regular_OpenButton {
+            get {
+                return ResourceManager.GetString("Modal_Size_Regular_OpenButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The regular size suits most everyday interactions and is applied automatically when no &lt;code&gt;size&lt;/code&gt; property is specified..
+        /// </summary>
+        public static string Modal_Size_Regular_Text {
+            get {
+                return ResourceManager.GetString("Modal_Size_Regular_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Regular.
+        /// </summary>
+        public static string Modal_Size_Regular_Title {
+            get {
+                return ResourceManager.GetString("Modal_Size_Regular_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is a small modal..
+        /// </summary>
+        public static string Modal_Size_Small_Body {
+            get {
+                return ResourceManager.GetString("Modal_Size_Small_Body", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Small Modal.
+        /// </summary>
+        public static string Modal_Size_Small_ModalTitle {
+            get {
+                return ResourceManager.GetString("Modal_Size_Small_ModalTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open small modal.
+        /// </summary>
+        public static string Modal_Size_Small_OpenButton {
+            get {
+                return ResourceManager.GetString("Modal_Size_Small_OpenButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the small size for brief confirmations or simple messages that require minimal content..
+        /// </summary>
+        public static string Modal_Size_Small_Text {
+            get {
+                return ResourceManager.GetString("Modal_Size_Small_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Small.
+        /// </summary>
+        public static string Modal_Size_Small_Title {
+            get {
+                return ResourceManager.GetString("Modal_Size_Small_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;The modal supports three sizes — &lt;code&gt;regular&lt;/code&gt;, &lt;code&gt;small&lt;/code&gt;, and &lt;code&gt;large&lt;/code&gt; — controlled via the &lt;code&gt;size&lt;/code&gt; property. Use the appropriate size based on the amount of content and the level of focus required.&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Modal_Size_Text {
+            get {
+                return ResourceManager.GetString("Modal_Size_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sizes.
+        /// </summary>
+        public static string Modal_Size_Title {
+            get {
+                return ResourceManager.GetString("Modal_Size_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to modal-variants.
+        /// </summary>
+        public static string Modal_Variants_Anchor {
+            get {
+                return ResourceManager.GetString("Modal_Variants_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modal state examples.
+        /// </summary>
+        public static string Modal_Variants_Label {
+            get {
+                return ResourceManager.GetString("Modal_Variants_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The modal component supports three state variants — &lt;code&gt;regular&lt;/code&gt;, &lt;code&gt;info&lt;/code&gt;, and &lt;code&gt;warning&lt;/code&gt; — each designed for a different level of urgency or intent..
+        /// </summary>
+        public static string Modal_Variants_Text {
+            get {
+                return ResourceManager.GetString("Modal_Variants_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Variants.
+        /// </summary>
+        public static string Modal_Variants_Title {
+            get {
+                return ResourceManager.GetString("Modal_Variants_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to basic-warning.
+        /// </summary>
+        public static string Modal_Warning_Anchor {
+            get {
+                return ResourceManager.GetString("Modal_Warning_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is a warning modal, used to alert the user to something that needs their attention before proceeding..
+        /// </summary>
+        public static string Modal_Warning_Body {
+            get {
+                return ResourceManager.GetString("Modal_Warning_Body", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning Modal.
+        /// </summary>
+        public static string Modal_Warning_ModalTitle {
+            get {
+                return ResourceManager.GetString("Modal_Warning_ModalTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open warning modal.
+        /// </summary>
+        public static string Modal_Warning_OpenButton {
+            get {
+                return ResourceManager.GetString("Modal_Warning_OpenButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alerts users to high-impact or irreversible actions..
+        /// </summary>
+        public static string Modal_Warning_Text {
+            get {
+                return ResourceManager.GetString("Modal_Warning_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning.
+        /// </summary>
+        public static string Modal_Warning_Title {
+            get {
+                return ResourceManager.GetString("Modal_Warning_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The content is long, complex, multi-step, or requires detailed reading..
+        /// </summary>
+        public static string Modal_WhenNotToUse_1 {
+            get {
+                return ResourceManager.GetString("Modal_WhenNotToUse_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Users must compare information or reference other parts of the interface..
+        /// </summary>
+        public static string Modal_WhenNotToUse_2 {
+            get {
+                return ResourceManager.GetString("Modal_WhenNotToUse_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scrolling or extensive interaction would be required within the modal..
+        /// </summary>
+        public static string Modal_WhenNotToUse_3 {
+            get {
+                return ResourceManager.GetString("Modal_WhenNotToUse_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The interruption is unnecessary and could be handled inline or on a dedicated page..
+        /// </summary>
+        public static string Modal_WhenNotToUse_4 {
+            get {
+                return ResourceManager.GetString("Modal_WhenNotToUse_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The user must make a brief, time-sensitive decision or acknowledgement..
+        /// </summary>
+        public static string Modal_WhenToUse_1 {
+            get {
+                return ResourceManager.GetString("Modal_WhenToUse_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The task requires 1–2 clear actions and benefits from focused attention..
+        /// </summary>
+        public static string Modal_WhenToUse_2 {
+            get {
+                return ResourceManager.GetString("Modal_WhenToUse_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inline content would disrupt the page structure or cause confusion..
+        /// </summary>
+        public static string Modal_WhenToUse_3 {
+            get {
+                return ResourceManager.GetString("Modal_WhenToUse_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The decision is contextual to the current page and does not require navigation..
+        /// </summary>
+        public static string Modal_WhenToUse_4 {
+            get {
+                return ResourceManager.GetString("Modal_WhenToUse_4", resourceCulture);
             }
         }
         
@@ -2087,6 +3262,447 @@ namespace GCFoundation.Web.Resources {
         public static string SampleCode {
             get {
                 return ResourceManager.GetString("SampleCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to basic.
+        /// </summary>
+        public static string SearchableSelect_Basic_Anchor {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Basic_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic Usage.
+        /// </summary>
+        public static string SearchableSelect_Basic_Title {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Basic_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Searchable Select.
+        /// </summary>
+        public static string SearchableSelect_Name {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-searchable-select&amp;gt;&lt;/code&gt; component provides a searchable select for one or many selections. It always includes search and can render optional caller-provided content in the &lt;code&gt;selected-options&lt;/code&gt; slot..
+        /// </summary>
+        public static string SearchableSelect_Overview {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text shown in the trigger when no option is selected..
+        /// </summary>
+        public static string SearchableSelect_Properties_DefaultValue {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Properties_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model expression used to bind the selected value or values..
+        /// </summary>
+        public static string SearchableSelect_Properties_For {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Properties_For", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional hint text displayed under the label..
+        /// </summary>
+        public static string SearchableSelect_Properties_Hint {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Properties_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Options rendered in the dropdown. Use SelectListItem.Group to display grouped headings..
+        /// </summary>
+        public static string SearchableSelect_Properties_Items {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Properties_Items", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visible label for the dropdown..
+        /// </summary>
+        public static string SearchableSelect_Properties_Label {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Properties_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Form field name used when the component is not bound with for..
+        /// </summary>
+        public static string SearchableSelect_Properties_Name {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Properties_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text shown when no options match the search term..
+        /// </summary>
+        public static string SearchableSelect_Properties_NoResultsText {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Properties_NoResultsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Marks the dropdown as required for validation and accessibility..
+        /// </summary>
+        public static string SearchableSelect_Properties_Required {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Properties_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accessible label for the search input..
+        /// </summary>
+        public static string SearchableSelect_Properties_SearchLabel {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Properties_SearchLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Placeholder text for the search input..
+        /// </summary>
+        public static string SearchableSelect_Properties_SearchPlaceholder {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Properties_SearchPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selection behavior. Use Single for radio-style selection or Multiple for checkbox-style selection..
+        /// </summary>
+        public static string SearchableSelect_Properties_SelectionMode {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Properties_SelectionMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear.
+        /// </summary>
+        public static string SearchableSelect_Sample_Classification_ClearText {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Classification_ClearText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select option.
+        /// </summary>
+        public static string SearchableSelect_Sample_Classification_DefaultValue {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Classification_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Economics and Social Science Services (EC).
+        /// </summary>
+        public static string SearchableSelect_Sample_Classification_EC_Group {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Classification_EC_Group", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Classification group &amp; level.
+        /// </summary>
+        public static string SearchableSelect_Sample_Classification_Label {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Classification_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No results found.
+        /// </summary>
+        public static string SearchableSelect_Sample_Classification_NoResultsText {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Classification_NoResultsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Program Administration (PM).
+        /// </summary>
+        public static string SearchableSelect_Sample_Classification_PM_Group {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Classification_PM_Group", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        public static string SearchableSelect_Sample_Classification_SearchPlaceholder {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Classification_SearchPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to option(s) selected.
+        /// </summary>
+        public static string SearchableSelect_Sample_Classification_SelectedCountText {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Classification_SelectedCountText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to selected.
+        /// </summary>
+        public static string SearchableSelect_Sample_Classification_TriggerSelectedText {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Classification_TriggerSelectedText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Australia.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_AU {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_AU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Brazil.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_BR {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_BR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Canada.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_CA {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_CA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Germany.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_DE {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_DE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select country.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_DefaultValue {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Spain.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_ES {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_ES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to France.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_FR {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_FR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to United Kingdom.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_GB {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_GB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start typing to filter countries.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_Hint {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to India.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_IN {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_IN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Italy.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_IT {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_IT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Japan.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_JP {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_JP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Country.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_Label {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mexico.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_MX {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_MX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No results found.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_NoResultsText {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_NoResultsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Zealand.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_NZ {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_NZ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search countries.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_SearchPlaceholder {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_SearchPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Saint Vincent and the Grenadines.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_SV {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_SV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to United States.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_US {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_US", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to South Africa.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_ZA {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_ZA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} results available.
+        /// </summary>
+        public static string SearchableSelect_Sample_MultipleResultsText {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_MultipleResultsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1 result available.
+        /// </summary>
+        public static string SearchableSelect_Sample_OneResultText {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_OneResultText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to with-selected-options.
+        /// </summary>
+        public static string SearchableSelect_WithSelectedOptions_Anchor {
+            get {
+                return ResourceManager.GetString("SearchableSelect_WithSelectedOptions_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;This example uses a multiple searchable select. Set &lt;code&gt;selection-mode=&quot;@FDCPSearchableSelectSelectionMode.Multiple&quot;&lt;/code&gt; to enable multiple selection. Use the &lt;code&gt;selected-options&lt;/code&gt; slot to add a custom bottom section, such as selected counts, clear actions, or any other caller-specific markup.&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string SearchableSelect_WithSelectedOptions_Text {
+            get {
+                return ResourceManager.GetString("SearchableSelect_WithSelectedOptions_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Multiple Searchable Select with Selected Options Slot.
+        /// </summary>
+        public static string SearchableSelect_WithSelectedOptions_Title {
+            get {
+                return ResourceManager.GetString("SearchableSelect_WithSelectedOptions_Title", resourceCulture);
             }
         }
         
@@ -2708,47 +4324,182 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to table-basic.
+        ///   Looks up a localized string similar to Actions.
         /// </summary>
-        public static string Table_Basic_Anchor {
+        public static string Table_Actions_Header {
             get {
-                return ResourceManager.GetString("Table_Basic_Anchor", resourceCulture);
+                return ResourceManager.GetString("Table_Actions_Header", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Employee status.
+        ///   Looks up a localized string similar to Reviewer.
         /// </summary>
-        public static string Table_Basic_Caption {
+        public static string Table_Assigned_Reviewer_Header {
             get {
-                return ResourceManager.GetString("Table_Basic_Caption", resourceCulture);
+                return ResourceManager.GetString("Table_Assigned_Reviewer_Header", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A comparison of employee program participation and status indicators..
+        ///   Looks up a localized string similar to basic-usage.
         /// </summary>
-        public static string Table_Basic_Summary {
+        public static string Table_BasicUsage_Anchor {
             get {
-                return ResourceManager.GetString("Table_Basic_Summary", resourceCulture);
+                return ResourceManager.GetString("Table_BasicUsage_Anchor", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Demonstrates captions, scoped headers, aria-describedby summaries, and the fdcp-table utility classes..
+        ///   Looks up a localized string similar to For more examples on filtering and pagination, see the &lt;gcds-link href=&quot;https://design-system.canada.ca/en/components/table/code/&quot; external&gt;GC Design System table documentation&lt;/gcds-link&gt; — &lt;code&gt;&amp;lt;fdcp-table&amp;gt;&lt;/code&gt; implements these features the same way..
         /// </summary>
-        public static string Table_Basic_Text {
+        public static string Table_BasicUsage_GCDSNote {
             get {
-                return ResourceManager.GetString("Table_Basic_Text", resourceCulture);
+                return ResourceManager.GetString("Table_BasicUsage_GCDSNote", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Responsive table.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Pass a &lt;code&gt;List&amp;lt;T&amp;gt;&lt;/code&gt; of row models to the &lt;code&gt;rows&lt;/code&gt; attribute — &lt;code&gt;&amp;lt;fdcp-table&amp;gt;&lt;/code&gt; renders each item as a table row. Decorate properties on the row model with &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; to define them as columns. Columns can also be defined explicitly by passing a &lt;code&gt;List&amp;lt;ColumnDefinition&amp;gt;&lt;/code&gt; to &lt;code&gt;column-definitions&lt;/code&gt;.&lt;/gcds-text&gt;&lt;gcds-text&gt;&lt;i&gt;&lt;gcds-link href=&quot;#properties&quot;&gt;See all available properties below&lt;/gcds-link&gt;. For more ex [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string Table_Basic_Title {
+        public static string Table_BasicUsage_Text {
             get {
-                return ResourceManager.GetString("Table_Basic_Title", resourceCulture);
+                return ResourceManager.GetString("Table_BasicUsage_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic usage.
+        /// </summary>
+        public static string Table_BasicUsage_Title {
+            get {
+                return ResourceManager.GetString("Table_BasicUsage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to data-binding.
+        /// </summary>
+        public static string Table_DataBinding_Anchor {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sets the named HTML attribute to the value of a row field (e.g. &lt;code&gt;data-bind-button-id=&quot;{submissionId}&quot;&lt;/code&gt;)..
+        /// </summary>
+        public static string Table_DataBinding_Attr_Desc {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_Attr_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sets the element&apos;s text content to the value of the named row field..
+        /// </summary>
+        public static string Table_DataBinding_Bind_Desc {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_Bind_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attribute.
+        /// </summary>
+        public static string Table_DataBinding_Col_Attribute {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_Col_Attribute", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Effect.
+        /// </summary>
+        public static string Table_DataBinding_Col_Effect {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_Col_Effect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value.
+        /// </summary>
+        public static string Table_DataBinding_Col_Value {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_Col_Value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When using &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;, this is the camelCase form of the annotated property name (e.g. &lt;code&gt;SubmitterName&lt;/code&gt; → &lt;code&gt;{submitterName}&lt;/code&gt;). Otherwise, it is whatever field name was explicitly set..
+        /// </summary>
+        public static string Table_DataBinding_FieldName_Desc {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_FieldName_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Builds the element&apos;s text content from a template string containing one or more &lt;code&gt;{fieldName}&lt;/code&gt; tokens..
+        /// </summary>
+        public static string Table_DataBinding_Template_Desc {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_Template_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Interpolates one or more &lt;code&gt;{fieldName}&lt;/code&gt; tokens into a template string and sets the result as the named HTML attribute (e.g. &lt;code&gt;data-bind-template-href=&quot;mailto:{email}&quot;&lt;/code&gt;)..
+        /// </summary>
+        public static string Table_DataBinding_TemplateAttr_Desc {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_TemplateAttr_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Inside any &lt;code&gt;&amp;lt;template slot=&quot;cell:fieldName&quot;&amp;gt;&lt;/code&gt;, use the following attributes to populate elements from the current row&apos;s data.&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Table_DataBinding_Text {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data binding.
+        /// </summary>
+        public static string Table_DataBinding_Title {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date Submitted.
+        /// </summary>
+        public static string Table_Date_Submitted_Header {
+            get {
+                return ResourceManager.GetString("Table_Date_Submitted_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email address.
+        /// </summary>
+        public static string Table_Email_Header {
+            get {
+                return ResourceManager.GetString("Table_Email_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submission Link.
+        /// </summary>
+        public static string Table_Link_Header {
+            get {
+                return ResourceManager.GetString("Table_Link_Header", resourceCulture);
             }
         }
         
@@ -2780,11 +4531,101 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use FDCP table styles to present tabular data with WCAG-compliant captions, scoped headers, and responsive behaviour..
+        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-table&amp;gt;&lt;/code&gt; component wraps the GC Design System &lt;code&gt;&amp;lt;gcds-table&amp;gt;&lt;/code&gt; by parsing a &lt;code&gt;List&amp;lt;T&amp;gt;&lt;/code&gt; of row models and rendering each item as a table row. Columns are resolved from &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;-annotated properties on the row model. Columns can also be supplied explicitly via &lt;code&gt;column-definitions&lt;/code&gt;. Custom cell content (links, buttons, etc.) is rendered via &lt;code&gt;&amp;lt;template slot=&quot;cell:fieldName&quot;&amp;gt;&lt;/code&gt;..
         /// </summary>
         public static string Table_Overview {
             get {
                 return ResourceManager.GetString("Table_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Controls horizontal alignment of cell content. Values: &lt;code&gt;start&lt;/code&gt; (left), &lt;code&gt;center&lt;/code&gt;, &lt;code&gt;end&lt;/code&gt; (right)..
+        /// </summary>
+        public static string Table_Properties_Annotation_Alignment {
+            get {
+                return ResourceManager.GetString("Table_Properties_Annotation_Alignment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Explicitly hides this column from the rendered table even when &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; is present..
+        /// </summary>
+        public static string Table_Properties_Annotation_IsHidden {
+            get {
+                return ResourceManager.GetString("Table_Properties_Annotation_IsHidden", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Controls the display order of this column relative to other columns. Columns are rendered in ascending order by this value..
+        /// </summary>
+        public static string Table_Properties_Annotation_Order {
+            get {
+                return ResourceManager.GetString("Table_Properties_Annotation_Order", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Sets the column header text. Provide a resource key as &lt;code&gt;Name&lt;/code&gt; and the resource class as &lt;code&gt;ResourceType&lt;/code&gt; for a localized header..
+        /// </summary>
+        public static string Table_Properties_Annotation_NameResourceType {
+            get {
+                return ResourceManager.GetString("Table_Properties_Annotation_NameResourceType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Marks each cell in this column as a row header..
+        /// </summary>
+        public static string Table_Properties_Annotation_RowHeader {
+            get {
+                return ResourceManager.GetString("Table_Properties_Annotation_RowHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enables custom slotted cell content for this column..
+        /// </summary>
+        public static string Table_Properties_Annotation_Slotted {
+            get {
+                return ResourceManager.GetString("Table_Properties_Annotation_Slotted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enables sorting by this column when clicked..
+        /// </summary>
+        public static string Table_Properties_Annotation_Sort {
+            get {
+                return ResourceManager.GetString("Table_Properties_Annotation_Sort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sets the default sort order when the page loads. Values: &lt;code&gt;asc&lt;/code&gt;, &lt;code&gt;desc&lt;/code&gt;, &lt;code&gt;none&lt;/code&gt;. Only applies when &lt;code&gt;Sort&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt;..
+        /// </summary>
+        public static string Table_Properties_Annotation_SortDirection {
+            get {
+                return ResourceManager.GetString("Table_Properties_Annotation_SortDirection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; is required on every property that should appear as a column. Properties without this annotation are automatically excluded from the rendered table but remain accessible on the row data for &lt;code&gt;data-bind*&lt;/code&gt; bindings and JavaScript via &lt;code&gt;element.row&lt;/code&gt;..
+        /// </summary>
+        public static string Table_Properties_Annotation_Text {
+            get {
+                return ResourceManager.GetString("Table_Properties_Annotation_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Annotation — &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;.
+        /// </summary>
+        public static string Table_Properties_Annotation_Title {
+            get {
+                return ResourceManager.GetString("Table_Properties_Annotation_Title", resourceCulture);
             }
         }
         
@@ -2807,6 +4648,186 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Controls horizontal alignment of cell content. Values: &lt;code&gt;start&lt;/code&gt; (left), &lt;code&gt;center&lt;/code&gt;, &lt;code&gt;end&lt;/code&gt; (right)..
+        /// </summary>
+        public static string Table_Properties_ColumnDef_Alignment {
+            get {
+                return ResourceManager.GetString("Table_Properties_ColumnDef_Alignment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The camelCase name of the property on the row model that this column maps to..
+        /// </summary>
+        public static string Table_Properties_ColumnDef_Field {
+            get {
+                return ResourceManager.GetString("Table_Properties_ColumnDef_Field", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The column header label displayed in the table&apos;s &lt;code&gt;&amp;lt;thead&amp;gt;&lt;/code&gt;..
+        /// </summary>
+        public static string Table_Properties_ColumnDef_Header {
+            get {
+                return ResourceManager.GetString("Table_Properties_ColumnDef_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Marks each cell in this column as a row header..
+        /// </summary>
+        public static string Table_Properties_ColumnDef_RowHeader {
+            get {
+                return ResourceManager.GetString("Table_Properties_ColumnDef_RowHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enables custom cell content for this column via &lt;code&gt;&amp;lt;template slot=&quot;cell:fieldName&quot;&amp;gt;&lt;/code&gt;..
+        /// </summary>
+        public static string Table_Properties_ColumnDef_Slotted {
+            get {
+                return ResourceManager.GetString("Table_Properties_ColumnDef_Slotted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enables sorting by this column when clicked..
+        /// </summary>
+        public static string Table_Properties_ColumnDef_Sort {
+            get {
+                return ResourceManager.GetString("Table_Properties_ColumnDef_Sort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sets the default sort order when the page loads. Values: &lt;code&gt;asc&lt;/code&gt;, &lt;code&gt;desc&lt;/code&gt;, &lt;code&gt;none&lt;/code&gt;. Only applies when &lt;code&gt;Sort&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt;..
+        /// </summary>
+        public static string Table_Properties_ColumnDef_SortDirection {
+            get {
+                return ResourceManager.GetString("Table_Properties_ColumnDef_SortDirection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Properties — &lt;code&gt;ColumnDefinition&lt;/code&gt;.
+        /// </summary>
+        public static string Table_Properties_ColumnDef_Title {
+            get {
+                return ResourceManager.GetString("Table_Properties_ColumnDef_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accessible name for the table, announced by assistive technologies. Required for WCAG compliance..
+        /// </summary>
+        public static string Table_Properties_FdcpTable_Caption {
+            get {
+                return ResourceManager.GetString("Table_Properties_FdcpTable_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Additional descriptive text displayed below the caption..
+        /// </summary>
+        public static string Table_Properties_FdcpTable_CaptionDetail {
+            get {
+                return ResourceManager.GetString("Table_Properties_FdcpTable_CaptionDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional explicit column definitions. When omitted, only properties decorated with &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; on the row model are displayed as columns, with the header and behaviour configured directly in the annotation..
+        /// </summary>
+        public static string Table_Properties_FdcpTable_ColumnDefinitions {
+            get {
+                return ResourceManager.GetString("Table_Properties_FdcpTable_ColumnDefinitions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enables a keyword filter input above the table to narrow displayed rows..
+        /// </summary>
+        public static string Table_Properties_FdcpTable_Filter {
+            get {
+                return ResourceManager.GetString("Table_Properties_FdcpTable_Filter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pre-fills the filter input with a default keyword when the table loads. Only applies when &lt;code&gt;filter&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt;..
+        /// </summary>
+        public static string Table_Properties_FdcpTable_FilterValue {
+            get {
+                return ResourceManager.GetString("Table_Properties_FdcpTable_FilterValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Splits table rows into pages..
+        /// </summary>
+        public static string Table_Properties_FdcpTable_Pagination {
+            get {
+                return ResourceManager.GetString("Table_Properties_FdcpTable_Pagination", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The page shown when the table first loads. Only applies when &lt;code&gt;pagination&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt;..
+        /// </summary>
+        public static string Table_Properties_FdcpTable_PaginationCurrentPage {
+            get {
+                return ResourceManager.GetString("Table_Properties_FdcpTable_PaginationCurrentPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of rows displayed per page. Only applies when &lt;code&gt;pagination&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt;..
+        /// </summary>
+        public static string Table_Properties_FdcpTable_PaginationSize {
+            get {
+                return ResourceManager.GetString("Table_Properties_FdcpTable_PaginationSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page-size choices available in the pagination control. Include &lt;code&gt;0&lt;/code&gt; to add an &quot;All&quot; option. Only applies when &lt;code&gt;pagination&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt;..
+        /// </summary>
+        public static string Table_Properties_FdcpTable_PaginationSizeOptions {
+            get {
+                return ResourceManager.GetString("Table_Properties_FdcpTable_PaginationSizeOptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The server-side collection of row data to display..
+        /// </summary>
+        public static string Table_Properties_FdcpTable_Rows {
+            get {
+                return ResourceManager.GetString("Table_Properties_FdcpTable_Rows", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enables sorting by clicking column headers. Can also be enabled per-column via &lt;code&gt;ColumnDefinition.Sort&lt;/code&gt; or &lt;code&gt;[TableColumnDefinition(Sort = true)]&lt;/code&gt;..
+        /// </summary>
+        public static string Table_Properties_FdcpTable_Sort {
+            get {
+                return ResourceManager.GetString("Table_Properties_FdcpTable_Sort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Properties — &lt;code&gt;&amp;lt;fdcp-table&amp;gt;&lt;/code&gt;.
+        /// </summary>
+        public static string Table_Properties_FdcpTable_Title {
+            get {
+                return ResourceManager.GetString("Table_Properties_FdcpTable_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Use scope=&quot;col&quot; for header cells and scope=&quot;row&quot; for the first cell in each data row..
         /// </summary>
         public static string Table_Properties_Scope {
@@ -2825,155 +4846,731 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to basic.
+        ///   Looks up a localized string similar to Properties.
         /// </summary>
-        public static string TableGridJs_Basic_Anchor {
+        public static string Table_Properties_Title {
             get {
-                return ResourceManager.GetString("TableGridJs_Basic_Anchor", resourceCulture);
+                return ResourceManager.GetString("Table_Properties_Title", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A basic example of the Table (Grid.js) with server-side sorting, search, and pagination:.
+        ///   Looks up a localized string similar to ID.
         /// </summary>
-        public static string TableGridJs_Basic_Text {
+        public static string Table_Submission_Id_Header {
             get {
-                return ResourceManager.GetString("TableGridJs_Basic_Text", resourceCulture);
+                return ResourceManager.GetString("Table_Submission_Id_Header", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Basic Usage.
+        ///   Looks up a localized string similar to Name.
         /// </summary>
-        public static string TableGridJs_Basic_Title {
+        public static string Table_Submitter_Name_Header {
             get {
-                return ResourceManager.GetString("TableGridJs_Basic_Title", resourceCulture);
+                return ResourceManager.GetString("Table_Submitter_Name_Header", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Accessible server-side table (Grid.js).
+        ///   Looks up a localized string similar to basic-usage-annotations.
         /// </summary>
-        public static string TableGridJs_Description {
+        public static string Table_WithAnnotations_Anchor {
             get {
-                return ResourceManager.GetString("TableGridJs_Description", resourceCulture);
+                return ResourceManager.GetString("Table_WithAnnotations_Anchor", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Table (Grid.js).
+        ///   Looks up a localized string similar to Table using data annotations.
         /// </summary>
-        public static string TableGridJs_Name {
+        public static string Table_WithAnnotations_Caption {
             get {
-                return ResourceManager.GetString("TableGridJs_Name", resourceCulture);
+                return ResourceManager.GetString("Table_WithAnnotations_Caption", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This Table (Grid.js) wraps Grid.js to provide an accessible, WCAG 2.1 AAA-oriented data table with server-side sorting, search, and pagination. It progressively enhances a semantic table fallback and aligns styling with the GC Design System..
+        ///   Looks up a localized string similar to Decorate each property you want to display with &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;. Use &lt;code&gt;Name&lt;/code&gt; and &lt;code&gt;ResourceType&lt;/code&gt; to provide a localized column header. Set &lt;code&gt;RowHeader = true&lt;/code&gt; to mark a column as the row header, &lt;code&gt;Sort = true&lt;/code&gt; to enable sorting, or &lt;code&gt;Slotted = true&lt;/code&gt; for custom cell content..
         /// </summary>
-        public static string TableGridJs_Overview {
+        public static string Table_WithAnnotations_Text {
             get {
-                return ResourceManager.GetString("TableGridJs_Overview", resourceCulture);
+                return ResourceManager.GetString("Table_WithAnnotations_Text", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Data endpoint for server-side sort/search/pagination..
+        ///   Looks up a localized string similar to Using data annotations.
         /// </summary>
-        public static string TableGridJs_Properties_AjaxUrl {
+        public static string Table_WithAnnotations_Title {
             get {
-                return ResourceManager.GetString("TableGridJs_Properties_AjaxUrl", resourceCulture);
+                return ResourceManager.GetString("Table_WithAnnotations_Title", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Optional ARIA label for the table..
+        ///   Looks up a localized string similar to Properties without the annotation are excluded from the rendered columns but are still serialized into the page&apos;s row data. They remain accessible client-side for &lt;code&gt;data-bind*&lt;/code&gt; bindings and JavaScript via &lt;code&gt;element.row&lt;/code&gt;..
         /// </summary>
-        public static string TableGridJs_Properties_AriaLabel {
+        public static string Table_WithAnnotations_Warning {
             get {
-                return ResourceManager.GetString("TableGridJs_Properties_AriaLabel", resourceCulture);
+                return ResourceManager.GetString("Table_WithAnnotations_Warning", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Visible caption (required for AAA)..
+        ///   Looks up a localized string similar to with-slots-button.
         /// </summary>
-        public static string TableGridJs_Properties_Caption {
+        public static string Table_WithButton_Anchor {
             get {
-                return ResourceManager.GetString("TableGridJs_Properties_Caption", resourceCulture);
+                return ResourceManager.GetString("Table_WithButton_Anchor", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Extra CSS classes applied to the enhanced table..
+        ///   Looks up a localized string similar to Table with button.
         /// </summary>
-        public static string TableGridJs_Properties_Class {
+        public static string Table_WithButton_Caption {
             get {
-                return ResourceManager.GetString("TableGridJs_Properties_Class", resourceCulture);
+                return ResourceManager.GetString("Table_WithButton_Caption", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Column headers and field keys..
+        ///   Looks up a localized string similar to Delete.
         /// </summary>
-        public static string TableGridJs_Properties_Columns {
+        public static string Table_WithButton_Label {
             get {
-                return ResourceManager.GetString("TableGridJs_Properties_Columns", resourceCulture);
+                return ResourceManager.GetString("Table_WithButton_Label", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unique container id (auto-generated if omitted)..
+        ///   Looks up a localized string similar to &lt;i&gt;Note: In this demo, clicking a Delete button logs the row object and its submissionId to the browser console.&lt;/i&gt;.
         /// </summary>
-        public static string TableGridJs_Properties_Id {
+        public static string Table_WithButton_Note {
             get {
-                return ResourceManager.GetString("TableGridJs_Properties_Id", resourceCulture);
+                return ResourceManager.GetString("Table_WithButton_Note", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Language hint (e.g., en, fr)..
+        ///   Looks up a localized string similar to For each slotted cell, the table adds &lt;code&gt;.row&lt;/code&gt; and &lt;code&gt;.column&lt;/code&gt; properties to the rendered element. &lt;code&gt;.row&lt;/code&gt; contains the complete data object for the current row, while &lt;code&gt;.column&lt;/code&gt; contains the definition and metadata for the current column..
         /// </summary>
-        public static string TableGridJs_Properties_Lang {
+        public static string Table_WithButton_SlottedCellContext_Text {
             get {
-                return ResourceManager.GetString("TableGridJs_Properties_Lang", resourceCulture);
+                return ResourceManager.GetString("Table_WithButton_SlottedCellContext_Text", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Rows per page..
+        ///   Looks up a localized string similar to Use &lt;code&gt;data-bind-{attribute}&lt;/code&gt; to bind a row field to any attribute on the slotted element. For example, &lt;code&gt;data-bind-button-id=&quot;{fieldName}&quot;&lt;/code&gt; sets the button&apos;s &lt;code&gt;button-id&lt;/code&gt; from that row field..
         /// </summary>
-        public static string TableGridJs_Properties_PageSize {
+        public static string Table_WithButton_Text {
             get {
-                return ResourceManager.GetString("TableGridJs_Properties_PageSize", resourceCulture);
+                return ResourceManager.GetString("Table_WithButton_Text", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable server search..
+        ///   Looks up a localized string similar to With button.
         /// </summary>
-        public static string TableGridJs_Properties_SearchEnabled {
+        public static string Table_WithButton_Title {
             get {
-                return ResourceManager.GetString("TableGridJs_Properties_SearchEnabled", resourceCulture);
+                return ResourceManager.GetString("Table_WithButton_Title", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable server sorting..
+        ///   Looks up a localized string similar to with-slots-button-link.
         /// </summary>
-        public static string TableGridJs_Properties_SortEnabled {
+        public static string Table_WithButtonLink_Anchor {
             get {
-                return ResourceManager.GetString("TableGridJs_Properties_SortEnabled", resourceCulture);
+                return ResourceManager.GetString("Table_WithButtonLink_Anchor", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Additional context announced to SR users..
+        ///   Looks up a localized string similar to Table with button link.
         /// </summary>
-        public static string TableGridJs_Properties_Summary {
+        public static string Table_WithButtonLink_Caption {
             get {
-                return ResourceManager.GetString("TableGridJs_Properties_Summary", resourceCulture);
+                return ResourceManager.GetString("Table_WithButtonLink_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string Table_WithButtonLink_Label {
+            get {
+                return ResourceManager.GetString("Table_WithButtonLink_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;i&gt;Note: In this demo, the button navigates to a page anchor. In a real application, &lt;code&gt;data-bind-template-href=&quot;/your/route/{fieldName}&quot;&lt;/code&gt; can build the destination URL dynamically from a row value.&lt;/i&gt;.
+        /// </summary>
+        public static string Table_WithButtonLink_Note {
+            get {
+                return ResourceManager.GetString("Table_WithButtonLink_Note", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to with-slots-caption.
+        /// </summary>
+        public static string Table_WithCaptionSlot_Anchor {
+            get {
+                return ResourceManager.GetString("Table_WithCaptionSlot_Anchor", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Add submission.
+        /// </summary>
+        public static string Table_WithCaptionSlot_ButtonLabel {
+            get {
+                return ResourceManager.GetString("Table_WithCaptionSlot_ButtonLabel", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;i&gt;Note: In this demo, clicking the Add submission button logs a message to the browser console.&lt;/i&gt;.
+        /// </summary>
+        public static string Table_WithCaptionSlot_Note {
+            get {
+                return ResourceManager.GetString("Table_WithCaptionSlot_Note", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Submissions.
+        /// </summary>
+        public static string Table_WithCaptionSlot_Caption {
+            get {
+                return ResourceManager.GetString("Table_WithCaptionSlot_Caption", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to List of recent submissions.
+        /// </summary>
+        public static string Table_WithCaptionSlot_CaptionDetail {
+            get {
+                return ResourceManager.GetString("Table_WithCaptionSlot_CaptionDetail", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Use &lt;code&gt;&amp;lt;div slot="caption"&amp;gt;&lt;/code&gt; to inject custom content into the caption area of the table.
+        /// </summary>
+        public static string Table_WithCaptionSlot_Text {
+            get {
+                return ResourceManager.GetString("Table_WithCaptionSlot_Text", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to With caption slot.
+        /// </summary>
+        public static string Table_WithCaptionSlot_Title {
+            get {
+                return ResourceManager.GetString("Table_WithCaptionSlot_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A &lt;code&gt;type=&quot;link&quot;&lt;/code&gt; button inside the slot navigates like a link. Use &lt;code&gt;data-bind-template-href&lt;/code&gt; to supply the destination URL from the current row&apos;s data..
+        /// </summary>
+        public static string Table_WithButtonLink_Text {
+            get {
+                return ResourceManager.GetString("Table_WithButtonLink_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to With button link.
+        /// </summary>
+        public static string Table_WithButtonLink_Title {
+            get {
+                return ResourceManager.GetString("Table_WithButtonLink_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to basic-usage-columns.
+        /// </summary>
+        public static string Table_WithColumns_Anchor {
+            get {
+                return ResourceManager.GetString("Table_WithColumns_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Table using column definitions.
+        /// </summary>
+        public static string Table_WithColumns_Caption {
+            get {
+                return ResourceManager.GetString("Table_WithColumns_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to As an alternative, pass a &lt;code&gt;List&amp;lt;ColumnDefinition&amp;gt;&lt;/code&gt; to &lt;code&gt;column-definitions&lt;/code&gt; to define columns entirely in the controller..
+        /// </summary>
+        public static string Table_WithColumns_Text {
+            get {
+                return ResourceManager.GetString("Table_WithColumns_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Using explicit column definitions.
+        /// </summary>
+        public static string Table_WithColumns_Title {
+            get {
+                return ResourceManager.GetString("Table_WithColumns_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to with-slots-email.
+        /// </summary>
+        public static string Table_WithEmail_Anchor {
+            get {
+                return ResourceManager.GetString("Table_WithEmail_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Table with email link.
+        /// </summary>
+        public static string Table_WithEmail_Caption {
+            get {
+                return ResourceManager.GetString("Table_WithEmail_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use &lt;code&gt;data-bind-template-href=&quot;mailto:{fieldName}&quot;&lt;/code&gt; to build a &lt;code&gt;mailto:&lt;/code&gt; link from a row value..
+        /// </summary>
+        public static string Table_WithEmail_Text {
+            get {
+                return ResourceManager.GetString("Table_WithEmail_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to With email link.
+        /// </summary>
+        public static string Table_WithEmail_Title {
+            get {
+                return ResourceManager.GetString("Table_WithEmail_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to with-slots-link.
+        /// </summary>
+        public static string Table_WithLink_Anchor {
+            get {
+                return ResourceManager.GetString("Table_WithLink_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Table with link.
+        /// </summary>
+        public static string Table_WithLink_Caption {
+            get {
+                return ResourceManager.GetString("Table_WithLink_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View submission of.
+        /// </summary>
+        public static string Table_WithLink_Label {
+            get {
+                return ResourceManager.GetString("Table_WithLink_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;i&gt;Note: In this demo, the link navigates to a page anchor. In a real application, &lt;code&gt;data-bind-template-href=&quot;/your/route/{fieldName}&quot;&lt;/code&gt; can build the destination URL dynamically from a row value.&lt;/i&gt;.
+        /// </summary>
+        public static string Table_WithLink_Note {
+            get {
+                return ResourceManager.GetString("Table_WithLink_Note", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can use &lt;code&gt;data-bind-template&lt;/code&gt; and &lt;code&gt;data-bind-template-href&lt;/code&gt; with &lt;code&gt;{fieldName}&lt;/code&gt; tokens to build strings from row field values into the link&apos;s text and destination URL..
+        /// </summary>
+        public static string Table_WithLink_Text {
+            get {
+                return ResourceManager.GetString("Table_WithLink_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to With link.
+        /// </summary>
+        public static string Table_WithLink_Title {
+            get {
+                return ResourceManager.GetString("Table_WithLink_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to with-slots.
+        /// </summary>
+        public static string Table_WithSlots_Anchor {
+            get {
+                return ResourceManager.GetString("Table_WithSlots_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Replace any cell&apos;s default text output with custom HTML using a named slot: &lt;code&gt;&amp;lt;template slot=&quot;cell:fieldName&quot;&amp;gt;&lt;/code&gt;. Mark the corresponding model property with &lt;code&gt;[TableColumnDefinition(Slotted = true)]&lt;/code&gt; so the component renders the slot instead of plain text. Use &lt;code&gt;data-bind*&lt;/code&gt; attributes inside the template to bind row values to elements.&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Table_WithSlots_Text {
+            get {
+                return ResourceManager.GetString("Table_WithSlots_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to With slots.
+        /// </summary>
+        public static string Table_WithSlots_Title {
+            get {
+                return ResourceManager.GetString("Table_WithSlots_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provide a meaningful label on &lt;code&gt;fdcp-tabs&lt;/code&gt; so assistive technologies can describe the tab list..
+        /// </summary>
+        public static string Tabs_Accessibility_Do_1 {
+            get {
+                return ResourceManager.GetString("Tabs_Accessibility_Do_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keep tab labels short and unique so people can understand the available panels quickly..
+        /// </summary>
+        public static string Tabs_Accessibility_Do_2 {
+            get {
+                return ResourceManager.GetString("Tabs_Accessibility_Do_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Make sure each tab panel has enough context when read on its own, because screen reader users may navigate directly between panels..
+        /// </summary>
+        public static string Tabs_Accessibility_Do_3 {
+            get {
+                return ResourceManager.GetString("Tabs_Accessibility_Do_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to basic-tabs.
+        /// </summary>
+        public static string Tabs_Basic_Anchor {
+            get {
+                return ResourceManager.GetString("Tabs_Basic_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use nested &lt;code&gt;fdcp-tab&lt;/code&gt; elements inside &lt;code&gt;fdcp-tabs&lt;/code&gt; to define each tab label and panel content..
+        /// </summary>
+        public static string Tabs_Basic_Text {
+            get {
+                return ResourceManager.GetString("Tabs_Basic_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic tabs.
+        /// </summary>
+        public static string Tabs_Basic_Title {
+            get {
+                return ResourceManager.GetString("Tabs_Basic_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tabs.
+        /// </summary>
+        public static string Tabs_DefaultLabel {
+            get {
+                return ResourceManager.GetString("Tabs_DefaultLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This content was loaded from the server when the tab was selected..
+        /// </summary>
+        public static string Tabs_LazyContent {
+            get {
+                return ResourceManager.GetString("Tabs_LazyContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tabs.
+        /// </summary>
+        public static string Tabs_Name {
+            get {
+                return ResourceManager.GetString("Tabs_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The component follows the WAI-ARIA tabs pattern. Left Arrow, Right Arrow, Home, and End move focus; Enter or Space activates the focused tab..
+        /// </summary>
+        public static string Tabs_Notes_1 {
+            get {
+                return ResourceManager.GetString("Tabs_Notes_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tabs are for switching content panels in the current page. For page navigation, use GCDS top navigation, side navigation, or links..
+        /// </summary>
+        public static string Tabs_Notes_2 {
+            get {
+                return ResourceManager.GetString("Tabs_Notes_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When load-url is set, the panel content is fetched the first time the tab is selected and then cached for later tab changes..
+        /// </summary>
+        public static string Tabs_Notes_3 {
+            get {
+                return ResourceManager.GetString("Tabs_Notes_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tabs let people switch between related panels of content without leaving the current page context..
+        /// </summary>
+        public static string Tabs_Overview {
+            get {
+                return ResourceManager.GetString("Tabs_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. Unique ID for the tabs component. Used to generate deterministic tab and panel IDs..
+        /// </summary>
+        public static string Tabs_Properties_Id {
+            get {
+                return ResourceManager.GetString("Tabs_Properties_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accessible label for the tab list..
+        /// </summary>
+        public static string Tabs_Properties_Label {
+            get {
+                return ResourceManager.GetString("Tabs_Properties_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. Zero-based index of the tab selected when the page loads. Overrides child active state when valid..
+        /// </summary>
+        public static string Tabs_Properties_SelectedIndex {
+            get {
+                return ResourceManager.GetString("Tabs_Properties_SelectedIndex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. Selects this tab when the page loads if selected-index is not set..
+        /// </summary>
+        public static string Tabs_Properties_TabActive {
+            get {
+                return ResourceManager.GetString("Tabs_Properties_TabActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. Base ID used to generate the child tab and panel IDs..
+        /// </summary>
+        public static string Tabs_Properties_TabId {
+            get {
+                return ResourceManager.GetString("Tabs_Properties_TabId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. URL that returns an HTML fragment to lazy-load into the panel when the tab is selected..
+        /// </summary>
+        public static string Tabs_Properties_TabLoadUrl {
+            get {
+                return ResourceManager.GetString("Tabs_Properties_TabLoadUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Required. Text shown in the tab button..
+        /// </summary>
+        public static string Tabs_Properties_TabTitle {
+            get {
+                return ResourceManager.GetString("Tabs_Properties_TabTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use tabs to group peer sections of content where only one section needs to be visible at a time..
+        /// </summary>
+        public static string Tabs_Purpose {
+            get {
+                return ResourceManager.GetString("Tabs_Purpose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the details tab for supporting information that belongs in the same context..
+        /// </summary>
+        public static string Tabs_Sample_Details_Content {
+            get {
+                return ResourceManager.GetString("Tabs_Sample_Details_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Details.
+        /// </summary>
+        public static string Tabs_Sample_Details_Title {
+            get {
+                return ResourceManager.GetString("Tabs_Sample_Details_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the history tab for related changes or previous activity..
+        /// </summary>
+        public static string Tabs_Sample_History_Content {
+            get {
+                return ResourceManager.GetString("Tabs_Sample_History_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to History.
+        /// </summary>
+        public static string Tabs_Sample_History_Title {
+            get {
+                return ResourceManager.GetString("Tabs_Sample_History_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profile sections.
+        /// </summary>
+        public static string Tabs_Sample_Label {
+            get {
+                return ResourceManager.GetString("Tabs_Sample_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the overview tab for the most important summary content..
+        /// </summary>
+        public static string Tabs_Sample_Overview_Content {
+            get {
+                return ResourceManager.GetString("Tabs_Sample_Overview_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overview.
+        /// </summary>
+        public static string Tabs_Sample_Overview_Title {
+            get {
+                return ResourceManager.GetString("Tabs_Sample_Overview_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loading server content....
+        /// </summary>
+        public static string Tabs_Sample_ServerData_Loading {
+            get {
+                return ResourceManager.GetString("Tabs_Sample_ServerData_Loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server data.
+        /// </summary>
+        public static string Tabs_Sample_ServerData_Title {
+            get {
+                return ResourceManager.GetString("Tabs_Sample_ServerData_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Limit the number of tabs so the tab list remains scannable and works well on small screens..
+        /// </summary>
+        public static string Tabs_UxBestPractices_1 {
+            get {
+                return ResourceManager.GetString("Tabs_UxBestPractices_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order tabs by importance or the expected user workflow, with the most useful panel first..
+        /// </summary>
+        public static string Tabs_UxBestPractices_2 {
+            get {
+                return ResourceManager.GetString("Tabs_UxBestPractices_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do not use tabs for primary site navigation or page-to-page navigation. Use GCDS navigation components for those patterns..
+        /// </summary>
+        public static string Tabs_WhenNotToUse_1 {
+            get {
+                return ResourceManager.GetString("Tabs_WhenNotToUse_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do not hide critical tasks, errors, or required instructions in a tab that might not be selected..
+        /// </summary>
+        public static string Tabs_WhenNotToUse_2 {
+            get {
+                return ResourceManager.GetString("Tabs_WhenNotToUse_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use tabs when the sections are closely related and people benefit from comparing or switching between them in place..
+        /// </summary>
+        public static string Tabs_WhenToUse_1 {
+            get {
+                return ResourceManager.GetString("Tabs_WhenToUse_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use tabs when each panel can stand on its own and the first tab provides a sensible default view..
+        /// </summary>
+        public static string Tabs_WhenToUse_2 {
+            get {
+                return ResourceManager.GetString("Tabs_WhenToUse_2", resourceCulture);
             }
         }
         

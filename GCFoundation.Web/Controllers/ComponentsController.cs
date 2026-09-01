@@ -1,7 +1,6 @@
 using GCFoundation.Components.Controllers;
 using GCFoundation.Components.Enums;
 using GCFoundation.Components.Models.FormBuilder;
-using GCFoundation.Components.TagHelpers.GCDS;
 using GCFoundation.Web.Models;
 using GCFoundation.Web.Models.Components;
 using GCFoundation.Web.Resources;
@@ -28,6 +27,19 @@ namespace GCFoundation.Web.Controllers
 
             var vm = BuildIndexComponentViewModel();
             return View(vm);
+        }
+
+        /// <summary>
+        /// Displays the Accordion component demo page.
+        /// </summary>
+        /// <returns>The Accordion component view.</returns>
+        [HttpGet("accordion")]
+        public IActionResult Accordion()
+        {
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Accordion_Title}");
+
+            var vm = BuildAccordionComponentViewModel();
+            return View("Component", vm);
         }
 
         /// <summary>
@@ -72,19 +84,6 @@ namespace GCFoundation.Web.Controllers
             SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_FilteredSearch_Title}");
 
             var vm = BuildFilteredSearchComponentViewModel();
-            return View("Component", vm);
-        }
-
-        /// <summary>
-        /// Displays the standard table component demo page.
-        /// </summary>
-        /// <returns>The Table component view.</returns>
-        [HttpGet("table")]
-        public IActionResult Table()
-        {
-            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Table_Title}");
-
-            var vm = BuildTableComponentViewModel();
             return View("Component", vm);
         }
 
@@ -207,7 +206,7 @@ namespace GCFoundation.Web.Controllers
             SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Modal_Title}");
 
             var vm = BuildModalComponentViewModel();
-            return View("Modal", vm);
+            return View("Component", vm);
         }
 
         /// <summary>
@@ -222,6 +221,21 @@ namespace GCFoundation.Web.Controllers
             SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_PageHeading_Title}");
 
             var vm = BuildPageHeadingComponentViewModel();
+            return View("Component", vm);
+        }
+
+        /// <summary>
+        /// Displays the Searchable Select component demo page.
+        /// </summary>
+        /// <returns>
+        /// The Searchable Select component view.
+        /// </returns>
+        [HttpGet("searchable-select")]
+        public IActionResult SearchableSelect()
+        {
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_SearchableSelect_Title}");
+
+            var vm = BuildSearchableSelectComponentViewModel();
             return View("Component", vm);
         }
 
@@ -241,27 +255,41 @@ namespace GCFoundation.Web.Controllers
         }
 
         /// <summary>
-        /// Displays the Table (Grid.js) component demo page.
+        /// Displays the standard table component demo page.
         /// </summary>
-        /// <returns>
-        /// The Table (Grid.js) component view.
-        /// </returns>
-        [HttpGet("table-grid-js")]
-        public IActionResult TableGridJs()
+        /// <returns>The Table component view.</returns>
+        [HttpGet("table")]
+        public IActionResult Table()
         {
-            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_TableGridJs_Title}");
-            var vm = BuildTableGridJsComponentViewModel();
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Table_Title}");
+            var vm = BuildTableComponentViewModel();
             return View("Component", vm);
         }
 
         /// <summary>
-        /// Provides a friendly alias for the FDCP Grid Table documentation.
+        /// Displays the Tabs component demo page.
         /// </summary>
-        /// <returns>The FDCP Grid Table component view.</returns>
-        [HttpGet("fdcp-grid-table")]
-        public IActionResult FdcpGridTable()
+        /// <returns>
+        /// The Tabs component view.
+        /// </returns>
+        [HttpGet("tabs")]
+        public IActionResult Tabs()
         {
-            return TableGridJs();
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Tabs_Title}");
+
+            var vm = BuildTabsComponentViewModel();
+            return View("Component", vm);
+        }
+
+        /// <summary>
+        /// Returns sample server-loaded content for the Tabs component demo.
+        /// </summary>
+        /// <returns>A partial HTML fragment for a tab panel.</returns>
+        [HttpGet("tabs/lazy-content")]
+        public IActionResult TabsLazyContent()
+        {
+            var content = System.Net.WebUtility.HtmlEncode(Resources.Components.Tabs_LazyContent);
+            return Content($"<gcds-text>{content}</gcds-text>", "text/html");
         }
 
         /// <summary>
@@ -278,7 +306,53 @@ namespace GCFoundation.Web.Controllers
             return View();
         }
 
+
         #region ViewModel Building
+        private static ComponentViewModel BuildAccordionComponentViewModel()
+        {
+            var vm = new ComponentViewModel
+            {
+                Name = Resources.Components.Accordion_Name,
+                Tag = "<fdcp-accordion>",
+                Overview = Resources.Components.Accordion_Overview,
+                SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
+                {
+                    new()
+                    {
+                        Title = Resources.Components.Accordion_BasicUsage_Title,
+                        Id = Resources.Components.Accordion_BasicUsage_Anchor,
+                        Description = Resources.Components.Accordion_BasicUsage_Text,
+                        PartialViewName = "Accordion/_Basic"
+                    },
+                    new()
+                    {
+                        Title = Resources.Components.Properties,
+                        Id = Resources.Components.Properties_Anchor,
+                        PartialViewName = "Accordion/_Properties"
+                    }
+                },
+                SideNavigation = new SideNavigationViewModel
+                {
+                    Items = new List<NavItem>()
+                    {
+                        new NavLink() { Href = Resources.Components.Overview_Anchor, Label = Resources.Components.Overview },
+                        new NavGroup()
+                        {
+                            Label = Resources.Components.Accordion_BasicUsage_Title,
+                            Items = new List<NavItem>()
+                            {
+                                new NavLink() { Href = Resources.Components.Accordion_BasicAccordion_Anchor, Label = Resources.Components.Accordion_BasicAccordion_Title },
+                                new NavLink() { Href = Resources.Components.Accordion_AlwaysOpen_Anchor, Label = Resources.Components.Accordion_AlwaysOpen_Title },
+                                new NavLink() { Href = Resources.Components.Accordion_ButtonsPosition_Anchor, Label = Resources.Components.Accordion_ButtonsPosition_Title }
+                            }
+                        },
+                        new NavLink() { Href = Resources.Components.Properties_Anchor, Label = Resources.Components.Properties }
+                    }
+                }
+            };
+
+            return vm;
+        }
         private static ComponentViewModel BuildBadgeComponentViewModel()
         {
             var vm = new ComponentViewModel();
@@ -372,9 +446,28 @@ namespace GCFoundation.Web.Controllers
                 new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Card_Basic_Text, Id = Resources.Components.Card_Basic_Anchor, PartialViewName = "Card/_Basic", Title = Resources.Components.Card_Basic_Title },
                 new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Card_Horizontal_Text, Id = Resources.Components.Card_Horizontal_Anchor, PartialViewName = "Card/_Horizontal", Title = Resources.Components.Card_Horizontal_Title },
                 new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Card_WithImages_Text, Id = Resources.Components.Card_WithImages_Anchor, PartialViewName = "Card/_WithImages", Title = Resources.Components.Card_WithImages_Title },
-                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Card_WithSlots_Text, Id = Resources.Components.Card_WithSlots_Anchor, PartialViewName = "Card/_WithSlots", Title = Resources.Components.Card_WithSlots_Title }
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Card_WithSlots_Text, Id = Resources.Components.Card_WithSlots_Anchor, PartialViewName = "Card/_WithSlots", Title = Resources.Components.Card_WithSlots_Title },
+                new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.Card_CompositionExamples_Anchor, PartialViewName = "Card/_CompositionExamples", Title = Resources.Components.Card_CompositionExamples_Title }
             };
             vm.Tag = "<fdcp-card>";
+            vm.SideNavigation = new SideNavigationViewModel()
+            {
+                Items = new List<NavItem>()
+                {
+                    new NavLink() { Href = Resources.Components.Overview_Anchor, Label = Resources.Components.Overview },
+                    new NavLink() { Href = Resources.Components.Card_Basic_Anchor, Label = Resources.Components.Card_Basic_Title },
+                    new NavLink() { Href = Resources.Components.Card_Horizontal_Anchor, Label = Resources.Components.Card_Horizontal_Title },
+                    new NavLink() { Href = Resources.Components.Card_WithImages_Anchor, Label = Resources.Components.Card_WithImages_Title },
+                    new NavLink() { Href = Resources.Components.Card_WithSlots_Anchor, Label = Resources.Components.Card_WithSlots_Title },
+                    new NavGroup() { Label = Resources.Components.Card_CompositionExamples_Title, Items = new List<NavItem>()
+                        {
+                            new NavLink() { Href = Resources.Components.Card_ListItem_Anchor, Label = Resources.Components.Card_ListItem_Title }
+                        }
+                    },
+                    new NavLink() { Href = Resources.Components.Properties_Anchor, Label = Resources.Components.Properties },
+                    new NavLink() { Href = Resources.Components.Notes_Anchor, Label = Resources.Components.Notes }
+                }
+            };
 
             return vm;
         }
@@ -450,42 +543,11 @@ namespace GCFoundation.Web.Controllers
 
             return vm;
         }
-        private static ComponentViewModel BuildTableComponentViewModel()
-        {
-            var vm = new ComponentViewModel();
-
-            vm.Name = Resources.Components.Table_Name;
-            vm.Overview = Resources.Components.Table_Overview;
-            vm.Notes = new List<string>()
-            {
-                Resources.Components.Table_Notes_1,
-                Resources.Components.Table_Notes_2
-            };
-            vm.Properties = new List<ComponentPropertyViewModel>()
-            {
-                new() { Name = "caption", DataType = "string", Description = Resources.Components.Table_Properties_Caption },
-                new() { Name = "aria-describedby", DataType = "string", Description = Resources.Components.Table_Properties_Summary },
-                new() { Name = "scope", DataType = "string", Description = Resources.Components.Table_Properties_Scope },
-                new() { Name = "class", DataType = "string", Description = Resources.Components.Table_Properties_Class }
-            };
-            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
-            {
-                new()
-                {
-                    Id = Resources.Components.Table_Basic_Anchor,
-                    Title = Resources.Components.Table_Basic_Title,
-                    Description = Resources.Components.Table_Basic_Text,
-                    PartialViewName = "DataTable/_Basic"
-                }
-            };
-            vm.Tag = "<table class=\"fdcp-table\">";
-
-            return vm;
-        }
         private List<ComponentIndexViewModel> BuildIndexComponentViewModel()
         {
             var vm = new List<ComponentIndexViewModel>()
             {
+                new () { Name = Resources.Components.Index_Accordion_Title, ShortDescription = Resources.Components.Index_Accordion_Description, Href = Url.Action("Accordion", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-accordion.svg"), IsNew = true },
                 new () { Name = Resources.Components.Index_Badge_Title, Description = Resources.Components.Index_Badge_Description, Href = Url.Action("Badge", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-badge.svg") },
                 new () { Name = Resources.Components.Index_Card_Title, Description = Resources.Components.Index_Card_Description, Href = Url.Action("Card", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-card.svg") },
                 new () { Name = Resources.Components.Index_FilteredSearch_Title, ShortDescription = Resources.Components.Index_FilteredSearch_Description, Href = Url.Action("FilteredSearch", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-filtered-search.svg") },
@@ -493,9 +555,10 @@ namespace GCFoundation.Web.Controllers
                 new () { Name = Resources.Components.Index_Form_Title, ShortDescription = Resources.Components.Index_Form_Description, Href = Url.Action("Form", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-form.svg") },
                 new () { Name = Resources.Components.Index_Modal_Title, ShortDescription = Resources.Components.Index_Modal_Description, Href = Url.Action("Modal", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-modal.svg") },
                 new () { Name = Resources.Components.Index_PageHeading_Title, ShortDescription = Resources.Components.Index_PageHeading_Description, Href = Url.Action("PageHeading", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-page-heading.svg") },
+                new () { Name = Resources.Components.Index_SearchableSelect_Title, ShortDescription = Resources.Components.Index_SearchableSelect_Description, Href = Url.Action("SearchableSelect", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-select.svg"), IsNew = true },
                 new () { Name = Resources.Components.Index_Stepper_Title, ShortDescription = Resources.Components.Index_Stepper_Description, Href = Url.Action("Stepper", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-stepper-fdcp.svg") },
-                new () { Name = Resources.Components.Index_Table_Title, ShortDescription = Resources.Components.Index_Table_Description, Href = Url.Action("Table", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-table.svg") },
-                new () { Name = Resources.Components.Index_TableGridJs_Title, ShortDescription = Resources.Components.Index_TableGridJs_Description, Href = Url.Action("TableGridJs", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-table.svg") },
+                new () { Name = Resources.Components.Index_Tabs_Title, ShortDescription = Resources.Components.Index_Tabs_Description, Href = Url.Action("Tabs", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-tabs.svg"), IsNew = true },
+                new () { Name = Resources.Components.Index_Table_Title, ShortDescription = Resources.Components.Index_Table_Description, Href = Url.Action("Table", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-table.svg"), IsNew = true },
                 new () { Name = Resources.Components.Index_UserLoginPartial_Title, ShortDescription = Resources.Components.Index_UserLoginPartial_Description, Href = Url.Action("UserLogin", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-user-login-partial.svg") }
             };
             return vm;
@@ -505,8 +568,32 @@ namespace GCFoundation.Web.Controllers
             var vm = new ComponentViewModel();
 
             vm.Name = Resources.Components.Modal_Name;
+            vm.WhenToUse = new List<string>()
+            {
+                Resources.Components.Modal_WhenToUse_1,
+                Resources.Components.Modal_WhenToUse_2,
+                Resources.Components.Modal_WhenToUse_3,
+                Resources.Components.Modal_WhenToUse_4
+            };
+            vm.WhenNotToUse = new List<string>()
+            {
+                Resources.Components.Modal_WhenNotToUse_1,
+                Resources.Components.Modal_WhenNotToUse_2,
+                Resources.Components.Modal_WhenNotToUse_3,
+                Resources.Components.Modal_WhenNotToUse_4
+            };
+            vm.AccessibilityDo = new List<string>()
+            {
+                Resources.Components.Modal_Accessibility_Do_5,
+                Resources.Components.Modal_Accessibility_Do_6,
+                Resources.Components.Modal_Accessibility_Do_3,
+                Resources.Components.Modal_Accessibility_Do_4,
+                Resources.Components.Modal_Accessibility_Do_1,
+                Resources.Components.Modal_Accessibility_Do_2
+            };
             vm.Notes = new List<string>()
             {
+                Resources.Components.Modal_Notes_6,
                 Resources.Components.Modal_Notes_1,
                 Resources.Components.Modal_Notes_2,
                 Resources.Components.Modal_Notes_3,
@@ -516,13 +603,13 @@ namespace GCFoundation.Web.Controllers
             vm.Overview = Resources.Components.Modal_Overview;
             vm.Properties = new List<ComponentPropertyViewModel>()
             {
-                new ComponentPropertyViewModel() { Name = "id", DataType = "string", DefaultValue = "modal", Description = Resources.Components.Modal_Properties_Id },
-                new ComponentPropertyViewModel() { Name = "title", DataType = "string", DefaultValue = "Modal Title", Description = Resources.Components.Modal_Properties_Title },
-                new ComponentPropertyViewModel() { Name = "centered", DataType = "bool", DefaultValue = "true", Description = Resources.Components.Modal_Properties_Centered },
-                new ComponentPropertyViewModel() { Name = "scrollable", DataType = "bool", Description = Resources.Components.Modal_Properties_Scrollable },
-                new ComponentPropertyViewModel() { Name = "size", DataType = "ModalSize", DefaultValue = "ModalSize.Default", Description = Resources.Components.Modal_Properties_Size },
-                new ComponentPropertyViewModel() { Name = "show-close-button", DataType = "bool", DefaultValue = "true", Description = Resources.Components.Modal_Properties_ShowCloseButton },
-                new ComponentPropertyViewModel() { Name = "is-static-backdrop", DataType = "bool", Description = Resources.Components.Modal_Properties_IsStaticBackdrop },
+                new ComponentPropertyViewModel() { Name = "modal-id", DataType = "string", Description = Resources.Components.Modal_Properties_ModalId },
+                new ComponentPropertyViewModel() { Name = "title", DataType = "string", Description = Resources.Components.Modal_Properties_Title },
+                new ComponentPropertyViewModel() { Name = "scrollable", DataType = "bool", DefaultValue = "false", Description = Resources.Components.Modal_Properties_Scrollable },
+                new ComponentPropertyViewModel() { Name = "static-backdrop", DataType = "bool", DefaultValue = "false", Description = Resources.Components.Modal_Properties_StaticBackdrop },
+                new ComponentPropertyViewModel() { Name = "hide-close-button", DataType = "bool", DefaultValue = "false", Description = Resources.Components.Modal_Properties_HideCloseButton },
+                new ComponentPropertyViewModel() { Name = "size", DataType = "ModalSize", DefaultValue = "ModalSize.regular", Description = Resources.Components.Modal_Properties_Size },
+                new ComponentPropertyViewModel() { Name = "state", DataType = "ModalState", DefaultValue = "ModalState.regular", Description = Resources.Components.Modal_Properties_State },
                 new ComponentPropertyViewModel() { Name = "session-timeout", DataType = "int", Description = Resources.Components.Modal_Properties_SessionTimeout },
                 new ComponentPropertyViewModel() { Name = "reminder-time", DataType = "int", Description = Resources.Components.Modal_Properties_ReminderTime },
                 new ComponentPropertyViewModel() { Name = "refresh-url", DataType = "Uri", Description = Resources.Components.Modal_Properties_RefreshUrl },
@@ -532,6 +619,31 @@ namespace GCFoundation.Web.Controllers
             {
                 new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Modal_Basic_Text, Id = Resources.Components.Modal_Basic_Anchor, PartialViewName = "Modal/_Basic", Title = Resources.Components.Modal_Basic_Title },
                 new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Modal_Session_Text, Id = Resources.Components.Modal_Session_Anchor, PartialViewName = "Modal/_Session", Title = Resources.Components.Modal_Session_Title }
+            };
+            vm.SideNavigation = new SideNavigationViewModel()
+            {
+                Items = new List<NavItem>()
+                {
+                    new NavLink() { Href = Resources.Components.Overview_Anchor, Label = Resources.Components.Overview },
+                    new NavLink() { Href = Resources.Components.Guidance_WhenToUse_Anchor, Label = Resources.Components.Guidance_WhenToUse },
+                    new NavLink() { Href = Resources.Components.Guidance_WhenNotToUse_Anchor, Label = Resources.Components.Guidance_WhenNotToUse },
+                    new NavLink() { Href = Resources.Components.Guidance_Accessibility_Anchor, Label = Resources.Components.Guidance_Accessibility },
+                    new NavGroup()
+                    {
+                        Label = Resources.Components.Modal_Basic_Title,
+                        Items = new List<NavItem>()
+                        {
+                            new NavLink() { Href = Resources.Components.Modal_BasicStructure_Anchor, Label = Resources.Components.Modal_BasicStructure_Title },
+                            new NavLink() { Href = Resources.Components.Modal_ButtonBehaviour_Anchor, Label = Resources.Components.Modal_ButtonBehaviour_Title },
+                            new NavLink() { Href = Resources.Components.Modal_Variants_Anchor, Label = Resources.Components.Modal_Variants_Title },
+                            new NavLink() { Href = Resources.Components.Modal_Size_Anchor, Label = Resources.Components.Modal_Size_Title },
+                            new NavLink() { Href = Resources.Components.Modal_AdditionalProperties_Anchor, Label = Resources.Components.Modal_AdditionalProperties_Title }
+                        }
+                    },
+                    new NavLink() { Href = Resources.Components.Modal_Session_Anchor, Label = Resources.Components.Modal_Session_Title },
+                    new NavLink() { Href = Resources.Components.Properties_Anchor, Label = Resources.Components.Properties },
+                    new NavLink() { Href = Resources.Components.Notes_Anchor, Label = Resources.Components.Notes }
+                }
             };
             vm.Tag = "<fdcp-modal>";
 
@@ -562,6 +674,35 @@ namespace GCFoundation.Web.Controllers
                 new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.PageHeading_Basic_Anchor, PartialViewName = "PageHeading/_Basic", Title = Resources.Components.PageHeading_Basic_Title }
             };
             vm.Tag = "<fdcp-page-heading>";
+
+            return vm;
+        }
+        private static ComponentViewModel BuildSearchableSelectComponentViewModel()
+        {
+            var vm = new ComponentViewModel();
+
+            vm.Name = Resources.Components.SearchableSelect_Name;
+            vm.Overview = Resources.Components.SearchableSelect_Overview;
+            vm.Properties = new List<ComponentPropertyViewModel>()
+            {
+                new ComponentPropertyViewModel() { Name = "for", DataType = "ModelExpression", Description = Resources.Components.SearchableSelect_Properties_For },
+                new ComponentPropertyViewModel() { Name = "name", DataType = "string", Description = Resources.Components.SearchableSelect_Properties_Name },
+                new ComponentPropertyViewModel() { Name = "items", DataType = "IEnumerable<SelectListItem>", Description = Resources.Components.SearchableSelect_Properties_Items },
+                new ComponentPropertyViewModel() { Name = "label", DataType = "string", Description = Resources.Components.SearchableSelect_Properties_Label },
+                new ComponentPropertyViewModel() { Name = "default-value", DataType = "string", DefaultValue = "Select option", Description = Resources.Components.SearchableSelect_Properties_DefaultValue },
+                new ComponentPropertyViewModel() { Name = "search-placeholder", DataType = "string", DefaultValue = "Search", Description = Resources.Components.SearchableSelect_Properties_SearchPlaceholder },
+                new ComponentPropertyViewModel() { Name = "search-label", DataType = "string", DefaultValue = "Search options", Description = Resources.Components.SearchableSelect_Properties_SearchLabel },
+                new ComponentPropertyViewModel() { Name = "no-results-text", DataType = "string", DefaultValue = "No results found", Description = Resources.Components.SearchableSelect_Properties_NoResultsText },
+                new ComponentPropertyViewModel() { Name = "selection-mode", DataType = "FDCPSearchableSelectSelectionMode", DefaultValue = "Single", Description = Resources.Components.SearchableSelect_Properties_SelectionMode },
+                new ComponentPropertyViewModel() { Name = "hint", DataType = "string", Description = Resources.Components.SearchableSelect_Properties_Hint },
+                new ComponentPropertyViewModel() { Name = "required", DataType = "bool", Description = Resources.Components.SearchableSelect_Properties_Required }
+            };
+            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
+            {
+                new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.SearchableSelect_Basic_Anchor, PartialViewName = "SearchableSelect/_Basic", Title = Resources.Components.SearchableSelect_Basic_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.SearchableSelect_WithSelectedOptions_Text, Id = Resources.Components.SearchableSelect_WithSelectedOptions_Anchor, PartialViewName = "SearchableSelect/_WithSelectedOptions", Title = Resources.Components.SearchableSelect_WithSelectedOptions_Title }
+            };
+            vm.Tag = "<fdcp-searchable-select>";
 
             return vm;
         }
@@ -613,32 +754,120 @@ namespace GCFoundation.Web.Controllers
 
             return vm;
         }
-        private static ComponentViewModel BuildTableGridJsComponentViewModel()
+        private static ComponentViewModel BuildTableComponentViewModel()
         {
             var vm = new ComponentViewModel();
-            vm.Name = Resources.Components.TableGridJs_Name;
-            vm.Tag = "<fdcp-table-gridjs>";
-            vm.Overview = Resources.Components.TableGridJs_Overview;
+
+            vm.Name = Resources.Components.Table_Name;
+            vm.Tag = "<fdcp-table>";
+            vm.Overview = Resources.Components.Table_Overview;
+
+            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
+            {
+                new ComponentSampleCodeSectionViewModel()
+                {
+                    Title = Resources.Components.Table_BasicUsage_Title,
+                    Id = Resources.Components.Table_BasicUsage_Anchor,
+                    Description = Resources.Components.Table_BasicUsage_Text,
+                    PartialViewName = "Table/_BasicUsage"
+                },
+                new ComponentSampleCodeSectionViewModel()
+                {
+                    Title = Resources.Components.Table_WithSlots_Title,
+                    Id = Resources.Components.Table_WithSlots_Anchor,
+                    Description = Resources.Components.Table_WithSlots_Text,
+                    PartialViewName = "Table/_WithSlots"
+                },
+                new ComponentSampleCodeSectionViewModel()
+                {
+                    Title = Resources.Components.Properties,
+                    Id = Resources.Components.Properties_Anchor,
+                    PartialViewName = "Table/_Properties"
+                }
+            };
+
+            vm.SideNavigation = new SideNavigationViewModel()
+            {
+                Items = new List<NavItem>()
+                {
+                    new NavLink() { Href = Resources.Components.Overview_Anchor, Label = Resources.Components.Overview },
+                    new NavGroup() { Label = Resources.Components.Table_BasicUsage_Title, Items = new List<NavItem>()
+                        {
+                            new NavLink() { Href = Resources.Components.Table_WithAnnotations_Anchor, Label = Resources.Components.Table_WithAnnotations_Title },
+                            new NavLink() { Href = Resources.Components.Table_WithColumns_Anchor, Label = Resources.Components.Table_WithColumns_Title }
+                        }
+                    },
+                    new NavGroup() { Label = Resources.Components.Table_WithSlots_Title, Items = new List<NavItem>()
+                        {
+                            new NavLink() { Href = Resources.Components.Table_DataBinding_Anchor, Label = Resources.Components.Table_DataBinding_Title },
+                            new NavLink() { Href = Resources.Components.Table_WithEmail_Anchor, Label = Resources.Components.Table_WithEmail_Title },
+                            new NavLink() { Href = Resources.Components.Table_WithLink_Anchor, Label = Resources.Components.Table_WithLink_Title },
+                            new NavLink() { Href = Resources.Components.Table_WithButton_Anchor, Label = Resources.Components.Table_WithButton_Title },
+                            new NavLink() { Href = Resources.Components.Table_WithButtonLink_Anchor, Label = Resources.Components.Table_WithButtonLink_Title },
+                            new NavLink() { Href = Resources.Components.Table_WithCaptionSlot_Anchor, Label = Resources.Components.Table_WithCaptionSlot_Title }
+                        }
+                    },
+                    new NavLink() { Href = Resources.Components.Properties_Anchor, Label = Resources.Components.Properties }
+                }
+            };
+
+            return vm;
+        }
+        private static ComponentViewModel BuildTabsComponentViewModel()
+        {
+            var vm = new ComponentViewModel
+            {
+                Name = Resources.Components.Tabs_Name,
+                Overview = Resources.Components.Tabs_Overview,
+                Purpose = Resources.Components.Tabs_Purpose,
+                Tag = "<fdcp-tabs>"
+            };
+
+            vm.WhenToUse = new List<string>
+            {
+                Resources.Components.Tabs_WhenToUse_1,
+                Resources.Components.Tabs_WhenToUse_2
+            };
+            vm.WhenNotToUse = new List<string>
+            {
+                Resources.Components.Tabs_WhenNotToUse_1,
+                Resources.Components.Tabs_WhenNotToUse_2
+            };
+            vm.AccessibilityDo = new List<string>
+            {
+                Resources.Components.Tabs_Accessibility_Do_1,
+                Resources.Components.Tabs_Accessibility_Do_2,
+                Resources.Components.Tabs_Accessibility_Do_3
+            };
+            vm.UxBestPractices = new List<string>
+            {
+                Resources.Components.Tabs_UxBestPractices_1,
+                Resources.Components.Tabs_UxBestPractices_2
+            };
+            vm.Notes = new List<string>
+            {
+                Resources.Components.Tabs_Notes_1,
+                Resources.Components.Tabs_Notes_2,
+                Resources.Components.Tabs_Notes_3
+            };
             vm.Properties = new List<ComponentPropertyViewModel>
             {
-                new() { Name = "id", DataType = "string", Description = Resources.Components.TableGridJs_Properties_Id },
-                new() { Name = "ajax-url", DataType = "string", Description = Resources.Components.TableGridJs_Properties_AjaxUrl },
-                new() { Name = "columns", DataType = "IEnumerable<GridTableColumn>", Description = Resources.Components.TableGridJs_Properties_Columns },
-                new() { Name = "page-size", DataType = "int", DefaultValue = "10", Description = Resources.Components.TableGridJs_Properties_PageSize },
-                new() { Name = "search-enabled", DataType = "bool", DefaultValue = "true", Description = Resources.Components.TableGridJs_Properties_SearchEnabled },
-                new() { Name = "sort-enabled", DataType = "bool", DefaultValue = "true", Description = Resources.Components.TableGridJs_Properties_SortEnabled },
-                new() { Name = "caption", DataType = "string", Description = Resources.Components.TableGridJs_Properties_Caption },
-                new() { Name = "summary", DataType = "string", Description = Resources.Components.TableGridJs_Properties_Summary },
-                new() { Name = "aria-label", DataType = "string", Description = Resources.Components.TableGridJs_Properties_AriaLabel },
-                new() { Name = "lang", DataType = "string", Description = Resources.Components.TableGridJs_Properties_Lang },
-                new() { Name = "class", DataType = "string", Description = Resources.Components.TableGridJs_Properties_Class }
+                new() { Name = "id", DataType = "string", Description = Resources.Components.Tabs_Properties_Id },
+                new() { Name = "label", DataType = "string", DefaultValue = Resources.Components.Tabs_DefaultLabel, Description = Resources.Components.Tabs_Properties_Label },
+                new() { Name = "selected-index", DataType = "int?", Description = Resources.Components.Tabs_Properties_SelectedIndex },
+                new() { Name = "fdcp-tab title", DataType = "string", Description = Resources.Components.Tabs_Properties_TabTitle },
+                new() { Name = "fdcp-tab id", DataType = "string", Description = Resources.Components.Tabs_Properties_TabId },
+                new() { Name = "fdcp-tab active", DataType = "bool", DefaultValue = "false", Description = Resources.Components.Tabs_Properties_TabActive },
+                new() { Name = "fdcp-tab load-url", DataType = "Uri", Description = Resources.Components.Tabs_Properties_TabLoadUrl }
             };
             vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>
             {
-                new() { Description = Resources.Components.TableGridJs_Basic_Text, Id = Resources.Components.TableGridJs_Basic_Anchor, PartialViewName = "TableGridJs/_Basic", Title = Resources.Components.TableGridJs_Basic_Title }
+                new() { Description = Resources.Components.Tabs_Basic_Text, Id = Resources.Components.Tabs_Basic_Anchor, PartialViewName = "Tabs/_Basic", Title = Resources.Components.Tabs_Basic_Title }
             };
+
             return vm;
         }
+
         private FormDefinition GenerateSampleFormDefinition()
         {
             var form = new FormDefinition

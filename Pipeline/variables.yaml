@@ -1,4 +1,20 @@
 # Common variables to the entire pipeline
 variables:
+ - name: buildConfiguration
+   value: 'Release'
+ - name: dotnetSdkVersion
+   value: '10.x'
+ - name: nodeVersion
+   value: '22.x'
  - name: pathToPackage
    value: 'drop/GCFoundation.Web.zip'
+ - name: projects
+   value: '**/GCFoundation.*.csproj'
+ - name: solution
+   value: '**/GCFoundation.sln'
+ - name: testProject
+   value: 'GCFoundation.Tests.Components/GCFoundation.Tests.Components.csproj'
+ - name: testResultsDir
+   value: '$(Agent.TempDirectory)/TestResults'
+ - name: webApp
+   value: '**/GCFoundation.Web.csproj'

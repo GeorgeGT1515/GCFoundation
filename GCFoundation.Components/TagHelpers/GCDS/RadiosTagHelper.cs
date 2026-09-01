@@ -22,16 +22,20 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             ArgumentNullException.ThrowIfNull(output, nameof(output));
+
+            FormFieldContext field = ResolveFormField(new FormFieldResolveOptions
+            {
+                Label = Legend
+            });
+
             output.TagName = "gcds-radios";
 
-            AddAttributeIfNotNull(output, "Legend", Legend);
-            AddAttributeIfNotNull(output, "value", Value);
-            AddAttributeIfNotNull(output, "hint", Hint);
+            AddAttributeIfNotNull(output, "name", field.Name);
+            AddAttributeIfNotNull(output, "legend", field.Label);
+            AddAttributeIfNotNull(output, "hint", field.Hint);
+            AddAttributeIfNotNull(output, "value", field.Value);
 
             AddAttributeIfNotNull(output, "options", Options);
-            AddAttributeIfNotNull(output, "name", Name);
-
-            //base.Process(context, output);
         }
     }
 }

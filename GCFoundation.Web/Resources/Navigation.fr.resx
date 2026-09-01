@@ -135,6 +135,9 @@
   <data name="Nav_Components_FormBuilder" xml:space="preserve">
     <value>Générateur de formulaires</value>
   </data>
+  <data name="Nav_Components_Accordion" xml:space="preserve">
+    <value>Accordéon</value>
+  </data>
   <data name="Nav_Components_Badge" xml:space="preserve">
     <value>Badge</value>
   </data>
@@ -260,5 +263,23 @@
   </data>
   <data name="Nav_Template_Crud" xml:space="preserve">
     <value>Pages CRUD</value>
+  </data>
+  <data name="Nav_Template_Crud_Code" xml:space="preserve">
+    <value>Code du modèle de page CRUD</value>
+  </data>
+  <data name="Nav_Template_Crud_Demo" xml:space="preserve">
+    <value>Démo du modèle de page CRUD</value>
+  </data>
+  <data name="Nav_Home_AccessibilityStatement" xml:space="preserve">
+    <value>Déclaration d'accessibilité</value>
+  </data>
+  <data name="Nav_GetStarted" xml:space="preserve">
+    <value>Démarrer</value>
+  </data>
+  <data name="Nav_Components_GCFoundation" xml:space="preserve">
+    <value>Composants de GCFoundation</value>
+  </data>
+  <data name="Nav_Components_Tabs" xml:space="preserve">
+    <value>Onglets</value>
   </data>
 </root>
