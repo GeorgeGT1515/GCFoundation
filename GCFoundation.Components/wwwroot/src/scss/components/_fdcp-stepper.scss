@@ -41,10 +41,18 @@ $progress-line-innactive-color: $fdcp-incomplte-color;
             align-items: center;
             text-decoration: none;
             color: inherit;
+            // Keep the focus ring tight around the circle + label (not the full step column).
+            width: fit-content;
+            align-self: center;
         }
 
-        .fdcp-step__link {
-            width: 100%;
+        // Shared focus indicator: same size and background for links (steps 1–5 when not active)
+        // and the active step wrapper (programmatic focus after Next/Previous).
+        @mixin fdcp-step-focus-indicator {
+            outline: 3px solid var(--gcds-color-blue-700, #1a2a3a);
+            outline-offset: 0.25rem;
+            border-radius: var(--gcds-border-radius-sm, 0.25rem);
+            background-color: var(--gcds-color-grayscale-50, #f1f2f3);
         }
 
         .fdcp-step__link:hover .fdcp-step-label,
@@ -54,19 +62,10 @@ $progress-line-innactive-color: $fdcp-incomplte-color;
         }
 
         .fdcp-step__link:focus,
-        .fdcp-step__link:focus-visible {
-            outline: 3px solid var(--gcds-color-blue-700, #1a2a3a);
-            outline-offset: 0.25rem;
-            border-radius: var(--gcds-border-radius-sm, 0.25rem);
-        }
-
-        // Active step wrapper is keyboard-focusable (tabindex=0) and also receives programmatic
-        // focus after Next/Previous so the ring is visible in EN and FR without relying on :focus-visible alone.
+        .fdcp-step__link:focus-visible,
         .fdcp-step__content:focus,
         .fdcp-step__content:focus-visible {
-            outline: 3px solid var(--gcds-color-blue-700, #1a2a3a);
-            outline-offset: 0.25rem;
-            border-radius: var(--gcds-border-radius-sm, 0.25rem);
+            @include fdcp-step-focus-indicator;
         }
 
         .fdcp-step-circle {
@@ -155,7 +154,8 @@ $progress-line-innactive-color: $fdcp-incomplte-color;
                 flex-direction: row;
                 align-items: center;
                 gap: var(--gcds-spacing-150, 1rem);
-                width: 100%;
+                width: fit-content;
+                align-self: flex-start;
             }
 
             .fdcp-step-circle {
