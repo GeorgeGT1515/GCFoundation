@@ -31,12 +31,7 @@
               links-tabbable="false"
               steps="@stepperSteps"></fdcp-stepper>
 
-@if (!ViewData.ModelState.IsValid)
-{
-    @* Surface validation feedback before the fields so keyboard and screen-reader users get it immediately. *@
-    <fdcp-error-summary for="@Model" />
-}
-
+@* fdcp-form renders the error summary (with server errors) at the top of the form; do not add a second one. *@
 <fdcp-form method="post" action="@Url.Action("StepperDemo", "Template")" for="@Model">
     @Html.AntiForgeryToken()
     @* Round-trip the current step so the server can re-render the same progress state after each post. *@
@@ -95,25 +90,20 @@
             const form = document.querySelector('input[name="CurrentStep"]')?.closest('form')
                 || document.querySelector('form');
             const stepLinks = document.querySelectorAll('[data-stepper-focus-trigger="true"]');
-            const liveRegion = document.querySelector('[data-stepper-live-region="true"]');
             const activeStep = document.querySelector('[data-stepper-active-step="true"]');
             // fdcp-form always renders an empty listen-mode gcds-error-summary, so its presence
             // does not mean errors exist; only server-side validation failures should keep focus
             // on the error summary instead of the active step.
             const hasErrorSummary = @(ViewData.ModelState.IsValid ? "false" : "true");
 
-            // NVDA / JAWS announce step transitions through:
-            //   1. The <title> ("Step X of 5: Label")
-            //   2. The polite aria-live region
-            //   3. Programmatic focus on the active step (visible focus ring + aria-label)
+            // Each Next/Previous is a full page load: the <title> and focus on the active step announce it,
+            // so no live region is used (it would repeat the same text a third time).
             // Focus is delayed ~600 ms so it does not race the screen reader's initial page-load reading.
 
-            let shouldFocusActiveStep = false;
             let shouldFocusHeading = false;
             try {
                 if (window.sessionStorage.getItem(focusActiveStepFlagKey) === 'true') {
                     window.sessionStorage.removeItem(focusActiveStepFlagKey);
-                    shouldFocusActiveStep = true;
                 } else if (window.sessionStorage.getItem(legacyHeadingFlagKey) === 'true') {
                     window.sessionStorage.removeItem(legacyHeadingFlagKey);
                     shouldFocusHeading = true;
@@ -129,8 +119,6 @@
                 } else if (activeStep) {
                     scheduleStepAnnouncement(activeStep);
                 }
-            } else if (shouldFocusActiveStep || shouldFocusHeading) {
-                refreshLiveRegion();
             }
 
             // Step-link jumps and language toggles should land focus on the (new) active step.
@@ -167,24 +155,7 @@
                     if (focusTarget && typeof focusTarget.focus === 'function') {
                         focusTarget.focus({ preventScroll: true });
                     }
-                    refreshLiveRegion();
                 }, 600);
-            }
-
-            function refreshLiveRegion() {
-                if (!liveRegion) {
-                    return;
-                }
-
-                const announcement = liveRegion.getAttribute('data-stepper-announcement');
-                if (!announcement) {
-                    return;
-                }
-
-                liveRegion.textContent = '';
-                window.setTimeout(function () {
-                    liveRegion.textContent = announcement;
-                }, 150);
             }
 
             // Step 3: replace GCDS default required/url messages with format-aware copy and

@@ -69,12 +69,14 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Contains("class='fdcp-step completed'", content);
             Assert.Contains("class='fdcp-step active'", content);
             Assert.Contains("class='fdcp-step incomplete'", content);
-            Assert.Contains("aria-live='polite'", content);
-            Assert.Contains("data-stepper-live-region='true'", content);
-            Assert.Contains("data-stepper-announcement='Step 2 of 3: Info.'", content);
-            Assert.Contains("<li class='fdcp-step active' aria-label='Step 2 of 3: Info (Current step)' aria-current='step'>", content);
+            // Each step has a single accessible name source (the hidden summary); no live region or duplicate aria-labels.
+            Assert.DoesNotContain("aria-live", content);
+            Assert.DoesNotContain("aria-label='Step", content);
+            Assert.DoesNotContain("role='region'", content);
+            Assert.DoesNotContain("(Current step)", content);
+            Assert.Contains("<li class='fdcp-step active'>", content);
             Assert.Contains("<span class='visibility-sr-only'>Step 1 of 3: Intro (Completed)</span>", content);
-            Assert.Contains("<span class='visibility-sr-only'>Step 2 of 3: Info (Current step)</span>", content);
+            Assert.Contains("<span class='visibility-sr-only'>Step 2 of 3: Info</span>", content);
             Assert.Contains("<span class='visibility-sr-only'>Step 3 of 3: Review (Upcoming)</span>", content);
             Assert.Contains("<span class='fdcp-step-label' aria-hidden='true'>Intro</span>", content);
             Assert.Contains("<span class='fdcp-step-label' aria-hidden='true'>Info</span>", content);
@@ -178,7 +180,8 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 
             // Assert
             var content = _output.Content.GetContent();
-            Assert.Contains("<a class='fdcp-step__link' href='/step1' aria-label='Step 1 of 2: Step 1 (Completed)' data-stepper-focus-trigger='true'>", content);
+            Assert.Contains("<a class='fdcp-step__link' href='/step1' data-stepper-focus-trigger='true'>", content);
+            Assert.Contains("<span class='visibility-sr-only'>Step 1 of 2: Step 1 (Completed)</span>", content);
         }
 
         [Fact]
@@ -206,10 +209,10 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             // Non-active step links must be removed from the natural tab order so that Tab from the active step
             // moves directly to the first form input that follows the stepper.
             var content = _output.Content.GetContent();
-            Assert.Contains("<a class='fdcp-step__link' href='/step1' aria-label='Step 1 of 3: Step 1 (Completed)' data-stepper-focus-trigger='true' tabindex='-1'>", content);
-            Assert.Contains("<a class='fdcp-step__link' href='/step3' aria-label='Step 3 of 3: Step 3 (Upcoming)' data-stepper-focus-trigger='true' tabindex='-1'>", content);
-            // The active step remains focusable programmatically with a valid region name.
-            Assert.Contains("<div class='fdcp-step__content' tabindex='0' data-stepper-active-step='true' role='region' aria-label='Step 2 of 3: Step 2 (Current step)'>", content);
+            Assert.Contains("<a class='fdcp-step__link' href='/step1' data-stepper-focus-trigger='true' tabindex='-1'>", content);
+            Assert.Contains("<a class='fdcp-step__link' href='/step3' data-stepper-focus-trigger='true' tabindex='-1'>", content);
+            // The active step remains focusable.
+            Assert.Contains("<div class='fdcp-step__content' tabindex='0' data-stepper-active-step='true' aria-current='step'>", content);
         }
 
         [Fact]
@@ -260,8 +263,9 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             // Assert
             var content = _output.Content.GetContent();
             // Active step's content wrapper must be focusable so callers (e.g. Next/Previous buttons) can move focus to it,
-            // and carry a screen-reader-friendly accessible name so NVDA announces "Step X of Y: Label (Current step)".
-            Assert.Contains("<div class='fdcp-step__content' tabindex='0' data-stepper-active-step='true' role='region' aria-label='Step 2 of 3: Step 2 (Current step)'>", content);
+            // and expose aria-current='step' so screen readers announce "Step X of Y: Label, current step" once.
+            Assert.Contains("<div class='fdcp-step__content' tabindex='0' data-stepper-active-step='true' aria-current='step'>", content);
+            Assert.Contains("<span class='visibility-sr-only'>Step 2 of 3: Step 2</span>", content);
             // Non-active, non-link steps should remain plain wrappers.
             Assert.Contains("<div class='fdcp-step__content'>", content);
         }

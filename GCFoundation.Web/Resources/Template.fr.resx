@@ -436,6 +436,15 @@
   <data name="Stepper_Demo_Image_AltText" xml:space="preserve">
     <value>Un modèle de page avec indicateur d'étapes comprend l’en-tête et le pied de page du gouvernement du Canada, un composant indicateur d'étapes GCFoundation et un composant formulaire (ou constructeur de formulaire) GCFoundation.</value>
   </data>
+  <data name="Stepper_Demo_PageTitle_StepFormat" xml:space="preserve">
+    <value>Étape {0} sur {1} : {2}.</value>
+  </data>
+  <data name="Stepper_Demo_Review_NotProvided" xml:space="preserve">
+    <value>Non fourni</value>
+  </data>
+  <data name="Stepper_Demo_Terms_Legend" xml:space="preserve">
+    <value>Conditions d’utilisation</value>
+  </data>
   <data name="Stepper_Demo_Step1_Label" xml:space="preserve">
     <value>Intro</value>
   </data>

@@ -121,7 +121,7 @@
     <value>Étape actuelle</value>
   </data>
   <data name="SR_CurrentStepAnnouncement" xml:space="preserve">
-    <value>Étape {0} sur {1} : {2}.</value>
+    <value>Étape {0} sur {1} : {2}</value>
   </data>
   <data name="SR_ProgressLabel" xml:space="preserve">
     <value>Progrès</value>

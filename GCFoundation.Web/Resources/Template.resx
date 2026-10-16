@@ -437,6 +437,15 @@
   <data name="Stepper_Demo_Image_AltText" xml:space="preserve">
     <value>A stepper page template includes the Government of Canada header and footer, a GCFoundation stepper component and a GCFoundation form (or form builder) component.</value>
   </data>
+  <data name="Stepper_Demo_PageTitle_StepFormat" xml:space="preserve">
+    <value>Step {0} of {1}: {2}.</value>
+  </data>
+  <data name="Stepper_Demo_Review_NotProvided" xml:space="preserve">
+    <value>Not provided</value>
+  </data>
+  <data name="Stepper_Demo_Terms_Legend" xml:space="preserve">
+    <value>Terms and conditions</value>
+  </data>
   <data name="Stepper_Demo_Step1_Label" xml:space="preserve">
     <value>Intro</value>
   </data>

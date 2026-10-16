@@ -90,39 +90,34 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 : string.Empty;
             html.AppendLine(CultureInfo.InvariantCulture, $"<gcds-heading{headingIdAttribute} tag='{HeadingTag}'>{headingTitle}</gcds-heading>");
 
-            if (totalSteps > 0 && currentStep != null)
-            {
-                var currentAnnouncement = HtmlEncoder.Default.Encode(
-                    string.Format(CultureInfo.InvariantCulture, Stepper.SR_CurrentStepAnnouncement, normalizedCurrentStep, totalSteps, currentStep.Label ?? string.Empty));
-                html.AppendLine(CultureInfo.InvariantCulture,
-                    $"<div class='visibility-sr-only' aria-live='polite' aria-atomic='true' data-stepper-live-region='true' data-stepper-announcement='{currentAnnouncement}'>{currentAnnouncement}</div>");
-            }
-
             html.AppendLine(CultureInfo.InvariantCulture, $"<nav class='fdcp-stepper' aria-label='{HtmlEncoder.Default.Encode(Stepper.SR_ProgressLabel)}'>");
             html.AppendLine("<ol class='fdcp-stepper__list' role='list'>");
 
             foreach (var step in visibleSteps)
             {
                 var status = step.GetStatusByCurrentStep(normalizedCurrentStep);
-                var statusText = status switch
-                {
-                    StepperStepStatus.active => Stepper.SR_StatusCurrent,
-                    StepperStepStatus.completed => Stepper.SR_StatusCompleted,
-                    _ => Stepper.SR_StatusUpcoming
-                };
                 var labelText = HtmlEncoder.Default.Encode(step.Label ?? string.Empty);
-                var stepSummary = HtmlEncoder.Default.Encode(
-                    string.Format(
+                // The visually hidden summary is the only accessible name source for each step.
+                // The active step relies on aria-current='step' instead of a "(Current step)" suffix,
+                // so screen readers do not say "current" twice.
+                var stepSummaryText = status == StepperStepStatus.active
+                    ? string.Format(
+                        CultureInfo.InvariantCulture,
+                        Stepper.SR_CurrentStepAnnouncement,
+                        step.StepNumber,
+                        totalSteps,
+                        step.Label ?? string.Empty)
+                    : string.Format(
                         CultureInfo.InvariantCulture,
                         Stepper.SR_StepSummary,
                         step.StepNumber,
                         totalSteps,
                         step.Label ?? string.Empty,
-                        statusText));
+                        status == StepperStepStatus.completed ? Stepper.SR_StatusCompleted : Stepper.SR_StatusUpcoming);
+                var stepSummary = HtmlEncoder.Default.Encode(stepSummaryText);
                 var circleInnerHtml = step.GetDisplayHtml(normalizedCurrentStep);
-                var ariaCurrent = status == StepperStepStatus.active ? " aria-current='step'" : string.Empty;
 
-                html.AppendLine(CultureInfo.InvariantCulture, $"<li class='fdcp-step {status}' aria-label='{stepSummary}'{ariaCurrent}>");
+                html.AppendLine(CultureInfo.InvariantCulture, $"<li class='fdcp-step {status}'>");
 
                 var isLink = step.IsLink && !string.IsNullOrWhiteSpace(step.LinkUrl) && status != StepperStepStatus.active;
                 if (isLink)
@@ -131,17 +126,14 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                     // When LinksTabbable is false, exclude step links from the natural tab order so that
                     // Tab from the active step lands on the first form input instead of the next step link.
                     var linkTabIndexAttribute = LinksTabbable ? string.Empty : " tabindex='-1'";
-                    html.AppendLine(CultureInfo.InvariantCulture, $"<a class='fdcp-step__link' href='{href}' aria-label='{stepSummary}' data-stepper-focus-trigger='true'{linkTabIndexAttribute}>");
+                    html.AppendLine(CultureInfo.InvariantCulture, $"<a class='fdcp-step__link' href='{href}' data-stepper-focus-trigger='true'{linkTabIndexAttribute}>");
                 }
                 else
                 {
-                    // Make the active step keyboard-focusable (tabindex=0) so Tab can land on every step
-                    // (completed/upcoming links + current step) with a visible focus ring, and so
-                    // Next/Previous scripts can move focus here for screen-reader announcement.
-                    // role="region" with aria-label gives a valid name for assistive tech (generic <div> cannot use aria-label).
-                    // Avoid role="group": NVDA tends to suppress announcing the accessible name of a focused group.
+                    // The active step is focusable so Next/Previous scripts can move focus here; its name comes
+                    // from the hidden summary text, and aria-current='step' conveys that it is the current step.
                     var activeAttributes = status == StepperStepStatus.active
-                        ? $" tabindex='0' data-stepper-active-step='true' role='region' aria-label='{stepSummary}'"
+                        ? " tabindex='0' data-stepper-active-step='true' aria-current='step'"
                         : string.Empty;
                     html.AppendLine(CultureInfo.InvariantCulture, $"<div class='fdcp-step__content'{activeAttributes}>");
                 }

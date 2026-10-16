@@ -1719,6 +1719,33 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Step {0} of {1}: {2}..
+        /// </summary>
+        public static string Stepper_Demo_PageTitle_StepFormat {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_PageTitle_StepFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not provided.
+        /// </summary>
+        public static string Stepper_Demo_Review_NotProvided {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Review_NotProvided", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Terms and conditions.
+        /// </summary>
+        public static string Stepper_Demo_Terms_Legend {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Terms_Legend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Intro.
         /// </summary>
         public static string Stepper_Demo_Step1_Label {

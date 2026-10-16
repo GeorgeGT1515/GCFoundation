@@ -464,12 +464,9 @@ namespace GCFoundation.Web.Controllers
                 _ => string.Empty,
             };
 
-            // Mirror the announcement format used by FDCPStepperTagHelper / Stepper.SR_CurrentStepAnnouncement
-            // ("Step {0} of {1}: {2}."). Keeping this inline avoids exposing the components-internal resource
-            // class; if it ever diverges, both sides must be updated together.
             var stepAnnouncement = string.Format(
                 CultureInfo.CurrentCulture,
-                "Step {0} of {1}: {2}.",
+                Resources.Template.Stepper_Demo_PageTitle_StepFormat,
                 model.CurrentStep,
                 model.TotalSteps,
                 stepLabel);

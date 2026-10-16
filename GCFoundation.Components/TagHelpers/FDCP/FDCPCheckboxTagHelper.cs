@@ -19,6 +19,13 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public string? Legend { get; set; }
 
         /// <summary>
+        /// Label text for the checkbox option. Defaults to the legend.
+        /// Set a different value from the legend so screen readers do not announce the same text twice.
+        /// </summary>
+        [HtmlAttributeName("label")]
+        public string? Label { get; set; }
+
+        /// <summary>
         /// Whether the checkbox is checked when <c>for</c> is not specified,
         /// or overrides the bound model value when <c>for</c> is specified.
         /// </summary>
@@ -64,7 +71,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             var option = new CheckboxOption
             {
                 Id = field.Id,
-                Label = field.Label,
+                Label = string.IsNullOrWhiteSpace(Label) ? field.Label : Label,
                 Value = "true",
                 @Checked = currentValue,
                 Hint = field.Hint

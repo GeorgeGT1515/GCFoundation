@@ -152,12 +152,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 editorBuilder.Attributes.Add("data-templates", templatesJson);
             }
 
-            // Set aria-invalid if there's an error
-            if (hasError)
-            {
-                editorBuilder.Attributes.Add("aria-invalid", "true");
-            }
-
             // 5. Build the wrapper
             var wrapperBuilder = new TagBuilder("div");
             wrapperBuilder.AddCssClass("fdcp-rich-text-wrapper");
@@ -174,7 +168,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             inputBuilder.Attributes.Add("id", field.Id);
             inputBuilder.Attributes.Add("name", field.Name);
             inputBuilder.Attributes.Add("lang", lang);
-            inputBuilder.Attributes.Add("aria-hidden", "true");
             inputBuilder.Attributes.Add("data-error-id", errorId);
             
             if (field.Required)

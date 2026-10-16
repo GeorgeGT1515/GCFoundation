@@ -2,26 +2,23 @@
 @model GCFoundation.Web.Models.Template.TemplateStepperFormViewModel
 
 @{
-    var contact = Model.ContactOptions is null
-        ? "—"
-        : string.Join(", ", Model.ContactOptions);
-    var dob = Model.DateOfBirth?.ToString("d") ?? "—";
-    var country = Model.CountryOptions.FirstOrDefault(c => c.Value == Model.SelectedCountry)?.Text
-        ?? Model.SelectedCountry
-        ?? "—";
-    var province = Model.ProvinceList.FirstOrDefault(p => p.Value == Model.Province)?.Text
-        ?? Model.Province
-        ?? "—";
+    var notProvided = Template.Stepper_Demo_Review_NotProvided;
+    string OrNotProvided(string? value) => string.IsNullOrWhiteSpace(value) ? notProvided : value;
+
+    var contact = OrNotProvided(Model.ContactOptions is null ? null : string.Join(", ", Model.ContactOptions));
+    var dob = OrNotProvided(Model.DateOfBirth?.ToString("d"));
+    var country = OrNotProvided(Model.CountryOptions.FirstOrDefault(c => c.Value == Model.SelectedCountry)?.Text ?? Model.SelectedCountry);
+    var province = OrNotProvided(Model.ProvinceList.FirstOrDefault(p => p.Value == Model.Province)?.Text ?? Model.Province);
 }
 
 <gcds-text>@Template.Stepper_Demo_Review_Intro</gcds-text>
 
 <dl class="fdcp-stepper-review">
     <dt>@Template.Stepper_Demo_FirstName_Label</dt>
-    <dd>@(string.IsNullOrWhiteSpace(Model.FirstName) ? "—" : Model.FirstName)</dd>
+    <dd>@OrNotProvided(Model.FirstName)</dd>
 
     <dt>@Template.Stepper_Demo_LastName_Label</dt>
-    <dd>@(string.IsNullOrWhiteSpace(Model.LastName) ? "—" : Model.LastName)</dd>
+    <dd>@OrNotProvided(Model.LastName)</dd>
 
     <dt>@Template.Stepper_Demo_Province_Label</dt>
     <dd>@province</dd>
@@ -30,7 +27,7 @@
     <dd>@contact</dd>
 
     <dt>@Components.Form_Bio_Label</dt>
-    <dd>@(string.IsNullOrWhiteSpace(Model.Bio) ? "—" : Html.Raw(Model.Bio))</dd>
+    <dd>@(string.IsNullOrWhiteSpace(Model.Bio) ? notProvided : Html.Raw(Model.Bio))</dd>
 
     <dt>@Components.Form_DateOfBirth_Label</dt>
     <dd>@dob</dd>
@@ -39,11 +36,11 @@
     <dd>@country</dd>
 
     <dt>@Components.Form_Gender_Label</dt>
-    <dd>@(string.IsNullOrWhiteSpace(Model.Gender) ? "—" : Model.Gender)</dd>
+    <dd>@OrNotProvided(Model.Gender)</dd>
 
     <dt>@Components.Form_Website_Label</dt>
-    <dd>@(string.IsNullOrWhiteSpace(Model.Website) ? "—" : Model.Website)</dd>
+    <dd>@OrNotProvided(Model.Website)</dd>
 
     <dt>@Components.Form_Age_Label</dt>
-    <dd>@(Model.Age?.ToString() ?? "—")</dd>
+    <dd>@OrNotProvided(Model.Age?.ToString())</dd>
 </dl>

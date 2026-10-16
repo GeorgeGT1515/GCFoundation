@@ -2,7 +2,6 @@
     'use strict';
 
     const EDITOR_SELECTOR = '[data-fdcp-rich-text="true"]';
-    const TEMPLATE_LABEL_DEFAULT = 'Insert template';
 
     // Localized error messages
     const ERROR_MESSAGES = {
@@ -11,6 +10,66 @@
         },
         fr: {
             required: 'Ce champ est obligatoire'
+        }
+    };
+
+    // Localized accessible names for toolbar controls and the link tooltip.
+    const UI_LABELS = {
+        en: {
+            toolbar: '{0} formatting toolbar',
+            insertTemplate: 'Insert template',
+            orderedList: 'Numbered list',
+            bulletList: 'Bulleted list',
+            indentIncrease: 'Increase indent',
+            indentDecrease: 'Decrease indent',
+            subscript: 'Subscript',
+            superscript: 'Superscript',
+            'ql-bold': 'Bold',
+            'ql-italic': 'Italic',
+            'ql-underline': 'Underline',
+            'ql-strike': 'Strikethrough',
+            'ql-link': 'Insert link',
+            'ql-image': 'Insert image',
+            'ql-video': 'Insert video',
+            'ql-clean': 'Clear formatting',
+            'ql-header': 'Formatting style',
+            'ql-size': 'Font size',
+            'ql-font': 'Font family',
+            'ql-align': 'Text alignment',
+            'ql-color': 'Text color',
+            'ql-background': 'Background color',
+            linkPreview: 'Current link URL',
+            linkInput: 'Enter link URL',
+            save: 'Save',
+            remove: 'Remove'
+        },
+        fr: {
+            toolbar: 'Barre d’outils de mise en forme : {0}',
+            insertTemplate: 'Insérer un modèle',
+            orderedList: 'Liste numérotée',
+            bulletList: 'Liste à puces',
+            indentIncrease: 'Augmenter le retrait',
+            indentDecrease: 'Diminuer le retrait',
+            subscript: 'Indice',
+            superscript: 'Exposant',
+            'ql-bold': 'Gras',
+            'ql-italic': 'Italique',
+            'ql-underline': 'Souligné',
+            'ql-strike': 'Barré',
+            'ql-link': 'Insérer un lien',
+            'ql-image': 'Insérer une image',
+            'ql-video': 'Insérer une vidéo',
+            'ql-clean': 'Effacer la mise en forme',
+            'ql-header': 'Style de mise en forme',
+            'ql-size': 'Taille de police',
+            'ql-font': 'Police',
+            'ql-align': 'Alignement du texte',
+            'ql-color': 'Couleur du texte',
+            'ql-background': 'Couleur d’arrière-plan',
+            linkPreview: 'URL du lien actuel',
+            linkInput: 'Entrez l’URL du lien',
+            save: 'Enregistrer',
+            remove: 'Supprimer'
         }
     };
 
@@ -41,6 +100,24 @@
         const lang = getLanguage(element);
         const messages = ERROR_MESSAGES[lang] || ERROR_MESSAGES['en'];
         return messages[key] || ERROR_MESSAGES['en'][key];
+    }
+
+    function getUiLabels(element) {
+        return UI_LABELS[getLanguage(element)] || UI_LABELS.en;
+    }
+
+    /**
+     * Visible label text without aria-hidden parts such as the "(required)" suffix,
+     * which is already conveyed by aria-required on the editor.
+     */
+    function getAccessibleLabelText(labelElement) {
+        if (!labelElement) {
+            return '';
+        }
+
+        const clone = labelElement.cloneNode(true);
+        clone.querySelectorAll('[aria-hidden="true"]').forEach(node => node.remove());
+        return clone.textContent.trim();
     }
 
     function initWhenReady() {
@@ -316,8 +393,6 @@
             updateAriaDescribedBy(editorArea, hiddenInput, errorId, true);
         }
         
-        editorContainer.setAttribute('aria-invalid', 'true');
-        
         if (wrapper) {
             wrapper.classList.add('has-error');
         }
@@ -356,8 +431,6 @@
             editorArea.removeAttribute('aria-invalid');
             updateAriaDescribedBy(editorArea, hiddenInput, errorId, false);
         }
-        
-        editorContainer.removeAttribute('aria-invalid');
         
         if (wrapper) {
             wrapper.classList.remove('has-error');
@@ -423,6 +496,11 @@
             editorArea.setAttribute('aria-required', 'true');
         }
 
+        // Server-side errors mark the wrapper; aria-invalid belongs on the textbox, not its container.
+        if (editorContainer.closest('.fdcp-rich-text-wrapper')?.classList.contains('has-error')) {
+            editorArea.setAttribute('aria-invalid', 'true');
+        }
+
         // Build initial describedby
         const describedBy = [];
         const hintId = `${hiddenInput.id}_hint`;
@@ -471,12 +549,13 @@
 
         const menu = document.createElement('div');
         menu.className = 'fdcp-rich-text-template-menu';
+        const insertTemplateLabel = getUiLabels(editorContainer).insertTemplate;
 
         const selectId = `${inputId}-template-select`;
         const label = document.createElement('label');
         label.className = 'fdcp-rich-text-template-label';
         label.id = `${inputId}-template-label`;
-        label.textContent = TEMPLATE_LABEL_DEFAULT;
+        label.textContent = insertTemplateLabel;
         label.setAttribute('for', selectId);
 
         const select = document.createElement('select');
@@ -486,7 +565,7 @@
 
         const defaultOption = document.createElement('option');
         defaultOption.value = '';
-        defaultOption.textContent = TEMPLATE_LABEL_DEFAULT;
+        defaultOption.textContent = insertTemplateLabel;
         select.appendChild(defaultOption);
 
         entries.forEach(([name]) => {
@@ -526,22 +605,22 @@
             return;
         }
 
-        const controlLabel = document.getElementById(`${hiddenInput.id}_label`);
-        const labelText = controlLabel?.textContent?.trim();
+        const labels = getUiLabels(editorContainer);
+        const labelText = getAccessibleLabelText(document.getElementById(`${hiddenInput.id}_label`));
         toolbar.setAttribute('role', 'toolbar');
         if (labelText) {
-            toolbar.setAttribute('aria-label', `${labelText} formatting toolbar`);
+            toolbar.setAttribute('aria-label', labels.toolbar.replace('{0}', labelText));
         }
 
         toolbar.querySelectorAll('button').forEach(button => {
-            const label = getButtonLabel(button);
+            const label = getButtonLabel(button, labels);
             if (label && !button.getAttribute('aria-label')) {
                 button.setAttribute('aria-label', label);
             }
         });
 
         toolbar.querySelectorAll('.ql-picker').forEach(picker => {
-            const label = getPickerLabel(picker);
+            const label = getPickerLabel(picker, labels);
             if (!label) {
                 return;
             }
@@ -553,7 +632,7 @@
         });
 
         toolbar.querySelectorAll('select').forEach(select => {
-            const label = getPickerLabel(select);
+            const label = getPickerLabel(select, labels);
             if (label && !select.getAttribute('aria-label')) {
                 select.setAttribute('aria-label', label);
             }
@@ -573,11 +652,13 @@
         const tooltip = wrapper.querySelector('.ql-tooltip');
         if (!tooltip) return;
 
+        const labels = getUiLabels(editorContainer);
+
         // 1. Fix empty link preview
         const preview = tooltip.querySelector('a.ql-preview');
         if (preview) {
             if (!preview.getAttribute('aria-label')) {
-                preview.setAttribute('aria-label', 'Current link URL');
+                preview.setAttribute('aria-label', labels.linkPreview);
             }
             if (!preview.textContent.trim()) {
                 // Ideally it shows the URL, but if empty, screen readers need something.
@@ -593,14 +674,14 @@
         if (input && !input.getAttribute('aria-label')) {
             // This input is used for Link, Video, Formula.
             // We can set a generic label or try to be specific if we detect mode (harder).
-            input.setAttribute('aria-label', 'Enter link URL');
+            input.setAttribute('aria-label', labels.linkInput);
         }
 
         // 3. Fix ql-action (Save) and ql-remove (Remove)
         const actionBtn = tooltip.querySelector('a.ql-action');
         if (actionBtn) {
             if (!actionBtn.getAttribute('aria-label')) {
-                actionBtn.setAttribute('aria-label', 'Save');
+                actionBtn.setAttribute('aria-label', labels.save);
             }
             if (!actionBtn.getAttribute('role')) {
                 actionBtn.setAttribute('role', 'button');
@@ -610,7 +691,7 @@
         const removeBtn = tooltip.querySelector('a.ql-remove');
         if (removeBtn) {
             if (!removeBtn.getAttribute('aria-label')) {
-                removeBtn.setAttribute('aria-label', 'Remove');
+                removeBtn.setAttribute('aria-label', labels.remove);
             }
             if (!removeBtn.getAttribute('role')) {
                 removeBtn.setAttribute('role', 'button');
@@ -618,48 +699,32 @@
         }
     }
 
-    function getButtonLabel(button) {
+    const BUTTON_CLASSES = ['ql-bold', 'ql-italic', 'ql-underline', 'ql-strike', 'ql-link', 'ql-image', 'ql-video', 'ql-clean'];
+    const PICKER_CLASSES = ['ql-header', 'ql-size', 'ql-font', 'ql-align', 'ql-color', 'ql-background'];
+
+    function getButtonLabel(button, labels) {
         const classList = Array.from(button.classList);
         if (classList.includes('ql-list')) {
             const value = button.getAttribute('value');
-            return value === 'ordered' ? 'Numbered list' : 'Bulleted list';
+            return value === 'ordered' ? labels.orderedList : labels.bulletList;
         }
         if (classList.includes('ql-indent')) {
             const value = button.getAttribute('value');
-            return value === '+1' ? 'Increase indent' : 'Decrease indent';
+            return value === '+1' ? labels.indentIncrease : labels.indentDecrease;
         }
         if (classList.includes('ql-script')) {
             const value = button.getAttribute('value');
-            return value === 'sub' ? 'Subscript' : 'Superscript';
+            return value === 'sub' ? labels.subscript : labels.superscript;
         }
 
-        const simpleMap = {
-            'ql-bold': 'Bold',
-            'ql-italic': 'Italic',
-            'ql-underline': 'Underline',
-            'ql-strike': 'Strikethrough',
-            'ql-link': 'Insert link',
-            'ql-image': 'Insert image',
-            'ql-video': 'Insert video',
-            'ql-clean': 'Clear formatting'
-        };
-
-        const key = classList.find(cls => simpleMap[cls]);
-        return key ? simpleMap[key] : null;
+        const key = classList.find(cls => BUTTON_CLASSES.includes(cls));
+        return key ? labels[key] : null;
     }
 
-    function getPickerLabel(picker) {
+    function getPickerLabel(picker, labels) {
         const classList = Array.from(picker.classList);
-        const map = {
-            'ql-header': 'Formatting style',
-            'ql-size': 'Font size',
-            'ql-font': 'Font family',
-            'ql-align': 'Text alignment',
-            'ql-color': 'Text color',
-            'ql-background': 'Background color'
-        };
-        const key = classList.find(cls => map[cls]);
-        return key ? map[key] : null;
+        const key = classList.find(cls => PICKER_CLASSES.includes(cls));
+        return key ? labels[key] : null;
     }
 
     function getToolbarConfig(type) {

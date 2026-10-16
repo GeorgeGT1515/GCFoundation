@@ -1,8 +1,12 @@
 ﻿$fdcp-progress-color: var(--gcds-color-blue-700, #1a2a3a);
-$fdcp-incomplte-color: var(--gcds-color-grayscale-100, #D6D9DD) ;
+// Connector / incomplete line colour (kept light so the progress track reads as unfinished).
+$fdcp-incomplte-color: var(--gcds-color-grayscale-100, #D6D9DD);
+// Incomplete step numbers need a darker tone than the track so the circle remains visible.
+$fdcp-incomplete-circle-color: var(--gcds-color-grayscale-500, #6c727b);
 $fdcp-cicle-active-border: 3px solid $fdcp-progress-color;
 $fdcp-cicle-inactive-border: 3px solid $fdcp-progress-color;
-$fdcp-cicle-incomplete-border: 3px dashed $fdcp-incomplte-color;
+// Solid outline so upcoming steps show a clear numbered circle (dashed light grey was nearly invisible).
+$fdcp-cicle-incomplete-border: 3px solid $fdcp-incomplete-circle-color;
 $progress-line-thickness: 4px;
 $progress-line-innactive-color: $fdcp-incomplte-color;
 
@@ -126,10 +130,10 @@ $progress-line-innactive-color: $fdcp-incomplte-color;
             background: $fdcp-progress-color;
             color: var(--gcds-color-white, #fff);
         }
-        // Incomplete step
+        // Incomplete step: solid circle with number (same shape as active/completed).
         &.incomplete .fdcp-step-circle {
             border: $fdcp-cicle-incomplete-border;
-            color: $fdcp-cicle-inactive-border;
+            color: $fdcp-incomplete-circle-color;
             background: var(--gcds-color-white, #fff);
         }
     }
